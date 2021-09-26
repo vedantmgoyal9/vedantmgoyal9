@@ -45,7 +45,7 @@ Write-Host -ForegroundColor Green "`nUpdating packages.json"
 git config --global user.name 'winget-pkgs-automation'
 git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com'
 git add .\packages.json
-git commit -m "packages.json [$env:GITHUB_RUN_NUMBER]"
+git commit -m "Update packages.json [$env:GITHUB_RUN_NUMBER]"
 git push
 # Clear authentication information
 .\wingetcreate.exe token --clear
