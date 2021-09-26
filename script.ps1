@@ -12,7 +12,7 @@ $packages = Get-Content -Path "./packages.json" -Raw | ConvertFrom-Json
 $urls = [System.Collections.ArrayList]::new()
 foreach ($package in $packages) {
     $urls.Clear()
-    $result = Invoke-RestMethod -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases/latest" -UseBasicParsing | Select-Object name,tag_name,assets,prerelease
+    $result = Invoke-RestMethod -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing | Select-Object name,tag_name,assets,prerelease
     if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag) {
         Write-Host -ForegroundColor Green "Found update for`: $($package.pkgid)"
         # Get download urls using regex pattern and add to array
