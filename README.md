@@ -11,7 +11,7 @@ You can also directly open a PR to add the package to packages.json.
 This project welcomes contributions and suggestions.
 
 ## Issues
-Feel free to submit issues, bugs, and enhancement requests.
+Feel free to submit issues, bugs, and package requests.
 
 ## Pull Requests
 You can open PRs to add packages to packages.json file, so that it is automatically updated at [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs).
