@@ -147,5 +147,77 @@
     "last_checked_tag": "v1.1.1689.01",
     "asset_regex": ".*.msi$",
     "is_prerelease": false
+  },
+  {
+    "pkgid": "Zettlr.Zettlr",
+    "repo": "Zettlr/Zettlr",
+    "last_checked_tag": "v1.8.9",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "webrecorder.replayweb-page",
+    "repo": "webrecorder/replayweb.page",
+    "last_checked_tag": "v1.5.3",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "stevencohn.OneMore",
+    "repo": "stevencohn/OneMore",
+    "last_checked_tag": "4.7.1",
+    "asset_regex": ".*.msi$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "Spyder.Spyder",
+    "repo": "spyder-ide/spyder",
+    "last_checked_tag": "v5.1.5",
+    "asset_regex": ".*.full.exe$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "sbt.sbt",
+    "repo": "sbt/sbt",
+    "last_checked_tag": "v1.5.5",
+    "asset_regex": ".*.msi$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "RuneLite.RuneLite",
+    "repo": "runelite/launcher",
+    "last_checked_tag": "2.2.0",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "Microsoft.PowerShell",
+    "repo": "PowerShell/PowerShell",
+    "last_checked_tag": "v7.1.4",
+    "asset_regex": ".*.msi$",
+    "version_method": "powershell",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "OliverSchwendener.ueli",
+    "repo": "oliverschwendener/ueli",
+    "last_checked_tag": "v8.15.0",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "ModernFlyouts.ModernFlyouts",
+    "repo": "ModernFlyouts-Community/ModernFlyouts",
+    "last_checked_tag": "0.9.3",
+    "asset_regex": ".*.(m|M)sixbundle$",
+    "version_method": "modernflyouts",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "listen1.listen1",
+    "repo": "listen1/listen1_desktop",
+    "last_checked_tag": "v2.21.6",
+    "asset_regex": "listen1_.*(ia32|x64).exe$",
+    "is_prerelease": false
   }
 ]
