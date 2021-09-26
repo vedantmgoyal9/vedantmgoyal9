@@ -110,7 +110,7 @@
     "pkgid": "PaulSori.mStreamServer",
     "repo": "IrosTheBeggar/mStream",
     "last_checked_tag": "v5.2.9",
-    "asset_regex": "*.exe$",
+    "asset_regex": ".*.exe$",
     "is_prerelease": false
   }
 ]
