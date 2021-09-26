@@ -1,0 +1,108 @@
+[
+  {
+    "name": "vim",
+    "pkgid": "vim.vim",
+    "repo": "vim/vim-win32-installer",
+    "last_checked_tag": "v8.2.3452",
+    "asset_regex": "gvim.*(x64|x86).exe$",
+    "is_prerelease": false
+  },
+  {
+    "name": "jackett",
+    "pkgid": "Jackett.Jackett",
+    "repo": "Jackett/Jackett",
+    "last_checked_tag": "v0.18.805",
+    "asset_regex": "Jackett.Installer.Windows.exe",
+    "version_method": "jackett",
+    "is_prerelease": false
+  },
+  {
+    "name": "vscodium",
+    "pkgid": "VSCodium.VSCodium",
+    "repo": "VSCodium/vscodium",
+    "last_checked_tag": "1.60.2",
+    "asset_regex": ".exe$",
+    "is_prerelease": false
+  },
+  {
+    "name": "simplenote",
+    "pkgid": "Automattic.Simplenote",
+    "repo": "Automattic/simplenote-electron",
+    "last_checked_tag": "v2.19.1",
+    "asset_regex": "Simplenote-win-(?!store).*(exe|appx)$",
+    "is_prerelease": false
+  },
+  {
+    "name": "balenacli",
+    "pkgid": "Balena.BalenaCLI",
+    "repo": "balena-io/balena-cli",
+    "last_checked_tag": "v12.49.0",
+    "asset_regex": ".exe",
+    "is_prerelease": false
+  },
+  {
+    "name": "minikube",
+    "pkgid": "Kubernetes.minikube",
+    "repo": "kubernetes/minikube",
+    "last_checked_tag": "v1.23.2",
+    "asset_regex": "minikube-installer.exe",
+    "is_prerelease": false
+  },
+  {
+    "name": "clink",
+    "pkgid": "chrisant996.Clink",
+    "repo": "chrisant996/clink",
+    "last_checked_tag": "v1.2.35",
+    "asset_regex": ".exe",
+    "version_method": "clink",
+    "is_prerelease": false
+  },
+  {
+    "name": "osu!",
+    "pkgid": "Peppy.Osu!",
+    "repo": "ppy/osu",
+    "last_checked_tag": "2021.916.0",
+    "asset_regex": "install.exe",
+    "is_prerelease": false
+  },
+  {
+    "name": "joplin",
+    "pkgid": "Joplin.Joplin",
+    "repo": "laurent22/joplin",
+    "last_checked_tag": "v2.3.5",
+    "asset_regex": "Joplin-Setup*",
+    "is_prerelease": false
+  },
+  {
+    "name": "joplin-prerelease",
+    "pkgid": "Joplin.Joplin.Pre-release",
+    "repo": "laurent22/joplin",
+    "last_checked_tag": "v2.4.8",
+    "asset_regex": "Joplin-Setup*",
+    "is_prerelease": "true"
+  },
+  {
+    "name": "eugeny-tabby",
+    "pkgid": "Eugeny.Tabby",
+    "repo": "Eugeny/tabby",
+    "last_checked_tag": "v1.0.158",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false
+  },
+  {
+    "name": "telegram",
+    "pkgid": "Telegram.TelegramDesktop",
+    "repo": "telegramdesktop/tdesktop",
+    "last_checked_tag": "v3.1.1",
+    "asset_regex": "tsetup.*.exe$",
+    "is_prerelease": false
+  },
+  {
+    "name": "telegram-beta",
+    "pkgid": "Telegram.TelegramDesktop.Beta",
+    "repo": "telegramdesktop/tdesktop",
+    "last_checked_tag": "v3.0.5",
+    "asset_regex": "tsetup.*.exe$",
+    "is_prerelease": true
+  }
+]
