@@ -8,6 +8,5 @@ assignees: vedantmgoyal2009
 ---
 
 **List the PackageIdentifier of packages to be added to automation**
-- 
-- 
+- abc.abc
 -
