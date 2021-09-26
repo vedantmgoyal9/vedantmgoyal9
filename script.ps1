@@ -31,7 +31,7 @@ ForEach ($package in $packages) {
         Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
         .\wingetcreate.exe update $package.pkgid --urls $($urls.ToArray() -join " ") --version $version --submit | Out-Null
         # Update the last_checked_tag in the packages.json
-        $file = $packages 
+        $file = $packages
         $file[$packages.IndexOf($package)].last_checked_tag = $result.tag_name
         $file | ConvertTo-Json > packages.json
     }
