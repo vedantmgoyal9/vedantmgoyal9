@@ -1,0 +1,50 @@
+{
+    "folders": [
+        {
+            "name": "vedantmgoyal2009",
+            "path": ".."
+        },
+        {
+            "name": "winget-manifests-manager",
+            "path": "../../winget-manifests-manager"
+        },
+        {
+            "name": "winget-releaser",
+            "path": "../../winget-releaser"
+        }
+    ],
+    "settings": {
+        "powershell.codeFormatting.autoCorrectAliases": true,
+        "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+        "powershell.codeFormatting.preset": "OTBS",
+        "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+        "powershell.codeFormatting.useConstantStrings": true,
+        "powershell.codeFormatting.useCorrectCasing": true,
+        "powershell.codeFormatting.whitespaceBetweenParameters": true,
+        "workbench.colorTheme": "Visual Studio Dark",
+        "terminal.integrated.defaultProfile.linux": "pwsh",
+        "gitlens.currentLine.enabled": false,
+        "powershell.pester.debugOutputVerbosity": "Detailed",
+        "powershell.pester.outputVerbosity": "Detailed",
+        "powershell.pester.useLegacyCodeLens": false,
+        "powershell.scriptAnalysis.settingsPath": "",
+        "go.alternateTools": {
+            "go": "/home/linuxbrew/.linuxbrew/bin/go"
+        },
+        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.20.4/libexec"
+    },
+    "launch": {
+        "configurations": [
+            {
+                "name": "Launch Extension",
+                "request": "launch",
+                "type": "extensionHost",
+                "args": [
+                    "--extensionDevelopmentPath=${workspaceFolder:vedantmgoyal2009}/src/vscode-extension.js"
+                ],
+                // "preLaunchTask": "npm",
+            }
+        ],
+        "compounds": []
+    }
+}
