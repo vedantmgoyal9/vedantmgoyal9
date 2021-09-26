@@ -1,5 +1,5 @@
 # WinGet Community Repository Manifests Automatic Update
-This project is to auto-update manifests of packages which use github releases.
+This project is for auto-updating manifests of packages that are shipped through GitHub releases.
 > At this time, packages which are not shipped through GitHub Releases are not supported for automatic updation. If you have some suggestions about automatic updation of manifests for these packages, please open a new issue/discussion and discuss them there.
 
 # How to add a package to the automation?
