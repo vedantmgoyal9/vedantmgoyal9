@@ -2,7 +2,7 @@
 Write-Host -ForegroundColor Green "Downloading wingetcreate-self-contained"
 Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe
 # Store the token
-.\wingetcreate.exe token --store --token $env:super_secret_information | Out-Null
+.\wingetcreate.exe token --store --token $env:super_secret_information
 $header = @{
     Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:super_secret_information"))
     Accept = 'application/vnd.github.v3+json'
@@ -31,7 +31,7 @@ foreach ($package in $packages) {
         Write-Host -ForegroundColor Green "   Version`: $version" # Added spaces for indentation
         # Generate manifests and submit to winget community repository
         Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-        .\wingetcreate.exe update $package.pkgid --urls $($urls.ToArray() -join " ") --version $version --submit | Out-Null
+        .\wingetcreate.exe update $package.pkgid --urls $($urls.ToArray() -join " ") --version $version --submit
         # Update the last_checked_tag in the packages.json
         $file = $packages
         $file[$packages.IndexOf($package)].last_checked_tag = $result.tag_name
@@ -46,6 +46,7 @@ foreach ($package in $packages) {
 Write-Host -ForegroundColor Green "`nUpdating packages.json"
 git config --global user.name 'winget-pkgs-automation'
 git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com'
+git pull # to be on a safe side
 git add .\packages.json
 git commit -m "Update packages.json [$env:GITHUB_RUN_NUMBER]"
 git push
