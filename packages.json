@@ -98,5 +98,54 @@
     "last_checked_tag": "v5.3.0",
     "asset_regex": ".*.exe$",
     "is_prerelease": false
+  },
+  {
+    "pkgid": "1zilc.FishingFunds",
+    "repo": "1zilc/fishing-funds",
+    "last_checked_tag": "v4.7.6",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "Automattic.Wordpress",
+    "repo": "Automattic/wp-desktop",
+    "last_checked_tag": "v7.2.0",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "Amazon.SAM-CLI",
+    "repo": "aws/aws-sam-cli",
+    "last_checked_tag": "v1.32.0",
+    "asset_regex": ".*.msi$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "Bitwarden.Bitwarden",
+    "repo": "bitwarden/desktop",
+    "last_checked_tag": "v1.28.3",
+    "asset_regex": "Bitwarden-Installer.*.exe$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "dnGrep.dnGrep",
+    "repo": "dnGrep/dnGrep",
+    "last_checked_tag": "v2.9.391.0",
+    "asset_regex": ".*(x64|x86).msi$",
+    "is_prerelease": false
+  },
+  {
+    "pkgid": "Microsoft.AccessibilityInsightsWindows.Canary",
+    "repo": "microsoft/accessibility-insights-windows",
+    "last_checked_tag": "v1.1.1727.01",
+    "asset_regex": ".*.msi$",
+    "is_prerelease": true
+  },
+  {
+    "pkgid": "Microsoft.AccessibilityInsightsWindows",
+    "repo": "microsoft/accessibility-insights-windows",
+    "last_checked_tag": "v1.1.1689.01",
+    "asset_regex": ".*.msi$",
+    "is_prerelease": false
   }
 ]
