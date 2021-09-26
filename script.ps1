@@ -9,7 +9,7 @@ $header = @{
 }
 $packages = Get-Content -Path "./packages.json" -Raw | ConvertFrom-Json
 $urls = [System.Collections.ArrayList]::new()
-ForEach ($package in $packages) {
+foreach ($package in $packages) {
     $urls.Clear()
     $result = Invoke-RestMethod -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases/latest" -UseBasicParsing | Select-Object name,tag_name,assets,prerelease
     if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag) {
@@ -20,6 +20,8 @@ ForEach ($package in $packages) {
                 $urls.Add($asset.browser_download_url) | Out-Null
             }
         }
+        Write-Host -ForegroundColor Green "   Download Urls`:" # Added spaces for indentation
+        foreach ($i in $urls) { Write-Host -ForegroundColor Green "      $i" } # Added spaces for indentation
         # Get the latest version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
         switch ($package.version_method) {
             "jackett" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
