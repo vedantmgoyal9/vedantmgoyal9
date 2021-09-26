@@ -1,5 +1,10 @@
-Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe # Get wingetcreate-self-contained
-wingetcreate.exe token --store $super_secret_information # Store the token
+# Git Configuration
+git config --global user.name 'winget-pkgs-automation'
+git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com'
+# Get wingetcreate-self-contained
+Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe
+# Store the token
+wingetcreate.exe token --store $super_secret_information
 $header = @{
     Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$super_secret_information"))
     Accept = 'application/vnd.github.v3+json'
@@ -34,4 +39,9 @@ ForEach ($package in $packages) {
         Write-Host -ForegroundColor 'DarkYellow' "No updates found for:` $($package.name)"
     }
 }
+# Update packages.json in repository
+git add ./packages.json
+git commit -m "packages.json [$GITHUB_RUN_NUMBER]"
+git push
+# Clear authentication information
 wingetcreate.exe token --clear
