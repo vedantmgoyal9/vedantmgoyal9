@@ -40,7 +40,7 @@ ForEach ($package in $packages) {
     }
 }
 # Update packages.json in repository
-git add ./packages.json
+git add .\packages.json
 git commit -m "packages.json [$GITHUB_RUN_NUMBER]"
 git push
 # Clear authentication information
