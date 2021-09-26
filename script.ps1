@@ -1,4 +1,5 @@
 # Get wingetcreate-self-contained
+Write-Host -ForegroundColor Green "Downloading wingetcreate-self-contained"
 Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe
 # Store the token
 .\wingetcreate.exe token --store --token $env:super_secret_information | Out-Null
