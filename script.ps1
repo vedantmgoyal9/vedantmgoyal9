@@ -1,7 +1,7 @@
 # Get wingetcreate-self-contained
 Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe
 # Store the token
-.\wingetcreate.exe token --store $env:super_secret_information | Out-Null
+.\wingetcreate.exe token --store --token $env:super_secret_information | Out-Null
 $header = @{
     Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:super_secret_information"))
     Accept = 'application/vnd.github.v3+json'
