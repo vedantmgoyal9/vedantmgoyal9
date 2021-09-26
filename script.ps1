@@ -2,7 +2,8 @@
 Write-Host -ForegroundColor Green "Downloading wingetcreate-self-contained"
 Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe
 # Store the token
-.\wingetcreate.exe token --store --token $env:super_secret_information
+.\wingetcreate.exe token --store --token $env:super_secret_information | Out-Null
+Write-Host -ForegroundColor Green "Token stored successfully."
 $header = @{
     Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:super_secret_information"))
     Accept = 'application/vnd.github.v3+json'
@@ -20,15 +21,16 @@ foreach ($package in $packages) {
                 $urls.Add($asset.browser_download_url) | Out-Null
             }
         }
-        Write-Host -ForegroundColor Green "   Download Urls`:" # Added spaces for indentation
-        foreach ($i in $urls) { Write-Host -ForegroundColor Green "      $i" } # Added spaces for indentation
         # Get the latest version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
         switch ($package.version_method) {
             "jackett" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
             "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
             default { $version = $result.tag_name.TrimStart("v"); break }
         }
-        Write-Host -ForegroundColor Green "   Version`: $version" # Added spaces for indentation
+        # Print information, added spaces for indentation
+        Write-Host -ForegroundColor Green "   Version`: $version"
+        Write-Host -ForegroundColor Green "   Download Urls`:"
+        foreach ($i in $urls) { Write-Host -ForegroundColor Green "      $i" }
         # Generate manifests and submit to winget community repository
         Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
         .\wingetcreate.exe update $package.pkgid --urls $($urls.ToArray() -join " ") --version $version --submit
