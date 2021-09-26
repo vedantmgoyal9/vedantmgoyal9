@@ -26,8 +26,9 @@ ForEach ($package in $packages) {
             "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
             default { $version = $result.tag_name.TrimStart("v"); break }
         }
-        Write-Host -ForegroundColor Green "Version`: $version"
+        Write-Host -ForegroundColor Green "   Version`: $version" # Added spaces for indentation
         # Generate manifests and submit to winget community repository
+        Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
         .\wingetcreate.exe update $package.pkgid --urls $($urls.ToArray() -join " ") --version $version --submit | Out-Null
         # Update the last_checked_tag in the packages.json
         $file = $packages 
