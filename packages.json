@@ -104,5 +104,13 @@
     "last_checked_tag": "v3.0.5",
     "asset_regex": "tsetup.*.exe$",
     "is_prerelease": true
+  },
+  {
+    "name": "mstream-server",
+    "pkgid": "PaulSori.mStreamServer",
+    "repo": "IrosTheBeggar/mStream",
+    "last_checked_tag": "v5.2.9",
+    "asset_regex": "*.exe$",
+    "is_prerelease": false
   }
 ]
