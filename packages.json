@@ -11,7 +11,7 @@
     "name": "jackett",
     "pkgid": "Jackett.Jackett",
     "repo": "Jackett/Jackett",
-    "last_checked_tag": "v0.18.805",
+    "last_checked_tag": "v0.18.812",
     "asset_regex": "Jackett.Installer.Windows.exe",
     "version_method": "jackett",
     "is_prerelease": false
