@@ -1,15 +1,5 @@
-# Hide progress bar of Invoke-WebRequest
-$ProgressPreference = 'SilentlyContinue';
-# Get wingetcreate-self-contained
-Write-Host -ForegroundColor Green "Downloading wingetcreate-self-contained"
-Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe
-# Store the token
-.\wingetcreate.exe token --store --token $env:super_secret_information | Out-Null
-Write-Host -ForegroundColor Green "Token stored successfully."
-$header = @{
-    Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:super_secret_information"))
-    Accept = 'application/vnd.github.v3+json'
-}
+# Download wingetcreate.exe, store token information and setup API headers
+.\initial_setup.ps1
 $packages = Get-Content -Path "./packages.json" -Raw | ConvertFrom-Json
 $urls = [System.Collections.ArrayList]::new()
 foreach ($package in $packages) {
