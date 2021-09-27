@@ -14,7 +14,7 @@ $packages = Get-Content -Path "./packages.json" -Raw | ConvertFrom-Json
 $urls = [System.Collections.ArrayList]::new()
 foreach ($package in $packages) {
     $urls.Clear()
-    $result = Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -Property name,tag_name,assets,prerelease -First 1
+    $result = Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -Property tag_name,assets,prerelease -First 1
     # if prerelease is not set, then it is set to false, by default
     if ($null -eq $package.prerelease) { $prerelease = $false } else { $prerelease = $package.is_prerelease }
     if ($result.prerelease -eq $prerelease -and $result.tag_name -gt $package.last_checked_tag) {
@@ -25,7 +25,7 @@ foreach ($package in $packages) {
                 $urls.Add($asset.browser_download_url) | Out-Null
             }
         }
-        # Get the latest version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
+        # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
         switch ($package.version_method) {
             "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
             "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
@@ -40,7 +40,7 @@ foreach ($package in $packages) {
         foreach ($i in $urls) { Write-Host -ForegroundColor Green "      $i" }
         # Generate manifests and submit to winget community repository
         Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-        .\wingetcreate.exe update $package.pkgid --urls $($urls.ToArray() -join " ") --version $version --submit
+        .\wingetcreate.exe update $package.pkgid --version $version --submit --urls $($urls.ToArray() -join " ")
         # Update the last_checked_tag in the packages.json
         $file = $packages
         $file[$packages.IndexOf($package)].last_checked_tag = $result.tag_name
