@@ -234,5 +234,41 @@
     "repo": "llvm/llvm-project",
     "last_checked_tag": "llvmorg-12.0.1",
     "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "Balena.Etcher",
+    "repo": "balena-io/etcher",
+    "last_checked_tag": "v1.6.0",
+    "asset_regex": "balenaEtcher-Setup.*.exe$"
+  },
+  {
+    "pkgid": "GitHub.cli",
+    "repo": "cli/cli",
+    "last_checked_tag": "v2.0.0",
+    "asset_regex": ".*.msi$"
+  },
+  {
+    "pkgid": "KeeWeb.KeeWeb",
+    "repo": "keeweb/keeweb",
+    "last_checked_tag": "v1.18.7",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "calibre.calibre",
+    "repo": "kovidgoyal/calibre",
+    "last_checked_tag": "v5.28.0",
+    "asset_regex": ".*.msi$"
+  },
+  {
+    "pkgid": "RustemMussabekov.Raindrop", 
+    "repo": "raindropio/desktop",
+    "last_checked_tag": "v5.4.2",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "tagspaces.tagspaces",
+    "repo": "tagspaces/tagspaces",
+    "last_checked_tag": "v3.11.6",
+    "asset_regex": ".*.exe$"
   }
 ]
