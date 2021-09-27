@@ -1,3 +1,5 @@
+# Hide progress bar of Invoke-WebRequest
+$ProgressPreference = 'SilentlyContinue';
 # Get wingetcreate-self-contained
 Write-Host -ForegroundColor Green "Downloading wingetcreate-self-contained"
 Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe
@@ -12,7 +14,7 @@ $packages = Get-Content -Path "./packages.json" -Raw | ConvertFrom-Json
 $urls = [System.Collections.ArrayList]::new()
 foreach ($package in $packages) {
     $urls.Clear()
-    $result = Invoke-RestMethod -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing | Select-Object -First 1 | Select-Object name,tag_name,assets,prerelease
+    $result = Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -Property name,tag_name,assets,prerelease -First 1
     if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag) {
         Write-Host -ForegroundColor Green "Found update for`: $($package.pkgid)"
         # Get download urls using regex pattern and add to array
@@ -41,7 +43,7 @@ foreach ($package in $packages) {
     }
     else
     {
-        Write-Host -ForegroundColor 'DarkYellow' "No updates found for:` $($package.pkgid)"
+        Write-Host -ForegroundColor 'DarkYellow' "No updates found for`: $($package.pkgid)"
     }
 }
 # Update packages.json in repository
