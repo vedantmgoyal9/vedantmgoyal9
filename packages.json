@@ -270,5 +270,134 @@
     "repo": "tagspaces/tagspaces",
     "last_checked_tag": "v3.11.6",
     "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "3ll3d00d.beqdesigner",
+    "repo": "3ll3d00d/beqdesigner",
+    "last_checked_tag": "0.9.5",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "4gray.iptvnator",
+    "repo": "4gray/iptvnator",
+    "last_checked_tag": "v0.8.0",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "cryptofyre.AppleMusicElectron",
+    "repo": "Apple-Music-Electron/Apple-Music-Electron",
+    "last_checked_tag": "v2.5.0",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "GitHub.Atom",
+    "repo": "atom/atom",
+    "last_checked_tag": "v1.58.0",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "GitHub.Atom.Beta",
+    "repo": "atom/atom",
+    "last_checked_tag": "v1.58.0-beta0",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": true
+  },
+  {
+    "pkgid": "Audacity.Audacity",
+    "repo": "audacity/audacity",
+    "last_checked_tag": "Audacity-3.0.4",
+    "asset_regex": ".*.exe$",
+    "version_method": "audacity"
+  },
+  {
+    "pkgid": "Authpass.Authpass",
+    "repo": "authpass/authpass",
+    "last_checked_tag": "v1.9.4",
+    "asset_regex": ".*.exe$",
+    "version_method": "authpass"
+  },
+  {
+    "pkgid": "Fndroid.ClashForWindows",
+    "repo": "Fndroid/clash_for_windows_pkg",
+    "last_checked_tag": "0.18.2",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "Google.IAPDesktop",
+    "repo": "GoogleCloudPlatform/iap-desktop",
+    "last_checked_tag": "2.21.681",
+    "asset_regex": ".*.msi$"
+  },
+  {
+    "pkgid": "LedgerHQ.LedgerLive",
+    "repo": "LedgerHQ/ledger-live-desktop",
+    "last_checked_tag": "v2.33.1",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "JohnMacFarlane.Pandoc",
+    "repo": "jgm/pandoc",
+    "last_checked_tag": "2.14.2",
+    "asset_regex": ".*.msi$"
+  },
+  {
+    "pkgid": "electerm.electerm",
+    "repo": "electerm/electerm",
+    "last_checked_tag": "v1.16.11",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "ElectronCommunity.ElectronFiddle",
+    "repo": "electron/fiddle",
+    "last_checked_tag": "v0.26.0",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "CondaForge.Miniforge3",
+    "repo": "conda-forge/miniforge",
+    "last_checked_tag": "4.10.3-5",
+    "asset_regex": "Miniforge3-.*-Windows-x86_64.exe$"
+  },
+  {
+    "pkgid": "DBBrowserForSQLite.DBBrowserForSQLite",
+    "repo": "sqlitebrowser/sqlitebrowser",
+    "last_checked_tag": "v3.12.2",
+    "asset_regex": ".*.msi$"
+  },
+  {
+    "pkgid": "clsid2.mpc-hc",
+    "repo": "clsid2/mpc-hc",
+    "last_checked_tag": "1.9.16",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "ChilliBits.CCom",
+    "repo": "compose-generator/ccom",
+    "last_checked_tag": "0.9.0",
+    "asset_regex": ".*.msi$"
+  },
+  {
+    "pkgid": "dbeaver.dbeaver",
+    "repo": "dbeaver/dbeaver",
+    "last_checked_tag": "21.2.1",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "sqlectron.sqlectron-gui",
+    "repo": "sqlectron/sqlectron-gui",
+    "last_checked_tag": "v1.37.1",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "Stellarium.Stellarium",
+    "repo": "Stellarium/stellarium",
+    "last_checked_tag": "v0.21.1",
+    "asset_regex": ".*.exe$"
+  },
+  {
+    "pkgid": "OpenShot.OpenShot",
+    "repo": "OpenShot/openshot-qt",
+    "last_checked_tag": "v2.6.1",
+    "asset_regex": ".*.exe$"
   }
 ]
