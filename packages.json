@@ -214,7 +214,7 @@
   {
     "pkgid": "JGraph.Draw",
     "repo": "jgraph/drawio-desktop",
-    "last_checked_tag": "v15.2.7",
+    "last_checked_tag": "v15.3.5",
     "asset_regex": ".*(windows|32bit)-installer.exe$"
   },
   {
@@ -260,7 +260,7 @@
     "asset_regex": ".*.msi$"
   },
   {
-    "pkgid": "RustemMussabekov.Raindrop", 
+    "pkgid": "RustemMussabekov.Raindrop",
     "repo": "raindropio/desktop",
     "last_checked_tag": "v5.4.2",
     "asset_regex": ".*.exe$"
