@@ -1,0 +1,6 @@
+# wingetcreate-self-contained in workflow
+wingetcreate.exe
+
+# manifests folder created while automated
+# generation of manifests
+/manifests/
