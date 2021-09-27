@@ -16,7 +16,7 @@ foreach ($package in $packages) {
     $urls.Clear()
     $result = Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -Property name,tag_name,assets,prerelease -First 1
     # if prerelease is not set, then it is set to false, by default
-    if ($null -eq $result.prerelease) { $prerelease = $false } else { $prerelease = $result.prerelease }
+    if ($null -eq $package.prerelease) { $prerelease = $false } else { $prerelease = $package.is_prerelease }
     if ($result.prerelease -eq $prerelease -and $result.tag_name -gt $package.last_checked_tag) {
         Write-Host -ForegroundColor Green "Found update for`: $($package.pkgid)"
         # Get download urls using regex pattern and add to array
