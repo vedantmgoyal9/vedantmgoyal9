@@ -27,6 +27,7 @@ foreach ($package in $packages) {
         switch ($package.version_method) {
             "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
             "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
+            "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
             default { $version = $result.tag_name.TrimStart("v"); break }
         }
         # Print information, added spaces for indentation
