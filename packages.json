@@ -2,14 +2,14 @@
   {
     "pkgid": "vim.vim",
     "repo": "vim/vim-win32-installer",
-    "last_checked_tag": "v8.2.3452",
+    "last_checked_tag": "v8.2.3458",
     "asset_regex": "gvim.*(x64|x86).exe$",
     "is_prerelease": false
   },
   {
     "pkgid": "Jackett.Jackett",
     "repo": "Jackett/Jackett",
-    "last_checked_tag": "v0.18.812",
+    "last_checked_tag": "v0.18.815",
     "asset_regex": "Jackett.Installer.Windows.exe",
     "version_method": "jackett",
     "is_prerelease": false
@@ -88,21 +88,21 @@
   {
     "pkgid": "Telegram.TelegramDesktop.Beta",
     "repo": "telegramdesktop/tdesktop",
-    "last_checked_tag": "v3.0.5",
+    "last_checked_tag": "v3.1.4",
     "asset_regex": "tsetup.*.exe$",
     "is_prerelease": true
   },
   {
     "pkgid": "PaulSori.mStreamServer",
     "repo": "IrosTheBeggar/mStream",
-    "last_checked_tag": "v5.3.0",
+    "last_checked_tag": "v5.4.0",
     "asset_regex": ".*.exe$",
     "is_prerelease": false
   },
   {
     "pkgid": "1zilc.FishingFunds",
     "repo": "1zilc/fishing-funds",
-    "last_checked_tag": "v4.7.6",
+    "last_checked_tag": "v4.9.0",
     "asset_regex": ".*.exe$",
     "is_prerelease": false
   },
@@ -137,7 +137,7 @@
   {
     "pkgid": "Microsoft.AccessibilityInsightsWindows.Canary",
     "repo": "microsoft/accessibility-insights-windows",
-    "last_checked_tag": "v1.1.1727.01",
+    "last_checked_tag": "v1.1.1730.01",
     "asset_regex": ".*.msi$",
     "is_prerelease": true
   },
