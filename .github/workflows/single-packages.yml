@@ -25,6 +25,9 @@ jobs:
       # Runs automation script
       - name: Run automation script
         shell: pwsh
-        run: ./single-packages/main.ps1
+        # Switch directory then run main script for single packages
+        run: |
+          cd .\single-packages\
+          ./main.ps1
         env:
           super_secret_information: ${{ secrets.MySuperSecretInformation }}
