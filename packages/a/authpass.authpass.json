@@ -1,0 +1,7 @@
+{
+    "pkgid":  "Authpass.Authpass",
+    "repo":  "authpass/authpass",
+    "last_checked_tag":  "v1.9.4",
+    "asset_regex":  ".*.exe$",
+    "version_method":  "authpass"
+}

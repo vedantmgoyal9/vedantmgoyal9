@@ -1,0 +1,7 @@
+{
+    "pkgid":  "Joplin.Joplin.Pre-release",
+    "repo":  "laurent22/joplin",
+    "last_checked_tag":  "v2.4.8",
+    "asset_regex":  "Joplin-Setup*",
+    "is_prerelease":  "true"
+}

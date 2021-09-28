@@ -1,0 +1,6 @@
+{
+    "pkgid":  "DBBrowserForSQLite.DBBrowserForSQLite",
+    "repo":  "sqlitebrowser/sqlitebrowser",
+    "last_checked_tag":  "v3.12.2",
+    "asset_regex":  ".*.msi$"
+}

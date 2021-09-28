@@ -1,0 +1,6 @@
+{
+    "pkgid":  "clsid2.mpc-hc",
+    "repo":  "clsid2/mpc-hc",
+    "last_checked_tag":  "1.9.16",
+    "asset_regex":  ".*.exe$"
+}

@@ -1,0 +1,6 @@
+{
+    "pkgid":  "electerm.electerm",
+    "repo":  "electerm/electerm",
+    "last_checked_tag":  "v1.16.11",
+    "asset_regex":  ".*.exe$"
+}

@@ -1,0 +1,6 @@
+{
+    "pkgid":  "webrecorder.replayweb-page",
+    "repo":  "webrecorder/replayweb.page",
+    "last_checked_tag":  "v1.5.3",
+    "asset_regex":  ".*.exe$"
+}
