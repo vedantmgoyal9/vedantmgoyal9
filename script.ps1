@@ -1,5 +1,5 @@
 # Download wingetcreate.exe, store token information and setup API headers
-.\initial_setup.ps1
+. .\initial_setup.ps1 # Another period to pass variables to the script
 $packages = Get-Content -Path "./packages.json" -Raw | ConvertFrom-Json
 $urls = [System.Collections.ArrayList]::new()
 foreach ($package in $packages) {
