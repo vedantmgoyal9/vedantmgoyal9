@@ -1,0 +1,6 @@
+{
+    "pkgid":  "4gray.iptvnator",
+    "repo":  "4gray/iptvnator",
+    "last_checked_tag":  "v0.8.0",
+    "asset_regex":  ".*.exe$"
+}

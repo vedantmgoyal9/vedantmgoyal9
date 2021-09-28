@@ -1,0 +1,6 @@
+{
+    "pkgid":  "Balena.Etcher",
+    "repo":  "balena-io/etcher",
+    "last_checked_tag":  "v1.6.0",
+    "asset_regex":  "balenaEtcher-Setup.*.exe$"
+}

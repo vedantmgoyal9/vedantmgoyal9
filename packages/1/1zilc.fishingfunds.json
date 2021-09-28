@@ -1,0 +1,6 @@
+{
+    "pkgid":  "1zilc.FishingFunds",
+    "repo":  "1zilc/fishing-funds",
+    "last_checked_tag":  "v4.9.0",
+    "asset_regex":  ".*.exe$"
+}

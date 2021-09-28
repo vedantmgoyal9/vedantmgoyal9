@@ -1,0 +1,7 @@
+{
+    "pkgid":  "CozyCloud.CozyDrive.Beta",
+    "repo":  "cozy-labs/cozy-desktop",
+    "last_checked_tag":  "v3.30.1-beta.1",
+    "asset_regex":  ".*.exe$",
+    "is_prerelease":  true
+}

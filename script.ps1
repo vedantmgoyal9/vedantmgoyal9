@@ -1,8 +1,9 @@
 # Download wingetcreate.exe, store token information and setup API headers
 . .\initial_setup.ps1 # Another period to pass variables to the script
-$packages = Get-Content -Path "./packages.json" -Raw | ConvertFrom-Json
+$packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
 $urls = [System.Collections.ArrayList]::new()
-foreach ($package in $packages) {
+foreach ($file in $packages) {
+    $package = Get-Content $file | ConvertFrom-Json
     $urls.Clear()
     $result = Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -Property tag_name,assets,prerelease -First 1
     # if prerelease is not set, then it is set to false, by default
@@ -31,23 +32,22 @@ foreach ($package in $packages) {
         # Generate manifests and submit to winget community repository
         Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
         .\wingetcreate.exe update $package.pkgid --version $version --submit --urls $($urls.ToArray() -join " ")
-        # Update the last_checked_tag in the packages.json
-        $file = $packages
-        $file[$packages.IndexOf($package)].last_checked_tag = $result.tag_name
-        $file | ConvertTo-Json > packages.json
+        # Update the last_checked_tag in the package file
+        $package.last_checked_tag = $result.tag_name
+        $package | ConvertTo-Json > $file
     }
     else
     {
         Write-Host -ForegroundColor 'DarkYellow' "No updates found for`: $($package.pkgid)"
     }
 }
-# Update packages.json in repository
-Write-Host -ForegroundColor Green "`nUpdating packages.json"
+# Update packages in repository
+Write-Host -ForegroundColor Green "`nUpdating packages"
 git config --global user.name 'winget-pkgs-automation'
 git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com'
 git pull # to be on a safe side
-git add .\packages.json
-git commit -m "Update packages.json [$env:GITHUB_RUN_NUMBER]"
+git add .\packages\*
+git commit -m "Update packages [$env:GITHUB_RUN_NUMBER]"
 git push
 # Clear authentication information
 gh auth logout

@@ -1,0 +1,6 @@
+{
+    "pkgid":  "KeeWeb.KeeWeb",
+    "repo":  "keeweb/keeweb",
+    "last_checked_tag":  "v1.18.7",
+    "asset_regex":  ".*.exe$"
+}

@@ -1,0 +1,6 @@
+{
+    "pkgid":  "Amazon.SAM-CLI",
+    "repo":  "aws/aws-sam-cli",
+    "last_checked_tag":  "v1.32.0",
+    "asset_regex":  ".*.msi$"
+}

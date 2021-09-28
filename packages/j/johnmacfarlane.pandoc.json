@@ -1,0 +1,6 @@
+{
+    "pkgid":  "JohnMacFarlane.Pandoc",
+    "repo":  "jgm/pandoc",
+    "last_checked_tag":  "2.14.2",
+    "asset_regex":  ".*.msi$"
+}

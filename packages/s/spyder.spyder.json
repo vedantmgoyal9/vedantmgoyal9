@@ -1,0 +1,6 @@
+{
+    "pkgid":  "Spyder.Spyder",
+    "repo":  "spyder-ide/spyder",
+    "last_checked_tag":  "v5.1.5",
+    "asset_regex":  ".*.full.exe$"
+}

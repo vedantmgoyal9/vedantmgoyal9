@@ -1,0 +1,6 @@
+{
+    "pkgid":  "Microsoft.AccessibilityInsightsWindows",
+    "repo":  "microsoft/accessibility-insights-windows",
+    "last_checked_tag":  "v1.1.1689.01",
+    "asset_regex":  ".*.msi$"
+}

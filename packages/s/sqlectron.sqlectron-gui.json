@@ -1,0 +1,6 @@
+{
+    "pkgid":  "sqlectron.sqlectron-gui",
+    "repo":  "sqlectron/sqlectron-gui",
+    "last_checked_tag":  "v1.37.1",
+    "asset_regex":  ".*.exe$"
+}

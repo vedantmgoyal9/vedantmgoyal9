@@ -1,0 +1,6 @@
+{
+    "pkgid":  "Notepad++.Notepad++",
+    "repo":  "notepad-plus-plus/notepad-plus-plus",
+    "last_checked_tag":  "v8.1.5",
+    "asset_regex":  ".*.exe$"
+}

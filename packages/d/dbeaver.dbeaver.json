@@ -1,0 +1,6 @@
+{
+    "pkgid":  "dbeaver.dbeaver",
+    "repo":  "dbeaver/dbeaver",
+    "last_checked_tag":  "21.2.1",
+    "asset_regex":  ".*.exe$"
+}

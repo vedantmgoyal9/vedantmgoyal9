@@ -1,0 +1,6 @@
+{
+    "pkgid":  "LLVM.LLVM",
+    "repo":  "llvm/llvm-project",
+    "last_checked_tag":  "llvmorg-12.0.1",
+    "asset_regex":  ".*.exe$"
+}
