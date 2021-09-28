@@ -26,5 +26,3 @@ jobs:
       - name: Run automation script
         shell: pwsh
         run: ./script.ps1
-        env:
-          super_secret_information: ${{ secrets.MySuperSecretInformation }}

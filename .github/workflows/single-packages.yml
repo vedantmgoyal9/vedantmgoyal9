@@ -29,5 +29,3 @@ jobs:
         run: |
           cd .\single-packages\
           ./main.ps1
-        env:
-          super_secret_information: ${{ secrets.MySuperSecretInformation }}
