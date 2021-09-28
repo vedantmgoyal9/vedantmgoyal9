@@ -1,5 +1,6 @@
 # Download wingetcreate.exe, store token information and setup API headers
-..\initial_setup.ps1
+. .\initial_setup.ps1 # Another period to pass variables to the script
+# Scripts which update single package at a time
 .\signal.ps1
 # Push script with updated last_checked_tag to repository
 Write-Host -ForegroundColor Green "`nUpdating single-packages.json"
