@@ -50,4 +50,4 @@ git add .\packages.json
 git commit -m "Update packages.json [$env:GITHUB_RUN_NUMBER]"
 git push
 # Clear authentication information
-.\wingetcreate.exe token --clear
+gh auth logout
