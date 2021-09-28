@@ -8,7 +8,7 @@
   {
     "pkgid": "Jackett.Jackett",
     "repo": "Jackett/Jackett",
-    "last_checked_tag": "v0.18.815",
+    "last_checked_tag": "v0.18.827",
     "asset_regex": "Jackett.Installer.Windows.exe",
     "version_method": "jackett"
   },
@@ -84,7 +84,7 @@
   {
     "pkgid": "PaulSori.mStreamServer",
     "repo": "IrosTheBeggar/mStream",
-    "last_checked_tag": "v5.4.0",
+    "last_checked_tag": "v5.4.3",
     "asset_regex": ".*.exe$"
   },
   {
@@ -262,13 +262,13 @@
   {
     "pkgid": "RustemMussabekov.Raindrop",
     "repo": "raindropio/desktop",
-    "last_checked_tag": "v5.4.2",
+    "last_checked_tag": "v5.4.7",
     "asset_regex": ".*.exe$"
   },
   {
     "pkgid": "tagspaces.tagspaces",
     "repo": "tagspaces/tagspaces",
-    "last_checked_tag": "v3.11.6",
+    "last_checked_tag": "v3.11.9",
     "asset_regex": ".*.exe$"
   },
   {
