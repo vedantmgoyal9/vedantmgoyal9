@@ -4,7 +4,8 @@ This project is for auto-updating manifests of packages that are shipped through
 
 # Status
 [![Automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/automation.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/automation.yml)
-[![Check Download URLs Response Codes](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/check-download-urls.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/check-download-urls.yml)
+[![Single Packages](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/single-packages.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/single-packages.yml)
+[![Check Download Urls](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/check-download-urls.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/check-download-urls.yml)
 
 # How to add a package to the automation?
 Head over to issues tab, and click New Issue. Select **New Package** and fill in the information and wait for the package to get added to automation.
