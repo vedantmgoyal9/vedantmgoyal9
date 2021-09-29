@@ -5,7 +5,7 @@ $urls = [System.Collections.ArrayList]::new()
 foreach ($file in $packages) {
     $package = Get-Content $file | ConvertFrom-Json
     $urls.Clear()
-    $result = Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -Property tag_name,assets,prerelease -First 1
+    $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
     # if prerelease is not set, then it is set to false, by default
     if ($null -eq $package.prerelease) { $prerelease = $false } else { $prerelease = $package.is_prerelease }
     if ($result.prerelease -eq $prerelease -and $result.tag_name -gt $package.last_checked_tag) {
