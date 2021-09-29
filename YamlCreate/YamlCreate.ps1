@@ -1658,7 +1658,7 @@ Function Write-Locale-Manifests {
 
     # Create the folder for the file if it doesn't exist
     New-Item -ItemType 'Directory' -Force -Path $AppFolder | Out-Null
-    $LocaleManifestPath = $AppFolder + "\$PackageIdentifier" + '.locale.' + "$PackageLocale" + '.yaml'
+    $script:LocaleManifestPath = $AppFolder + "\$PackageIdentifier" + '.locale.' + "$PackageLocale" + '.yaml'
 
     # Write the manifest to the file
     $ScriptHeader + "$(GetDebugString)`n$yamlServer`n" > $LocaleManifestPath
@@ -2192,11 +2192,12 @@ if ($PromptSubmit -eq '0') {
     git fetch upstream master --quiet
     git switch -d upstream/master       
     if ($LASTEXITCODE -eq '0') {
+        $UniqueBranchID = $(Get-FileHash $script:LocaleManifestPath).Hash[0..6] -Join ""
         git add -A
         git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
 
-        git switch -c "$PackageIdentifier-$PackageVersion" --quiet
-        git push --set-upstream origin "$PackageIdentifier-$PackageVersion" --quiet
+        git switch -c "$PackageIdentifier-$PackageVersion-$UniqueBranchID" --quiet
+        git push --set-upstream origin "$PackageIdentifier-$PackageVersion-$UniqueBranchID" --quiet
 
         # If the user has the cli too
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {
@@ -2314,3 +2315,4 @@ Class ReturnValue {
         }
     }
 }
+git switch master
