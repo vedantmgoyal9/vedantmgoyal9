@@ -25,4 +25,4 @@ jobs:
       # Runs automation script
       - name: Run automation script
         shell: pwsh
-        run: ./script.ps1
+        run: ./automation.ps1

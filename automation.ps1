@@ -1,5 +1,45 @@
-# Download wingetcreate.exe, store token information and setup API headers
-. .\initial_setup.ps1 # Another period to pass variables to the script
+# Hide progress bar of Invoke-WebRequest
+$ProgressPreference = 'SilentlyContinue'
+# Install WinGet for validating manifests and finding SignatureSha256
+$webclient = New-Object System.Net.WebClient
+$webclient.download("https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx", "Microsoft.VCLibs.x64.14.00.Desktop.appx")
+$webclient.download("https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle", "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle")
+Add-AppxPackage -Path Microsoft.VCLibs.x64.14.00.Desktop.appx
+Add-AppxPackage -Path Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+Write-Host "WinGet installed"
+# Enable local manifests since microsoft/winget-cli#1453 is merged
+Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
+# GitHub CLI Authentication
+gh auth login --with-token $env:GITHUB_TOKEN
+# Clone forked repository
+gh repo clone winget-pkgs
+# Jump into Tools directory
+$currentDir = Get-Location # Get current directory
+Set-Location .\winget-pkgs\Tools
+# Get YamlCreate Unattended Script
+Write-Host -ForegroundColor Green "Downloading YamlCreate.ps1 Unattended"
+Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile YamlCreate.ps1
+# Stash changes
+Write-Host -ForegroundColor Green "Stashing changes [YamlCreate.ps1]"
+git stash
+# Go to previous working directory
+Set-Location $currentDir
+# YamlCreate Settings
+@"
+TestManifestsInSandbox: never
+SaveToTemporaryFolder: never
+AutoSubmitPRs: always
+SuppressQuickUpdateWarning: true
+"@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml | Out-Null
+# YamlCreate Function
+Function YamlCreate ($PackageIdentifier, $PackageVersion, $Urls) {
+    .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $Urls
+}
+# Set up API headers
+$header = @{
+    Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:GITHUB_TOKEN"))
+    Accept = 'application/vnd.github.v3+json'
+}
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
 $urls = [System.Collections.ArrayList]::new()
 foreach ($file in $packages) {
@@ -31,7 +71,7 @@ foreach ($file in $packages) {
         foreach ($i in $urls) { Write-Host -ForegroundColor Green "      $i" }
         # Generate manifests and submit to winget community repository
         Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-        .\wingetcreate.exe update $package.pkgid --version $version --submit --urls $($urls.ToArray() -join " ")
+        YamlCreate $package.pkgid $version $urls.ToArray()
         # Update the last_checked_tag in the package file
         $package.last_checked_tag = $result.tag_name
         $package | ConvertTo-Json > $file
