@@ -1,0 +1,7 @@
+{
+    "pkgid": "OpenWhisperSystems.Signal",
+    "repo": "signalapp/Signal-Desktop",
+    "last_checked_tag": "v5.17.2",
+    "last_checked_tag_beta": "v5.18.0-beta.2",
+    "custom_script": "./scripts/openwhispersystems.signal.ps1"
+}
