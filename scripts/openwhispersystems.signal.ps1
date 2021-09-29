@@ -15,14 +15,4 @@ if ($result.prerelease -eq $true -and $result.tag_name -gt $pkginfo.signal.last_
     Write-Host -ForegroundColor Green "No updates found."
     return
 }
-# Print the update information
-Write-Host -ForegroundColor Green "Update found for`: $pkgid"
-Write-Host -ForegroundColor Green "Version`: $version"
-Write-Host -ForegroundColor Green "InstallerUrl`: $url"
-# Generate manifests and submit to winget community repository
-Write-Host -ForegroundColor Green "Submitting manifests to repository"
-.\wingetcreate.exe update $pkgid --version $version --submit --urls $url
-# Update the last_checked_tag variable
-Write-Host -ForegroundColor Green "Updating last_checked_tag for signal"
-$pkginfo > single-packages.json
-Write-Host -ForegroundColor Green "Done`n"
+
