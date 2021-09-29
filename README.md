@@ -4,7 +4,6 @@ This project is for auto-updating manifests of packages that are shipped through
 
 # Status
 [![Automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/automation.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/automation.yml)
-[![Single Packages](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/single-packages.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/single-packages.yml)
 [![Check Download Urls](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/check-download-urls.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/check-download-urls.yml)
 
 # How to add a package to the automation?
