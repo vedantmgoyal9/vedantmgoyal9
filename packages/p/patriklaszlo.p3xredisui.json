@@ -1,0 +1,6 @@
+{
+    "pkgid":  "PatrikLaszlo.P3XRedisUI",
+    "repo":  "patrikx3/redis-ui",
+    "last_checked_tag":  "0",
+    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+}

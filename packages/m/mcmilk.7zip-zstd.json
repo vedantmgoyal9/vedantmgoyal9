@@ -1,0 +1,6 @@
+{
+    "pkgid":  "mcmilk.7zip-zstd",
+    "repo":  "mcmilk/7-Zip-zstd",
+    "last_checked_tag":  "0",
+    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+}

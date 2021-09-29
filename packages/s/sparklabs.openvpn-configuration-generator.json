@@ -1,0 +1,6 @@
+{
+    "pkgid":  "SparkLabs.openvpn-configuration-generator",
+    "repo":  "thesparklabs/openvpn-configuration-generator",
+    "last_checked_tag":  "0",
+    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+}

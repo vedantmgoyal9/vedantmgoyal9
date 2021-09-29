@@ -1,0 +1,6 @@
+{
+    "pkgid":  "Aries-Sciences-LLC.AI-Chess",
+    "repo":  "Aries-Sciences-LLC/AI-Chess",
+    "last_checked_tag":  "0",
+    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+}

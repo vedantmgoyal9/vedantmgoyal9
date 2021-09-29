@@ -1,0 +1,6 @@
+{
+    "pkgid":  "listen1.listen1_fluent",
+    "repo":  "reycn/listen1-desktop-fluent",
+    "last_checked_tag":  "0",
+    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+}
