@@ -41,11 +41,17 @@ AutoSubmitPRs: always
 SuppressQuickUpdateWarning: true
 "@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml | Out-Null
 
-# Generate manifests and submit PR, updates json
-Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $Urls) {
+# Print update information, generate and submit manifests, updates json
+Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
+    # Prints update information, added spaces for indentation
+    Write-Host -ForegroundColor Green "   Version`: $version"
+    Write-Host -ForegroundColor Green "   Download Urls`:"
+    foreach ($i in $InstallerUrls) { Write-Host -ForegroundColor Green "      $i" }
+    
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $Urls
+    .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    
     # Update the last_checked_tag in the package file
     $package.last_checked_tag = $result.tag_name
     $package | ConvertTo-Json > $json
@@ -86,10 +92,7 @@ foreach ($json in $packages) {
                 default { $version = $result.tag_name.TrimStart("v"); break }
             }
 
-            # Print information, added spaces for indentation and update package
-            Write-Host -ForegroundColor Green "   Version`: $version"
-            Write-Host -ForegroundColor Green "   Download Urls`:"
-            foreach ($i in $urls) { Write-Host -ForegroundColor Green "      $i" }
+            # Print update information, generate and submit manifests, updates json
             Update-ManifestAndJson $package.pkgid $version $urls.ToArray()
         }
         else
@@ -99,8 +102,9 @@ foreach ($json in $packages) {
     }
     else
     {
-        Write-Host -ForegroundColor Green "Found custom script for`: $($package.pkgid)"
-        . .\($package.custom_script) # Add another period to pass variables to the script
+        # Custom script functionality is not yet implemented
+        # Write-Host -ForegroundColor Green "Found custom script for`: $($package.pkgid)"
+        # . .\($package.custom_script) # Add another period to pass variables to the script
     }
 }
 
