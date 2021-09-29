@@ -1,0 +1,6 @@
+{
+    "pkgid":  "ModuleArt.QuickPictureViewer",
+    "repo":  "ModuleArt/quick-picture-viewer",
+    "last_checked_tag":  "0",
+    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+}

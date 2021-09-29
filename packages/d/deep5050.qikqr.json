@@ -1,0 +1,6 @@
+{
+    "pkgid":  "deep5050.qikQR",
+    "repo":  "deep5050/qikQR",
+    "last_checked_tag":  "0",
+    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+}
