@@ -41,7 +41,12 @@ AutoSubmitPRs: always
 SuppressQuickUpdateWarning: true
 "@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml | Out-Null
 
-# Print update information, generate and submit manifests, updates json
+# Set up API headers
+$header = @{
+    Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:GITHUB_TOKEN"))
+    Accept = 'application/vnd.github.v3+json'
+}
+
 Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
     # Prints update information, added spaces for indentation
     Write-Host -ForegroundColor Green "   Version`: $version"
@@ -55,12 +60,6 @@ Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $Installer
     # Update the last_checked_tag in the package file
     $package.last_checked_tag = $result.tag_name
     $package | ConvertTo-Json > $json
-}
-
-# Set up API headers
-$header = @{
-    Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:GITHUB_TOKEN"))
-    Accept = 'application/vnd.github.v3+json'
 }
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
