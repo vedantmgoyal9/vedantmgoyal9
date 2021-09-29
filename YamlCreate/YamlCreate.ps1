@@ -11,7 +11,7 @@ Param
     [Parameter(Mandatory = $true)]
     [string] $Mode,
     [Parameter(Mandatory = $true)]
-    [string] $Param_InstallerUrls
+    [array] $Param_InstallerUrls
 )
 
 if ($help) {
@@ -731,7 +731,7 @@ Function Read-Installer-Values-Minimal {
     $_iteration = 0
     $_UrlsIteration = 0
     $_NewInstallers = @()
-    foreach ($_OldInstaller in $_OldInstallers) {
+    foreach ($_OldInstaller in $_OldInstallers_Sorted) {
         # Create the new installer as an exact copy of the old installer entry
         # This is to ensure all previously entered and un-modified parameters are retained
         $_iteration += 1
