@@ -41,14 +41,14 @@ AutoSubmitPRs: always
 SuppressQuickUpdateWarning: true
 "@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml | Out-Null
 
-# Generate and submit PR, update json
+# Generate manifests and submit PR, updates json
 Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $Urls) {
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
     .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $Urls
     # Update the last_checked_tag in the package file
     $package.last_checked_tag = $result.tag_name
-    $package | ConvertTo-Json > $file
+    $package | ConvertTo-Json > $json
 }
 
 # Set up API headers
@@ -59,8 +59,8 @@ $header = @{
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
 $urls = [System.Collections.ArrayList]::new()
-foreach ($file in $packages) {
-    $package = Get-Content $file | ConvertFrom-Json
+foreach ($json in $packages) {
+    $package = Get-Content $json | ConvertFrom-Json
     $urls.Clear()
     $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
     if (-not $package.custom_script -eq $null) {
@@ -68,12 +68,14 @@ foreach ($file in $packages) {
         if ($null -eq $package.prerelease) { $prerelease = $false } else { $prerelease = $package.is_prerelease }
         if ($result.prerelease -eq $prerelease -and $result.tag_name -gt $package.last_checked_tag) {
             Write-Host -ForegroundColor Green "Found update for`: $($package.pkgid)"
+            
             # Get download urls using regex pattern and add to array
             foreach ($asset in $result.assets) {
                 if ($asset.name -match $package.asset_regex) {
                     $urls.Add($asset.browser_download_url) | Out-Null
                 }
             }
+
             # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
             switch ($package.version_method) {
                 "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
@@ -83,19 +85,25 @@ foreach ($file in $packages) {
                 "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
                 default { $version = $result.tag_name.TrimStart("v"); break }
             }
-            # Print information, added spaces for indentation
+
+            # Print information, added spaces for indentation and update package
             Write-Host -ForegroundColor Green "   Version`: $version"
             Write-Host -ForegroundColor Green "   Download Urls`:"
             foreach ($i in $urls) { Write-Host -ForegroundColor Green "      $i" }
             Update-ManifestAndJson $package.pkgid $version $urls.ToArray()
-        } else {
+        }
+        else
+        {
             Write-Host -ForegroundColor 'DarkYellow' "No updates found for`: $($package.pkgid)"
         }
-    } else {
+    }
+    else
+    {
         Write-Host -ForegroundColor Green "Found custom script for`: $($package.pkgid)"
         . .\($package.custom_script) # Add another period to pass variables to the script
     }
 }
+
 # Update packages in repository
 Write-Host -ForegroundColor Green "`nUpdating packages"
 git config --global user.name 'winget-pkgs-automation'
@@ -104,5 +112,6 @@ git pull # to be on a safe side
 git add .\packages\*
 git commit -m "Update packages [$env:GITHUB_RUN_NUMBER]"
 git push
+
 # Clear authentication information
 gh auth logout
