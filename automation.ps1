@@ -13,9 +13,6 @@ Write-Host "WinGet installed successfully"
 # Enable local manifests since microsoft/winget-cli#1453 is merged
 Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
 
-# GitHub CLI Authentication
-gh auth login --with-token $env:GITHUB_TOKEN
-
 # Clone forked repository
 gh repo clone winget-pkgs
 
@@ -127,6 +124,3 @@ git pull # to be on a safe side
 git add .\packages\*
 git commit -m "Update packages [$env:GITHUB_RUN_NUMBER]"
 git push
-
-# Clear authentication information
-gh auth logout
