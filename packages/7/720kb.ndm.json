@@ -1,6 +1,7 @@
 {
-    "pkgid":  "720kb.ndm",
-    "repo":  "720kb/ndm",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+    "pkgid": "720kb.ndm",
+    "repo": "720kb/ndm",
+    "last_checked_tag": "v1.2.0",
+    "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+    "skip": "Repository is archived"
 }

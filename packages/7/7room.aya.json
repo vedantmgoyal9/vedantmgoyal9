@@ -1,6 +1,7 @@
 {
-    "pkgid":  "7room.Aya",
-    "repo":  "7room/aya",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+    "pkgid": "7room.Aya",
+    "repo": "7room/aya",
+    "last_checked_tag": "v0.10.4",
+    "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+    "skip": "Not updated for a long period"
 }
