@@ -14,6 +14,7 @@ Write-Host "WinGet installed successfully"
 Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
 
 # Clone forked repository
+gh auth status --show-token
 gh repo clone winget-pkgs
 
 # Jump into Tools directory
