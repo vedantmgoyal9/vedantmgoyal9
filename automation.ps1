@@ -5,7 +5,7 @@ $ProgressPreference = 'SilentlyContinue'
 $webclient = New-Object System.Net.WebClient
 $webclient.downloadfile("https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx", "Microsoft.VCLibs.x64.14.00.Desktop.appx")
 $webclient.downloadfile("https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle", "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle")
-Import-Module Appx
+Import-Module -Name Appx -UseWindowsPowershell
 Add-AppxPackage -Path Microsoft.VCLibs.x64.14.00.Desktop.appx
 Add-AppxPackage -Path Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 Write-Host "WinGet installed successfully"
