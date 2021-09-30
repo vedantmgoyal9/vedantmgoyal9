@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Chatty.Chatty",
-    "repo":  "chatty/chatty",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+    "pkgid": "Chatty.Chatty",
+    "repo": "chatty/chatty",
+    "last_checked_tag": "v0.15",
+    "asset_regex": ".*standalone_setup.exe$"
 }

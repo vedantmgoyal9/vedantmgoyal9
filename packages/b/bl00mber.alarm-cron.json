@@ -2,5 +2,6 @@
   "pkgid": "bl00mber.alarm-cron",
   "repo": "bl00mber/alarm-cron",
   "last_checked_tag": "v0.1.1",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "skip": "Not updated for a long period"
 }

@@ -2,5 +2,5 @@
   "pkgid": "ChilliBits.ComposeGenerator",
   "repo": "compose-generator/compose-generator",
   "last_checked_tag": "0.9.0",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".*.msi$"
 }

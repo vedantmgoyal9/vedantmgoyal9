@@ -2,5 +2,5 @@
   "pkgid": "Canonical.Multipass",
   "repo": "canonical/multipass",
   "last_checked_tag": "v1.7.2",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".*.exe$"
 }
