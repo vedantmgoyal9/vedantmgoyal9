@@ -14,7 +14,7 @@ Write-Host "WinGet installed successfully"
 Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
 
 # Clone forked repository
-gh repo clone microsoft/winget-pkgs .
+gh repo clone microsoft/winget-pkgs
 
 # Jump into Tools directory
 $currentDir = Get-Location # Get current directory
@@ -22,7 +22,7 @@ Set-Location .\winget-pkgs\Tools
 
 # Get YamlCreate Unattended Script
 Write-Host -ForegroundColor Green "Copying YamlCreate.ps1 Unattended"
-Copy-Item -Path .\YamlCreate\YamlCreate.ps1 -Destination .\winget-pkgs\Tools\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 
 # Stash changes
 Write-Host -ForegroundColor Green "Stashing changes [YamlCreate.ps1]"
@@ -90,8 +90,10 @@ foreach ($json in $packages) {
                         default { $version = $result.tag_name.TrimStart("v"); break }
                     }
 
-                    # Print update information, generate and submit manifests, updates json
+                    # Print update information, generate and submit manifests, updates the last_checked_tag in json
                     Update-PackageManifest $package.pkgid $version $urls.ToArray()
+                    $package.last_checked_tag = $result.tag_name
+                    $package | ConvertTo-Json > $json
                 }
             }
             else
