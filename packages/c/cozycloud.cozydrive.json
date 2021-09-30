@@ -1,6 +1,6 @@
 {
-    "pkgid":  "CozyCloud.CozyDrive",
-    "repo":  "cozy-labs/cozy-desktop",
-    "last_checked_tag":  "v3.30.0",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "CozyCloud.CozyDrive",
+  "repo": "cozy-labs/cozy-desktop",
+  "last_checked_tag": "v3.30.0",
+  "asset_regex": ".*.exe$"
 }

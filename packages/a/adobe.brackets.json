@@ -1,7 +1,8 @@
 {
-    "pkgid": "Adobe.Brackets",
-    "repo": "adobe/brackets",
-    "last_checked_tag": "release-1.14.2",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$",
-    "skip": "Repository is archived"
+  "pkgid": "Adobe.Brackets",
+  "repo": "adobe/brackets",
+  "last_checked_tag": "release-1.14.2",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "skip": "Repository is archived",
+  "is_prerelease": false
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "LutzRoeder.Netron",
-    "repo":  "lutzroeder/netron",
-    "last_checked_tag":  "v5.2.5",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "LutzRoeder.Netron",
+  "repo": "lutzroeder/netron",
+  "last_checked_tag": "v5.2.5",
+  "asset_regex": ".*.exe$"
 }

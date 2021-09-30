@@ -1,6 +1,7 @@
 {
-    "pkgid": "agalwood.Motrix",
-    "repo": "agalwood/Motrix",
-    "last_checked_tag": "v1.6.11",
-    "asset_regex": "Motrix-Setup.*.exe$"
+  "pkgid": "agalwood.Motrix",
+  "repo": "agalwood/Motrix",
+  "last_checked_tag": "v1.6.11",
+  "asset_regex": "Motrix-Setup.*.exe$",
+  "is_prerelease": false
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "ChilliBits.CCom",
-    "repo":  "compose-generator/ccom",
-    "last_checked_tag":  "0.9.0",
-    "asset_regex":  ".*.msi$"
+  "pkgid": "ChilliBits.CCom",
+  "repo": "compose-generator/ccom",
+  "last_checked_tag": "0.9.0",
+  "asset_regex": ".*.msi$"
 }

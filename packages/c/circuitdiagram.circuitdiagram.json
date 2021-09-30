@@ -1,6 +1,6 @@
 {
-    "pkgid": "CircuitDiagram.CircuitDiagram",
-    "repo": "circuitdiagram/circuitdiagram",
-    "last_checked_tag": "v3.1",
-    "asset_regex": ".*.exe$"
+  "pkgid": "CircuitDiagram.CircuitDiagram",
+  "repo": "circuitdiagram/circuitdiagram",
+  "last_checked_tag": "v3.1",
+  "asset_regex": ".*.exe$"
 }

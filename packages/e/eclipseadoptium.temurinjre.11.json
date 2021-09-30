@@ -1,6 +1,6 @@
 {
-    "pkgid":  "EclipseAdoptium.TemurinJRE.11",
-    "repo":  "adoptium/temurin11-binaries",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "EclipseAdoptium.TemurinJRE.11",
+  "repo": "adoptium/temurin11-binaries",
+  "last_checked_tag": "0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

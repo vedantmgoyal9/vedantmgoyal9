@@ -1,7 +1,8 @@
 {
-    "pkgid": "Ahlyab.UdemyCouponFetcher",
-    "repo": "Ahlyab/UCF",
-    "last_checked_tag": "1.0.0",
-    "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-    "skip": "Not updated for a long period"
+  "pkgid": "Ahlyab.UdemyCouponFetcher",
+  "repo": "Ahlyab/UCF",
+  "last_checked_tag": "1.0.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "skip": "Not updated for a long period",
+  "is_prerelease": false
 }

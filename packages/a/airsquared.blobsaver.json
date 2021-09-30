@@ -1,6 +1,7 @@
 {
-    "pkgid": "Airsquared.Blobsaver",
-    "repo": "airsquared/blobsaver",
-    "last_checked_tag": "v3.0.3",
-    "asset_regex": ".*.exe$"
+  "pkgid": "Airsquared.Blobsaver",
+  "repo": "airsquared/blobsaver",
+  "last_checked_tag": "v3.0.3",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false
 }

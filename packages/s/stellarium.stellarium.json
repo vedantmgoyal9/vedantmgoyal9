@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Stellarium.Stellarium",
-    "repo":  "Stellarium/stellarium",
-    "last_checked_tag":  "v0.21.2",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "Stellarium.Stellarium",
+  "repo": "Stellarium/stellarium",
+  "last_checked_tag": "v0.21.2",
+  "asset_regex": ".*.exe$"
 }

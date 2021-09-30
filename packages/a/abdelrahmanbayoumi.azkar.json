@@ -1,6 +1,7 @@
 {
-    "pkgid": "AbdelrahmanBayoumi.Azkar",
-    "repo": "AbdelrahmanBayoumi/Azkar-App",
-    "last_checked_tag": "0.9.4",
-    "asset_regex": ".*.exe$"
+  "pkgid": "AbdelrahmanBayoumi.Azkar",
+  "repo": "AbdelrahmanBayoumi/Azkar-App",
+  "last_checked_tag": "0.9.4",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false
 }

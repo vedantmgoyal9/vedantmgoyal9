@@ -1,6 +1,7 @@
 {
-    "pkgid": "alagrede.znote",
-    "repo": "alagrede/znote-app",
-    "last_checked_tag": "v0.6.5",
-    "asset_regex": ".*.exe$"
+  "pkgid": "alagrede.znote",
+  "repo": "alagrede/znote-app",
+  "last_checked_tag": "v0.6.5",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false
 }

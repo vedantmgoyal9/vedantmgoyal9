@@ -1,6 +1,6 @@
 {
-    "pkgid":  "tagspaces.tagspaces",
-    "repo":  "tagspaces/tagspaces",
-    "last_checked_tag":  "v3.11.9",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "tagspaces.tagspaces",
+  "repo": "tagspaces/tagspaces",
+  "last_checked_tag": "v3.11.9",
+  "asset_regex": ".*.exe$"
 }

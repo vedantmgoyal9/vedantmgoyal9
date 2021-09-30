@@ -1,6 +1,6 @@
 {
-    "pkgid":  "RustemMussabekov.Raindrop",
-    "repo":  "raindropio/desktop",
-    "last_checked_tag":  "v5.4.7",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "RustemMussabekov.Raindrop",
+  "repo": "raindropio/desktop",
+  "last_checked_tag": "v5.4.7",
+  "asset_regex": ".*.exe$"
 }

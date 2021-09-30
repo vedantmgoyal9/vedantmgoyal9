@@ -1,6 +1,6 @@
 {
-    "pkgid": "ChrisKlimas.Twine",
-    "repo": "klembot/twinejs",
-    "last_checked_tag": "2.3.14",
-    "asset_regex": ".*.exe$"
+  "pkgid": "ChrisKlimas.Twine",
+  "repo": "klembot/twinejs",
+  "last_checked_tag": "2.3.14",
+  "asset_regex": ".*.exe$"
 }

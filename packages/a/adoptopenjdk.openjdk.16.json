@@ -1,7 +1,8 @@
 {
-    "pkgid": "AdoptOpenJDK.OpenJDK.16",
-    "repo": "AdoptOpenJDK/openjdk16-binaries",
-    "last_checked_tag": "jdk-16.0.1+9",
-    "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-    "skip": "Requires custom script"
+  "pkgid": "AdoptOpenJDK.OpenJDK.16",
+  "repo": "AdoptOpenJDK/openjdk16-binaries",
+  "last_checked_tag": "jdk-16.0.1+9",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "skip": "Requires custom script",
+  "is_prerelease": false
 }

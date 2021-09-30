@@ -1,6 +1,6 @@
 {
-    "pkgid":  "sbt.sbt",
-    "repo":  "sbt/sbt",
-    "last_checked_tag":  "v1.5.5",
-    "asset_regex":  ".*.msi$"
+  "pkgid": "sbt.sbt",
+  "repo": "sbt/sbt",
+  "last_checked_tag": "v1.5.5",
+  "asset_regex": ".*.msi$"
 }

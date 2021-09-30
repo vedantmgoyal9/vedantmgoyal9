@@ -1,6 +1,7 @@
 {
-    "pkgid": "Alacritty.Alacritty",
-    "repo": "alacritty/alacritty",
-    "last_checked_tag": "v0.9.0",
-    "asset_regex": ".*.msi$"
+  "pkgid": "Alacritty.Alacritty",
+  "repo": "alacritty/alacritty",
+  "last_checked_tag": "v0.9.0",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": false
 }

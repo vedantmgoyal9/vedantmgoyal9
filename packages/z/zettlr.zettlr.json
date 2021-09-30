@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Zettlr.Zettlr",
-    "repo":  "Zettlr/Zettlr",
-    "last_checked_tag":  "v1.8.9",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "Zettlr.Zettlr",
+  "repo": "Zettlr/Zettlr",
+  "last_checked_tag": "v1.8.9",
+  "asset_regex": ".*.exe$"
 }

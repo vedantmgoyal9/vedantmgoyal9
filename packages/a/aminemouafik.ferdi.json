@@ -1,6 +1,6 @@
 {
-    "pkgid": "AmineMouafik.Ferdi",
-    "repo": "getferdi/ferdi",
-    "last_checked_tag": "v5.6.2",
-    "asset_regex": ".*.msi$"
+  "pkgid": "AmineMouafik.Ferdi",
+  "repo": "getferdi/ferdi",
+  "last_checked_tag": "v5.6.2",
+  "asset_regex": ".*.msi$"
 }

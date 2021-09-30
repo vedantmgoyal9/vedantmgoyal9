@@ -1,6 +1,6 @@
 {
-    "pkgid":  "cryptofyre.AppleMusicElectron",
-    "repo":  "Apple-Music-Electron/Apple-Music-Electron",
-    "last_checked_tag":  "v2.5.0",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "cryptofyre.AppleMusicElectron",
+  "repo": "Apple-Music-Electron/Apple-Music-Electron",
+  "last_checked_tag": "v2.5.0",
+  "asset_regex": ".*.exe$"
 }

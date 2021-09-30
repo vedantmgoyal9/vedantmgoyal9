@@ -1,6 +1,6 @@
 {
-    "pkgid":  "VSCodium.VSCodium",
-    "repo":  "VSCodium/vscodium",
-    "last_checked_tag":  "1.60.2",
-    "asset_regex":  ".exe$"
+  "pkgid": "VSCodium.VSCodium",
+  "repo": "VSCodium/vscodium",
+  "last_checked_tag": "1.60.2",
+  "asset_regex": ".exe$"
 }

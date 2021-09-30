@@ -1,6 +1,7 @@
 {
-    "pkgid": "AivarAnnamaa.Thonny",
-    "repo": "thonny/thonny",
-    "last_checked_tag": "v3.3.14",
-    "asset_regex": ".*.exe$"
+  "pkgid": "AivarAnnamaa.Thonny",
+  "repo": "thonny/thonny",
+  "last_checked_tag": "v3.3.14",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false
 }

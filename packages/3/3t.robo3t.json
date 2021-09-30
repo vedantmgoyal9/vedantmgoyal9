@@ -1,6 +1,7 @@
 {
-    "pkgid": "3T.Robo3T",
-    "repo": "Studio3T/robomongo",
-    "last_checked_tag": "v1.4.4",
-    "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "3T.Robo3T",
+  "repo": "Studio3T/robomongo",
+  "last_checked_tag": "v1.4.4",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false
 }

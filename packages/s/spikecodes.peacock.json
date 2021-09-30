@@ -1,6 +1,6 @@
 {
-    "pkgid":  "spikecodes.peacock",
-    "repo":  "spikecodes/peacock",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "spikecodes.peacock",
+  "repo": "spikecodes/peacock",
+  "last_checked_tag": "0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

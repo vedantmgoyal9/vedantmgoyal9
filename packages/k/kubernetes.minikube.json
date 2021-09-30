@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Kubernetes.minikube",
-    "repo":  "kubernetes/minikube",
-    "last_checked_tag":  "v1.23.2",
-    "asset_regex":  "minikube-installer.exe"
+  "pkgid": "Kubernetes.minikube",
+  "repo": "kubernetes/minikube",
+  "last_checked_tag": "v1.23.2",
+  "asset_regex": "minikube-installer.exe"
 }

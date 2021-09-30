@@ -1,6 +1,6 @@
 {
-    "pkgid":  "ElectronCommunity.ElectronFiddle",
-    "repo":  "electron/fiddle",
-    "last_checked_tag":  "v0.26.0",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "ElectronCommunity.ElectronFiddle",
+  "repo": "electron/fiddle",
+  "last_checked_tag": "v0.26.0",
+  "asset_regex": ".*.exe$"
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "GitHub.cli",
-    "repo":  "cli/cli",
-    "last_checked_tag":  "v2.0.0",
-    "asset_regex":  ".*.msi$"
+  "pkgid": "GitHub.cli",
+  "repo": "cli/cli",
+  "last_checked_tag": "v2.0.0",
+  "asset_regex": ".*.msi$"
 }

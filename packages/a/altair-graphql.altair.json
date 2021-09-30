@@ -2,5 +2,6 @@
   "pkgid": "altair-graphql.altair",
   "repo": "altair-graphql/altair",
   "last_checked_tag": "v4.0.11",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid": "AshishBharadwajJ.Flawesome",
-    "repo": "ashishBharadwaj/flawesome",
-    "last_checked_tag": "v0.2.3",
-    "asset_regex": ".*.exe$"
+  "pkgid": "AshishBharadwajJ.Flawesome",
+  "repo": "ashishBharadwaj/flawesome",
+  "last_checked_tag": "v0.2.3",
+  "asset_regex": ".*.exe$"
 }

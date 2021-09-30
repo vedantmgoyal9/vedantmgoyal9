@@ -1,7 +1,7 @@
 {
-    "pkgid":  "Telegram.TelegramDesktop.Beta",
-    "repo":  "telegramdesktop/tdesktop",
-    "last_checked_tag":  "v3.1.4",
-    "asset_regex":  "tsetup.*.exe$",
-    "is_prerelease":  true
+  "pkgid": "Telegram.TelegramDesktop.Beta",
+  "repo": "telegramdesktop/tdesktop",
+  "last_checked_tag": "v3.1.4",
+  "asset_regex": "tsetup.*.exe$",
+  "is_prerelease": false
 }

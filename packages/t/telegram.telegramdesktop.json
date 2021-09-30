@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Telegram.TelegramDesktop",
-    "repo":  "telegramdesktop/tdesktop",
-    "last_checked_tag":  "v3.1.1",
-    "asset_regex":  "tsetup.*.exe$"
+  "pkgid": "Telegram.TelegramDesktop",
+  "repo": "telegramdesktop/tdesktop",
+  "last_checked_tag": "v3.1.1",
+  "asset_regex": "tsetup.*.exe$"
 }

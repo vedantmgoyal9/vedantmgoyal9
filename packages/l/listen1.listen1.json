@@ -1,6 +1,6 @@
 {
-    "pkgid":  "listen1.listen1",
-    "repo":  "listen1/listen1_desktop",
-    "last_checked_tag":  "v2.21.6",
-    "asset_regex":  "listen1_.*(ia32|x64).exe$"
+  "pkgid": "listen1.listen1",
+  "repo": "listen1/listen1_desktop",
+  "last_checked_tag": "v2.21.6",
+  "asset_regex": "listen1_.*(ia32|x64).exe$"
 }

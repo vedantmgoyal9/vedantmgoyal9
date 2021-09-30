@@ -1,7 +1,8 @@
 {
-    "pkgid": "Adobe.Cryptr",
-    "repo": "adobe/cryptr",
-    "last_checked_tag": "v0.3.0",
-    "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-    "skip": "Not updated for a long period"
+  "pkgid": "Adobe.Cryptr",
+  "repo": "adobe/cryptr",
+  "last_checked_tag": "v0.3.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "skip": "Not updated for a long period",
+  "is_prerelease": false
 }

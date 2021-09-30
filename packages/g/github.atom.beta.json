@@ -1,7 +1,7 @@
 {
-    "pkgid":  "GitHub.Atom.Beta",
-    "repo":  "atom/atom",
-    "last_checked_tag":  "v1.58.0-beta0",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease":  true
+  "pkgid": "GitHub.Atom.Beta",
+  "repo": "atom/atom",
+  "last_checked_tag": "v1.58.0-beta0",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false
 }

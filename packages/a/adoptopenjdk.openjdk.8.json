@@ -1,7 +1,8 @@
 {
-    "pkgid": "AdoptOpenJDK.OpenJDK.8",
-    "repo": "AdoptOpenJDK/openjdk8-binaries",
-    "last_checked_tag": "jdk8u292-b10",
-    "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-    "skip": "Requires custom script"
+  "pkgid": "AdoptOpenJDK.OpenJDK.8",
+  "repo": "AdoptOpenJDK/openjdk8-binaries",
+  "last_checked_tag": "jdk8u292-b10",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "skip": "Requires custom script",
+  "is_prerelease": false
 }

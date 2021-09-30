@@ -1,6 +1,7 @@
 {
-    "pkgid": "Abyss.AbyssOverlay",
-    "repo": "Chit132/abyss-overlay",
-    "last_checked_tag": "v1.3.0",
-    "asset_regex": ".*.exe$"
+  "pkgid": "Abyss.AbyssOverlay",
+  "repo": "Chit132/abyss-overlay",
+  "last_checked_tag": "v1.3.0",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false
 }

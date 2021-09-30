@@ -1,6 +1,6 @@
 {
-    "pkgid": "calibre.calibre",
-    "repo": "kovidgoyal/calibre",
-    "last_checked_tag": "v5.28.0",
-    "asset_regex": ".*.msi$"
+  "pkgid": "calibre.calibre",
+  "repo": "kovidgoyal/calibre",
+  "last_checked_tag": "v5.28.0",
+  "asset_regex": ".*.msi$"
 }
