@@ -14,7 +14,7 @@ Write-Host "WinGet installed successfully"
 Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
 
 # Clone forked repository
-gh repo clone microsoft/winget-pkgs
+gh repo clone microsoft/winget-pkgs .
 
 # Jump into Tools directory
 $currentDir = Get-Location # Get current directory
