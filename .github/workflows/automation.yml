@@ -30,5 +30,4 @@ jobs:
       - name: Run automation script
         shell: pwsh
         run: ./automation.ps1
-        env:
-          GITHUB_TOKEN = ${{ secrets.GITHUB_TOKEN }}
+
