@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Henry++.freeshooter",
-    "repo":  "henrypp/freeshooter",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Henry++.freeshooter",
+  "repo": "henrypp/freeshooter",
+  "last_checked_tag": "v.2.0.7",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "LibrevaultTeam.Librevault",
-    "repo":  "librevault/librevault",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "LibrevaultTeam.Librevault",
+  "repo": "librevault/librevault",
+  "last_checked_tag": "v0.1.17",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

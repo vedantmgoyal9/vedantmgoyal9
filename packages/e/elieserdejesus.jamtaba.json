@@ -1,6 +1,6 @@
 {
-    "pkgid":  "elieserdejesus.JamTaba",
-    "repo":  "elieserdejesus/JamTaba",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "elieserdejesus.JamTaba",
+  "repo": "elieserdejesus/JamTaba",
+  "last_checked_tag": "v2.1.16",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

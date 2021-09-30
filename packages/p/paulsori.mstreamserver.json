@@ -1,6 +1,6 @@
 {
-    "pkgid":  "PaulSori.mStreamServer",
-    "repo":  "IrosTheBeggar/mStream",
-    "last_checked_tag":  "v5.4.3",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "PaulSori.mStreamServer",
+  "repo": "IrosTheBeggar/mStream",
+  "last_checked_tag": "v5.5.0",
+  "asset_regex": ".*.exe$"
 }

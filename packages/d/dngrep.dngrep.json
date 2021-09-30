@@ -1,6 +1,6 @@
 {
-    "pkgid":  "dnGrep.dnGrep",
-    "repo":  "dnGrep/dnGrep",
-    "last_checked_tag":  "v2.9.391.0",
-    "asset_regex":  ".*(x64|x86).msi$"
+  "pkgid": "dnGrep.dnGrep",
+  "repo": "dnGrep/dnGrep",
+  "last_checked_tag": "v2.9.400.0",
+  "asset_regex": ".*(x64|x86).msi$"
 }

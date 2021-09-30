@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Fndroid.ClashForWindows",
-    "repo":  "Fndroid/clash_for_windows_pkg",
-    "last_checked_tag":  "0.18.2",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "Fndroid.ClashForWindows",
+  "repo": "Fndroid/clash_for_windows_pkg",
+  "last_checked_tag": "0.18.3",
+  "asset_regex": ".*.exe$"
 }

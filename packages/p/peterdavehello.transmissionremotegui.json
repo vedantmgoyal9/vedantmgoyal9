@@ -1,6 +1,6 @@
 {
-    "pkgid":  "PeterDaveHello.TransmissionRemoteGUI",
-    "repo":  "transmission-remote-gui/transgui",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "PeterDaveHello.TransmissionRemoteGUI",
+  "repo": "transmission-remote-gui/transgui",
+  "last_checked_tag": "v5.18.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

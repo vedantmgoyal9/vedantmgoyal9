@@ -1,6 +1,6 @@
 {
-    "pkgid":  "eloston.ungoogled-chromium",
-    "repo":  "tangalbert919/ungoogled-chromium-binaries",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "eloston.ungoogled-chromium",
+  "repo": "tangalbert919/ungoogled-chromium-binaries",
+  "last_checked_tag": "89.0.4389.114-1",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Ditto.Ditto",
-    "repo":  "sabrogden/Ditto",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Ditto.Ditto",
+  "repo": "sabrogden/Ditto",
+  "last_checked_tag": "3.24.214.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

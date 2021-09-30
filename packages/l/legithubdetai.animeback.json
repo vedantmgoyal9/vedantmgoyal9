@@ -1,6 +1,6 @@
 {
-    "pkgid":  "LeGitHubDeTai.AnimeBack",
-    "repo":  "LeGitHubDeTai/AnimeBack",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "LeGitHubDeTai.AnimeBack",
+  "repo": "LeGitHubDeTai/AnimeBack",
+  "last_checked_tag": "v8.0.5",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

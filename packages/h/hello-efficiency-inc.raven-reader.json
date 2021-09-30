@@ -1,6 +1,6 @@
 {
-    "pkgid":  "hello-efficiency-inc.raven-reader",
-    "repo":  "hello-efficiency-inc/raven-reader",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "hello-efficiency-inc.raven-reader",
+  "repo": "hello-efficiency-inc/raven-reader",
+  "last_checked_tag": "v1.0.66",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

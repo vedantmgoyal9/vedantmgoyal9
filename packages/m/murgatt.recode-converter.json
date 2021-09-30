@@ -1,6 +1,6 @@
 {
-    "pkgid":  "murgatt.recode-converter",
-    "repo":  "murgatt/recode-converter",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "murgatt.recode-converter",
+  "repo": "murgatt/recode-converter",
+  "last_checked_tag": "v1.2.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

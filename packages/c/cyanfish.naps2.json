@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Cyanfish.NAPS2",
-    "repo":  "cyanfish/naps2",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Cyanfish.NAPS2",
+  "repo": "cyanfish/naps2",
+  "last_checked_tag": "v6.1.2",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

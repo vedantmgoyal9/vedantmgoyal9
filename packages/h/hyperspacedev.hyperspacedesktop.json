@@ -1,6 +1,6 @@
 {
-    "pkgid":  "HyperspaceDev.HyperspaceDesktop",
-    "repo":  "hyperspacedev/hyperspace",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "HyperspaceDev.HyperspaceDesktop",
+  "repo": "hyperspacedev/hyperspace",
+  "last_checked_tag": "v1.1.4",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

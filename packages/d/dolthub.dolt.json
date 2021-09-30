@@ -1,6 +1,6 @@
 {
-    "pkgid":  "DoltHub.Dolt",
-    "repo":  "dolthub/dolt",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "DoltHub.Dolt",
+  "repo": "dolthub/dolt",
+  "last_checked_tag": "v0.30.1",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

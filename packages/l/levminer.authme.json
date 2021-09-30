@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Levminer.Authme",
-    "repo":  "Levminer/authme",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Levminer.Authme",
+  "repo": "Levminer/authme",
+  "last_checked_tag": "2.7.1",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

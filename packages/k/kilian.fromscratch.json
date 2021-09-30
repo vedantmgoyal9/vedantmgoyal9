@@ -1,6 +1,6 @@
 {
-    "pkgid":  "kilian.fromscratch",
-    "repo":  "Kilian/fromscratch",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "kilian.fromscratch",
+  "repo": "Kilian/fromscratch",
+  "last_checked_tag": "v1.4.3",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

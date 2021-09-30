@@ -1,6 +1,6 @@
 {
-    "pkgid":  "OBSProject.OBSStudio",
-    "repo":  "obsproject/obs-studio",
-    "last_checked_tag":  "27.0.1",
-    "asset_regex":  ".*.exe$"
+  "pkgid": "OBSProject.OBSStudio",
+  "repo": "obsproject/obs-studio",
+  "last_checked_tag": "27.1.1",
+  "asset_regex": ".*.exe$"
 }

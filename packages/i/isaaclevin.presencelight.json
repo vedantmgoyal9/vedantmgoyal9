@@ -1,6 +1,6 @@
 {
-    "pkgid":  "isaaclevin.presencelight",
-    "repo":  "isaacrlevin/PresenceLight",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "isaaclevin.presencelight",
+  "repo": "isaacrlevin/PresenceLight",
+  "last_checked_tag": "Worker-v4.2.28",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

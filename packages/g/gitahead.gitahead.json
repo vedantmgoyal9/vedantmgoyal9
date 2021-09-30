@@ -1,6 +1,6 @@
 {
-    "pkgid":  "GitAhead.GitAhead",
-    "repo":  "gitahead/gitahead",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "GitAhead.GitAhead",
+  "repo": "gitahead/gitahead",
+  "last_checked_tag": "v2.6.3",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "HeroicGamesLauncher.HeroicGamesLauncher",
-    "repo":  "Heroic-Games-Launcher/HeroicGamesLauncher",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "HeroicGamesLauncher.HeroicGamesLauncher",
+  "repo": "Heroic-Games-Launcher/HeroicGamesLauncher",
+  "last_checked_tag": "v1.9.3",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

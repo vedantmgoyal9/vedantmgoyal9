@@ -1,6 +1,6 @@
 {
-    "pkgid":  "c3er.mdview",
-    "repo":  "c3er/mdview",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "c3er.mdview",
+  "repo": "c3er/mdview",
+  "last_checked_tag": "v2.1.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

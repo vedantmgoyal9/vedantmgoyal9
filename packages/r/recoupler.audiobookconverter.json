@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Recoupler.AudioBookConverter",
-    "repo":  "yermak/AudioBookConverter",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Recoupler.AudioBookConverter",
+  "repo": "yermak/AudioBookConverter",
+  "last_checked_tag": "version_5.5.26",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "knoopx.feeder",
-    "repo":  "knoopx/feeder",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "knoopx.feeder",
+  "repo": "knoopx/feeder",
+  "last_checked_tag": "v1.11.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "xiandanin.magnetW",
-    "repo":  "xiandanin/magnetW",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "xiandanin.magnetW",
+  "repo": "xiandanin/magnetW",
+  "last_checked_tag": "3.1.1",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

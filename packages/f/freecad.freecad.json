@@ -1,6 +1,6 @@
 {
-    "pkgid":  "FreeCAD.FreeCAD",
-    "repo":  "FreeCAD/FreeCAD",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "FreeCAD.FreeCAD",
+  "repo": "FreeCAD/FreeCAD",
+  "last_checked_tag": "0.19.2",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

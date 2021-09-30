@@ -1,6 +1,6 @@
 {
-    "pkgid":  "cjerrington.net-check",
-    "repo":  "cjerrington/net-check",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "cjerrington.net-check",
+  "repo": "cjerrington/net-check",
+  "last_checked_tag": "v1.0.8",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

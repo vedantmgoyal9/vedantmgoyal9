@@ -1,6 +1,6 @@
 {
-    "pkgid":  "DavidMoore.IPFilterUpdater",
-    "repo":  "DavidMoore/ipfilter",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "DavidMoore.IPFilterUpdater",
+  "repo": "DavidMoore/ipfilter",
+  "last_checked_tag": "3.0.2.9-beta",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

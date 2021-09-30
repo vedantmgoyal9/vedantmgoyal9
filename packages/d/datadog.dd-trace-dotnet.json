@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Datadog.dd-trace-dotnet",
-    "repo":  "DataDog/dd-trace-dotnet",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Datadog.dd-trace-dotnet",
+  "repo": "DataDog/dd-trace-dotnet",
+  "last_checked_tag": "v1.28.8",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

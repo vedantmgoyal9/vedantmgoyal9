@@ -1,6 +1,6 @@
 {
-    "pkgid":  "AlexRedden.G14ControlV2",
-    "repo":  "aredden/electron-G14Control",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "AlexRedden.G14ControlV2",
+  "repo": "aredden/electron-G14Control",
+  "last_checked_tag": "v0.2.2",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

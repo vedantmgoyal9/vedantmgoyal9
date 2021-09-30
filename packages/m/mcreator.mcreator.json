@@ -1,6 +1,6 @@
 {
-    "pkgid":  "MCreator.MCreator",
-    "repo":  "MCreator/MCreator",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "MCreator.MCreator",
+  "repo": "MCreator/MCreator",
+  "last_checked_tag": "2021.2.36710",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

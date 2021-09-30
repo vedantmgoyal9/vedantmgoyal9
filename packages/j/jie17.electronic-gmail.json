@@ -1,6 +1,6 @@
 {
-    "pkgid":  "jie17.electronic-gmail",
-    "repo":  "jie17/electronic-gmail",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "jie17.electronic-gmail",
+  "repo": "jie17/electronic-gmail",
+  "last_checked_tag": "v0.0.18",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

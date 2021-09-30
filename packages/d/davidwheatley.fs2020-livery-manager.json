@@ -1,6 +1,6 @@
 {
-    "pkgid":  "DavidWheatley.fs2020-livery-manager",
-    "repo":  "MSFS-Mega-Pack/MSFS2020-livery-manager",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "DavidWheatley.fs2020-livery-manager",
+  "repo": "MSFS-Mega-Pack/MSFS2020-livery-manager",
+  "last_checked_tag": "v0.5.1",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

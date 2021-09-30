@@ -1,6 +1,6 @@
 {
-    "pkgid":  "SnailDOS.SnailFM",
-    "repo":  "snaildos/SnailFM-Application",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "SnailDOS.SnailFM",
+  "repo": "snaildos/SnailFM-Application",
+  "last_checked_tag": "v2.1.2",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

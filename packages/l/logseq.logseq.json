@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Logseq.Logseq",
-    "repo":  "logseq/logseq",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Logseq.Logseq",
+  "repo": "logseq/logseq",
+  "last_checked_tag": "0.4.2",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

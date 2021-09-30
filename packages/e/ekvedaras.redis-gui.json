@@ -1,6 +1,6 @@
 {
-    "pkgid":  "ekvedaras.redis-gui",
-    "repo":  "ekvedaras/redis-gui",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "ekvedaras.redis-gui",
+  "repo": "ekvedaras/redis-gui",
+  "last_checked_tag": "v1.2.4",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

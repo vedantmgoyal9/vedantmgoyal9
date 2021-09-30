@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Armin2208.WindowsAutoNightMode",
-    "repo":  "Armin2208/Windows-Auto-Night-Mode",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Armin2208.WindowsAutoNightMode",
+  "repo": "Armin2208/Windows-Auto-Night-Mode",
+  "last_checked_tag": "3.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

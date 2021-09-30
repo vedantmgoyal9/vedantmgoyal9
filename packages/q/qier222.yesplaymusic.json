@@ -1,6 +1,6 @@
 {
-    "pkgid":  "qier222.yesplaymusic",
-    "repo":  "qier222/YesPlayMusic",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "qier222.yesplaymusic",
+  "repo": "qier222/YesPlayMusic",
+  "last_checked_tag": "v0.4.1",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

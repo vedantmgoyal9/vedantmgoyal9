@@ -1,6 +1,6 @@
 {
-    "pkgid":  "EFF.Certbot",
-    "repo":  "certbot/certbot",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "EFF.Certbot",
+  "repo": "certbot/certbot",
+  "last_checked_tag": "v1.19.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

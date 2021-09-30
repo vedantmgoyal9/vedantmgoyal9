@@ -1,6 +1,6 @@
 {
-    "pkgid":  "TeXstudio.TeXstudio",
-    "repo":  "texstudio-org/texstudio",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "TeXstudio.TeXstudio",
+  "repo": "texstudio-org/texstudio",
+  "last_checked_tag": "4.0.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

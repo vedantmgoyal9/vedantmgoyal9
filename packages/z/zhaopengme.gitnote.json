@@ -1,6 +1,6 @@
 {
-    "pkgid":  "zhaopengme.gitnote",
-    "repo":  "zhaopengme/gitnote",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "zhaopengme.gitnote",
+  "repo": "zhaopengme/gitnote",
+  "last_checked_tag": "3.1.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

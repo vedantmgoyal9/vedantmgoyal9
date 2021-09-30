@@ -1,6 +1,6 @@
 {
-    "pkgid":  "ojdkbuild.ojdkbuild",
-    "repo":  "ojdkbuild/ojdkbuild",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "ojdkbuild.ojdkbuild",
+  "repo": "ojdkbuild/ojdkbuild",
+  "last_checked_tag": "java-1.8.0-openjdk-1.8.0.302-1.b08",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "supertiger1234.nertivia",
-    "repo":  "supertiger1234/nertivia-desktop-app",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "supertiger1234.nertivia",
+  "repo": "supertiger1234/nertivia-desktop-app",
+  "last_checked_tag": "v0.3.10",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

@@ -1,6 +1,6 @@
 {
-    "pkgid":  "AndrewsTech.Alpha-Video",
-    "repo":  "unofficial-skills/alpha-video",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "AndrewsTech.Alpha-Video",
+  "repo": "unofficial-skills/alpha-video",
+  "last_checked_tag": "1.7",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

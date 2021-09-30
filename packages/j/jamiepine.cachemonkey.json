@@ -1,6 +1,6 @@
 {
-    "pkgid":  "JamiePine.CacheMonkey",
-    "repo":  "jamiepine/cache-monkey",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "JamiePine.CacheMonkey",
+  "repo": "jamiepine/cache-monkey",
+  "last_checked_tag": "v1.0.7",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

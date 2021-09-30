@@ -1,6 +1,6 @@
 {
-    "pkgid":  "g07cha.pomodoro",
-    "repo":  "G07cha/pomodoro",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "g07cha.pomodoro",
+  "repo": "G07cha/pomodoro",
+  "last_checked_tag": "v2.2.3",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

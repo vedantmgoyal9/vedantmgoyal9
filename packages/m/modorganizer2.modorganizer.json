@@ -1,6 +1,6 @@
 {
-    "pkgid":  "ModOrganizer2.modorganizer",
-    "repo":  "ModOrganizer2/modorganizer",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "ModOrganizer2.modorganizer",
+  "repo": "ModOrganizer2/modorganizer",
+  "last_checked_tag": "v2.4.2",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

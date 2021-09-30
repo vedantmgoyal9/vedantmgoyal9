@@ -1,6 +1,6 @@
 {
-    "pkgid":  "ONLYOFFICE.DesktopEditors",
-    "repo":  "ONLYOFFICE/DesktopEditors",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "ONLYOFFICE.DesktopEditors",
+  "repo": "ONLYOFFICE/DesktopEditors",
+  "last_checked_tag": "v6.3.1",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

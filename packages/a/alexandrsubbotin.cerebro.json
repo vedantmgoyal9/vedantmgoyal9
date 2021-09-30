@@ -1,6 +1,6 @@
 {
-    "pkgid":  "AlexandrSubbotin.Cerebro",
-    "repo":  "cerebroapp/cerebro",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "AlexandrSubbotin.Cerebro",
+  "repo": "cerebroapp/cerebro",
+  "last_checked_tag": "v0.4.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

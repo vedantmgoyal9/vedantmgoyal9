@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Git.Git",
-    "repo":  "git-for-windows/git",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Git.Git",
+  "repo": "git-for-windows/git",
+  "last_checked_tag": "v2.33.0.windows.2",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

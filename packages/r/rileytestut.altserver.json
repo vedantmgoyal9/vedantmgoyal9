@@ -1,6 +1,6 @@
 {
-    "pkgid":  "RileyTestut.AltServer",
-    "repo":  "koleon03/altserver-mirror",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "RileyTestut.AltServer",
+  "repo": "koleon03/altserver-mirror",
+  "last_checked_tag": "1.4.3",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

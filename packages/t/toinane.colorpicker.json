@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Toinane.Colorpicker",
-    "repo":  "Toinane/colorpicker",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Toinane.Colorpicker",
+  "repo": "Toinane/colorpicker",
+  "last_checked_tag": "2.0.5",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

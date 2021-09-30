@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Balena.BalenaCLI",
-    "repo":  "balena-io/balena-cli",
-    "last_checked_tag":  "v12.49.0",
-    "asset_regex":  ".exe"
+  "pkgid": "Balena.BalenaCLI",
+  "repo": "balena-io/balena-cli",
+  "last_checked_tag": "v12.50.1",
+  "asset_regex": ".exe"
 }

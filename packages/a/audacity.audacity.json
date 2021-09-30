@@ -1,7 +1,7 @@
 {
-    "pkgid":  "Audacity.Audacity",
-    "repo":  "audacity/audacity",
-    "last_checked_tag":  "Audacity-3.0.4",
-    "asset_regex":  ".*.exe$",
-    "version_method":  "audacity"
+  "pkgid": "Audacity.Audacity",
+  "repo": "audacity/audacity",
+  "last_checked_tag": "Audacity-3.0.5",
+  "asset_regex": ".*.exe$",
+  "version_method": "audacity"
 }

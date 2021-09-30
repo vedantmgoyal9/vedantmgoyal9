@@ -1,6 +1,6 @@
 {
-    "pkgid":  "nashaofu.dingtalk",
-    "repo":  "nashaofu/dingtalk",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "nashaofu.dingtalk",
+  "repo": "nashaofu/dingtalk",
+  "last_checked_tag": "v2.1.12",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

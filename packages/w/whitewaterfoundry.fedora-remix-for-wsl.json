@@ -1,6 +1,6 @@
 {
-    "pkgid":  "whitewaterfoundry.fedora-remix-for-wsl",
-    "repo":  "WhitewaterFoundry/Fedora-Remix-for-WSL",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "whitewaterfoundry.fedora-remix-for-wsl",
+  "repo": "WhitewaterFoundry/Fedora-Remix-for-WSL",
+  "last_checked_tag": "34.5.6",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

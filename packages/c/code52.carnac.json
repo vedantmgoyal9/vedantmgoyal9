@@ -1,6 +1,6 @@
 {
-    "pkgid":  "code52.Carnac",
-    "repo":  "Code52/carnac",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "code52.Carnac",
+  "repo": "Code52/carnac",
+  "last_checked_tag": "2.3.13",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

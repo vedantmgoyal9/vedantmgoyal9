@@ -1,6 +1,6 @@
 {
-    "pkgid":  "Flow-Launcher.Flow-Launcher",
-    "repo":  "Flow-Launcher/Flow.Launcher",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "Flow-Launcher.Flow-Launcher",
+  "repo": "Flow-Launcher/Flow.Launcher",
+  "last_checked_tag": "v1.8.3",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

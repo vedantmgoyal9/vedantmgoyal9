@@ -1,6 +1,6 @@
 {
-    "pkgid":  "hisschemoller.music-pattern-generator",
-    "repo":  "hisschemoller/music-pattern-generator",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "hisschemoller.music-pattern-generator",
+  "repo": "hisschemoller/music-pattern-generator",
+  "last_checked_tag": "v2.2.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

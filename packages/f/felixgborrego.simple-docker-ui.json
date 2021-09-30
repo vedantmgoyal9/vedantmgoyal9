@@ -1,6 +1,6 @@
 {
-    "pkgid":  "felixgborrego.simple-docker-ui",
-    "repo":  "felixgborrego/simple-docker-ui",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "pkgid": "felixgborrego.simple-docker-ui",
+  "repo": "felixgborrego/simple-docker-ui",
+  "last_checked_tag": "v0.5.5",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
 }

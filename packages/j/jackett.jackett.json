@@ -1,7 +1,7 @@
 {
-    "pkgid":  "Jackett.Jackett",
-    "repo":  "Jackett/Jackett",
-    "last_checked_tag":  "v0.18.827",
-    "asset_regex":  "Jackett.Installer.Windows.exe",
-    "version_method":  "jackett"
+  "pkgid": "Jackett.Jackett",
+  "repo": "Jackett/Jackett",
+  "last_checked_tag": "v0.18.851",
+  "asset_regex": "Jackett.Installer.Windows.exe",
+  "version_method": "jackett"
 }
