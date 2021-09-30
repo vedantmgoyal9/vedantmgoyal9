@@ -17,7 +17,6 @@ jobs:
     # The type of runner that the job will run on
     runs-on: windows-latest
     
-    # Permissions for GITHUB_TOKEN
     permissions:
       pull-requests: write
       
@@ -30,4 +29,3 @@ jobs:
       - name: Run automation script
         shell: pwsh
         run: ./automation.ps1
-
