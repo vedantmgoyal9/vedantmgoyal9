@@ -45,19 +45,16 @@ $header = @{
     Accept = 'application/vnd.github.v3+json'
 }
 
-Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
+Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
     # Prints update information, added spaces for indentation
-    Write-Host -ForegroundColor Green "   Version`: $version"
+    Write-Host -ForegroundColor Green "Found update for`: $PackageIdentifier"
+    Write-Host -ForegroundColor Green "   Version`: $PackageVersion"
     Write-Host -ForegroundColor Green "   Download Urls`:"
     foreach ($i in $InstallerUrls) { Write-Host -ForegroundColor Green "      $i" }
     
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
     # .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
-    
-    # Update the last_checked_tag in the package file
-    $package.last_checked_tag = $result.tag_name
-    $package | ConvertTo-Json > $json
 }
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
@@ -71,10 +68,9 @@ foreach ($json in $packages) {
         if ($null -eq $package.custom_script) {
             # if prerelease is not set, then it is set to false, by default
             if ($null -eq $package.prerelease) { $prerelease = $false } else { $prerelease = $package.is_prerelease }
+            
             # Check update is available for this package using tag_name and last_checked_tag
             if ($result.prerelease -eq $prerelease -and $result.tag_name -gt $package.last_checked_tag) {
-                Write-Host -ForegroundColor Green "Found update for`: $($package.pkgid)"
-                
                 # Get download urls using regex pattern and add to array
                 foreach ($asset in $result.assets) {
                     if ($asset.name -match $package.asset_regex) {
@@ -82,20 +78,20 @@ foreach ($json in $packages) {
                     }
                 }
 
-                # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
-                switch -regex ($package.version_method) {
-                    "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
-                    "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
-                    "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
-                    "audacity" { $version = "$($result.tag_name.TrimStart("Audacity-"))"; break }
-                    "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
-                    default { $version = $result.tag_name.TrimStart("v"); break }
-                }
-
                 # Check if urls are found, if true, update manifest and json
                 if ($null -eq $urls) {
+                    # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
+                    switch -regex ($package.version_method) {
+                        "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
+                        "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
+                        "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
+                        "audacity" { $version = "$($result.tag_name.TrimStart("Audacity-"))"; break }
+                        "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
+                        default { $version = $result.tag_name.TrimStart("v"); break }
+                    }
+
                     # Print update information, generate and submit manifests, updates json
-                    Update-ManifestAndJson $package.pkgid $version $urls.ToArray()
+                    Update-PackageManifest $package.pkgid $version $urls.ToArray()
                 }
             }
             else
