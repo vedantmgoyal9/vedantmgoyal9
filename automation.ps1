@@ -68,10 +68,10 @@ foreach ($json in $packages) {
     $package = Get-Content $json | ConvertFrom-Json
     $urls.Clear()
     $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
-    if (-not $package.custom_script -eq $null) {
+    if ($null -eq $package.custom_script) {
         # if prerelease is not set, then it is set to false, by default
         if ($null -eq $package.prerelease) { $prerelease = $false } else { $prerelease = $package.is_prerelease }
-        if ($result.prerelease -eq $prerelease -and $result.tag_name -gt $package.last_checked_tag) {
+        if ($result.prerelease -eq $prerelease -and $result.tag_name -gt $package.last_checked_tag -and $null -eq $package.skip) {
             Write-Host -ForegroundColor Green "Found update for`: $($package.pkgid)"
             
             # Get download urls using regex pattern and add to array
@@ -82,7 +82,7 @@ foreach ($json in $packages) {
             }
 
             # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
-            switch ($package.version_method) {
+            switch -regex ($package.version_method) {
                 "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
                 "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
                 "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
@@ -93,6 +93,10 @@ foreach ($json in $packages) {
 
             # Print update information, generate and submit manifests, updates json
             Update-ManifestAndJson $package.pkgid $version $urls.ToArray()
+        }
+        elseif ($package.skip)
+        {
+            Write-Host -ForegroundColor 'DarkYellow' "Package ignored`: $($package.skip)"
         }
         else
         {
