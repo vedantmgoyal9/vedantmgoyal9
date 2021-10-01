@@ -1,10 +1,11 @@
 {
-    "$id": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/schema.json",
+    "$id": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
     "$schema": "http://json-schema.org/draft-07/schema",
     "default": {},
     "description": "JSON schema for package.json files in this repository.",
     "examples": [
         {
+            "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
             "pkgid": "chrisant996.Clink",
             "repo": "chrisant996/clink",
             "last_checked_tag": "v1.2.35",
@@ -16,6 +17,7 @@
         }
     ],
     "required": [
+        "$schema",
         "pkgid",
         "repo",
         "last_checked_tag",
@@ -27,6 +29,18 @@
     ],
     "type": "object",
     "properties": {
+        "$schema": {
+            "$id": "#/properties/%24schema",
+            "default": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+            "description": "The schema of the JSON files in this repository.",
+            "examples": [
+                "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json"
+            ],
+            "enum": [
+                "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json"
+            ],
+            "type": "string"
+        },
         "pkgid": {
             "$id": "#/properties/pkgid",
             "default": "",
