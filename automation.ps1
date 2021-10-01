@@ -78,7 +78,7 @@ foreach ($json in $packages) {
             }
             
             # Check if urls are found, if true, update manifest and json
-            if ($null -eq $urls) {
+            if ($urls -gt 0) {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
                 switch -regex ($package.version_method) {
                     "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
@@ -90,7 +90,9 @@ foreach ($json in $packages) {
                 }
                 
                 # Print update information, generate and submit manifests, updates the last_checked_tag in json
+                Write-Host -ForegroundColor Green "----------------------------------------------------"
                 Update-PackageManifest $package.pkgid $version $urls.ToArray()
+                Write-Host -ForegroundColor Green "----------------------------------------------------"
                 $package.last_checked_tag = $result.tag_name
                 $package | ConvertTo-Json > $json
             }
@@ -102,7 +104,7 @@ foreach ($json in $packages) {
     }
     elseif ($package.skip)
     {
-        Write-Host -ForegroundColor 'DarkYellow' "Package ignored`: $($package.skip)"
+        Write-Host -ForegroundColor 'DarkYellow' "Package ignored`: $($package.pkgid) [Reason`: $($package.skip)]"
     }
     elseif ($package.custom_script)
     {
