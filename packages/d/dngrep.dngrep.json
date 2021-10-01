@@ -2,5 +2,9 @@
   "pkgid": "dnGrep.dnGrep",
   "repo": "dnGrep/dnGrep",
   "last_checked_tag": "v2.9.400.0",
-  "asset_regex": ".*(x64|x86).msi$"
+  "asset_regex": ".*(x64|x86).msi$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

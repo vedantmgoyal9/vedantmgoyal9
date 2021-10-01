@@ -2,5 +2,9 @@
   "pkgid": "chrdavis.smartrename",
   "repo": "chrdavis/SmartRename",
   "last_checked_tag": "v.1.1.2",
-  "asset_regex": ".*.msi$"
+  "asset_regex": ".*.msi$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

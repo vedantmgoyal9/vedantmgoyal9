@@ -2,5 +2,9 @@
   "pkgid": "CondaForge.Miniforge3",
   "repo": "conda-forge/miniforge",
   "last_checked_tag": "4.10.3-6",
-  "asset_regex": "Miniforge3-.*-Windows-x86_64.exe$"
+  "asset_regex": "Miniforge3-.*-Windows-x86_64.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

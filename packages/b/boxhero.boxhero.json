@@ -3,5 +3,8 @@
   "repo": "bgpworks/boxhero-electron",
   "last_checked_tag": "v1.0.0",
   "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
   "skip": "Not updated for a long period"
 }
