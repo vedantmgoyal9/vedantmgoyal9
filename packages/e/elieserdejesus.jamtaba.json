@@ -2,5 +2,9 @@
   "pkgid": "elieserdejesus.JamTaba",
   "repo": "elieserdejesus/JamTaba",
   "last_checked_tag": "v2.1.16",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

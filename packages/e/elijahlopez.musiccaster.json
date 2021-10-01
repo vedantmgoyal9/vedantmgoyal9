@@ -2,5 +2,9 @@
   "pkgid": "ElijahLopez.MusicCaster",
   "repo": "elibroftw/music-caster",
   "last_checked_tag": "v4.90.96",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }
