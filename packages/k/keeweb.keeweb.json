@@ -1,10 +1,10 @@
 {
-    "pkgid":  "KeeWeb.KeeWeb",
-    "repo":  "keeweb/keeweb",
-    "last_checked_tag":  "v1.18.7",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "KeeWeb.KeeWeb",
+  "repo": "keeweb/keeweb",
+  "last_checked_tag": "v1.18.7",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

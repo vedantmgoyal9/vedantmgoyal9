@@ -1,11 +1,10 @@
 {
-    "pkgid":  "chrisant996.Clink",
-    "repo":  "chrisant996/clink",
-    "last_checked_tag":  "v1.2.35",
-    "asset_regex":  ".exe",
-    "is_prerelease": false,
-    "version_method":  "clink",
-    "custom_script": null,
-    "skip": null
-    
+  "pkgid": "chrisant996.Clink",
+  "repo": "chrisant996/clink",
+  "last_checked_tag": "v1.2.35",
+  "asset_regex": ".exe",
+  "is_prerelease": false,
+  "version_method": "clink",
+  "custom_script": null,
+  "skip": null
 }

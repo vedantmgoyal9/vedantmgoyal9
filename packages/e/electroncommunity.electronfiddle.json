@@ -1,10 +1,10 @@
 {
-    "pkgid":  "ElectronCommunity.ElectronFiddle",
-    "repo":  "electron/fiddle",
-    "last_checked_tag":  "v0.26.0",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "ElectronCommunity.ElectronFiddle",
+  "repo": "electron/fiddle",
+  "last_checked_tag": "v0.26.0",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

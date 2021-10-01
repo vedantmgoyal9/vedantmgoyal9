@@ -1,10 +1,10 @@
 {
-    "pkgid":  "Stellarium.Stellarium",
-    "repo":  "Stellarium/stellarium",
-    "last_checked_tag":  "v0.21.2",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "Stellarium.Stellarium",
+  "repo": "Stellarium/stellarium",
+  "last_checked_tag": "v0.21.2",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

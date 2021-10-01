@@ -1,10 +1,10 @@
 {
-    "pkgid":  "LLVM.LLVM",
-    "repo":  "llvm/llvm-project",
-    "last_checked_tag":  "llvmorg-12.0.1",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "LLVM.LLVM",
+  "repo": "llvm/llvm-project",
+  "last_checked_tag": "llvmorg-12.0.1",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

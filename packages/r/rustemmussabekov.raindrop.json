@@ -1,10 +1,10 @@
 {
-    "pkgid":  "RustemMussabekov.Raindrop",
-    "repo":  "raindropio/desktop",
-    "last_checked_tag":  "v5.4.7",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "RustemMussabekov.Raindrop",
+  "repo": "raindropio/desktop",
+  "last_checked_tag": "v5.4.7",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }
