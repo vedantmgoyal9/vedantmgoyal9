@@ -2,5 +2,9 @@
   "pkgid": "Joplin.Joplin",
   "repo": "laurent22/joplin",
   "last_checked_tag": "v2.4.9",
-  "asset_regex": "Joplin-Setup*"
+  "asset_regex": "Joplin-Setup*",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

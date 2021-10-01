@@ -2,5 +2,9 @@
   "pkgid": "Fenrirthviti.obs-virtual-cam",
   "repo": "Fenrirthviti/obs-virtual-cam",
   "last_checked_tag": "2.0.5",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }
