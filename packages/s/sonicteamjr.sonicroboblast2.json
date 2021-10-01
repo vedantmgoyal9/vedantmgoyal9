@@ -2,5 +2,9 @@
   "pkgid": "SonicTeamJr.SonicRoboBlast2",
   "repo": "STJr/SRB2",
   "last_checked_tag": "SRB2_release_2.2.9",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

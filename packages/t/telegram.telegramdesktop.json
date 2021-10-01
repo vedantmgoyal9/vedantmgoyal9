@@ -2,5 +2,9 @@
     "pkgid":  "Telegram.TelegramDesktop",
     "repo":  "telegramdesktop/tdesktop",
     "last_checked_tag":  "v3.1.1",
-    "asset_regex":  "tsetup.*.exe$"
+    "asset_regex":  "tsetup.*.exe$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": null,
+    "skip": null
 }

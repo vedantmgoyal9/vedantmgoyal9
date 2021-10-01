@@ -2,5 +2,9 @@
     "pkgid": "vim.vim",
     "repo": "vim/vim-win32-installer",
     "last_checked_tag": "v8.2.3458",
-    "asset_regex": "gvim.*(x64|x86).exe$"
+    "asset_regex": "gvim.*(x64|x86).exe$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": null,
+    "skip": null
 }

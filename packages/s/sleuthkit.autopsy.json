@@ -2,5 +2,9 @@
   "pkgid": "SleuthKit.Autopsy",
   "repo": "sleuthkit/autopsy",
   "last_checked_tag": "autopsy-4.19.1",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

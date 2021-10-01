@@ -2,5 +2,9 @@
   "pkgid": "stax76.mpvdotnet",
   "repo": "stax76/mpv.net",
   "last_checked_tag": "5.4.9.0",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }
