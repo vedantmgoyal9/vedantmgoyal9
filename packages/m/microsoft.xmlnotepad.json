@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.XMLNotepad",
   "repo": "microsoft/XmlNotepad",
   "last_checked_tag": "2.8.0.46",

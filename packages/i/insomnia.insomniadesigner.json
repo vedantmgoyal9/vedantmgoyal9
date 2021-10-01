@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Insomnia.InsomniaDesigner",
   "repo": "Kong/insomnia",
   "last_checked_tag": "core@2021.5.3",

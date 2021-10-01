@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Git.Git",
   "repo": "git-for-windows/git",
   "last_checked_tag": "v2.33.0.windows.2",

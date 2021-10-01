@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Metriusz.BedwarsifyOverlay",
   "repo": "bedwarsify/bedwarsify-overlay",
   "last_checked_tag": "v1.12.3",

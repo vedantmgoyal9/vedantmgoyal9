@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "GilmarQuinelato.i18nManager",
   "repo": "gilmarsquinelato/i18n-manager",
   "last_checked_tag": "v5.5",

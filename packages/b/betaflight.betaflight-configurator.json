@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Betaflight.Betaflight-Configurator",
   "repo": "betaflight/betaflight-configurator",
   "last_checked_tag": "10.7.0",

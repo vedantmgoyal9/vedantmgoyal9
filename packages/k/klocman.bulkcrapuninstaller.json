@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Klocman.BulkCrapUninstaller",
   "repo": "Klocman/Bulk-Crap-Uninstaller",
   "last_checked_tag": "v5.1",

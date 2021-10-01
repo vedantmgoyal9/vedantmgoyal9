@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "listen1.listen1",
   "repo": "listen1/listen1_desktop",
   "last_checked_tag": "v2.21.6",

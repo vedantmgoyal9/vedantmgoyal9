@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ViGEm.ViGEmBus",
   "repo": "ViGEm/ViGEmBus",
   "last_checked_tag": "setup-v1.17.333",

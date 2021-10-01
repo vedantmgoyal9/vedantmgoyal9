@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "KDani-99.timetable",
   "repo": "KDani-99/school_timetable",
   "last_checked_tag": "1.2.0",
