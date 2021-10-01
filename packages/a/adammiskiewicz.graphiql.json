@@ -1,7 +1,11 @@
 {
+    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
     "pkgid": "AdamMiskiewicz.GraphiQL",
     "repo": "skevy/graphiql-app",
     "last_checked_tag": "v0.7.2",
     "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": null,
     "skip": "Not updated for a long period"
 }
