@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "notable.notable",
   "repo": "notable/notable",
   "last_checked_tag": "v1.8.4",

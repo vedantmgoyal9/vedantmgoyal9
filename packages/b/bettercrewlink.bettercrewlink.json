@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BetterCrewLink.BetterCrewLink",
   "repo": "OhMyGuus/BetterCrewLink",
   "last_checked_tag": "v2.8.0",

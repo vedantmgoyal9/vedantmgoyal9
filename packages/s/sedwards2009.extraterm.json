@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "sedwards2009.extraterm",
   "repo": "sedwards2009/extraterm",
   "last_checked_tag": "0",

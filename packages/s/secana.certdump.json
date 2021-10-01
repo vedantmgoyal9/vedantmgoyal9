@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "secana.CertDump",
   "repo": "secana/CertDump",
   "last_checked_tag": "v1.1.5",

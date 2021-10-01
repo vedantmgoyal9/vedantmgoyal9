@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Mumble.Mumble",
   "repo": "mumble-voip/mumble",
   "last_checked_tag": "1.2.8",

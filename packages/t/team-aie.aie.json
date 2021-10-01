@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "team-aie.aie",
   "repo": "team-aie/app",
   "last_checked_tag": "v0.15.5",

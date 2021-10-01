@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RileyTestut.AltServer",
   "repo": "koleon03/altserver-mirror",
   "last_checked_tag": "1.4.3",

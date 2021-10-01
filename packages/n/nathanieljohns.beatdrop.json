@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "NathanielJohns.Beatdrop",
   "repo": "StarGazer1258/BeatDrop",
   "last_checked_tag": "v2.6.2",

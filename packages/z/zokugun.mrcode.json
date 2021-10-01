@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "zokugun.MrCode",
   "repo": "zokugun/MrCode",
   "last_checked_tag": "1.60.0+21254",
