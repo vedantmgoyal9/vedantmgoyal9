@@ -2,5 +2,9 @@
   "pkgid": "notable.notable",
   "repo": "notable/notable",
   "last_checked_tag": "v1.8.4",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

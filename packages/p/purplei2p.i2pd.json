@@ -2,5 +2,9 @@
   "pkgid": "PurpleI2P.i2pd",
   "repo": "PurpleI2P/i2pd",
   "last_checked_tag": "2.39.0",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

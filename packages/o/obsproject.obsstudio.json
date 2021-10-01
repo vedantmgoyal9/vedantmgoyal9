@@ -2,5 +2,9 @@
   "pkgid": "OBSProject.OBSStudio",
   "repo": "obsproject/obs-studio",
   "last_checked_tag": "27.1.1",
-  "asset_regex": ".*.exe$"
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

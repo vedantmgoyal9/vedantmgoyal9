@@ -3,5 +3,8 @@
     "repo":  "PowerShell/PowerShell",
     "last_checked_tag":  "v7.1.4",
     "asset_regex":  ".*.msi$",
-    "version_method":  "powershell"
+    "is_prerelease": false,
+    "version_method": "powershell",
+    "custom_script": null,
+    "skip": null
 }

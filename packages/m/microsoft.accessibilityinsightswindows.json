@@ -2,5 +2,9 @@
     "pkgid":  "Microsoft.AccessibilityInsightsWindows",
     "repo":  "microsoft/accessibility-insights-windows",
     "last_checked_tag":  "v1.1.1689.01",
-    "asset_regex":  ".*.msi$"
+    "asset_regex":  ".*.msi$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": null,
+    "skip": null
 }

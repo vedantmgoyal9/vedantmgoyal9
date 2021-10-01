@@ -2,5 +2,9 @@
   "pkgid": "ModOrganizer2.modorganizer",
   "repo": "ModOrganizer2/modorganizer",
   "last_checked_tag": "v2.4.2",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }
