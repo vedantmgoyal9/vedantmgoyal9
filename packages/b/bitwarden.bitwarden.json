@@ -3,5 +3,9 @@
   "pkgid": "Bitwarden.Bitwarden",
   "repo": "bitwarden/desktop",
   "last_checked_tag": "v1.28.3",
-  "asset_regex": "Bitwarden-Installer.*.exe$"
+  "asset_regex": "Bitwarden-Installer.*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

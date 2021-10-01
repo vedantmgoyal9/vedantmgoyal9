@@ -4,5 +4,8 @@
   "repo": "audacity/audacity",
   "last_checked_tag": "Audacity-3.0.5",
   "asset_regex": ".*.exe$",
-  "version_method": "audacity"
+  "is_prerelease": false,
+  "version_method": "audacity",
+  "custom_script": null,
+  "skip": null
 }
