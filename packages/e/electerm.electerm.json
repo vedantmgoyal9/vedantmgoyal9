@@ -2,5 +2,9 @@
     "pkgid":  "electerm.electerm",
     "repo":  "electerm/electerm",
     "last_checked_tag":  "v1.16.11",
-    "asset_regex":  ".*.exe$"
+    "asset_regex":  ".*.exe$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": null,
+    "skip": null
 }
