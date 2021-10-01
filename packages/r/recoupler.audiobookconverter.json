@@ -2,5 +2,9 @@
   "pkgid": "Recoupler.AudioBookConverter",
   "repo": "yermak/AudioBookConverter",
   "last_checked_tag": "version_5.5.26",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

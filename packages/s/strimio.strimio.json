@@ -2,5 +2,9 @@
   "pkgid": "strimio.strimio",
   "repo": "strimio/strimio-desktop",
   "last_checked_tag": "v2.33.10",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

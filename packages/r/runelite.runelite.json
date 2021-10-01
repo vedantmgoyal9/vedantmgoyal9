@@ -2,5 +2,9 @@
     "pkgid":  "RuneLite.RuneLite",
     "repo":  "runelite/launcher",
     "last_checked_tag":  "2.2.0",
-    "asset_regex":  ".*.exe$"
+    "asset_regex":  ".*.exe$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": null,
+    "skip": null
 }
