@@ -54,63 +54,56 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    # .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
 }
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
 $urls = [System.Collections.ArrayList]::new()
 foreach ($json in $packages) {
     $package = Get-Content $json | ConvertFrom-Json
-    if ($null -eq $package.skip) {
-        $urls.Clear()
+    $urls.Clear()
+    if ($null -eq $package.skip -and $null -eq $package.custom_script) {
         $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
-        # Check if there is custom script for this package, if not, continue
-        if ($null -eq $package.custom_script) {
-            # if prerelease is not set, then it is set to false, by default
-            if ($null -eq $package.prerelease) { $prerelease = $false } else { $prerelease = $package.is_prerelease }
-            
-            # Check update is available for this package using tag_name and last_checked_tag
-            if ($result.prerelease -eq $prerelease -and $result.tag_name -gt $package.last_checked_tag) {
-                # Get download urls using regex pattern and add to array
-                foreach ($asset in $result.assets) {
-                    if ($asset.name -match $package.asset_regex) {
-                        $urls.Add($asset.browser_download_url) | Out-Null
-                    }
-                }
-
-                # Check if urls are found, if true, update manifest and json
-                if ($null -eq $urls) {
-                    # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
-                    switch -regex ($package.version_method) {
-                        "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
-                        "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
-                        "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
-                        "audacity" { $version = "$($result.tag_name.TrimStart("Audacity-"))"; break }
-                        "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
-                        default { $version = $result.tag_name.TrimStart("v"); break }
-                    }
-
-                    # Print update information, generate and submit manifests, updates the last_checked_tag in json
-                    Update-PackageManifest $package.pkgid $version $urls.ToArray()
-                    $package.last_checked_tag = $result.tag_name
-                    $package | ConvertTo-Json > $json
+        # Check update is available for this package using tag_name and last_checked_tag
+        if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag) {
+            # Get download urls using regex pattern and add to array
+            foreach ($asset in $result.assets) {
+                if ($asset.name -match $package.asset_regex) {
+                    $urls.Add($asset.browser_download_url) | Out-Null
                 }
             }
-            else
-            {
-                Write-Host -ForegroundColor 'DarkYellow' "No updates found for`: $($package.pkgid)"
+            
+            # Check if urls are found, if true, update manifest and json
+            if ($null -eq $urls) {
+                # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
+                switch -regex ($package.version_method) {
+                    "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
+                    "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
+                    "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
+                    "audacity" { $version = "$($result.tag_name.TrimStart("Audacity-"))"; break }
+                    "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
+                    default { $version = $result.tag_name.TrimStart("v"); break }
+                }
+                
+                # Print update information, generate and submit manifests, updates the last_checked_tag in json
+                Update-PackageManifest $package.pkgid $version $urls.ToArray()
+                $package.last_checked_tag = $result.tag_name
+                $package | ConvertTo-Json > $json
             }
         }
         else
         {
-            # Custom script functionality is not yet implemented
-            # Write-Host -ForegroundColor Green "Found custom script for`: $($package.pkgid)"
-            # . .\($package.custom_script) # Add another period to pass variables to the script
+            Write-Host -ForegroundColor 'DarkYellow' "No updates found for`: $($package.pkgid)"
         }
     }
-    else
+    elseif ($package.skip)
     {
         Write-Host -ForegroundColor 'DarkYellow' "Package ignored`: $($package.skip)"
+    }
+    elseif ($package.custom_script)
+    {
+        # Custom script is not implemented yet
+        # Write-Host -ForegroundColor 'Green' "Found custom script`: $($package.custom_script)"
     }
 }
 
