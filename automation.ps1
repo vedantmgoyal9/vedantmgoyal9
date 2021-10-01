@@ -1,3 +1,6 @@
+# Set error action to continue
+$ErrorActionPreference = "Continue"
+
 # Hide progress bar of Invoke-WebRequest
 $ProgressPreference = 'SilentlyContinue'
 
