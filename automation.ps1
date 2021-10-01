@@ -32,6 +32,7 @@ git stash
 Set-Location $currentDir
 
 # YamlCreate Settings
+New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force
 @"
 TestManifestsInSandbox: never
 SaveToTemporaryFolder: never
