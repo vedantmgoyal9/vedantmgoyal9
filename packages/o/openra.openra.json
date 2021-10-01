@@ -2,5 +2,9 @@
   "pkgid": "OpenRA.OpenRA",
   "repo": "OpenRA/OpenRA",
   "last_checked_tag": "release-20210321",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

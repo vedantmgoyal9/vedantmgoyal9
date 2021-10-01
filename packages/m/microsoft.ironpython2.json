@@ -2,5 +2,9 @@
   "pkgid": "Microsoft.Ironpython2",
   "repo": "IronLanguages/ironpython2",
   "last_checked_tag": "ipy-2.7.11",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }
