@@ -3,5 +3,8 @@
   "repo": "laurent22/joplin",
   "last_checked_tag": "v2.4.9",
   "asset_regex": "Joplin-Setup*",
-  "is_prerelease": "true"
+  "is_prerelease": true,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

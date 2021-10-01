@@ -2,5 +2,9 @@
     "pkgid":  "Google.IAPDesktop",
     "repo":  "GoogleCloudPlatform/iap-desktop",
     "last_checked_tag":  "2.21.681",
-    "asset_regex":  ".*.msi$"
+    "asset_regex":  ".*.msi$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": null,
+    "skip": null
 }

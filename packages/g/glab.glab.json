@@ -2,5 +2,9 @@
   "pkgid": "GLab.GLab",
   "repo": "profclems/glab",
   "last_checked_tag": "v1.21.1",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

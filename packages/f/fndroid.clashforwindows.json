@@ -2,5 +2,9 @@
   "pkgid": "Fndroid.ClashForWindows",
   "repo": "Fndroid/clash_for_windows_pkg",
   "last_checked_tag": "0.18.3",
-  "asset_regex": ".*.exe$"
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }
