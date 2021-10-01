@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "FrancescoSorge.PasteIntoFile",
   "repo": "sorge13248/PasteIntoFile",
   "last_checked_tag": "v2.0",

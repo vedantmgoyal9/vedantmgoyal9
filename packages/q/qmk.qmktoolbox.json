@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "QMK.QMKToolbox",
   "repo": "qmk/qmk_toolbox",
   "last_checked_tag": "0",

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "KoushikNaskar.InteractiveDataEditor",
   "repo": "Koushikphy/Interactive_Data_Editor",
   "last_checked_tag": "v2.9.2",

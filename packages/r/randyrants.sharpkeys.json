@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RandyRants.SharpKeys",
   "repo": "randyrants/sharpkeys",
   "last_checked_tag": "v3.9.2",

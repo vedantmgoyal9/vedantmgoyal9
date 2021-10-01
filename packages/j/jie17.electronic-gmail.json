@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "jie17.electronic-gmail",
   "repo": "jie17/electronic-gmail",
   "last_checked_tag": "v0.0.18",

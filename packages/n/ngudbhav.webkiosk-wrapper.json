@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ngudbhav.Webkiosk-Wrapper",
   "repo": "ngudbhav/Webkiosk-Wrapper",
   "last_checked_tag": "v1.1.3",

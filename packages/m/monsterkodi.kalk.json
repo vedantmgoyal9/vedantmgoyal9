@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "monsterkodi.kalk",
   "repo": "monsterkodi/kalk",
   "last_checked_tag": "v0.16.0",

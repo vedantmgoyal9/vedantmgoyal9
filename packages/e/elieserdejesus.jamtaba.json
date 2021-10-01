@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "elieserdejesus.JamTaba",
   "repo": "elieserdejesus/JamTaba",
   "last_checked_tag": "v2.1.16",

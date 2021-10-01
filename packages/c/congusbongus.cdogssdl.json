@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "CongusBongus.CDogsSDL",
   "repo": "cxong/cdogs-sdl",
   "last_checked_tag": "1.1.0",

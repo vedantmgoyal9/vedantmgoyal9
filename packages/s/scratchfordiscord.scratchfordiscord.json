@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ScratchForDiscord.ScratchForDiscord",
   "repo": "scratch-for-discord/scratch-for-discord-app",
   "last_checked_tag": "v2.0.0-dev.12",

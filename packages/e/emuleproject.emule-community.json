@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "eMuleProject.eMule-community",
   "repo": "irwir/eMule",
   "last_checked_tag": "eMule_v0.60c-community",

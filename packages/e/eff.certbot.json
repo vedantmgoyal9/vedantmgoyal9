@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "EFF.Certbot",
   "repo": "certbot/certbot",
   "last_checked_tag": "v1.19.0",

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Henry++.MemReduct",
   "repo": "henrypp/memreduct",
   "last_checked_tag": "v.3.3.5",
