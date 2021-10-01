@@ -2,5 +2,9 @@
   "pkgid": "cangzhang.champ-r",
   "repo": "cangzhang/champ-r",
   "last_checked_tag": "v1.1.6",
-  "asset_regex": ".*.exe$"
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

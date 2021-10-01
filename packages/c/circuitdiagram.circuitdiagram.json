@@ -2,5 +2,9 @@
     "pkgid": "CircuitDiagram.CircuitDiagram",
     "repo": "circuitdiagram/circuitdiagram",
     "last_checked_tag": "v3.1",
-    "asset_regex": ".*.exe$"
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": null,
+    "skip": null
 }

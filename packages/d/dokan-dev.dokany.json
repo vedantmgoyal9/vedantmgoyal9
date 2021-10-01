@@ -2,5 +2,9 @@
   "pkgid": "dokan-dev.Dokany",
   "repo": "dokan-dev/dokany",
   "last_checked_tag": "v1.5.0.3000",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

@@ -2,5 +2,9 @@
   "pkgid": "dotenorio.clipboard-manager-electron",
   "repo": "dotenorio/clipboard-manager-electron",
   "last_checked_tag": "v3.6.5",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

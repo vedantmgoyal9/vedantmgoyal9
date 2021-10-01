@@ -3,5 +3,8 @@
   "repo": "brave/brave-browser",
   "last_checked_tag": "v1.31.67",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
   "skip": "Requires custom script"
 }

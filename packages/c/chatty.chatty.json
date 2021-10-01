@@ -2,5 +2,9 @@
     "pkgid": "Chatty.Chatty",
     "repo": "chatty/chatty",
     "last_checked_tag": "v0.15",
-    "asset_regex": ".*standalone_setup.exe$"
+    "asset_regex": ".*standalone_setup.exe$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": null,
+    "skip": null
 }

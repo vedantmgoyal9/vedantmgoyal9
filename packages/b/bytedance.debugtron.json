@@ -2,5 +2,9 @@
   "pkgid": "ByteDance.Debugtron",
   "repo": "bytedance/debugtron",
   "last_checked_tag": "v0.5.0",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

@@ -2,5 +2,9 @@
   "pkgid": "BornToBeRoot.NETworkManager",
   "repo": "BornToBeRoot/NETworkManager",
   "last_checked_tag": "2021.9.5.0",
-  "asset_regex": ".*.exe$"
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }
