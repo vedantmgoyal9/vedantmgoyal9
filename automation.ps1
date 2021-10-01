@@ -78,7 +78,7 @@ foreach ($json in $packages) {
             }
             
             # Check if urls are found, if true, update manifest and json
-            if ($urls -gt 0) {
+            if ($urls.Count -gt 0) {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
                 switch -regex ($package.version_method) {
                     "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
