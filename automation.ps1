@@ -58,7 +58,8 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    # .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $Param_InstallerUrls
+    .\winget-pkgs\Tools\YamlCreate.ps1 $PackageIdentifier $PackageVersion 2 $InstallerUrls
 }
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
