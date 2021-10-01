@@ -1,10 +1,10 @@
 {
-    "pkgid": "ChrisKlimas.Twine",
-    "repo": "klembot/twinejs",
-    "last_checked_tag": "2.3.14",
-    "asset_regex": ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "ChrisKlimas.Twine",
+  "repo": "klembot/twinejs",
+  "last_checked_tag": "2.3.14",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

@@ -1,11 +1,11 @@
 {
-    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AshishBharadwajJ.Flawesome",
-    "repo": "ashishBharadwaj/flawesome",
-    "last_checked_tag": "v0.2.3",
-    "asset_regex": ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "repo": "ashishBharadwaj/flawesome",
+  "last_checked_tag": "v0.2.3",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

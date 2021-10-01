@@ -1,10 +1,10 @@
 {
-    "pkgid": "Cryptomator.Cryptomator",
-    "repo": "cryptomator/cryptomator",
-    "last_checked_tag": "1.5.19",
-    "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "Cryptomator.Cryptomator",
+  "repo": "cryptomator/cryptomator",
+  "last_checked_tag": "1.5.19",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

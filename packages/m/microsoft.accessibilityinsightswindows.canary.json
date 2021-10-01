@@ -1,10 +1,10 @@
 {
-    "pkgid":  "Microsoft.AccessibilityInsightsWindows.Canary",
-    "repo":  "microsoft/accessibility-insights-windows",
-    "last_checked_tag":  "v1.1.1730.01",
-    "asset_regex":  ".*.msi$",
-    "is_prerelease": true,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "Microsoft.AccessibilityInsightsWindows.Canary",
+  "repo": "microsoft/accessibility-insights-windows",
+  "last_checked_tag": "v1.1.1730.01",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": true,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

@@ -1,10 +1,10 @@
 {
-    "pkgid":  "ModernFlyouts.ModernFlyouts",
-    "repo":  "ModernFlyouts-Community/ModernFlyouts",
-    "last_checked_tag":  "0.9.3",
-    "asset_regex":  ".*.(m|M)sixbundle$",
-    "is_prerelease": false,
-    "version_method": "modernflyouts",
-    "custom_script": null,
-    "skip": null
+  "pkgid": "ModernFlyouts.ModernFlyouts",
+  "repo": "ModernFlyouts-Community/ModernFlyouts",
+  "last_checked_tag": "0.9.3",
+  "asset_regex": ".*.(m|M)sixbundle$",
+  "is_prerelease": false,
+  "version_method": "modernflyouts",
+  "custom_script": null,
+  "skip": null
 }

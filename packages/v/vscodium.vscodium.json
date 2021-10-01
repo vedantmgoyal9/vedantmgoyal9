@@ -1,10 +1,10 @@
 {
-    "pkgid":  "VSCodium.VSCodium",
-    "repo":  "VSCodium/vscodium",
-    "last_checked_tag":  "1.60.2",
-    "asset_regex":  ".exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "VSCodium.VSCodium",
+  "repo": "VSCodium/vscodium",
+  "last_checked_tag": "1.60.2",
+  "asset_regex": ".exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

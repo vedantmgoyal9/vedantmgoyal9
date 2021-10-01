@@ -1,10 +1,10 @@
 {
-    "pkgid":  "webrecorder.replayweb-page",
-    "repo":  "webrecorder/replayweb.page",
-    "last_checked_tag":  "v1.5.3",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "webrecorder.replayweb-page",
+  "repo": "webrecorder/replayweb.page",
+  "last_checked_tag": "v1.5.3",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

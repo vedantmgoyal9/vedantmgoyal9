@@ -1,10 +1,10 @@
 {
-    "pkgid":  "OpenShot.OpenShot",
-    "repo":  "OpenShot/openshot-qt",
-    "last_checked_tag":  "v2.6.1",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "OpenShot.OpenShot",
+  "repo": "OpenShot/openshot-qt",
+  "last_checked_tag": "v2.6.1",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

@@ -1,10 +1,10 @@
 {
-    "pkgid": "CopyTranslator.CopyTranslator",
-    "repo": "CopyTranslator/CopyTranslator",
-    "last_checked_tag": "v9.1.0",
-    "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "CopyTranslator.CopyTranslator",
+  "repo": "CopyTranslator/CopyTranslator",
+  "last_checked_tag": "v9.1.0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

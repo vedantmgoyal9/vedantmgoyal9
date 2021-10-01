@@ -1,10 +1,10 @@
 {
-    "pkgid":  "cryptofyre.AppleMusicElectron",
-    "repo":  "Apple-Music-Electron/Apple-Music-Electron",
-    "last_checked_tag":  "v2.5.0",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "cryptofyre.AppleMusicElectron",
+  "repo": "Apple-Music-Electron/Apple-Music-Electron",
+  "last_checked_tag": "v2.5.0",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

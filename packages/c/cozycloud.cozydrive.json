@@ -1,10 +1,10 @@
 {
-    "pkgid":  "CozyCloud.CozyDrive",
-    "repo":  "cozy-labs/cozy-desktop",
-    "last_checked_tag":  "v3.30.0",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "CozyCloud.CozyDrive",
+  "repo": "cozy-labs/cozy-desktop",
+  "last_checked_tag": "v3.30.0",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

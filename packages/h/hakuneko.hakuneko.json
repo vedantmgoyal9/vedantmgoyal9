@@ -1,10 +1,10 @@
 {
-    "pkgid":  "HakuNeko.HakuNeko",
-    "repo":  "manga-download/hakuneko",
-    "last_checked_tag":  "0",
-    "asset_regex":  ".(exe|msi|msix|appx)(bundle){0,1}$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "HakuNeko.HakuNeko",
+  "repo": "manga-download/hakuneko",
+  "last_checked_tag": "0",
+  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

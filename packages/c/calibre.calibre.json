@@ -1,10 +1,10 @@
 {
-    "pkgid": "calibre.calibre",
-    "repo": "kovidgoyal/calibre",
-    "last_checked_tag": "v5.28.0",
-    "asset_regex": ".*.msi$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "calibre.calibre",
+  "repo": "kovidgoyal/calibre",
+  "last_checked_tag": "v5.28.0",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

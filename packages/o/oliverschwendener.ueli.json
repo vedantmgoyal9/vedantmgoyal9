@@ -1,10 +1,10 @@
 {
-    "pkgid":  "OliverSchwendener.ueli",
-    "repo":  "oliverschwendener/ueli",
-    "last_checked_tag":  "v8.15.0",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "OliverSchwendener.ueli",
+  "repo": "oliverschwendener/ueli",
+  "last_checked_tag": "v8.15.0",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }

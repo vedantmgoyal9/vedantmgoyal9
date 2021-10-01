@@ -1,10 +1,10 @@
 {
-    "pkgid":  "tagspaces.tagspaces",
-    "repo":  "tagspaces/tagspaces",
-    "last_checked_tag":  "v3.11.9",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": null,
-    "skip": null
+  "pkgid": "tagspaces.tagspaces",
+  "repo": "tagspaces/tagspaces",
+  "last_checked_tag": "v3.11.9",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": null
 }
