@@ -24,17 +24,18 @@ jobs:
           $packages = Get-ChildItem .\packages\ -Recurse -File | Select-Object -Property Name,FullName
           foreach ($json in $packages) {
               $package = Get-Content -Raw -Path $json.FullName
-              if ((Test-Json -Json $package -SchemaFile ./schema.json) -eq $false) {
+              if ((Test-Json -Json $package -SchemaFile ./schema.json | Out-Null) -eq $false) {
                   $jsonWithError += $json.Name
               }
           }
           if ($jsonWithError.Count -gt 0) {
+              Write-Host "The following packages have errors:"
               foreach ($i in $jsonWithError) {
-                  Write-Host $i
+                  Write-Host "   $i" # Added spaces for indentation
               }
               exit 1
           }
           else
           {
-            Write-Host -ForegroundColor Green "All JSONS are valid."
+              Write-Host -ForegroundColor Green "All packages are valid!"
           }
