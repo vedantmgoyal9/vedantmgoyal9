@@ -1,21 +1,6 @@
 {
     "$id": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
     "$schema": "http://json-schema.org/draft-07/schema",
-    "default": {},
-    "description": "JSON schema for package.json files in this repository.",
-    "examples": [
-        {
-            "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-            "pkgid": "chrisant996.Clink",
-            "repo": "chrisant996/clink",
-            "last_checked_tag": "v1.2.35",
-            "asset_regex": ".*.exe$",
-            "is_prerelease": false,
-            "version_method": "clink",
-            "custom_script": null,
-            "skip": null
-        }
-    ],
     "required": [
         "$schema",
         "pkgid",
@@ -27,15 +12,11 @@
         "custom_script",
         "skip"
     ],
+    "title": "Schema for JSON files in this repository",
     "type": "object",
     "properties": {
         "$schema": {
             "$id": "#/properties/%24schema",
-            "default": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-            "description": "The schema of the JSON files in this repository.",
-            "examples": [
-                "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json"
-            ],
             "enum": [
                 "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json"
             ],
@@ -43,69 +24,33 @@
         },
         "pkgid": {
             "$id": "#/properties/pkgid",
-            "default": "",
-            "description": "PackageIdentifier of the package which is to be updated.",
-            "examples": [
-                "chrisant996.Clink"
-            ],
-            "type": "string"
+            "type": "string",
         },
         "repo": {
             "$id": "#/properties/repo",
-            "default": "",
-            "description": "The repository of the package.",
-            "examples": [
-                "chrisant996/clink"
-            ],
-            "type": "string"
+            "type": "string",
         },
         "last_checked_tag": {
             "$id": "#/properties/last_checked_tag",
-            "default": "",
-            "description": "Record the last_checked_tag and see if a new tag is available. If a new tag is available, it means an update is available.",
-            "examples": [
-                "v1.2.35"
-            ],
-            "type": "string"
+            "type": "string",
         },
         "asset_regex": {
             "$id": "#/properties/asset_regex",
-            "default": "",
-            "description": "Regular expressions to get the InstallerUrl",
-            "examples": [
-                ".*.exe$"
-            ],
-            "type": "string"
+            "type": "string",
         },
         "is_prerelease": {
             "$id": "#/properties/is_prerelease",
-            "default": false,
-            "description": "Specify whether the update will be from normal releases or pre-releases.",
-            "examples": [
-                false
-            ],
-            "type": "boolean"
+            "type": "boolean",
         },
         "version_method": {
             "$id": "#/properties/version_method",
-            "default": null,
-            "description": "If the package as different version in Add/Remove Programs (ARP) then specify how the version should be taken from the InstallerUrl, tag_name, etc.",
-            "examples": [
-                "clink",
-                null
-            ],
             "type": [
-                "string",
-                "null"
+                "null",
+                "string"
             ]
         },
         "custom_script": {
             "$id": "#/properties/custom_script",
-            "default": null,
-            "description": "To specify any custom_script for the package if it is not shipped through GitHub Releases or there are some other requirements.",
-            "examples": [
-                null
-            ],
             "type": [
                 "null",
                 "string"
@@ -113,16 +58,10 @@
         },
         "skip": {
             "$id": "#/properties/skip",
-            "default": null,
-            "description": "To skip certain packages from auto-updating with reason.",
-            "examples": [
-                null
-            ],
             "type": [
-                "null",
-                "string"
+                "string",
+                "boolean"
             ]
         }
-    },
-    "additionalProperties": false
+    }
 }
