@@ -23,6 +23,9 @@ gh repo clone microsoft/winget-pkgs
 $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools
 
+# Install YamlCreate dependencies
+Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
+
 # Get YamlCreate Unattended Script
 Write-Host -ForegroundColor Green "Copying YamlCreate.ps1 Unattended"
 Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
