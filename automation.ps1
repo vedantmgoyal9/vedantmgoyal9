@@ -9,6 +9,13 @@ $webclient.downloadfile("https://github.com/microsoft/winget-cli/releases/downlo
 Import-Module -Name Appx -UseWindowsPowershell
 Add-AppxPackage -Path Microsoft.VCLibs.x64.14.00.Desktop.appx
 Add-AppxPackage -Path Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+# winget command on windows server -------------------
+# Source: https://github.com/microsoft/winget-cli/issues/144#issuecomment-849108158
+Install-Module NtObjectManager -Force # Install NtObjectManager module
+$installationPath = (Get-AppxPackage Microsoft.DesktopAppInstaller).InstallLocation # Create reparse point
+Set-ExecutionAlias -Path "C:\Windows\System32\winget.exe" -PackageName "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" -EntryPoint "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget" -Target "$installationPath\AppInstallerCLI.exe" -AppType Desktop -Version 3
+explorer.exe "shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget"
+# ----------------------------------------------------
 Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
 Write-Host "Successfully installed winget and enabled local manifests."
 Get-Command winget
