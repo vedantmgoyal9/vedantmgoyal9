@@ -23,9 +23,8 @@ Write-Host "Successfully installed winget and enabled local manifests."
 gh repo clone microsoft/winget-pkgs -- --quiet # Clones the repository silently
 $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools # Change directory to Tools
-Invoke-WebRequest https://github.com/vedantmgoyal2009/winget-pkgs-automation/releases/download/v2.0.0-unattended/YamlCreate.ps1 -OutFile YamlCreate.ps1
-# Copy-Item -Path "$PSScriptRoot\YamlCreate\YamlCreate.ps1" -Destination "$PSScriptRoot\winget-pkgs\Tools\YamlCreate.ps1" # Copy YamlCreate.ps1 to Tools directory
-git stash # Stash changes
+Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+git commit --all -m "Update YamlCreate.ps1 v2.0.0-unattended" # Commit changes
 Set-Location $currentDir # Go back to previous working directory
 Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # Install powershell-yaml, required for YamlCreate.ps1
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force # Create Settings.yaml file
