@@ -7,5 +7,5 @@
   "is_prerelease": false,
   "version_method": "clink",
   "custom_script": null,
-  "skip": null
+  "skip": false
 }

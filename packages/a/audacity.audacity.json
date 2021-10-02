@@ -7,5 +7,5 @@
   "is_prerelease": false,
   "version_method": "audacity",
   "custom_script": null,
-  "skip": null
+  "skip": false
 }
