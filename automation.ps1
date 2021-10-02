@@ -19,7 +19,7 @@ Set-Location .\winget-pkgs\Tools # Change directory to Tools
 Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git stash # Stash changes
 Set-Location $currentDir # Go back to previous working directory
-Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
+Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # Install powershell-yaml, required for YamlCreate.ps1
 Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, installed dependencies for YamlCreate.ps1."
 
 # Set up API headers
