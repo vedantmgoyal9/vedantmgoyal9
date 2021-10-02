@@ -1,59 +1,32 @@
-# Set error action to continue
+# Set error action to continue, hide progress bar of webclient.downloadfile
 $ErrorActionPreference = "Continue"
-
-# Hide progress bar of Invoke-WebRequest
 $ProgressPreference = 'SilentlyContinue'
 
-# Install WinGet for validating manifests and finding SignatureSha256
+# Install winget and enable local manifests since microsoft/winget-cli#1453 is merged
 $webclient = New-Object System.Net.WebClient
 $webclient.downloadfile("https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx", "Microsoft.VCLibs.x64.14.00.Desktop.appx")
 $webclient.downloadfile("https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle", "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle")
 Import-Module -Name Appx -UseWindowsPowershell
 Add-AppxPackage -Path Microsoft.VCLibs.x64.14.00.Desktop.appx
 Add-AppxPackage -Path Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
-Write-Host "WinGet installed successfully"
-
-# Enable local manifests since microsoft/winget-cli#1453 is merged
 Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
+Write-Host "Successfully installed winget and enabled local manifests."
 
-# Clone forked repository
-gh repo clone microsoft/winget-pkgs
-
-# Jump into Tools directory
+# Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder of the repo, install dependencies for YamlCreate.ps1
+gh repo clone microsoft/winget-pkgs -- --quiet # Clones the repository silently
 $currentDir = Get-Location # Get current directory
-Set-Location .\winget-pkgs\Tools
-
-# Install YamlCreate dependencies
-Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
-
-# Get YamlCreate Unattended Script
-Write-Host -ForegroundColor Green "Copying YamlCreate.ps1 Unattended"
+Set-Location .\winget-pkgs\Tools # Change directory to Tools
 Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
-
-# Stash changes
-Write-Host -ForegroundColor Green "Stashing changes [YamlCreate.ps1]"
-git stash
-
-# Go to previous working directory
-Set-Location $currentDir
-
-# YamlCreate Settings
-New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null
-@"
-TestManifestsInSandbox: never
-SaveToTemporaryFolder: never
-AutoSubmitPRs: always
-SuppressQuickUpdateWarning: true
-"@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml | Out-Null
+git stash # Stash changes
+Set-Location $currentDir # Go back to previous working directory
+Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
+Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, installed dependencies for YamlCreate.ps1."
 
 # Set up API headers
 $header = @{
     Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:GITHUB_TOKEN"))
     Accept = 'application/vnd.github.v3+json'
 }
-
-# Path for calling YamlCreate.ps1 from Update-PackageManifest function
-$YamlCreatePath = (Resolve-Path ($PSScriptRoot.ToString() + "\winget-pkgs\Tools\YamlCreate.ps1")).ToString()
 
 Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
     # Prints update information, added spaces for indentation
@@ -64,7 +37,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    & $YamlCreatePath -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    .\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Param_InstallerUrls $InstallerUrls
 }
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
