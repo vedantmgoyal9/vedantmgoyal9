@@ -17,7 +17,8 @@ Get-Command winget
 gh repo clone microsoft/winget-pkgs -- --quiet # Clones the repository silently
 $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools # Change directory to Tools
-Copy-Item -Path "$PSScriptRoot\YamlCreate\YamlCreate.ps1" -Destination "$PSScriptRoot\winget-pkgs\Tools\YamlCreate.ps1" # Copy YamlCreate.ps1 to Tools directory
+$webclient.downloadfile("https://github.com/vedantmgoyal2009/winget-pkgs-automation/releases/download/v2.0.0-unattended/YamlCreate.ps1", "YamlCreate.ps1")
+# Copy-Item -Path "$PSScriptRoot\YamlCreate\YamlCreate.ps1" -Destination "$PSScriptRoot\winget-pkgs\Tools\YamlCreate.ps1" # Copy YamlCreate.ps1 to Tools directory
 git stash # Stash changes
 Set-Location $currentDir # Go back to previous working directory
 Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # Install powershell-yaml, required for YamlCreate.ps1
