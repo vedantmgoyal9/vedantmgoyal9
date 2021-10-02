@@ -63,7 +63,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
     # $YamlCreatePath = (Resolve-Path ($PSScriptRoot.ToString() + "\YamlCreate\YamlCreate.ps1")).ToString()
     Set-Location .\winget-pkgs\Tools
-    .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    . .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
     Set-Location $currentDir
 }
 
