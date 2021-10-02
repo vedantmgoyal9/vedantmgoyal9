@@ -52,6 +52,9 @@ $header = @{
     Accept = 'application/vnd.github.v3+json'
 }
 
+# Path for calling YamlCreate.ps1 from Update-PackageManifest function
+$YamlCreatePath = (Resolve-Path ($PSScriptRoot.ToString() + "\winget-pkgs\Tools\YamlCreate.ps1")).ToString()
+
 Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
     # Prints update information, added spaces for indentation
     Write-Host -ForegroundColor Green "Found update for`: $PackageIdentifier"
@@ -61,10 +64,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    # $YamlCreatePath = (Resolve-Path ($PSScriptRoot.ToString() + "\YamlCreate\YamlCreate.ps1")).ToString()
-    Set-Location .\winget-pkgs\Tools
-    . .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
-    Set-Location $currentDir
+    & $YamlCreatePath -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
 }
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
