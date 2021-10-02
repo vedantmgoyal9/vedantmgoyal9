@@ -18,7 +18,6 @@ explorer.exe "shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winge
 # ----------------------------------------------------
 Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
 Write-Host "Successfully installed winget and enabled local manifests."
-Get-Command winget
 
 # Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
 gh repo clone microsoft/winget-pkgs -- --quiet # Clones the repository silently
