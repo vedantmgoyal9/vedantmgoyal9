@@ -7,5 +7,5 @@
   "is_prerelease": false,
   "version_method": "modernflyouts",
   "custom_script": null,
-  "skip": null
+  "skip": false
 }
