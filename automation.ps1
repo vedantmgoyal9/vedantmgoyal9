@@ -21,6 +21,11 @@ git stash # Stash changes
 Set-Location $currentDir # Go back to previous working directory
 Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # Install powershell-yaml, required for YamlCreate.ps1
 Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, installed dependencies for YamlCreate.ps1."
+if (Compare-Object -ReferenceObject $currentDir\YamlCreate\YamlCreate.ps1 -DifferenceObject .\winget-pkgs\Tools\YamlCreate.ps1) {
+    Write-Host "YamlCreate.ps1 is different from the one in the repository. Please check if the script is up to date."
+} else {
+    Write-Host "YamlCreate.ps1 is up to date."
+}
 
 # Set up API headers
 $header = @{
