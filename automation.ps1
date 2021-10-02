@@ -12,15 +12,22 @@ Add-AppxPackage -Path Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
 Write-Host "Successfully installed winget and enabled local manifests."
 
-# Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder of the repo, install dependencies for YamlCreate.ps1
+# Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
 gh repo clone microsoft/winget-pkgs -- --quiet # Clones the repository silently
 $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools # Change directory to Tools
-Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+Copy-Item -Path $PSScriptRoot\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git stash # Stash changes
 Set-Location $currentDir # Go back to previous working directory
 Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # Install powershell-yaml, required for YamlCreate.ps1
-Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, installed dependencies for YamlCreate.ps1."
+New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force # Create Settings.yaml file
+@"
+TestManifestsInSandbox: never
+SaveToTemporaryFolder: never
+AutoSubmitPRs: always
+SuppressQuickUpdateWarning: true
+"@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml | Out-Null # YamlCreate settings
+Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, installed dependencies and set YamlCreate settings."
 if (Compare-Object -ReferenceObject $currentDir\YamlCreate\YamlCreate.ps1 -DifferenceObject .\winget-pkgs\Tools\YamlCreate.ps1) {
     Write-Host "YamlCreate.ps1 is different from the one in the repository. Please check if the script is up to date."
 } else {
