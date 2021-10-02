@@ -24,23 +24,23 @@
         },
         "pkgid": {
             "$id": "#/properties/pkgid",
-            "type": "string",
+            "type": "string"
         },
         "repo": {
             "$id": "#/properties/repo",
-            "type": "string",
+            "type": "string"
         },
         "last_checked_tag": {
             "$id": "#/properties/last_checked_tag",
-            "type": "string",
+            "type": "string"
         },
         "asset_regex": {
             "$id": "#/properties/asset_regex",
-            "type": "string",
+            "type": "string"
         },
         "is_prerelease": {
             "$id": "#/properties/is_prerelease",
-            "type": "boolean",
+            "type": "boolean"
         },
         "version_method": {
             "$id": "#/properties/version_method",
