@@ -29,7 +29,6 @@ Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -F
 # Get YamlCreate Unattended Script
 Write-Host -ForegroundColor Green "Copying YamlCreate.ps1 Unattended"
 Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
-$YamlCreatePath = (Resolve-Path ($PSScriptRoot.ToString() + "\YamlCreate\YamlCreate.ps1")).ToString()
 
 # Stash changes
 Write-Host -ForegroundColor Green "Stashing changes [YamlCreate.ps1]"
@@ -62,7 +61,10 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    & $YamlCreatePath -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    # $YamlCreatePath = (Resolve-Path ($PSScriptRoot.ToString() + "\YamlCreate\YamlCreate.ps1")).ToString()
+    Set-Location .\winget-pkgs\Tools
+    .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    Set-Location $currentDir
 }
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
