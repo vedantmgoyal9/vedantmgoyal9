@@ -35,7 +35,7 @@ git stash
 Set-Location $currentDir
 
 # YamlCreate Settings
-New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force
+New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null
 @"
 TestManifestsInSandbox: never
 SaveToTemporaryFolder: never
@@ -58,7 +58,8 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    Invoke-Expression ".\winget-pkgs\Tools\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $Param_InstallerUrls"
+    Invoke-Expression $(".\winget-pkgs\Tools\YamlCreate.ps1" -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls)
+
 }
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
