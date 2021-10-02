@@ -39,3 +39,5 @@ If you are not able to create the JSON file, you can also open a [new issue](htt
 
 # Contributions
 This project welcomes contributions from the community. If you have any suggestions or bug reports, feel free to open a new issue and discuss about it there.
+
+Special thanks to [@Trenly](https://github.com/Trenly) for adding packages to the automation.
