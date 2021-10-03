@@ -25,10 +25,8 @@ git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.c
 git clone https://vedantmgoyal2009:$env:GITHUB_TOKEN@github.com/microsoft/winget-pkgs.git --quiet # Clones the repository silently
 $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools # Change directory to Tools
-# Set origin and upstream of winget-pkgs repo---------
-git remote rename origin upstream
-git remote add origin https://github.com/vedantmgoyal2009/winget-pkgs.git
-# ----------------------------------------------------
+git remote rename origin upstream # Rename origin to upstream
+git remote add origin https://github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
 Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git commit --all -m "Update YamlCreate.ps1 v2.0.0-unattended" # Commit changes
 Set-Location $currentDir # Go back to previous working directory
@@ -76,9 +74,8 @@ foreach ($json in $packages) {
                 if ($asset.name -match $package.asset_regex) {
                     $urls.Add($asset.browser_download_url) | Out-Null
                 }
-            }
-            
-            # Check if urls are found, if true, update manifest and json
+            }            
+            # Check if urls are found and if so, update package manifest and json
             if ($urls.Count -gt 0) {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
                 switch -regex ($package.version_method) {
@@ -88,14 +85,13 @@ foreach ($json in $packages) {
                     "audacity" { $version = "$($result.tag_name.TrimStart("Audacity-"))"; break }
                     "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
                     default { $version = $result.tag_name.TrimStart("v"); break }
-                }
-                
+                }                
                 # Print update information, generate and submit manifests, updates the last_checked_tag in json
                 Write-Host -ForegroundColor Green "----------------------------------------------------"
                 Update-PackageManifest $package.pkgid $version $urls.ToArray()
-                Write-Host -ForegroundColor Green "----------------------------------------------------"
                 $package.last_checked_tag = $result.tag_name
                 $package | ConvertTo-Json > $json
+                Write-Host -ForegroundColor Green "----------------------------------------------------"
             }
         }
         else
