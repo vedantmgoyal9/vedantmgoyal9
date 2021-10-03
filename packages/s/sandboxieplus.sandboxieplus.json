@@ -3,9 +3,9 @@
   "pkgid": "SandboxiePlus.SandboxiePlus",
   "repo": "sandboxie-plus/Sandboxie",
   "last_checked_tag": "0.9.6",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": "Sandboxie-Plus.*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": null,
-  "skip": "Requires custom script"
+  "skip": false
 }
