@@ -22,6 +22,7 @@ jobs:
         shell: pwsh
         run: |
           $packages = Get-ChildItem .\packages\ -Recurse -File | Select-Object -Property Name,FullName
+          $jsonWithError = @()
           foreach ($json in $packages) {
               $package = Get-Content -Raw -Path $json.FullName
               if ((Test-Json -Json $package -SchemaFile ./schema.json | Out-Null) -eq $false) {
