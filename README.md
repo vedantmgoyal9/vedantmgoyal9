@@ -6,7 +6,7 @@ This project is for auto-updating manifests of packages that are shipped through
 [![Automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/automation.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/automation.yml)
 [![Check Download Urls](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/check-download-urls.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/check-download-urls.yml)
 
-# How this project works?
+# How does this project works?
 This project has two main things:
 
 1. **JSON files**: These files contain important information about packages. They contain the following information:
