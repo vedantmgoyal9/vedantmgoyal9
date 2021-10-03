@@ -28,27 +28,25 @@ jobs:
           $workingDir = Get-Location
           $ErrorActionPreference = 'Continue'
           git clone https://github.com/microsoft/winget-pkgs.git
+          <#
+          Write-Host "Counting Download URLs..."
+          "Counting Download URLs..." | Out-File -Append -FilePath $workingDir/a-myScript.txt
+          $DownUrls = 0
+          Foreach($a in (Get-ChildItem -Path "$workingDir/winget-pkgs/manifests" -Directory -Recurse | Where-Object { (Get-ChildItem -Directory -Path $_).Count -eq 0 } | Select-Object FullName | Sort-Object)) {
+            $DownUrls += (Get-ChildItem -Path $a.FullName).Count -eq 1 ? 1 : (Get-Content (Get-ChildItem -Path $a.FullName -Filter "*installer*" | Select-Object FullName).FullName | Select-String -Pattern "InstallerUrl:").Count
+          }
+          Write-Host "Total Download Urls`: $DownUrls"
+          "Total Download Urls`: $DownUrls" | Out-File -Append -FilePath $workingDir/a-myScript.txt
+          #>
           Write-Host "Checking Codes for Download URLs..."
           "Checking Codes for Download URLs..." | Out-File -Append -FilePath $workingDir/a-myScript.txt
           Foreach($i in (Get-ChildItem -Path "$workingDir/winget-pkgs/manifests" -Directory -Recurse | Where-Object { (Get-ChildItem -Directory -Path $_).Count -eq 0 } | Select-Object FullName | Sort-Object)) {
             Foreach ($Url in (((Get-ChildItem -Path $i.FullName).Count -eq 1) ? (Get-Content (Get-ChildItem -Path $i.FullName | Select-Object FullName).FullName | Select-String -Pattern "InstallerUrl:") : (Get-Content (Get-ChildItem -Path $i.FullName -Filter "*installer*" | Select-Object FullName).FullName | Select-String -Pattern "InstallerUrl:") | Foreach-Object {$_.ToString().Trim().TrimStart('-').TrimStart('#').Trim().TrimStart("InstallerUrl: ").Trim('"').Trim("'").Trim()})) {
               $ResponseCode = curl -s -o /dev/null --max-time 3 -w "%{http_code}" $Url
-              if (-not $Url.Contains("http://") -and $ResponseCode -notin @("200","301","302","303")) {
-                $output = "$ResponseCode`: $Url"
+              if ($ResponseCode -notin @("302","200","303","301") -or $Url.Contains("http://")) {
+                "$ResponseCode`: $Url" | Out-File -Append -FilePath $workingDir/a-myScript.txt
               }
-              elseif ($Url.Contains("http://")) {
-                if ($ResponseCode -notin @("200","301","302","303")) {
-                  $output = "$ResponseCode`: $Url"
-                }
-                else {
-                  $ResponseCodeWithHttps = curl -s -o /dev/null --max-time 3 -w "%{http_code}" $($Url -replace 'http://','https://')
-                  if (-not $ResponseCodeWithHttps -notin @("200","301","302","303")) {
-                    $output = "[HTTP/S] $ResponseCode`: $Url" #Print http code instead of https code
-                  }
-                }
-              }
-              $output | Out-File -Append -FilePath $workingDir/a-myScript.txt
-            }	
+            }
           }
           Write-Host "Completed!"
           "Completed!" | Out-File -Append -FilePath $workingDir/a-myScript.txt
