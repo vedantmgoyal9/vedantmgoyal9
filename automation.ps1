@@ -19,13 +19,16 @@ explorer.exe "shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winge
 Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
 Write-Host "Successfully installed winget and enabled local manifests."
 
-# Fork & clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
+# Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
 git config --global user.name 'winget-pkgs-automation' # Set git username
 git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com' # Set git email
-gh repo fork microsoft/winget-pkgs --clone=true --remote=true -- --quiet # Forks & clones the repository silently
+gh repo clone microsoft/winget-pkgs -- --quiet # Clones the repository silently
 $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools # Change directory to Tools
-git remote add upstream https://github.com/microsoft/winget-pkgs.git # Set upstream remote
+# Set origin and upstream of winget-pkgs repo---------
+git remote rename origin upstream
+git remote add origin https://github.com/vedantmgoyal2009/winget-pkgs.git
+# ----------------------------------------------------
 Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git commit --all -m "Update YamlCreate.ps1 v2.0.0-unattended" # Commit changes
 Set-Location $currentDir # Go back to previous working directory
