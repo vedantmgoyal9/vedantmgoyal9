@@ -24,12 +24,11 @@ jobs:
           $packages = Get-ChildItem .\packages\ -Recurse -File | Select-Object -Property Name,FullName
           foreach ($json in $packages) {
               $package = Get-Content -Raw -Path $json.FullName
-              if ((Test-Json -Json $package -SchemaFile ./schema.json) -eq $false) {
+              if ((Test-Json -Json $package -SchemaFile ./schema.json -ErrorAction SilentlyContinue) -eq $false) {
                   $jsonWithError += @($json.Name)
               }
           }
           if ($jsonWithError.Count -gt 0) {
-              Clear-Host
               Write-Host -ForegroundColor Red "The following packages have errors:"
               foreach ($i in $jsonWithError) {
                   Write-Host -ForegroundColor Red "   $i" # Added spaces for indentation
