@@ -25,6 +25,7 @@ git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.c
 gh repo fork microsoft/winget-pkgs --clone=true --remote=true -- --quiet # Forks & clones the repository silently
 $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools # Change directory to Tools
+git remote add upstream https://github.com/microsoft/winget-pkgs.git # Set upstream remote
 Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git commit --all -m "Update YamlCreate.ps1 v2.0.0-unattended" # Commit changes
 Set-Location $currentDir # Go back to previous working directory
