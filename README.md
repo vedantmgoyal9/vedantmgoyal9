@@ -22,7 +22,7 @@ This project has two main things:
 | custom_script | Custom script if the package can not be updated using the default method |
 | skip | If the package has not been updated for a long time, it can be skipped instead of removing the JSON file (this is useful to keep a record of packages that are skipped by the script) |
 
-2. **PowerShell scripts**: This is the main component of this project which are used to update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs). The script is executed by a cron job **every hour**.
+2. **PowerShell scripts**: These are used to update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs). The script is executed by a cron job **every hour**.
 
 The [automation.ps1](https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/automation.ps1) script imports the JSON files and check if a new release is available for the package using GitHub API. If a new release is available, the script calls the [YamlCreate.ps1](https://github.com/vedantmgoyal2009/winget-pkgs-automation/tree/main/YamlCreate) script to update the manifest for the given package.
 
