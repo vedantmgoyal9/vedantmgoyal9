@@ -2189,22 +2189,23 @@ if ($PromptSubmit -eq '0') {
     }
 
     # Fetch the upstream branch, create a commit onto the detached head, and push it to a new branch
-    git fetch upstream master --quiet
-    git switch -d upstream/master       
+    # git fetch upstream master --quiet
+    # git switch -d upstream/master       
     if ($LASTEXITCODE -eq '0') {
         $UniqueBranchID = $(Get-FileHash $script:LocaleManifestPath).Hash[0..6] -Join ""
         $BranchName = "$PackageIdentifier-$BranchVersion-$UniqueBranchID"
         # Git branch names cannot start with `.` cannot contain any of {`..`, `\`, `~`, `^`, `:`, ` `, `?`, `@{`, `[`}, and cannot end with {`/`, `.lock`, `.`}
         $BranchName =  $BranchName -replace '[\~,\^,\:,\\,\?,\@\{,\*,\[,\s]{1,}|[.lock|/|\.]*$|^\.{1,}|\.\.',""
+        git checkout -b $BranchName FETCH_HEAD --quiet # Added
         git add -A
         git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
-
-        git switch -c "$BranchName" --quiet
-        git push --set-upstream origin "$BranchName" --quiet
+        git push # Added
+        # git switch -c "$BranchName" --quiet
+        # git push --set-upstream origin "$BranchName" --quiet
 
         # If the user has the cli too
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {
-            gh pr create --body "Auto-updated by vedantmgoyal2009/winget-pkgs-automation" -f --base microsoft:master
+            gh pr create --body "Auto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation)" -f --base microsoft:master
             <#
             # Request the user to fill out the PR template
             if (Test-Path -Path "$PSScriptRoot\..\.github\PULL_REQUEST_TEMPLATE.md") {
@@ -2219,7 +2220,6 @@ if ($PromptSubmit -eq '0') {
             }
             #>
         }
-        
         git switch master --quiet
         git pull --quiet
     }
