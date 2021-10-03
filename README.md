@@ -9,7 +9,10 @@ This project is for auto-updating manifests of packages that are shipped through
 # How does this project works?
 This project has two main things:
 
-1. **JSON files**: These files contain important information about packages. They contain the following information:
+1. **PowerShell scripts**: These are used to update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs). The script is executed by a cron job **every hour**. <br> <br>
+The [automation.ps1](https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/automation.ps1) script imports the JSON files and check if a new release is available for the package using GitHub API. If a new release is available, the script calls the [YamlCreate.ps1](https://github.com/vedantmgoyal2009/winget-pkgs-automation/tree/main/YamlCreate) script to update the manifest for the given package.
+
+2. **JSON files**: These files contain important information about packages. They contain the following information:
 
 |  Key  | Description |
 | :---: | :--- |
@@ -21,10 +24,6 @@ This project has two main things:
 | version_method | Method to get the version of the package, if the packages uses a custom versioning scheme |
 | custom_script | Custom script if the package can not be updated using the default method |
 | skip | If the package has not been updated for a long time, it can be skipped instead of removing the JSON file (this is useful to keep a record of packages that are skipped by the script) |
-
-2. **PowerShell scripts**: These are used to update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs). The script is executed by a cron job **every hour**.
-
-The [automation.ps1](https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/automation.ps1) script imports the JSON files and check if a new release is available for the package using GitHub API. If a new release is available, the script calls the [YamlCreate.ps1](https://github.com/vedantmgoyal2009/winget-pkgs-automation/tree/main/YamlCreate) script to update the manifest for the given package.
 
 # How to add a package to the automation?
 To add a package to the automation, you need to create a JSON file under the path:
@@ -40,4 +39,4 @@ If you are not able to create the JSON file, you can also open a [new issue](htt
 # Contributions
 This project welcomes contributions from the community. If you have any suggestions or bug reports, feel free to open a new issue and discuss about it there.
 
-Special thanks to [**@Trenly**](https://github.com/Trenly) for suggesting improvements and adding new features to the project.
+**Special thanks to [@Trenly](https://github.com/Trenly) for suggesting improvements and adding new features to the project.**
