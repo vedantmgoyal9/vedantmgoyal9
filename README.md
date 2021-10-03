@@ -28,7 +28,7 @@ The [automation.ps1](https://github.com/vedantmgoyal2009/winget-pkgs-automation/
 # How to add a package to the automation?
 To add a package to the automation, you need to create a JSON file under the path:
 ```
-/packages/<first-name-of-publisher>/<packageidentifier>.json
+/packages/<first-letter-of-publisher>/<packageidentifier>.json
 ```
 > **Note**: The JSON file should follow the schema which can be found [here](https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/schema.json).
 
