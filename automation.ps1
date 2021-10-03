@@ -23,6 +23,7 @@ Write-Host "Successfully installed winget and enabled local manifests."
 git config --global user.name 'winget-pkgs-automation' # Set git username
 git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com' # Set git email
 gh repo fork microsoft/winget-pkgs --clone=true --remote=true -- --quiet # Forks & clones the repository silently
+git remote add upstream https://github.com/microsoft/winget-pkgs.git # Set upstream remote
 $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools # Change directory to Tools
 Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
