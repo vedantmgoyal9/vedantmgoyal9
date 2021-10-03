@@ -4,9 +4,9 @@ name: Automation
 
 # Controls when the workflow will run
 on:
-  #schedule:
+  schedule:
     # * is a special character in YAML so you have to quote this string
-  #  - cron: '*/30 * * * *'
+    - cron: '0 */2 * * *'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   
