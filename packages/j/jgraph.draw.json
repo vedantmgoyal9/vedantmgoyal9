@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JGraph.Draw",
   "repo": "jgraph/drawio-desktop",
-  "last_checked_tag": "v15.3.8",
+  "last_checked_tag": "v15.4.0",
   "asset_regex": ".*(windows|32bit)-installer.exe$",
   "is_prerelease": false,
   "version_method": null,
