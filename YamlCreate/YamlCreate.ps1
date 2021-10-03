@@ -2204,7 +2204,7 @@ if ($PromptSubmit -eq '0') {
 
         # If the user has the cli too
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {
-            gh pr create --body "Auto-updated by vedantmgoyal2009/winget-pkgs-automation" -f
+            gh pr create --body "Auto-updated by vedantmgoyal2009/winget-pkgs-automation" -f --base microsoft:master
             <#
             # Request the user to fill out the PR template
             if (Test-Path -Path "$PSScriptRoot\..\.github\PULL_REQUEST_TEMPLATE.md") {
