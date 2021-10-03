@@ -83,6 +83,7 @@ foreach ($json in $packages) {
                     "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
                     "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
                     "audacity" { $version = "$($result.tag_name.TrimStart("Audacity-"))"; break }
+                    "dosbox" { $version = "$($result.tag_name.TrimStart("dosbox-x-v"))"; break }
                     "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
                     default { $version = $result.tag_name.TrimStart("v"); break }
                 }                
