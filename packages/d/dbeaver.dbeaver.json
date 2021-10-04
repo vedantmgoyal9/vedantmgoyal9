@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "dbeaver.dbeaver",
   "repo": "dbeaver/dbeaver",
-  "last_checked_tag": "21.2.1",
+  "last_checked_tag": "21.2.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
