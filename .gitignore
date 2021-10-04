@@ -1,6 +1,9 @@
 # winget-pkgs repository
 /winget-pkgs/
 
-# winget installation
+# installing winget
 Microsoft.VCLibs.x64.14.00.Desktop.appx
 Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+
+# temporary script for testing something
+temp.ps1
