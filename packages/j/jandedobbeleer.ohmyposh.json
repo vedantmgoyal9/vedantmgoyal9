@@ -7,5 +7,6 @@
   "is_prerelease": false,
   "version_method": null,
   "custom_script": null,
-  "skip": "Developers publish their package"
+  "skip": "Developers publish their package",
+  "updated_through": "github-releases"
 }
