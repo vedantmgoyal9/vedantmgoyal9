@@ -7,6 +7,5 @@
   "is_prerelease": false,
   "version_method": null,
   "custom_script": null,
-  "skip": false,
-  "distributed_via": "github"
+  "skip": false
 }
