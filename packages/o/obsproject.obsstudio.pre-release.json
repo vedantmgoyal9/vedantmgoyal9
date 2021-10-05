@@ -4,7 +4,7 @@
   "repo": "obsproject/obs-studio",
   "last_checked_tag": "27.1.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "is_prerelease": false,
+  "is_prerelease": true,
   "version_method": null,
   "custom_script": null,
   "skip": false
