@@ -65,7 +65,7 @@ $urls = [System.Collections.ArrayList]::new()
 foreach ($json in $packages) {
     $package = Get-Content $json | ConvertFrom-Json
     $urls.Clear()
-    if ($package.skip -eq $false -and $null -eq $package.custom_script) {
+    if ($package.skip -eq $false -and $null -eq $package.custom_script -and $package.
         $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
         # Check update is available for this package using tag_name and last_checked_tag
         if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag) {
