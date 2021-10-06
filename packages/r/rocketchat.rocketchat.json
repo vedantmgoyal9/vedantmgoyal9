@@ -3,9 +3,9 @@
   "pkgid": "RocketChat.RocketChat",
   "repo": "RocketChat/Rocket.Chat.Electron",
   "last_checked_tag": "3.5.7",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": ".*.(exe|msi)$",
   "is_prerelease": false,
-  "version_method": null,
+  "version_method": "rocketchat",
   "custom_script": null,
   "skip": false,
   "updated_through": "github-releases"

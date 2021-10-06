@@ -3,9 +3,9 @@
   "pkgid": "MusicBrainz.Picard",
   "repo": "metabrainz/picard",
   "last_checked_tag": "release-2.6.4",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": "MusicBrainz-Picard-[0-9.]{3,5}.msix$",
   "is_prerelease": false,
-  "version_method": null,
+  "version_method": "picard",
   "custom_script": null,
   "skip": false,
   "updated_through": "github-releases"
