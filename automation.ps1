@@ -36,6 +36,7 @@ New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Forc
 TestManifestsInSandbox: never
 SaveToTemporaryFolder: never
 AutoSubmitPRs: always
+ContinueWithExistingPRs: never
 SuppressQuickUpdateWarning: true
 "@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
 Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, installed dependencies and set YamlCreate settings."
@@ -65,25 +66,32 @@ $urls = [System.Collections.ArrayList]::new()
 foreach ($json in $packages) {
     $package = Get-Content $json | ConvertFrom-Json
     $urls.Clear()
-    if ($package.skip -eq $false -and $null -eq $package.custom_script) {
+    if ($package.updated_through -eq "github-releases" -and $package.skip -eq $false -and $null -eq $package.custom_script)
+    {
         $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
         # Check update is available for this package using tag_name and last_checked_tag
-        if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag) {
+        if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag)
+        {
             # Get download urls using regex pattern and add to array
-            foreach ($asset in $result.assets) {
-                if ($asset.name -match $package.asset_regex) {
+            foreach ($asset in $result.assets)
+            {
+                if ($asset.name -match $package.asset_regex)
+                {
                     $urls.Add($asset.browser_download_url) | Out-Null
                 }
             }            
             # Check if urls are found and if so, update package manifest and json
-            if ($urls.Count -gt 0) {
+            if ($urls.Count -gt 0)
+            {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
-                switch -regex ($package.version_method) {
-                    "jackett|powershell|modernflyouts" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
+                switch -regex ($package.version_method)
+                {
+                    "jackett|powershell|modernflyouts|rocketchat" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
                     "sandboxie-classic" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]{2}\.[0-9]").Matches.Value; break }
                     "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
                     "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
                     "audacity" { $version = "$($result.tag_name.TrimStart("Audacity-"))"; break }
+                    "picard" { $version = "$($result.tag_name.TrimStart("release-"))0000.0"; break }
                     "dosbox" { $version = "$($result.tag_name.TrimStart("dosbox-x-v"))"; break }
                     "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
                     default { $version = $result.tag_name.TrimStart("v"); break }
@@ -100,6 +108,10 @@ foreach ($json in $packages) {
         {
             Write-Host -ForegroundColor 'DarkYellow' "No updates found for`: $($package.pkgid)"
         }
+    }
+    elseif ($package.updated_through -eq "rss-feeds" -and $package.skip -eq $false -and $null -eq $package.custom_script)
+    {
+        $feed = ([xml] $webclient.DownloadString($package.feed_url)).rss.channel.item
     }
     elseif ($package.skip)
     {
