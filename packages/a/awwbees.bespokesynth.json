@@ -7,5 +7,5 @@
   "is_prerelease": false,
   "version_method": null,
   "custom_script": null,
-  "skip": false
+  "skip": "API Returns empty array. Releases have no usable assets"
 }
