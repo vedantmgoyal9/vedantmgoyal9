@@ -62,7 +62,10 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
 $urls = [System.Collections.ArrayList]::new()
+$i = 0
+$cnt = $packages.Count
 foreach ($json in $packages) {
+    $i++
     $package = Get-Content $json | ConvertFrom-Json
     $urls.Clear()
     if ($package.skip -eq $false -and $null -eq $package.custom_script)
@@ -105,16 +108,16 @@ foreach ($json in $packages) {
         }
         else
         {
-            Write-Host -ForegroundColor 'DarkYellow' "No updates found for`: $($package.pkgid)"
+            Write-Host -ForegroundColor 'DarkYellow' "($i/$cnt) No updates found for`: $($package.pkgid)"
         }
     }
     elseif ($package.skip)
     {
-        Write-Host -ForegroundColor 'DarkYellow' "Package ignored`: $($package.pkgid) [Reason`: $($package.skip)]"
+        Write-Host -ForegroundColor 'DarkYellow' "($i/$cnt) Package ignored`: $($package.pkgid) [Reason`: $($package.skip)]"
     }
     elseif ($package.custom_script)
     {
-        Write-Host -ForegroundColor 'Green' "Found custom script`: $($package.custom_script)"
+        Write-Host -ForegroundColor 'Green' "($i/$cnt) Found custom script`: $($package.custom_script)"
         . .\$($package.custom_script)
         # Print update information, generate and submit manifests, updates the last_checked_tag in json
         Write-Host -ForegroundColor Green "----------------------------------------------------"
