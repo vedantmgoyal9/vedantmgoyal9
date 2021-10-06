@@ -53,7 +53,6 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Write-Host -ForegroundColor Green "   Version`: $PackageVersion"
     Write-Host -ForegroundColor Green "   Download Urls`:"
     foreach ($i in $InstallerUrls) { Write-Host -ForegroundColor Green "      $i" }
-    
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
     Set-Location .\winget-pkgs\Tools # Change directory to Tools
@@ -66,7 +65,7 @@ $urls = [System.Collections.ArrayList]::new()
 foreach ($json in $packages) {
     $package = Get-Content $json | ConvertFrom-Json
     $urls.Clear()
-    if ($package.updated_through -eq "github-releases" -and $package.skip -eq $false -and $null -eq $package.custom_script)
+    if ($package.skip -eq $false -and $null -eq $package.custom_script)
     {
         $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
         # Check update is available for this package using tag_name and last_checked_tag
@@ -109,18 +108,20 @@ foreach ($json in $packages) {
             Write-Host -ForegroundColor 'DarkYellow' "No updates found for`: $($package.pkgid)"
         }
     }
-    elseif ($package.updated_through -eq "rss-feeds" -and $package.skip -eq $false -and $null -eq $package.custom_script)
-    {
-        $feed = ([xml] $webclient.DownloadString($package.feed_url)).rss.channel.item
-    }
     elseif ($package.skip)
     {
         Write-Host -ForegroundColor 'DarkYellow' "Package ignored`: $($package.pkgid) [Reason`: $($package.skip)]"
     }
     elseif ($package.custom_script)
     {
-        # Custom script is not implemented yet
-        # Write-Host -ForegroundColor 'Green' "Found custom script`: $($package.custom_script)"
+        Write-Host -ForegroundColor 'Green' "Found custom script`: $($package.custom_script)"
+        . .\$($package.custom_script)
+        # Print update information, generate and submit manifests, updates the last_checked_tag in json
+        Write-Host -ForegroundColor Green "----------------------------------------------------"
+        Update-PackageManifest $package.pkgid $version $urls.ToArray()
+        $package.last_checked_tag = $version
+        $package | ConvertTo-Json > $json
+        Write-Host -ForegroundColor Green "----------------------------------------------------"
     }
 }
 
