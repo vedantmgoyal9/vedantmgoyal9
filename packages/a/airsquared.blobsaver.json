@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Airsquared.Blobsaver",
   "repo": "airsquared/blobsaver",
-  "last_checked_tag": "v3.0.3",
+  "last_checked_tag": "v3.0.4",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
