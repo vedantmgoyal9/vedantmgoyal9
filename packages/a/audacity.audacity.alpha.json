@@ -7,6 +7,5 @@
   "is_prerelease": true,
   "version_method": "audacity",
   "custom_script": null,
-  "skip": "Release candidates have same versions",
-  "updated_through": "github-releases"
+  "skip": "Release candidates have same versions"
 }

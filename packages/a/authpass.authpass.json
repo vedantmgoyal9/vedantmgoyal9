@@ -7,6 +7,5 @@
   "is_prerelease": false,
   "version_method": "authpass",
   "custom_script": null,
-  "skip": false,
-  "updated_through": "github-releases"
+  "skip": false
 }

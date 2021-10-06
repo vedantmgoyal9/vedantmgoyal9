@@ -7,6 +7,5 @@
   "is_prerelease": false,
   "version_method": null,
   "custom_script": null,
-  "skip": "Repository is archived",
-  "updated_through": "github-releases"
+  "skip": "Repository is archived"
 }
