@@ -1,11 +1,11 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "JetBrains.MPS",
-  "repo": "jetbrains-api",
-  "last_checked_tag": null,
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": null,
-  "custom_script": "custom_scripts/j/jetbrains.mps.ps1",
-  "skip": false
+    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+    "pkgid": "JetBrains.MPS",
+    "repo": "jetbrains-api",
+    "last_checked_tag": "211.7628.1405",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": "custom_scripts/j/jetbrains.mps.ps1",
+    "skip": false
 }
