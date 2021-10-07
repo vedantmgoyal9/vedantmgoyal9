@@ -1,11 +1,11 @@
 {
     "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid": "JetBrains.Hub",
+    "pkgid": "JetBrains.YouTrack",
     "repo": "jetbrains-api",
-    "last_checked_tag": "13553",
+    "last_checked_tag": "24402",
     "asset_regex": ".*.msi$",
     "is_prerelease": false,
     "version_method": null,
-    "custom_script": "custom_scripts/j/jetbrains.hub.ps1",
+    "custom_script": "custom_scripts/j/jetbrains.youtrack.ps1",
     "skip": false
 }
