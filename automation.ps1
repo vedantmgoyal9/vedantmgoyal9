@@ -47,7 +47,7 @@ $header = @{
     Accept = 'application/vnd.github.v3+json'
 }
 
-Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
+Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls, $last_checked_tag) {
     Write-Host -ForegroundColor Green "----------------------------------------------------"
     # Prints update information, added spaces for indentation
     Write-Host -ForegroundColor Green "[$Script:i/$Script:cnt] Found update for`: $PackageIdentifier"
@@ -60,7 +60,7 @@ Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $Installer
     .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
     Set-Location $currentDir # Go back to previous working directory
     # Update the last_checked_tag in json
-    $Script:package.last_checked_tag = $Script:result.tag_name
+    $Script:package.last_checked_tag = $last_checked_tag
     $Script:package | ConvertTo-Json > $Script:json
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
@@ -104,7 +104,7 @@ foreach ($json in $packages) {
                     default { $version = $result.tag_name.TrimStart("v"); break }
                 }                
                 # Print update information, generate and submit manifests, updates the last_checked_tag in json
-                Update-ManifestAndJson $package.pkgid $version $urls.ToArray()
+                Update-ManifestAndJson $package.pkgid $version $urls.ToArray() $result.tag_name
             }
         }
         else
@@ -122,7 +122,7 @@ foreach ($json in $packages) {
         if ($update_found -eq $true)
         {
             # Print update information, generate and submit manifests, updates the last_checked_tag in json
-            Update-ManifestAndJson $package.pkgid $version $urls.ToArray()
+            Update-ManifestAndJson $package.pkgid $version $urls.ToArray() $jsonTag
         }
         else
         {
