@@ -6,6 +6,6 @@
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
-  "custom_script": "custom_scripts/j/jetbrains.intellijidea.ultimate.eap.ps1",
+  "custom_script": "j/jetbrains.intellijidea.ultimate.eap.ps1",
   "skip": false
 }

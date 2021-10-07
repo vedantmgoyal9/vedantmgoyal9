@@ -1,12 +1,11 @@
 {
-    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid": "MasterPackager.MasterPackager",
-    "repo": "https://www.masterpackager.com/uploads/file_archive/version.txt",
-    "last_checked_tag": "21.2.7837",
-    "asset_regex": ".*.msi$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": "custom_scripts/m/masterpackager.masterpackager.ps1",
-    "skip": false
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "MasterPackager.MasterPackager",
+  "repo": "https://www.masterpackager.com/uploads/file_archive/version.txt",
+  "last_checked_tag": "21.2.7837",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": "asterpackager.masterpackager.ps1",
+  "skip": false
 }
-  

@@ -1,11 +1,11 @@
 {
-    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid": "JetBrains.DataSpell.EarlyPreview",
-    "repo": "jetbrains-api",
-    "last_checked_tag": "213.2094.12",
-    "asset_regex": ".*.exe$",
-    "is_prerelease": true,
-    "version_method": null,
-    "custom_script": "custom_scripts/j/jetbrains.dataspell.earlypreview.ps1",
-    "skip": false
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "JetBrains.DataSpell.EarlyPreview",
+  "repo": "jetbrains-api",
+  "last_checked_tag": "213.2094.12",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": true,
+  "version_method": null,
+  "custom_script": "j/jetbrains.dataspell.earlypreview.ps1",
+  "skip": false
 }
