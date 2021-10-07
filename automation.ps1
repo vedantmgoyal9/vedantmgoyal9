@@ -118,7 +118,7 @@ foreach ($json in $packages) {
     }
     elseif ($package.custom_script)
     {
-        . .\$($package.custom_script)
+        . .\custom_scripts\$($package.custom_script)
         if ($update_found -eq $true)
         {
             # Print update information, generate and submit manifests, updates the last_checked_tag in json
