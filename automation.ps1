@@ -47,9 +47,10 @@ $header = @{
     Accept = 'application/vnd.github.v3+json'
 }
 
-Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
+Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
+    Write-Host -ForegroundColor Green "----------------------------------------------------"
     # Prints update information, added spaces for indentation
-    Write-Host -ForegroundColor Green "Found update for`: $PackageIdentifier"
+    Write-Host -ForegroundColor Green "[$Script:i/$Script:cnt] Found update for`: $PackageIdentifier"
     Write-Host -ForegroundColor Green "   Version`: $PackageVersion"
     Write-Host -ForegroundColor Green "   Download Urls`:"
     foreach ($i in $InstallerUrls) { Write-Host -ForegroundColor Green "      $i" }
@@ -58,6 +59,10 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Set-Location .\winget-pkgs\Tools # Change directory to Tools
     .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
     Set-Location $currentDir # Go back to previous working directory
+    # Update the last_checked_tag in json
+    $Script:package.last_checked_tag = $Script:result.tag_name
+    $Script:package | ConvertTo-Json > $Script:json
+    Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
 $packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
@@ -99,32 +104,30 @@ foreach ($json in $packages) {
                     default { $version = $result.tag_name.TrimStart("v"); break }
                 }                
                 # Print update information, generate and submit manifests, updates the last_checked_tag in json
-                Write-Host -ForegroundColor Green "----------------------------------------------------"
-                Update-PackageManifest $package.pkgid $version $urls.ToArray()
-                $package.last_checked_tag = $result.tag_name
-                $package | ConvertTo-Json > $json
-                Write-Host -ForegroundColor Green "----------------------------------------------------"
+                Update-ManifestAndJson $package.pkgid $version $urls.ToArray()
             }
         }
         else
         {
-            Write-Host -ForegroundColor 'DarkYellow' "($i/$cnt) No updates found for`: $($package.pkgid)"
+            Write-Host -ForegroundColor 'DarkYellow' "[$i/$cnt] No updates found for`: $($package.pkgid)"
         }
     }
     elseif ($package.skip)
     {
-        Write-Host -ForegroundColor 'DarkYellow' "($i/$cnt) Package ignored`: $($package.pkgid) [Reason`: $($package.skip)]"
+        Write-Host -ForegroundColor 'DarkYellow' "[$i/$cnt] Package ignored`: $($package.pkgid) [Reason`: $($package.skip)]"
     }
     elseif ($package.custom_script)
     {
-        Write-Host -ForegroundColor 'Green' "($i/$cnt) Found custom script`: $($package.custom_script)"
         . .\$($package.custom_script)
-        # Print update information, generate and submit manifests, updates the last_checked_tag in json
-        Write-Host -ForegroundColor Green "----------------------------------------------------"
-        Update-PackageManifest $package.pkgid $version $urls.ToArray()
-        $package.last_checked_tag = $version
-        $package | ConvertTo-Json > $json
-        Write-Host -ForegroundColor Green "----------------------------------------------------"
+        if ($update_found -eq $true)
+        {
+            # Print update information, generate and submit manifests, updates the last_checked_tag in json
+            Update-ManifestAndJson $package.pkgid $version $urls.ToArray()
+        }
+        else
+        {
+            Write-Host -ForegroundColor 'DarkYellow' "[$i/$cnt] No updates found for`: $($package.pkgid)"
+        }
     }
 }
 
