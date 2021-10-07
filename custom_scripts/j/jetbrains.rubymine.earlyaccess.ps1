@@ -1,4 +1,4 @@
-$result = Invoke-WebRequest -Headers $header -Uri "https://data.services.jetbrains.com/products/releases?latest=true&type=eap&code=IIU" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -ExpandProperty IIU
+$result = Invoke-WebRequest -Headers $header -Uri "https://data.services.jetbrains.com/products/releases?latest=true&type=eap&code=RM" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -ExpandProperty RM
 if ($result.build -gt $package.last_checked_tag) {
     $version = $result.build
     $urls.Add($result.downloads.windows.link -replace "https://download.jetbrains.com","https://download-cdn.jetbrains.com")
