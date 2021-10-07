@@ -2,7 +2,8 @@ $result = Invoke-WebRequest -Headers $header -Uri "https://data.services.jetbrai
 if ($result.build -gt $package.last_checked_tag)
 {
     $update_found = $true
-    $version = $result.build
+    $version = "$($result.version.TrimStart('2').TrimStart('0')).$($result.build)"
+    $jsonTag = $result.build
     $urls.Add(($result.downloads.windows.link -replace "https://download.jetbrains.com","https://download-cdn.jetbrains.com")) | Out-Null
 }
 else
