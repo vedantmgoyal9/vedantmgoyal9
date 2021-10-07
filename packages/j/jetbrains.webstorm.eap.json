@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.WebStorm.EAP",
   "repo": "jetbrains-api",
-  "last_checked_tag": null,
+  "last_checked_tag": "213.4293.8",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
