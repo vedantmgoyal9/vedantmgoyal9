@@ -1,11 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "awwbees.BespokeSynth",
-  "repo": "awwbees/BespokeSynth",
+  "repo": "BespokeSynth/BespokeSynth",
   "last_checked_tag": "v1.0.0",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": null,
-  "skip": "API Returns empty array. Releases have no usable assets"
+  "skip": false
 }
