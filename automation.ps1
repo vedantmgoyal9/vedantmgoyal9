@@ -88,7 +88,7 @@ foreach ($json in $packages) {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
                 switch -regex ($package.version_method)
                 {
-                    "jackett|powershell|modernflyouts|rocketchat" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
+                    "jackett|powershell|modernflyouts|rocketchat|openrpa" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
                     "sandboxie-classic" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]{2}\.[0-9]").Matches.Value; break }
                     "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
                     "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
