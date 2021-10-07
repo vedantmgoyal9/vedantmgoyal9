@@ -1,11 +1,11 @@
 {
-    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid": "JetBrains.WebStorm.EAP",
-    "repo": "jetbrains-api",
-    "last_checked_tag": "212.4746.54",
-    "asset_regex": ".*.exe$",
-    "is_prerelease": true,
-    "version_method": null,
-    "custom_script": "custom_scripts/j/jetbrains.webstorm.eap.ps1",
-    "skip": false
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "JetBrains.WebStorm.EAP",
+  "repo": "jetbrains-api",
+  "last_checked_tag": null,
+  "asset_regex": ".*.exe$",
+  "is_prerelease": true,
+  "version_method": null,
+  "custom_script": "custom_scripts/j/jetbrains.webstorm.eap.ps1",
+  "skip": false
 }
