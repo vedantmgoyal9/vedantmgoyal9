@@ -8,7 +8,7 @@ if ($result.platform_releases.windows.date -gt $package.last_checked_tag)
     $suffix = "\?.*"
     $newSuffix = "/download"
     $jsonTag = $result.platform_releases.windows.date
-    $urls.Add((($result.platform_releases.windows.url -replace $prefix,$newPrefix) -replace $suffix,$newSuffix))
+    $urls.Add((($result.platform_releases.windows.url -replace $prefix,$newPrefix) -replace $suffix,$newSuffix)) | Out-Null
 }
 else
 {
