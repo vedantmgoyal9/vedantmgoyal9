@@ -1,0 +1,11 @@
+{
+    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+    "pkgid": "JetBrains.CLion",
+    "repo": "jetbrains-api",
+    "last_checked_tag": "212.5284.51",
+    "asset_regex": ".*.exe$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": "custom_scripts/j/jetbrains.clion.ps1",
+    "skip": false
+}
