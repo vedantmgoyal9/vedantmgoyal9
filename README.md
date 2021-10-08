@@ -1,5 +1,5 @@
 ## WinGet Manifests Automatic Updater
-This project is for auto-updating manifests of packages that are shipped through GitHub releases or have a decent API.
+This project is for auto-updating manifests of packages that are shipped through GitHub releases or have a decent API. You can see the **PackageIdentifier** of the packages which are auto-updated in [**packages.txt**](https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/packages.txt).
 > At this time, packages which are not shipped through the method described above are not supported for automatic updates. If you have some suggestions about automatic updation of manifests for those packages, don't hesitate to [open an issue](https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues/new?assignees=vedantmgoyal2009&labels=enhancement&template=new-feature-idea.md&title=%5BIDEA%5D) and describe your idea.
 
 ## Status
