@@ -6,6 +6,6 @@
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": "asterpackager.masterpackager.ps1",
+  "custom_script": "masterpackager.masterpackager.ps1",
   "skip": false
 }
