@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Validate JSON
+name: Pre-validation
 
 # Triggers the workflow on push or pull request events
 on: [push, pull_request]
@@ -22,15 +22,23 @@ jobs:
         shell: pwsh
         run: |
           $packages = Get-ChildItem .\packages\ -Recurse -File | Select-Object -Property Name,FullName
-          foreach ($json in $packages) {
+          foreach ($json in $packages)
+          {
               $package = Get-Content -Raw -Path $json.FullName
-              if ((Test-Json -Json $package -SchemaFile ./schema.json -ErrorAction SilentlyContinue) -eq $false) {
-                  $jsonWithError += @($json.Name)
+              if ((Test-Json -Json $package -SchemaFile ./schema.json -ErrorAction SilentlyContinue) -eq $true)
+              {
+                  $validJson += @($package | ConvertFrom-Json | Select-Object -Property pkgid)
+              }
+              else
+              {
+                  $invalidJson += @($json.Name)
               }
           }
-          if ($jsonWithError.Count -gt 0) {
+          if ($invalidJson.Count -gt 0)
+          {
               Write-Host -ForegroundColor Red "The following packages have errors:"
-              foreach ($i in $jsonWithError) {
+              foreach ($i in $invalidJson)
+              {
                   Write-Host -ForegroundColor Red "   $i" # Added spaces for indentation
               }
               exit 1
@@ -39,3 +47,10 @@ jobs:
           {
               Write-Host -ForegroundColor Green "All packages are valid!"
           }
+          Clear-Content -Path ./packages.txt
+          foreach ($PackageIdentifier in $validJson.pkgid | Sort-Object)
+          {
+              $PackageIdentifier | Out-File -Encoding UTF8 -Append -Path ./packages.txt
+          }
+          git commit -m "Update packages.txt" -- ./packages.txt
+          git push
