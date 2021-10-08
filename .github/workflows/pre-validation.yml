@@ -52,5 +52,7 @@ jobs:
           {
               $PackageIdentifier | Out-File -Encoding UTF8 -Append -Path ./packages.txt
           }
+          git config --global user.name 'winget-pkgs-automation'
+          git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com'
           git commit -m "Update packages.txt" -- ./packages.txt
           git push
