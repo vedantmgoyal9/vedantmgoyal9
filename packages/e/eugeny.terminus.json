@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Eugeny.Terminus",
   "repo": "Eugeny/tabby",
-  "last_checked_tag": "v1.0.158",
+  "last_checked_tag": "v1.0.159",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": null,
-  "skip": false
+  "skip": "Renamed to Eugeny.Terminus"
 }
