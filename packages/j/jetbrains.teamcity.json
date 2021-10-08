@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.TeamCity",
   "repo": "jetbrains-api",
-  "last_checked_tag": "92914",
+  "last_checked_tag": "92954",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
