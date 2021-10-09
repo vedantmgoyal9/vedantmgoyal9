@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OliverSchwendener.ueli",
   "repo": "oliverschwendener/ueli",
-  "last_checked_tag": "v8.17.1",
+  "last_checked_tag": "v8.18.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
