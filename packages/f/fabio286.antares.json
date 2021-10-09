@@ -3,7 +3,7 @@
   "pkgid": "Fabio286.antares",
   "repo": "Fabio286/antares",
   "last_checked_tag": "v0.3.7",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": "Antares.*win.*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": null,
