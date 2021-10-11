@@ -1,6 +1,6 @@
 name: Package request
 description: Suggest a new package to be added to automation
-title: 'New Package: '
+title: "[New Package]: "
 labels: new package
 assignees: vedantmgoyal2009
 body:
