@@ -12,5 +12,8 @@ body:
   attributes:
     label: List the PackageIdentifier of packages to be added to automation
     description: The PackageIdentifier of the package from the [microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
+    placeholder: "Provide PackageIdentifier of the new application that could be added to the automation. If known, please add details of an update source/API etc., where current versions of this application can be queried."
+    value: |
+      - 
   validations:
     required: true
