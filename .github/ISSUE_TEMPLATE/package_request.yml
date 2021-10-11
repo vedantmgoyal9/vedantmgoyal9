@@ -1,0 +1,16 @@
+name: Package request
+description: Suggest a new package to be added to automation
+title: 'New Package: '
+labels: new package
+assignees: vedantmgoyal2009
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for taking the time to fill out this new package request!
+- type: textarea
+  attributes:
+    label: List the PackageIdentifier of packages to be added to automation
+    description: The PackageIdentifier of the package from the [microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
+  validations:
+    required: true
