@@ -1,4 +1,4 @@
-name: Package request
+name: New Package
 description: Suggest a new package to be added to automation
 title: "[New Package]: "
 labels: new package
