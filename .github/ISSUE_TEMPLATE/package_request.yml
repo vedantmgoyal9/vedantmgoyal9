@@ -8,10 +8,17 @@ body:
   attributes:
     value: |
       Thanks for taking the time to fill out this new package request!
-- type: textarea
+- type: input
   attributes:
-    label: List the PackageIdentifier of packages to be added to automation
+    label: List the PackageIdentifier of the package to be added to automation
     description: The PackageIdentifier of the package from the [microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
-    placeholder: "Provide PackageIdentifier of the new application that could be added to the automation. If known, please add details of an update source/API etc., where current versions of this application can be queried."
+    placeholder: GitHub.GitHubDesktop
   validations:
     required: true
+- type: textarea
+  attributes:
+    label: Details about the application
+    description: Provide clear details about the new application you want to see added to the automation.
+    placeholder: "Provide details of the new application that could be added to the automation. If known, please add details of an update source/API etc., where current versions of this application can be queried."
+  validations:
+    required: false
