@@ -1,1 +1,8 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
+contact_links:
+  - name: Review known issues
+    url: https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues
+    about: Please ensure you have gone through open issues.
+  - name: Review current packages
+    url: https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/packages.txt
+    about: Please ensure whether the package is already there in the automation.
