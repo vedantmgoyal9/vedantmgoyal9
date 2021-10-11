@@ -1,6 +1,6 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Review known issues
+  - name: Review open issues
     url: https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues
     about: Please ensure you have gone through open issues.
   - name: Review current packages
