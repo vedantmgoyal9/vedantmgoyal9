@@ -86,7 +86,7 @@ foreach ($json in $packages) {
                 {
                     $urls.Add($asset.browser_download_url) | Out-Null
                 }
-            }            
+            }
             # Check if urls are found and if so, update package manifest and json
             if ($urls.Count -gt 0)
             {
