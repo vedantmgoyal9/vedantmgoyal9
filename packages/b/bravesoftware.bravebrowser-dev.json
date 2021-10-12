@@ -3,7 +3,6 @@
   "pkgid": "BraveSoftware.BraveBrowser-Dev",
   "repo": "brave/brave-browser",
   "last_checked_tag": "v1.31.60",
-
   "asset_regex": "BraveBrowserStandaloneSilentDevSetup.exe$",
   "is_prerelease": true,
   "version_method": null,
