@@ -4,7 +4,7 @@
     "repo": "https://edgeupdates.microsoft.com/api/products",
     "last_checked_tag": "95.0.1020.20",
     "asset_regex": ".*.msi$",
-    "is_prerelease": false,
+    "is_prerelease": true,
     "version_method": null,
     "custom_script": "m/microsoft.edgebeta.ps1",
     "skip": false
