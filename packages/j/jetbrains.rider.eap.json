@@ -1,11 +1,11 @@
 {
-    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid": "JetBrains.Rider.EAP",
-    "repo": "jetbrains-api",
-    "last_checked_tag": "212.4746.59",
-    "asset_regex": ".*.exe$",
-    "is_prerelease": true,
-    "version_method": null,
-    "custom_script": "j/jetbrains.rider.eap.ps1",
-    "skip": false
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "JetBrains.Rider.EAP",
+  "repo": "jetbrains-api",
+  "last_checked_tag": "213.4631.30",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": true,
+  "version_method": null,
+  "custom_script": "j/jetbrains.rider.eap.ps1",
+  "skip": false
 }
