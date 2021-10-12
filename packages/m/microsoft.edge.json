@@ -1,0 +1,11 @@
+{
+    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+    "pkgid": "Microsoft.Edge",
+    "repo": "https://edgeupdates.microsoft.com/api/products",
+    "last_checked_tag": "94.0.992.47",
+    "asset_regex": ".*.msi$",
+    "is_prerelease": false,
+    "version_method": null,
+    "custom_script": "m/microsoft.edge.ps1",
+    "skip": false
+}
