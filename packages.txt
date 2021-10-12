@@ -145,6 +145,7 @@ ChristianHohnstadt.xca
 ChristianKaiser.Lightscreen
 ChungZH.notepanda
 CircuitDiagram.CircuitDiagram
+Citrix.Workspace
 cjerrington.net-check
 CLechasseur.PathCopyCopy
 Clement.bottom
