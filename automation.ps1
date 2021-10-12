@@ -101,6 +101,7 @@ foreach ($json in $packages) {
                     "picard" { $version = "$($result.tag_name.TrimStart("release-"))0000.0"; break }
                     "dosbox" { $version = "$($result.tag_name.TrimStart("dosbox-x-v"))"; break }
                     "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
+                    "randyrants.sharpkeys" { $version = "$($result.tag_name)000)"; break }
                     default { $version = $result.tag_name.TrimStart("v"); break }
                 }                
                 # Print update information, generate and submit manifests, updates the last_checked_tag in json
