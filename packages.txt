@@ -95,6 +95,7 @@ blaadje.Todolist
 Blocknetproject.Blocknet
 Bloodshed.Dev-C++
 bluecfd.bluecfd
+BlueJTeam.BlueJ
 bmatzelle.Gow
 boostio.boostnote
 bornova.numara
