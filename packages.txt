@@ -571,6 +571,9 @@ Microsoft.Bicep
 Microsoft.bitsmanager
 Microsoft.BotFrameworkComposer
 Microsoft.BotFrameworkEmulator
+Microsoft.Edge
+Microsoft.EdgeBeta
+Microsoft.EdgeDev
 Microsoft.Git
 Microsoft.GitCredentialManagerCore
 Microsoft.Ironpython2
