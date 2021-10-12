@@ -12,7 +12,7 @@ It's pretty simple. Just open a [new issue](https://github.com/vedantmgoyal2009/
 ## How does this project works?
 This project has two main things:
 
-1. **PowerShell scripts**: These are used to update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs). The script is executed by a cron job in **every 6 hours**. <br> <br>
+1. **PowerShell scripts**: These are used to update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs). The script is executed by a cron job in **every 8 hours**. <br> <br>
 The [automation.ps1](https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/automation.ps1) script imports the JSON files and check if a new update is available for the package. If yes, it calls the [YamlCreate.ps1](https://github.com/vedantmgoyal2009/winget-pkgs-automation/tree/main/YamlCreate) script to update the manifest for the given package and submit a pull request to the [winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
 
 2. **JSON files**: These files contain important information about packages. They contain the following information:
