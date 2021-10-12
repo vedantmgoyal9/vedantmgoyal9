@@ -22,6 +22,7 @@ AdrienAllard.FileConverter
 afractal.Metronome
 afractal.TwitterTron
 agalwood.Motrix
+AgileBits.1Password
 ahkohd.switch
 Ahlyab.PasswordChecker
 Ahlyab.UdemyCouponFetcher
