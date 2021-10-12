@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BraveSoftware.BraveBrowser-Nightly",
   "repo": "brave/brave-browser",
-  "last_checked_tag": "v1.31.67",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "is_prerelease": false,
+  "last_checked_tag": "v1.32.19",
+  "asset_regex": "BraveBrowserStandaloneSilentNightlySetup.exe$",
+  "is_prerelease": true,
   "version_method": null,
-  "custom_script": null,
-  "skip": "Requires custom script"
+  "custom_script": "b/bravesoftware.bravebrowser-nightly.ps1",
+  "skip": false
 }
