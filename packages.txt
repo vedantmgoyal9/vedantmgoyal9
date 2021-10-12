@@ -681,6 +681,8 @@ OpenRCT2.OpenRCT2
 OpenRPAApS.OpenRPA
 OpenShopChannel.Downloader
 OpenShot.OpenShot
+OpenWhisperSystems.Signal
+OpenWhisperSystems.Signal.Beta
 openwmail.openwmail
 opticos.gwsl
 opticos.openinwsl
