@@ -420,6 +420,8 @@ JetBrains.PyCharm.Community
 JetBrains.PyCharm.Community.EAP
 JetBrains.PyCharm.Professional
 JetBrains.PyCharm.Professional.EAP
+JetBrains.Rider
+JetBrains.Rider.EAP
 JetBrains.RubyMine
 JetBrains.RubyMine.EarlyAccess
 JetBrains.TeamCity
