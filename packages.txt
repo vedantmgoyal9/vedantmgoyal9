@@ -904,6 +904,7 @@ TeamProwlarr.Prowlarr
 TeamRadarr.Radarr
 TeamShinkansen.Hakchi2-CE
 TechSmith.Camtasia
+TechSmith.Snagit
 Telegram.TelegramDesktop
 Telegram.TelegramDesktop.Beta
 Tenpi.Waifu2xGUI
