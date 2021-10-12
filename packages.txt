@@ -903,6 +903,7 @@ TeamLidarr.Lidarr
 TeamProwlarr.Prowlarr
 TeamRadarr.Radarr
 TeamShinkansen.Hakchi2-CE
+TechSmith.Camtasia
 Telegram.TelegramDesktop
 Telegram.TelegramDesktop.Beta
 Tenpi.Waifu2xGUI
