@@ -328,6 +328,9 @@ Glimpse.Glimpse
 GnuCash.GnuCash
 goatcorp.XIVLauncher
 Google.Chrome
+Google.Chrome.Beta
+Google.Chrome.Canary
+Google.Chrome.Dev
 Google.IAPDesktop
 GorillaDevs.GDLauncher
 Gramps.Gramps
