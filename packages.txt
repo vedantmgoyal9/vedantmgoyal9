@@ -375,6 +375,8 @@ InfiniteRed.Reactotron
 InfiniteRed.Reactotron.Beta
 Insomnia.Insomnia
 Insomnia.InsomniaDesigner
+InTheLoop.LoopEmail
+InTheLoop.LoopEmail.Beta
 intxcc.pyaudio
 Invizi.Invizi
 IPFS.IPFS-Desktop
