@@ -5,7 +5,7 @@
   "last_checked_tag": "v1.2.37",
   "asset_regex": ".exe",
   "is_prerelease": false,
-  "version_method": "clink",
+  "version_method": "($urls[0] | Select-String -Pattern \"[0-9]\\.[0-9]\\.[0-9]{1,2}\\.[A-Fa-f0-9]{6}\").Matches.Value",
   "custom_script": null,
   "skip": false
 }
