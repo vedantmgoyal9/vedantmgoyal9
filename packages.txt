@@ -48,6 +48,7 @@ Amazon.SAM-CLI
 AMD.OCAT
 AmineMouafik.Ferdi
 amitmerchant1990.electron-markdownify
+Anaconda.Anaconda3
 Andersama.obs-asio
 andrewbrey.flot
 AndrewsTech.Alpha-Video
