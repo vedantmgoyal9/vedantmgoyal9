@@ -1,10 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "purocean.YankNote",
-  "repo": "purocean/yn",
-  "last_checked_tag": "v3.6.9",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "is_prerelease": false,
+  "pkgid": "InTheLoop.LoopEmail.Beta",
+  "repo": "4thOffice/loopinupdater",
+  "last_checked_tag": "v6.18.7-beta.2",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": true,
   "version_method": null,
   "custom_script": null,
   "skip": false

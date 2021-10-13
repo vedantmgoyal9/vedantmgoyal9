@@ -91,19 +91,14 @@ foreach ($json in $packages) {
             if ($urls.Count -gt 0)
             {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
-                switch -regex ($package.version_method)
+                if ($null -eq $package.version_method)
                 {
-                    "jackett|powershell|modernflyouts|rocketchat|openrpa" { $version = "$($result.tag_name.TrimStart("v")).0"; break }
-                    "sandboxie-classic" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]{2}\.[0-9]").Matches.Value; break }
-                    "clink" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]{1,2}\.[A-Fa-f0-9]{6}").Matches.Value; break }
-                    "llvm" { $version = "$($result.tag_name.TrimStart("llvmorg-"))"; break }
-                    "audacity" { $version = "$($result.tag_name.TrimStart("Audacity-"))"; break }
-                    "picard" { $version = "$($result.tag_name.TrimStart("release-"))0000.0"; break }
-                    "dosbox" { $version = "$($result.tag_name.TrimStart("dosbox-x-v"))"; break }
-                    "authpass" { $version = ($urls[0] | Select-String -Pattern "[0-9]\.[0-9]\.[0-9]_[0-9]{4}").Matches.Value; break }
-                    "randyrants.sharpkeys" { $version = "$($result.tag_name)000)"; break }
-                    default { $version = $result.tag_name.TrimStart("v"); break }
-                }                
+                    $version = $result.tag_name.TrimStart("v")
+                }
+                else
+                {
+                    $version = Invoke-Expression $package.version_method
+                }
                 # Print update information, generate and submit manifests, updates the last_checked_tag in json
                 Update-ManifestAndJson $package.pkgid $version $urls.ToArray() $result.tag_name
             }

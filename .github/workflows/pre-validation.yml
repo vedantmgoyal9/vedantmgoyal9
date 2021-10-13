@@ -1,44 +1,24 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Pre-validation
-
-# Triggers the workflow on push or pull request events
 on: [push, pull_request]
-  
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  validate:
-    # The type of runner that the job will run on
+  build:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: JSON validation
         shell: pwsh
         run: |
           $packages = Get-ChildItem .\packages\ -Recurse -File | Select-Object -Property Name,FullName
-          foreach ($json in $packages)
-          {
-              $package = Get-Content -Raw -Path $json.FullName
-              if ((Test-Json -Json $package -SchemaFile ./schema.json -ErrorAction SilentlyContinue) -eq $true)
-              {
-                  $validJson += @($package | ConvertFrom-Json | Select-Object -Property pkgid)
-              }
-              else
-              {
-                  $invalidJson += @($json.Name)
+          foreach ($json in $packages) {
+              $jsonContent = Get-Content -Raw -Path $json.FullName
+              if ((Test-Json -Json $jsonContent -SchemaFile ./schema.json -ErrorAction SilentlyContinue) -eq $false) {
+                  $jsonWithError += @($json.Name)
               }
           }
-          if ($invalidJson.Count -gt 0)
-          {
+          if ($jsonWithError.Count -gt 0) {
               Write-Host -ForegroundColor Red "The following packages have errors:"
-              foreach ($i in $invalidJson)
-              {
+              foreach ($i in $jsonWithError) {
                   Write-Host -ForegroundColor Red "   $i" # Added spaces for indentation
               }
               exit 1
@@ -47,10 +27,23 @@ jobs:
           {
               Write-Host -ForegroundColor Green "All packages are valid!"
           }
-          Clear-Content -Path ./packages.txt
-          foreach ($PackageIdentifier in $validJson.pkgid | Sort-Object)
+      - if: github.event_name == 'push'
+        name: Update packages.txt
+        shell: pwsh
+        run: |
+          $packages = Get-ChildItem .\packages\ -Recurse -File | Select-Object -Property Name,FullName
+          foreach ($json in $packages)
           {
-              $PackageIdentifier | Out-File -Encoding UTF8 -Append -Path ./packages.txt
+              $jsonContent = Get-Content -Raw -Path $json.FullName
+              if ((Test-Json -Json $jsonContent -SchemaFile ./schema.json -ErrorAction SilentlyContinue) -eq $true)
+              {
+                  $package += @($jsonContent | ConvertFrom-Json)
+              }
+          }
+          Clear-Content -Path ./packages.txt
+          foreach ($pkg in ($package | Where-Object { $_.skip -eq $false }).pkgid | Sort-Object)
+          {
+              $pkg | Out-File -Encoding UTF8 -Append -Path ./packages.txt
           }
           git config --global user.name 'winget-pkgs-automation'
           git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com'

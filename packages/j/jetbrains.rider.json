@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.Rider",
   "repo": "jetbrains-api",
-  "last_checked_tag": "212.5080.71",
+  "last_checked_tag": "212.5284.64",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,

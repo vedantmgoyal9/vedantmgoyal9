@@ -1,11 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "TechSmith.Snagit",
-  "repo": "https://www.techsmith.com/api/v/1/products/getallversions/12",
-  "last_checked_tag": "21.4.4",
+  "pkgid": "Anaconda.Anaconda3",
+  "repo": "https://repo.anaconda.com/archive/.files.json",
+  "last_checked_tag": "2021.05",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": "t/techsmith.snagit.ps1",
+  "custom_script": "a/anaconda.anaconda3.ps1",
   "skip": false
 }
