@@ -549,8 +549,6 @@ Microsoft.BotFrameworkEmulator
 Microsoft.Edge
 Microsoft.EdgeBeta
 Microsoft.EdgeDev
-Microsoft.Git
-Microsoft.GitCredentialManagerCore
 Microsoft.Ironpython2
 Microsoft.Ironpython3
 Microsoft.MsGraphCLI
@@ -560,7 +558,6 @@ Microsoft.msmpisdk
 Microsoft.PowerShell
 Microsoft.PowerShell.Preview
 Microsoft.PowerToys
-Microsoft.VFSforGit
 Microsoft.vott
 Microsoft.WindowsTerminal
 Microsoft.WindowsTerminalPreview
