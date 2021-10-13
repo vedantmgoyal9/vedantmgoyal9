@@ -3,7 +3,7 @@
   "pkgid": "Rufus.Rufus",
   "repo": "pbatard/rufus",
   "last_checked_tag": "v3.16",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": ".*.appx$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": null,
