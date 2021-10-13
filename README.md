@@ -26,7 +26,7 @@ Running automatically on GitHub workflows, this repo has two main components tha
 
 1. **PowerShell scripts**: To update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs), these scripts are executed by a cron job in **every 8 hours**.  
     - The [`automation.ps1`](./automation.ps1) script imports the JSON files and check if a new update is available for the package. 
-    - If yes, `automation.ps1` calls [YamlCreate.ps1](./YamlCreate) to update the manifest for the given package, and
+    - If yes, `automation.ps1` calls [`YamlCreate.ps1`](./YamlCreate) to update the manifest for the given package, and
     - Submits a pull request on the [winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
 
 2. **JSON files**: Structured data containing the following vital information about each tracked package:
