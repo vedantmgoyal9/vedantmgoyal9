@@ -23,7 +23,7 @@ if ($help) {
 }
 
 # Set settings directory on basis of Operating System
-$script:SettingsPath = Join-Path $(if ([System.Environment]::OSVersion.Platform -match 'Win') {$env:LOCALAPPDATA} else {$env:HOME+'/.config'} ) -ChildPath 'YamlCreate'
+$script:SettingsPath = Join-Path $(if ([System.Environment]::OSVersion.Platform -match 'Win') { $env:LOCALAPPDATA } else { $env:HOME + '/.config' } ) -ChildPath 'YamlCreate'
 # Check for settings directory and create it if none exists
 if (!(Test-Path $script:SettingsPath)) { New-Item -ItemType 'Directory' -Force -Path $script:SettingsPath | Out-Null }
 # Check for settings file and create it if none exists
@@ -73,7 +73,13 @@ if (-not(Get-Module -ListAvailable -Name powershell-yaml)) {
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
         Install-Module -Name powershell-yaml -Force -Repository PSGallery -Scope CurrentUser
     } catch {
-        Throw "Unmet dependency. 'powershell-yaml' unable to be installed successfully."
+        # If there was an exception while installing powershell-yaml, pass it as an InternalException for further debugging
+        throw [UnmetDependencyException]::new("'powershell-yaml' unable to be installed successfully", $_.Exception)
+    } finally {
+        # Double check that it was installed properly
+        if (-not(Get-Module -ListAvailable -Name powershell-yaml)) {
+            throw [UnmetDependencyException]::new("'powershell-yaml' is not found")
+        }
     }
 }
 
@@ -90,8 +96,8 @@ try {
     $InstallerEntryProperties = (ConvertTo-Yaml $InstallerSchema.definitions.Installer.properties | ConvertFrom-Yaml -Ordered).Keys
     $InstallerDependencyProperties = (ConvertTo-Yaml $InstallerSchema.definitions.Dependencies.properties | ConvertFrom-Yaml -Ordered).Keys
 } catch {
-    Write-Host 'Error downloading schemas. Please run the script again.' -ForegroundColor Red
-    exit 1
+    # Here we want to pass the exception as an inner exception for debugging if necessary
+    throw [System.Net.WebException]::new('Manifest schemas could not be downloaded. Try running the script again', $_.Exception)
 }
 
 filter TrimString {
@@ -206,7 +212,9 @@ Function Write-Colors {
         [Parameter(Mandatory = $true, Position = 1)]
         [string[]] $Colors
     )
-    If ($TextStrings.Count -ne $Colors.Count) { Throw 'Invalid Function Parameters. Arguments must be of equal length' }
+    If ($TextStrings.Count -ne $Colors.Count) {
+        throw [System.ArgumentException]::new('Invalid Function Parameters. Arguments must be of equal length')
+    }
     $_index = 0
     Foreach ($String in $TextStrings) {
         Write-Host -ForegroundColor $Colors[$_index] -NoNewline $String
@@ -278,11 +286,21 @@ Function TestUrlValidity {
         $HTTP_Request = [System.Net.WebRequest]::Create($URL)
         $HTTP_Response = $HTTP_Request.GetResponse()
         $HTTP_Status = [int]$HTTP_Response.StatusCode
-    } catch {}
+    } catch {
+        # Take no action here; If there is an exception, we will treat it like a 404
+    }
     If ($null -eq $HTTP_Response) { $HTTP_Status = 404 } 
     Else { $HTTP_Response.Close() }
 
     return $HTTP_Status
+}
+
+# Checks a file name for validity and returns a boolean value
+function Test-ValidFileName {
+    param([string]$FileName)
+    $IndexOfInvalidChar = $FileName.IndexOfAny([System.IO.Path]::GetInvalidFileNameChars())
+    # IndexOfAny() returns the value -1 to indicate no such character was found
+    return $IndexOfInvalidChar -eq -1
 }
 
 # Prompts user to enter an Installer URL, Tests the URL to ensure it results in a response code of 200, validates it against the manifest schema
@@ -365,15 +383,31 @@ Function Read-Installer-Values {
         $start_time = Get-Date
         Write-Host $NewLine
         Write-Host 'Downloading URL. This will take a while...' -ForegroundColor Blue
-        $WebClient = New-Object System.Net.WebClient
-        $Filename = [System.IO.Path]::GetFileName($InstallerUrl)
-        $script:dest = "$env:TEMP\$FileName"
-
         try {
-            $WebClient.DownloadFile($InstallerUrl, $script:dest)
+            # Download and store the binary, but do not write to a file yet
+            $download = Invoke-WebRequest -Uri $InstallerUrl -UserAgent 'winget/1.0' -DisableKeepAlive -TimeoutSec 30 -UseBasicParsing
+            # Attempt to get the file from the headers
+            try {
+                $contentDisposition = [System.Net.Mime.ContentDisposition]::new($download.Headers['Content-Disposition'])
+                $_Filename = $contentDisposition.FileName
+            } catch {}
+            # Validate the headers reurned a valid file name
+            if (![string]::IsNullOrWhiteSpace($_Filename) -and $(Test-ValidFileName $_Filename)) {
+                $Filename = $_Filename
+            } 
+            # If the headers did not return a valid file name, build our own file name
+            # Attempt to preserve the extension if it exists, otherwise, create our own
+            else {
+                $Filename = "$PackageIdentifier v$PackageVersion" + $(if ([System.IO.Path]::HasExtension($_Filename)) { [System.IO.Path]::GetExtension($_Filename) } elseif ([System.IO.Path]::HasExtension($InstallerUrl)) { [System.IO.Path]::GetExtension($InstallerUrl) } else { '.winget-tmp' })
+            }
+            # Write File to disk
+            $script:dest = Join-Path -Path $env:TEMP -ChildPath $Filename
+            $file = [System.IO.FileStream]::new($script:dest, [System.IO.FileMode]::Create)
+            $file.Write($download.Content, 0, $download.RawContentLength)
+            $file.Close()
         } catch {
-            Write-Host 'Error downloading file. Please run the script again.' -ForegroundColor Red
-            exit 1
+            # Here we also want to pass the exception through for potential debugging
+            throw [System.Net.WebException]::new('The file could not be downloaded. Try running the script again', $_.Exception)
         } finally {
             Write-Host "Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)" -ForegroundColor Green
             
@@ -553,6 +587,7 @@ Function Read-Installer-Values {
                 $PackageFamilyName = $InstalledPkg.PackageFamilyName
                 Remove-AppxPackage $InstalledPkg.PackageFullName
             } catch {
+                # Take no action here, we just want to catch the exceptions as a precaution
                 Out-Null
             } finally {
                 if (String.Validate $PackageFamilyName -IsNull) {
@@ -758,15 +793,31 @@ Function Read-Installer-Values-Minimal {
             $_UrlsIteration += 1
         }
 
-        # Download the file at the URL
-        $WebClient = New-Object System.Net.WebClient
-        $Filename = [System.IO.Path]::GetFileName($($_NewInstaller.InstallerUrl))
-        $script:dest = "$env:TEMP\$Filename"
         try {
-            $WebClient.DownloadFile($($_NewInstaller.InstallerUrl), $script:dest)
+            # Download and store the binary, but do not write to a file yet
+            $download = Invoke-WebRequest -Uri $_NewInstaller['InstallerUrl'] -UserAgent 'winget/1.0' -DisableKeepAlive -TimeoutSec 30 -UseBasicParsing
+            # Attempt to get the file from the headers
+            try {
+                $contentDisposition = [System.Net.Mime.ContentDisposition]::new($download.Headers['Content-Disposition'])
+                $_Filename = $contentDisposition.FileName
+            } catch {}
+            # Validate the headers reurned a valid file name
+            if (![string]::IsNullOrWhiteSpace($_Filename) -and $(Test-ValidFileName $_Filename)) {
+                $Filename = $_Filename
+            } 
+            # If the headers did not return a valid file name, build our own file name
+            # Attempt to preserve the extension if it exists, otherwise, create our own
+            else {
+                $Filename = "$PackageIdentifier v$PackageVersion" + $(if ([System.IO.Path]::HasExtension($_Filename)) { [System.IO.Path]::GetExtension($_Filename) } elseif ([System.IO.Path]::HasExtension($InstallerUrl)) { [System.IO.Path]::GetExtension($InstallerUrl) } else { '.winget-tmp' })
+            }
+            # Write File to disk
+            $script:dest = Join-Path -Path $env:TEMP -ChildPath $Filename
+            $file = [System.IO.FileStream]::new($script:dest, [System.IO.FileMode]::Create)
+            $file.Write($download.Content, 0, $download.RawContentLength)
+            $file.Close()
         } catch {
-            Write-Host 'Error downloading file. Please run the script again.' -ForegroundColor Red
-            exit 1
+            # Here we also want to pass the exception through for potential debugging
+            throw [System.Net.WebException]::new('The file could not be downloaded. Try running the script again', $_.Exception)
         } finally {
             # Get the Sha256
             $_NewInstaller['InstallerSha256'] = (Get-FileHash -Path $script:dest -Algorithm SHA256).Hash
@@ -797,6 +848,7 @@ Function Read-Installer-Values-Minimal {
                     $PackageFamilyName = $InstalledPkg.PackageFamilyName
                     Remove-AppxPackage $InstalledPkg.PackageFullName
                 } catch {
+                    # Take no action here, we just want to catch the exceptions as a precaution
                     Out-Null
                 } finally {
                     if (String.Validate -not $PackageFamilyName -IsNull) {
@@ -1401,6 +1453,11 @@ Function Enter-PR-Parameters {
         default { Write-Host }
     }
 
+    # If we are removing a manifest, we need to include the reason
+    if ($CommitType -eq 'Remove') {
+        $PrBodyContentReply = @("## $($script:RemovalReason)"; '') + $PrBodyContentReply
+    }
+
     # Write the PR using a temporary file
     Set-Content -Path PrBodyFile -Value $PrBodyContentReply | Out-Null
     gh pr create --body-file PrBodyFile -f
@@ -1423,7 +1480,10 @@ Function AddYamlListParameter {
         if ($Parameter -eq 'InstallerSuccessCodes') {
             try {
                 $Value = [int]$Value
-            } catch {}
+            } catch {
+                # If we can't cast the value to an integer, it doesn't matter
+                # Continue using the value as is
+            }
         }
         $_Values += $Value
     }
@@ -1771,7 +1831,7 @@ if (($script:Option -eq 'QuickUpdateVersion') -and ($ScriptSettings.SuppressQuic
     switch ( KeypressMenu -Prompt $_menu['Prompt'] -Entries $_menu['Entries'] -DefaultString $_menu['DefaultString'] -HelpText $_menu['HelpText'] -HelpTextColor $_menu['HelpTextColor']) {
         'Y' { Write-Host -ForegroundColor DarkYellow -Object "`n`nContinuing with Quick Update" }
         'N' { $script:Option = 'New'; Write-Host -ForegroundColor DarkYellow -Object "`n`nSwitched to Full Update Experience" }
-        default { Write-Host; exit 1 }
+        default { Write-Host; exit }
     }
 }
 Write-Host
@@ -1820,8 +1880,8 @@ do {
 
 # Check the api for open PR's
 # This is unauthenticated because the call-rate per minute is assumed to be low
-if ($ScriptSettings.ContinueWithExistingPRs -ne 'always') {
-    $PRApiResponse = @(Invoke-WebRequest "https://api.github.com/search/issues?q=repo%3Amicrosoft%2Fwinget-pkgs%20$($PackageIdentifier -replace '\.', '%2F'))%2F$PackageVersion%20in%3Apath&per_page=1" -UseBasicParsing -ErrorAction SilentlyContinue | ConvertFrom-Json)[0]
+if ($ScriptSettings.ContinueWithExistingPRs -ne 'always' -and $script:Option -ne 'RemoveManifest') {
+    $PRApiResponse = @(Invoke-WebRequest "https://api.github.com/search/issues?q=repo%3Amicrosoft%2Fwinget-pkgs%20is%3Apr%20$($PackageIdentifier -replace '\.', '%2F'))%2F$PackageVersion%20in%3Apath&per_page=1" -UseBasicParsing -ErrorAction SilentlyContinue | ConvertFrom-Json)[0]
     # If there was a PR found, get the URL and title
     if ($PRApiResponse.total_count -gt 0) {
         $_PRUrl = $PRApiResponse.items.html_url
@@ -1836,7 +1896,7 @@ if ($ScriptSettings.ContinueWithExistingPRs -ne 'always') {
         }
         switch ( KeypressMenu -Prompt $_menu['Prompt'] -Entries $_menu['Entries'] -DefaultString $_menu['DefaultString'] -HelpText $_menu['HelpText'] -HelpTextColor $_menu['HelpTextColor'] ) {
             'Y' { Write-Host }
-            default { Write-Host; exit 1 }
+            default { Write-Host; exit }
         }
     }   
 }
@@ -1863,7 +1923,7 @@ if ($script:Option -in @('NewLocale'; 'EditMetadata'; 'RemoveManifest')) {
         Write-Host
         Write-Host -ForegroundColor 'Red' -Object 'Could not find required manifests, input a version containing required manifests or "exit" to cancel'
         $PromptVersion = Read-Host -Prompt 'Version' | TrimString
-        if ($PromptVersion -eq 'exit') { exit 1 }
+        if ($PromptVersion -eq 'exit') { exit }
         if (Test-Path -Path "$AppFolder\..\$PromptVersion") {
             $script:OldManifests = Get-ChildItem -Path "$AppFolder\..\$PromptVersion" 
         }
@@ -1890,6 +1950,7 @@ if (!$LastVersion) {
         Write-Host -ForegroundColor 'DarkYellow' -Object "Found Existing Version: $LastVersion"
         $script:OldManifests = Get-ChildItem -Path "$AppFolder\..\$LastVersion"
     } catch {
+        # Take no action here, we just want to catch the exceptions as a precaution
         Out-Null
     }
 }
@@ -1937,9 +1998,10 @@ if ($OldManifests.Name -eq "$PackageIdentifier.installer.yaml" -and $OldManifest
     $script:OldLocaleManifest = ConvertFrom-Yaml -Yaml ($(Get-Content -Path $(Resolve-Path "$AppFolder\..\$LastVersion\$PackageIdentifier.locale.$PackageLocale.yaml") -Encoding UTF8) -join "`n") -Ordered
     $script:OldVersionManifest = ConvertFrom-Yaml -Yaml ($(Get-Content -Path $(Resolve-Path "$AppFolder\..\$LastVersion\$PackageIdentifier.yaml") -Encoding UTF8) -join "`n") -Ordered
 } elseif ($OldManifests.Name -eq "$PackageIdentifier.yaml") {
-    if ($script:Option -eq 'NewLocale') { Throw 'Error: MultiManifest Required' }
+    if ($script:Option -eq 'NewLocale') { throw [ManifestException]::new('MultiManifest Required') }
     $script:OldManifestType = 'MultiManifest'
     $script:OldSingletonManifest = ConvertFrom-Yaml -Yaml ($(Get-Content -Path $(Resolve-Path "$AppFolder\..\$LastVersion\$PackageIdentifier.yaml") -Encoding UTF8) -join "`n") -Ordered
+    $PackageLocale = $script:OldSingletonManifest.PackageLocale
     # Create new empty manifests
     $script:OldInstallerManifest = [ordered]@{}
     $script:OldLocaleManifest = [ordered]@{}
@@ -1986,7 +2048,7 @@ if ($OldManifests.Name -eq "$PackageIdentifier.installer.yaml" -and $OldManifest
         }
     }
 } else {
-    if ($script:Option -ne 'New') { Throw "Error: Version $LastVersion does not contain the required manifests" }
+    if ($script:Option -ne 'New') { throw [ManifestException]::new("Version $LastVersion does not contain the required manifests") }
     $script:OldManifestType = 'None'
 }
 
@@ -2051,6 +2113,7 @@ Switch ($script:Option) {
     }
 
     'RemoveManifest' {
+        # Confirm the user is sure they know what they are doing
         $_menu = @{
             entries       = @("[Y] Remove $PackageIdentifier version $PackageVersion"; '*[N] Cancel')
             Prompt        = 'Are you sure you want to continue?'
@@ -2059,9 +2122,23 @@ Switch ($script:Option) {
             DefaultString = 'N'
         }
         switch ( KeypressMenu -Prompt $_menu['Prompt'] -Entries $_menu['Entries'] -DefaultString $_menu['DefaultString'] -HelpText $_menu['HelpText'] -HelpTextColor $_menu['HelpTextColor']) {
-            'Y' { continue }
+            'Y' { Write-Host; continue }
             default { Write-Host; exit 1 }
         }
+
+        # Require that a reason for the deletion is provided
+        do {
+            Write-Host -ForegroundColor 'Red' $script:_returnValue.ErrorString() 
+            Write-Host -ForegroundColor 'Green' -Object '[Required] Enter the reason for removing this manifest'
+            $script:RemovalReason = Read-Host -Prompt 'Reason' | TrimString
+            # Check the reason for validity. The length requirements are arbitrary, but they have been set to encourage concise yet meaningful reasons
+            if (String.Validate $script:RemovalReason -MinLength 8 -MaxLength 128 -NotNull) {
+                $script:_returnValue = [ReturnValue]::Success()
+            } else {
+                $script:_returnValue = [ReturnValue]::LengthError(8, 128)
+            }
+        } until ($script:_returnValue.StatusCode -eq [ReturnValue]::Success().StatusCode)
+
         Remove-Manifest-Version $AppFolder
     }
 
@@ -2075,15 +2152,31 @@ Switch ($script:Option) {
         Write-Host $NewLine
         Write-Host 'Updating Manifest Information. This may take a while...' -ForegroundColor Blue
         foreach ($_Installer in $script:OldInstallerManifest.Installers) {
-            # Download the file at the URL
-            $WebClient = New-Object System.Net.WebClient
-            $Filename = [System.IO.Path]::GetFileName($($_Installer.InstallerUrl))
-            $script:dest = "$env:TEMP\$Filename"
             try {
-                $WebClient.DownloadFile($($_Installer.InstallerUrl), $script:dest)
+                # Download and store the binary, but do not write to a file yet
+                $download = Invoke-WebRequest -Uri $_Installer.InstallerUrl -UserAgent 'winget/1.0' -DisableKeepAlive -TimeoutSec 30 -UseBasicParsing
+                # Attempt to get the file from the headers
+                try {
+                    $contentDisposition = [System.Net.Mime.ContentDisposition]::new($download.Headers['Content-Disposition'])
+                    $_Filename = $contentDisposition.FileName
+                } catch {}
+                # Validate the headers reurned a valid file name
+                if (![string]::IsNullOrWhiteSpace($_Filename) -and $(Test-ValidFileName $_Filename)) {
+                    $Filename = $_Filename
+                } 
+                # If the headers did not return a valid file name, build our own file name
+                # Attempt to preserve the extension if it exists, otherwise, create our own
+                else {
+                    $Filename = "$PackageIdentifier v$PackageVersion" + $(if ([System.IO.Path]::HasExtension($_Filename)) { [System.IO.Path]::GetExtension($_Filename) } elseif ([System.IO.Path]::HasExtension($InstallerUrl)) { [System.IO.Path]::GetExtension($InstallerUrl) } else { '.winget-tmp' })
+                }
+                # Write File to disk
+                $script:dest = Join-Path -Path $env:TEMP -ChildPath $Filename
+                $file = [System.IO.FileStream]::new($script:dest, [System.IO.FileMode]::Create)
+                $file.Write($download.Content, 0, $download.RawContentLength)
+                $file.Close()
             } catch {
-                Write-Host 'Error downloading file. Please run the script again.' -ForegroundColor Red
-                exit 1
+                # Here we also want to pass the exception through for potential debugging
+                throw [System.Net.WebException]::new('The file could not be downloaded. Try running the script again', $_.Exception)
             } finally {
                 # Get the Sha256
                 $_Installer['InstallerSha256'] = (Get-FileHash -Path $script:dest -Algorithm SHA256).Hash
@@ -2114,6 +2207,7 @@ Switch ($script:Option) {
                         $PackageFamilyName = $InstalledPkg.PackageFamilyName
                         Remove-AppxPackage $InstalledPkg.PackageFullName
                     } catch {
+                        # Take no action here, we just want to catch the exceptions as a precaution
                         Out-Null
                     } finally {
                         if (String.Validate -not $PackageFamilyName -IsNull) {
@@ -2223,9 +2317,11 @@ if ($PromptSubmit -eq '0') {
     git fetch upstream master --quiet
     git switch -d upstream/master       
     if ($LASTEXITCODE -eq '0') {
-        $UniqueBranchID = $(Get-FileHash $script:LocaleManifestPath).Hash[0..6] -Join ''
+        # Make sure path exists and is valid before hashing
+        if ($script:LocaleManifestPath -and (Test-Path -Path $script:LocaleManifestPath)) { $UniqueBranchID = $(Get-FileHash $script:LocaleManifestPath).Hash[0..6] -Join '' }
+        else { $UniqueBranchID = 'DEL' }
         $BranchName = "$PackageIdentifier-$PackageVersion-$UniqueBranchID"
-        #Git branch names cannot start with `.` cannot contain any of {`..`, `\`, `~`, `^`, `:`, ` `, `?`, `@{`, `[`}, and cannot end with {`/`, `.lock`, `.`}
+        # Git branch names cannot start with `.` cannot contain any of {`..`, `\`, `~`, `^`, `:`, ` `, `?`, `@{`, `[`}, and cannot end with {`/`, `.lock`, `.`}
         $BranchName = $BranchName -replace '[\~,\^,\:,\\,\?,\@\{,\*,\[,\s]{1,}|[.lock|/|\.]*$|^\.{1,}|\.\.', ''
         git add -A
         git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
@@ -2261,7 +2357,7 @@ if ($PromptSubmit -eq '0') {
     }
 } else {
     Write-Host
-    Exit
+    exit
 }
 
 # Error levels for the ReturnValue class
@@ -2349,4 +2445,12 @@ Class ReturnValue {
             return "[$($this.Severity)] $($this.Title) - $($this.Message)`n"
         }
     }
+}
+
+class UnmetDependencyException : Exception {
+    UnmetDependencyException([string] $message) : base($message) {}
+    UnmetDependencyException([string] $message, [Exception] $exception) : base($message, $exception) {}
+}
+class ManifestException : Exception {
+    ManifestException([string] $message) : base($message) {}
 }
