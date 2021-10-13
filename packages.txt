@@ -11,6 +11,7 @@ ActivityWatch.ActivityWatch
 Adamant.Messenger
 AdamMiskiewicz.GraphiQL
 AderitoNeto.AfterLife
+Adobe.AdobeAcrobatReaderDC
 Adobe.Brackets
 Adobe.Cryptr
 AdoptOpenJDK.OpenJDK.11
