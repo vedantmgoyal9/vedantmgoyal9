@@ -1,6 +1,6 @@
 ## Automatic WinGet Manifest Updater
 
-This project programmatically updates manifests of packages when the packages has updates available.
+This project programmatically updates manifests of winget packages when the package has an update available.
 
 > You can see a list of **PackageIdentifiers** for packages currently auto-updated by this project in [**packages.txt**](./packages.txt) (alphanumerically sorted).
 
@@ -15,19 +15,19 @@ It's pretty simple.
 
 1. Open a [new issue](./issues/new?assignees=vedantmgoyal2009&labels=new+package&template=package-request.md&title=New+Package) using the `package_request` template  ![github com_vedantmgoyal2009_winget-pkgs-automation_issues_new_choose](https://user-images.githubusercontent.com/5055400/137201323-95e779e3-ae25-40f2-9893-46c9fd4c991a.png)
 2. Provide the relevant package information indicated by the issue template:![github com_vedantmgoyal2009_winget-pkgs-automation_issues_new_choose](https://user-images.githubusercontent.com/5055400/137204006-b21b8c2a-f459-4de5-9164-aabc6e8b24db.png)
-
     1. `issue_title`: Use the format `[New Package]: NAME_OF_PACKAGE`, where `NAME_OF_PACKAGE` is the name of the package.
     1. `packageidentifier`: The `PackageIdentifier` of the package from the `microsoft/winget-pkgs` repository.
-    1. `packagedetails`: Description of the application you want to see added to the automation.
-4. Submit the issue.
+    1. `packagedetails`: Description of the application you want added to the update automation.
+3. Submit the issue.
 
 ## How does this work?
 
-Running automatically on the GitHub workflow, this repo has two main components that keep winget packages up-to-date:
+Running automatically on GitHub workflows, this repo has two main components that keep winget packages up-to-date:
 
 1. **PowerShell scripts**: To update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs), these scripts are executed by a cron job in **every 8 hours**.  
-    - The [automation.ps1](./automation.ps1) script imports the JSON files and check if a new update is available for the package. 
-    - If yes, it calls the [YamlCreate.ps1](./YamlCreate) script to update the manifest for the given package and submit a pull request to the [winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
+    - The [`automation.ps1`](./automation.ps1) script imports the JSON files and check if a new update is available for the package. 
+    - If yes, `automation.ps1` calls [YamlCreate.ps1](./YamlCreate) to update the manifest for the given package, and
+    - Submits a pull request on the [winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
 
 2. **JSON files**: Structured data containing the following vital information about each tracked package:
 
