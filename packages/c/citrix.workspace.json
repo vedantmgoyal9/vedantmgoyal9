@@ -1,11 +1,11 @@
 {
-    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid": "Citrix.Workspace",
-    "repo": "https://downloadplugins.citrix.com/ReceiverUpdates/Prod/catalog_win.xml",
-    "last_checked_tag": "21.9.1.4048",
-    "asset_regex": ".*.exe$",
-    "is_prerelease": false,
-    "version_method": null,
-    "custom_script": "c/citrix.workspace.ps1",
-    "skip": false
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Citrix.Workspace",
+  "repo": "https://downloadplugins.citrix.com/ReceiverUpdates/Prod/catalog_win.xml",
+  "last_checked_tag": "21.9.1.4048",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": "c/citrix.workspace.ps1",
+  "skip": false
 }
