@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "InTheLoop.LoopEmail",
+  "repo": "4thOffice/loopinupdater",
+  "last_checked_tag": "v6.18.7",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": null,
+  "skip": false
+}
