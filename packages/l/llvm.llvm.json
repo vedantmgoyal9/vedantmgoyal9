@@ -5,7 +5,7 @@
   "last_checked_tag": "llvmorg-13.0.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
-  "version_method": null,
+  "version_method": "$result.tag_name.TrimStart(\"llvmorg-\")",
   "custom_script": null,
   "skip": false
 }

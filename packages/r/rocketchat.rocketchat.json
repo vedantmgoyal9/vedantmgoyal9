@@ -5,7 +5,7 @@
   "last_checked_tag": "3.5.7",
   "asset_regex": ".*.(exe|msi)$",
   "is_prerelease": false,
-  "version_method": "rocketchat",
+  "version_method": "\"$($result.tag_name.TrimStart(\"v\")).0\"",
   "custom_script": null,
   "skip": false
 }
