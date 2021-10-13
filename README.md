@@ -1,6 +1,6 @@
 ## WinGet Manifests Automatic Updater
 This project is for auto-updating manifests of packages for which we can check for updates programmatically.
-> You can see the **PackageIdentifier** of the packages which are auto-updated by this project or automated by the developer itself in [**packages.txt**](https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/packages.txt) (sorted alphabetically).
+> You can see the **PackageIdentifier** of the packages which are auto-updated by this project in [**packages.txt**](https://github.com/vedantmgoyal2009/winget-pkgs-automation/blob/main/packages.txt) (sorted alphabetically).
 
 ## Status
 [![Automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/automation.yml/badge.svg)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/workflows/automation.yml)
