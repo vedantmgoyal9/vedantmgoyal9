@@ -73,6 +73,7 @@ beekeeper-studio.beekeeper-studio
 Betaflight.Betaflight-Configurator
 BetterCrewLink.BetterCrewLink
 BiglySoftware.BiglyBT
+Bilibili.Livehime
 Bililive.BililiveRecorder
 BinanceTech.Binance
 Biscuit.Biscuit
