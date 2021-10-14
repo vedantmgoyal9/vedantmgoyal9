@@ -16,7 +16,7 @@ This project programmatically updates manifests of winget packages when the pack
 
 It's pretty simple.
 
-1. Use this [link](./issues/new?assignees=vedantmgoyal2009&labels=new+package&template=package_request.yml&title=%5BNew+Package%5D%3A+) or head over to issues tab and click new issue. Make sure you select the "New Package" issue template.
+1. Use this [link](https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues/new?assignees=vedantmgoyal2009&labels=new+package&template=package_request.yml&title=%5BNew+Package%5D%3A+) or head over to issues tab and click new issue. Make sure you select the "New Package" issue template.
 
 2. Fill in the details of the package. If known, please mention some details of an API/Source/etc. which can be used to fetch the latest version of the package.
 
