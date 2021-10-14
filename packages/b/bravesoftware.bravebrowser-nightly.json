@@ -6,6 +6,6 @@
   "asset_regex": "BraveBrowserStandaloneSilentNightlySetup.exe$",
   "is_prerelease": true,
   "version_method": null,
-  "custom_script": "b/bravesoftware.bravebrowser-nightly.ps1",
+  "custom_script": true,
   "skip": false
 }

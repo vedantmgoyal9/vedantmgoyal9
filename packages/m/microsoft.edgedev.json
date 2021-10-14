@@ -6,6 +6,6 @@
   "asset_regex": ".*.msi$",
   "is_prerelease": true,
   "version_method": null,
-  "custom_script": "m/microsoft.edgedev.ps1",
+  "custom_script": true,
   "skip": false
 }

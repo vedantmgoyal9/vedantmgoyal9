@@ -6,6 +6,6 @@
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": null,
+  "custom_script": false,
   "skip": "Developers publish their package"
 }

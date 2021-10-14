@@ -6,6 +6,6 @@
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": "$result.tag_name.TrimStart(\"llvmorg-\")",
-  "custom_script": null,
+  "custom_script": false,
   "skip": false
 }
