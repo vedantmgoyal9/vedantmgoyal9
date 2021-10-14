@@ -4,6 +4,7 @@
 4gray.iptvnator
 AbdelrahmanBayoumi.Azkar
 Abyss.AbyssOverlay
+AcFun.AcFunVirtualTool
 ActivityWatch.ActivityWatch
 Adamant.Messenger
 Adobe.AdobeAcrobatReaderDC
