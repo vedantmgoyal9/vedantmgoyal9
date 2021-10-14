@@ -44,11 +44,7 @@ Running automatically on GitHub workflows, this repo has two main components tha
 | custom_script | Path to an optional custom script for additional setup or tear-down |
 | skip | If the package has not been updated for a long time, it can be skipped instead of removing the JSON file (useful when keeping a record of skipped packages) |
 
-## Contributions
-
-This project welcomes contributions from the community. If you have any suggestions or bug reports, feel free to open a new issue and discuss it there.
-
-## Contributors ✨
+## Contributors 🎉
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
