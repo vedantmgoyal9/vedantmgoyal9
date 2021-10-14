@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Mozilla.Thunderbird",
+  "repo": "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
+  "last_checked_tag": "91.2.0",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": "m/mozilla.thunderbird.ps1",
+  "skip": false
+}
