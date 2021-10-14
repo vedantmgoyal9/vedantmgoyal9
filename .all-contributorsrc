@@ -2,8 +2,8 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 100,
-  "commit": false,
+  "imageSize": 90,
+  "commit": true,
   "contributors": [
     {
       "login": "Trenly",
