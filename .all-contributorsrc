@@ -23,7 +23,12 @@
       "profile": "http://mavaddat.ca",
       "contributions": [
         "doc",
-        "tutorial"
+        "tutorial",
+        "bug",
+        "code",
+        "ideas",
+        "review",
+        "test"
       ]
     },
     {
