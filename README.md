@@ -1,6 +1,6 @@
 ## WinGet Manifests Auto-Updater
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This project programmatically updates manifests of winget packages when the package has an update available.
@@ -56,6 +56,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Trenly"><img src="https://avatars.githubusercontent.com/u/12611259?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Kaleb Luedtke</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues?q=author%3ATrenly" title="Bug reports">🐛</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=Trenly" title="Code">💻</a> <a href="#ideas-Trenly" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://mavaddat.ca"><img src="https://avatars.githubusercontent.com/u/5055400?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Mavaddat Javid</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=mavaddat" title="Documentation">📖</a> <a href="#tutorial-mavaddat" title="Tutorials">✅</a></td>
     <td align="center"><a href="https://allcontributors.org"><img src="https://avatars.githubusercontent.com/u/46410174?v=4?s=90" width="90px;" alt=""/><br /><sub><b>All Contributors</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=all-contributors" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://bittu.eu.org"><img src="https://avatars.githubusercontent.com/u/83997633?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Vedant Mohan Goyal</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues?q=author%3Avedantmgoyal2009" title="Bug reports">🐛</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=vedantmgoyal2009" title="Code">💻</a> <a href="#ideas-vedantmgoyal2009" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=vedantmgoyal2009" title="Documentation">📖</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/pulls?q=is%3Apr+reviewed-by%3Avedantmgoyal2009" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=vedantmgoyal2009" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
