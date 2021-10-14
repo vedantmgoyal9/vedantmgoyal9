@@ -6,6 +6,6 @@
   "asset_regex": "Miniforge3-.*-Windows-x86_64.exe$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": null,
+  "custom_script": false,
   "skip": false
 }

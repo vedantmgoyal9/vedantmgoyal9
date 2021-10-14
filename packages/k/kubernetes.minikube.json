@@ -6,6 +6,6 @@
   "asset_regex": "minikube-installer.exe",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": null,
+  "custom_script": false,
   "skip": false
 }

@@ -6,6 +6,6 @@
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": "j/jetbrains.toolbox.ps1",
+  "custom_script": true,
   "skip": false
 }

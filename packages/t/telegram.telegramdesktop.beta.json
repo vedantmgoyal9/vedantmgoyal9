@@ -6,6 +6,6 @@
   "asset_regex": "tsetup.*.exe$",
   "is_prerelease": true,
   "version_method": null,
-  "custom_script": null,
+  "custom_script": false,
   "skip": false
 }
