@@ -5,7 +5,7 @@
   "imageSize": 90,
   "commit": true,
   "contributorsPerLine": 7,
-  "contributorsSortAlphabetically": false,
+  "contributorsSortAlphabetically": true,
   "projectName": "winget-pkgs-automation",
   "projectOwner": "vedantmgoyal2009",
   "repoType": "github",
