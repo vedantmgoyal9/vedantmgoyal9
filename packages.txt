@@ -101,6 +101,7 @@ brunurd.companion
 btargac.excel-parser-processor
 Buttercup.Buttercup
 ByteDance.Debugtron
+ByteDance.JianyingPro
 c0re100.qBittorrent-Enhanced-Edition
 c3er.mdview
 calibre.calibre
