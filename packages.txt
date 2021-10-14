@@ -566,6 +566,7 @@ Microsoft.XMLNotepad
 Min.Min
 Mingo.Mingo
 Mirantis.Lens
+Mirantis.Lens.Alpha
 mmanela.markdownoutlook
 mmckegg.loopdrop
 Modeliosoft.Modelio
