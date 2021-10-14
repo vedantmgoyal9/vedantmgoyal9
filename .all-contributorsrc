@@ -4,6 +4,13 @@
   ],
   "imageSize": 90,
   "commit": true,
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": false,
+  "projectName": "winget-pkgs-automation",
+  "projectOwner": "vedantmgoyal2009",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true,
   "contributors": [
     {
       "login": "Trenly",
@@ -49,11 +56,5 @@
         "test"
       ]
     }
-  ],
-  "contributorsPerLine": 7,
-  "projectName": "winget-pkgs-automation",
-  "projectOwner": "vedantmgoyal2009",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "skipCi": true
+  ]
 }
