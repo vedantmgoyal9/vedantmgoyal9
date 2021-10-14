@@ -73,7 +73,7 @@ foreach ($json in $packages) {
     $i++
     $package = Get-Content $json | ConvertFrom-Json
     $urls.Clear()
-    if ($package.skip -eq $false -and $null -eq $package.custom_script)
+    if ($package.skip -eq $false -and $package.custom_script -eq $false)
     {
         $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
         # Check update is available for this package using tag_name and last_checked_tag
@@ -114,7 +114,7 @@ foreach ($json in $packages) {
     }
     elseif ($package.custom_script)
     {
-        . .\custom_scripts\$($package.custom_script)
+        . .\custom_scripts\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).ps1
         if ($update_found -eq $true)
         {
             # Print update information, generate and submit manifests, updates the last_checked_tag in json
