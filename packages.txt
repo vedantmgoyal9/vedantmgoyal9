@@ -752,6 +752,7 @@ RocketChat.RocketChat
 rocksdanister.LivelyWallpaper
 RoderickQiu.wnr
 RoniLehto.LMath
+RProject.R
 RSSOwlTeam.RSSOwl
 RubinderSingh.Ditto++
 RubyInstallerTeam.Ruby
