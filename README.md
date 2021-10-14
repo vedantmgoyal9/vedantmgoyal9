@@ -1,6 +1,6 @@
 ## WinGet Manifests Auto-Updater
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This project programmatically updates manifests of winget packages when the package has an update available.
@@ -55,6 +55,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/Trenly"><img src="https://avatars.githubusercontent.com/u/12611259?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Kaleb Luedtke</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues?q=author%3ATrenly" title="Bug reports">🐛</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=Trenly" title="Code">💻</a> <a href="#ideas-Trenly" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://mavaddat.ca"><img src="https://avatars.githubusercontent.com/u/5055400?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Mavaddat Javid</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=mavaddat" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://allcontributors.org"><img src="https://avatars.githubusercontent.com/u/46410174?v=4?s=90" width="90px;" alt=""/><br /><sub><b>All Contributors</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=all-contributors" title="Documentation">📖</a></td>
   </tr>
 </table>
 
