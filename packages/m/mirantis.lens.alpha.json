@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Mirantis.Lens.Alpha",
+  "repo": "https://api.k8slens.dev/binaries/alpha.json",
+  "last_checked_tag": "5.3.0-alpha.2.20211013.1",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": true,
+  "version_method": null,
+  "custom_script": "m/mirantis.lens.alpha.ps1",
+  "skip": false
+}
