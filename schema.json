@@ -51,10 +51,7 @@
         },
         "custom_script": {
             "$id": "#/properties/custom_script",
-            "type": [
-                "null",
-                "string"
-            ]
+            "type": "boolean"
         },
         "skip": {
             "$id": "#/properties/skip",
