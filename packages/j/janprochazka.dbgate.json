@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JanProchazka.dbgate",
   "repo": "dbgate/dbgate",
-  "last_checked_tag": "v4.3.2",
+  "last_checked_tag": "v4.3.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
