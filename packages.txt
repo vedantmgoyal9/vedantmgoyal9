@@ -24,6 +24,7 @@ AlexanderPershin.lsdeer
 AlexandrSubbotin.Cerebro
 alexkim205.g-desktop-suite
 AlexRedden.G14ControlV2
+Alibaba.DingTalk
 Alibaba.LightProxy
 aliceandbob-io.aliceandbob
 altair-graphql.altair
