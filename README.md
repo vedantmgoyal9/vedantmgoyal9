@@ -41,7 +41,7 @@ Running automatically on GitHub workflows, this repo has two main components tha
 | asset_regex | Regular expression to match the asset name of the package |
 | is_prerelease | Whether the package is a prerelease or not |
 | version_method | Method to get the version of the package, if the package doesn't follow [semantic versioning](https://semver.org) |
-| custom_script | Path to an optional custom script for additional setup or tear-down |
+| custom_script | If package uses custom script for checking updates, then it is `true` |
 | skip | If the package has not been updated for a long time, it can be skipped instead of removing the JSON file (useful when keeping a record of skipped packages) |
 
 ## Contributors 🎉
