@@ -303,6 +303,7 @@ gjthompson1.glue
 GLab.GLab
 Glecun.soundboard
 Glimpse.Glimpse
+Glodon.CADReaderInternational
 GnuCash.GnuCash
 goatcorp.XIVLauncher
 Google.Chrome
