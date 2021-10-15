@@ -62,7 +62,7 @@ Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $Installer
     Set-Location $currentDir # Go back to previous working directory
     # Update the last_checked_tag in json
     $Script:package.last_checked_tag = $last_checked_tag
-    $Script:package | ConvertTo-Json > $(Get-ChildItem .\packages\ -Recurse -File -Filter "$($Script:package.pkgid).json").FullName
+    $Script:package | ConvertTo-Json > .\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
