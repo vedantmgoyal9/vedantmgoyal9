@@ -126,7 +126,7 @@ foreach ($package in $packages)
             # If the last release was more than 6 months ago, automatically add it to the skip list
             # 3600 secs/hr * 24 hr/day * 180 days = 15552000
             if (([DateTimeOffset]::Now.ToUnixTimeSeconds()-15552000) -ge [DateTimeOffset]::new($result.published_at).ToUnixTimeSeconds()){
-                $package.skip = 'Not updated for a long period'
+                $package.skip = 'Automatically marked as stale, not updated for 6 months'
             }
         }
     }
