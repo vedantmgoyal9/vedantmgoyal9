@@ -47,7 +47,8 @@ $header = @{
     Accept = 'application/vnd.github.v3+json'
 }
 
-Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls, $last_checked_tag) {
+Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls, $last_checked_tag)
+{
     Write-Host -ForegroundColor Green "----------------------------------------------------"
     # Prints update information, added spaces for indentation
     Write-Host -ForegroundColor Green "[$Script:i/$Script:cnt] Found update for`: $PackageIdentifier"
@@ -69,7 +70,8 @@ $packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -raw | Conver
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($package in $packages) {
+foreach ($package in $packages)
+{
     $i++
     $urls.Clear()
     if ($package.skip -eq $false -and $package.custom_script -eq $false)
