@@ -62,12 +62,15 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
-
+# Get all packages and filter them if they are skipped or have last checked timestamp older than interval
 $packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
+$skippedPackages = $packages = $packages | Where-Object { $_.Skip -ne $false }
+$timedPackages = $packages | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() }
+$packages = $packages | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }
 
 # Display skipped packages or which have longer check interval
 Write-Host -ForegroundColor Green "----------------------------------------------------"
-foreach ($package in $packages | Where-Object { $_.skip -ne $false -or ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() })
+foreach ($package in $skippedPackages,$timedPackages)
 {
     if ($package.skip)
     {
@@ -80,7 +83,6 @@ foreach ($package in $packages | Where-Object { $_.skip -ne $false -or ($_.LastC
 }
 Write-Host -ForegroundColor Green "----------------------------------------------------`n"
 
-$packages = $packages | Where-Object { $_.skip -eq $false -or ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
