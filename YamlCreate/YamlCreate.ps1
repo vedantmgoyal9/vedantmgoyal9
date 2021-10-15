@@ -421,7 +421,7 @@ Function Read-Installer-Values {
             if ($InstallerUrl -match '\b(x|win){0,1}64\b') { $architecture = 'x64' }
             elseif ($InstallerUrl -match '\b((win|ia)32)|(x{0,1}86)\b') { $architecture = 'x86' }
             elseif ($InstallerUrl -match '\b(arm|aarch)64\b') { $architecture = 'arm64' }
-            elseif ($InstallerUrl -match [regex]('\barm\b')) { $architecture = 'arm' }
+            elseif ($InstallerUrl -match '\barm\b') { $architecture = 'arm' }
 
             $MSIProductCode = $(Get-AppLockerFileInformation -Path $script:dest | Select-Object Publisher | Select-String -Pattern '{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}').Matches
 
@@ -1714,8 +1714,8 @@ Function Write-Locale-Manifests {
     }
 
     If ($Tags) { AddYamlListParameter $LocaleManifest 'Tags' $Tags }
-    If ($Moniker) { AddYamlParameter $LocaleManifest 'Moniker' $Moniker }
     If (!$LocaleManifest.ManifestType) { $LocaleManifest['ManifestType'] = 'defaultLocale' }
+    If ($Moniker -and $($LocaleManifest.ManifestType -eq 'defaultLocale')) { AddYamlParameter $LocaleManifest 'Moniker' $Moniker }
     AddYamlParameter $LocaleManifest 'ManifestVersion' $ManifestVersion
     $LocaleManifest = SortYamlKeys $LocaleManifest $LocaleProperties
 
@@ -1737,6 +1737,7 @@ Function Write-Locale-Manifests {
                 if (!(Test-Path $AppFolder)) { New-Item -ItemType 'Directory' -Force -Path $AppFolder | Out-Null }
                 $script:OldLocaleManifest = ConvertFrom-Yaml -Yaml ($(Get-Content -Path $DifLocale.FullName -Encoding UTF8) -join "`n") -Ordered
                 $script:OldLocaleManifest['PackageVersion'] = $PackageVersion
+                if ($script:OldLocaleManifest.Keys -contains 'Moniker') {$script:OldLocaleManifest.Remove('Moniker')}
                 $script:OldLocaleManifest = SortYamlKeys $script:OldLocaleManifest $LocaleProperties
 
                 $yamlServer = '# yaml-language-server: $schema=https://aka.ms/winget-manifest.locale.1.0.0.schema.json'
@@ -1956,8 +1957,8 @@ if (!$LastVersion) {
 }
 
 # If the old manifests exist, find the default locale
-if ($OldManifests.Name -match "$PackageIdentifier\.locale\..*\.yaml") {
-    $_LocaleManifests = $OldManifests | Where-Object { $_.Name -match "$PackageIdentifier\.locale\..*\.yaml" }
+if ($OldManifests.Name -match "$([Regex]::Escape($PackageIdentifier))\.locale\..*\.yaml") {
+    $_LocaleManifests = $OldManifests | Where-Object { $_.Name -match "$([Regex]::Escape($PackageIdentifier))\.locale\..*\.yaml" }
     foreach ($_Manifest in $_LocaleManifests) {
         $_ManifestContent = ConvertFrom-Yaml -Yaml ($(Get-Content -Path $($_Manifest.FullName) -Encoding UTF8) -join "`n") -Ordered
         if ($_ManifestContent.ManifestType -eq 'defaultLocale') { $PackageLocale = $_ManifestContent.PackageLocale }
