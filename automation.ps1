@@ -63,18 +63,25 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
-Function Update-PackageJson {
-    $Script:package | ConvertTo-Json > .\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
-}
-
 $packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
 
-# Check which packages need to be skipped and filter them into separate arrays
-$skippedPackages = $packages | Where-Object {$_.Skip -ne $false}
-$packages =  $packages | Where-Object {$_.Skip -eq $false}
-$timedPackages = $packages | Where-Object {($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds()}
-$packages = $packages | Where-Object {($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds()}
+# Display skipped packages or which have longer check interval
+Write-Host -ForegroundColor Green "`n----------------------------------------------------"
+Write-Host -ForegroundColor Green "Skipped packages:"
+foreach ($package in $packages | Where-Object { $_.skip -ne $false -or ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() })
+{
+    if ($package.skip)
+    {
+        Write-Host -ForegroundColor Green "$($package.pkgid)`n`tReason`: $($package.skip)"
+    }
+    else
+    {
+        Write-Host -ForegroundColor Green "$($package.pkgid)`n`tReason`: Last checked sooner than interval"
+    }
+}
+Write-Host -ForegroundColor Green "----------------------------------------------------`n"
 
+$packages = $packages | Where-Object { $_.skip -eq $false -or ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
@@ -82,9 +89,6 @@ foreach ($package in $packages)
 {
     $i++
     $urls.Clear()
-    # Update the LastCheckedTimestamp
-    $package.LastCheckedTimestamp = [DateTimeOffset]::Now.ToUnixTimeSeconds()
-
     if ($package.custom_script -eq $false)
     {
         $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
@@ -128,7 +132,7 @@ foreach ($package in $packages)
         if ($update_found -eq $true)
         {
             # Print update information, generate and submit manifests, updates the last_checked_tag in json
-            Update-PackageManifest $package.pkgid $version $urls.ToArray() 
+            Update-PackageManifest $package.pkgid $version $urls.ToArray()
             $package.last_checked_tag = $jsonTag
         }
         else
@@ -136,24 +140,12 @@ foreach ($package in $packages)
             Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
         }
     }
-    Update-PackageJson
+    $package.LastCheckedTimestamp = [DateTimeOffset]::Now.ToUnixTimeSeconds()
+    $package | ConvertTo-Json > .\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
 }
-
-# Display skipped packages
-Write-Host -ForegroundColor Green "`n----------------------------------------------------"
-Write-Host -ForegroundColor Green "Skipped packages:"
-foreach ($package in $skippedPackages)
-{
-    Write-Host -ForegroundColor Green "$($package.pkgid)`n`tReason`: $($package.skip)"
-}
-foreach ($package in $timedPackages)
-{
-    Write-Host -ForegroundColor Green "$($package.pkgid)`n`tReason`: Last checked sooner than interval"
-}
-Write-Host -ForegroundColor Green "----------------------------------------------------`n"
 
 # Update packages in repository
-Write-Host -ForegroundColor Green "Updating packages"
+Write-Host -ForegroundColor Green "`nUpdating packages"
 git pull # to be on a safe side
 git add .\packages\*
 git commit -m "Update packages [$env:GITHUB_RUN_NUMBER]"
