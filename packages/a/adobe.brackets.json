@@ -7,5 +7,7 @@
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
-  "skip": "Repository is archived"
+  "skip": "Repository is archived",
+  "LastCheckedTimestamp": 0,
+  "CheckIntervalSeconds": 0
 }

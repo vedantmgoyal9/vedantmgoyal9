@@ -7,5 +7,7 @@
   "is_prerelease": false,
   "version_method": "$result.tag_name.TrimStart(\"dosbox-x-v\")",
   "custom_script": false,
-  "skip": false
+  "skip": false,
+  "LastCheckedTimestamp": 0,
+  "CheckIntervalSeconds": 0
 }

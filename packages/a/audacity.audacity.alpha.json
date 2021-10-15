@@ -7,5 +7,7 @@
   "is_prerelease": true,
   "version_method": "audacity",
   "custom_script": false,
-  "skip": "Release candidates have same versions"
+  "skip": "Release candidates have same versions",
+  "LastCheckedTimestamp": 0,
+  "CheckIntervalSeconds": 0
 }
