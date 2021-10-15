@@ -1,0 +1,8 @@
+documentation:
+- 'README.md'
+new package:
+- 'packages/**'
+custom_scripts:
+- 'custom_scripts/**'
+automation-core:
+- 'automation.ps1'
