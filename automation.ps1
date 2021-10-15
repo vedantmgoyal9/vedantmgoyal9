@@ -47,7 +47,7 @@ $header = @{
     Accept = 'application/vnd.github.v3+json'
 }
 
-Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls, $last_checked_tag)
+Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls)
 {
     Write-Host -ForegroundColor Green "----------------------------------------------------"
     # Prints update information, added spaces for indentation
@@ -60,20 +60,31 @@ Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $Installer
     Set-Location .\winget-pkgs\Tools # Change directory to Tools
     .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
     Set-Location $currentDir # Go back to previous working directory
-    # Update the last_checked_tag in json
-    $Script:package.last_checked_tag = $last_checked_tag
-    $Script:package | ConvertTo-Json > .\packages\$($Script:package.pkgid.Substring(0,1).ToLower())\$($Script:package.pkgid.ToLower()).json
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
+Function Update-PackageJson {
+    $Script:package | ConvertTo-Json > .\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
+}
+
 $packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
+
+# Check which packages need to be skipped and filter them into separate arrays
+$skippedPackages = $packages | Where-Object {$_.Skip -ne $false}
+$packages =  $packages | Where-Object {$_.Skip -eq $false}
+$timedPackages = $packages | Where-Object {($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds()}
+$packages = $packages | Where-Object {($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds()}
+
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($package in $packages | Where-Object { $_.skip -eq $false })
+foreach ($package in $packages)
 {
     $i++
     $urls.Clear()
+    # Update the LastCheckedTimestamp
+    $package.LastCheckedTimestamp = [DateTimeOffset]::Now.ToUnixTimeSeconds()
+
     if ($package.custom_script -eq $false)
     {
         $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
@@ -100,8 +111,10 @@ foreach ($package in $packages | Where-Object { $_.skip -eq $false })
                 {
                     $version = Invoke-Expression $package.version_method
                 }
-                # Print update information, generate and submit manifests, updates the last_checked_tag in json
-                Update-ManifestAndJson $package.pkgid $version $urls.ToArray() $result.tag_name
+                # Print update information, generate and submit manifests
+                Update-PackageManifest $package.pkgid $version $urls.ToArray()
+                # Update the last_checked_tag
+                $package.last_checked_tag = $result.tag_name
             }
         }
         else
@@ -115,21 +128,27 @@ foreach ($package in $packages | Where-Object { $_.skip -eq $false })
         if ($update_found -eq $true)
         {
             # Print update information, generate and submit manifests, updates the last_checked_tag in json
-            Update-ManifestAndJson $package.pkgid $version $urls.ToArray() $jsonTag
+            Update-PackageManifest $package.pkgid $version $urls.ToArray() 
+            $package.last_checked_tag = $jsonTag
         }
         else
         {
             Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
         }
     }
+    Update-PackageJson
 }
 
 # Display skipped packages
 Write-Host -ForegroundColor Green "`n----------------------------------------------------"
 Write-Host -ForegroundColor Green "Skipped packages:"
-foreach ($package in $packages | Where-Object { $_.skip -ne $false })
+foreach ($package in $skippedPackages)
 {
     Write-Host -ForegroundColor Green "$($package.pkgid)`n`tReason`: $($package.skip)"
+}
+foreach ($package in $timedPackages)
+{
+    Write-Host -ForegroundColor Green "$($package.pkgid)`n`tReason`: Last checked sooner than interval"
 }
 Write-Host -ForegroundColor Green "----------------------------------------------------`n"
 
