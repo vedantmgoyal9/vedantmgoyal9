@@ -47,8 +47,7 @@ $header = @{
     Accept = 'application/vnd.github.v3+json'
 }
 
-Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls, $last_checked_tag)
-{
+Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $InstallerUrls, $last_checked_tag) {
     Write-Host -ForegroundColor Green "----------------------------------------------------"
     # Prints update information, added spaces for indentation
     Write-Host -ForegroundColor Green "[$Script:i/$Script:cnt] Found update for`: $PackageIdentifier"
@@ -62,18 +61,16 @@ Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $Installer
     Set-Location $currentDir # Go back to previous working directory
     # Update the last_checked_tag in json
     $Script:package.last_checked_tag = $last_checked_tag
-    $Script:package | ConvertTo-Json > $Script:json
+    $Script:package | ConvertTo-Json > $(Get-ChildItem .\packages\ -Recurse -File -Filter "$($Script:package.pkgid).json").FullName
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
-$packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
+$packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -raw | ConvertFrom-Json
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($json in $packages)
-{
+foreach ($package in $packages) {
     $i++
-    $package = Get-Content $json | ConvertFrom-Json
     $urls.Clear()
     if ($package.skip -eq $false -and $package.custom_script -eq $false)
     {
