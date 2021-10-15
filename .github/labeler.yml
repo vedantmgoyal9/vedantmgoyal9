@@ -9,5 +9,4 @@ automation-core:
 - 'YamlCreate/YamlCreate.ps1'
 - '.github/**'
 add-contributor:
-- 'README.md'
 - '.all-contributorsrc'
