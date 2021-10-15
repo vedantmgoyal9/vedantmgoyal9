@@ -1,8 +1,12 @@
 documentation:
-- 'README.md'
+- all: ['README.md']
 new package:
 - 'packages/**'
 custom_scripts:
 - 'custom_scripts/**'
 automation-core:
 - 'automation.ps1'
+- 'YamlCreate/YamlCreate.ps1'
+- '.github/**'
+add-contributor:
+- all: ['README.md','.all-contributorsrc']
