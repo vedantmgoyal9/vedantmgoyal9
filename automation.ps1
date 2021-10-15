@@ -80,7 +80,7 @@ Write-Host -ForegroundColor Green "---------------------------------------------
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($package in $packages | Where-Object { $_.Skip -eq $false } Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() })
+foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() })
 {
     $i++
     $urls.Clear()
