@@ -8,6 +8,6 @@
   "version_method": "\"$($result.tag_name.TrimStart(\"v\")).0\"",
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 0,
-  "CheckIntervalSeconds": 0
+  "LastCheckedTimestamp": 1634310032,
+  "CheckIntervalSeconds": 3600
 }
