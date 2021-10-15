@@ -92,7 +92,7 @@ foreach ($package in $packages)
     $urls.Clear()
     if ($package.custom_script -eq $false)
     {
-        $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
+        $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease,published_at -First 1
         # Check update is available for this package using tag_name and last_checked_tag
         if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag)
         {
@@ -125,6 +125,11 @@ foreach ($package in $packages)
         else
         {
             Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
+            # If the last release was more than 6 months ago, automatically add it to the skip list
+            # 3600 secs/hr * 24 hr/day * 180 days = 15552000
+            if (([DateTimeOffset]::Now.ToUnixTimeSeconds()-15552000) -ge [DateTimeOffset]::new($result.published_at).ToUnixTimeSeconds()){
+                $package.skip = 'Automatically marked as stale, not updated for 6 months'
+            }
         }
     }
     else
