@@ -62,32 +62,25 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
-# Get all packages and filter them if they are skipped or have last checked timestamp older than interval
+
 $packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
-$skippedPackages = $packages | Where-Object { $_.Skip -ne $false }
-$packages = $packages | Where-Object { $_.Skip -ne $false }
-$timedPackages = $packages | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() }
-$packages = $packages | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }
 
 # Display skipped packages or which have longer check interval
 Write-Host -ForegroundColor Green "----------------------------------------------------"
-foreach ($package in @($skippedPackages,$timedPackages))
+foreach ($package in $packages | Where-Object { $_.Skip -ne $false })
 {
-    if ($package.skip)
-    {
-        Write-Host -ForegroundColor Green "$($package.pkgid)`: $($package.skip)"
-    }
-    else
-    {
-        Write-Host -ForegroundColor Green "$($package.pkgid)`: Last checked sooner than interval"
-    }
+    Write-Host -ForegroundColor Green "$($package.pkgid)`: $($package.skip)"
+}
+foreach ($package in $packages | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() })
+{
+    Write-Host -ForegroundColor Green "$($package.pkgid)`: Last checked sooner than interval"
 }
 Write-Host -ForegroundColor Green "----------------------------------------------------`n"
 
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($package in $packages)
+foreach ($package in $packages | Where-Object { $_.Skip -eq $false -or ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() })
 {
     $i++
     $urls.Clear()
