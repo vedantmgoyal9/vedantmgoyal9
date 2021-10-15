@@ -10,7 +10,9 @@
         "is_prerelease",
         "version_method",
         "custom_script",
-        "skip"
+        "skip",
+        "LastCheckedTimestamp",
+        "CheckIntervalSeconds"
     ],
     "title": "Schema for JSON files in this repository",
     "type": "object",
@@ -59,6 +61,14 @@
                 "string",
                 "boolean"
             ]
+        },
+        "LastCheckedTimestamp": {
+            "$id": "#/properties/LastCheckedTimestamp",
+            "type": "string"
+        },
+        "CheckIntervalSeconds": {
+            "$id": "#/properties/CheckIntervalSeconds",
+            "type": "number"
         }
     }
 }
