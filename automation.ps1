@@ -121,7 +121,8 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } Where-Objec
             Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
             # If the last release was more than 6 months ago, automatically add it to the skip list
             # 3600 secs/hr * 24 hr/day * 180 days = 15552000
-            if (([DateTimeOffset]::Now.ToUnixTimeSeconds()-15552000) -ge [DateTimeOffset]::new($result.published_at).ToUnixTimeSeconds()){
+            if (([DateTimeOffset]::Now.ToUnixTimeSeconds()-15552000) -ge [DateTimeOffset]::new($result.published_at).ToUnixTimeSeconds())
+            {
                 $package.skip = 'Automatically marked as stale, not updated for 6 months'
             }
         }
