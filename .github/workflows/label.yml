@@ -12,13 +12,13 @@ jobs:
   label:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
+    #permissions:
+      #contents: read
+      #pull-requests: write
 
     steps:
     - uses: actions/labeler@v3
       with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        repo-token: "${{ secrets.MYSUPERSECRETINFORMATION }}"
         configuration-path: '.github/labeler.yml'
         sync-labels: true
