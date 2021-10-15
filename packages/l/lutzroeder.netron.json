@@ -7,5 +7,7 @@
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
-  "skip": "Developers publish their package"
+  "skip": "Developers publish their package",
+  "LastCheckedTimestamp": 0,
+  "CheckIntervalSeconds": 0
 }
