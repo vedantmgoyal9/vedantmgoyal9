@@ -107,7 +107,7 @@ ByteDance.JianyingPro
 c0re100.qBittorrent-Enhanced-Edition
 c3er.mdview
 calibre.calibre
-calibre.calibre_portable
+calibre.calibre.portable
 CameronSutter.Plottr
 cangzhang.champ-r
 Canonical.Multipass
