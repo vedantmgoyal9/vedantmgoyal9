@@ -64,7 +64,7 @@
         },
         "LastCheckedTimestamp": {
             "$id": "#/properties/LastCheckedTimestamp",
-            "type": "string"
+            "type": "number"
         },
         "CheckIntervalSeconds": {
             "$id": "#/properties/CheckIntervalSeconds",
