@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.RubyMine",
   "repo": "jetbrains-api",
-  "last_checked_tag": "212.5284.50",
+  "last_checked_tag": "212.5457.52",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": true,
   "skip": false,
-  "LastCheckedTimestamp": 1634310034,
+  "LastCheckedTimestamp": 1634310639,
   "CheckIntervalSeconds": 3600
 }

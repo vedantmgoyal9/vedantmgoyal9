@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Notepad++.Notepad++",
   "repo": "notepad-plus-plus/notepad-plus-plus",
-  "last_checked_tag": "v8.1.6",
+  "last_checked_tag": "v8.1.7",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634310034,
+  "LastCheckedTimestamp": 1634310762,
   "CheckIntervalSeconds": 3600
 }

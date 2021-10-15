@@ -8,6 +8,6 @@
   "version_method": "\"$($result.tag_name)000\"",
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634310032,
+  "LastCheckedTimestamp": 1634310811,
   "CheckIntervalSeconds": 3600
 }
