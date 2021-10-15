@@ -7,7 +7,7 @@
   "is_prerelease": true,
   "version_method": null,
   "custom_script": false,
-  "skip": false,
-  "LastCheckedTimestamp": 1634310324,
+  "skip": "Automatically marked as stale, not updated for 6 months",
+  "LastCheckedTimestamp": 1634321470,
   "CheckIntervalSeconds": 3600
 }
