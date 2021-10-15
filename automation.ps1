@@ -71,7 +71,7 @@ foreach ($package in $packages | Where-Object { $_.Skip -ne $false })
 {
     Write-Host -ForegroundColor Green "$($package.pkgid)`: $($package.skip)"
 }
-foreach ($package in $packages | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() })
+foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() })
 {
     Write-Host -ForegroundColor Green "$($package.pkgid)`: Last checked sooner than interval"
 }
