@@ -66,17 +66,16 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
 $packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
 
 # Display skipped packages or which have longer check interval
-Write-Host -ForegroundColor Green "`n----------------------------------------------------"
-Write-Host -ForegroundColor Green "Skipped packages:"
+Write-Host -ForegroundColor Green "----------------------------------------------------"
 foreach ($package in $packages | Where-Object { $_.skip -ne $false -or ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() })
 {
     if ($package.skip)
     {
-        Write-Host -ForegroundColor Green "$($package.pkgid)`n`tReason`: $($package.skip)"
+        Write-Host -ForegroundColor Green "$($package.pkgid)`: $($package.skip)"
     }
     else
     {
-        Write-Host -ForegroundColor Green "$($package.pkgid)`n`tReason`: Last checked sooner than interval"
+        Write-Host -ForegroundColor Green "$($package.pkgid)`: Last checked sooner than interval"
     }
 }
 Write-Host -ForegroundColor Green "----------------------------------------------------`n"
