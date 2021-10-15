@@ -62,19 +62,19 @@ Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $Installer
     Set-Location $currentDir # Go back to previous working directory
     # Update the last_checked_tag in json
     $Script:package.last_checked_tag = $last_checked_tag
-    $Script:package | ConvertTo-Json > .\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
+    $Script:package | ConvertTo-Json > .\packages\$($Script:package.pkgid.Substring(0,1).ToLower())\$($Script:package.pkgid.ToLower()).json
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
-$packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -raw | ConvertFrom-Json
+$packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($package in $packages)
+foreach ($package in $packages | Where-Object { $_.skip -eq $false })
 {
     $i++
     $urls.Clear()
-    if ($package.skip -eq $false -and $package.custom_script -eq $false)
+    if ($package.custom_script -eq $false)
     {
         $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease -First 1
         # Check update is available for this package using tag_name and last_checked_tag
@@ -106,14 +106,10 @@ foreach ($package in $packages)
         }
         else
         {
-            Write-Host -ForegroundColor 'DarkYellow' "[$i/$cnt] No updates found for`: $($package.pkgid)"
+            Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
         }
     }
-    elseif ($package.skip)
-    {
-        Write-Host -ForegroundColor 'DarkYellow' "[$i/$cnt] Package ignored`: $($package.pkgid) [Reason`: $($package.skip)]"
-    }
-    elseif ($package.custom_script)
+    else
     {
         . .\custom_scripts\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).ps1
         if ($update_found -eq $true)
@@ -123,13 +119,22 @@ foreach ($package in $packages)
         }
         else
         {
-            Write-Host -ForegroundColor 'DarkYellow' "[$i/$cnt] No updates found for`: $($package.pkgid)"
+            Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
         }
     }
 }
 
+# Display skipped packages
+Write-Host -ForegroundColor Green "`n----------------------------------------------------"
+Write-Host -ForegroundColor Green "Skipped packages:"
+foreach ($package in $packages | Where-Object { $_.skip -ne $false })
+{
+    Write-Host -ForegroundColor Green "$($package.pkgid)`n`tReason`: $($package.skip)"
+}
+Write-Host -ForegroundColor Green "----------------------------------------------------`n"
+
 # Update packages in repository
-Write-Host -ForegroundColor Green "`nUpdating packages"
+Write-Host -ForegroundColor Green "Updating packages"
 git pull # to be on a safe side
 git add .\packages\*
 git commit -m "Update packages [$env:GITHUB_RUN_NUMBER]"
