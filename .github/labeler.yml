@@ -1,13 +1,12 @@
-# Any markdown file can be considered part of documentation
 documentation:
-- any: ['*.md','**/*.md']
-packages:
-- packages/**/*.json
+- all: ['README.md']
+new package:
+- 'packages/**'
 custom_scripts:
-- custom_scripts/**/*.ps1
+- 'custom_scripts/**'
 automation-core:
-- automation.ps1
-- YamlCreate/YamlCreate.ps1
-- .github/**/*.yml
+- 'automation.ps1'
+- 'YamlCreate/YamlCreate.ps1'
+- '.github/**'
 add-contributor:
 - all: ['README.md','.all-contributorsrc']
