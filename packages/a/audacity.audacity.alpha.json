@@ -8,6 +8,6 @@
   "version_method": "audacity",
   "custom_script": false,
   "skip": "Release candidates have same versions",
-  "LastCheckedTimestamp": 0,
-  "CheckIntervalSeconds": 0
+  "LastCheckedTimestamp": 1634310033,
+  "CheckIntervalSeconds": 3600
 }

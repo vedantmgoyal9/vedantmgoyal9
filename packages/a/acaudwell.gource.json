@@ -8,6 +8,6 @@
   "version_method": null,
   "custom_script": false,
   "skip": "Not updated for a long period",
-  "LastCheckedTimestamp": 0,
-  "CheckIntervalSeconds": 0
+  "LastCheckedTimestamp": 1634310033,
+  "CheckIntervalSeconds": 3600
 }
