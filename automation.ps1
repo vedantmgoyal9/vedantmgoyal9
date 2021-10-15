@@ -64,13 +64,14 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
 }
 # Get all packages and filter them if they are skipped or have last checked timestamp older than interval
 $packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
-$skippedPackages = $packages = $packages | Where-Object { $_.Skip -ne $false }
+$skippedPackages = $packages | Where-Object { $_.Skip -ne $false }
+$packages = $packages | Where-Object { $_.Skip -ne $false }
 $timedPackages = $packages | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() }
 $packages = $packages | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }
 
 # Display skipped packages or which have longer check interval
 Write-Host -ForegroundColor Green "----------------------------------------------------"
-foreach ($package in $skippedPackages,$timedPackages)
+foreach ($package in @($skippedPackages,$timedPackages))
 {
     if ($package.skip)
     {
