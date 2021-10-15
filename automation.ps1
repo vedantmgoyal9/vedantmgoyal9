@@ -65,12 +65,13 @@ Function Update-ManifestAndJson ($PackageIdentifier, $PackageVersion, $Installer
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
-$packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -raw | ConvertFrom-Json
+$packages = $(Get-ChildItem .\packages\ -Recurse -File).FullName
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($package in $packages) {
+foreach ($json in $packages) {
     $i++
+    $package = Get-Content $json | ConvertFrom-Json
     $urls.Clear()
     if ($package.skip -eq $false -and $package.custom_script -eq $false)
     {
