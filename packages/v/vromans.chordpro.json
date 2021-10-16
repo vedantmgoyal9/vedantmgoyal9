@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Vromans.ChordPro",
   "repo_uri": "ChordPro/chordpro",
-  "last_checked_tag": "R5.985",
+  "last_checked_tag": "50390078",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

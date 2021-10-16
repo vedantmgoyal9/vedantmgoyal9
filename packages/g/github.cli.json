@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "GitHub.cli",
   "repo_uri": "cli/cli",
-  "last_checked_tag": "v2.1.0",
+  "last_checked_tag": "51386071",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,

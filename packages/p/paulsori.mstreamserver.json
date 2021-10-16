@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "PaulSori.mStreamServer",
   "repo_uri": "IrosTheBeggar/mStream",
-  "last_checked_tag": "v5.7.2",
+  "last_checked_tag": "50771436",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,

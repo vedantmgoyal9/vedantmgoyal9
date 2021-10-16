@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "wire.wire",
   "repo_uri": "wireapp/wire-desktop",
-  "last_checked_tag": "macos/3.26.4145",
+  "last_checked_tag": "45341304",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

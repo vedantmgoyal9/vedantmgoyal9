@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Retroshare.Retroshare",
   "repo_uri": "RetroShare/RetroShare",
-  "last_checked_tag": "v0.6.6",
+  "last_checked_tag": "39769777",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

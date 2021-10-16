@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JabRef.JabRef",
   "repo_uri": "JabRef/jabref",
-  "last_checked_tag": "v5.3",
+  "last_checked_tag": "45734261",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Blocknetproject.Blocknet",
   "repo_uri": "blocknetdx/blocknet",
-  "last_checked_tag": "v4.3.3",
+  "last_checked_tag": "46541775",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

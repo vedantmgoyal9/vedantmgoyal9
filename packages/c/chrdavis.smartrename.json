@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "chrdavis.smartrename",
   "repo_uri": "chrdavis/SmartRename",
-  "last_checked_tag": "v.1.1.2",
+  "last_checked_tag": "44130561",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,

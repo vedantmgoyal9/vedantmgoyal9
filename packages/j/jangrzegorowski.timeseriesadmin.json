@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JanGrzegorowski.TimeSeriesAdmin",
   "repo_uri": "timeseriesadmin/timeseriesadmin",
-  "last_checked_tag": "v0.1.13",
+  "last_checked_tag": "31535468",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

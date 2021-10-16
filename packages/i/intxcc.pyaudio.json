@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "intxcc.pyaudio",
   "repo_uri": "intxcc/pyaudio_portaudio",
-  "last_checked_tag": "1.1.1",
+  "last_checked_tag": "13730847",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

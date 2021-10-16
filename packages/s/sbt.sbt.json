@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "sbt.sbt",
   "repo_uri": "sbt/sbt",
-  "last_checked_tag": "v1.5.5",
+  "last_checked_tag": "46033058",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,

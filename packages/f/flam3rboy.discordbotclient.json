@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Flam3rboy.DiscordBotClient",
   "repo_uri": "Flam3rboy/discord-bot-client",
-  "last_checked_tag": "3.1.0",
+  "last_checked_tag": "29363519",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

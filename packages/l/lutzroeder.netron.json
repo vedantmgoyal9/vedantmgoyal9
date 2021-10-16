@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LutzRoeder.Netron",
   "repo_uri": "lutzroeder/netron",
-  "last_checked_tag": "v5.2.9",
+  "last_checked_tag": "51115797",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,

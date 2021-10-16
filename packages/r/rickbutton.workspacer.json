@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "rickbutton.workspacer",
   "repo_uri": "workspacer/workspacer",
-  "last_checked_tag": "0",
+  "last_checked_tag": "48315360",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

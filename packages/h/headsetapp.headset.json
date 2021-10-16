@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Headsetapp.Headset",
   "repo_uri": "headsetapp/headset-electron",
-  "last_checked_tag": "v3.3.3",
+  "last_checked_tag": "39309186",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RandyRants.SharpKeys",
   "repo_uri": "randyrants/sharpkeys",
-  "last_checked_tag": "v3.9.3",
+  "last_checked_tag": "51176906",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": "\"$($result.tag_name)000\"",

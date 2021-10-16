@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "sqlectron.sqlectron-gui",
   "repo_uri": "sqlectron/sqlectron-gui",
-  "last_checked_tag": "v1.37.1",
+  "last_checked_tag": "47922828",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,

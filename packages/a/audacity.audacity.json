@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Audacity.Audacity",
   "repo_uri": "audacity/audacity",
-  "last_checked_tag": "Audacity-3.0.5",
+  "last_checked_tag": "50461983",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": "$result.tag_name.TrimStart(\"Audacity-\")",

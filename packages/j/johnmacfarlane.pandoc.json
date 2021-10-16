@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JohnMacFarlane.Pandoc",
   "repo_uri": "jgm/pandoc",
-  "last_checked_tag": "2.14.2",
+  "last_checked_tag": "48224343",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,

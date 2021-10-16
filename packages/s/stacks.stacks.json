@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "stacks.stacks",
   "repo_uri": "stacks-task-manager/stacks",
-  "last_checked_tag": "v1.5.4",
+  "last_checked_tag": "51430092",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
