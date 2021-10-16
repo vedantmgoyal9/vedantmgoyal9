@@ -1,4 +1,4 @@
-$result = Invoke-WebRequest -Uri $package.repo -UseBasicParsing | ConvertFrom-Json
+$result = Invoke-WebRequest -Uri $package.repo_url -UseBasicParsing | ConvertFrom-Json
 if ($result.LATEST_THUNDERBIRD_VERSION -gt $package.last_checked_tag)
 {
     $update_found = $true
