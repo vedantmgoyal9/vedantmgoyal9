@@ -1,5 +1,5 @@
 $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property name,id,tag_name,assets -First 1
-if ($result.tag_name -gt $package.last_checked_tag -and $result.name.Contains("Dev"))
+if ($result.id -gt $package.last_checked_tag -and $result.name.Contains("Dev"))
 {
     $update_found = $true
     $version = "95.$($result.tag_name.TrimStart("v"))"
