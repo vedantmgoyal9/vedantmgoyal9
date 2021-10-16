@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ArtifexSoftware.GhostScript",
-  "repo": "ArtifexSoftware/ghostpdl-downloads",
+  "repo_url": "ArtifexSoftware/ghostpdl-downloads",
   "last_checked_tag": "gs9550",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

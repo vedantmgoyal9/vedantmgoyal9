@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BraveSoftware.BraveBrowser-Dev",
-  "repo": "brave/brave-browser",
+  "repo_url": "brave/brave-browser",
   "last_checked_tag": "v1.31.60",
   "asset_regex": "BraveBrowserStandaloneSilentDevSetup.exe$",
   "is_prerelease": true,

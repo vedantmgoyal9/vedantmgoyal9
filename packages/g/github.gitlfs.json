@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "GitHub.GitLFS",
-  "repo": "git-lfs/git-lfs",
+  "repo_url": "git-lfs/git-lfs",
   "last_checked_tag": "v3.0.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

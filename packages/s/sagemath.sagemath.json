@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "SageMath.SageMath",
-  "repo": "sagemath/sage-windows",
+  "repo_url": "sagemath/sage-windows",
   "last_checked_tag": "0.6.3-9.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

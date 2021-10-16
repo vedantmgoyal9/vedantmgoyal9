@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Files-Community.Files",
-  "repo": "files-community/Files",
+  "repo_url": "files-community/Files",
   "last_checked_tag": "v2.0.13",
   "asset_regex": ".*.msixbundle$",
   "is_prerelease": false,

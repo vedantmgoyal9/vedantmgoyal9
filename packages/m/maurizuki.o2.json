@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "maurizuki.O2",
-  "repo": "maurizuki/O2",
+  "repo_url": "maurizuki/O2",
   "last_checked_tag": "v2.2.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

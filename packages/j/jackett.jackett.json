@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Jackett.Jackett",
-  "repo": "Jackett/Jackett",
+  "repo_url": "Jackett/Jackett",
   "last_checked_tag": "v0.18.995",
   "asset_regex": "Jackett.Installer.Windows.exe",
   "is_prerelease": false,

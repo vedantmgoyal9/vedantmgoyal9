@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "nikpapa.palamedes",
-  "repo": "nikpapa/Palamedes",
+  "repo_url": "nikpapa/Palamedes",
   "last_checked_tag": "0.42",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

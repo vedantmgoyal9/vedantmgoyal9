@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Peppy.Osu!",
-  "repo": "ppy/osu",
+  "repo_url": "ppy/osu",
   "last_checked_tag": "2021.927.0",
   "asset_regex": "install.exe",
   "is_prerelease": false,

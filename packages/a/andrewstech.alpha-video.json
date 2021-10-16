@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AndrewsTech.Alpha-Video",
-  "repo": "unofficial-skills/alpha-video",
+  "repo_url": "unofficial-skills/alpha-video",
   "last_checked_tag": "1.7",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "c0re100.qBittorrent-Enhanced-Edition",
-  "repo": "c0re100/qBittorrent-Enhanced-Edition",
+  "repo_url": "c0re100/qBittorrent-Enhanced-Edition",
   "last_checked_tag": "release-4.3.8.10",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

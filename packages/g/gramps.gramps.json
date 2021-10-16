@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Gramps.Gramps",
-  "repo": "gramps-project/gramps",
+  "repo_url": "gramps-project/gramps",
   "last_checked_tag": "v5.1.4",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

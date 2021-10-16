@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Foundry376.Mailspring",
-  "repo": "Foundry376/Mailspring",
+  "repo_url": "Foundry376/Mailspring",
   "last_checked_tag": "1.9.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

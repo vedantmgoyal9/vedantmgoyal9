@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "staniel359.muffon",
-  "repo": "staniel359/muffon",
+  "repo_url": "staniel359/muffon",
   "last_checked_tag": "v0.1.0-alpha.12",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

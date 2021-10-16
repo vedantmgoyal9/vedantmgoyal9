@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LLVM.LLVM",
-  "repo": "llvm/llvm-project",
+  "repo_url": "llvm/llvm-project",
   "last_checked_tag": "llvmorg-13.0.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

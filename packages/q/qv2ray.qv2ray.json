@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Qv2ray.Qv2ray",
-  "repo": "qv2ray/qv2ray",
+  "repo_url": "qv2ray/qv2ray",
   "last_checked_tag": "v2.7.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

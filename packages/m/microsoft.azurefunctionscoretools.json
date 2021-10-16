@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.AzureFunctionsCoreTools",
-  "repo": "Azure/azure-functions-core-tools",
+  "repo_url": "Azure/azure-functions-core-tools",
   "last_checked_tag": "3.0.3785",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

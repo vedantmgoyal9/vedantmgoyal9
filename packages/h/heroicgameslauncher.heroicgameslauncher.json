@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "HeroicGamesLauncher.HeroicGamesLauncher",
-  "repo": "Heroic-Games-Launcher/HeroicGamesLauncher",
+  "repo_url": "Heroic-Games-Launcher/HeroicGamesLauncher",
   "last_checked_tag": "v1.9.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

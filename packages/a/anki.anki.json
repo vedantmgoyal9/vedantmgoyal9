@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Anki.Anki",
-  "repo": "ankitects/anki",
+  "repo_url": "ankitects/anki",
   "last_checked_tag": "2.1.48",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

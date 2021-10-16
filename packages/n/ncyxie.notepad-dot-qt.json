@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ncyxie.Notepad-DOT-Qt",
-  "repo": "ncyxie/Notepad-DOT-Qt",
+  "repo_url": "ncyxie/Notepad-DOT-Qt",
   "last_checked_tag": "v1.1.0-s1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

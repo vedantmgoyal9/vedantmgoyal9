@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "SartoxOnlyGNU.Audacium",
-  "repo": "SartoxOnlyGNU/audacium",
+  "repo_url": "SartoxOnlyGNU/audacium",
   "last_checked_tag": "18fbae6",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

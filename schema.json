@@ -4,7 +4,7 @@
     "required": [
         "$schema",
         "pkgid",
-        "repo",
+        "repo_url",
         "last_checked_tag",
         "asset_regex",
         "is_prerelease",
@@ -28,8 +28,8 @@
             "$id": "#/properties/pkgid",
             "type": "string"
         },
-        "repo": {
-            "$id": "#/properties/repo",
+        "repo_url": {
+            "$id": "#/properties/repo_url",
             "type": "string"
         },
         "last_checked_tag": {

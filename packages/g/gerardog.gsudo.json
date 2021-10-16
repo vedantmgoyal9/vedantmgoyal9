@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "gerardog.gsudo",
-  "repo": "gerardog/gsudo",
+  "repo_url": "gerardog/gsudo",
   "last_checked_tag": "v1.0.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

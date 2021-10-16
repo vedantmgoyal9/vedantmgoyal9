@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RobertFFrasca.PDFKeeper",
-  "repo": "rffrasca/PDFKeeper",
+  "repo_url": "rffrasca/PDFKeeper",
   "last_checked_tag": "v7.2.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

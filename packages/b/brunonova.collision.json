@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BrunoNova.Collision",
-  "repo": "brunonova/collision2",
+  "repo_url": "brunonova/collision2",
   "last_checked_tag": "v2.0.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

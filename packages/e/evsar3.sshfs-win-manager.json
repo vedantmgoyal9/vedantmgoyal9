@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "evsar3.sshfs-win-manager",
-  "repo": "evsar3/sshfs-win-manager",
+  "repo_url": "evsar3/sshfs-win-manager",
   "last_checked_tag": "v1.3.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

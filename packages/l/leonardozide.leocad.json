@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LeonardoZide.LeoCAD",
-  "repo": "leozide/leocad",
+  "repo_url": "leozide/leocad",
   "last_checked_tag": "continuous",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

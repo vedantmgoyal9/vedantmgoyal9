@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "PopcornTime.Popcorn-Time-Ru",
-  "repo": "popcorn-time-ru/popcorn-desktop",
+  "repo_url": "popcorn-time-ru/popcorn-desktop",
   "last_checked_tag": "v0.4.5",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

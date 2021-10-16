@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "TeamShinkansen.Hakchi2-CE",
-  "repo": "TeamShinkansen/Hakchi2-CE",
+  "repo_url": "TeamShinkansen/Hakchi2-CE",
   "last_checked_tag": "v3.9.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

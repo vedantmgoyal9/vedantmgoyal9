@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "code52.Carnac",
-  "repo": "Code52/carnac",
+  "repo_url": "Code52/carnac",
   "last_checked_tag": "2.3.13",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

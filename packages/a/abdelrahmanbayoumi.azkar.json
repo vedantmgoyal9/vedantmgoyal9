@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AbdelrahmanBayoumi.Azkar",
-  "repo": "AbdelrahmanBayoumi/Azkar-App",
+  "repo_url": "AbdelrahmanBayoumi/Azkar-App",
   "last_checked_tag": "0.9.4",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

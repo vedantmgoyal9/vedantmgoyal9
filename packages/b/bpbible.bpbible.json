@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BPBible.BPBible",
-  "repo": "bpbible/bpbible",
+  "repo_url": "bpbible/bpbible",
   "last_checked_tag": "release-0.5.3.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
