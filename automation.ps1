@@ -81,9 +81,9 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Obj
     $i++
     $urls.Clear()
     if ($package.custom_script -eq $false) {
-        $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name, assets, prerelease, published_at -First 1
-        # Check update is available for this package using tag_name and last_checked_tag
-        if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag) {
+        $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property id,tag_name,assets,prerelease,published_at -First 1
+        # Check update is available for this package using release id and last_checked_tag
+        if ($result.prerelease -eq $package.is_prerelease -and $result.id -gt $package.last_checked_tag) {
             # Get download urls using regex pattern and add to array
             foreach ($asset in $result.assets) {
                 if ($asset.name -match $package.asset_regex) {
@@ -101,7 +101,7 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Obj
                 # Print update information, generate and submit manifests
                 Update-PackageManifest $package.pkgid $version $urls.ToArray()
                 # Update the last_checked_tag
-                $package.last_checked_tag = $result.tag_name
+                $package.last_checked_tag = $result.id
             }
         } else {
             Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
