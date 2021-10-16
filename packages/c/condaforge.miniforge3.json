@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "CondaForge.Miniforge3",
-  "repo": "conda-forge/miniforge",
+  "repo_uri": "conda-forge/miniforge",
   "last_checked_tag": "4.10.3-7",
   "asset_regex": "Miniforge3-.*-Windows-x86_64.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372599,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372599,
+  "check_interval": 3600
 }

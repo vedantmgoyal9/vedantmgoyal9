@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "nimblenote.nimblenote",
-  "repo": "nimblenote/nimblenote",
+  "repo_uri": "nimblenote/nimblenote",
   "last_checked_tag": "v3.1.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372684,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372684,
+  "check_interval": 3600
 }

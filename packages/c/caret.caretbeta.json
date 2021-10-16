@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Caret.CaretBeta",
-  "repo": "careteditor/releases-beta",
+  "repo_uri": "careteditor/releases-beta",
   "last_checked_tag": "4.0.0-rc23",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Not updated for a long period",
-  "LastCheckedTimestamp": 1634310032,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634310032,
+  "check_interval": 3600
 }

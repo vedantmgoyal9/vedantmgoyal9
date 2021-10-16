@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BPBible.BPBible",
-  "repo": "bpbible/bpbible",
+  "repo_uri": "bpbible/bpbible",
   "last_checked_tag": "release-0.5.3.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321483,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321483,
+  "check_interval": 3600
 }

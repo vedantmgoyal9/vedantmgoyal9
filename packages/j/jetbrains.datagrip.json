@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.DataGrip",
-  "repo": "jetbrains-api",
+  "repo_uri": "jetbrains-api",
   "last_checked_tag": "212.5457.41",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": true,
   "skip": false,
-  "LastCheckedTimestamp": 1634372646,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372646,
+  "check_interval": 3600
 }

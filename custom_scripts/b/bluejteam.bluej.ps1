@@ -1,4 +1,4 @@
-Invoke-WebRequest -Uri $package.repo -UserAgent "Java/11.0.2" -OutFile "version.info" -UseBasicParsing
+Invoke-WebRequest -Uri $package.repo_uri -UserAgent "Java/11.0.2" -OutFile "version.info" -UseBasicParsing
 $result = ([System.Text.Encoding]::UTF8.GetString([System.IO.File]::ReadAllBytes("version.info"))).Split([Environment]::NewLine)[0]
 Remove-Item version.info
 if ($result -gt $package.last_checked_tag)

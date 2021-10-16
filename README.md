@@ -36,15 +36,15 @@ Running automatically on GitHub workflows, this repo has two main components tha
 |  Key  | Description |
 | :---: | :--- |
 | pkgid | PackageIdentifier of the package in the winget-pkgs repository |
-| repo | GitHub repository of the package in the form of `owner/repo` or an API URL |
+| repo_uri | URI of any API/Source/etc. or GitHub repository of the package in the form of `owner/repo` |
 | last_checked_tag | Tag/version of the last release of the package checked by the script |
 | asset_regex | Regular expression to match the asset name of the package |
 | is_prerelease | Whether the package is a prerelease or not |
 | version_method | Method to get the version of the package, if the package doesn't follow [semantic versioning](https://semver.org) |
 | custom_script | If package uses custom script for checking updates, then it is `true` |
 | skip | If the package has not been updated for a long time, it can be skipped instead of removing the JSON file (useful when keeping a record of skipped packages) |
-| LastCheckedTimestamp | Timestamp when the package was last updated by the workflow |
-| CheckIntervalSeconds | Custom check interval if the package is less frequently updated |
+| previous_timestamp | Timestamp when the package was last updated by the workflow |
+| check_interval | Custom check interval if the package is less frequently updated |
 
 ## Contributors 🎉
 

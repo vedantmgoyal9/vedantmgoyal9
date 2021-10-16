@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AshishBharadwajJ.Flawesome",
-  "repo": "ashishBharadwaj/flawesome",
+  "repo_uri": "ashishBharadwaj/flawesome",
   "last_checked_tag": "v0.2.3",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321471,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321471,
+  "check_interval": 3600
 }

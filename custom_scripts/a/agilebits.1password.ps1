@@ -1,4 +1,4 @@
-$result = (Invoke-WebRequest -Uri $package.repo -UseBasicParsing | ConvertFrom-Json).rules | Select-Object -Last 1
+$result = (Invoke-WebRequest -Uri $package.repo_uri -UseBasicParsing | ConvertFrom-Json).rules | Select-Object -Last 1
 if ($result.before -gt $package.last_checked_tag)
 {
     $update_found = $true

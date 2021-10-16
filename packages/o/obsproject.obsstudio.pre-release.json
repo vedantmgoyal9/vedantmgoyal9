@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OBSProject.OBSStudio.Pre-release",
-  "repo": "obsproject/obs-studio",
+  "repo_uri": "obsproject/obs-studio",
   "last_checked_tag": "27.1.0-rc3",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372686,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372686,
+  "check_interval": 3600
 }

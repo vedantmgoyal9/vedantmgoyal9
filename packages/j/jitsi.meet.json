@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Jitsi.Meet",
-  "repo": "jitsi/jitsi-meet-electron",
+  "repo_uri": "jitsi/jitsi-meet-electron",
   "last_checked_tag": "v2.9.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372651,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372651,
+  "check_interval": 3600
 }

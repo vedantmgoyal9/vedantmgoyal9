@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Biscuit.Biscuit",
-  "repo": "agata/dl.biscuit",
+  "repo_uri": "agata/dl.biscuit",
   "last_checked_tag": "v1.2.24",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372584,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372584,
+  "check_interval": 3600
 }

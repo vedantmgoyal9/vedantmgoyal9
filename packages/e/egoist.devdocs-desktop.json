@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "egoist.devdocs-desktop",
-  "repo": "egoist/devdocs-desktop",
+  "repo_uri": "egoist/devdocs-desktop",
   "last_checked_tag": "v0.7.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634372613,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372613,
+  "check_interval": 3600
 }

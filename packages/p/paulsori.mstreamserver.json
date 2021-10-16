@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "PaulSori.mStreamServer",
-  "repo": "IrosTheBeggar/mStream",
+  "repo_uri": "IrosTheBeggar/mStream",
   "last_checked_tag": "v5.7.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372693,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372693,
+  "check_interval": 3600
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "t1m0thyj.WinDynamicDesktop",
-  "repo": "t1m0thyj/WinDynamicDesktop",
+  "repo_uri": "t1m0thyj/WinDynamicDesktop",
   "last_checked_tag": "v4.7.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372776,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372776,
+  "check_interval": 3600
 }

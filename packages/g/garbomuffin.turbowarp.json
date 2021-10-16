@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "GarboMuffin.TurboWarp",
-  "repo": "TurboWarp/desktop",
+  "repo_uri": "TurboWarp/desktop",
   "last_checked_tag": "v0.10.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372619,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372619,
+  "check_interval": 3600
 }

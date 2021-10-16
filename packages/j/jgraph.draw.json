@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JGraph.Draw",
-  "repo": "jgraph/drawio-desktop",
+  "repo_uri": "jgraph/drawio-desktop",
   "last_checked_tag": "v15.4.0",
   "asset_regex": ".*(windows|32bit)-installer.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372650,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372650,
+  "check_interval": 3600
 }

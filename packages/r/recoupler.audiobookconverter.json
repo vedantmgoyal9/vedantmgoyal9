@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Recoupler.AudioBookConverter",
-  "repo": "yermak/AudioBookConverter",
+  "repo_uri": "yermak/AudioBookConverter",
   "last_checked_tag": "version_5.5.26",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372703,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372703,
+  "check_interval": 3600
 }

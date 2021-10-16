@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "HandyOrg.HandyWinget-GUI",
-  "repo": "HandyOrg/HandyWinGet",
+  "repo_uri": "HandyOrg/HandyWinGet",
   "last_checked_tag": "v4.0.0-beta.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372636,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372636,
+  "check_interval": 3600
 }

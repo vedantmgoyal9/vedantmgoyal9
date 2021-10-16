@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RubinderSingh.Ditto++",
-  "repo": "RubinderS/DittoPlusPlus",
+  "repo_uri": "RubinderS/DittoPlusPlus",
   "last_checked_tag": "v1.0.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372756,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372756,
+  "check_interval": 3600
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Joplin.Joplin",
-  "repo": "laurent22/joplin",
+  "repo_uri": "laurent22/joplin",
   "last_checked_tag": "v2.4.9",
   "asset_regex": "Joplin-Setup*",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372652,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372652,
+  "check_interval": 3600
 }

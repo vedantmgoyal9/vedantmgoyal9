@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "CodeF0x.violin",
-  "repo": "CodeF0x/violin",
+  "repo_uri": "CodeF0x/violin",
   "last_checked_tag": "v3.1.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321496,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321496,
+  "check_interval": 3600
 }

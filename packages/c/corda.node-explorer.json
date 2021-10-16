@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "corda.node-explorer",
-  "repo": "corda/node-explorer",
+  "repo_uri": "corda/node-explorer",
   "last_checked_tag": "v0.1.1-rev",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": true,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321499,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321499,
+  "check_interval": 3600
 }

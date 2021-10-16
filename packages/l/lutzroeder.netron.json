@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LutzRoeder.Netron",
-  "repo": "lutzroeder/netron",
+  "repo_uri": "lutzroeder/netron",
   "last_checked_tag": "v5.2.9",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Developers publish their package",
-  "LastCheckedTimestamp": 1634310033,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634310033,
+  "check_interval": 3600
 }

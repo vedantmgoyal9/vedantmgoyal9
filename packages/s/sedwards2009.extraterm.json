@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "sedwards2009.extraterm",
-  "repo": "sedwards2009/extraterm",
+  "repo_uri": "sedwards2009/extraterm",
   "last_checked_tag": "0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372763,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372763,
+  "check_interval": 3600
 }

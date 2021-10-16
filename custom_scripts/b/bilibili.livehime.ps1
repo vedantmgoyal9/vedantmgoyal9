@@ -1,4 +1,4 @@
-$result = (Invoke-WebRequest -Uri $package.repo | ConvertFrom-Json).data
+$result = (Invoke-WebRequest -Uri $package.repo_uri | ConvertFrom-Json).data
 $versionFromFeed = $result.version.TrimStart("Livehime-Win-release-")
 if ($versionFromFeed -gt $package.last_checked_tag)
 {

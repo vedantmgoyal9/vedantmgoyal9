@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "pyfa.pyfa",
-  "repo": "pyfa-org/Pyfa",
+  "repo_uri": "pyfa-org/Pyfa",
   "last_checked_tag": "v2.37.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372698,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372698,
+  "check_interval": 3600
 }

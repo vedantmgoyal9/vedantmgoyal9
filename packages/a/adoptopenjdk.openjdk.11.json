@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AdoptOpenJDK.OpenJDK.11",
-  "repo": "AdoptOpenJDK/openjdk11-binaries",
+  "repo_uri": "AdoptOpenJDK/openjdk11-binaries",
   "last_checked_tag": "jdk-11.0.11+9_openj9-0.26.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Requires custom script",
-  "LastCheckedTimestamp": 1634310033,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634310033,
+  "check_interval": 3600
 }

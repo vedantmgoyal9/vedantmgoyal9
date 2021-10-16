@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.Ironpython2",
-  "repo": "IronLanguages/ironpython2",
+  "repo_uri": "IronLanguages/ironpython2",
   "last_checked_tag": "ipy-2.7.11",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321604,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321604,
+  "check_interval": 3600
 }

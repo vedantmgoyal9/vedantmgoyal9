@@ -1,4 +1,4 @@
-$result = (Invoke-WebRequest $package.repo | ConvertFrom-Json).Version | Select-Object -Last 1
+$result = (Invoke-WebRequest $package.repo_uri | ConvertFrom-Json).Version | Select-Object -Last 1
 if ($result -gt $package.last_checked_tag)
 {
     $update_found = $true

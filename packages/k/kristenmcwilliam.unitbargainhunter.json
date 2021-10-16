@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "KristenMcWilliam.UnitBargainHunter",
-  "repo": "Merrit/unit_bargain_hunter",
+  "repo_uri": "Merrit/unit_bargain_hunter",
   "last_checked_tag": "v0.2.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372656,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372656,
+  "check_interval": 3600
 }

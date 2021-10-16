@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AcFun.AcFunVirtualTool",
-  "repo": "https://api.kuaishouzt.com/rest/zt/appsupport/checkupgrade?appver=1.16.0.598&kpn=ACFUN_APP.LIVE.PC&kpf=WINDOWS_PC",
+  "repo_uri": "https://api.kuaishouzt.com/rest/zt/appsupport/checkupgrade?appver=1.16.0.598&kpn=ACFUN_APP.LIVE.PC&kpf=WINDOWS_PC",
   "last_checked_tag": "1.17.0.617",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": true,
   "skip": false,
-  "LastCheckedTimestamp": 1634372541,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372541,
+  "check_interval": 3600
 }

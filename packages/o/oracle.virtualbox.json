@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Oracle.VirtualBox",
-  "repo": "https://download.virtualbox.org/virtualbox/LATEST.TXT",
+  "repo_uri": "https://download.virtualbox.org/virtualbox/LATEST.TXT",
   "last_checked_tag": "6.1.26\n",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": true,
   "skip": false,
-  "LastCheckedTimestamp": 1634372691,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372691,
+  "check_interval": 3600
 }

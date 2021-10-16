@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "afractal.TwitterTron",
-  "repo": "afractal/twittertron-app",
+  "repo_uri": "afractal/twittertron-app",
   "last_checked_tag": "1.0.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321459,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321459,
+  "check_interval": 3600
 }

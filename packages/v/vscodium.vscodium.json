@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "VSCodium.VSCodium",
-  "repo": "VSCodium/vscodium",
+  "repo_uri": "VSCodium/vscodium",
   "last_checked_tag": "1.61.1",
   "asset_regex": ".exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372788,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372788,
+  "check_interval": 3600
 }

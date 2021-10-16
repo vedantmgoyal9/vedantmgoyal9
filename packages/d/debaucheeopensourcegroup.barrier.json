@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "DebaucheeOpenSourceGroup.Barrier",
-  "repo": "debauchee/barrier",
+  "repo_uri": "debauchee/barrier",
   "last_checked_tag": "v2.3.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321506,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321506,
+  "check_interval": 3600
 }

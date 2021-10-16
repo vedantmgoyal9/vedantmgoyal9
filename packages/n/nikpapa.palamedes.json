@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "nikpapa.palamedes",
-  "repo": "nikpapa/Palamedes",
+  "repo_uri": "nikpapa/Palamedes",
   "last_checked_tag": "0.42",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321621,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321621,
+  "check_interval": 3600
 }

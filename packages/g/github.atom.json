@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "GitHub.Atom",
-  "repo": "atom/atom",
+  "repo_uri": "atom/atom",
   "last_checked_tag": "v1.58.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372622,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372622,
+  "check_interval": 3600
 }

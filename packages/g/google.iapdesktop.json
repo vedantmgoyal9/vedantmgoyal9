@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Google.IAPDesktop",
-  "repo": "GoogleCloudPlatform/iap-desktop",
+  "repo_uri": "GoogleCloudPlatform/iap-desktop",
   "last_checked_tag": "2.21.681",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372634,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372634,
+  "check_interval": 3600
 }

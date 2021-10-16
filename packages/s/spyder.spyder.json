@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Spyder.Spyder",
-  "repo": "spyder-ide/spyder",
+  "repo_uri": "spyder-ide/spyder",
   "last_checked_tag": "v5.1.5",
   "asset_regex": ".*.full.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372769,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372769,
+  "check_interval": 3600
 }

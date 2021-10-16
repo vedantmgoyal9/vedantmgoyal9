@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "hello-efficiency-inc.raven-reader",
-  "repo": "hello-efficiency-inc/raven-reader",
+  "repo_uri": "hello-efficiency-inc/raven-reader",
   "last_checked_tag": "v1.0.67",
   "asset_regex": "Raven-Reader-Setup.*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372638,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372638,
+  "check_interval": 3600
 }

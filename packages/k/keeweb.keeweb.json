@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "KeeWeb.KeeWeb",
-  "repo": "keeweb/keeweb",
+  "repo_uri": "keeweb/keeweb",
   "last_checked_tag": "v1.18.7",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372655,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372655,
+  "check_interval": 3600
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LLVM.LLVM",
-  "repo": "llvm/llvm-project",
+  "repo_uri": "llvm/llvm-project",
   "last_checked_tag": "llvmorg-13.0.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": "$result.tag_name.TrimStart(\"llvmorg-\")",
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372661,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372661,
+  "check_interval": 3600
 }

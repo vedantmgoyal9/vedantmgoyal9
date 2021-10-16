@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Flam3rboy.DiscordBotClient",
-  "repo": "Flam3rboy/discord-bot-client",
+  "repo_uri": "Flam3rboy/discord-bot-client",
   "last_checked_tag": "3.1.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321527,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321527,
+  "check_interval": 3600
 }

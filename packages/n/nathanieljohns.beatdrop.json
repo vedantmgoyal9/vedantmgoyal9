@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "NathanielJohns.Beatdrop",
-  "repo": "StarGazer1258/BeatDrop",
+  "repo_uri": "StarGazer1258/BeatDrop",
   "last_checked_tag": "v2.6.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321618,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321618,
+  "check_interval": 3600
 }

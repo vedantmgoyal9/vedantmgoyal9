@@ -1,4 +1,4 @@
-$result = (Invoke-WebRequest -Uri $package.repo -UseBasicParsing).Content
+$result = (Invoke-WebRequest -Uri $package.repo_uri -UseBasicParsing).Content
 if ($result -gt $package.last_checked_tag)
 {
     $update_found = $true

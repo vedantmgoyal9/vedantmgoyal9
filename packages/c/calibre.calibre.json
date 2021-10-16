@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "calibre.calibre",
-  "repo": "kovidgoyal/calibre",
+  "repo_uri": "kovidgoyal/calibre",
   "last_checked_tag": "v5.29.0",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372592,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372592,
+  "check_interval": 3600
 }

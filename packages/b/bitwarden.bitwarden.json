@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Bitwarden.Bitwarden",
-  "repo": "bitwarden/desktop",
+  "repo_uri": "bitwarden/desktop",
   "last_checked_tag": "v1.28.3",
   "asset_regex": "Bitwarden-Installer.*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372585,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372585,
+  "check_interval": 3600
 }

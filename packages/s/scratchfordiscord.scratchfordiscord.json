@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ScratchForDiscord.ScratchForDiscord",
-  "repo": "scratch-for-discord/scratch-for-discord-app",
+  "repo_uri": "scratch-for-discord/scratch-for-discord-app",
   "last_checked_tag": "v2.0.0-dev.12",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372763,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372763,
+  "check_interval": 3600
 }

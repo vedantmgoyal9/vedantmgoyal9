@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Levminer.Authme",
-  "repo": "Levminer/authme",
+  "repo_uri": "Levminer/authme",
   "last_checked_tag": "2.7.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372660,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372660,
+  "check_interval": 3600
 }

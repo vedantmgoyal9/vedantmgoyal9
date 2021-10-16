@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ojdkbuild.ojdkbuild",
-  "repo": "ojdkbuild/ojdkbuild",
+  "repo_uri": "ojdkbuild/ojdkbuild",
   "last_checked_tag": "java-1.8.0-openjdk-1.8.0.302-1.b08",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372687,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372687,
+  "check_interval": 3600
 }

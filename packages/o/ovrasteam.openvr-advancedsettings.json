@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OVRASTeam.OpenVR-AdvancedSettings",
-  "repo": "OpenVR-Advanced-Settings/OpenVR-AdvancedSettings",
+  "repo_uri": "OpenVR-Advanced-Settings/OpenVR-AdvancedSettings",
   "last_checked_tag": "5.3.2-1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321634,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321634,
+  "check_interval": 3600
 }

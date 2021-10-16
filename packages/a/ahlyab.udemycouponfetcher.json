@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Ahlyab.UdemyCouponFetcher",
-  "repo": "Ahlyab/UCF",
+  "repo_uri": "Ahlyab/UCF",
   "last_checked_tag": "1.0.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Not updated for a long period",
-  "LastCheckedTimestamp": 1634310033,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634310033,
+  "check_interval": 3600
 }

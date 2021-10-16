@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RoniLehto.LMath",
-  "repo": "lehtoroni/lmath-issues",
+  "repo_uri": "lehtoroni/lmath-issues",
   "last_checked_tag": "r1.7",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372755,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372755,
+  "check_interval": 3600
 }

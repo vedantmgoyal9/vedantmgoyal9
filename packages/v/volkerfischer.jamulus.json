@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "VolkerFischer.Jamulus",
-  "repo": "jamulussoftware/jamulus",
+  "repo_uri": "jamulussoftware/jamulus",
   "last_checked_tag": "0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372788,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372788,
+  "check_interval": 3600
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Rufus.Rufus",
-  "repo": "pbatard/rufus",
+  "repo_uri": "pbatard/rufus",
   "last_checked_tag": "v3.16",
   "asset_regex": ".*.appx$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372757,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372757,
+  "check_interval": 3600
 }

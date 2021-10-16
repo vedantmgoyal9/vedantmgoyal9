@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "CircuitDiagram.CircuitDiagram",
-  "repo": "circuitdiagram/circuitdiagram",
+  "repo_uri": "circuitdiagram/circuitdiagram",
   "last_checked_tag": "v3.1",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372596,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372596,
+  "check_interval": 3600
 }

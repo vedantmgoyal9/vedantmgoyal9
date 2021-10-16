@@ -4,15 +4,15 @@
     "required": [
         "$schema",
         "pkgid",
-        "repo",
+        "repo_uri",
         "last_checked_tag",
         "asset_regex",
         "is_prerelease",
         "version_method",
         "custom_script",
         "skip",
-        "LastCheckedTimestamp",
-        "CheckIntervalSeconds"
+        "previous_timestamp",
+        "check_interval"
     ],
     "title": "Schema for JSON files in this repository",
     "type": "object",
@@ -28,8 +28,8 @@
             "$id": "#/properties/pkgid",
             "type": "string"
         },
-        "repo": {
-            "$id": "#/properties/repo",
+        "repo_uri": {
+            "$id": "#/properties/repo_uri",
             "type": "string"
         },
         "last_checked_tag": {
@@ -62,12 +62,12 @@
                 "boolean"
             ]
         },
-        "LastCheckedTimestamp": {
-            "$id": "#/properties/LastCheckedTimestamp",
+        "previous_timestamp": {
+            "$id": "#/properties/previous_timestamp",
             "type": "number"
         },
-        "CheckIntervalSeconds": {
-            "$id": "#/properties/CheckIntervalSeconds",
+        "check_interval": {
+            "$id": "#/properties/check_interval",
             "type": "number"
         }
     }

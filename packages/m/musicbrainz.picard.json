@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "MusicBrainz.Picard",
-  "repo": "metabrainz/picard",
+  "repo_uri": "metabrainz/picard",
   "last_checked_tag": "release-2.6.4",
   "asset_regex": "MusicBrainz-Picard-[0-9.]{3,5}.msix$",
   "is_prerelease": false,
   "version_method": "\"$($result.tag_name.TrimStart(\"release-\"))0000.0\"",
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372681,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372681,
+  "check_interval": 3600
 }

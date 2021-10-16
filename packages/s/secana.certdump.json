@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "secana.CertDump",
-  "repo": "secana/CertDump",
+  "repo_uri": "secana/CertDump",
   "last_checked_tag": "v1.1.5",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321666,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321666,
+  "check_interval": 3600
 }

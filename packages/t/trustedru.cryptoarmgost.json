@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "TrustedRu.CryptoARMGOST",
-  "repo": "TrustedRu/CryptoARMGOST",
+  "repo_uri": "TrustedRu/CryptoARMGOST",
   "last_checked_tag": "v2.5.11",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321714,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321714,
+  "check_interval": 3600
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RuneLite.RuneLite",
-  "repo": "runelite/launcher",
+  "repo_uri": "runelite/launcher",
   "last_checked_tag": "2.2.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372757,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372757,
+  "check_interval": 3600
 }

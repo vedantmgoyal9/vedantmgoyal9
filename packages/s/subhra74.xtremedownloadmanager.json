@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "subhra74.XtremeDownloadManager",
-  "repo": "subhra74/xdm",
+  "repo_uri": "subhra74/xdm",
   "last_checked_tag": "7.2.11",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321696,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321696,
+  "check_interval": 3600
 }

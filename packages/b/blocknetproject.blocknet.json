@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Blocknetproject.Blocknet",
-  "repo": "blocknetdx/blocknet",
+  "repo_uri": "blocknetdx/blocknet",
   "last_checked_tag": "v4.3.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372586,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372586,
+  "check_interval": 3600
 }

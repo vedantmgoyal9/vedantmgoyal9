@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AlexRedden.G14ControlV2",
-  "repo": "aredden/electron-G14Control",
+  "repo_uri": "aredden/electron-G14Control",
   "last_checked_tag": "v0.2.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321463,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321463,
+  "check_interval": 3600
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "InTheLoop.LoopEmail.Beta",
-  "repo": "4thOffice/loopinupdater",
+  "repo_uri": "4thOffice/loopinupdater",
   "last_checked_tag": "v6.18.7-beta.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372641,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372641,
+  "check_interval": 3600
 }

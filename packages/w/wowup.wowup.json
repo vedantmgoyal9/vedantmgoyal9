@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "WowUp.Wowup",
-  "repo": "WowUp/WowUp",
+  "repo_uri": "WowUp/WowUp",
   "last_checked_tag": "v2.4.7",
   "asset_regex": "WowUp-Setup.*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372792,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372792,
+  "check_interval": 3600
 }

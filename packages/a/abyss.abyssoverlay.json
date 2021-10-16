@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Abyss.AbyssOverlay",
-  "repo": "Chit132/abyss-overlay",
+  "repo_uri": "Chit132/abyss-overlay",
   "last_checked_tag": "v1.3.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372540,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372540,
+  "check_interval": 3600
 }

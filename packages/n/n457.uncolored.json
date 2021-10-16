@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "n457.uncolored",
-  "repo": "n457/Uncolored",
+  "repo_uri": "n457/Uncolored",
   "last_checked_tag": "v.0.10.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321616,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321616,
+  "check_interval": 3600
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ChilliBits.ComposeGenerator",
-  "repo": "compose-generator/compose-generator",
+  "repo_uri": "compose-generator/compose-generator",
   "last_checked_tag": "1.0.0-rc2",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372594,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372594,
+  "check_interval": 3600
 }

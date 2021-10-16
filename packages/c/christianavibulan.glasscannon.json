@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ChristianAviBulan.GlassCannon",
-  "repo": "christianavi/Glass-Cannon-Desktop",
+  "repo_uri": "christianavi/Glass-Cannon-Desktop",
   "last_checked_tag": "v0.1.4",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321492,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634321492,
+  "check_interval": 3600
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "c0re100.qBittorrent-Enhanced-Edition",
-  "repo": "c0re100/qBittorrent-Enhanced-Edition",
+  "repo_uri": "c0re100/qBittorrent-Enhanced-Edition",
   "last_checked_tag": "release-4.3.8.10",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372591,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372591,
+  "check_interval": 3600
 }

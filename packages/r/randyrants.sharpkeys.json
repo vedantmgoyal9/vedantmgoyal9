@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RandyRants.SharpKeys",
-  "repo": "randyrants/sharpkeys",
+  "repo_uri": "randyrants/sharpkeys",
   "last_checked_tag": "v3.9.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": "\"$($result.tag_name)000\"",
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372702,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372702,
+  "check_interval": 3600
 }

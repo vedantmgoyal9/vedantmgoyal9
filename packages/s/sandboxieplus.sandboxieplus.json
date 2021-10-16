@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "SandboxiePlus.SandboxiePlus",
-  "repo": "sandboxie-plus/Sandboxie",
+  "repo_uri": "sandboxie-plus/Sandboxie",
   "last_checked_tag": "0.9.8",
   "asset_regex": "Sandboxie-Plus.*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634372760,
-  "CheckIntervalSeconds": 3600
+  "previous_timestamp": 1634372760,
+  "check_interval": 3600
 }
