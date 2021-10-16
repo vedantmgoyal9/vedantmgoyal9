@@ -81,7 +81,7 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Obj
     $i++
     $urls.Clear()
     if ($package.custom_script -eq $false) {
-        $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name, assets, prerelease, published_at -First 1
+        $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo_url)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name, assets, prerelease, published_at -First 1
         # Check update is available for this package using tag_name and last_checked_tag
         if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag) {
             # Get download urls using regex pattern and add to array
