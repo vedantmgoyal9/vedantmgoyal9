@@ -6,7 +6,7 @@ $ProgressPreference = 'SilentlyContinue'
 $webclient = New-Object System.Net.WebClient
 $webclient.downloadfile("https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx", "Microsoft.VCLibs.x64.14.00.Desktop.appx")
 $webclient.downloadfile("https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle", "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle")
-Import-Module -Name Appx -UseWindowsPowershell
+Import-Module -Name Appx -UseWindowsPowerShell
 Add-AppxPackage -Path Microsoft.VCLibs.x64.14.00.Desktop.appx
 Add-AppxPackage -Path Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 # winget command on windows server -------------------
@@ -47,8 +47,7 @@ $header = @{
     Accept = 'application/vnd.github.v3+json'
 }
 
-Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls)
-{
+Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
     Write-Host -ForegroundColor Green "----------------------------------------------------"
     # Prints update information, added spaces for indentation
     Write-Host -ForegroundColor Green "[$Script:i/$Script:cnt] Found update for`: $PackageIdentifier"
@@ -67,12 +66,10 @@ $packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Conver
 
 # Display skipped packages or which have longer check interval
 Write-Host -ForegroundColor Green "----------------------------------------------------"
-foreach ($package in $packages | Where-Object { $_.Skip -ne $false })
-{
+foreach ($package in $packages | Where-Object { $_.Skip -ne $false }) {
     Write-Host -ForegroundColor Green "$($package.pkgid)`: $($package.skip)"
 }
-foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() })
-{
+foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
     Write-Host -ForegroundColor Green "$($package.pkgid)`: Last checked sooner than interval"
 }
 Write-Host -ForegroundColor Green "----------------------------------------------------`n"
@@ -80,34 +77,25 @@ Write-Host -ForegroundColor Green "---------------------------------------------
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() })
-{
+foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
     $i++
     $urls.Clear()
-    if ($package.custom_script -eq $false)
-    {
-        $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name,assets,prerelease,published_at -First 1
+    if ($package.custom_script -eq $false) {
+        $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property tag_name, assets, prerelease, published_at -First 1
         # Check update is available for this package using tag_name and last_checked_tag
-        if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag)
-        {
+        if ($result.prerelease -eq $package.is_prerelease -and $result.tag_name -gt $package.last_checked_tag) {
             # Get download urls using regex pattern and add to array
-            foreach ($asset in $result.assets)
-            {
-                if ($asset.name -match $package.asset_regex)
-                {
+            foreach ($asset in $result.assets) {
+                if ($asset.name -match $package.asset_regex) {
                     $urls.Add($asset.browser_download_url) | Out-Null
                 }
             }
             # Check if urls are found and if so, update package manifest and json
-            if ($urls.Count -gt 0)
-            {
+            if ($urls.Count -gt 0) {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
-                if ($null -eq $package.version_method)
-                {
+                if ($null -eq $package.version_method) {
                     $version = $result.tag_name.TrimStart("v")
-                }
-                else
-                {
+                } else {
                     $version = Invoke-Expression $package.version_method
                 }
                 # Print update information, generate and submit manifests
@@ -115,29 +103,21 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Obj
                 # Update the last_checked_tag
                 $package.last_checked_tag = $result.tag_name
             }
-        }
-        else
-        {
+        } else {
             Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
             # If the last release was more than 6 months ago, automatically add it to the skip list
             # 3600 secs/hr * 24 hr/day * 180 days = 15552000
-            if (([DateTimeOffset]::Now.ToUnixTimeSeconds()-15552000) -ge [DateTimeOffset]::new($result.published_at).ToUnixTimeSeconds())
-            {
+            if (([DateTimeOffset]::Now.ToUnixTimeSeconds() - 15552000) -ge [DateTimeOffset]::new($result.published_at).ToUnixTimeSeconds()) {
                 $package.skip = 'Automatically marked as stale, not updated for 6 months'
             }
         }
-    }
-    else
-    {
+    } else {
         . .\custom_scripts\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).ps1
-        if ($update_found -eq $true)
-        {
+        if ($update_found -eq $true) {
             # Print update information, generate and submit manifests, updates the last_checked_tag in json
             Update-PackageManifest $package.pkgid $version $urls.ToArray()
             $package.last_checked_tag = $jsonTag
-        }
-        else
-        {
+        } else {
             Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
         }
     }
