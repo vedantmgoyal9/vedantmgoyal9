@@ -101,7 +101,7 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Obj
                 # Print update information, generate and submit manifests
                 Update-PackageManifest $package.pkgid $version $urls.ToArray()
                 # Update the last_checked_tag
-                $package.last_checked_tag = $result.id
+                $package.last_checked_tag = $result.id.ToString()
             }
         } else {
             Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
