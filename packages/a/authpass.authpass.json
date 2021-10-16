@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Authpass.Authpass",
-  "repo": "authpass/authpass",
+  "repo_url": "authpass/authpass",
   "last_checked_tag": "v1.9.4",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

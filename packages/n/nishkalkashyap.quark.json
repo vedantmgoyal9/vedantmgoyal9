@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "NishkalKashyap.Quark",
-  "repo": "Nishkalkashyap/Quark-electron",
+  "repo_url": "Nishkalkashyap/Quark-electron",
   "last_checked_tag": "0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

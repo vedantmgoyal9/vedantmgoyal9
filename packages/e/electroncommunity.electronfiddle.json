@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ElectronCommunity.ElectronFiddle",
-  "repo": "electron/fiddle",
+  "repo_url": "electron/fiddle",
   "last_checked_tag": "v0.26.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JackHumphries.Socially",
-  "repo": "JackHumphries9/Socially",
+  "repo_url": "JackHumphries9/Socially",
   "last_checked_tag": "V1.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

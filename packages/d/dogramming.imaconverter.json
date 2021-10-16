@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Dogramming.Imaconverter",
-  "repo": "Dogramming/Imaconverter",
+  "repo_url": "Dogramming/Imaconverter",
   "last_checked_tag": "imaconverter2.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JohannesMillan.superProductivity",
-  "repo": "johannesjo/super-productivity",
+  "repo_url": "johannesjo/super-productivity",
   "last_checked_tag": "v7.6.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

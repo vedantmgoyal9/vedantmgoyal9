@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "StandardNotes.StandardNotes",
-  "repo": "standardnotes/desktop",
+  "repo_url": "standardnotes/desktop",
   "last_checked_tag": "v3.8.21",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

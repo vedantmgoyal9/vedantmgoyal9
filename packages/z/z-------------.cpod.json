@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "z-------------.cpod",
-  "repo": "z-------------/CPod",
+  "repo_url": "z-------------/CPod",
   "last_checked_tag": "v1.28.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

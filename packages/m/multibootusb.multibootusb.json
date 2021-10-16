@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "multibootusb.multibootusb",
-  "repo": "mbusb/multibootusb",
+  "repo_url": "mbusb/multibootusb",
   "last_checked_tag": "v9.2.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

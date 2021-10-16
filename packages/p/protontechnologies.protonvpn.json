@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ProtonTechnologies.ProtonVPN",
-  "repo": "ProtonVPN/win-app",
+  "repo_url": "ProtonVPN/win-app",
   "last_checked_tag": "1.23.4",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

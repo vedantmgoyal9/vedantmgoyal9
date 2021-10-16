@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.Ironpython2",
-  "repo": "IronLanguages/ironpython2",
+  "repo_url": "IronLanguages/ironpython2",
   "last_checked_tag": "ipy-2.7.11",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

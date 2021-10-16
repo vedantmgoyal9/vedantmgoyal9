@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LeGitHubDeTai.AnimeBack",
-  "repo": "LeGitHubDeTai/AnimeBack",
+  "repo_url": "LeGitHubDeTai/AnimeBack",
   "last_checked_tag": "v8.0.8",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

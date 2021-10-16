@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "amitmerchant1990.electron-markdownify",
-  "repo": "amitmerchant1990/electron-markdownify",
+  "repo_url": "amitmerchant1990/electron-markdownify",
   "last_checked_tag": "1.4.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

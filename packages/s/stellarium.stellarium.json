@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Stellarium.Stellarium",
-  "repo": "Stellarium/stellarium",
+  "repo_url": "Stellarium/stellarium",
   "last_checked_tag": "v0.21.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

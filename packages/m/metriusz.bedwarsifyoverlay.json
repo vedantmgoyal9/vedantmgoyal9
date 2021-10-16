@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Metriusz.BedwarsifyOverlay",
-  "repo": "bedwarsify/bedwarsify-overlay",
+  "repo_url": "bedwarsify/bedwarsify-overlay",
   "last_checked_tag": "v1.12.4",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

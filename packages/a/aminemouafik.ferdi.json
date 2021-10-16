@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AmineMouafik.Ferdi",
-  "repo": "getferdi/ferdi",
+  "repo_url": "getferdi/ferdi",
   "last_checked_tag": "v5.6.2",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,

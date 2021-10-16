@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Kubernetes.minikube",
-  "repo": "kubernetes/minikube",
+  "repo_url": "kubernetes/minikube",
   "last_checked_tag": "v1.23.2",
   "asset_regex": "minikube-installer.exe",
   "is_prerelease": false,

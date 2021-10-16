@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "SandboxiePlus.SandboxieClassic",
-  "repo": "sandboxie-plus/Sandboxie",
+  "repo_url": "sandboxie-plus/Sandboxie",
   "last_checked_tag": "0.9.8",
   "asset_regex": "Sandboxie-Classic.*.exe$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "TechSmith.Camtasia",
-  "repo": "https://www.techsmith.com/api/v/1/products/getallversions/11",
+  "repo_url": "https://www.techsmith.com/api/v/1/products/getallversions/11",
   "last_checked_tag": "21.0.12",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

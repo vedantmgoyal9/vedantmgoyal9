@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Henry++.ErrorLookup",
-  "repo": "henrypp/errorlookup",
+  "repo_url": "henrypp/errorlookup",
   "last_checked_tag": "v.2.4.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

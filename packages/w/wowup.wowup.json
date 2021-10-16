@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "WowUp.Wowup",
-  "repo": "WowUp/WowUp",
+  "repo_url": "WowUp/WowUp",
   "last_checked_tag": "v2.4.7",
   "asset_regex": "WowUp-Setup.*.exe$",
   "is_prerelease": false,

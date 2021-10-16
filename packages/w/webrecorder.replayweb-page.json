@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "webrecorder.replayweb-page",
-  "repo": "webrecorder/replayweb.page",
+  "repo_url": "webrecorder/replayweb.page",
   "last_checked_tag": "v1.5.3",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Bitwarden.Bitwarden",
-  "repo": "bitwarden/desktop",
+  "repo_url": "bitwarden/desktop",
   "last_checked_tag": "v1.28.3",
   "asset_regex": "Bitwarden-Installer.*.exe$",
   "is_prerelease": false,

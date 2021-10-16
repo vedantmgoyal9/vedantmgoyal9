@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OpenShot.OpenShot",
-  "repo": "OpenShot/openshot-qt",
+  "repo_url": "OpenShot/openshot-qt",
   "last_checked_tag": "v2.6.1",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

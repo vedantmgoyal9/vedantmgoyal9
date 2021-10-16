@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "CameronSutter.Plottr",
-  "repo": "cameronsutter/plottr_electron",
+  "repo_url": "cameronsutter/plottr_electron",
   "last_checked_tag": "v2021.8.31",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

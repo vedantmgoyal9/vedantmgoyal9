@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "jhen0409.react-native-debugger",
-  "repo": "jhen0409/react-native-debugger",
+  "repo_url": "jhen0409/react-native-debugger",
   "last_checked_tag": "v0.12.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

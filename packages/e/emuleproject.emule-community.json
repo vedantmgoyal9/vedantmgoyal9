@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "eMuleProject.eMule-community",
-  "repo": "irwir/eMule",
+  "repo_url": "irwir/eMule",
   "last_checked_tag": "eMule_v0.60c-community",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

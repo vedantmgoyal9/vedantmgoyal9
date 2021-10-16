@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "FreeCAD.FreeCAD",
-  "repo": "FreeCAD/FreeCAD",
+  "repo_url": "FreeCAD/FreeCAD",
   "last_checked_tag": "0.19.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

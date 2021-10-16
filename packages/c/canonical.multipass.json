@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Canonical.Multipass",
-  "repo": "canonical/multipass",
+  "repo_url": "canonical/multipass",
   "last_checked_tag": "v1.7.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

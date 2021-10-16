@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.PowerShell.Preview",
-  "repo": "PowerShell/PowerShell",
+  "repo_url": "PowerShell/PowerShell",
   "last_checked_tag": "v7.2.0-preview.10",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": true,

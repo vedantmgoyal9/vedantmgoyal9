@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RuneLite.RuneLite",
-  "repo": "runelite/launcher",
+  "repo_url": "runelite/launcher",
   "last_checked_tag": "2.2.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

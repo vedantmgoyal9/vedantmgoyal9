@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "GitHub.Atom.Beta",
-  "repo": "atom/atom",
+  "repo_url": "atom/atom",
   "last_checked_tag": "v1.59.0-beta0",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.PowerShell",
-  "repo": "PowerShell/PowerShell",
+  "repo_url": "PowerShell/PowerShell",
   "last_checked_tag": "v7.1.4",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,

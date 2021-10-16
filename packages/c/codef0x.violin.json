@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "CodeF0x.violin",
-  "repo": "CodeF0x/violin",
+  "repo_url": "CodeF0x/violin",
   "last_checked_tag": "v3.1.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

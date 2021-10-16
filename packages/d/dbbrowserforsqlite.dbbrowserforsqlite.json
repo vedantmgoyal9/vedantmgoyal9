@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "DBBrowserForSQLite.DBBrowserForSQLite",
-  "repo": "sqlitebrowser/sqlitebrowser",
+  "repo_url": "sqlitebrowser/sqlitebrowser",
   "last_checked_tag": "v3.12.2",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,

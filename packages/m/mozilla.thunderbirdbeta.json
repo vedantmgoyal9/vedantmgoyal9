@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Mozilla.ThunderbirdBeta",
-  "repo": "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
+  "repo_url": "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
   "last_checked_tag": "94.0b3",
   "asset_regex": ".*.msi$",
   "is_prerelease": true,

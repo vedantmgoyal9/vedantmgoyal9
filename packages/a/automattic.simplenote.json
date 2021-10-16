@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Automattic.Simplenote",
-  "repo": "Automattic/simplenote-electron",
+  "repo_url": "Automattic/simplenote-electron",
   "last_checked_tag": "v2.19.1",
   "asset_regex": "Simplenote-win-(?!store).*(exe|appx)$",
   "is_prerelease": false,

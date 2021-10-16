@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Ombrelin.PlexRichPresence",
-  "repo": "Ombrelin/plex-rich-presence",
+  "repo_url": "Ombrelin/plex-rich-presence",
   "last_checked_tag": "v1.7",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

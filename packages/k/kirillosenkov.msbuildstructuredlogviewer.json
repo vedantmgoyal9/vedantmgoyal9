@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "KirillOsenkov.MSBuildStructuredLogViewer",
-  "repo": "KirillOsenkov/MSBuildStructuredLog",
+  "repo_url": "KirillOsenkov/MSBuildStructuredLog",
   "last_checked_tag": "v2.1.561",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

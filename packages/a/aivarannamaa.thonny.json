@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AivarAnnamaa.Thonny",
-  "repo": "thonny/thonny",
+  "repo_url": "thonny/thonny",
   "last_checked_tag": "v3.3.14",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

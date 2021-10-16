@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.bitsmanager",
-  "repo": "microsoft/BITS-Manager",
+  "repo_url": "microsoft/BITS-Manager",
   "last_checked_tag": "v1.12",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
