@@ -12,7 +12,7 @@
         "custom_script",
         "skip",
         "previous_timestamp",
-        "CheckIntervalSeconds"
+        "check_interval"
     ],
     "title": "Schema for JSON files in this repository",
     "type": "object",
@@ -66,8 +66,8 @@
             "$id": "#/properties/previous_timestamp",
             "type": "number"
         },
-        "CheckIntervalSeconds": {
-            "$id": "#/properties/CheckIntervalSeconds",
+        "check_interval": {
+            "$id": "#/properties/check_interval",
             "type": "number"
         }
     }

@@ -9,5 +9,5 @@
   "custom_script": false,
   "skip": false,
   "previous_timestamp": 1634372785,
-  "CheckIntervalSeconds": 3600
+  "check_interval": 3600
 }

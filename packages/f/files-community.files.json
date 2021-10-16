@@ -9,5 +9,5 @@
   "custom_script": false,
   "skip": "Package is now removed from the repository",
   "previous_timestamp": 1634310033,
-  "CheckIntervalSeconds": 3600
+  "check_interval": 3600
 }

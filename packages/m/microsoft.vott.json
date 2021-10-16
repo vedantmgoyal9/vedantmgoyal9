@@ -9,5 +9,5 @@
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
   "previous_timestamp": 1634321607,
-  "CheckIntervalSeconds": 3600
+  "check_interval": 3600
 }
