@@ -12,8 +12,8 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-vscode.powershell",
-		"github.copilot-nightly"
+		"github.copilot-nightly",
+		"ms-vscode.powershell-preview"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
