@@ -149,7 +149,6 @@ EclipseAdoptium.TemurinJRE.11
 EclipseAdoptium.TemurinJRE.8
 EDRLab.Thorium
 EFF.Certbot
-egoist.devdocs-desktop
 ekvedaras.redis-gui
 electerm.electerm
 ElectronCash.ElectronCash
