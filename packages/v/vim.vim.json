@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "vim.vim",
   "repo": "vim/vim-win32-installer",
-  "last_checked_tag": "v8.2.3510",
+  "last_checked_tag": "v8.2.3516",
   "asset_regex": "gvim.*(x64|x86).exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634321720,
+  "LastCheckedTimestamp": 1634347039,
   "CheckIntervalSeconds": 3600
 }
