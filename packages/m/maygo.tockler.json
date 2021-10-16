@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "maygo.tockler",
   "repo_uri": "MayGo/tockler",
-  "last_checked_tag": "50863304",
+  "last_checked_tag": "51474555",
   "asset_regex": "tockler.*-setup-win-(ia32|x64).exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634406669,
+  "previous_timestamp": 1634415757,
   "check_interval": 3600
 }

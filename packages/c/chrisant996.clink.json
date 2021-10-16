@@ -8,6 +8,6 @@
   "version_method": "($urls[0] | Select-String -Pattern \"[0-9]\\.[0-9]\\.[0-9]{1,2}\\.[A-Fa-f0-9]{6}\").Matches.Value",
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634406569,
+  "previous_timestamp": 1634415572,
   "check_interval": 3600
 }

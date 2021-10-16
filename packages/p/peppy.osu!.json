@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Peppy.Osu!",
   "repo_uri": "ppy/osu",
-  "last_checked_tag": "50319444",
+  "last_checked_tag": "51466136",
   "asset_regex": "install.exe",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634406708,
+  "previous_timestamp": 1634415826,
   "check_interval": 3600
 }

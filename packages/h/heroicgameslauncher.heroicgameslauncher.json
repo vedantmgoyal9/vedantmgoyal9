@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "HeroicGamesLauncher.HeroicGamesLauncher",
   "repo_uri": "Heroic-Games-Launcher/HeroicGamesLauncher",
-  "last_checked_tag": "48986058",
+  "last_checked_tag": "51165959",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634406625,
+  "previous_timestamp": 1634415653,
   "check_interval": 3600
 }

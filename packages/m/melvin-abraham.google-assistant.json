@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Melvin-Abraham.Google-Assistant",
   "repo_uri": "Melvin-Abraham/Google-Assistant-Unofficial-Desktop-Client",
-  "last_checked_tag": "32415501",
+  "last_checked_tag": "51184937",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634406672,
+  "previous_timestamp": 1634415760,
   "check_interval": 3600
 }
