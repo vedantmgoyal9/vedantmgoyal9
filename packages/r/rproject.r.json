@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RProject.R",
-  "repo_url": "https://cran.r-project.org/src/base/VERSION-INFO.dcf",
+  "repo_uri": "https://cran.r-project.org/src/base/VERSION-INFO.dcf",
   "last_checked_tag": "4.1.1",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "mazehall.eintopf",
-  "repo_url": "mazehall/eintopf",
+  "repo_uri": "mazehall/eintopf",
   "last_checked_tag": "1.3.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

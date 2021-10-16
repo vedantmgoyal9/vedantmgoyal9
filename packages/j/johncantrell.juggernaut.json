@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JohnCantrell.Juggernaut",
-  "repo_url": "LN-Juggernaut/juggernaut-desktop",
+  "repo_uri": "LN-Juggernaut/juggernaut-desktop",
   "last_checked_tag": "0.1.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

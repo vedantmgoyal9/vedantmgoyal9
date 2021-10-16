@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Anaconda.Anaconda3",
-  "repo_url": "https://repo.anaconda.com/archive/.files.json",
+  "repo_uri": "https://repo.anaconda.com/archive/.files.json",
   "last_checked_tag": "2021.05",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

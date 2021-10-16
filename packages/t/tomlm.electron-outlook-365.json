@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "tomlm.electron-outlook-365",
-  "repo_url": "tomlm/electron-outlook",
+  "repo_uri": "tomlm/electron-outlook",
   "last_checked_tag": "1.1.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

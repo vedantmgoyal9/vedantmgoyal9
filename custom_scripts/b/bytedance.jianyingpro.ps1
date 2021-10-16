@@ -1,4 +1,4 @@
-$result = (Invoke-WebRequest -Uri $package.repo_url -UseBasicParsing | ConvertFrom-Json).windows_download_pkg.channel_default
+$result = (Invoke-WebRequest -Uri $package.repo_uri -UseBasicParsing | ConvertFrom-Json).windows_download_pkg.channel_default
 $versionFromInstallerUrl = (($result | Select-String -Pattern "(?!_)[0-9_]{10}").Matches.Value).Replace("_", ".")
 if ($versionFromInstallerUrl -gt $package.last_checked_tag)
 {

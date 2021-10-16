@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "agalwood.Motrix",
-  "repo_url": "agalwood/Motrix",
+  "repo_uri": "agalwood/Motrix",
   "last_checked_tag": "v1.6.11",
   "asset_regex": "Motrix-Setup.*.exe$",
   "is_prerelease": false,

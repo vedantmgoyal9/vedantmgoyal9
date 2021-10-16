@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "CozyCloud.CozyDrive.Beta",
-  "repo_url": "cozy-labs/cozy-desktop",
+  "repo_uri": "cozy-labs/cozy-desktop",
   "last_checked_tag": "v3.31.0-beta.1",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "MacType.MacType",
-  "repo_url": "snowie2000/mactype",
+  "repo_uri": "snowie2000/mactype",
   "last_checked_tag": "2021.1-rc1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

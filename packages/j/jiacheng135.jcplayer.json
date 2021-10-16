@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JIACHENG135.JCPlayer",
-  "repo_url": "JIACHENG135/JCPlayer",
+  "repo_uri": "JIACHENG135/JCPlayer",
   "last_checked_tag": "v1.1.4",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

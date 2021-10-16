@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Dixa.Dixa",
-  "repo_url": "dixahq/dixa-desktop-app-release",
+  "repo_uri": "dixahq/dixa-desktop-app-release",
   "last_checked_tag": "v4.0.0",
   "asset_regex": "dixa-setup.*.msi$",
   "is_prerelease": false,

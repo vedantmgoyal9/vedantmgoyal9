@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Chia-Lung.Kaku",
-  "repo_url": "EragonJ/Kaku",
+  "repo_uri": "EragonJ/Kaku",
   "last_checked_tag": "2.0.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "brrd.abricotine",
-  "repo_url": "brrd/abricotine",
+  "repo_uri": "brrd/abricotine",
   "last_checked_tag": "1.0.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

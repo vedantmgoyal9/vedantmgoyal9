@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Skaarhoj.KeyBridge",
-  "repo_url": "SKAARHOJ/keybridge-releases",
+  "repo_uri": "SKAARHOJ/keybridge-releases",
   "last_checked_tag": "v0.1.0-alpha",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

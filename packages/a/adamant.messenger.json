@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Adamant.Messenger",
-  "repo_url": "Adamant-im/adamant-im",
+  "repo_uri": "Adamant-im/adamant-im",
   "last_checked_tag": "v2.10.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

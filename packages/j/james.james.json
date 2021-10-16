@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "james.james",
-  "repo_url": "james-proxy/james",
+  "repo_uri": "james-proxy/james",
   "last_checked_tag": "v2.1.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

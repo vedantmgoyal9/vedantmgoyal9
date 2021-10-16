@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "cangzhang.champ-r",
-  "repo_url": "cangzhang/champ-r",
+  "repo_uri": "cangzhang/champ-r",
   "last_checked_tag": "v1.1.8",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Chatty.Chatty",
-  "repo_url": "chatty/chatty",
+  "repo_uri": "chatty/chatty",
   "last_checked_tag": "v0.15",
   "asset_regex": ".*standalone_setup.exe$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "NickGottschlich.SocialAmnesia",
-  "repo_url": "Nick-Gottschlich/Social-Amnesia",
+  "repo_uri": "Nick-Gottschlich/Social-Amnesia",
   "last_checked_tag": "v2.0.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

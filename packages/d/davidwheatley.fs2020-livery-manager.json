@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "DavidWheatley.fs2020-livery-manager",
-  "repo_url": "MSFS-Mega-Pack/MSFS2020-livery-manager",
+  "repo_uri": "MSFS-Mega-Pack/MSFS2020-livery-manager",
   "last_checked_tag": "v0.5.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

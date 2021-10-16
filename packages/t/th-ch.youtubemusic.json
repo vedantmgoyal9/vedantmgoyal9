@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "th-ch.YouTubeMusic",
-  "repo_url": "th-ch/youtube-music",
+  "repo_uri": "th-ch/youtube-music",
   "last_checked_tag": "v1.13.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

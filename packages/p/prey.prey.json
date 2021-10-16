@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Prey.Prey",
-  "repo_url": "prey/prey-node-client",
+  "repo_uri": "prey/prey-node-client",
   "last_checked_tag": "v1.9.13",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

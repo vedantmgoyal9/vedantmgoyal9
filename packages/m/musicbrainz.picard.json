@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "MusicBrainz.Picard",
-  "repo_url": "metabrainz/picard",
+  "repo_uri": "metabrainz/picard",
   "last_checked_tag": "release-2.6.4",
   "asset_regex": "MusicBrainz-Picard-[0-9.]{3,5}.msix$",
   "is_prerelease": false,

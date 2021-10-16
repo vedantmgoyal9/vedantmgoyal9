@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "bmatzelle.Gow",
-  "repo_url": "bmatzelle/gow",
+  "repo_uri": "bmatzelle/gow",
   "last_checked_tag": "v0.3.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

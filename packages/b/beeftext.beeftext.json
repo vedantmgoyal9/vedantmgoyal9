@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Beeftext.Beeftext",
-  "repo_url": "xmichelo/Beeftext",
+  "repo_uri": "xmichelo/Beeftext",
   "last_checked_tag": "v11.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Zettlr.Zettlr",
-  "repo_url": "Zettlr/Zettlr",
+  "repo_uri": "Zettlr/Zettlr",
   "last_checked_tag": "v2.0.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

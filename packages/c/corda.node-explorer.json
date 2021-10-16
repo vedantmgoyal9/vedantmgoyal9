@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "corda.node-explorer",
-  "repo_url": "corda/node-explorer",
+  "repo_uri": "corda/node-explorer",
   "last_checked_tag": "v0.1.1-rev",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": true,

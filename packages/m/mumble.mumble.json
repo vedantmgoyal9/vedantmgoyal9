@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Mumble.Mumble",
-  "repo_url": "mumble-voip/mumble",
+  "repo_uri": "mumble-voip/mumble",
   "last_checked_tag": "1.2.8",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

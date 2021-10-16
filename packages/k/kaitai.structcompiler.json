@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Kaitai.StructCompiler",
-  "repo_url": "kaitai-io/kaitai_struct_compiler",
+  "repo_uri": "kaitai-io/kaitai_struct_compiler",
   "last_checked_tag": "0.9",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

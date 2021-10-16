@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "unofficial-protonmail-desktop.unofficial-protonmail-desktop",
-  "repo_url": "unofficial-protonmail-desktop/application",
+  "repo_uri": "unofficial-protonmail-desktop/application",
   "last_checked_tag": "v1.2.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

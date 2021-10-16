@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Aiursoft.Kahla",
-  "repo_url": "AiursoftWeb/Kahla.App",
+  "repo_uri": "AiursoftWeb/Kahla.App",
   "last_checked_tag": "v4.3.1",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

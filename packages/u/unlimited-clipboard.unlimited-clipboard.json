@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "unlimited-clipboard.unlimited-clipboard",
-  "repo_url": "unlimited-clipboard/unlimited-clipboard",
+  "repo_uri": "unlimited-clipboard/unlimited-clipboard",
   "last_checked_tag": "v1.0.1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

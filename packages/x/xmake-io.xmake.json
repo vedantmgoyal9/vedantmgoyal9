@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Xmake-io.Xmake",
-  "repo_url": "xmake-io/xmake",
+  "repo_uri": "xmake-io/xmake",
   "last_checked_tag": "v2.5.8",
   "asset_regex": "xmake-v.*.exe$",
   "is_prerelease": false,

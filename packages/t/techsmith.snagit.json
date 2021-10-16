@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "TechSmith.Snagit",
-  "repo_url": "https://www.techsmith.com/api/v/1/products/getallversions/12",
+  "repo_uri": "https://www.techsmith.com/api/v/1/products/getallversions/12",
   "last_checked_tag": "21.4.4",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

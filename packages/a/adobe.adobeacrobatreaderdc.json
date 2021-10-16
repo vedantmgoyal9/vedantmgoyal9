@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Adobe.AdobeAcrobatReaderDC",
-  "repo_url": "https://armmf.adobe.com/arm-manifests/mac/AcrobatDC/reader/current_version.txt",
+  "repo_uri": "https://armmf.adobe.com/arm-manifests/mac/AcrobatDC/reader/current_version.txt",
   "last_checked_tag": "21.007.20099",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

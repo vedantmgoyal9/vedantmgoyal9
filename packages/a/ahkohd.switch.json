@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ahkohd.switch",
-  "repo_url": "ahkohd/switch-desktop",
+  "repo_uri": "ahkohd/switch-desktop",
   "last_checked_tag": "v1.0.23",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OctopusDeploy.Server",
-  "repo_url": "https://octopus.com/download/upgrade/v3",
+  "repo_uri": "https://octopus.com/download/upgrade/v3",
   "last_checked_tag": "2021.2.7650",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,

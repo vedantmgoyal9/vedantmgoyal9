@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "UMEZAWATakeshi.UtvideoCodecSuite",
-  "repo_url": "umezawatakeshi/utvideo",
+  "repo_uri": "umezawatakeshi/utvideo",
   "last_checked_tag": "utvideo-22.6.0",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Bilibili.Livehime",
-  "repo_url": "https://api.live.bilibili.com/client/v1/LiveHime/download?type=3",
+  "repo_uri": "https://api.live.bilibili.com/client/v1/LiveHime/download?type=3",
   "last_checked_tag": "3.45.0.2499",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

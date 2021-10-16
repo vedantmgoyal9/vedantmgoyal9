@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "bluecfd.bluecfd",
-  "repo_url": "blueCFD/Core",
+  "repo_uri": "blueCFD/Core",
   "last_checked_tag": "blueCFD-Core-2020-1",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

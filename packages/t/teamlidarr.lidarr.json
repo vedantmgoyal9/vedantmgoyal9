@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "TeamLidarr.Lidarr",
-  "repo_url": "lidarr/Lidarr",
+  "repo_uri": "lidarr/Lidarr",
   "last_checked_tag": "v0.8.1.2135",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

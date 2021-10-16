@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "xwartz.PupaFM",
-  "repo_url": "xwartz/PupaFM",
+  "repo_uri": "xwartz/PupaFM",
   "last_checked_tag": "v1.2.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

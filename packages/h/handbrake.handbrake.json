@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "HandBrake.HandBrake",
-  "repo_url": "HandBrake/HandBrake",
+  "repo_uri": "HandBrake/HandBrake",
   "last_checked_tag": "1.4.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

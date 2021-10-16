@@ -1,4 +1,4 @@
-$result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo_url)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property name,tag_name,assets -First 1
+$result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property name,tag_name,assets -First 1
 if ($result.tag_name -gt $package.last_checked_tag -and $result.name.Contains("Release"))
 {
     $update_found = $true

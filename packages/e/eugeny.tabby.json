@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Eugeny.Tabby",
-  "repo_url": "Eugeny/tabby",
+  "repo_uri": "Eugeny/tabby",
   "last_checked_tag": "v1.0.159",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

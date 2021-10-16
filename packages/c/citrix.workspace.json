@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Citrix.Workspace",
-  "repo_url": "https://downloadplugins.citrix.com/ReceiverUpdates/Prod/catalog_win.xml",
+  "repo_uri": "https://downloadplugins.citrix.com/ReceiverUpdates/Prod/catalog_win.xml",
   "last_checked_tag": "21.9.1.4048",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

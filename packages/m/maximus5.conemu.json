@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Maximus5.ConEmu",
-  "repo_url": "Maximus5/ConEmu",
+  "repo_uri": "Maximus5/ConEmu",
   "last_checked_tag": "v21.09.12",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

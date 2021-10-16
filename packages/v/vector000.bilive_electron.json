@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Vector000.bilive_electron",
-  "repo_url": "Vector000/bilive_electron",
+  "repo_uri": "Vector000/bilive_electron",
   "last_checked_tag": "v1.0.6",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

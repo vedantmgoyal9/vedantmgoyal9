@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BornToBeRoot.NETworkManager",
-  "repo_url": "BornToBeRoot/NETworkManager",
+  "repo_uri": "BornToBeRoot/NETworkManager",
   "last_checked_tag": "2021.9.5.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "yang991178.fluent-reader",
-  "repo_url": "yang991178/fluent-reader",
+  "repo_uri": "yang991178/fluent-reader",
   "last_checked_tag": "v1.0.2",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

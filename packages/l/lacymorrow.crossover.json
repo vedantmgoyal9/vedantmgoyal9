@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LacyMorrow.CrossOver",
-  "repo_url": "lacymorrow/crossover",
+  "repo_uri": "lacymorrow/crossover",
   "last_checked_tag": "v2.1.5",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Meltytech.Shotcut",
-  "repo_url": "mltframework/shotcut",
+  "repo_uri": "mltframework/shotcut",
   "last_checked_tag": "v21.09.20",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

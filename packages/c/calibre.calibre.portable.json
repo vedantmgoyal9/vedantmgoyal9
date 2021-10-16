@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "calibre.calibre.portable",
-  "repo_url": "kovidgoyal/calibre",
+  "repo_uri": "kovidgoyal/calibre",
   "last_checked_tag": "v5.29.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "kilian.fromscratch",
-  "repo_url": "Kilian/fromscratch",
+  "repo_uri": "Kilian/fromscratch",
   "last_checked_tag": "v1.4.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

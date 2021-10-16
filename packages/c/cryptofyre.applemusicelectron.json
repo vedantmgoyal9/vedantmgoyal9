@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "cryptofyre.AppleMusicElectron",
-  "repo_url": "Apple-Music-Electron/Apple-Music-Electron",
+  "repo_uri": "Apple-Music-Electron/Apple-Music-Electron",
   "last_checked_tag": "v2.5.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

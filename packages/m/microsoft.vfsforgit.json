@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.VFSforGit",
-  "repo_url": "microsoft/VFSForGit",
+  "repo_uri": "microsoft/VFSForGit",
   "last_checked_tag": "v1.0.21229.1",
   "asset_regex": "SetupGVFS.*.exe$",
   "is_prerelease": false,

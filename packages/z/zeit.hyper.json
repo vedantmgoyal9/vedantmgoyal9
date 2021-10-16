@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Zeit.Hyper",
-  "repo_url": "vercel/hyper",
+  "repo_uri": "vercel/hyper",
   "last_checked_tag": "v3.1.4",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Glodon.CADReaderInternational",
-  "repo_url": "https://cadreader.glodon.com/query/update/cadpc?clientVersion=3.4.3.12&cadpcClientBits=32",
+  "repo_uri": "https://cadreader.glodon.com/query/update/cadpc?clientVersion=3.4.3.12&cadpcClientBits=32",
   "last_checked_tag": "3.5.0.13",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,

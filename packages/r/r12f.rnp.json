@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "r12f.Rnp",
-  "repo_url": "r12f/rnp",
+  "repo_uri": "r12f/rnp",
   "last_checked_tag": "0.1.115.main",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

@@ -1,4 +1,4 @@
-$result = (Invoke-WebRequest -Uri $package.repo_url -UseBasicParsing | ConvertFrom-Json).releaseInfo
+$result = (Invoke-WebRequest -Uri $package.repo_uri -UseBasicParsing | ConvertFrom-Json).releaseInfo
 if ($result.version -gt $package.last_checked_tag)
 {
     $update_found = $true

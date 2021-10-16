@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "msys2.msys2",
-  "repo_url": "msys2/msys2-installer",
+  "repo_uri": "msys2/msys2-installer",
   "last_checked_tag": "2021-07-25",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,

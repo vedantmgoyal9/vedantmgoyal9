@@ -36,7 +36,7 @@ Running automatically on GitHub workflows, this repo has two main components tha
 |  Key  | Description |
 | :---: | :--- |
 | pkgid | PackageIdentifier of the package in the winget-pkgs repository |
-| repo_url | URI of any API/Source/etc. or GitHub repository of the package in the form of `owner/repo` |
+| repo_uri | URI of any API/Source/etc. or GitHub repository of the package in the form of `owner/repo` |
 | last_checked_tag | Tag/version of the last release of the package checked by the script |
 | asset_regex | Regular expression to match the asset name of the package |
 | is_prerelease | Whether the package is a prerelease or not |

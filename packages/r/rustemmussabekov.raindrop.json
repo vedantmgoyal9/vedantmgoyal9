@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RustemMussabekov.Raindrop",
-  "repo_url": "raindropio/desktop",
+  "repo_uri": "raindropio/desktop",
   "last_checked_tag": "v5.4.8",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
