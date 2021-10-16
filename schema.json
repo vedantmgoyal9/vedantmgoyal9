@@ -11,7 +11,7 @@
         "version_method",
         "custom_script",
         "skip",
-        "LastCheckedTimestamp",
+        "previous_timestamp",
         "CheckIntervalSeconds"
     ],
     "title": "Schema for JSON files in this repository",
@@ -62,8 +62,8 @@
                 "boolean"
             ]
         },
-        "LastCheckedTimestamp": {
-            "$id": "#/properties/LastCheckedTimestamp",
+        "previous_timestamp": {
+            "$id": "#/properties/previous_timestamp",
             "type": "number"
         },
         "CheckIntervalSeconds": {

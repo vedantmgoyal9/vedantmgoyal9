@@ -8,6 +8,6 @@
   "version_method": null,
   "custom_script": false,
   "skip": "Automatically marked as stale, not updated for 6 months",
-  "LastCheckedTimestamp": 1634321705,
+  "previous_timestamp": 1634321705,
   "CheckIntervalSeconds": 3600
 }

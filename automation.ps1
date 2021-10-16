@@ -69,7 +69,7 @@ Write-Host -ForegroundColor Green "---------------------------------------------
 foreach ($package in $packages | Where-Object { $_.Skip -ne $false }) {
     Write-Host -ForegroundColor Green "$($package.pkgid)`: $($package.skip)"
 }
-foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
+foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.previous_timestamp + $_.CheckIntervalSeconds) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
     Write-Host -ForegroundColor Green "$($package.pkgid)`: Last checked sooner than interval"
 }
 Write-Host -ForegroundColor Green "----------------------------------------------------`n"
@@ -77,7 +77,7 @@ Write-Host -ForegroundColor Green "---------------------------------------------
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.LastCheckedTimestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
+foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.previous_timestamp + $_.CheckIntervalSeconds) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
     $i++
     $urls.Clear()
     if ($package.custom_script -eq $false) {
@@ -121,7 +121,7 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Obj
             Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
         }
     }
-    $package.LastCheckedTimestamp = [DateTimeOffset]::Now.ToUnixTimeSeconds()
+    $package.previous_timestamp = [DateTimeOffset]::Now.ToUnixTimeSeconds()
     $package | ConvertTo-Json > .\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
 }
 

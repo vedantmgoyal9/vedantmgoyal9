@@ -43,7 +43,7 @@ Running automatically on GitHub workflows, this repo has two main components tha
 | version_method | Method to get the version of the package, if the package doesn't follow [semantic versioning](https://semver.org) |
 | custom_script | If package uses custom script for checking updates, then it is `true` |
 | skip | If the package has not been updated for a long time, it can be skipped instead of removing the JSON file (useful when keeping a record of skipped packages) |
-| LastCheckedTimestamp | Timestamp when the package was last updated by the workflow |
+| previous_timestamp | Timestamp when the package was last updated by the workflow |
 | CheckIntervalSeconds | Custom check interval if the package is less frequently updated |
 
 ## Contributors 🎉
