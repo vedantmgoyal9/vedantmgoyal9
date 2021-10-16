@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "3ll3d00d.beqdesigner",
   "repo_uri": "3ll3d00d/beqdesigner",
-  "last_checked_tag": "0.9.5",
+  "last_checked_tag": "32416786",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
