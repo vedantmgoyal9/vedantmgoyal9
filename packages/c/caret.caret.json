@@ -7,7 +7,7 @@
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
-  "skip": "Not updated for a long period",
+  "skip": false,
   "previous_timestamp": 1634310032,
   "check_interval": 3600
 }
