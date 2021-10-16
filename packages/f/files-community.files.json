@@ -7,7 +7,7 @@
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
-  "skip": false,
+  "skip": "Package is now removed from the repository",
   "previous_timestamp": 1634310033,
   "check_interval": 3600
 }
