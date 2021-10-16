@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "GilmarQuinelato.i18nManager",
   "repo_uri": "gilmarsquinelato/i18n-manager",
-  "last_checked_tag": "v5.5",
+  "last_checked_tag": "3.0.3",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
-  "skip": false,
+  "skip": "Repository is archived",
   "previous_timestamp": 1634406612,
   "check_interval": 3600
 }
