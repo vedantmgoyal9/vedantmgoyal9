@@ -2,7 +2,7 @@ documentation:
 - all: ['README.md']
 new package:
 - 'packages/**'
-custom_scripts:
+custom-scripts:
 - 'custom_scripts/**'
 automation-core:
 - 'automation.ps1'
