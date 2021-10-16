@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "btargac.excel-parser-processor",
   "repo_uri": "btargac/excel-parser-processor",
-  "last_checked_tag": "v1.3.0",
+  "last_checked_tag": "40684746",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

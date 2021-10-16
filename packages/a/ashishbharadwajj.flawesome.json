@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AshishBharadwajJ.Flawesome",
   "repo_uri": "ashishBharadwaj/flawesome",
-  "last_checked_tag": "v0.2.3",
+  "last_checked_tag": "29948930",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,

@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "gtamas.etcdmanager",
   "repo_uri": "gtamas/etcdmanager",
-  "last_checked_tag": "1.2.0",
+  "last_checked_tag": "27784091",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OpenShopChannel.Downloader",
   "repo_uri": "dhtdht020/osc-dl",
-  "last_checked_tag": "1.2.11.1",
+  "last_checked_tag": "43363969",
   "asset_regex": ".*installer.exe$",
   "is_prerelease": false,
   "version_method": null,

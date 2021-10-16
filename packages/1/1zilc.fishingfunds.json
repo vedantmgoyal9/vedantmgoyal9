@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "1zilc.FishingFunds",
   "repo_uri": "1zilc/fishing-funds",
-  "last_checked_tag": "v5.0.0",
+  "last_checked_tag": "51004597",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,

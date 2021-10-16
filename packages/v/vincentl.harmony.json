@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "VincentL.Harmony",
   "repo_uri": "vincelwt/harmony",
-  "last_checked_tag": "v0.9.1",
+  "last_checked_tag": "10023530",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

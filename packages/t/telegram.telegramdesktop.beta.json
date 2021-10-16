@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Telegram.TelegramDesktop.Beta",
   "repo_uri": "telegramdesktop/tdesktop",
-  "last_checked_tag": "v3.1.7",
+  "last_checked_tag": "50966673",
   "asset_regex": "tsetup.*.exe$",
   "is_prerelease": true,
   "version_method": null,

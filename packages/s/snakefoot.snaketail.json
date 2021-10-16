@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "snakefoot.snaketail",
   "repo_uri": "snakefoot/snaketail-net",
-  "last_checked_tag": "1.9.7",
+  "last_checked_tag": "41743937",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "n457.uncolored",
   "repo_uri": "n457/Uncolored",
-  "last_checked_tag": "v.0.10.2",
+  "last_checked_tag": "4573735",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

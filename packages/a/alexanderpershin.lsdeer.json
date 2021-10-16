@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "AlexanderPershin.lsdeer",
   "repo_uri": "AlexanderPershin/lsdeer",
-  "last_checked_tag": "v0.1.6",
+  "last_checked_tag": "29058200",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

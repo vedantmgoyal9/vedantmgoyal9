@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Cyanfish.NAPS2",
   "repo_uri": "cyanfish/naps2",
-  "last_checked_tag": "v6.1.2",
+  "last_checked_tag": "18907234",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

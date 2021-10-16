@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "MPC-HC.MPC-HC",
   "repo_uri": "mpc-hc/mpc-hc",
-  "last_checked_tag": "1.7.13",
+  "last_checked_tag": "26268743",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

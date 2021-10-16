@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "EQAditu.AdvancedCombatTracker",
   "repo_uri": "EQAditu/AdvancedCombatTracker",
-  "last_checked_tag": "3.5.0.273",
+  "last_checked_tag": "32887949",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "KoushikNaskar.InteractiveDataEditor",
   "repo_uri": "Koushikphy/Interactive_Data_Editor",
-  "last_checked_tag": "v2.9.2",
+  "last_checked_tag": "37191848",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

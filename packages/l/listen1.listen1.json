@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "listen1.listen1",
   "repo_uri": "listen1/listen1_desktop",
-  "last_checked_tag": "v2.21.6",
+  "last_checked_tag": "46521494",
   "asset_regex": "listen1_.*(ia32|x64).exe$",
   "is_prerelease": false,
   "version_method": null,

@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "yafp.media-dupes",
   "repo_uri": "yafp/media-dupes",
-  "last_checked_tag": "0.10.3",
+  "last_checked_tag": "29195607",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

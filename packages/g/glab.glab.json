@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "GLab.GLab",
   "repo_uri": "profclems/glab",
-  "last_checked_tag": "v1.21.1",
+  "last_checked_tag": "50389108",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

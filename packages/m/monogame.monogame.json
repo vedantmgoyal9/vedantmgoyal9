@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "MonoGame.MonoGame",
   "repo_uri": "MonoGame/MonoGame",
-  "last_checked_tag": "last_psvita",
+  "last_checked_tag": "48236289",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

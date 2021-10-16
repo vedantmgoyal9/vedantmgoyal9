@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Henry++.simplewall",
   "repo_uri": "henrypp/simplewall",
-  "last_checked_tag": "v.3.5.1",
+  "last_checked_tag": "50836105",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

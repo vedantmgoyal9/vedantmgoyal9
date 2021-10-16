@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Armin2208.WindowsAutoNightMode",
   "repo_uri": "Armin2208/Windows-Auto-Night-Mode",
-  "last_checked_tag": "3.0",
+  "last_checked_tag": "28268383",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

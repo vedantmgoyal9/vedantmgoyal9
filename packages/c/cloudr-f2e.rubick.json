@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "clouDr-f2e.rubick",
   "repo_uri": "clouDr-f2e/rubick",
-  "last_checked_tag": "v0.0.6",
+  "last_checked_tag": "49442078",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

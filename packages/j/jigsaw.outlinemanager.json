@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Jigsaw.OutlineManager",
   "repo_uri": "Jigsaw-Code/outline-server",
-  "last_checked_tag": "v1.9.0",
+  "last_checked_tag": "50411958",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,

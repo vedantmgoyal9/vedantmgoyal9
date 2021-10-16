@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "dnGrep.dnGrep",
   "repo_uri": "dnGrep/dnGrep",
-  "last_checked_tag": "v2.9.400.0",
+  "last_checked_tag": "50438975",
   "asset_regex": ".*(x64|x86).msi$",
   "is_prerelease": false,
   "version_method": null,
