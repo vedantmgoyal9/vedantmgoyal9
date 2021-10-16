@@ -8,6 +8,6 @@
   "version_method": "$result.tag_name.TrimStart(\"dosbox-x-v\")",
   "custom_script": false,
   "skip": false,
-  "LastCheckedTimestamp": 1634346850,
+  "LastCheckedTimestamp": 1634372652,
   "CheckIntervalSeconds": 3600
 }
