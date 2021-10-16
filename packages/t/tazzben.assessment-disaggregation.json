@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "tazzben.Assessment-Disaggregation",
   "repo_uri": "tazzben/Assessment-Disaggregation",
-  "last_checked_tag": "v1.4.4",
+  "last_checked_tag": "v1.4.5",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634372777,
+  "previous_timestamp": 1634406774,
   "check_interval": 3600
 }
