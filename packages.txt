@@ -763,6 +763,7 @@ SnailDOS.SnailFM
 snakefoot.snaketail
 SnapmakerDevTeam.SnapmakerLuban
 SnoopWpf.Snoop
+Sohu.SHPlayer
 SomePythonThings.ElevenClock
 SomePythonThings.WingetUIStore
 SomePythonThings.ZipManager
