@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Sohu.SHPlayer",
+  "repo_uri": "https://p2p.hd.sohu.com.cn/update?clienttype=3&version=7.0.6.0",
+  "last_checked_tag": "7.0.7.0",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "custom_script": false,
+  "skip": false,
+  "previous_timestamp": 1634406743,
+  "check_interval": 3600
+}
