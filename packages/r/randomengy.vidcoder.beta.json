@@ -4,7 +4,7 @@
   "repo_uri": "RandomEngy/VidCoder",
   "last_checked_tag": "51488253",
   "asset_regex": "VidCoder.*Beta.exe$",
-  "is_prerelease": false,
+  "is_prerelease": true,
   "version_method": null,
   "custom_script": false,
   "skip": false,
