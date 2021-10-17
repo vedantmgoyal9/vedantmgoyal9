@@ -13,12 +13,9 @@ jobs:
       - name: JSON validation
         shell: pwsh
         run: |
-          $jsonwithError = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object {(Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue) -eq $false} | Select-Object -ExpandProperty PSChildName
-          if ($jsonWithError.Count -gt 0) {
-              Write-Host -ForegroundColor Red "The following packages have errors:"
-              foreach ($i in $jsonWithError) {
-                  Write-Host -ForegroundColor Red "   $i" # Added spaces for indentation
-              }
+          $jsonWithError = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object {(Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue) -eq $false} | Select-Object -ExpandProperty PSChildName
+          if ($jsonWithError) {
+              Write-Host -ForegroundColor Red $("The following packages have errors:`n  " + $($jsonWithError -join "`n  ")) 
               exit 1
           }
           else
