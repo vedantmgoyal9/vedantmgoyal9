@@ -13,13 +13,7 @@ jobs:
       - name: JSON validation
         shell: pwsh
         run: |
-          $packages = Get-ChildItem .\packages\ -Recurse -File | Select-Object -Property Name,FullName
-          foreach ($json in $packages) {
-              $jsonContent = Get-Content -Raw -Path $json.FullName
-              if ((Test-Json -Json $jsonContent -SchemaFile ./schema.json -ErrorAction SilentlyContinue) -eq $false) {
-                  $jsonWithError += @($json.Name)
-              }
-          }
+          $jsonwithError = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object {(Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue) -eq $false} | ConvertFrom-Json | Select-Object -Property pkgid -ExpandProperty pkgid
           if ($jsonWithError.Count -gt 0) {
               Write-Host -ForegroundColor Red "The following packages have errors:"
               foreach ($i in $jsonWithError) {
@@ -35,20 +29,7 @@ jobs:
         name: Update packages.txt
         shell: pwsh
         run: |
-          $packages = Get-ChildItem .\packages\ -Recurse -File | Select-Object -Property Name,FullName
-          foreach ($json in $packages)
-          {
-              $jsonContent = Get-Content -Raw -Path $json.FullName
-              if ((Test-Json -Json $jsonContent -SchemaFile ./schema.json -ErrorAction SilentlyContinue) -eq $true)
-              {
-                  $package += @($jsonContent | ConvertFrom-Json)
-              }
-          }
-          Clear-Content -Path ./packages.txt
-          foreach ($pkg in ($package | Where-Object { $_.skip -eq $false }).pkgid | Sort-Object)
-          {
-              $pkg | Out-File -Encoding UTF8 -Append -Path ./packages.txt
-          }
+          Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object {Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue} | ConvertFrom-Json | Where-Object {$_.skip -eq $false} | Select-Object -ExpandProperty pkgid | Sort-Object | Out-File -Encoding UTF8 -Path .\packages.txt
           git config --global user.name 'winget-pkgs-automation'
           git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com'
           git commit -m "Update packages.txt" -- ./packages.txt
