@@ -8,6 +8,6 @@
   "version_method": "$result.tag_name.TrimStart('v').TrimEnd('-beta')",
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634487610,
+  "previous_timestamp": 1634494532,
   "check_interval": 3600
 }

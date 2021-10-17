@@ -8,6 +8,6 @@
   "version_method": "$result.tag_name.TrimStart(\"llvmorg-\")",
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634487553,
+  "previous_timestamp": 1634494475,
   "check_interval": 3600
 }

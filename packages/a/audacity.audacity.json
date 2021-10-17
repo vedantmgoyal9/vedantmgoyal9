@@ -8,6 +8,6 @@
   "version_method": "$result.tag_name.TrimStart(\"Audacity-\")",
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634487441,
+  "previous_timestamp": 1634494352,
   "check_interval": 3600
 }
