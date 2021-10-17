@@ -1,4 +1,4 @@
-name: Fetch All Versions
+name: Fetch Old Versions
 on:
   workflow_dispatch:
 jobs:
@@ -7,8 +7,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.3.5
-      - name: Run automation script
+      - name: Run fetch-old-versions.ps1
         shell: pwsh
-        run: ./fetch-all-versions.ps1
+        run: ./fetch-old-versions.ps1
         env:
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}

@@ -44,7 +44,7 @@ Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, install
 # Set up API headers
 $header = @{
     Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:GITHUB_TOKEN"))
-    Accept = 'application/vnd.github.v3+json'
+    Accept        = 'application/vnd.github.v3+json'
 }
 
 Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
@@ -68,11 +68,14 @@ $urls = [System.Collections.ArrayList]::new()
 
 $DownUrls = Get-ChildItem ./winget-pkgs/manifests -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
 
-$currentUpdate = "RandomEngy.VidCoder.Beta"
+$currentUpdate = "RandomEngy.VidCoder"
 
-foreach ($package in $packages | Where-Object { $_.pkgid -eq $currentUpdate }) {
+foreach ($package in $packages) {
+    $i = 0
+    $j = 0
     Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=200" -UseBasicParsing -Method Get | ConvertFrom-Json | ForEach-Object {
         $urls.Clear()
+        if ($i -eq 20 -or $j -eq 20) { return }
         if ($_.prerelease -eq $package.is_prerelease) {
             foreach ($asset in $_.assets) {
                 if ($asset.name -match $package.asset_regex) {
@@ -84,14 +87,16 @@ foreach ($package in $packages | Where-Object { $_.pkgid -eq $currentUpdate }) {
                 if ($null -eq $package.version_method) {
                     $version = $_.tag_name.TrimStart("v")
                 } else {
-                    $version = Invoke-Expression $package.version_method.Replace('$result','$_')
+                    $version = Invoke-Expression $package.version_method.Replace('$result', '$_')
                 }
                 if ($urls -in $DownUrls) {
                     Write-Host "$($package.pkgid) version $version already exists"
                     Write-Host -ForegroundColor Green "----------------------------------------------------"
+                    $j++
                 } else {
                     # Print update information, generate and submit manifests
                     Update-PackageManifest $package.pkgid $version $urls.ToArray()
+                    $i++
                 }
             }
         }
