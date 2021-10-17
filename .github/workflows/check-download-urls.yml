@@ -17,21 +17,16 @@ jobs:
           <#
           Write-Host "Counting Download URLs..."
           "Counting Download URLs..." | Out-File -Append -FilePath $workingDir/a-myScript.txt
-          $DownUrls = 0
-          Foreach($a in (Get-ChildItem -Path "$workingDir/winget-pkgs/manifests" -Directory -Recurse | Where-Object { (Get-ChildItem -Directory -Path $_).Count -eq 0 } | Select-Object FullName | Sort-Object)) {
-            $DownUrls += (Get-ChildItem -Path $a.FullName).Count -eq 1 ? 1 : (Get-Content (Get-ChildItem -Path $a.FullName -Filter "*installer*" | Select-Object FullName).FullName | Select-String -Pattern "InstallerUrl:").Count
-          }
-          Write-Host "Total Download Urls`: $DownUrls"
-          "Total Download Urls`: $DownUrls" | Out-File -Append -FilePath $workingDir/a-myScript.txt
+          $DownUrls = gci .\manifests\1 -Recurse -File -Filter *.yaml|cat|sls 'InstallerUrl'|% {$_.ToString().Trim() -split '\s'|select -Last 1}|select -Unique
+          Write-Host "Total Download Urls`: $($DownUrls.Count)"
+          "Total Download Urls`: $($DownUrls.Count)" | Out-File -Append -FilePath $workingDir/a-myScript.txt
           #>
           Write-Host "Checking Codes for Download URLs..."
           "Checking Codes for Download URLs..." | Out-File -Append -FilePath $workingDir/a-myScript.txt
-          Foreach($i in (Get-ChildItem -Path "$workingDir/winget-pkgs/manifests" -Directory -Recurse | Where-Object { (Get-ChildItem -Directory -Path $_).Count -eq 0 } | Select-Object FullName | Sort-Object)) {
-            Foreach ($Url in (((Get-ChildItem -Path $i.FullName).Count -eq 1) ? (Get-Content (Get-ChildItem -Path $i.FullName | Select-Object FullName).FullName | Select-String -Pattern "InstallerUrl:") : (Get-Content (Get-ChildItem -Path $i.FullName -Filter "*installer*" | Select-Object FullName).FullName | Select-String -Pattern "InstallerUrl:") | Foreach-Object {$_.ToString().Trim().TrimStart('-').TrimStart('#').Trim().TrimStart("InstallerUrl: ").Trim('"').Trim("'").Trim()})) {
-              $ResponseCode = curl -s -o /dev/null --max-time 3 -w "%{http_code}" $Url
-              if ($ResponseCode -notin @("302","200","303","301") -or $Url.Contains("http://")) {
-                "$ResponseCode`: $Url" | Out-File -Append -FilePath $workingDir/a-myScript.txt
-              }
+          Foreach ($Url -in $DownUrls) {
+          $ResponseCode = curl -s -o /dev/null --max-time 3 -w "%{http_code}" $Url
+            if ($ResponseCode -notin @("302","200","303","301") -or $Url.Contains("http://")) {
+              "$ResponseCode`: $Url" | Out-File -Append -FilePath $workingDir/a-myScript.txt
             }
           }
           Write-Host "Completed!"
