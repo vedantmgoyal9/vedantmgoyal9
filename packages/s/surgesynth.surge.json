@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "SurgeSynth.Surge",
-  "repo_uri": "surge-synthesizer",
-  "last_checked_tag": "165396489",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "repo_uri": "surge-synthesizer/releases",
+  "last_checked_tag": "41772335",
+  "asset_regex": "Surge-[0-9.]*-Setup(-x86)*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634444391,
+  "previous_timestamp": 1634437797,
   "check_interval": 3600
 }
