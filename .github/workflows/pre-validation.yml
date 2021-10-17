@@ -13,7 +13,7 @@ jobs:
       - name: JSON validation
         shell: pwsh
         run: |
-          $jsonwithError = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object {(Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue) -eq $false} | ConvertFrom-Json | Select-Object -Property pkgid -ExpandProperty pkgid
+          $jsonwithError = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object {(Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue) -eq $false} | Select-Object -ExpandProperty PSChildName
           if ($jsonWithError.Count -gt 0) {
               Write-Host -ForegroundColor Red "The following packages have errors:"
               foreach ($i in $jsonWithError) {
