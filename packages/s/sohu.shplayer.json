@@ -6,7 +6,7 @@
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": false,
+  "custom_script": true,
   "skip": false,
   "previous_timestamp": 1634444381,
   "check_interval": 3600
