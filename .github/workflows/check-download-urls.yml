@@ -23,7 +23,7 @@ jobs:
           #>
           Write-Host "Checking Codes for Download URLs..."
           "Checking Codes for Download URLs..." | Out-File -Append -FilePath $workingDir/a-myScript.txt
-          Foreach ($Url -in $DownUrls) {
+          Foreach ($Url in $DownUrls) {
           $ResponseCode = curl -s -o /dev/null --max-time 3 -w "%{http_code}" $Url
             if ($ResponseCode -notin @("302","200","303","301") -or $Url.Contains("http://")) {
               "$ResponseCode`: $Url" | Out-File -Append -FilePath $workingDir/a-myScript.txt
