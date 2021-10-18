@@ -16,7 +16,7 @@ $installationPath = (Get-AppxPackage Microsoft.DesktopAppInstaller).InstallLocat
 Set-ExecutionAlias -Path "C:\Windows\System32\winget.exe" -PackageName "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" -EntryPoint "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget" -Target "$installationPath\AppInstallerCLI.exe" -AppType Desktop -Version 3
 explorer.exe "shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget"
 # ----------------------------------------------------
-Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
+winget settings --enable LocalManifestFiles
 Write-Host "Successfully installed winget and enabled local manifests."
 
 # Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
@@ -27,13 +27,13 @@ $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
 git remote add origin https://github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
-Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+Copy-Item -Path $currentDir\scripts\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git commit --all -m "Update YamlCreate.ps1 v2.0.0-unattended" # Commit changes
 Set-Location $currentDir # Go back to previous working directory
 Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # Install powershell-yaml, required for YamlCreate.ps1
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
 @"
-TestManifestsInSandbox: never
+TestManifestsInSandbox: always
 SaveToTemporaryFolder: never
 AutoSubmitPRs: always
 ContinueWithExistingPRs: never
@@ -80,7 +80,7 @@ $cnt = $packages.Count
 foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.previous_timestamp + $_.check_interval) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
     $i++
     $urls.Clear()
-    if ($package.custom_script -eq $false) {
+    if ($package.use_package_script -eq $false) {
         $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -UseBasicParsing -Method Get | ConvertFrom-Json)[0] | Select-Object -Property id,tag_name,assets,prerelease,published_at -First 1
         # Check update is available for this package using release id and last_checked_tag
         if ($result.prerelease -eq $package.is_prerelease -and $result.id -gt $package.last_checked_tag) {
@@ -112,7 +112,7 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Obj
             }
         }
     } else {
-        . .\custom_scripts\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).ps1
+        . .\package_scripts\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).ps1
         if ($update_found -eq $true) {
             # Print update information, generate and submit manifests, updates the last_checked_tag in json
             Update-PackageManifest $package.pkgid $version $urls.ToArray()
