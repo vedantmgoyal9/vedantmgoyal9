@@ -6,7 +6,7 @@
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": false,
+  "package_script": false,
   "skip": "Automatically marked as stale, not updated for 2.5 years",
   "previous_timestamp": 1634406624,
   "check_interval": 3600

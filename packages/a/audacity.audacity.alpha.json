@@ -6,7 +6,7 @@
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": true,
   "version_method": "audacity",
-  "custom_script": false,
+  "package_script": false,
   "skip": "Release candidates have same versions",
   "previous_timestamp": 1634310033,
   "check_interval": 3600

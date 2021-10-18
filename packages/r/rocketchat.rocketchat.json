@@ -6,7 +6,7 @@
   "asset_regex": ".*.(exe|msi)$",
   "is_prerelease": false,
   "version_method": "\"$($result.tag_name.TrimStart(\"v\")).0\"",
-  "custom_script": false,
+  "package_script": false,
   "skip": false,
   "previous_timestamp": 1634537880,
   "check_interval": 3600

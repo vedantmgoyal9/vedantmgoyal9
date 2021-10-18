@@ -6,7 +6,7 @@
   "asset_regex": "Surge-[0-9.]*-Setup(-x86)*.exe$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": false,
+  "package_script": false,
   "skip": false,
   "previous_timestamp": 1634537908,
   "check_interval": 3600

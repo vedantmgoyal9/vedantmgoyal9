@@ -6,7 +6,7 @@
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": false,
+  "package_script": false,
   "skip": "Repository is archived",
   "previous_timestamp": 1634406612,
   "check_interval": 3600

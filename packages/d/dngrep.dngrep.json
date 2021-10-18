@@ -6,7 +6,7 @@
   "asset_regex": ".*(x64|x86).msi$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": false,
+  "package_script": false,
   "skip": false,
   "previous_timestamp": 1634537726,
   "check_interval": 3600

@@ -6,7 +6,7 @@
   "asset_regex": "SetupGVFS.*.exe$",
   "is_prerelease": false,
   "version_method": null,
-  "custom_script": false,
+  "package_script": false,
   "skip": "Developers publish their package",
   "previous_timestamp": 1634310034,
   "check_interval": 3600
