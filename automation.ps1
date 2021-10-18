@@ -57,7 +57,12 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
     Set-Location .\winget-pkgs\Tools # Change directory to Tools
-    .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    try {
+        .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    }
+    catch {
+        Write-Error "Error while updating Package $PackageIdentifier"
+    }
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
