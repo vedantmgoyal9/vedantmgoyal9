@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LedgerHQ.LedgerLive",
   "repo_uri": "LedgerHQ/ledger-live-desktop",
-  "last_checked_tag": "49469024",
+  "last_checked_tag": "51267716",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634566485,
+  "previous_timestamp": 1634574051,
   "check_interval": 3600
 }
