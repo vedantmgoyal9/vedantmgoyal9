@@ -2,8 +2,8 @@ documentation:
 - all: ['README.md']
 new package:
 - 'packages/**'
-custom-scripts:
-- 'custom_scripts/**'
+package-scripts:
+- 'package_scripts/**'
 automation-core:
 - 'automation.ps1'
 - 'YamlCreate/YamlCreate.ps1'
