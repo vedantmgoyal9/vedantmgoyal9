@@ -62,7 +62,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
-$packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.skip -eq $false -and $_.custom_script -eq $false }
+$packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.skip -eq $false -and $_.use_package_script -eq $false }
 
 $urls = [System.Collections.ArrayList]::new()
 

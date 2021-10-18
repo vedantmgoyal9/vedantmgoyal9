@@ -9,7 +9,7 @@
         "asset_regex",
         "is_prerelease",
         "version_method",
-        "custom_script",
+        "use_package_script",
         "skip",
         "previous_timestamp",
         "check_interval"
@@ -51,8 +51,8 @@
                 "string"
             ]
         },
-        "custom_script": {
-            "$id": "#/properties/custom_script",
+        "use_package_script": {
+            "$id": "#/properties/use_package_script",
             "type": "boolean"
         },
         "skip": {
