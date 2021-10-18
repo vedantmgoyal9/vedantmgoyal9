@@ -6,9 +6,9 @@ $ProgressPreference = 'SilentlyContinue'
 $webclient = New-Object System.Net.WebClient
 $webclient.downloadfile("https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx", "Microsoft.VCLibs.x64.14.00.Desktop.appx")
 $webclient.downloadfile("https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle", "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle")
+$webclient.downloadfile("https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml", "9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml")
 Import-Module -Name Appx -UseWindowsPowerShell
-Add-AppxPackage -Path Microsoft.VCLibs.x64.14.00.Desktop.appx
-Add-AppxPackage -Path Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+Add-AppxProvisionedPackage -Online -PackagePath .\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -DependencyPackagePath .\Microsoft.VCLibs.x64.14.00.Desktop.appx -LicensePath .\9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml
 # winget command on windows server -------------------
 # Source: https://github.com/microsoft/winget-cli/issues/144#issuecomment-849108158
 Install-Module NtObjectManager -Force # Install NtObjectManager module
@@ -17,7 +17,7 @@ Set-ExecutionAlias -Path "C:\Windows\System32\winget.exe" -PackageName "Microsof
 explorer.exe "shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget"
 # ----------------------------------------------------
 winget settings --enable LocalManifestFiles
-Write-Host "Successfully installed winget and enabled local manifests."
+Write-Host " Successfully installed winget and enabled local manifests."
 
 # Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
 git config --global user.name 'winget-pkgs-automation' # Set git username

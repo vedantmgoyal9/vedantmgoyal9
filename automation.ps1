@@ -17,7 +17,7 @@ Set-ExecutionAlias -Path "C:\Windows\System32\winget.exe" -PackageName "Microsof
 explorer.exe "shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget"
 # ----------------------------------------------------
 winget settings --enable LocalManifestFiles
-Write-Host "Successfully installed winget and enabled local manifests."
+Write-Host " Successfully installed winget and enabled local manifests."
 
 # Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
 git config --global user.name 'winget-pkgs-automation' # Set git username
