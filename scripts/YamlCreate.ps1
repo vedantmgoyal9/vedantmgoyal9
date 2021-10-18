@@ -2336,8 +2336,7 @@ if ($PromptSubmit -eq '0') {
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {
             if ($null -eq $PrePrBodyContent) {
                 gh pr create --body $updatedByAutomation -f
-            }
-            else {
+            } else {
                 gh pr create --body "$($PrePrBodyContent+"`n`n---`n`n"+$updatedByAutomation)" -f
             }
             <#

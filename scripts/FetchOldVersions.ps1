@@ -16,7 +16,7 @@ $installationPath = (Get-AppxPackage Microsoft.DesktopAppInstaller).InstallLocat
 Set-ExecutionAlias -Path "C:\Windows\System32\winget.exe" -PackageName "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" -EntryPoint "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget" -Target "$installationPath\AppInstallerCLI.exe" -AppType Desktop -Version 3
 explorer.exe "shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget"
 # ----------------------------------------------------
-Start-Process -Verb runAs -FilePath powershell -ArgumentList "winget settings --enable LocalManifestFiles"
+winget settings --enable LocalManifestFiles
 Write-Host "Successfully installed winget and enabled local manifests."
 
 # Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
@@ -24,16 +24,16 @@ git config --global user.name 'winget-pkgs-automation' # Set git username
 git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com' # Set git email
 git clone https://vedantmgoyal2009:$env:GITHUB_TOKEN@github.com/microsoft/winget-pkgs.git --quiet # Clones the repository silently
 $currentDir = Get-Location # Get current directory
-Set-Location .\winget-pkgs\Tools # Change directory to Tools
+Set-Location ..\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
 git remote add origin https://github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
-Copy-Item -Path $currentDir\YamlCreate\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+Copy-Item -Path $currentDir\scripts\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git commit --all -m "Update YamlCreate.ps1 v2.0.0-unattended" # Commit changes
 Set-Location $currentDir # Go back to previous working directory
 Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # Install powershell-yaml, required for YamlCreate.ps1
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
 @"
-TestManifestsInSandbox: never
+TestManifestsInSandbox: always
 SaveToTemporaryFolder: never
 AutoSubmitPRs: always
 ContinueWithExistingPRs: never
@@ -56,17 +56,17 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     foreach ($i in $InstallerUrls) { Write-Host -ForegroundColor Green "      $i" }
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    Set-Location .\winget-pkgs\Tools # Change directory to Tools
+    Set-Location ..\winget-pkgs\Tools # Change directory to Tools
     .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
-$packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.skip -eq $false -and $_.use_package_script -eq $false }
+$packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.skip -eq $false -and $_.use_package_script -eq $false }
 
 $urls = [System.Collections.ArrayList]::new()
 
-$DownUrls = Get-ChildItem ./winget-pkgs/manifests -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
+$DownUrls = Get-ChildItem ..\winget-pkgs\manifests -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
 
 $currentUpdate = "RandomEngy.VidCoder"
 

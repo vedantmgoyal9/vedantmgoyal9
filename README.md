@@ -28,7 +28,7 @@ Running automatically on GitHub workflows, this repo has two main components tha
 
 1. **PowerShell scripts**: To update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs), these scripts are executed by a cron job in **every 8 hours**.
     - The [`automation.ps1`](./automation.ps1) script imports the JSON files and check if a new update is available for the package.
-    - If yes, it calls [`YamlCreate.ps1`](./YamlCreate) to update the manifest for the given package, and
+    - If yes, it calls [`YamlCreate.ps1`](./scripts) to update the manifest for the given package, and
     - Submits a pull request on the [winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
 
 2. **JSON files**: Structured data containing the following vital information about each tracked package:
@@ -37,7 +37,7 @@ Running automatically on GitHub workflows, this repo has two main components tha
 | :---: | :--- |
 | pkgid | PackageIdentifier of the package in the winget-pkgs repository |
 | repo_uri | URI of any API/Source/etc. or GitHub repository of the package in the form of `owner/repo` |
-| last_checked_tag | Tag/version of the last release of the package checked by the script |
+| last_checked_tag | Version/Release ID of the last release of the package |
 | asset_regex | Regular expression to match the asset name of the package |
 | is_prerelease | Whether the package is a prerelease or not |
 | version_method | Method to get the version of the package, if the package doesn't follow [semantic versioning](https://semver.org) |
