@@ -6,7 +6,7 @@
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": "($urls[0] | Select-String -Pattern \"[0-9]\\.[0-9]\\.[0-9]_[0-9]{4}\").Matches.Value",
-  "package_script": false,
+  "use_package_script": false,
   "skip": false,
   "previous_timestamp": 1634537685,
   "check_interval": 3600
