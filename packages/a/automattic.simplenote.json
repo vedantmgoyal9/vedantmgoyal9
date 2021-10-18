@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Automattic.Simplenote",
   "repo_uri": "Automattic/simplenote-electron",
-  "last_checked_tag": "50014775",
+  "last_checked_tag": "51453605",
   "asset_regex": "Simplenote-win-(?!store).*(exe|appx)$",
   "is_prerelease": false,
   "version_method": null,
   "custom_script": false,
   "skip": false,
-  "previous_timestamp": 1634559652,
+  "previous_timestamp": 1634566384,
   "check_interval": 3600
 }
