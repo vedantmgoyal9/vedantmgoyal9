@@ -1737,7 +1737,7 @@ Function Write-Locale-Manifests {
                 if (!(Test-Path $AppFolder)) { New-Item -ItemType 'Directory' -Force -Path $AppFolder | Out-Null }
                 $script:OldLocaleManifest = ConvertFrom-Yaml -Yaml ($(Get-Content -Path $DifLocale.FullName -Encoding UTF8) -join "`n") -Ordered
                 $script:OldLocaleManifest['PackageVersion'] = $PackageVersion
-                if ($script:OldLocaleManifest.Keys -contains 'Moniker') {$script:OldLocaleManifest.Remove('Moniker')}
+                if ($script:OldLocaleManifest.Keys -contains 'Moniker') { $script:OldLocaleManifest.Remove('Moniker') }
                 $script:OldLocaleManifest = SortYamlKeys $script:OldLocaleManifest $LocaleProperties
 
                 $yamlServer = '# yaml-language-server: $schema=https://aka.ms/winget-manifest.locale.1.0.0.schema.json'
@@ -2237,7 +2237,7 @@ if ($script:Option -ne 'RemoveManifest') {
     if (Get-Command 'winget.exe' -ErrorAction SilentlyContinue) { winget validate $AppFolder }
 
     # If the user has sandbox enabled, request to test the manifest in the sandbox
-    if (Get-Command 'WindowsSandbox.exe' -ErrorAction SilentlyContinue) {
+    if (Get-Command 'winget.exe' -ErrorAction SilentlyContinue) {
         # Check the settings to see if we need to display this menu
         switch ($ScriptSettings.TestManifestsInSandbox) {
             'always' { $script:SandboxTest = '0' }
@@ -2257,6 +2257,7 @@ if ($script:Option -ne 'RemoveManifest') {
             }
         }
         if ($script:SandboxTest -eq '0') {
+            <#
             if (Test-Path -Path "$PSScriptRoot\SandboxTest.ps1") {
                 $SandboxScriptPath = (Resolve-Path "$PSScriptRoot\SandboxTest.ps1").Path
             } else {
@@ -2267,6 +2268,8 @@ if ($script:Option -ne 'RemoveManifest') {
                 }
             }
             & $SandboxScriptPath -Manifest $AppFolder
+            #>
+            . .\verifyArpData.ps1 -ManifestPath $AppFolder
         }
     }
 }
@@ -2331,7 +2334,12 @@ if ($PromptSubmit -eq '0') {
 
         # If the user has the cli too
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {
-            gh pr create --body "Auto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation)" -f
+            if ($null -eq $PrePrBodyContent) {
+                gh pr create --body $updatedByAutomation -f
+            }
+            else {
+                gh pr create --body "$($PrePrBodyContent+"`n`n---`n`n"+$updatedByAutomation)" -f
+            }
             <#
             # Request the user to fill out the PR template
             if (Test-Path -Path "$PSScriptRoot\..\.github\PULL_REQUEST_TEMPLATE.md") {
