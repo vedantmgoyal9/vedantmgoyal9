@@ -2269,7 +2269,7 @@ if ($script:Option -ne 'RemoveManifest') {
             }
             & $SandboxScriptPath -Manifest $AppFolder
             #>
-            . ..\..\scripts\verifyArpData.ps1 -ManifestPath $AppFolder
+            . ..\..\VerifyArpData.ps1 -ManifestPath $AppFolder
         }
     }
 }
