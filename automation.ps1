@@ -78,11 +78,13 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Obj
     Write-Host -ForegroundColor Green "$($package.pkgid)`: Last checked sooner than interval"
 }
 Write-Host -ForegroundColor Green "----------------------------------------------------`n"
+# Removed skipped packages from list
+$packages = $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.previous_timestamp + $_.check_interval) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }
 
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
 $cnt = $packages.Count
-foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.previous_timestamp + $_.check_interval) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
+foreach ($package in $packages) {
     $i++
     $urls.Clear()
     if ($package.use_package_script -eq $false) {
