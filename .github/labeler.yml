@@ -5,7 +5,6 @@ new package:
 package-scripts:
 - 'package_scripts/**'
 automation-core:
-- 'automation.ps1'
 - 'scripts/**'
 - '.github/**'
 add-contributor:

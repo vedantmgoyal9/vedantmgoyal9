@@ -10,7 +10,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     foreach ($i in $InstallerUrls) { Write-Host -ForegroundColor Green "      $i" }
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    Set-Location ..\winget-pkgs\Tools # Change directory to Tools
+    Set-Location .\winget-pkgs\Tools # Change directory to Tools
     .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
@@ -20,7 +20,7 @@ $packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | Conve
 
 $urls = [System.Collections.ArrayList]::new()
 
-$DownUrls = Get-ChildItem ..\winget-pkgs\manifests -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
+$DownUrls = Get-ChildItem .\winget-pkgs\manifests -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
 
 $currentUpdate = "RandomEngy.VidCoder"
 

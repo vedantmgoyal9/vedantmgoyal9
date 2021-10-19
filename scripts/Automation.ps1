@@ -1,14 +1,14 @@
 # Setup working environment in the GitHub-hosted runner
 . .\SetupWorkingEnv.ps1
 
-$packages = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
+$packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
 
 # Display skipped packages or which have longer check interval
 Write-Host -ForegroundColor Green "----------------------------------------------------"
-foreach ($package in $packages | Where-Object { $_.Skip -ne $false }) {
+foreach ($package in $packages | Where-Object { $_.skip -ne $false }) {
     Write-Host -ForegroundColor Green "$($package.pkgid)`: $($package.skip)"
 }
-foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Object { ($_.previous_timestamp + $_.check_interval) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
+foreach ($package in $packages | Where-Object { $_.skip -eq $false } | Where-Object { ($_.previous_timestamp + $_.check_interval) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
     Write-Host -ForegroundColor Green "$($package.pkgid)`: Last checked sooner than interval"
 }
 Write-Host -ForegroundColor Green "----------------------------------------------------`n"
@@ -50,7 +50,7 @@ foreach ($package in $packages) {
             }
         }
     } else {
-        . .\package_scripts\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).ps1
+        . ..\package_scripts\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).ps1
         if ($update_found -eq $true) {
             # Print update information, generate and submit manifests, updates the last_checked_tag in json
             Update-PackageManifest $package.pkgid $version $urls.ToArray()
@@ -60,12 +60,12 @@ foreach ($package in $packages) {
         }
     }
     $package.previous_timestamp = [DateTimeOffset]::Now.ToUnixTimeSeconds()
-    $package | ConvertTo-Json > .\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
+    $package | ConvertTo-Json > ..\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
 }
 
 # Update packages in repository
 Write-Host -ForegroundColor Green "`nUpdating packages"
 git pull # to be on a safe side
-git add .\packages\*
+git add ..\packages\*
 git commit -m "Update packages [$env:GITHUB_RUN_NUMBER]"
 git push

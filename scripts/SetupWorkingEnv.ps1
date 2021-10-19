@@ -44,7 +44,7 @@ Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, install
 # Set up API headers
 $header = @{
     Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:GITHUB_TOKEN"))
-    Accept        = 'application/vnd.github.v3+json'
+    Accept = 'application/vnd.github.v3+json'
 }
 
 Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
