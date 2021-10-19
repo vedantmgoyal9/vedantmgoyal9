@@ -27,7 +27,7 @@ It's pretty simple.
 Running automatically on GitHub workflows, this repo has two main components that keep winget packages up-to-date:
 
 1. **PowerShell scripts**: To update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs), these scripts are executed by a cron job in **every 8 hours**.
-    - The [`automation.ps1`](./automation.ps1) script imports the JSON files and check if a new update is available for the package.
+    - The [`automation.ps1`](./scripts/Automation.ps1) script imports the JSON files and check if a new update is available for the package.
     - If yes, it calls [`YamlCreate.ps1`](./scripts) to update the manifest for the given package, and
     - Submits a pull request on the [winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
 

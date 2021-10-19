@@ -2269,7 +2269,7 @@ if ($script:Option -ne 'RemoveManifest') {
             }
             & $SandboxScriptPath -Manifest $AppFolder
             #>
-            . .\verifyArpData.ps1 -ManifestPath $AppFolder
+            . ..\..\VerifyArpData.ps1 -ManifestPath $AppFolder
         }
     }
 }
@@ -2335,7 +2335,7 @@ if ($PromptSubmit -eq '0') {
         # If the user has the cli too
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {
             if ($null -eq $PrePrBodyContent) {
-                gh pr create --body $updatedByAutomation -f
+                gh pr create --body "$updatedByAutomation" -f
             } else {
                 gh pr create --body "$($PrePrBodyContent+"`n`n---`n`n"+$updatedByAutomation)" -f
             }

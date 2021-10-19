@@ -3,7 +3,7 @@
   "pkgid": "HeroicGamesLauncher.HeroicGamesLauncher",
   "repo_uri": "Heroic-Games-Launcher/HeroicGamesLauncher",
   "last_checked_tag": "51503765",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": ".*Setup.*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
