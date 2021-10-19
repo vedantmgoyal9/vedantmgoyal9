@@ -90,11 +90,7 @@ foreach ($package in $packages | Where-Object { $_.Skip -eq $false } | Where-Obj
         # Check update is available for this package using release id and last_checked_tag
         if ($result.prerelease -eq $package.is_prerelease -and $result.id -gt $package.last_checked_tag) {
             # Get download urls using regex pattern and add to array
-            foreach ($asset in $result.assets) {
-                if ($asset.name -match $package.asset_regex) {
-                    $urls.Add($asset.browser_download_url) | Out-Null
-                }
-            }
+            $urls = @($result.assets) | Where-Object {$_.name -match $package.asset_regex} | Select-Object -ExpandProperty browser_download_url
             # Check if urls are found and if so, update package manifest and json
             if ($urls.Count -gt 0) {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
