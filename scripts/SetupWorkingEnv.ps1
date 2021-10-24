@@ -3,12 +3,11 @@ $ErrorActionPreference = "Continue"
 $ProgressPreference = 'SilentlyContinue'
 
 # Install winget and enable local manifests since microsoft/winget-cli#1453 is merged
-$webclient = New-Object System.Net.WebClient
-$webclient.downloadfile("https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx", "Microsoft.VCLibs.x64.14.00.Desktop.appx")
-$webclient.downloadfile("https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle", "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle")
-$webclient.downloadfile("https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml", "9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml")
+Invoke-WebRequest -Uri 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx' -OutFile 'VCLibs.appx'
+Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -OutFile 'winget.msixbundle'
+Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml' -OutFile 'license.xml'
 Import-Module -Name Appx -UseWindowsPowerShell
-Add-AppxProvisionedPackage -Online -PackagePath .\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -DependencyPackagePath .\Microsoft.VCLibs.x64.14.00.Desktop.appx -LicensePath .\9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml
+Add-AppxProvisionedPackage -Online -PackagePath .\winget.msixbundle -DependencyPackagePath .\VCLibs.appx -LicensePath .\license.xml
 # winget command on windows server -------------------
 # Source: https://github.com/microsoft/winget-cli/issues/144#issuecomment-849108158
 Install-Module NtObjectManager -Force # Install NtObjectManager module
@@ -57,11 +56,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
     Set-Location .\winget-pkgs\Tools # Change directory to Tools
-    try {
-        .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
-    } catch {
-        Write-Error "Error occured while updating $PackageIdentifier"
-    }
+    .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }

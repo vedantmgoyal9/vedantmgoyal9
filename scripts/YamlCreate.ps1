@@ -2269,7 +2269,8 @@ if ($script:Option -ne 'RemoveManifest') {
             }
             & $SandboxScriptPath -Manifest $AppFolder
             #>
-            . ..\..\VerifyArpData.ps1 -ManifestPath $AppFolder
+            Write-Host -ForegroundColor Green "Installing and verifying ARP Metadata..."
+            . ..\..\ValidateArpData.ps1 -ManifestPath $AppFolder
         }
     }
 }
@@ -2334,11 +2335,7 @@ if ($PromptSubmit -eq '0') {
 
         # If the user has the cli too
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {
-            if ($null -eq $PrePrBodyContent) {
-                gh pr create --body "$updatedByAutomation" -f
-            } else {
-                gh pr create --body "$($PrePrBodyContent+"`n`n---`n`n"+$updatedByAutomation)" -f
-            }
+            gh pr create --body "$($PrePrBodyContent+"`n`nAuto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation)")" -f
             <#
             # Request the user to fill out the PR template
             if (Test-Path -Path "$PSScriptRoot\..\.github\PULL_REQUEST_TEMPLATE.md") {

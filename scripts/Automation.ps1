@@ -14,7 +14,7 @@ foreach ($package in $packages | Where-Object { $_.skip -eq $false } | Where-Obj
 Write-Host -ForegroundColor Green "----------------------------------------------------`n"
 
 # Remove skipped packages from the list
-$packages = $packages | Where-Object { $_.skip -eq $false } | Where-Object { ($_.previous_timestamp + $_.check_interval) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }
+$packages = $packages | Where-Object { $_.skip -eq $false -and ($_.previous_timestamp + $_.check_interval) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }
 
 $urls = [System.Collections.ArrayList]::new()
 $i = 0
@@ -27,7 +27,11 @@ foreach ($package in $packages) {
         # Check update is available for this package using release id and last_checked_tag
         if ($result.prerelease -eq $package.is_prerelease -and $result.id -gt $package.last_checked_tag) {
             # Get download urls using regex pattern and add to array
-            $urls = (@($result.assets) | Where-Object { $_.name -match $package.asset_regex }).browser_download_url
+            foreach ($asset in $result.assets) {
+                if ($asset.name -match $package.asset_regex) {
+                    $urls.Add($asset.browser_download_url) | Out-Null
+                }
+            }
             # Check if urls are found and if so, update package manifest and json
             if ($urls.Count -gt 0) {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved

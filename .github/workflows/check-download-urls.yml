@@ -16,7 +16,7 @@ jobs:
           git clone https://github.com/microsoft/winget-pkgs.git
           Write-Host "Counting Download URLs..."
           "Counting Download URLs..." | Out-File -Append -FilePath $workingDir/a-myScript.txt
-          $DownUrls = Get-ChildItem .\manifests\ -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
+          $DownUrls = Get-ChildItem .\winget-pkgs\manifests\ -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
           Write-Host "Total Download Urls`: $($DownUrls.Count)"
           "Total Download Urls`: $($DownUrls.Count)" | Out-File -Append -FilePath $workingDir/a-myScript.txt
           Write-Host "Checking Codes for Download URLs..."
