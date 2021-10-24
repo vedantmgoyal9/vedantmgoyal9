@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "foxglove.studio",
   "repo_uri": "foxglove/studio",
-  "last_checked_tag": "51182136",
+  "last_checked_tag": "51752027",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1634588013,
+  "previous_timestamp": 1635074773,
   "check_interval": 3600
 }

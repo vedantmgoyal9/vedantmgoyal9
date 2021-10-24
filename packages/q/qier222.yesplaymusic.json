@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "qier222.yesplaymusic",
   "repo_uri": "qier222/YesPlayMusic",
-  "last_checked_tag": "50254613",
+  "last_checked_tag": "51863991",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1634588114,
+  "previous_timestamp": 1635076163,
   "check_interval": 3600
 }

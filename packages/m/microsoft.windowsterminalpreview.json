@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.WindowsTerminalPreview",
   "repo_uri": "microsoft/terminal",
-  "last_checked_tag": "50772302",
+  "last_checked_tag": "51749208",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": true,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1634588079,
+  "previous_timestamp": 1635075469,
   "check_interval": 3600
 }

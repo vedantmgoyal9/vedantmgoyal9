@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "iamscottxu.obs-rtspserver",
   "repo_uri": "iamscottxu/obs-rtspserver",
-  "last_checked_tag": "51222350",
+  "last_checked_tag": "51851274",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1634588030,
+  "previous_timestamp": 1635075112,
   "check_interval": 3600
 }

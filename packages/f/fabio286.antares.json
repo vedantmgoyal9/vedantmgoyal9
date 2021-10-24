@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Fabio286.antares",
   "repo_uri": "Fabio286/antares",
-  "last_checked_tag": "51015589",
+  "last_checked_tag": "51906858",
   "asset_regex": "Antares.*win.*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1634588008,
+  "previous_timestamp": 1635074440,
   "check_interval": 3600
 }

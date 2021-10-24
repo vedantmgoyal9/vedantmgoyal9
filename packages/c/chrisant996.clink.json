@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "chrisant996.Clink",
   "repo_uri": "chrisant996/clink",
-  "last_checked_tag": "51261964",
+  "last_checked_tag": "51920581",
   "asset_regex": ".exe",
   "is_prerelease": false,
   "version_method": "($urls[0] | Select-String -Pattern \"[0-9]\\.[0-9]\\.[0-9]{1,2}\\.[A-Fa-f0-9]{6}\").Matches.Value",
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1634587976,
+  "previous_timestamp": 1635074394,
   "check_interval": 3600
 }

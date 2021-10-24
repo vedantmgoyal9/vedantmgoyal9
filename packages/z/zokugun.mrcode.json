@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "zokugun.MrCode",
   "repo_uri": "zokugun/MrCode",
-  "last_checked_tag": "51089165",
+  "last_checked_tag": "51679743",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1634588186,
+  "previous_timestamp": 1635077243,
   "check_interval": 3600
 }

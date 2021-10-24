@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OctopusDeploy.Server",
   "repo_uri": "https://octopus.com/download/upgrade/v3",
-  "last_checked_tag": "2021.2.7650",
+  "last_checked_tag": "2021.2.7713",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
-  "previous_timestamp": 1634588096,
+  "previous_timestamp": 1635075751,
   "check_interval": 3600
 }

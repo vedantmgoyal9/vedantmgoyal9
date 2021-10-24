@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Balena.BalenaCLI",
   "repo_uri": "balena-io/balena-cli",
-  "last_checked_tag": "50714908",
+  "last_checked_tag": "51698428",
   "asset_regex": ".exe",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1634587960,
+  "previous_timestamp": 1635074297,
   "check_interval": 3600
 }
