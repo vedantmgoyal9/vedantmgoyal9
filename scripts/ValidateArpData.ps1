@@ -11,8 +11,8 @@ $getArpEntriesFunctions = {
         # Where-Object { $null -ne $_.DisplayVersion } |
         # Where-Object { $null -ne $_.Publisher }
         # I know this is not the best way to do this, but I think it works better here than the registry approach
-        Get-WmiObject -Class Win32_InstalledWin32Program | Select-Object Name, Vendor, Version | Out-Null # refresh
-        return Get-WmiObject -Class Win32_InstalledWin32Program | Select-Object Name, Vendor, Version
+        Get-CimInstance -Class Win32_InstalledWin32Program | Select-Object Name, Vendor, Version | Out-Null # refresh
+        return Get-CimInstance -Class Win32_InstalledWin32Program | Select-Object Name, Vendor, Version
     }
 
     # See how the ARP table changes before and after a ScriptBlock.
