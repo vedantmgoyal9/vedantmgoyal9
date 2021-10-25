@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "MullvadVPN.MullvadVPN",
   "repo_uri": "mullvad/mullvadvpn-app",
-  "last_checked_tag": "45476074",
+  "last_checked_tag": "51965115",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635156308,
+  "previous_timestamp": 1635163604,
   "check_interval": 3600
 }
