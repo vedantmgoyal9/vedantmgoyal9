@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "SomePythonThings.ElevenClock",
   "repo_uri": "martinet101/ElevenClock",
-  "last_checked_tag": "51909415",
+  "last_checked_tag": "51933941",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635076867,
+  "previous_timestamp": 1635149934,
   "check_interval": 3600
 }
