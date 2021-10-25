@@ -11,8 +11,8 @@ $getArpEntriesFunctions = {
         # Where-Object { $null -ne $_.DisplayVersion } |
         # Where-Object { $null -ne $_.Publisher }
         # I know this is not the best way to do this, but I think it works better here than the registry approach
-        Get-CimInstance -Class Win32_InstalledWin32Program | Select-Object Name, Vendor, Version | Out-Null # refresh
-        return Get-CimInstance -Class Win32_InstalledWin32Program | Select-Object Name, Vendor, Version
+        Get-CimInstance -ClassName Win32_InstalledWin32Program | Select-Object Name, Vendor, Version, MsiProductCode | Out-Null # refresh
+        return Get-CimInstance -ClassName Win32_InstalledWin32Program | Select-Object Name, Vendor, Version, MsiProductCode
     }
 
     # See how the ARP table changes before and after a ScriptBlock.
@@ -44,7 +44,7 @@ Write-Host -ForegroundColor Green "Publisher in manifest: $pkgPublisher"
 
 Write-Host -ForegroundColor Green "Installing package... "
 
-$installJob = Start-Job -InitializationScript $getArpEntriesFunctions -ScriptBlock { Get-ARPTableDifference -ScriptToRun "winget install --manifest $Using:ManifestPath" } -Name wingetInstall | Wait-Job -Timeout 300
+$installJob = Start-Job -InitializationScript $getArpEntriesFunctions -ScriptBlock { Get-ARPTableDifference -ScriptToRun "winget install --manifest $Using:ManifestPath" } -Name wingetInstall | Wait-Job -Timeout 100
 $difference = $installJob | Receive-Job
 $difference
 if ($installJob.State -eq "Completed") {
