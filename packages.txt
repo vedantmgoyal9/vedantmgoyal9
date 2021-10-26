@@ -49,6 +49,7 @@ angryziber.AngryIPScanner
 Anki.Anki
 AntoineAflalo.SoundSwitch
 antonreshetov.massCode
+Appest.TickTick
 appget.appget
 ArcadeRenegade.SidebarDiagnostics
 Aries-Sciences-LLC.AI-Chess
