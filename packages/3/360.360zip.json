@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "360.360zip",
+  "repo_uri": "https://yasuo.360.cn/update/versioninfo.json",
+  "last_checked_tag": "4.0.0.1360",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "previous_timestamp": 1635242538,
+  "check_interval": 3600
+}
