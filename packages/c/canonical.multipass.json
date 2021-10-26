@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Canonical.Multipass",
   "repo_uri": "canonical/multipass",
-  "last_checked_tag": "50377763",
+  "last_checked_tag": "52027642",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635235467,
+  "previous_timestamp": 1635242697,
   "check_interval": 3600
 }
