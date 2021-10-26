@@ -842,6 +842,7 @@ TheOtterlord.DeckMaster
 ThePBone.GalaxyBudsClient
 thomasnordquist.MQTT-Explorer
 thomasnordquist.MQTT-Explorer.Beta
+Thunisoft.HuayuPY
 Tiled.Tiled
 Timber1900.WebDL
 timche.gmail-desktop
