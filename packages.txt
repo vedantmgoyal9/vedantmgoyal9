@@ -850,6 +850,7 @@ Toggl.TogglDesktop
 Toinane.Colorpicker
 tomlm.electron-outlook-365
 tomlm.electron-outlook-com
+TomWatson.BreakTimer
 TonyPottier.ImageView
 Tox.qTox
 TranslucentTB.TranslucentTB
