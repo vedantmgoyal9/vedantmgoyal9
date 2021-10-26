@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Appest.TickTick",
+  "repo_uri": "https://pull.ticktick.com/windows/release_note.json",
+  "last_checked_tag": "4.0.4.0",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "previous_timestamp": 1635242554,
+  "check_interval": 3600
+}
