@@ -27,5 +27,5 @@ jobs:
           (Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object { Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue } | ConvertFrom-Json | Where-Object { $_.skip -eq $false }).pkgid | Sort-Object | Out-File -Encoding UTF8 -Path .\packages.txt
           git config --global user.name 'winget-pkgs-automation'
           git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com'
-          git commit -m "Update packages.txt" -- ./packages.txt
+          git commit -m "Update packages.txt [Automatic Update]" -- ./packages.txt
           git push
