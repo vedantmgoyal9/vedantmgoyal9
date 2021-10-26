@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "TomWatson.BreakTimer",
+  "repo_uri": "tom-james-watson/breaktimer-app",
+  "last_checked_tag": "50695634",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": false,
+  "skip": false,
+  "previous_timestamp": 1635207919,
+  "check_interval": 3600
+}
