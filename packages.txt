@@ -157,6 +157,7 @@ CorsixTH.CorsixTH
 CozyCloud.CozyDrive
 CozyCloud.CozyDrive.Beta
 Cppcheck.Cppcheck
+CrowTranslate.CrowTranslate
 cryptofyre.AppleMusicElectron
 Cryptomator.Cryptomator
 CThingSoftware.Meazure
