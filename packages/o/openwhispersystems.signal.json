@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OpenWhisperSystems.Signal",
   "repo_uri": "signalapp/Signal-Desktop",
-  "last_checked_tag": "51387691",
+  "last_checked_tag": "52012881",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
-  "previous_timestamp": 1635178137,
+  "previous_timestamp": 1635207621,
   "check_interval": 3600
 }
