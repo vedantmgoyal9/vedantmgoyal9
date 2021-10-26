@@ -817,7 +817,6 @@ tagspaces.tagspaces
 Taisei.Taisei
 TaiStudio.Sofia
 Taozuhong.Kangaroo
-TarakSharma.Nighthawk
 tazzben.Assessment-Disaggregation
 team-aie.aie
 TeamLidarr.Lidarr
