@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Tencent.TencentDocs",
+  "repo_uri": "https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/latest-win32.yml",
+  "last_checked_tag": "2.2.21",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "previous_timestamp": 1635221362,
+  "check_interval": 3600
+}
