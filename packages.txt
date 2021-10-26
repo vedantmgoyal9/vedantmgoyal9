@@ -548,6 +548,7 @@ ModOrganizer2.modorganizer
 ModuleArt.QuickPictureViewer
 MonoGame.MonoGame
 MoonlightGameStreamingProject.Moonlight
+Moonsworth.LunarClient
 moshfeu.y2mp3
 Mozilla.Thunderbird
 Mozilla.ThunderbirdBeta
