@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Thunisoft.HuayuPY",
+  "repo_uri": "https://pinyin.thunisoft.com/webapi/v1/setup/setupinfo?os=win",
+  "last_checked_tag": "7.2.0.243",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "previous_timestamp": 1635221364,
+  "check_interval": 3600
+}
