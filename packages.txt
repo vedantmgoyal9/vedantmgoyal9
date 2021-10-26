@@ -333,6 +333,7 @@ iamscottxu.obs-rtspserver
 ifedapoolarewaju.IGdm
 Igoravl.TfsCmdlets
 IliasHad.makerlapse
+ImageMagick.ImageMagick
 InfiniteRed.Reactotron
 InfiniteRed.Reactotron.Beta
 Insomnia.Insomnia
