@@ -3,7 +3,7 @@
   "pkgid": "Kingsoft.KDocs",
   "repo_uri": "https://www.kdocs.cn/kdg/api/v1/configure?idList=kdesktopWinVersion",
   "last_checked_tag": "2.13.0",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
