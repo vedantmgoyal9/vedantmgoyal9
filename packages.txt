@@ -416,6 +416,7 @@ k6.k6
 KaiKramer.KeyStoreExplorer
 Kaitai.StructCompiler
 kamranahmedse.pennywise
+kapitainsky.RcloneBrowser
 karakun.OpenWebStart
 Kebler.Kebler
 KeePassXCTeam.KeePassXC
