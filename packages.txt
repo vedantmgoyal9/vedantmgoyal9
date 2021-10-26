@@ -833,6 +833,7 @@ TechSmith.Snagit
 Telegram.TelegramDesktop
 Telegram.TelegramDesktop.Beta
 Tencent.TencentDocs
+Tencent.Weiyun
 Tenpi.Waifu2xGUI
 Teraskull.PyDebloatX
 Tetrate.func-e
