@@ -832,6 +832,7 @@ TechSmith.Camtasia
 TechSmith.Snagit
 Telegram.TelegramDesktop
 Telegram.TelegramDesktop.Beta
+Tencent.Foxmail
 Tencent.TencentDocs
 Tencent.Weiyun
 Tenpi.Waifu2xGUI
