@@ -4,7 +4,7 @@ if ($result.version -gt $package.last_checked_tag)
     $update_found = $true
     $version = $result.version
     $jsonTag = $result.version
-    $urls.Add("https://api.k8slens.dev/binaries/$($version -replace ' ','%20')") | Out-Null
+    $urls.Add("https://api.k8slens.dev/binaries/Lens%20Setup%20$version.exe") | Out-Null
 }
 else
 {
