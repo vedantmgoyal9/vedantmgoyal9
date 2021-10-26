@@ -827,6 +827,7 @@ TechSmith.Camtasia
 TechSmith.Snagit
 Telegram.TelegramDesktop
 Telegram.TelegramDesktop.Beta
+Tencent.TencentDocs
 Tenpi.Waifu2xGUI
 Teraskull.PyDebloatX
 Tetrate.func-e
