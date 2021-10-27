@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "hackjutsu.Lepton",
+  "repo_uri": "hackjutsu/Lepton",
+  "last_checked_tag": "44886265",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": false,
+  "skip": false,
+  "previous_timestamp": 1634406621,
+  "check_interval": 3600
+}
