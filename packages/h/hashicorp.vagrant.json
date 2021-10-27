@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Hashicorp.Vagrant",
+  "repo_uri": "https://api.github.com/repos/hashicorp/vagrant/tags",
+  "last_checked_tag": "2.2.18",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "previous_timestamp": 1635242762,
+  "check_interval": 3600
+}
