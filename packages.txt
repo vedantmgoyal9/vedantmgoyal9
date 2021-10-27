@@ -882,6 +882,7 @@ Tympanix.Electorrent
 Tyrrrz.LightBulb
 Ultimaker.Cura
 UMEZAWATakeshi.UtvideoCodecSuite
+Unicorn.PaintAid
 UniversalMediaServer.UniversalMediaServer
 UniversityOfEdinburgh.QuPath
 univrsal.input-overlay
