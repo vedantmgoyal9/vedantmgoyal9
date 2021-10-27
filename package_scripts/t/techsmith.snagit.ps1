@@ -6,7 +6,7 @@ if ($versionFromResult -gt $package.last_checked_tag)
     $update_found = $true
     $exeUrl = "https://download.techsmith.com$($result.RelativePath)snagit.exe"
     $msiUrl = "https://download.techsmith.com$($result.RelativePath)snagit.msi"
-    $webclient.downloadfile($msiUrl,"snagit.msi")
+    Invoke-WebRequest -Uri $msiUrl -OutFile 'snagit.msi'
     try
     {
         $version = (Get-AppLockerFileInformation ./snagit.msi | Select-Object -Property Publisher).BinaryVersion
