@@ -513,6 +513,7 @@ mdyna.mdyna
 MehediHassan.Tweeten
 Meltytech.Shotcut
 Melvin-Abraham.Google-Assistant
+mentebinaria.retoolkit
 MeshHouse.MeshHouse
 mesonbuild.meson
 Metriusz.BedwarsifyOverlay
