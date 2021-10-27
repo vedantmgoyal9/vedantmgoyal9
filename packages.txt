@@ -72,6 +72,7 @@ awehook.BlinkMind
 awwbees.BespokeSynth
 azure06.clips
 Baidu.BaiduNetdisk
+Baidu.BaiduTranslate
 Balena.BalenaCLI
 Balena.Etcher
 bdash-app.bdash
