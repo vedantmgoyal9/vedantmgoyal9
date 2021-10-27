@@ -623,7 +623,7 @@ OnionShare.OnionShare
 ONLYOFFICE.DesktopEditors
 Open-Shell.Open-Shell-Menu
 OpenJS.NodeJS
-OpenJS.NodeJS
+OpenJS.NodeJS.LTS
 OpenNoteBlockStudio.MinecraftNoteBlockStudio
 OpenOrienteering.Mapper
 OpenOSRS.OpenOSRSLauncher
