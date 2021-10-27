@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Microsoft.AzureCosmosEmulator",
+  "repo_uri": "https://aka.ms/cosmosdb-emulator",
+  "last_checked_tag": "2.14.4",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "previous_timestamp": 1635242946,
+  "check_interval": 3600
+}
