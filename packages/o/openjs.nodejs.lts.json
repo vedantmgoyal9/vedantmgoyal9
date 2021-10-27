@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "OpenJS.NodeJS",
+  "repo_uri": "nodejs/node",
+  "last_checked_tag": "52073616",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "previous_timestamp": 1635243002,
+  "check_interval": 3600
+}
