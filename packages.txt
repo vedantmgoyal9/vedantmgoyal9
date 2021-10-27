@@ -486,6 +486,7 @@ LukasBach.Yana
 LukeBriggs.Pepys
 lukehaas.RunJS
 LUPhysics.PyMODA
+luyuhuang.DWords2
 lyswhut.lx-music-desktop
 MacType.MacType
 madisvain.upcount
