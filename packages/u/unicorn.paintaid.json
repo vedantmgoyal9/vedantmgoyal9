@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Unicorn.PaintAid",
+  "repo_uri": "http://pa.udongman.cn/index.php/upgrade/",
+  "last_checked_tag": "2.1.1.0",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "previous_timestamp": 1635243336,
+  "check_interval": 3600
+}
