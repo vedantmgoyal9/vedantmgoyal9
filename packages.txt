@@ -525,6 +525,7 @@ Microsoft.AccessibilityInsightsWindows
 Microsoft.AccessibilityInsightsWindows.Canary
 Microsoft.AppInstallerFileBuilder
 Microsoft.azure-iot-explorer
+Microsoft.AzureCosmosEmulator
 Microsoft.AzureFunctionsCoreTools
 Microsoft.AzureStorageExplorer
 Microsoft.Bicep
