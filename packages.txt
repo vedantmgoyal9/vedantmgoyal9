@@ -312,6 +312,7 @@ gtamas.etcdmanager
 gurayyarar.SnipCommand
 H2IK.JoystickGremlin
 h3poteto.whalebird-desktop
+hackjutsu.Lepton
 HakuNeko.HakuNeko
 HandBrake.HandBrake
 HandyOrg.HandyWinget-GUI
