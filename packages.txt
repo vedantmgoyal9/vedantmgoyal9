@@ -37,6 +37,7 @@ Alibaba.LightProxy
 aliceandbob-io.aliceandbob
 altair-graphql.altair
 AmanHarwara.Altus
+Amazon.AWSCLI
 Amazon.SAM-CLI
 AMD.OCAT
 AmineMouafik.Ferdi
