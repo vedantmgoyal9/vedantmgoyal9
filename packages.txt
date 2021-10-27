@@ -622,6 +622,8 @@ Ombrelin.PlexRichPresence
 OnionShare.OnionShare
 ONLYOFFICE.DesktopEditors
 Open-Shell.Open-Shell-Menu
+OpenJS.NodeJS
+OpenJS.NodeJS
 OpenNoteBlockStudio.MinecraftNoteBlockStudio
 OpenOrienteering.Mapper
 OpenOSRS.OpenOSRSLauncher
