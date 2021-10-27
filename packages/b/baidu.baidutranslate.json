@@ -7,7 +7,7 @@
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
-  "skip": "help waanted on issue 113",
+  "skip": false,
   "previous_timestamp": 1635242561,
   "check_interval": 3600
 }
