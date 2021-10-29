@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Reginald.Reginald",
   "repo_uri": "giosali/reginald",
-  "last_checked_tag": "50768097",
+  "last_checked_tag": "52195919",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635243145,
+  "previous_timestamp": 1635519010,
   "check_interval": 3600
 }

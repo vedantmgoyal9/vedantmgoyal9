@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.PowerToys",
   "repo_uri": "microsoft/PowerToys",
-  "last_checked_tag": "51223019",
+  "last_checked_tag": "52200192",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635242952,
+  "previous_timestamp": 1635518209,
   "check_interval": 3600
 }

@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "h3poteto.whalebird-desktop",
   "repo_uri": "h3poteto/whalebird-desktop",
-  "last_checked_tag": "50677130",
+  "last_checked_tag": "52066519",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635242760,
+  "previous_timestamp": 1635515486,
   "check_interval": 3600
 }

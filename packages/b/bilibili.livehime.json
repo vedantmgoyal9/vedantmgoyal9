@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Bilibili.Livehime",
   "repo_uri": "https://api.live.bilibili.com/client/v1/LiveHime/download?type=3",
-  "last_checked_tag": "3.45.1.2550",
+  "last_checked_tag": "3.46.0.2596",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
-  "previous_timestamp": 1635242564,
+  "previous_timestamp": 1635514055,
   "check_interval": 3600
 }

@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.DataGrip.EarlyAccess",
   "repo_uri": "jetbrains-api",
-  "last_checked_tag": "213.4631.26",
+  "last_checked_tag": "213.5449.24",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
-  "previous_timestamp": 1635242897,
+  "previous_timestamp": 1635516358,
   "check_interval": 3600
 }

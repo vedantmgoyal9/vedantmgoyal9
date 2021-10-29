@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Google.Chrome",
   "repo_uri": "https://omahaproxy.appspot.com/all.json",
-  "last_checked_tag": "95.0.4638.54",
+  "last_checked_tag": "95.0.4638.69",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
-  "previous_timestamp": 1635242757,
+  "previous_timestamp": 1635515360,
   "check_interval": 3600
 }

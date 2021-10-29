@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ChilliBits.CCom",
   "repo_uri": "compose-generator/ccom",
-  "last_checked_tag": "51170988",
+  "last_checked_tag": "52270066",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635242699,
+  "previous_timestamp": 1635514489,
   "check_interval": 3600
 }

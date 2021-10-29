@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.IntelliJIDEA.Edu",
   "repo_uri": "jetbrains-api",
-  "last_checked_tag": "212.5284.55",
+  "last_checked_tag": "212.5457.63",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
-  "previous_timestamp": 1635242898,
+  "previous_timestamp": 1635517041,
   "check_interval": 3600
 }

@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "CNRISTI.MeshLab",
   "repo_uri": "cnr-isti-vclab/meshlab",
-  "last_checked_tag": "46425033",
+  "last_checked_tag": "52298497",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635242705,
+  "previous_timestamp": 1635514628,
   "check_interval": 3600
 }

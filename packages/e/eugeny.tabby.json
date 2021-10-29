@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Eugeny.Tabby",
   "repo_uri": "Eugeny/tabby",
-  "last_checked_tag": "50991524",
+  "last_checked_tag": "52210205",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635242737,
+  "previous_timestamp": 1635514804,
   "check_interval": 3600
 }
