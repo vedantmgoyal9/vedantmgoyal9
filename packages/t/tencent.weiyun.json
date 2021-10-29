@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Tencent.Weiyun",
   "repo_uri": "https://dldir1.qq.com/weiyun/electron-update/release/x64/latest.yml",
-  "last_checked_tag": "5.2.1140",
+  "last_checked_tag": "5.2.1144",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
-  "previous_timestamp": 1635525118,
+  "previous_timestamp": 1635531975,
   "check_interval": 3600
 }
