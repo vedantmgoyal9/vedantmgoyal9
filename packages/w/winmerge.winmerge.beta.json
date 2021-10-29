@@ -4,7 +4,7 @@
   "repo_uri": "WinMerge/winmerge",
   "last_checked_tag": "52189876",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "is_prerelease": false,
+  "is_prerelease": true,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
