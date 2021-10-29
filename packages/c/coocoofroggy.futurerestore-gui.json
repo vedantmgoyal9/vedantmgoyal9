@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "CoocooFroggy.FutureRestore-GUI",
   "repo_uri": "CoocooFroggy/FutureRestore-GUI",
-  "last_checked_tag": "51944228",
+  "last_checked_tag": "52337336",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635531509,
+  "previous_timestamp": 1635538706,
   "check_interval": 3600
 }
