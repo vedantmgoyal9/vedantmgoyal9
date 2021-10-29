@@ -522,8 +522,8 @@ mentebinaria.retoolkit
 MeshHouse.MeshHouse
 mesonbuild.meson
 Metriusz.BedwarsifyOverlay
-Microsoft.AccessibilityInsightsWindows
-Microsoft.AccessibilityInsightsWindows.Canary
+Microsoft.AccessibilityInsights.Windows
+Microsoft.AccessibilityInsights.Windows.Canary
 Microsoft.AppInstallerFileBuilder
 Microsoft.azure-iot-explorer
 Microsoft.AzureCosmosEmulator
@@ -533,8 +533,8 @@ Microsoft.Bicep
 Microsoft.BotFrameworkComposer
 Microsoft.BotFrameworkEmulator
 Microsoft.Edge
-Microsoft.EdgeBeta
-Microsoft.EdgeDev
+Microsoft.Edge.Beta
+Microsoft.Edge.Dev
 Microsoft.Ironpython2
 Microsoft.Ironpython3
 Microsoft.MsGraphCLI
@@ -546,7 +546,7 @@ Microsoft.PowerShell.Preview
 Microsoft.PowerToys
 Microsoft.vott
 Microsoft.WindowsTerminal
-Microsoft.WindowsTerminalPreview
+Microsoft.WindowsTerminal.Preview
 Microsoft.WingetCreate
 Microsoft.XMLNotepad
 Min.Min
@@ -563,7 +563,7 @@ MoonlightGameStreamingProject.Moonlight
 Moonsworth.LunarClient
 moshfeu.y2mp3
 Mozilla.Thunderbird
-Mozilla.ThunderbirdBeta
+Mozilla.Thunderbird.Beta
 MPC-HC.MPC-HC
 mRemoteNG.mRemoteNG
 msaltnet.TViewer
@@ -811,7 +811,7 @@ StrawberryMusicPlayer.Strawberry
 Stream-Pi.Client
 Stream-Pi.Server
 Streamlink.Streamlink
-Streamlink.StreamlinkTwitchGui
+Streamlink.Streamlink.TwitchGui
 Stretchly.Stretchly
 strimio.strimio
 subhra74.XtremeDownloadManager
