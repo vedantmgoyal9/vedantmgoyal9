@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Microsoft.AccessibilityInsightsWindows",
+  "pkgid": "Microsoft.AccessibilityInsights.Windows",
   "repo_uri": "microsoft/accessibility-insights-windows",
   "last_checked_tag": "51018334",
   "asset_regex": ".*.msi$",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Microsoft.WindowsTerminalPreview",
+  "pkgid": "Microsoft.WindowsTerminal.Preview",
   "repo_uri": "microsoft/terminal",
   "last_checked_tag": "51749208",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",

@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Microsoft.AccessibilityInsightsWindows.Canary",
-  "repo_uri": "microsoft/accessibility-insights-windows",
-  "last_checked_tag": "52037484",
+  "pkgid": "Microsoft.Edge.Beta",
+  "repo_uri": "https://edgeupdates.microsoft.com/api/products",
+  "last_checked_tag": "95.0.1020.30",
   "asset_regex": ".*.msi$",
   "is_prerelease": true,
   "version_method": null,
-  "use_package_script": false,
+  "use_package_script": true,
   "skip": false,
-  "previous_timestamp": 1635242945,
+  "previous_timestamp": 1635242949,
   "check_interval": 3600
 }

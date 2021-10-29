@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Mozilla.ThunderbirdBeta",
-  "repo_uri": "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
-  "last_checked_tag": "94.0b4",
+  "pkgid": "Microsoft.Edge.Dev",
+  "repo_uri": "https://edgeupdates.microsoft.com/api/products",
+  "last_checked_tag": "96.0.1047.2",
   "asset_regex": ".*.msi$",
   "is_prerelease": true,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
-  "previous_timestamp": 1635242981,
+  "previous_timestamp": 1635242949,
   "check_interval": 3600
 }

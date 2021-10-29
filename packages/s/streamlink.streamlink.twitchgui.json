@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Streamlink.StreamlinkTwitchGui",
+  "pkgid": "Streamlink.Streamlink.TwitchGui",
   "repo_uri": "streamlink/streamlink-twitch-gui",
   "last_checked_tag": "49260864",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
