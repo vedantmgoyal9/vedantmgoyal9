@@ -44,7 +44,7 @@ Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, install
 # Set up API headers
 $header = @{
     Authorization = 'Basic {0}' -f $([System.Convert]::ToBase64String([char[]]"vedantmgoyal2009:$env:GITHUB_TOKEN"))
-    Accept = 'application/vnd.github.v3+json'
+    Accept        = 'application/vnd.github.v3+json'
 }
 
 Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
@@ -57,7 +57,14 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
     Set-Location .\winget-pkgs\Tools # Change directory to Tools
-    .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    if ($Script:package.upgrade_existing -eq $false) {
+        Write-Host -ForegroundColor Green "   Creating new manifest"
+        .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    }
+    else {
+        Write-Host -ForegroundColor Green "   Updating existing manifest"
+        .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -AutoUpgrade
+    }
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
