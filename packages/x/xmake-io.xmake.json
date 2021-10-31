@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Xmake-io.Xmake",
   "repo_uri": "xmake-io/xmake",
-  "last_checked_tag": "51041817",
+  "last_checked_tag": "52398298",
   "asset_regex": "xmake-v.*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635683451,
+  "previous_timestamp": 1635690126,
   "check_interval": 3600
 }
