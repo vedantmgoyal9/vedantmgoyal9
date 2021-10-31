@@ -8,6 +8,6 @@
   "version_method": "\"$($result.tag_name)000\"",
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635654155,
+  "previous_timestamp": 1635661568,
   "check_interval": 3600
 }
