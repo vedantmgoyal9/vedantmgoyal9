@@ -8,6 +8,7 @@
   "version_method": null,
   "use_package_script": false,
   "skip": "Repository is archived",
+  "upgrade_existing": false,
   "previous_timestamp": 1634406612,
   "check_interval": 3600
 }
