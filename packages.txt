@@ -61,6 +61,7 @@ ArtifexSoftware.GhostScript
 AshishBharadwajJ.Flawesome
 AssetKid.Raider
 assnctr.unfx-proxy-checker
+Atominn.WonderPen
 Audacity.Audacity
 AustinLeath.R6RC
 Authpass.Authpass
