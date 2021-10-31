@@ -124,6 +124,7 @@ caobinrg.electron-office-tools
 Caprine.Caprine
 CarstenGehling.JiraStopWatch
 Celestia.Celestia
+CertifyTheWeb.CertifySSLManager
 Chatty.Chatty
 ChiaNetwork.GUIforChiaBlockchain
 ChilliBits.CCom
