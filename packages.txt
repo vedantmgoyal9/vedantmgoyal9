@@ -101,9 +101,9 @@ bornova.numara
 BornToBeRoot.NETworkManager
 BoxHero.BoxHero
 BraveSoftware.BraveBrowser
-BraveSoftware.BraveBrowser-Beta
-BraveSoftware.BraveBrowser-Dev
-BraveSoftware.BraveBrowser-Nightly
+BraveSoftware.BraveBrowser.Beta
+BraveSoftware.BraveBrowser.Dev
+BraveSoftware.BraveBrowser.Nightly
 brianlima.uwphook
 bricelam.imageresizer
 brimdata.brim
