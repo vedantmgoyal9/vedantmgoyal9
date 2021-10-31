@@ -8,6 +8,7 @@
   "version_method": "$result.tag_name.TrimStart('v').TrimEnd('-beta')",
   "use_package_script": false,
   "skip": false,
+  "upgrade_existing": false,
   "previous_timestamp": 1635654155,
   "check_interval": 3600
 }

@@ -4,8 +4,7 @@ if ($result.current_version -gt $package.last_checked_tag)
     $update_found = $true
     $version = $result.current_version
     $jsonTag = $result.current_version
-    $urls.Add("https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi") | Out-Null
-    $urls.Add("https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise.msi") | Out-Null
+    $urls.Add("upgrade_existing") | Out-Null
 }
 else
 {
