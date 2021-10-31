@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "nvisionative.nvQuickSite",
   "repo_uri": "nvisionative/nvQuickSite",
-  "last_checked_tag": "49012934",
+  "last_checked_tag": "52411042",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635711688,
+  "previous_timestamp": 1635718805,
   "check_interval": 3600
 }
