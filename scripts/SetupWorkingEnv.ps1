@@ -37,6 +37,7 @@ SaveToTemporaryFolder: never
 AutoSubmitPRs: always
 ContinueWithExistingPRs: never
 SuppressQuickUpdateWarning: true
+EnableDeveloperOptions: true
 "@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
 Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, installed dependencies and set YamlCreate settings."
 
