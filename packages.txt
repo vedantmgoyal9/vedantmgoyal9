@@ -194,6 +194,10 @@ DeskRelief.SitHealthy
 DevHub.DevHub
 Dicarne.TheCenter
 Digimezzo.Knowte
+Discord.Discord
+Discord.Discord.Canary
+Discord.Discord.Development
+Discord.Discord.PTB
 Ditto.Ditto
 Dixa.Dixa
 Dlang.VisualD
