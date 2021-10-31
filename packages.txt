@@ -666,6 +666,10 @@ picturama.picturama
 Pierre.Museeks
 pit-ray.win-vind
 pixel-point.kube-forwarder
+Plex.Plex
+Plex.Plexamp
+Plex.PlexMediaPlayer
+Plex.PlexMediaServer
 Polar.Polar
 poooi.poi
 PopcornTime.Popcorn-Time-Ru
