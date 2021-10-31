@@ -8,6 +8,6 @@
   "version_method": "\"$($result.tag_name.TrimStart(\"release-\"))0000.0\"",
   "use_package_script": false,
   "skip": false,
-  "previous_timestamp": 1635641557,
+  "previous_timestamp": 1635647532,
   "check_interval": 3600
 }
