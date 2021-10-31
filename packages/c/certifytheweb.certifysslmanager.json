@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "CertifyTheWeb.CertifySSLManager",
+  "repo_uri": "https://certifytheweb.com/home/download",
+  "last_checked_tag": "5.5.7",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "upgrade_existing": false,
+  "previous_timestamp": 1634406567,
+  "check_interval": 3600
+}
