@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Mirantis.Lens.Alpha",
   "repo_uri": "https://api.k8slens.dev/binaries/alpha.json",
-  "last_checked_tag": "5.3.0-alpha.7.20211029.1",
+  "last_checked_tag": "5.3.0-alpha.8.20211102.3",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635848585,
+  "previous_timestamp": 1635891891,
   "check_interval": 3600
 }

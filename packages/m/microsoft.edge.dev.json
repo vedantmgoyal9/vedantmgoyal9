@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.Edge.Dev",
   "repo_uri": "https://edgeupdates.microsoft.com/api/products",
-  "last_checked_tag": "96.0.1054.5",
+  "last_checked_tag": "97.0.1060.2",
   "asset_regex": ".*.msi$",
   "is_prerelease": true,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635848579,
+  "previous_timestamp": 1635891796,
   "check_interval": 3600
 }
