@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.Hub",
   "repo_uri": "jetbrains-api",
-  "last_checked_tag": "13826",
+  "last_checked_tag": "13841",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635841320,
+  "previous_timestamp": 1635848470,
   "check_interval": 3600
 }
