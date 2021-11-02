@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Google.Chrome.Canary",
   "repo_uri": "https://omahaproxy.appspot.com/all.json",
-  "last_checked_tag": "97.0.4688.0",
+  "last_checked_tag": "97.0.4688.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": true,
-  "previous_timestamp": 1635747730,
+  "previous_timestamp": 1635814577,
   "check_interval": 3600
 }

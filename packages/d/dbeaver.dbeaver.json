@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "dbeaver.dbeaver",
   "repo_uri": "dbeaver/dbeaver",
-  "last_checked_tag": "51499680",
+  "last_checked_tag": "52459917",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635747693,
+  "previous_timestamp": 1635814543,
   "check_interval": 3600
 }

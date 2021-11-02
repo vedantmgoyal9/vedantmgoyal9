@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ByteDance.JianyingPro",
   "repo_uri": "https://lf3-beecdn.bytetos.com/obj/ies-fe-bee/bee_prod/biz_80/bee_prod_80_bee_publish_3563.json",
-  "last_checked_tag": "2.2.0.4707",
+  "last_checked_tag": "2.3.0.5110",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635747675,
+  "previous_timestamp": 1635814523,
   "check_interval": 3600
 }

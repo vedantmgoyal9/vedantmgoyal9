@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "joncampbell123.DOSBox-X",
   "repo_uri": "joncampbell123/dosbox-x",
-  "last_checked_tag": "50661353",
+  "last_checked_tag": "52464702",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": "$result.tag_name.TrimStart(\"dosbox-x-v\")",
   "use_package_script": false,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635747866,
+  "previous_timestamp": 1635814718,
   "check_interval": 3600
 }

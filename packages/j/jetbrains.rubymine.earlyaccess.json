@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.RubyMine.EarlyAccess",
   "repo_uri": "jetbrains-api",
-  "last_checked_tag": "213.5281.16",
+  "last_checked_tag": "213.5449.19",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635747862,
+  "previous_timestamp": 1635814598,
   "check_interval": 3600
 }

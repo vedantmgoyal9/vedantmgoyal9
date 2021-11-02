@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RProject.R",
   "repo_uri": "https://cran.r-project.org/src/base/VERSION-INFO.dcf",
-  "last_checked_tag": "4.1.1",
+  "last_checked_tag": "4.1.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635747982,
+  "previous_timestamp": 1635814898,
   "check_interval": 3600
 }
