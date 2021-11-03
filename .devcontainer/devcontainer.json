@@ -1,33 +1,44 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.202.3/containers/powershell
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.202.5/containers/ubuntu
 {
-	"name": "PowerShell",
+	"name": "Ubuntu",
 	"runArgs": ["--init"],
-	"dockerFile": "Dockerfile",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Ubuntu version: hirsute, focal, bionic
+		// Use hirsute or bionic on local arm64/Apple Silicon.
+		"args": { "VARIANT": "hirsute" }
+	},
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"terminal.integrated.defaultProfile.linux": "pwsh"
-	},
+	"settings": {},
+
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"github.copilot-nightly",
-		"ms-vscode.powershell-preview"
+		"ms-vscode.powershell-preview",
+		"visualstudioexptteam.vscodeintellicode",
+		"redhat.vscode-yaml"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
-	// Uncomment the next line to run commands after the container is created. This gets run in bash which is why we call `pwsh`.
-	// "postCreateCommand": "pwsh -c '$PSVersionTable'",
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
-	"build": {
-		"args": {
-			"INSTALL_ZSH": "false",
-			"UPGRADE_PACKAGES": "true"
-		}
+	"features": {
+		"git": "latest",
+		"git-lfs": "latest",
+		"github-cli": "latest",
+		"homebrew": "latest",
+		"node": "lts",
+		"python": "latest",
+		"java": "lts",
+		"ruby": "latest",
+		"powershell": "latest"
 	}
 }
