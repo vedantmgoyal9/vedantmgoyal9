@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "mesonbuild.meson",
   "repo_uri": "mesonbuild/meson",
-  "last_checked_tag": "52222587",
+  "last_checked_tag": "52554506",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635913019,
+  "previous_timestamp": 1635920691,
   "check_interval": 3600
 }
