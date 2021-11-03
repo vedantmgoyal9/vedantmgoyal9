@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Amazon.SAM-CLI",
   "repo_uri": "aws/aws-sam-cli",
-  "last_checked_tag": "52096485",
+  "last_checked_tag": "52634545",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635970190,
+  "previous_timestamp": 1635977426,
   "check_interval": 3600
 }
