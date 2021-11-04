@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.GoLand.EarlyAccess",
   "repo_uri": "jetbrains-api",
-  "last_checked_tag": "213.5449.26",
+  "last_checked_tag": "213.5605.80",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1636020844,
+  "previous_timestamp": 1636042848,
   "check_interval": 3600
 }

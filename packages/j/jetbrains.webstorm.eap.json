@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.WebStorm.EAP",
   "repo_uri": "jetbrains-api",
-  "last_checked_tag": "213.5449.31",
+  "last_checked_tag": "213.5605.12",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1636020846,
+  "previous_timestamp": 1636042982,
   "check_interval": 3600
 }
