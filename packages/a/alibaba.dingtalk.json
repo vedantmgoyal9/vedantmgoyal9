@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Alibaba.DingTalk",
   "repo_uri": "https://im.dingtalk.com/manifest/new/release_windows_vista_later_manual_lowpriority.json",
-  "last_checked_tag": "6.0.30-Release.9178701",
+  "last_checked_tag": "6.3.5-Release.10278702",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": true,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1635985804,
+  "previous_timestamp": 1635992930,
   "check_interval": 3600
 }
