@@ -20,10 +20,10 @@ jobs:
     name: PSScriptAnalyzer
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2
 
       - name: Run PSScriptAnalyzer
-        uses: microsoft/psscriptanalyzer-action@2044ae068e37d0161fa2127de04c19633882f061
+        uses: microsoft/psscriptanalyzer-action@v1.0
         with:
           # Check https://github.com/microsoft/action-psscriptanalyzer for more info about the options.
           # The below set up runs PSScriptAnalyzer to your entire repository and runs some basic security rules.
