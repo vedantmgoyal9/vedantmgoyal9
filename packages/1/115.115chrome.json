@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "115.115Chrome",
+  "repo_uri": "https://appversion.115.com/1/web/1.0/api/chrome",
+  "last_checked_tag": "25.0.0.3",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1636114447,
+  "check_interval": 3600
+}
