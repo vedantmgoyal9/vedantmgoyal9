@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Fndroid.ClashForWindows",
   "repo_uri": "Fndroid/clash_for_windows_pkg",
-  "last_checked_tag": "52225533",
+  "last_checked_tag": "52752487",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1636072374,
+  "previous_timestamp": 1636079515,
   "check_interval": 3600
 }

@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ChiaNetwork.GUIforChiaBlockchain",
   "repo_uri": "Chia-Network/chia-blockchain",
-  "last_checked_tag": "52016647",
+  "last_checked_tag": "52747832",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
   "skip": false,
   "upgrade_existing": false,
-  "previous_timestamp": 1636072337,
+  "previous_timestamp": 1636079357,
   "check_interval": 3600
 }
