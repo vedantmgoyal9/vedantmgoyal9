@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "LAIPIC.LaiHuaVideo",
+  "repo_uri": "last-hit-aab/last-hit",
+  "last_checked_tag": "https://video.laihua.com/common/config?type=15",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1636107127,
+  "check_interval": 3600
+}
