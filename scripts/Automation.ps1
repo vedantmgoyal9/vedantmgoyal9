@@ -239,7 +239,7 @@ $header_this = @{
     Accept        = "application/vnd.github.v3+json"
 }
 Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 146"
-if ($null -ne $erroredPkgs) {    
+if ($null -ne $erroredPkgs) {
     $comment_body = "The following packages failed to update: `n$erroredPkgs"
 }
 else {
