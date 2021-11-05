@@ -159,7 +159,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
 }
 
 Function Submit-PullRequest ($headBranch, $prBody) {
-    # Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/microsoft/winget-pkgs/pulls" -Body "{"base":"master","head":"$headBranch","body":"$prBody"}" -Headers $Script:header
+    # Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/microsoft/winget-pkgs/pulls" -Body "{""base"":""master"",""head"":""$headBranch"",""body"":""$prBody""}" -Headers $Script:header
     gh pr create --body "$prBody" -f
 }
 
@@ -250,7 +250,7 @@ Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal
 # Unlock the issue for the bot to comment
 Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/lock" -Headers $header_this
 # Add the new comment
-Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments" -Body "{"body":"$comment_body"}" -Headers $header_this
+Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments" -Body "{""body"":""$comment_body""}" -Headers $header_this
 # Lock the issue again
 Invoke-RestMethod -Method Put -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/lock" -Headers $header_this
 
