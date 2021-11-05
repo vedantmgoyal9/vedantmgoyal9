@@ -2,9 +2,9 @@
 /winget-pkgs/
 
 # winget install files in runner
-Microsoft.VCLibs.x64.14.00.Desktop.appx
-Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
-9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml
+winget.msixbundle
+VCLibs.appx
+license.xml
 
 # temporary script for testing something
 temp.ps1
