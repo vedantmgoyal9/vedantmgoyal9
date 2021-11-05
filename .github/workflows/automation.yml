@@ -8,9 +8,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2.3.5
+        uses: actions/checkout@v2
       - name: Run automation script
         shell: pwsh
         run: Set-Location .\scripts; .\Automation.ps1
         env:
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+          JWT_RB: ${{ secrets.JWT_RB }}
+          MS_ID: ${{ secrets.MS_ID }}
+          THIS_ID: ${{ secrets.THIS_ID }}
