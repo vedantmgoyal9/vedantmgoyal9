@@ -432,6 +432,7 @@ Kaitai.StructCompiler
 kamranahmedse.pennywise
 kapitainsky.RcloneBrowser
 karakun.OpenWebStart
+KDE.Kate
 Kebler.Kebler
 KeePassXCTeam.KeePassXC
 KeeWeb.KeeWeb
