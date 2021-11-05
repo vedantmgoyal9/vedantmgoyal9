@@ -611,6 +611,7 @@ nteract.nteract
 nukeop.nuclear
 Nushell.Nushell
 nuttyartist.notes
+nuttyartist.notes
 nvisionative.nvQuickSite
 NxShellTeam.NxShell
 nzbget.nzbget
