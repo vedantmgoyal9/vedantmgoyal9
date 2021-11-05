@@ -122,7 +122,6 @@ cangzhang.champ-r
 Canonical.Multipass
 caobinrg.electron-office-tools
 Caprine.Caprine
-CarstenGehling.JiraStopWatch
 Celestia.Celestia
 CertifyTheWeb.CertifySSLManager
 Chatty.Chatty
