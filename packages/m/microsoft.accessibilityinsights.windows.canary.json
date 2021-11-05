@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.AccessibilityInsights.Windows.Canary",
   "repo_uri": "microsoft/accessibility-insights-windows",
-  "last_checked_tag": "52576866",
+  "last_checked_tag": "52622686",
   "asset_regex": ".*.msi$",
   "is_prerelease": true,
   "version_method": null,
