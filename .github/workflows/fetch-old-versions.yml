@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Run fetch-old-versions.ps1
+      - name: Run FetchOldVersions.ps1
         shell: pwsh
         run: Set-Location .\scripts; .\FetchOldVersions.ps1
         env:
