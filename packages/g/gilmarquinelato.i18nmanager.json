@@ -8,7 +8,8 @@
   "version_method": null,
   "use_package_script": false,
   "skip": "Repository is archived",
-  "upgrade_existing": false,
+  "check_existing_pr": true,
+  "yamlcreate_autoupgrade": false,
   "previous_timestamp": 1634406612,
   "check_interval": 3600
 }
