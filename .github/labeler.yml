@@ -1,8 +1,7 @@
 documentation:
 - all: ['README.md']
-new package:
+packages:
 - 'packages/**'
-package-scripts:
 - 'package_scripts/**'
 automation:
 - 'scripts/**'

@@ -3,12 +3,12 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    runs-on: windows-2022
+    runs-on: windows-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2.3.5
-      - name: Run fetch-old-versions.ps1
+        uses: actions/checkout@v2
+      - name: Run FetchOldVersions.ps1
         shell: pwsh
-        run: ./scripts/FetchOldVersions.ps1
+        run: Set-Location .\scripts; .\FetchOldVersions.ps1
         env:
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}

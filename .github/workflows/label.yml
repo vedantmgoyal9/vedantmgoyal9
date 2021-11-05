@@ -8,18 +8,23 @@
 name: Labeler
 # on: [pull_request]
 on: [pull_request_target] # Workaround from https://github.com/actions/labeler/issues/136
-
+env:
+  GITHUB_TOKEN: 'blank'
 jobs:
   label:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
-
     steps:
-    - uses: actions/labeler@v3.0.2
+    - run: gem install jwt openssl
+    - run: Write-Output "GITHUB_TOKEN=$((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      shell: pwsh
+      env:
+        JWT_RB: ${{ secrets.JWT_RB }}
+        THIS_ID: ${{ secrets.THIS_ID }}
+    - uses: actions/labeler@v3
       with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        repo-token: "${{ env.GITHUB_TOKEN }}"
         configuration-path: '.github/labeler.yml'
         sync-labels: true
