@@ -1,4 +1,4 @@
-$result = (Invoke-RestMethod -Uri "https://video.laihua.com/common/config?type=15").data.videoUpdate | ConvertFrom-Json
+$result = (Invoke-RestMethod -Uri $package.repo_uri).data.videoUpdate | ConvertFrom-Json
 if ($result.versionCode -gt $package.last_checked_tag)
 {
     $update_found = $true
