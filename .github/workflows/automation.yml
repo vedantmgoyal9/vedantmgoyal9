@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - run: gem install jwt openssl
       - name: Run automation script
         shell: pwsh
         run: Set-Location .\scripts; .\Automation.ps1
