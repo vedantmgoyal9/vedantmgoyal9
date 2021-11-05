@@ -454,6 +454,7 @@ ksnip.ksnip
 Kubernetes.minikube
 KYDronePilot.SpaceEye
 LacyMorrow.CrossOver
+LAIPIC.LaiHuaVideo
 last-hit-team.last-hit
 LaurentPRenedeCotret.pandoc-plot
 Lauriethefish.QuestPatcher
