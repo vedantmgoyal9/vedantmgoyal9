@@ -4,7 +4,7 @@ if ($result.current_version -gt $package.last_checked_tag)
     $update_found = $true
     $version = $result.current_version
     $jsonTag = $result.current_version
-    $urls.Add("upgrade_existing") | Out-Null
+    $urls.Add("yamlcreate_autoupgrade") | Out-Null
 }
 else
 {

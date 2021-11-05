@@ -8,7 +8,8 @@
   "version_method": null,
   "use_package_script": false,
   "skip": false,
-  "upgrade_existing": false,
-  "previous_timestamp": 1636079622,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1635941948,
   "check_interval": 3600
 }

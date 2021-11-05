@@ -8,7 +8,8 @@
   "version_method": "$result.tag_name.TrimStart(\"Audacity-\")",
   "use_package_script": false,
   "skip": false,
-  "upgrade_existing": false,
-  "previous_timestamp": 1636079219,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1635941677,
   "check_interval": 3600
 }

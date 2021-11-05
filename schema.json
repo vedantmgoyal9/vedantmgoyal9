@@ -11,6 +11,8 @@
         "version_method",
         "use_package_script",
         "skip",
+        "yamlcreate_autoupgrade",
+        "check_existing_pr",
         "previous_timestamp",
         "check_interval"
     ],
@@ -62,8 +64,12 @@
                 "boolean"
             ]
         },
-        "upgrade_existing": {
-            "$id": "#/properties/upgrade_existing",
+        "yamlcreate_autoupgrade": {
+            "$id": "#/properties/yamlcreate_autoupgrade",
+            "type": "boolean"
+        },
+        "check_existing_pr": {
+            "$id": "#/properties/check_existing_pr",
             "type": "boolean"
         },
         "previous_timestamp": {
