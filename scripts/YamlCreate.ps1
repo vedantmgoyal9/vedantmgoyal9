@@ -2250,7 +2250,7 @@ if ($script:Option -ne 'RemoveManifest') {
             & $SandboxScriptPath -Manifest $AppFolder
             #>
             Write-Host -ForegroundColor Green "Installing and verifying ARP Metadata..."
-            . ..\..\ValidateArpData.ps1 -ManifestPath $AppFolder
+            Test-ArpMetadata $AppFolder
         }
     }
 }
@@ -2312,11 +2312,10 @@ if ($PromptSubmit -eq '0') {
         git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
         git switch -c "$BranchName" --quiet
         git push --set-upstream origin "$BranchName" --quiet
-
+        Submit-PullRequest $BranchName $($PrePrBodyContent+"\n\nAuto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation)")
+        <#
         # If the user has the cli too
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {
-            gh pr create --body "$($PrePrBodyContent+"`n`nAuto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation)")" -f
-            <#
             # Request the user to fill out the PR template
             if (Test-Path -Path "$PSScriptRoot\..\.github\PULL_REQUEST_TEMPLATE.md") {
                 Read-PRBody "$PSScriptRoot\..\.github\PULL_REQUEST_TEMPLATE.md"
@@ -2328,8 +2327,8 @@ if ($PromptSubmit -eq '0') {
                 }
                 Read-PRBody "$PRTemplate"
             }
-            #>
         }
+        #>
         git switch master --quiet
         git pull --quiet
     }
