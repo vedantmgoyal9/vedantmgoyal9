@@ -55,15 +55,19 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Write-Host -ForegroundColor Green "   Download Urls`:"
     foreach ($i in $InstallerUrls) { Write-Host -ForegroundColor Green "      $i" }
     # Generate manifests and submit to winget community repository
-    Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
+    Write-Host -ForegroundColor Green "   Running YamlCreate.ps1 with the following configuration:" # Added spaces for indentation
     Set-Location .\winget-pkgs\Tools # Change directory to Tools
-    if ($Script:package.upgrade_existing -eq $false) {
-        Write-Host -ForegroundColor Green "   Creating new manifest"
-        .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
+    if ($Script:package.yamlcreate_autoupgrade -eq $true -and $Script:package.check_existing_pr -eq $true) {
+        Write-Host -ForegroundColor Green "      yamlcreate_autoupgrade: true`n      check_existing_pr: true" # Added spaces for indentation
+        .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -AutoUpgrade
+    }
+    elseif ($Script:package.yamlcreate_autoupgrade -eq $false -and $Script:package.check_existing_pr -eq $false) {
+        Write-Host -ForegroundColor Green "      yamlcreate_autoupgrade: false`n      check_existing_pr: false" # Added spaces for indentation
+        .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls -SkipPRCheck
     }
     else {
-        Write-Host -ForegroundColor Green "   Updating existing manifest"
-        .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -AutoUpgrade
+        Write-Host -ForegroundColor Green "   Creating new manifest"
+        .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
     }
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
