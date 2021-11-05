@@ -455,6 +455,7 @@ Kubernetes.minikube
 KYDronePilot.SpaceEye
 LacyMorrow.CrossOver
 LAIPIC.LaiHuaVideo
+LAIPIC.Perfoo
 last-hit-team.last-hit
 LaurentPRenedeCotret.pandoc-plot
 Lauriethefish.QuestPatcher
