@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LAIPIC.LaiHuaVideo",
-  "repo_uri": "last-hit-aab/last-hit",
-  "last_checked_tag": "https://video.laihua.com/common/config?type=15",
+  "repo_uri": "https://video.laihua.com/common/config?type=15",
+  "last_checked_tag": "1.0.8",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
