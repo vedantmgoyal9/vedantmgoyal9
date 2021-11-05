@@ -1,7 +1,7 @@
 name: Check Download Urls
 on:
   schedule:
-    - cron: '0 0 * * SUN,THU'
+    - cron: '0 0 * * 0,4'
 jobs:
   build:
     runs-on: self-hosted
