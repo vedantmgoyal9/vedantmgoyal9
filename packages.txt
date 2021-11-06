@@ -169,6 +169,7 @@ CrowTranslate.CrowTranslate
 cryptofyre.AppleMusicElectron
 Cryptomator.Cryptomator
 CThingSoftware.Meazure
+Cube.CubePlatform
 cuiocean.zyplayer
 Cyanfish.NAPS2
 da2x.EdgeDeflector
