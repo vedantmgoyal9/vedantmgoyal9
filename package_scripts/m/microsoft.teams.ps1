@@ -1,5 +1,5 @@
 $result = Invoke-RestMethod -Uri $package.repo_uri
-$versionFromInstallerUrl = $result | Select-String -Pattern "([0-9.]){3,}"
+$versionFromInstallerUrl = ($result | Select-String -Pattern "([0-9.]){3,}").Matches.Value
 if ($versionFromInstallerUrl -gt $package.last_checked_tag)
 {
     $update_found = $true
