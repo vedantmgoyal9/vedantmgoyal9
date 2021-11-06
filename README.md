@@ -43,10 +43,14 @@ Running automatically on GitHub workflows, this repo has two main components tha
 | version_method | Method to get the version of the package, if the package doesn't follow [semantic versioning](https://semver.org) |
 | use_package_script | If package uses a separate script for checking updates, then it is `true` |
 | skip | If the package has not been updated for a long time, it can be skipped instead of removing the JSON file (useful when keeping a record of skipped packages) |
+| yamlcreate_autoupgrade | If the package can be auto-updated using **YamlCreate.ps1**'s AutoUpgrade feature, then it is `true` |
+| check_existing_pr | If the automation should check if there is an existing pull request for the update of the package, then it is `true` |
 | previous_timestamp | Timestamp when the package was last updated by the workflow |
 | check_interval | Custom check interval if the package is less frequently updated |
 
 ## Contributors 🎉
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for more details.
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 

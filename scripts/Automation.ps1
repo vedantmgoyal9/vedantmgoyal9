@@ -246,14 +246,10 @@ if ($null -ne $erroredPkgs) {
 else {
     $comment_body = "All packages were updated successfully :tada:"
 }
-# Unlock the issue for the bot to comment
-Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/lock" -Headers $this_header | Out-Null
 # Delete the old comment
 Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$((Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments").id)" -Headers $this_header | Out-Null
 # Add the new comment
 Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments" -Body "{""body"":""$comment_body""}" -Headers $this_header
-# Lock the issue again
-Invoke-RestMethod -Method Put -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/lock" -Headers $this_header | Out-Null
 
 # Update packages in repository
 Write-Host -ForegroundColor Green "`nUpdating packages"
