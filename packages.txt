@@ -861,6 +861,7 @@ TechSmith.Camtasia
 TechSmith.Snagit
 Telegram.TelegramDesktop
 Telegram.TelegramDesktop.Beta
+Tencent.COSBrowser
 Tencent.Foxmail
 Tencent.TencentDocs
 Tencent.Weiyun
