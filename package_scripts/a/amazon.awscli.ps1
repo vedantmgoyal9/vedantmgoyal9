@@ -1,4 +1,4 @@
-$result = $(Invoke-RestMethod -Headers $header -Uri "https://api.github.com/repos/$($package.repo_uri)/tags?per_page=1" -UseBasicParsing -Method Get)[0].name
+$result = $(Invoke-RestMethod -Headers $ms_header -Uri "https://api.github.com/repos/$($package.repo_uri)/tags?per_page=1" -UseBasicParsing -Method Get)[0].name
 if ($result -gt $package.last_checked_tag)
 {
     $update_found = $true

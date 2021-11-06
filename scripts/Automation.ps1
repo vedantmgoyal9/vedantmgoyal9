@@ -41,13 +41,6 @@ EnableDeveloperOptions: true
 "@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
 Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, installed dependencies and set YamlCreate settings."
 
-# Set up API headers
-$header = @{
-    Authorization = "Token $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)"
-    Accept        = "application/vnd.github.v3+json"
-}
-# TODO: Replace $env:THIS_ID with $env:MS_ID
-
 Function Test-ArpMetadata ($manifestPath) {
     $getArpEntriesFunctions = {
         Function Get-ARPTable {
@@ -159,8 +152,15 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
+# Set up API headers
+$ms_header = @{
+    Authorization = "Token $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)"
+    Accept        = "application/vnd.github.v3+json"
+}
+# TODO: Replace $env:THIS_ID with $env:MS_ID
+
 Function Submit-PullRequest ($headBranch, $prBody) {
-    # Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/microsoft/winget-pkgs/pulls" -Body "{""base"":""master"",""head"":""vedantmgoyal2009:$headBranch"",""body"":""$prBody""}" -Headers $Script:header
+    # Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/microsoft/winget-pkgs/pulls" -Body "{""base"":""master"",""head"":""vedantmgoyal2009:$headBranch"",""body"":""$prBody""}" -Headers $Script:ms_header
     gh pr create --body "$prBody" -f
 }
 
@@ -186,7 +186,7 @@ foreach ($package in $packages) {
     $i++
     $urls.Clear()
     if ($package.use_package_script -eq $false) {
-        $result = Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -Headers $header
+        $result = Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -Headers $ms_header
         # Check update is available for this package using release id and last_checked_tag
         if ($result.prerelease -eq $package.is_prerelease -and $result.id -gt $package.last_checked_tag) {
             # Get download urls using regex pattern and add to array
@@ -235,7 +235,7 @@ foreach ($package in $packages) {
 }
 
 # Comment the errored packages on issue 146
-$header_this = @{
+$this_header = @{
     Authorization = "Token $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)"
     Accept        = "application/vnd.github.v3+json"
 }
@@ -247,13 +247,13 @@ else {
     $comment_body = "All packages were updated successfully :tada:"
 }
 # Unlock the issue for the bot to comment
-Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/lock" -Headers $header_this | Out-Null
+Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/lock" -Headers $this_header | Out-Null
 # Delete the old comment
-Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$((Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments").id)" -Headers $header_this | Out-Null
+Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$((Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments").id)" -Headers $this_header | Out-Null
 # Add the new comment
-Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments" -Body "{""body"":""$comment_body""}" -Headers $header_this
+Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments" -Body "{""body"":""$comment_body""}" -Headers $this_header
 # Lock the issue again
-Invoke-RestMethod -Method Put -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/lock" -Headers $header_this | Out-Null
+Invoke-RestMethod -Method Put -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/lock" -Headers $this_header | Out-Null
 
 # Update packages in repository
 Write-Host -ForegroundColor Green "`nUpdating packages"

@@ -73,7 +73,7 @@ $currentUpdate = "RandomEngy.VidCoder"
 foreach ($package in $packages) {
     $i = 0
     $j = 0
-    Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=200" -UseBasicParsing -Method Get | ConvertFrom-Json | ForEach-Object {
+    Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=200" -Headers $header | ForEach-Object {
         $urls.Clear()
         if ($i -eq 20 -or $j -eq 20) { return }
         if ($_.prerelease -eq $package.is_prerelease) {

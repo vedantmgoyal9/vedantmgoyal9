@@ -1,4 +1,4 @@
-$result = Invoke-RestMethod -Headers $header -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -UseBasicParsing -Method Get
+$result = Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -Headers $ms_header
 if ($result.id -gt $package.last_checked_tag -and $result.name.Contains("Current"))
 {
     $update_found = $true
