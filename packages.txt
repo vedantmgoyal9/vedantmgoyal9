@@ -896,6 +896,7 @@ TranslucentTB.TranslucentTB
 Trivia-Bot-Apps.trivia-desktop
 tropy.tropy
 TrustedRu.CryptoARMGOST
+TTKN.CNKIExpress
 TUG.TeXworks
 Tunepack.Tunepack
 Twistedst.scale-serial-reader
