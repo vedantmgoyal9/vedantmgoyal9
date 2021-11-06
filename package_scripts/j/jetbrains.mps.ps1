@@ -1,4 +1,4 @@
-$result = Invoke-WebRequest -Headers $header -Uri "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=MPS" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -ExpandProperty MPS
+$result = (Invoke-RestMethod -Method Get -Uri $package.repo_uri).MPS
 if ($result.build -gt $package.last_checked_tag)
 {
     $update_found = $true
