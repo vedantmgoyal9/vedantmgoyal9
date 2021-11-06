@@ -2,7 +2,7 @@ $result = $(Invoke-WebRequest -Headers $header -Uri "https://api.github.com/repo
 if ($result.id -gt $package.last_checked_tag -and $result.name.Contains("Nightly"))
 {
     $update_found = $true
-    $version = "95.$($result.tag_name.TrimStart("v"))"
+    $version = "96.$($result.tag_name.TrimStart("v"))"
     $jsonTag = $result.id.ToString()
     foreach ($asset in $result.assets)
     {
