@@ -1,4 +1,4 @@
-$result = Invoke-WebRequest -Headers $header -Uri "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=DG" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -ExpandProperty DG
+$result = (Invoke-RestMethod -Method Get -Uri $package.repo_uri).DG
 if ($result.build -gt $package.last_checked_tag)
 {
     $update_found = $true

@@ -1,4 +1,4 @@
-$result = Invoke-WebRequest -Headers $header -Uri "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=PCC" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -ExpandProperty PCC
+$result = (Invoke-RestMethod -Method Get -Uri $package.repo_uri).PCC
 if ($result.build -gt $package.last_checked_tag)
 {
     $update_found = $true

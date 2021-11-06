@@ -1,4 +1,4 @@
-$result = Invoke-WebRequest -Headers $header -Uri "https://data.services.jetbrains.com/products/releases?latest=true&type=eap&code=GO" -UseBasicParsing -Method Get | ConvertFrom-Json | Select-Object -ExpandProperty GO
+$result = (Invoke-RestMethod -Method Get -Uri $package.repo_uri).GO
 if ($result.build -gt $package.last_checked_tag)
 {
     $update_found = $true
