@@ -17,6 +17,6 @@ If you've understood that how this project works and feel that you can contribut
 
 ## Code of Conduct
 
-Note we have a code of conduct, please follow it in all your interactions with the project and with community here.
+Note we have a code of conduct, please follow it in all your interactions with the project and the community here.
 
 See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) for more information.
