@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "TTKN.CNKIExpress",
+  "repo_uri": "https://download.cnki.net/cnkiexpress/latest.yml",
+  "last_checked_tag": "0.1.12",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1636215736,
+  "check_interval": 3600
+}
