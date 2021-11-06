@@ -555,6 +555,8 @@ Microsoft.msmpisdk
 Microsoft.PowerShell
 Microsoft.PowerShell.Preview
 Microsoft.PowerToys
+Microsoft.Teams
+Microsoft.Teams.Preview
 Microsoft.vott
 Microsoft.WindowsTerminal
 Microsoft.WindowsTerminal.Preview
