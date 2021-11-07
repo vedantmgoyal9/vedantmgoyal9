@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Freeplane.Freeplane",
   "repo_uri": "freeplane",
-  "last_checked_tag": "2021-10-02 19:36:15",
+  "last_checked_tag": "2021-11-07 20:53:39",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636316127,
+  "previous_timestamp": 1636323573,
   "check_interval": 3600
 }
