@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "nuttyartist.notes",
   "repo_uri": "https://app.jianguoyun.com/static/exe/latestVersion",
-  "last_checked_tag": "5.2.4",
+  "last_checked_tag": "1.4.00.31102,31102",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636308855,
+  "previous_timestamp": 1636309848,
   "check_interval": 3600
 }
