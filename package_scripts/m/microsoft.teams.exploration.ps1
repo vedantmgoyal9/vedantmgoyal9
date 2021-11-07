@@ -35,7 +35,6 @@ for (($i = 1), ($j = $lastCheckedBuild + 1); $i -lt 9; ($i++), ($j += $j.ToStrin
         }
     }
     else {
-        $update_found = $false
         $package.last_checked_tag = "$($existing_version),$($j.ToString())"
     }
 }
