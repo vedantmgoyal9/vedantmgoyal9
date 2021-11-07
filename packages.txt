@@ -556,6 +556,7 @@ Microsoft.PowerShell
 Microsoft.PowerShell.Preview
 Microsoft.PowerToys
 Microsoft.Teams
+Microsoft.Teams.Exploration
 Microsoft.Teams.Preview
 Microsoft.vott
 Microsoft.WindowsTerminal
