@@ -75,6 +75,7 @@ AviSynth.AviSynthPlus
 awehook.BlinkMind
 awwbees.BespokeSynth
 azure06.clips
+Badlion.BadlionClient
 Baidu.BaiduNetdisk
 Baidu.BaiduTranslate
 Balena.BalenaCLI
