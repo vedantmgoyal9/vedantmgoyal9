@@ -260,6 +260,7 @@ FBMods.Launcher
 Fedora.FedoraMediaWriter
 FelixRieseberg.MacintoshJS
 FelixRieseberg.Windows95
+FengHe.FocusNote
 Fenrirthviti.obs-virtual-cam
 feugy.melodie
 Files-Community.Files
