@@ -261,6 +261,7 @@ Fedora.FedoraMediaWriter
 FelixRieseberg.MacintoshJS
 FelixRieseberg.Windows95
 FengHe.FocusNote
+FengHe.Migi
 Fenrirthviti.obs-virtual-cam
 feugy.melodie
 Files-Community.Files
