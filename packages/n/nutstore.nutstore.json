@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "nuttyartist.notes",
+  "pkgid": "Nutstore.Nutstore",
   "repo_uri": "https://app.jianguoyun.com/static/exe/latestVersion",
   "last_checked_tag": "5.2.4",
   "asset_regex": ".*.exe$",
