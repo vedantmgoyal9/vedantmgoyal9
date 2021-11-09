@@ -869,6 +869,7 @@ Telegram.TelegramDesktop
 Telegram.TelegramDesktop.Beta
 Tencent.COSBrowser
 Tencent.Foxmail
+Tencent.QiDian
 Tencent.TencentDocs
 Tencent.Weiyun
 Tenpi.Waifu2xGUI
