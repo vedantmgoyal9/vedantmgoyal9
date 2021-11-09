@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Kebler.Kebler",
   "repo_uri": "JeremiSharkboy/Kebler",
-  "last_checked_tag": "52682374",
+  "last_checked_tag": "53002385",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636460686,
+  "previous_timestamp": 1636467592,
   "check_interval": 3600
 }
