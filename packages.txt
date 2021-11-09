@@ -619,7 +619,7 @@ nrittsti.NTag
 nteract.nteract
 nukeop.nuclear
 Nushell.Nushell
-nuttyartist.notes
+Nutstore.Nutstore
 nuttyartist.notes
 nvisionative.nvQuickSite
 NxShellTeam.NxShell
