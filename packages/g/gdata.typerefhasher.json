@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "GDATA.TypeRefHasher",
   "repo_uri": "GDATASoftwareAG/TypeRefHasher",
-  "last_checked_tag": "33797156",
+  "last_checked_tag": "52980837",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636438597,
+  "previous_timestamp": 1636446020,
   "check_interval": 3600
 }
