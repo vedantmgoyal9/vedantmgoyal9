@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BlueJTeam.BlueJ",
   "repo_uri": "http://www.bluej.org/version.info",
-  "last_checked_tag": "3.46.1.2606",
+  "last_checked_tag": "3.47.0.2617",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636452918,
+  "previous_timestamp": 1636460458,
   "check_interval": 3600
 }
