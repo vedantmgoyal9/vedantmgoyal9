@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Henry++.ErrorLookup",
   "repo_uri": "henrypp/errorlookup",
-  "last_checked_tag": "36190813",
+  "last_checked_tag": "53082004",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636539946,
+  "previous_timestamp": 1636547799,
   "check_interval": 3600
 }
