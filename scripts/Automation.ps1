@@ -44,15 +44,10 @@ Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, install
 Function Test-ArpMetadata ($manifestPath) {
     $getArpEntriesFunctions = {
         Function Get-ARPTable {
-            # $registry_paths = @('HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*')
-            # return Get-ItemProperty $registry_paths -ErrorAction SilentlyContinue |
-            # Select-Object DisplayName, DisplayVersion, Publisher, @{N = 'ProductCode'; E = { $_.PSChildName } } |
-            # Where-Object { $null -ne $_.DisplayName } |
-            # Where-Object { $null -ne $_.DisplayVersion } |
-            # Where-Object { $null -ne $_.Publisher }
-            # I know this is not the best way to do this, but I think it works better here than the registry approach
-            Get-CimInstance -ClassName Win32_InstalledWin32Program | Select-Object Name, Vendor, Version, MsiProductCode | Out-Null # refresh
-            return (Get-CimInstance -ClassName Win32_InstalledWin32Program | Select-Object Name, Vendor, Version, MsiProductCode)
+            $registry_paths = @('HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*')
+            return Get-ItemProperty $registry_paths -ErrorAction SilentlyContinue |
+            Select-Object DisplayName, DisplayVersion, Publisher, @{N = 'ProductCode'; E = { $_.PSChildName } } |
+            Where-Object { $null -ne $_.DisplayName }
         }
 
         # See how the ARP table changes before and after a ScriptBlock.
@@ -64,15 +59,8 @@ Function Test-ArpMetadata ($manifestPath) {
             $originalArp = Get-ARPTable
             $ScriptToRun | Invoke-Expression
             $currentArp = Get-ARPTable
-            return (Compare-Object $currentArp $originalArp).InputObject
+            return (Compare-Object $currentArp $originalArp -Property DisplayName,DisplayVersion,Publisher,ProductCode) | Select-Object -Property * -ExcludeProperty SideIndicator
         }
-        # Usage when using registry approach:
-        # Example usage:
-        # Get-ARPTableDifference { winget install Microsoft.Teams; }
-        # Returns:
-        # DisplayName     DisplayVersion Publisher             ProductCode
-        # -----------     -------------- ---------             -----------
-        # Microsoft Teams 1.4.00.26376   Microsoft Corporation Teams
     }
 
     $manifestInfo = winget show --manifest $ManifestPath
@@ -145,7 +133,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
         }
     }
     catch {
-        $erroredPkgs += "- $PackageIdentifier"
+        $erroredPkgs += "- $PackageIdentifier\r\n\r"
         Write-Error "Error while updating Package $PackageIdentifier"
     }
     Set-Location $currentDir # Go back to previous working directory
@@ -240,11 +228,11 @@ $this_header = @{
     Accept        = "application/vnd.github.v3+json"
 }
 Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 146"
-if ($null -ne $erroredPkgs) {
-    $comment_body = "The following packages failed to update: `n$erroredPkgs"
+if ($null -eq $erroredPkgs) {
+    $comment_body = "All packages were updated successfully :tada:"
 }
 else {
-    $comment_body = "All packages were updated successfully :tada:"
+    $comment_body = "The following packages failed to update: \r\n\r$erroredPkgs"
 }
 # Delete the old comment
 Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$((Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments").id)" -Headers $this_header | Out-Null
