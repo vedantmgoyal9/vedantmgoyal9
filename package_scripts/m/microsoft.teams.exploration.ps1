@@ -17,7 +17,7 @@ $pathsAndFilenames = @{
         filename = 'Teams_windows_arm64.exe'
     }
 }
-for (($i = 1), ($j = $lastCheckedBuild + 1); $i -lt 9; ($i++), ($j += $j.ToString() -match "(0[1-9]|((1|2|3)[0-9])|4[0-8])$" ? 1 : 52)) {
+for (($i = 1), ($j = $lastCheckedBuild + 1); $i -lt 2; ($i++), ($j += $j.ToString() -match "(0[1-9]|((1|2|3)[0-9])|4[0-8])$" ? 1 : 52)) {
     $result =
     try {
         (Invoke-WebRequest -Uri ($domainUrl + "/" + $pathsAndFilenames[$architectures[0]].path + "/" + $versionPrefix + $j.ToString() + "/" + $pathsAndFilenames[$architectures[0]].filename) -Method HEAD -ErrorAction SilentlyContinue).StatusCode
