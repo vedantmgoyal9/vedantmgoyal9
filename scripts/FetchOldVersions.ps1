@@ -68,16 +68,17 @@ $DownUrls = Get-ChildItem .\winget-pkgs\manifests -Recurse -File -Filter *.yaml 
 
 $currentUpdate = "code52.Carnac"
 
-$packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.skip -eq $false -and $_.use_package_script -eq $false }
+$packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.pkgid -eq $currentUpdate }
 
-foreach ($package in $packages | Where-Object { $_.pkgid -eq $currentUpdate }) {
-    $i = 0
-    $j = 0
-    Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=200" -Headers $header | ForEach-Object {
+foreach ($package in $packages) {
+    Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=20" -Headers $header | ConvertTo-Json -Depth 5 | ConvertFrom-Json | ForEach-Object {
         $urls.Clear()
-        if ($i -eq 20 -or $j -eq 20) { return }
         if ($_.prerelease -eq $package.is_prerelease) {
-            $urls = (@($result.assets) | Where-Object { $_.name -match $package.asset_regex }).browser_download_url
+            foreach ($asset in $_.assets) {
+                if ($asset.name -match $package.asset_regex) {
+                    $urls.Add($asset.browser_download_url) | Out-Null
+                }
+            }
             if ($urls.Count -gt 0) {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
                 if ($null -eq $package.version_method) {
@@ -88,11 +89,9 @@ foreach ($package in $packages | Where-Object { $_.pkgid -eq $currentUpdate }) {
                 if ($urls -in $DownUrls) {
                     Write-Host "$($package.pkgid) version $version already exists"
                     Write-Host -ForegroundColor Green "----------------------------------------------------"
-                    $j++
                 } else {
                     # Print update information, generate and submit manifests
                     Update-PackageManifest $package.pkgid $version $urls.ToArray()
-                    $i++
                 }
             }
         }
