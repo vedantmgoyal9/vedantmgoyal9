@@ -62,15 +62,15 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }
 
-$packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.skip -eq $false -and $_.use_package_script -eq $false }
-
 $urls = [System.Collections.ArrayList]::new()
 
 $DownUrls = Get-ChildItem .\winget-pkgs\manifests -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
 
-$currentUpdate = "RandomEngy.VidCoder"
+$currentUpdate = "code52.Carnac"
 
-foreach ($package in $packages) {
+$packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.skip -eq $false -and $_.use_package_script -eq $false }
+
+foreach ($package in $packages | Where-Object { $_.pkgid -eq $currentUpdate }) {
     $i = 0
     $j = 0
     Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=200" -Headers $header | ForEach-Object {
