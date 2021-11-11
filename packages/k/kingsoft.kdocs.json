@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Kingsoft.KDocs",
   "repo_uri": "https://www.kdocs.cn/kdg/api/v1/configure?idList=kdesktopWinVersion",
-  "last_checked_tag": "2.14.3",
+  "last_checked_tag": "3.0.1",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636619279,
+  "previous_timestamp": 1636626326,
   "check_interval": 3600
 }
