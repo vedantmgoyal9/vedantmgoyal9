@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RedHat.Podman",
   "repo_uri": "containers/podman",
-  "last_checked_tag": "51709110",
+  "last_checked_tag": "53266510",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636741730,
+  "previous_timestamp": 1636748782,
   "check_interval": 3600
 }
