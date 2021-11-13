@@ -108,6 +108,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "ttrunck",
+      "name": "Theophile Trunck",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3114711?v=4",
+      "profile": "https://github.com/ttrunck",
+      "contributions": [
+        "bug"
+      ]
     }
   ]
 }
