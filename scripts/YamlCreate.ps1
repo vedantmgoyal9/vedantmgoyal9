@@ -2250,7 +2250,11 @@ if ($script:Option -ne 'RemoveManifest') {
             & $SandboxScriptPath -Manifest $AppFolder
             #>
             Write-Host -ForegroundColor Green "Installing and verifying ARP Metadata..."
-            Test-ArpMetadata $AppFolder
+            try {
+                Test-ArpMetadata $AppFolder
+            } catch {
+                Write-Host -ForegroundColor Red "ARP metadata validation failed."
+            }
         }
     }
 }
@@ -2312,7 +2316,7 @@ if ($PromptSubmit -eq '0') {
         git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
         git switch -c "$BranchName" --quiet
         git push --set-upstream origin "$BranchName" --quiet
-        Submit-PullRequest $BranchName $($Script:PrePrBodyContent+"\r\n\rAuto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation)")
+        Submit-PullRequest $BranchName $($Script:PrePrBodyContent+" \r\n\r Auto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation) in workflow run $($env:GITHUB_RUN_NUMBER)")
         <#
         # If the user has the cli too
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {

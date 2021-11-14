@@ -88,20 +88,20 @@ Function Test-ArpMetadata ($manifestPath) {
         Write-Host -ForegroundColor Green "Checking ARP entries..."
         if (-not $pkgPublisher -eq $difference.Vendor) {
             Write-Host -ForegroundColor Yellow "Publisher in the manifest is different from the one in the ARP."
-            $PrePrBodyContent = "### Publisher in the manifest is different from the one in the ARP.`nPublisher in Manifest`: $pkgPublisher`nPublisher in ARP`: $($arpData.Vendor)"
+            $Script:PrePrBodyContent = "### Publisher in the manifest is different from the one in the ARP.`nPublisher in Manifest`: $pkgPublisher`nPublisher in ARP`: $($arpData.Vendor)"
         }
         elseif (-not $pkgVersion -eq $difference.Version) {
             Write-Host -ForegroundColor Yellow "Version in the manifest is different from the one in the ARP."
-            $PrePrBodyContent = "### Package version in the manifest is different from the one in the ARP.`nVersion in Manifest: $pkgVersion`nVersion in ARP: $($arpData.Version)"
+            $Script:PrePrBodyContent = "### Package version in the manifest is different from the one in the ARP.`nVersion in Manifest: $pkgVersion`nVersion in ARP: $($arpData.Version)"
         }
         else {
             Write-Host -ForegroundColor Green "ARP entries are correct."
-            $PrePrBodyContent = "### ARP entries are correct."
+            $Script:PrePrBodyContent = "### ARP entries are correct."
         }
     }
     else {
         Write-Host -ForegroundColor Red "Installation timed out."
-        $PrePrBodyContent = "### Installation timed out."
+        $Script:PrePrBodyContent = "### Installation timed out."
     }
 
     Clear-Variable -Name difference
@@ -133,7 +133,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
         }
     }
     catch {
-        $erroredPkgs += "- $PackageIdentifier\r\n\r"
+        $Script:erroredPkgs += @("- $PackageIdentifier")
         Write-Error "Error while updating Package $PackageIdentifier"
     }
     Set-Location $currentDir # Go back to previous working directory
@@ -228,11 +228,11 @@ $this_header = @{
     Accept        = "application/vnd.github.v3+json"
 }
 Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 146"
-if ($null -eq $erroredPkgs) {
+if ($Script:erroredPkgs.Count -gt 0) {
     $comment_body = "All packages were updated successfully :tada:"
 }
 else {
-    $comment_body = "The following packages failed to update: \r\n\r$erroredPkgs"
+    $comment_body = "The following packages failed to update: \r\n\r $($Script:erroredPkgs -join ' \r\n\r')"
 }
 # Delete the old comment
 Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$((Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments").id)" -Headers $this_header | Out-Null
