@@ -1,4 +1,4 @@
-$result = $(Invoke-RestMethod -Method Get -Uri http://www.bluej.org/version.info -UseBasicParsing).Split([System.Environment]::NewLine)[0]
+$result = $(Invoke-RestMethod -Method Get -Uri $package.repo_uri -UseBasicParsing).Split([System.Environment]::NewLine)[0]
 if ($result -gt $package.last_checked_tag)
 {
     $update_found = $true
