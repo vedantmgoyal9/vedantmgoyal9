@@ -1,15 +1,15 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Audacity.Audacity",
-  "repo_uri": "audacity/audacity",
-  "last_checked_tag": "53150697",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": "$result.tag_name.TrimStart(\"Audacity-\")",
-  "use_package_script": false,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1636874085,
-  "check_interval": 3600
+    "$schema":  "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+    "pkgid":  "Audacity.Audacity",
+    "repo_uri":  "audacity/audacity",
+    "last_checked_tag":  "53497555",
+    "asset_regex":  ".*.exe$",
+    "is_prerelease":  false,
+    "version_method":  "$result.tag_name.TrimStart(\"Audacity-\")",
+    "use_package_script":  false,
+    "skip":  false,
+    "yamlcreate_autoupgrade":  false,
+    "check_existing_pr":  true,
+    "previous_timestamp":  1637100393,
+    "check_interval":  3600
 }

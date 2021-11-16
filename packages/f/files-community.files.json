@@ -1,15 +1,15 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Files-Community.Files",
-  "repo_uri": "files-community/Files",
-  "last_checked_tag": "49022570",
-  "asset_regex": ".*.msixbundle$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": false,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1636874143,
-  "check_interval": 3600
+    "$schema":  "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+    "pkgid":  "Files-Community.Files",
+    "repo_uri":  "files-community/Files",
+    "last_checked_tag":  "52807987",
+    "asset_regex":  ".*.msixbundle$",
+    "is_prerelease":  false,
+    "version_method":  null,
+    "use_package_script":  false,
+    "skip":  false,
+    "yamlcreate_autoupgrade":  false,
+    "check_existing_pr":  true,
+    "previous_timestamp":  1637100432,
+    "check_interval":  3600
 }

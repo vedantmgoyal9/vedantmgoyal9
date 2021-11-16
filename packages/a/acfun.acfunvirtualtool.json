@@ -1,15 +1,15 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "AcFun.AcFunVirtualTool",
-  "repo_uri": "https://api.kuaishouzt.com/rest/zt/appsupport/checkupgrade?appver=1.16.0.598&kpn=ACFUN_APP.LIVE.PC&kpf=WINDOWS_PC",
-  "last_checked_tag": "1.18.0.720",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1636874070,
-  "check_interval": 3600
+    "$schema":  "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+    "pkgid":  "AcFun.AcFunVirtualTool",
+    "repo_uri":  "https://api.kuaishouzt.com/rest/zt/appsupport/checkupgrade?appver=1.16.0.598\u0026kpn=ACFUN_APP.LIVE.PC\u0026kpf=WINDOWS_PC",
+    "last_checked_tag":  "1.19.0.785",
+    "asset_regex":  ".*.exe$",
+    "is_prerelease":  false,
+    "version_method":  null,
+    "use_package_script":  true,
+    "skip":  false,
+    "yamlcreate_autoupgrade":  false,
+    "check_existing_pr":  true,
+    "previous_timestamp":  1637100381,
+    "check_interval":  3600
 }
