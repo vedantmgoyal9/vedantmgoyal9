@@ -1,15 +1,15 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "InTheLoop.LoopEmail.Beta",
-  "repo_uri": "4thOffice/loopinupdater",
-  "last_checked_tag": "52659022",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": true,
-  "version_method": null,
-  "use_package_script": false,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1636874168,
-  "check_interval": 3600
+    "$schema":  "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+    "pkgid":  "InTheLoop.LoopEmail.Beta",
+    "repo_uri":  "4thOffice/loopinupdater",
+    "last_checked_tag":  "53376586",
+    "asset_regex":  ".*.exe$",
+    "is_prerelease":  true,
+    "version_method":  null,
+    "use_package_script":  false,
+    "skip":  false,
+    "yamlcreate_autoupgrade":  false,
+    "check_existing_pr":  true,
+    "previous_timestamp":  1637088915,
+    "check_interval":  3600
 }
