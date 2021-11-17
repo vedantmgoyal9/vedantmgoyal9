@@ -264,7 +264,6 @@ FengHe.FocusNote
 FengHe.Migi
 Fenrirthviti.obs-virtual-cam
 feugy.melodie
-Files-Community.Files
 FilippoFedeli.FluentScreenRecorder
 filips.FirefoxPWA
 Flam3rboy.DiscordBotClient
