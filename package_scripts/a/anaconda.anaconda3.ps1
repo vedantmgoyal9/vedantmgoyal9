@@ -5,9 +5,9 @@ if ($getLatestVersion -gt $package.last_checked_tag)
     $update_found = $true
     $version = $getLatestVersion
     $jsonTag = $getLatestVersion
-    foreach ($i in $feed.psobject.properties.name -match ".*$getLatestVersion.*.exe$")
+    foreach ($a in $feed.psobject.properties.name -match ".*$getLatestVersion.*.exe$")
     {
-        $urls.Add("https://repo.anaconda.com/archive/$i") | Out-Null
+        $urls.Add("https://repo.anaconda.com/archive/$a") | Out-Null
     }
 }
 else
