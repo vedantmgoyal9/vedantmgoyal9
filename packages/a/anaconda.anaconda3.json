@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Anaconda.Anaconda3",
   "repo_uri": "https://repo.anaconda.com/archive/.files.json",
-  "last_checked_tag": "2021.05",
+  "last_checked_tag": "2021.11",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636874079,
+  "previous_timestamp": 1637256066,
   "check_interval": 3600
 }
