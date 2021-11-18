@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Amazon.AWSCLI",
   "repo_uri": "aws/aws-cli",
-  "last_checked_tag": "2.3.7",
+  "last_checked_tag": "2.3.6",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637262378,
+  "previous_timestamp": 1636871078,
   "check_interval": 3600
 }

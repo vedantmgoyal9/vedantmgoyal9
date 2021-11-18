@@ -10,6 +10,6 @@
   "skip": "Developers publish their package",
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 0,
+  "previous_timestamp": 1634310034,
   "check_interval": 3600
 }

@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "PatrikLaszlo.P3XRedisUI",
   "repo_uri": "patrikx3/redis-ui",
-  "last_checked_tag": "53646171",
+  "last_checked_tag": "53259526",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637262569,
+  "previous_timestamp": 1636871254,
   "check_interval": 3600
 }

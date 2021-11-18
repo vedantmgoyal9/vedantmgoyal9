@@ -10,6 +10,6 @@
   "skip": "Automatically marked as stale, not updated for 2.5 years",
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 0,
+  "previous_timestamp": 1634406686,
   "check_interval": 3600
 }

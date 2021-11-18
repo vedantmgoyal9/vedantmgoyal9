@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Badlion.BadlionClient",
   "repo_uri": "https://client-updates-cdn77.badlion.net/latest.yml",
-  "last_checked_tag": "3.5.5",
+  "last_checked_tag": "3.5.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637262389,
+  "previous_timestamp": 1636871087,
   "check_interval": 3600
 }

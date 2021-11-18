@@ -10,6 +10,6 @@
   "skip": "Repository is archived",
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 0,
+  "previous_timestamp": 1634406612,
   "check_interval": 3600
 }

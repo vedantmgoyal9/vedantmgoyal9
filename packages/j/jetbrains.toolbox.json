@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.Toolbox",
   "repo_uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=TBA",
-  "last_checked_tag": "1.22.10774",
+  "last_checked_tag": "1.22.10685",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637262488,
+  "previous_timestamp": 1636871179,
   "check_interval": 3600
 }
