@@ -264,7 +264,6 @@ FengHe.FocusNote
 FengHe.Migi
 Fenrirthviti.obs-virtual-cam
 feugy.melodie
-Files-Community.Files
 FilippoFedeli.FluentScreenRecorder
 filips.FirefoxPWA
 Flam3rboy.DiscordBotClient
@@ -412,7 +411,6 @@ JetBrains.Toolbox
 JetBrains.WebStorm
 JetBrains.WebStorm.EAP
 JetBrains.YouTrack
-JFLarvoire.Ag
 JFrog.Conan
 JGraph.Draw
 jhen0409.react-native-debugger
