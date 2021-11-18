@@ -59,7 +59,7 @@ Function Test-ArpMetadata ($manifestPath) {
             $originalArp = Get-ARPTable
             $ScriptToRun | Invoke-Expression
             $currentArp = Get-ARPTable
-            return (Compare-Object $currentArp $originalArp -Property DisplayName,DisplayVersion,Publisher,ProductCode) | Select-Object -Property * -ExcludeProperty SideIndicator
+            return (Compare-Object $currentArp $originalArp -Property DisplayName, DisplayVersion, Publisher, ProductCode) | Select-Object -Property * -ExcludeProperty SideIndicator
         }
     }
 
@@ -118,7 +118,7 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
     # Generate manifests and submit to winget community repository
     Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
     Set-Location .\winget-pkgs\Tools # Change directory to Tools
-    #try {
+    try {
         if ($Script:package.yamlcreate_autoupgrade -eq $true -and $Script:package.check_existing_pr -eq $true) {
             Write-Host -ForegroundColor Green "      yamlcreate_autoupgrade: true`n      check_existing_pr: true" # Added spaces for indentation
             .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -AutoUpgrade
@@ -131,11 +131,11 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
             Write-Host -ForegroundColor Green "   Creating new manifest"
             .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
         }
-    #}
-    #catch {
-    #    $Script:erroredPkgs += @("- $PackageIdentifier")
-    #    Write-Error "Error while updating Package $PackageIdentifier"
-    #}
+    }
+    catch {
+        $Script:erroredPkgs += @("- $PackageIdentifier")
+        Write-Error "Error while updating Package $PackageIdentifier"
+    }
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
 }

@@ -19,8 +19,8 @@ winget settings --enable LocalManifestFiles
 Write-Host " Successfully installed winget and enabled local manifests."
 
 # Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
-git config --global user.name 'winget-pkgs-automation' # Set git username
-git config --global user.email '83997633+vedantmgoyal2009@users.noreply.github.com' # Set git email
+git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
+git config --global user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com' # Set git email
 git clone https://vedantmgoyal2009:$env:GITHUB_TOKEN@github.com/microsoft/winget-pkgs.git --quiet # Clones the repository silently
 $currentDir = Get-Location # Get current directory
 Set-Location .\winget-pkgs\Tools # Change directory to Tools
@@ -65,7 +65,7 @@ Function Test-ArpMetadata ($manifestPath) {
             $originalArp = Get-ARPTable
             $ScriptToRun | Invoke-Expression
             $currentArp = Get-ARPTable
-            return (Compare-Object $currentArp $originalArp -Property DisplayName,DisplayVersion,Publisher,ProductCode) | Select-Object -Property * -ExcludeProperty SideIndicator
+            return (Compare-Object $currentArp $originalArp -Property DisplayName, DisplayVersion, Publisher, ProductCode) | Select-Object -Property * -ExcludeProperty SideIndicator
         }
     }
 
@@ -94,20 +94,20 @@ Function Test-ArpMetadata ($manifestPath) {
         Write-Host -ForegroundColor Green "Checking ARP entries..."
         if (-not $pkgPublisher -eq $difference.Vendor) {
             Write-Host -ForegroundColor Yellow "Publisher in the manifest is different from the one in the ARP."
-            $PrePrBodyContent = "### Publisher in the manifest is different from the one in the ARP.`nPublisher in Manifest`: $pkgPublisher`nPublisher in ARP`: $($arpData.Vendor)"
+            $Script:PrePrBodyContent = "### Publisher in the manifest is different from the one in the ARP.`nPublisher in Manifest`: $pkgPublisher`nPublisher in ARP`: $($arpData.Vendor)"
         }
         elseif (-not $pkgVersion -eq $difference.Version) {
             Write-Host -ForegroundColor Yellow "Version in the manifest is different from the one in the ARP."
-            $PrePrBodyContent = "### Package version in the manifest is different from the one in the ARP.`nVersion in Manifest: $pkgVersion`nVersion in ARP: $($arpData.Version)"
+            $Script:PrePrBodyContent = "### Package version in the manifest is different from the one in the ARP.`nVersion in Manifest: $pkgVersion`nVersion in ARP: $($arpData.Version)"
         }
         else {
             Write-Host -ForegroundColor Green "ARP entries are correct."
-            $PrePrBodyContent = "### ARP entries are correct."
+            $Script:PrePrBodyContent = "### ARP entries are correct."
         }
     }
     else {
         Write-Host -ForegroundColor Red "Installation timed out."
-        $PrePrBodyContent = "### Installation timed out."
+        $Script:PrePrBodyContent = "### Installation timed out."
     }
 
     Clear-Variable -Name difference
@@ -156,13 +156,15 @@ foreach ($package in $packages) {
                 # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
                 if ($null -eq $package.version_method) {
                     $version = $_.tag_name.TrimStart("v")
-                } else {
+                }
+                else {
                     $version = Invoke-Expression $package.version_method.Replace('$result', '$_')
                 }
                 if ($urls -in $DownUrls) {
                     Write-Host "$($package.pkgid) version $version already exists"
                     Write-Host -ForegroundColor Green "----------------------------------------------------"
-                } else {
+                }
+                else {
                     # Print update information, generate and submit manifests
                     Update-PackageManifest $package.pkgid $version $urls.ToArray()
                 }

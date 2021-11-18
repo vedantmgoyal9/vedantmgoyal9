@@ -1776,7 +1776,7 @@ $script:UsingAdvancedOption = ($ScriptSettings.EnableDeveloperOptions -eq 'true'
 
 if (!$script:UsingAdvancedOption) {
     # Request the user to choose an operation mode
-    Clear-Host
+    # Clear-Host
     if ($Mode -in 1..5) {
         $UserChoice = $Mode
     } else {
