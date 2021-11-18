@@ -264,6 +264,7 @@ FengHe.FocusNote
 FengHe.Migi
 Fenrirthviti.obs-virtual-cam
 feugy.melodie
+Files-Community.Files
 FilippoFedeli.FluentScreenRecorder
 filips.FirefoxPWA
 Flam3rboy.DiscordBotClient
@@ -446,6 +447,8 @@ KiCad.KiCad
 Kingsoft.KDocs
 KirillOsenkov.MSBuildStructuredLogViewer
 Kitware.CMake
+klaussinani.ao
+klaussinani.tusk
 klinker24.google-calendar-desktop
 Klocman.BulkCrapUninstaller
 knoopx.feeder
