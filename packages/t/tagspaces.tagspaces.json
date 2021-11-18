@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "tagspaces.tagspaces",
   "repo_uri": "tagspaces/tagspaces",
-  "last_checked_tag": "52996906",
+  "last_checked_tag": "53534796",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636871306,
+  "previous_timestamp": 1637270564,
   "check_interval": 3600
 }

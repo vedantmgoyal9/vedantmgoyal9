@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Wetransform.HaleStudio",
   "repo_uri": "halestudio/hale",
-  "last_checked_tag": "27966938",
+  "last_checked_tag": "53544843",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1636871333,
+  "previous_timestamp": 1637270862,
   "check_interval": 3600
 }
