@@ -229,10 +229,10 @@ $this_header = @{
 }
 Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 146"
 if ($Script:erroredPkgs.Count -gt 0) {
-    $comment_body = "All packages were updated successfully :tada:"
+    $comment_body = "The following packages failed to update: \r\n\r $($Script:erroredPkgs -join ' \r\n\r')"
 }
 else {
-    $comment_body = "The following packages failed to update: \r\n\r $($Script:erroredPkgs -join ' \r\n\r')"
+    $comment_body = "All packages were updated successfully :tada:"
 }
 # Delete the old comment
 Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$((Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments").id)" -Headers $this_header | Out-Null
