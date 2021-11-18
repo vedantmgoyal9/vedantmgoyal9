@@ -446,8 +446,6 @@ KiCad.KiCad
 Kingsoft.KDocs
 KirillOsenkov.MSBuildStructuredLogViewer
 Kitware.CMake
-klaussinani.ao
-klaussinani.tusk
 klinker24.google-calendar-desktop
 Klocman.BulkCrapUninstaller
 knoopx.feeder
