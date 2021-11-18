@@ -1,15 +1,15 @@
 {
-    "$schema":  "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid":  "Mozilla.Thunderbird.Beta",
-    "repo_uri":  "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
-    "last_checked_tag":  "95.0b3",
-    "asset_regex":  ".*.msi$",
-    "is_prerelease":  true,
-    "version_method":  null,
-    "use_package_script":  true,
-    "skip":  false,
-    "yamlcreate_autoupgrade":  false,
-    "check_existing_pr":  true,
-    "previous_timestamp":  1637088953,
-    "check_interval":  3600
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Mozilla.Thunderbird.Beta",
+  "repo_uri": "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
+  "last_checked_tag": "95.0b3",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": true,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1637088953,
+  "check_interval": 3600
 }

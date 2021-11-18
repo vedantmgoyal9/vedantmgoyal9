@@ -1,15 +1,15 @@
 {
-    "$schema":  "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid":  "JetBrains.Rider.EAP",
-    "repo_uri":  "https://data.services.jetbrains.com/products/releases?latest=true&type=eap&code=RD",
-    "last_checked_tag":  "213.5744.78",
-    "asset_regex":  ".*.exe$",
-    "is_prerelease":  true,
-    "version_method":  null,
-    "use_package_script":  true,
-    "skip":  false,
-    "yamlcreate_autoupgrade":  false,
-    "check_existing_pr":  true,
-    "previous_timestamp":  1637088922,
-    "check_interval":  3600
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "JetBrains.Rider.EAP",
+  "repo_uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=eap&code=RD",
+  "last_checked_tag": "213.5744.78",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": true,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1637088922,
+  "check_interval": 3600
 }

@@ -1,15 +1,15 @@
 {
-    "$schema":  "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid":  "Fabio286.antares",
-    "repo_uri":  "Fabio286/antares",
-    "last_checked_tag":  "53328228",
-    "asset_regex":  "Antares.*win.*.exe$",
-    "is_prerelease":  false,
-    "version_method":  null,
-    "use_package_script":  false,
-    "skip":  false,
-    "yamlcreate_autoupgrade":  false,
-    "check_existing_pr":  true,
-    "previous_timestamp":  1637088895,
-    "check_interval":  3600
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Fabio286.antares",
+  "repo_uri": "Fabio286/antares",
+  "last_checked_tag": "53328228",
+  "asset_regex": "Antares.*win.*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": false,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1637088895,
+  "check_interval": 3600
 }

@@ -1,15 +1,15 @@
 {
-    "$schema":  "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid":  "Google.Chrome",
-    "repo_uri":  "https://omahaproxy.appspot.com/all.json",
-    "last_checked_tag":  "96.0.4664.45",
-    "asset_regex":  ".*.msi$",
-    "is_prerelease":  false,
-    "version_method":  null,
-    "use_package_script":  true,
-    "skip":  false,
-    "yamlcreate_autoupgrade":  true,
-    "check_existing_pr":  true,
-    "previous_timestamp":  1637088909,
-    "check_interval":  3600
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Google.Chrome",
+  "repo_uri": "https://omahaproxy.appspot.com/all.json",
+  "last_checked_tag": "96.0.4664.45",
+  "asset_regex": ".*.msi$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": true,
+  "check_existing_pr": true,
+  "previous_timestamp": 1637088909,
+  "check_interval": 3600
 }
