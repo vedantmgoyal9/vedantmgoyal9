@@ -17,10 +17,10 @@ $pathsAndFilenames = @{
         filename = 'Teams_windows_arm64.exe'
     }
 }
-for (($i = 1), ($j = $lastCheckedBuild + 1); $i -lt 2; ($i++), ($j += $j.ToString() -match "(0[1-9]|((1|2|3)[0-9])|4[0-8])$" ? 1 : 52)) {
+for (($a = 1), ($b = $lastCheckedBuild + 1); $a -lt 2; ($a++), ($b += $b.ToString() -match "(0[1-9]|((1|2|3)[0-9])|4[0-8])$" ? 1 : 52)) {
     $result =
     try {
-        (Invoke-WebRequest -Uri ($domainUrl + "/" + $pathsAndFilenames[$architectures[0]].path + "/" + $versionPrefix + $j.ToString() + "/" + $pathsAndFilenames[$architectures[0]].filename) -Method HEAD -ErrorAction SilentlyContinue).StatusCode
+        (Invoke-WebRequest -Uri ($domainUrl + "/" + $pathsAndFilenames[$architectures[0]].path + "/" + $versionPrefix + $b.ToString() + "/" + $pathsAndFilenames[$architectures[0]].filename) -Method HEAD -ErrorAction SilentlyContinue).StatusCode
     }
     catch {
         $_.Exception.Response.StatusCode.value__
@@ -28,13 +28,13 @@ for (($i = 1), ($j = $lastCheckedBuild + 1); $i -lt 2; ($i++), ($j += $j.ToStrin
     if ($result -eq 200) {
         $urls.Clear()
         $update_found = $true
-        $version = $versionPrefix + $j.ToString()
-        $jsonTag = "$($version),$($j.ToString())"
+        $version = $versionPrefix + $b.ToString()
+        $jsonTag = "$($version),$($b.ToString())"
         foreach ($arch in $architectures) {
-            $urls.Add($domainUrl + "/" + $pathsAndFilenames[$arch].path + "/" + $versionPrefix + $j.ToString() + "/" + $pathsAndFilenames[$arch].filename) | Out-Null
+            $urls.Add($domainUrl + "/" + $pathsAndFilenames[$arch].path + "/" + $versionPrefix + $b.ToString() + "/" + $pathsAndFilenames[$arch].filename) | Out-Null
         }
     }
     else {
-        $package.last_checked_tag = "$($existing_version),$($j.ToString())"
+        $package.last_checked_tag = "$($existing_version),$($b.ToString())"
     }
 }
