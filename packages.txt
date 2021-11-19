@@ -221,6 +221,7 @@ DuongDieuPhap.ImageGlass
 DupeGuru.DupeGuru
 Duplicati.Duplicati
 e2eSoft.iVCam
+easymodo.qimgv
 Ebbflow.Ebbflow
 EclipseAdoptium.Temurin.11
 EclipseAdoptium.Temurin.16
