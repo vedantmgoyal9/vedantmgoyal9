@@ -850,6 +850,7 @@ syvaidya.openstego
 szTheory.exifcleaner
 t1m0thyj.WinDynamicDesktop
 tagspaces.tagspaces
+tailscale.tailscale
 Taisei.Taisei
 TaiStudio.Sofia
 Taozuhong.Kangaroo
