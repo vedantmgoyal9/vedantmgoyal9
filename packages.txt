@@ -972,6 +972,7 @@ Ytmdesktop.Ytmdesktop
 z-------------.cpod
 zeankundev.suside
 Zeit.Hyper
+ZeroTier.ZeroTierOne
 Zettlr.Zettlr
 zokugun.MrCode
 Zulip.Zulip
