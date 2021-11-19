@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Appest.TickTick",
   "repo_uri": "https://pull.ticktick.com/windows/release_note.json",
-  "last_checked_tag": "4.0.4.0",
+  "last_checked_tag": "4.0.7.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637303128,
+  "previous_timestamp": 1637315851,
   "check_interval": 3600
 }
