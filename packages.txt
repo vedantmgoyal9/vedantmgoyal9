@@ -903,7 +903,6 @@ Tunepack.Tunepack
 Twistedst.scale-serial-reader
 Tympanix.Electorrent
 Tyrrrz.LightBulb
-Ultimaker.Cura
 UMEZAWATakeshi.UtvideoCodecSuite
 Unicorn.PaintAid
 UniversalMediaServer.UniversalMediaServer
