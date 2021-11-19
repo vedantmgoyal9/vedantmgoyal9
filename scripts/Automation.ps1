@@ -229,7 +229,7 @@ $this_header = @{
 }
 Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 146"
 if ($Script:erroredPkgs.Count -gt 0) {
-    $comment_body = "The following packages failed to update: \r\n\r $($Script:erroredPkgs -join ' \r\n\r')"
+    $comment_body = "The following packages failed to update:\r\n$($Script:erroredPkgs -join '\r\n')"
 }
 else {
     $comment_body = "All packages were updated successfully :tada:"

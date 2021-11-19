@@ -2316,7 +2316,7 @@ if ($PromptSubmit -eq '0') {
         git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
         git switch -c "$BranchName" --quiet
         git push --set-upstream origin "$BranchName" --quiet
-        Submit-PullRequest $BranchName $($Script:PrePrBodyContent+" \r\n\r Auto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation) in workflow run $($env:GITHUB_RUN_NUMBER)")
+        Submit-PullRequest $BranchName $($Script:PrePrBodyContent+"\r\n\r\n#### Auto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation) in workflow run [$($env:GITHUB_RUN_NUMBER)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/runs/$($env:GITHUB_RUN_ID))")
         <#
         # If the user has the cli too
         if (Get-Command 'gh.exe' -ErrorAction SilentlyContinue) {
