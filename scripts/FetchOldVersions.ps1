@@ -137,14 +137,14 @@ $urls = [System.Collections.ArrayList]::new()
 
 $DownUrls = Get-ChildItem .\winget-pkgs\manifests -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
 
-$currentUpdate = "RickClark.Pullp"
+$currentUpdate = "TeXstudio.TeXstudio"
 
 $packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.pkgid -eq $currentUpdate }
 
 Write-Host -ForegroundColor Green "`n----------------------------------------------------"
 
 foreach ($package in $packages) {
-    Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=20" -Headers $header | ConvertTo-Json -Depth 5 | ConvertFrom-Json | ForEach-Object {
+    Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=40" -Headers $header | ConvertTo-Json -Depth 5 | ConvertFrom-Json | ForEach-Object {
         $urls.Clear()
         if ($_.prerelease -eq $package.is_prerelease) {
             foreach ($asset in $_.assets) {
@@ -160,6 +160,7 @@ foreach ($package in $packages) {
                 else {
                     $version = Invoke-Expression $package.version_method.Replace('$result', '$_')
                 }
+
                 if ($urls -in $DownUrls) {
                     Write-Host "$($package.pkgid) version $version already exists"
                     Write-Host -ForegroundColor Green "----------------------------------------------------"
