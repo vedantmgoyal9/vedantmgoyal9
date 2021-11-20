@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LeonardoZide.LeoCAD",
   "repo_uri": "leozide/leocad",
-  "last_checked_tag": "53606563",
+  "last_checked_tag": "53778478",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637432630,
+  "previous_timestamp": 1637439695,
   "check_interval": 3600
 }
