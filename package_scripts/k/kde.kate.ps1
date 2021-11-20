@@ -1,4 +1,4 @@
-$result = (Invoke-RestMethod -Uri https://binary-factory.kde.org/view/Windows%2064-bit/job/Kate_Release_win64/api/json).lastSuccessfulBuild
+$result = (Invoke-RestMethod -Uri $package.repo_uri).lastSuccessfulBuild
 if ($result.number -gt $package.last_checked_tag)
 {
     $update_found = $true
