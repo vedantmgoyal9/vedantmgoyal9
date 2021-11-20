@@ -744,6 +744,7 @@ rocksdanister.LivelyWallpaper
 RoderickQiu.wnr
 RoniLehto.LMath
 RProject.R
+Ruben2776.PicView
 RubinderSingh.Ditto++
 RubyInstallerTeam.Ruby
 RubyInstallerTeam.RubyWithDevKit
