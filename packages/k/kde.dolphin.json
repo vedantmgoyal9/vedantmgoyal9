@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "KDE.Dolphin",
+  "repo_uri": "https://binary-factory.kde.org/view/Windows%2064-bit/job/Dolphin_Release_win64/api/json",
+  "last_checked_tag": "1255",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": false,
+  "previous_timestamp": 1637421481,
+  "check_interval": 3600
+}
