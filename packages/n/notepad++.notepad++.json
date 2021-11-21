@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Notepad++.Notepad++",
   "repo_uri": "notepad-plus-plus/notepad-plus-plus",
-  "last_checked_tag": "53300684",
+  "last_checked_tag": "53794145",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637497425,
+  "previous_timestamp": 1637504439,
   "check_interval": 3600
 }
