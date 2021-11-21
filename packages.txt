@@ -114,6 +114,7 @@ brrd.abricotine
 brunurd.companion
 btargac.excel-parser-processor
 Buttercup.Buttercup
+ByteDance.BytedanceMiniappIDE
 ByteDance.Debugtron
 ByteDance.JianyingPro
 c0re100.qBittorrent-Enhanced-Edition
