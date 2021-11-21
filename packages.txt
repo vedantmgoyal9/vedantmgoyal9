@@ -831,6 +831,7 @@ stnkl.EverythingToolbar
 StrawberryMusicPlayer.Strawberry
 Stream-Pi.Client
 Stream-Pi.Server
+Streamlabs.StreamlabsOBS
 Streamlink.Streamlink
 Streamlink.Streamlink.TwitchGui
 Stretchly.Stretchly
