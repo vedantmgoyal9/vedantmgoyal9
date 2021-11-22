@@ -380,6 +380,7 @@ jayakumarreddy.Local-Mock-Server
 jcv8000.Codex
 JeffreyPfau.mGBA
 Jellyfin.JellyfinMediaPlayer
+Jellyfin.JellyfinServer
 Jelmerro.Vieb
 jely2002.youtube-dl-gui
 jerrod-lankford.google-voice-desktop-app
