@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Warzone2100Project.Warzone2100",
   "repo_uri": "Warzone2100/warzone2100",
-  "last_checked_tag": "52956297",
+  "last_checked_tag": "53862420",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637613473,
+  "previous_timestamp": 1637619973,
   "check_interval": 3600
 }
