@@ -1,9 +1,9 @@
 $result = Invoke-WebRequest -Uri $package.repo_uri -UseBasicParsing
 
-$installerUrl32 = "$package.repo_uri/$(($result.Links | Where-Object { $_.href -match "DriversCloud_(\d{2,}.*)\.exe$" }).href | Sort-Object | Select-Object -Last 1)"
-$version = $Matches[1]
+$installerUrl32 = "https://www.driverscloud.com$(($result.Links | Where-Object { $_.href -match "DriversCloud_(\d{2,}.*)\.exe$" }).href | Sort-Object | Select-Object -Last 1)"
+$version = $Matches[1] -replace '_', '.'
 
-$installerUrl64 = "$package.repo_uri/$(($result.Links | Where-Object { $_.href -match "DriversCloudx64_\d{2,}.*\.exe$" }).href | Sort-Object | Select-Object -Last 1)"
+$installerUrl64 = "https://www.driverscloud.com$(($result.Links | Where-Object { $_.href -match "DriversCloudx64_\d{2,}.*\.exe$" }).href | Sort-Object | Select-Object -Last 1)"
 
 if ($version -gt $package.last_checked_tag)
 {
