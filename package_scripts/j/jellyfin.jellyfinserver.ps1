@@ -5,8 +5,7 @@ $version = $Matches[1]
 if ($version -gt $package.last_checked_tag)
 {
     $update_found = $true
-    $version = $result.version
-    $jsonTag = $result.version
+    $jsonTag = $version
     $urls.Add($installerUrl) | Out-Null
 }
 else
