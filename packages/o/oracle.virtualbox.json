@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Oracle.VirtualBox",
   "repo_uri": "https://download.virtualbox.org/virtualbox/LATEST.TXT",
-  "last_checked_tag": "6.1.28\n",
+  "last_checked_tag": "6.1.30\n",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637601821,
+  "previous_timestamp": 1637613387,
   "check_interval": 3600
 }
