@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "VMware.WorkstationPro",
-  "repo_uri": " ",
+  "repo_uri": "https://customerconnect.vmware.com/channel/public/api/v1.0/products/getDLGHeader?downloadGroup=WKST-1621-WIN&productId=1038",
   "last_checked_tag": "16.2.1",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
