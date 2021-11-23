@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "CCTV.CBox",
+  "repo_uri": "https://download.cntv.cn/cbox/update_config.txt",
+  "last_checked_tag": "5.0.0.2",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1637673522,
+  "check_interval": 3600
+}
