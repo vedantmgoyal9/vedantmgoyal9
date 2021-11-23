@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Jellyfin.JellyfinServer",
-  "repo_uri": "https://repo.jellyfin.org/releases/server/windows/stable",
-  "last_checked_tag": "msi",
+  "repo_uri": "jellyfin/jellyfin",
+  "last_checked_tag": "49043996",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
