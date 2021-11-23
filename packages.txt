@@ -36,6 +36,7 @@ alexkim205.g-desktop-suite
 AlexRedden.G14ControlV2
 Alibaba.DingTalk
 Alibaba.LightProxy
+Alibaba.Yuque
 aliceandbob-io.aliceandbob
 altair-graphql.altair
 AmanHarwara.Altus
@@ -92,6 +93,7 @@ BinanceTech.Binance
 Biscuit.Biscuit
 Bisq.Bisq
 BiSS.WSLDiskShrinker
+BitComet.BitComet
 Bitwarden.Bitwarden
 bl00mber.alarm-cron
 blaadje.Todolist
@@ -126,6 +128,7 @@ cangzhang.champ-r
 Canonical.Multipass
 caobinrg.electron-office-tools
 Caprine.Caprine
+CCTV.CBox
 Celestia.Celestia
 CertifyTheWeb.CertifySSLManager
 Chatty.Chatty
@@ -239,6 +242,13 @@ ekvedaras.redis-gui
 electerm.electerm
 ElectronCash.ElectronCash
 ElectronCommunity.ElectronFiddle
+Element.Element
+Elgato.4KCaptureUtility
+Elgato.ControlCenter
+Elgato.EpocCam
+Elgato.GameCapture.HD
+Elgato.StreamDeck
+Elgato.WaveLink
 eliboa.TegraRcmGUI
 elieserdejesus.JamTaba
 ElijahLopez.MusicCaster
@@ -556,10 +566,16 @@ Microsoft.MsGraphCLI
 Microsoft.MSIXCore
 Microsoft.msmpi
 Microsoft.msmpisdk
+Microsoft.OneDrive
+Microsoft.OneDrive.Enterprise
+Microsoft.OneDrive.Insiders
+Microsoft.OneDrive.Internal.Fast
+Microsoft.OneDrive.Internal.Slow
 Microsoft.PowerShell
 Microsoft.PowerShell.Preview
 Microsoft.PowerToys
 Microsoft.Teams
+Microsoft.Teams.ContinuousDeployment
 Microsoft.Teams.Exploration
 Microsoft.Teams.Preview
 Microsoft.vott
@@ -842,6 +858,7 @@ strimio.strimio
 subhra74.XtremeDownloadManager
 sufone.qawl
 sum1re.COCR
+SumatraPDF.SumatraPDF
 sunzongzheng.music
 SuperCollider.SuperCollider
 supertiger1234.nertivia
@@ -931,6 +948,8 @@ VeyonSolutions.Veyon
 ViGEm.ViGEmBus
 vim.vim
 VividDesigns.WifiMouseServer
+VMware.WorkstationPlayer
+VMware.WorkstationPro
 VolkerFischer.Jamulus
 Vromans.ChordPro
 VSCodium.VSCodium
