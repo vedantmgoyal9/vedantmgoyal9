@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Bilibili.Livehime",
   "repo_uri": "https://api.live.bilibili.com/client/v1/LiveHime/download?type=3",
-  "last_checked_tag": "3.47.0.2617",
+  "last_checked_tag": "3.48.0.2679",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637719094,
+  "previous_timestamp": 1637726976,
   "check_interval": 3600
 }
