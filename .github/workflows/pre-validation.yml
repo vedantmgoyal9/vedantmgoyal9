@@ -28,4 +28,11 @@ jobs:
           git config --local user.name 'winget-pkgs-automation-bot[bot]'
           git config --local user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com'
           git commit -m "Update packages.txt" -- ./packages.txt
-          git push
+          git push https://$((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)@github.com/vedantmgoyal2009/winget-pkgs-automation.git
+        env:
+          JWT_RB: ${{ secrets.JWT_RB }}
+          THIS_ID: ${{ secrets.THIS_ID }}
+      - if: github.event_name == 'pull_request'
+        name: Validate Commits
+        shell: bash
+        run: npm install @commitlint/config-conventional --silent && npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
