@@ -1,5 +1,5 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.202.5/containers/ubuntu
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.203.0/containers/ubuntu
 {
 	"name": "Ubuntu",
 	"runArgs": ["--init"],
@@ -35,10 +35,7 @@
 		"git": "latest",
 		"git-lfs": "latest",
 		"github-cli": "latest",
-		"homebrew": "latest",
-		"node": "lts",
-		"python": "latest",
-		"java": "lts",
+		"node": "latest",
 		"ruby": "latest",
 		"powershell": "latest"
 	}
