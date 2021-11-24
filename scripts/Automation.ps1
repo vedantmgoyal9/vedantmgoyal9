@@ -222,22 +222,29 @@ foreach ($package in $packages) {
     $package | ConvertTo-Json > ..\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
 }
 
-# Comment the errored packages on issue 146
+# Comment the errored packages on issue 200
 $this_header = @{
     Authorization = "Token $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)"
     Accept        = "application/vnd.github.v3+json"
 }
-Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 146"
+Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 200"
 if ($Script:erroredPkgs.Count -gt 0) {
     $comment_body = "The following packages failed to update:\r\n$($Script:erroredPkgs -join '\r\n')"
 }
 else {
     $comment_body = "All packages were updated successfully :tada:"
 }
-# Delete the old comment
-Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$((Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments").id)" -Headers $this_header | Out-Null
+$previousComments = Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/200/comments" | Where-Object { $_.user.login -eq "winget-pkgs-automation-bot[bot]" }
+# Delete errored packages comment if a reaction by vedantmgoyal2009 is present
+foreach ($comment in $($previousComments | Where-Object { $_.body.Contains('failed') })) {
+    if ((Invoke-RestMethod -Method Get -Uri $comment.reactions.url).user.login -contains "vedantmgoyal2009") {
+        Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$($comment.id)" -Headers $this_header | Out-Null
+    }
+}
+# Delete the old comment if contains that the packages were updated successfully
+Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$(($previousComments | Where-Object { $_.body.Contains('tada') }).id)" -Headers $this_header | Out-Null
 # Add the new comment
-Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/146/comments" -Body "{""body"":""$comment_body""}" -Headers $this_header
+Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/200/comments" -Body "{""body"":""$comment_body""}" -Headers $this_header
 
 # Update packages in repository
 Write-Host -ForegroundColor Green "`nUpdating packages"
