@@ -19,7 +19,8 @@
 		"github.copilot-nightly",
 		"ms-vscode.powershell-preview",
 		"visualstudioexptteam.vscodeintellicode",
-		"redhat.vscode-yaml"
+		"redhat.vscode-yaml",
+		"ms-vscode.wordcount"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
