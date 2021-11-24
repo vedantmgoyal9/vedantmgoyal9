@@ -35,4 +35,4 @@ jobs:
       - if: github.event_name == 'pull_request'
         name: Validate Commits
         shell: bash
-        run: npm install @commitlint/config-conventional --silent -g && npx commitlint --from ${{ github.event.pull_request.base.sha }} --verbose
+        run: npm install @commitlint/config-conventional && npx commitlint --from ${{ github.event.pull_request.base.sha }} --verbose
