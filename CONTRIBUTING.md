@@ -12,8 +12,9 @@ If you've understood that how this project works and feel that you can contribut
 
 ## Pull Request Process
 
-1. Mention the details of changes in the pull request description, this will help the maintainer to understand what changes are being made.
-2. Pull requests are merged all checks pass and approved by the maintainer.
+1. Commits follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) guidelines.
+2. Mention the details of changes in the pull request description, this will help the maintainer to understand what changes are being made.
+3. Pull requests are merged all checks pass and approved by the maintainer.
 
 ## Code of Conduct
 
