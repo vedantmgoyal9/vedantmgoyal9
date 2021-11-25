@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: JSON validation
         shell: pwsh
         run: |
@@ -32,7 +34,13 @@ jobs:
         env:
           JWT_RB: ${{ secrets.JWT_RB }}
           THIS_ID: ${{ secrets.THIS_ID }}
-      - if: github.event_name == 'pull_request'
-        name: Validate Commits
+      - run: npm install @commitlint/config-conventional --silent
+      - if: github.event_name == 'push'
+        name: Validate Commit (push)
         shell: bash
-        run: npm install @commitlint/config-conventional --silent && npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+        run: git log -1 --pretty=format:"%s" | npx commitlint --verbose
+      - if: github.event_name == 'pull_request'
+        name: Validate Commits (pull request)
+        shell: bash
+        run:  npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
