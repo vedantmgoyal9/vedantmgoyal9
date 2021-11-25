@@ -223,8 +223,9 @@ foreach ($package in $packages) {
 }
 
 # Comment the errored packages on issue 200
+$this_authorization = $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)
 $this_header = @{
-    Authorization = "Token $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)"
+    Authorization = "Token $this_authorization"
     Accept        = "application/vnd.github.v3+json"
 }
 Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 200"
@@ -251,4 +252,4 @@ Write-Host -ForegroundColor Green "`nUpdating packages"
 git pull # to be on a safe side
 git add ..\packages\*
 git commit -m "refactor(packages): update last_checked_tag [$env:GITHUB_RUN_NUMBER]"
-git push
+git push https://$($this_authorization)@github.com/vedantmgoyal2009/winget-pkgs-automation.git
