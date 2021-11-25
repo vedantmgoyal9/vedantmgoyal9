@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "VMware.WorkstationPlayer",
+  "repo_uri": "https://customerconnect.vmware.com/channel/public/api/v1.0/products/getDLGHeader?downloadGroup=WKST-PLAYER-1621&productId=1039",
+  "last_checked_tag": "16.2.1",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1637858633,
+  "check_interval": 3600
+}

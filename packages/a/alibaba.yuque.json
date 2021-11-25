@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Alibaba.Yuque",
+  "repo_uri": "https://app.nlark.com/yuque-desktop/v2/latest-lark.json",
+  "last_checked_tag": "0.9.31",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1637858127,
+  "check_interval": 3600
+}

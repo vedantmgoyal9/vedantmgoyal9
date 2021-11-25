@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Atominn.WonderPen",
   "repo_uri": "https://www.atominn.com/api/product/check-update/?app=wonderpen",
-  "last_checked_tag": "2.0.0",
+  "last_checked_tag": "2.0.1",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637421377,
+  "previous_timestamp": 1637858136,
   "check_interval": 3600
 }

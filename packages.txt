@@ -36,6 +36,7 @@ alexkim205.g-desktop-suite
 AlexRedden.G14ControlV2
 Alibaba.DingTalk
 Alibaba.LightProxy
+Alibaba.Yuque
 aliceandbob-io.aliceandbob
 altair-graphql.altair
 AmanHarwara.Altus
@@ -92,6 +93,7 @@ BinanceTech.Binance
 Biscuit.Biscuit
 Bisq.Bisq
 BiSS.WSLDiskShrinker
+BitComet.BitComet
 Bitwarden.Bitwarden
 bl00mber.alarm-cron
 blaadje.Todolist
@@ -114,6 +116,7 @@ brrd.abricotine
 brunurd.companion
 btargac.excel-parser-processor
 Buttercup.Buttercup
+ByteDance.BytedanceMiniappIDE
 ByteDance.Debugtron
 ByteDance.JianyingPro
 c0re100.qBittorrent-Enhanced-Edition
@@ -125,6 +128,7 @@ cangzhang.champ-r
 Canonical.Multipass
 caobinrg.electron-office-tools
 Caprine.Caprine
+CCTV.CBox
 Celestia.Celestia
 CertifyTheWeb.CertifySSLManager
 Chatty.Chatty
@@ -173,6 +177,7 @@ CThingSoftware.Meazure
 Cube.CubePlatform
 cuiocean.zyplayer
 Cyanfish.NAPS2
+Cybelsoft.DriversCloud
 da2x.EdgeDeflector
 daltonmenezes.electron-screen-recorder
 dangeredwolf.ModernDeck
@@ -237,6 +242,13 @@ ekvedaras.redis-gui
 electerm.electerm
 ElectronCash.ElectronCash
 ElectronCommunity.ElectronFiddle
+Element.Element
+Elgato.4KCaptureUtility
+Elgato.ControlCenter
+Elgato.EpocCam
+Elgato.GameCapture.HD
+Elgato.StreamDeck
+Elgato.WaveLink
 eliboa.TegraRcmGUI
 elieserdejesus.JamTaba
 ElijahLopez.MusicCaster
@@ -379,6 +391,7 @@ jayakumarreddy.Local-Mock-Server
 jcv8000.Codex
 JeffreyPfau.mGBA
 Jellyfin.JellyfinMediaPlayer
+Jellyfin.JellyfinServer
 Jelmerro.Vieb
 jely2002.youtube-dl-gui
 jerrod-lankford.google-voice-desktop-app
@@ -478,6 +491,7 @@ LibreCAD.LibreCAD
 LibrevaultTeam.Librevault
 lightspark.lightspark
 LightyearVPN.LightyearVPN
+LinwoodCloud.Butterfly
 LiskFoundation.LiskHub
 listen1.listen1
 listen1.listen1_fluent
@@ -552,10 +566,16 @@ Microsoft.MsGraphCLI
 Microsoft.MSIXCore
 Microsoft.msmpi
 Microsoft.msmpisdk
+Microsoft.OneDrive
+Microsoft.OneDrive.Enterprise
+Microsoft.OneDrive.Insiders
+Microsoft.OneDrive.Internal.Fast
+Microsoft.OneDrive.Internal.Slow
 Microsoft.PowerShell
 Microsoft.PowerShell.Preview
 Microsoft.PowerToys
 Microsoft.Teams
+Microsoft.Teams.ContinuousDeployment
 Microsoft.Teams.Exploration
 Microsoft.Teams.Preview
 Microsoft.vott
@@ -744,6 +764,7 @@ rocksdanister.LivelyWallpaper
 RoderickQiu.wnr
 RoniLehto.LMath
 RProject.R
+Ruben2776.PicView
 RubinderSingh.Ditto++
 RubyInstallerTeam.Ruby
 RubyInstallerTeam.RubyWithDevKit
@@ -829,6 +850,7 @@ stnkl.EverythingToolbar
 StrawberryMusicPlayer.Strawberry
 Stream-Pi.Client
 Stream-Pi.Server
+Streamlabs.StreamlabsOBS
 Streamlink.Streamlink
 Streamlink.Streamlink.TwitchGui
 Stretchly.Stretchly
@@ -836,6 +858,7 @@ strimio.strimio
 subhra74.XtremeDownloadManager
 sufone.qawl
 sum1re.COCR
+SumatraPDF.SumatraPDF
 sunzongzheng.music
 SuperCollider.SuperCollider
 supertiger1234.nertivia
@@ -925,6 +948,8 @@ VeyonSolutions.Veyon
 ViGEm.ViGEmBus
 vim.vim
 VividDesigns.WifiMouseServer
+VMware.WorkstationPlayer
+VMware.WorkstationPro
 VolkerFischer.Jamulus
 Vromans.ChordPro
 VSCodium.VSCodium

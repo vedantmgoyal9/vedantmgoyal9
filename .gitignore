@@ -1,0 +1,15 @@
+# winget-pkgs repository
+scripts/winget-pkgs/
+
+# winget install files in runner
+scripts/winget.msixbundle
+scripts/VCLibs.appx
+scripts/license.xml
+
+# temporary script for testing something
+scripts/temp.ps1
+
+# commitizen setup (package.json, package-lock.json, and node_modules)
+package.json
+package-lock.json
+node_modules/

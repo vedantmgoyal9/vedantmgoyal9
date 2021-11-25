@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "MasterPackager.MasterPackager",
   "repo_uri": "https://www.masterpackager.com/uploads/file_archive/version.txt",
-  "last_checked_tag": "21.2.7837",
+  "last_checked_tag": "21.3.7996",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637421506,
+  "previous_timestamp": 1637858284,
   "check_interval": 3600
 }

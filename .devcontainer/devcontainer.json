@@ -1,5 +1,5 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.202.5/containers/ubuntu
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.203.0/containers/ubuntu
 {
 	"name": "Ubuntu",
 	"runArgs": ["--init"],
@@ -19,14 +19,15 @@
 		"github.copilot-nightly",
 		"ms-vscode.powershell-preview",
 		"visualstudioexptteam.vscodeintellicode",
-		"redhat.vscode-yaml"
+		"redhat.vscode-yaml",
+		"ms-vscode.wordcount"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+	"postCreateCommand": "sudo npm install commitizen @commitlint/config-conventional -g && npx commitizen init cz-conventional-changelog",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
@@ -34,10 +35,7 @@
 		"git": "latest",
 		"git-lfs": "latest",
 		"github-cli": "latest",
-		"homebrew": "latest",
-		"node": "lts",
-		"python": "latest",
-		"java": "lts",
+		"node": "latest",
 		"ruby": "latest",
 		"powershell": "latest"
 	}
