@@ -27,7 +27,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npx commitizen init @commitlint/config-conventional",
+	"postCreateCommand": "sudo npm install commitizen @commitlint/config-conventional -g && npx commitizen init cz-conventional-changelog",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
