@@ -450,7 +450,12 @@ Kaitai.StructCompiler
 kamranahmedse.pennywise
 kapitainsky.RcloneBrowser
 karakun.OpenWebStart
+KDE.Cantor
+KDE.Dolphin
+KDE.Elisa
+KDE.Filelight
 KDE.Kate
+KDE.KDEConnect
 Kebler.Kebler
 KeePassXCTeam.KeePassXC
 KeeWeb.KeeWeb
