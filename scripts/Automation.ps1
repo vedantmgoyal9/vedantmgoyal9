@@ -133,8 +133,8 @@ Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $Installer
         }
     }
     catch {
-        $Script:erroredPkgs += @("- $PackageIdentifier")
-        Write-Error "Error while updating Package $PackageIdentifier"
+        $Script:erroredPkgs += @("- $PackageIdentifier version $PackageVersion")
+        Write-Error "Error while updating Package $PackageIdentifier version $PackageVersion"
     }
     Set-Location $currentDir # Go back to previous working directory
     Write-Host -ForegroundColor Green "----------------------------------------------------"
@@ -230,10 +230,10 @@ $this_header = @{
 }
 Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 200"
 if ($Script:erroredPkgs.Count -gt 0) {
-    $comment_body = "The following packages failed to update:\r\n$($Script:erroredPkgs -join '\r\n')"
+    $comment_body = "**[[$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/runs/$($env:GITHUB_RUN_ID))]:** The following packages failed to update:\r\n$($Script:erroredPkgs -join '\r\n')"
 }
 else {
-    $comment_body = "All packages were updated successfully :tada:"
+    $comment_body = "**[[$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/runs/$($env:GITHUB_RUN_ID))]:** All packages were updated successfully :tada:"
 }
 $previousComments = Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/200/comments" | Where-Object { $_.user.login -eq "winget-pkgs-automation-bot[bot]" }
 # Delete errored packages comment if a reaction by vedantmgoyal2009 is present
