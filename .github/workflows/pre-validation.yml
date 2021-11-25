@@ -29,7 +29,7 @@ jobs:
           (Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object { Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue } | ConvertFrom-Json | Where-Object { $_.skip -eq $false }).pkgid | Sort-Object | Out-File -Encoding UTF8 -Path .\packages.txt
           git config --local user.name 'winget-pkgs-automation-bot[bot]'
           git config --local user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com'
-          git commit -m "Update packages.txt" -- ./packages.txt
+          git commit -m "chore(packages.txt): add new packages" -- ./packages.txt
           git push https://$((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)@github.com/vedantmgoyal2009/winget-pkgs-automation.git
         env:
           JWT_RB: ${{ secrets.JWT_RB }}
