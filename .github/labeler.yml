@@ -1,10 +1,10 @@
-documentation:
-- all: ['README.md']
+add-contributor:
+- '.all-contributorsrc'
 packages:
 - 'packages/**'
 - 'package_scripts/**'
 automation:
 - 'scripts/**'
 - '.github/**'
-add-contributor:
-- all: ['README.md','.all-contributorsrc']
+documentation:
+- 'README.md'
