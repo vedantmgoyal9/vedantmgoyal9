@@ -30,7 +30,7 @@ jobs:
           git config --local user.name 'winget-pkgs-automation-bot[bot]'
           git config --local user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com'
           git commit -m "chore(packages.txt): add new packages" -- ./packages.txt
-          git push https://$((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)@github.com/vedantmgoyal2009/winget-pkgs-automation.git
+          git push https://x-access-token:$((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)@github.com/vedantmgoyal2009/winget-pkgs-automation.git
         env:
           JWT_RB: ${{ secrets.JWT_RB }}
           THIS_ID: ${{ secrets.THIS_ID }}
