@@ -5,7 +5,7 @@
   "last_checked_tag": "50390078",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
-  "version_method": null,
+  "version_method": "($urls[0] | Select-String -Pattern \"(?<=-)[0-9-]+(?=-)\").Matches.Value.Replace(\"-\",\".\")",
   "use_package_script": false,
   "skip": false,
   "yamlcreate_autoupgrade": false,
