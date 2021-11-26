@@ -1,7 +1,10 @@
 # WinGet Manifests Auto-Updater
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat&color=violet)](#contributors-)
+![GitHub followers](https://img.shields.io/github/followers/vedantmgoyal2009?logo=github&color=indigo)
+![GitHub Repo stars](https://img.shields.io/github/stars/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=blue)
+![GitHub forks](https://img.shields.io/github/forks/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=darkgreen)
+![GitHub](https://img.shields.io/github/license/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=yellow)
+![Language](https://img.shields.io/badge/language-powershell-blue.svg?logo=powershell&color=orange)
 
 This project programmatically updates manifests of winget packages when the package has an update available.
 
