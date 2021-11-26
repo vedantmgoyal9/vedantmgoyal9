@@ -376,7 +376,6 @@ IPFS.IPFS-Desktop
 IRCCloud.IRCCloud
 isaaclevin.presencelight
 IsaqueS.AventurasDeQuintal
-IsWiX.IsWiX
 JabRef.JabRef
 Jackett.Jackett
 JackHumphries.Socially
