@@ -586,7 +586,6 @@ Microsoft.vott
 Microsoft.WindowsTerminal
 Microsoft.WindowsTerminal.Preview
 Microsoft.WingetCreate
-Microsoft.XMLNotepad
 Min.Min
 Mingo.Mingo
 Mirantis.Lens
