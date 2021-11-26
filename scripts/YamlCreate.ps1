@@ -795,8 +795,14 @@ Function Read-QuickInstallerEntry {
         # Request user enter the new Installer URL
         # $_NewInstaller['InstallerUrl'] = Request-InstallerUrl
 
-        $_NewInstaller['InstallerUrl'] = $Param_InstallerUrls_Sorted[$_UrlsIteration]
-        $_UrlsIteration += 1
+        if ($previousOldInstallerUrl -eq $_OldInstaller.InstallerUrl) {
+            $previousOldInstallerUrl = $_OldInstaller.InstallerUrl
+            $_NewInstaller['InstallerUrl'] = $previousNewInstallerUrl
+        } else {
+            $previousOldInstallerUrl = $_OldInstaller.InstallerUrl
+            $previousNewInstallerUrl = $_NewInstaller['InstallerUrl'] = $Param_InstallerUrls_Sorted[$_UrlsIteration]
+            $_UrlsIteration += 1
+        }
 
         if ($_NewInstaller.InstallerUrl -in ($_NewInstallers).InstallerUrl) {
             $_MatchingInstaller = $_NewInstallers | Where-Object { $_.InstallerUrl -eq $_NewInstaller.InstallerUrl } | Select-Object -First 1
