@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Balena.BalenaCLI",
   "repo_uri": "balena-io/balena-cli",
-  "last_checked_tag": "54083253",
+  "last_checked_tag": "54102029",
   "asset_regex": ".exe",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637879219,
+  "previous_timestamp": 1637888970,
   "check_interval": 3600
 }
