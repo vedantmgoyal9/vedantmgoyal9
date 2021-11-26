@@ -1,6 +1,6 @@
 # WinGet Manifests Auto-Updater
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This project programmatically updates manifests of winget packages when the package has an update available.
@@ -65,9 +65,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://laedit.net"><img src="https://avatars.githubusercontent.com/u/871092?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Jérémie Bertrand</b></sub></a><br /><a href="#ideas-laedit" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/Trenly"><img src="https://avatars.githubusercontent.com/u/12611259?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Kaleb Luedtke</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues?q=author%3ATrenly" title="Bug reports">🐛</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=Trenly" title="Code">💻</a> <a href="#ideas-Trenly" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/KaranKad"><img src="https://avatars.githubusercontent.com/u/71691514?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Karan09</b></sub></a><br /><a href="#ideas-KaranKad" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://mavaddat.ca"><img src="https://avatars.githubusercontent.com/u/5055400?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Mavaddat Javid</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=mavaddat" title="Documentation">📖</a> <a href="#tutorial-mavaddat" title="Tutorials">✅</a> <a href="#ideas-mavaddat" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/ItzLevvie"><img src="https://avatars.githubusercontent.com/u/11600822?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Levvie - she/her</b></sub></a><br /><a href="#ideas-ItzLevvie" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
+    <td align="center"><a href="http://mavaddat.ca"><img src="https://avatars.githubusercontent.com/u/5055400?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Mavaddat Javid</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=mavaddat" title="Documentation">📖</a> <a href="#tutorial-mavaddat" title="Tutorials">✅</a> <a href="#ideas-mavaddat" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/SpecterShell"><img src="https://avatars.githubusercontent.com/u/56779163?v=4?s=90" width="90px;" alt=""/><br /><sub><b>SpecterShell</b></sub></a><br /><a href="#ideas-SpecterShell" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://www.cnblogs.com/taylorshi/"><img src="https://avatars.githubusercontent.com/u/1883138?v=4?s=90" width="90px;" alt=""/><br /><sub><b>TaylorShi</b></sub></a><br /><a href="#ideas-TaylorShi" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/ttrunck"><img src="https://avatars.githubusercontent.com/u/3114711?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Theophile Trunck</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues?q=author%3Attrunck" title="Bug reports">🐛</a></td>
