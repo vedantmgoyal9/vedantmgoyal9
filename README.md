@@ -1,5 +1,5 @@
 # WinGet Manifests Auto-Updater
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat&color=violet)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat&color=violet)](#contributors-)
 ![GitHub followers](https://img.shields.io/github/followers/vedantmgoyal2009?logo=github&color=indigo)
 ![GitHub Repo stars](https://img.shields.io/github/stars/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=blue)
 ![GitHub forks](https://img.shields.io/github/forks/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=darkgreen)
