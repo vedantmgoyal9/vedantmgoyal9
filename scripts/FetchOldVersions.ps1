@@ -1,3 +1,5 @@
+Param ([string] $currentUpdate)
+
 # Set error action to continue, hide progress bar of webclient.downloadfile
 $ErrorActionPreference = "Continue"
 $ProgressPreference = 'SilentlyContinue'
@@ -136,8 +138,6 @@ Function Submit-PullRequest ($headBranch, $prBody) {
 $urls = [System.Collections.ArrayList]::new()
 
 $DownUrls = Get-ChildItem .\winget-pkgs\manifests -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
-
-$currentUpdate = "TeXstudio.TeXstudio"
 
 $packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.pkgid -eq $currentUpdate }
 
