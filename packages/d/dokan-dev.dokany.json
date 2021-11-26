@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "dokan-dev.Dokany",
   "repo_uri": "dokan-dev/dokany",
-  "last_checked_tag": "43855550",
+  "last_checked_tag": "54151961",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1637951407,
+  "previous_timestamp": 1637958426,
   "check_interval": 3600
 }
