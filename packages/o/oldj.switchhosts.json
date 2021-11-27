@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "oldj.switchhosts",
   "repo_uri": "oldj/SwitchHosts",
-  "last_checked_tag": "48233359",
+  "last_checked_tag": "52883221",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1638044821,
+  "previous_timestamp": 1638052640,
   "check_interval": 3600
 }

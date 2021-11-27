@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RuneLite.RuneLite",
   "repo_uri": "runelite/launcher",
-  "last_checked_tag": "50256249",
+  "last_checked_tag": "51912662",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1638044853,
+  "previous_timestamp": 1638053226,
   "check_interval": 3600
 }
