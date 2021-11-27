@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - run: gem install jwt openssl --no-doc
       - name: Run automation script
         shell: pwsh
