@@ -11,9 +11,9 @@ Param
     [string] $PackageIdentifier,
     [Parameter(Mandatory = $true)]
     [string] $PackageVersion,
-    [Parameter(Mandatory = $true)]
+    [Parameter(Mandatory = $false)]
     [string] $Mode,
-    [Parameter(Mandatory = $true)]
+    [Parameter(Mandatory = $false)]
     [array] $Param_InstallerUrls
 )
 
