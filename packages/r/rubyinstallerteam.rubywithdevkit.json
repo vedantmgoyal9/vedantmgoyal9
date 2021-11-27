@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RubyInstallerTeam.RubyWithDevKit",
   "repo_uri": "oneclick/rubyinstaller2",
-  "last_checked_tag": "45986418",
+  "last_checked_tag": "54173314",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1638027173,
+  "previous_timestamp": 1638031271,
   "check_interval": 3600
 }
