@@ -251,5 +251,5 @@ Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/vedantmgoyal20
 Write-Host -ForegroundColor Green "`nUpdating packages"
 git pull # to be on a safe side
 git add ..\packages\*
-git commit -m "refactor(packages): update last_checked_tag [$env:GITHUB_RUN_NUMBER]"
+git commit -m "build: update packages [$env:GITHUB_RUN_NUMBER]"
 git push https://x-access-token:$($this_authorization)@github.com/vedantmgoyal2009/winget-pkgs-automation.git
