@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "purocean.YankNote",
   "repo_uri": "purocean/yn",
-  "last_checked_tag": "54063567",
+  "last_checked_tag": "54223603",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1638175018,
+  "previous_timestamp": 1638182068,
   "check_interval": 3600
 }
