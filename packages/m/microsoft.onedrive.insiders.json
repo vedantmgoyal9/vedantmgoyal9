@@ -2,7 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.OneDrive.Insiders",
   "repo_uri": "https://g.live.com/1rewlive5skydrive/OneDriveInsiderV2",
-  "last_checked_tag": "21.230.1107.0004",
+  "last_checked_tag": [
+    "21.230.1107.0004",
+    "21.235.1114.0001"
+  ],
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +13,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1638217822,
+  "previous_timestamp": 1638228567,
   "check_interval": 3600
 }

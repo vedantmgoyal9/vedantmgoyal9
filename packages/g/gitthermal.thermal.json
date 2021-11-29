@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1638217710,
+  "previous_timestamp": 1638228465,
   "check_interval": 3600
 }
