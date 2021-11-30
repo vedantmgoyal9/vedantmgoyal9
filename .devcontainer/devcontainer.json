@@ -20,7 +20,10 @@
 		"ms-vscode.powershell-preview",
 		"visualstudioexptteam.vscodeintellicode",
 		"redhat.vscode-yaml",
-		"ms-vscode.wordcount"
+		"ms-vscode.wordcount",
+		"eg2.vscode-npm-script",
+		"dbaeumer.jshint",
+		"eamodio.gitlens-insiders"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
