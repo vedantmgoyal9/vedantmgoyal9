@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BlueJTeam.BlueJ",
   "repo_uri": "http://www.bluej.org/version.info",
-  "last_checked_tag": "5.0.1\n\nNew in version 5.0.1\n--------------------\nMany Java editor bug fixes, fix ctrl-click on Mac,\nnew support for opening text files in BlueJ.\n\nBlueJ 4.2.0 and later require a 64-bit operating system. Any users\nwho are running a 64-bit operating system are encouraged to\nupgrade.  Users of 32-bit operating systems must remain on version\n4.1.4 or earlier.\n",
+  "last_checked_tag": "5.0.2",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
