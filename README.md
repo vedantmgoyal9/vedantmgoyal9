@@ -1,5 +1,5 @@
 # WinGet Manifests Auto-Updater
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat&color=violet)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat&color=violet)](#contributors-)
 ![GitHub followers](https://img.shields.io/github/followers/vedantmgoyal2009?logo=github&color=indigo)
 ![GitHub Repo stars](https://img.shields.io/github/stars/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=blue)
 ![GitHub forks](https://img.shields.io/github/forks/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=darkgreen)
@@ -77,6 +77,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://www.cnblogs.com/taylorshi/"><img src="https://avatars.githubusercontent.com/u/1883138?v=4?s=90" width="90px;" alt=""/><br /><sub><b>TaylorShi</b></sub></a><br /><a href="#ideas-TaylorShi" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/ttrunck"><img src="https://avatars.githubusercontent.com/u/3114711?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Theophile Trunck</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues?q=author%3Attrunck" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://bittu.eu.org"><img src="https://avatars.githubusercontent.com/u/83997633?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Vedant</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues?q=author%3Avedantmgoyal2009" title="Bug reports">🐛</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=vedantmgoyal2009" title="Code">💻</a> <a href="#ideas-vedantmgoyal2009" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/pulls?q=is%3Apr+reviewed-by%3Avedantmgoyal2009" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/eitsupi"><img src="https://avatars.githubusercontent.com/u/50911393?v=4?s=90" width="90px;" alt=""/><br /><sub><b>eitsupi</b></sub></a><br /><a href="#ideas-eitsupi" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+  <tr>
     <td align="center"><a href="https://github.com/hmmwhatsthisdo"><img src="https://avatars.githubusercontent.com/u/2093321?v=4?s=90" width="90px;" alt=""/><br /><sub><b>hmmwhatsthisdo</b></sub></a><br /><a href="#ideas-hmmwhatsthisdo" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
