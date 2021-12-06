@@ -4,7 +4,7 @@ if ($result -gt $package.last_checked_tag)
     $update_found = $true
     $version = $result
     $jsonTag = $result
-    $urls.Add("https://cran.microsoft.com/bin/windows/base/R-$version-win.exe") | Out-Null
+    $urls.Add("https://cloud.r-project.org/bin/windows/base/old/$version/R-$version-win.exe") | Out-Null
 }
 else
 {
