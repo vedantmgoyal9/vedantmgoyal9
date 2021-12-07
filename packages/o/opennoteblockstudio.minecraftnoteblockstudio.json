@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OpenNoteBlockStudio.MinecraftNoteBlockStudio",
   "repo_uri": "HielkeMinecraft/OpenNoteBlockStudio",
-  "last_checked_tag": "50258168",
+  "last_checked_tag": "54755766",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1638837730,
+  "previous_timestamp": 1638842901,
   "check_interval": 3600
 }
