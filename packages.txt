@@ -263,7 +263,6 @@ Esteem.Esteem
 Ethereum.grid
 EtternaProject.EtternaGame
 Eugeny.Tabby
-Eugeny.Terminus
 EvanCzaplicki.Elm
 evsar3.sshfs-win-manager
 ExpressLRS.ExpressLRS-Configurator
@@ -368,7 +367,6 @@ ImageMagick.ImageMagick
 InfiniteRed.Reactotron
 InfiniteRed.Reactotron.Beta
 Insomnia.Insomnia
-Insomnia.InsomniaDesigner
 InTheLoop.LoopEmail
 InTheLoop.LoopEmail.Beta
 Invizi.Invizi
@@ -970,6 +968,7 @@ WebTorrent.Desktop
 wethat.onenotetaggingkit
 Wetransform.HaleStudio
 wexond.wexond
+wez.wezterm
 wgyt.wgyttk
 whitewaterfoundry.fedora-remix-for-wsl
 whyboris.Video-Hub-App
