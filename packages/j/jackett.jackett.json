@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Jackett.Jackett",
   "repo_uri": "Jackett/Jackett",
-  "last_checked_tag": "54844223",
+  "last_checked_tag": "54919860",
   "asset_regex": "Jackett.Installer.Windows.exe",
   "is_prerelease": false,
   "version_method": "\"$($result.tag_name.TrimStart(\"v\")).0\"",
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1639020016,
+  "previous_timestamp": 1639027121,
   "check_interval": 3600
 }
