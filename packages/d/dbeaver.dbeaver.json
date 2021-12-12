@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "dbeaver.dbeaver",
   "repo_uri": "dbeaver/dbeaver",
-  "last_checked_tag": "54199040",
+  "last_checked_tag": "55140811",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1639336381,
+  "previous_timestamp": 1639340131,
   "check_interval": 3600
 }
