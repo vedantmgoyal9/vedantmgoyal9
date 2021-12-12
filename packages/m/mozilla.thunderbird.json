@@ -1,15 +1,33 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Mozilla.Thunderbird",
-  "repo_uri": "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
-  "last_checked_tag": "91.4.0",
-  "asset_regex": ".*.msi$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1639322239,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Mozilla.Thunderbird",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.LATEST_THUNDERBIRD_VERSION",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "91.6.1",
+  "ManifestFields": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "$Locales | ForEach-Object { \"https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/$($Response)/win64/$($_)/Thunderbird%20Setup%20$($Response).msi\"; \"https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/$($Response)/win32/$($_)/Thunderbird%20Setup%20$($Response).msi\" }"
+  },
+  "AdditionalInfo": {
+    "Locales": [
+      "en-US",
+      "en-GB"
+    ]
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

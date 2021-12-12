@@ -2,7 +2,6 @@ add-contributor:
 - '.all-contributorsrc'
 packages:
 - 'packages/**'
-- 'package_scripts/**'
 automation:
 - 'scripts/**'
 - '.github/**'
