@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Bisq.Bisq",
   "repo_uri": "bisq-network/bisq",
-  "last_checked_tag": "51641983",
+  "last_checked_tag": "53740561",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1639390482,
+  "previous_timestamp": 1639397983,
   "check_interval": 3600
 }
