@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Plex.PlexMediaServer",
   "repo_uri": "https://plex.tv/api/downloads/5.json",
-  "last_checked_tag": "1.25.1.5286-34f965be8",
+  "last_checked_tag": "1.25.2.5319-c43dc0277",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1639423237,
+  "previous_timestamp": 1639430293,
   "check_interval": 3600
 }
