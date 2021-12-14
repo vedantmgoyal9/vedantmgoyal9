@@ -1,16 +1,15 @@
 {
-    "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-    "pkgid": "valinet.ExplorerPatcher.Prerelease",
-    "repo_uri": "valinet/ExplorerPatcher",
-    "last_checked_tag": "0",
-    "asset_regex": ".*setup.exe$",
-    "is_prerelease": true,
-    "version_method": null,
-    "use_package_script": false,
-    "skip": false,
-    "yamlcreate_autoupgrade": false,
-    "check_existing_pr": true,
-    "previous_timestamp": 0,
-    "check_interval": 3600
-  }
-  
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "valinet.ExplorerPatcher.Prerelease",
+  "repo_uri": "valinet/ExplorerPatcher",
+  "last_checked_tag": "55237732",
+  "asset_regex": ".*setup.exe$",
+  "is_prerelease": true,
+  "version_method": null,
+  "use_package_script": false,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1639491468,
+  "check_interval": 3600
+}
