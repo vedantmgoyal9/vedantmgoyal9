@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "clsid2.mpc-hc",
   "repo_uri": "clsid2/mpc-hc",
-  "last_checked_tag": "53026730",
+  "last_checked_tag": "55290770",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1639498712,
+  "previous_timestamp": 1639502584,
   "check_interval": 3600
 }
