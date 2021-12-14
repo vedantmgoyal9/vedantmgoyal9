@@ -925,7 +925,6 @@ tropy.tropy
 TrustedRu.CryptoARMGOST
 TTKN.CNKIExpress
 TUG.TeXworks
-Tunepack.Tunepack
 Twistedst.scale-serial-reader
 Tympanix.Electorrent
 Tyrrrz.LightBulb
