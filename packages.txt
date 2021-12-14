@@ -940,6 +940,7 @@ unlimited-clipboard.unlimited-clipboard
 unofficial-protonmail-desktop.unofficial-protonmail-desktop
 uw-labs.BloomRPC
 uxmal.reko
+valinet.ExplorerPatcher.Prerelease
 variar.klogg
 vassalengine.VASSAL
 vcync.modV
