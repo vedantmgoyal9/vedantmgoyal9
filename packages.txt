@@ -34,6 +34,7 @@ AlexanderPershin.lsdeer
 AlexandrSubbotin.Cerebro
 alexkim205.g-desktop-suite
 AlexRedden.G14ControlV2
+Alibaba.aDrive
 Alibaba.DingTalk
 Alibaba.LightProxy
 Alibaba.Yuque
