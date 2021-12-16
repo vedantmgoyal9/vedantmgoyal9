@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Google.Chrome.Canary",
   "repo_uri": "https://omahaproxy.appspot.com/all.json",
-  "last_checked_tag": "99.0.4769.0",
+  "last_checked_tag": "99.0.4770.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": true,
   "check_existing_pr": true,
-  "previous_timestamp": 1639682070,
+  "previous_timestamp": 1639689309,
   "check_interval": 3600
 }
