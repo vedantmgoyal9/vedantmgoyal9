@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.Teams.Exploration",
   "repo_uri": "in-package-script-directly",
-  "last_checked_tag": "21.230.1107.0004,78",
+  "last_checked_tag": "21.230.1107.0004,79",
   "asset_regex": "*.(exe|msi)$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1639653623,
+  "previous_timestamp": 1639661096,
   "check_interval": 3600
 }
