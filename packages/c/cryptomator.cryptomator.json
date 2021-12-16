@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Cryptomator.Cryptomator",
   "repo_uri": "cryptomator/cryptomator",
-  "last_checked_tag": "54486509",
+  "last_checked_tag": "55449442",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1639661009,
+  "previous_timestamp": 1639667917,
   "check_interval": 3600
 }

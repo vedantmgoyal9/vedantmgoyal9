@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Serraniel.DiscordMediaLoader",
   "repo_uri": "Serraniel/DiscordMediaLoader",
-  "last_checked_tag": "54730801",
+  "last_checked_tag": "55455610",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1639661339,
+  "previous_timestamp": 1639668785,
   "check_interval": 3600
 }
