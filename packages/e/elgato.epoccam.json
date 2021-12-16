@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Elgato.EpocCam",
   "repo_uri": "https://www.elgato.com/sites/default/files/downloads.json",
-  "last_checked_tag": "3.3.1",
+  "last_checked_tag": "3.4.0",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1639685744,
+  "previous_timestamp": 1639692964,
   "check_interval": 3600
 }
