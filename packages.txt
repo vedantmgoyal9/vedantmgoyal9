@@ -392,6 +392,7 @@ jasperapp.jasper
 jayakumarreddy.Local-Mock-Server
 jcv8000.Codex
 JeffreyPfau.mGBA
+jeffvli.Sonixd
 Jellyfin.JellyfinMediaPlayer
 Jellyfin.JellyfinServer
 Jelmerro.Vieb
