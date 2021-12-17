@@ -301,6 +301,7 @@ GarboMuffin.TurboWarp
 Gauge.Gauge
 GDATA.TypeRefHasher
 GDevelop.GDevelop
+Geany.Geany
 GeekCorner.threema
 GenericMappingTools.gmt
 gerardog.gsudo
