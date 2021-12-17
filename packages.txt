@@ -738,7 +738,6 @@ r12f.Rnp
 Rabbit-Company.Passky
 Radiantly.Invisiwind
 Rambox.RamboxCE
-Rancher.RancherDesktop
 RandomEngy.VidCoder
 RandomEngy.VidCoder.Beta
 RandyRants.SharpKeys
@@ -868,6 +867,7 @@ supertiger1234.nertivia
 SuperTux.SuperTux
 surajrathod.eagluet
 SurgeSynth.Surge
+suse.RancherDesktop
 Suwayomi.Tachidesk-JUI
 SVGExplorerExtension.SVGExplorerExtension
 swiftyapp.swifty
