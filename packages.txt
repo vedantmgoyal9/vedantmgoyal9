@@ -255,6 +255,7 @@ elieserdejesus.JamTaba
 ElijahLopez.MusicCaster
 eloston.ungoogled-chromium
 elvirbrk.notehighlight2016
+eMClient.eMClient
 emqx.mqttx
 eMuleProject.eMule-community
 Epsitec.PlanetBlupi
