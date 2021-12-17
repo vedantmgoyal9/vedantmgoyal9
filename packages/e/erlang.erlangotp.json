@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Erlang.ErlangOTP",
+  "repo_uri": "erlang/otp",
+  "last_checked_tag": "55351570",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": false,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1639718004,
+  "check_interval": 3600
+}
