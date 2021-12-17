@@ -918,7 +918,6 @@ Thunisoft.HuayuPY
 Tiled.Tiled
 Timber1900.WebDL
 timche.gmail-desktop
-tinytacoteam.zazu
 titinko.utsu
 Toggl.TogglDesktop
 Toinane.Colorpicker
