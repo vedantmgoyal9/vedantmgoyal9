@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.GoLand",
   "repo_uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=GO",
-  "last_checked_tag": "213.5744.269",
+  "last_checked_tag": "213.6461.23",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1640013417,
+  "previous_timestamp": 1640017404,
   "check_interval": 3600
 }
