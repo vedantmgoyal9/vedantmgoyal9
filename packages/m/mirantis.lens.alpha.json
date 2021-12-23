@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Mirantis.Lens.Alpha",
   "repo_uri": "https://api.k8slens.dev/binaries/alpha.json",
-  "last_checked_tag": "5.3.3-latest.20211214.2",
+  "last_checked_tag": "5.3.3-latest.20211223.1",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1640258108,
+  "previous_timestamp": 1640262313,
   "check_interval": 3600
 }
