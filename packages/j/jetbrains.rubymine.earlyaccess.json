@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.RubyMine.EarlyAccess",
   "repo_uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=eap&code=RM",
-  "last_checked_tag": "213.6461.24",
+  "last_checked_tag": "213.6461.46",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1640348559,
+  "previous_timestamp": 1640352498,
   "check_interval": 3600
 }
