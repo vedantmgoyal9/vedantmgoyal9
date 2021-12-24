@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RocketChat.RocketChat",
   "repo_uri": "RocketChat/Rocket.Chat.Electron",
-  "last_checked_tag": "55668470",
+  "last_checked_tag": "55956033",
   "asset_regex": ".*.(exe|msi)$",
   "is_prerelease": false,
   "version_method": "\"$($result.tag_name.TrimStart(\"v\")).0\"",
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1640355452,
+  "previous_timestamp": 1640362890,
   "check_interval": 3600
 }
