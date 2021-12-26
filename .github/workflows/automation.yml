@@ -6,6 +6,10 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: scripts
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -13,7 +17,7 @@ jobs:
           persist-credentials: false
       - uses: ruby/setup-ruby@v1
         with:
-          version: '3.0'
+          ruby-version: '3.0'
       - name: Install dependencies
         run: |
           # Install jwt and openssl gems
@@ -39,11 +43,7 @@ jobs:
           Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
       - name: Run automation script
         run: .\Automation.ps1
-    defaults:
-      run:
-        shell: pwsh
-        working-directory: scripts
-    env:
+        env:
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
           JWT_RB: ${{ secrets.JWT_RB }}
           MS_ID: ${{ secrets.MS_ID }}
