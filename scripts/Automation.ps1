@@ -204,6 +204,11 @@ foreach ($package in $packages) {
     }
     $package.previous_timestamp = [DateTimeOffset]::Now.ToUnixTimeSeconds()
     $package | ConvertTo-Json > ..\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
+    # Clear the variables for next package
+    Clear-Variable -Name result -ErrorAction SilentlyContinue
+    Clear-Variable -Name version -ErrorAction SilentlyContinue
+    Clear-Variable -Name update_found -ErrorAction SilentlyContinue
+    Clear-Variable -Name jsonTag -ErrorAction SilentlyContinue
 }
 
 # Comment the errored packages on issue 200
