@@ -2,23 +2,7 @@
 $ErrorActionPreference = "Continue"
 $ProgressPreference = 'SilentlyContinue'
 
-# Install winget and enable local manifests since microsoft/winget-cli#1453 is merged
-Invoke-WebRequest -Uri 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx' -OutFile 'VCLibs.appx'
-Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -OutFile 'winget.msixbundle'
-Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml' -OutFile 'license.xml'
-Import-Module -Name Appx -UseWindowsPowerShell
-Add-AppxProvisionedPackage -Online -PackagePath .\winget.msixbundle -DependencyPackagePath .\VCLibs.appx -LicensePath .\license.xml
-# winget command on windows server -------------------
-# Source: https://github.com/microsoft/winget-cli/issues/144#issuecomment-849108158
-Install-Module NtObjectManager -Force # Install NtObjectManager module
-$installationPath = (Get-AppxPackage Microsoft.DesktopAppInstaller).InstallLocation # Create reparse point
-Set-ExecutionAlias -Path "C:\Windows\System32\winget.exe" -PackageName "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" -EntryPoint "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget" -Target "$installationPath\AppInstallerCLI.exe" -AppType Desktop -Version 3
-explorer.exe "shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget"
-# ----------------------------------------------------
-winget settings --enable LocalManifestFiles
-Write-Host " Successfully installed winget and enabled local manifests."
-
-# Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, install dependencies, set settings for YamlCreate.ps1
+# Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, set settings for YamlCreate.ps1
 git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
 git config --global user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com' # Set git email
 $this_authorization = $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)
@@ -30,7 +14,6 @@ git remote add origin https://x-access-token:$($this_authorization)@github.com/v
 Copy-Item -Path $currentDir\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git commit --all -m "Update YamlCreate.ps1 (Unattended)" # Commit changes
 Set-Location $currentDir # Go back to previous working directory
-Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # Install powershell-yaml, required for YamlCreate.ps1
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
 @"
 TestManifestsInSandbox: always
@@ -40,7 +23,7 @@ ContinueWithExistingPRs: never
 SuppressQuickUpdateWarning: true
 EnableDeveloperOptions: true
 "@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
-Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, installed dependencies and set YamlCreate settings."
+Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, and set YamlCreate settings."
 
 Function Test-ArpMetadata ($manifestPath) {
     $getArpEntriesFunctions = {
