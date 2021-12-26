@@ -11,6 +11,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
       - run: gem install jwt openssl --no-doc
       - name: Run automation script
         shell: pwsh
