@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -14,7 +17,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: JSON validation
-        shell: pwsh
         run: |
           $jsonWithError = Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object { (Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue) -eq $false } | Select-Object -ExpandProperty PSChildName
           if ($jsonWithError) {
@@ -25,7 +27,6 @@ jobs:
           }
       - if: github.event_name == 'push'
         name: Update packages.txt
-        shell: pwsh
         run: |
           (Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | Where-Object { Test-Json -Json $_ -SchemaFile .\schema.json -ErrorAction SilentlyContinue } | ConvertFrom-Json | Where-Object { $_.skip -eq $false }).pkgid | Sort-Object | Out-File -Encoding UTF8 -Path .\packages.txt
           git config --local user.name 'winget-pkgs-automation-bot[bot]'

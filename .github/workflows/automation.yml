@@ -41,6 +41,7 @@ jobs:
 
           # Install powershell-yaml, required for YamlCreate.ps1
           Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
+          Write-Host "Successfully installed powershell-yaml."
       - name: Run automation script
         run: .\Automation.ps1
         env:
