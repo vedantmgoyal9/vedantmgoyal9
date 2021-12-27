@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "awwbees.BespokeSynth",
+  "pkgid": "BespokeSynth.BespokeSynth",
   "repo_uri": "BespokeSynth/BespokeSynth",
   "last_checked_tag": "53499884",
   "asset_regex": ".*.msi$",
