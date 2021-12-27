@@ -75,7 +75,6 @@ AutonomousSoftware.MetronomeWallet
 AveekSaha.DuskPlayer
 AviSynth.AviSynthPlus
 awehook.BlinkMind
-awwbees.BespokeSynth
 azure06.clips
 Badlion.BadlionClient
 Baidu.BaiduNetdisk
@@ -85,6 +84,7 @@ Balena.Etcher
 bdash-app.bdash
 Beeftext.Beeftext
 beekeeper-studio.beekeeper-studio
+BespokeSynth.BespokeSynth
 Betaflight.Betaflight-Configurator
 BetterCrewLink.BetterCrewLink
 BiglySoftware.BiglyBT
