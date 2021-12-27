@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BoxHero.BoxHero",
   "repo_uri": "bgpworks/boxhero-electron",
-  "last_checked_tag": "51332475",
+  "last_checked_tag": "56012589",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1640570685,
+  "previous_timestamp": 1640574986,
   "check_interval": 3600
 }
