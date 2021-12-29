@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "McServ.McServ",
   "repo_uri": "DRSchlaubi/mcserv",
-  "last_checked_tag": "56149349",
+  "last_checked_tag": "56162627",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1640809107,
+  "previous_timestamp": 1640816439,
   "check_interval": 3600
 }
