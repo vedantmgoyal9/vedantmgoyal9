@@ -250,7 +250,6 @@ Elgato.EpocCam
 Elgato.GameCapture.HD
 Elgato.StreamDeck
 Elgato.WaveLink
-eliboa.TegraRcmGUI
 elieserdejesus.JamTaba
 ElijahLopez.MusicCaster
 eloston.ungoogled-chromium
