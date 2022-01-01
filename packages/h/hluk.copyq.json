@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "hluk.CopyQ",
   "repo_uri": "hluk/CopyQ",
-  "last_checked_tag": "50540492",
+  "last_checked_tag": "56250066",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641050266,
+  "previous_timestamp": 1641057926,
   "check_interval": 3600
 }
