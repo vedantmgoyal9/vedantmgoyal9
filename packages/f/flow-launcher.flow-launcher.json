@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Flow-Launcher.Flow-Launcher",
   "repo_uri": "Flow-Launcher/Flow.Launcher",
-  "last_checked_tag": "54944258",
+  "last_checked_tag": "56248609",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641039599,
+  "previous_timestamp": 1641043413,
   "check_interval": 3600
 }
