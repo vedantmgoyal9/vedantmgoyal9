@@ -2,7 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.OneDrive",
   "repo_uri": "https://g.live.com/1rewlive5skydrive/OneDriveProductionV2",
-  "last_checked_tag": "21.230.1107.0004",
+  "last_checked_tag": [
+    "21.230.1107.0004",
+    "21.245.1128.0002"
+  ],
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +13,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641231167,
+  "previous_timestamp": 1641237413,
   "check_interval": 3600
 }
