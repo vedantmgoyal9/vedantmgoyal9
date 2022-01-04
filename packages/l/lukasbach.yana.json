@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LukasBach.Yana",
   "repo_uri": "lukasbach/yana",
-  "last_checked_tag": "43411502",
+  "last_checked_tag": "56344669",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641291453,
+  "previous_timestamp": 1641299277,
   "check_interval": 3600
 }
