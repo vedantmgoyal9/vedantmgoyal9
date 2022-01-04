@@ -3,7 +3,7 @@
   "pkgid": "beekeeper-studio.beekeeper-studio",
   "repo_uri": "beekeeper-studio/beekeeper-studio",
   "last_checked_tag": "56385876",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": "[0-9]\.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
