@@ -3,7 +3,7 @@
   "pkgid": "Prey.Prey",
   "repo_uri": "prey/prey-node-client",
   "last_checked_tag": "56364882",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": ".msi$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
