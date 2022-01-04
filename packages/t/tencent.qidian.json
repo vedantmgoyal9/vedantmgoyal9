@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Tencent.QiDian",
   "repo_uri": "https://qidian.qq.com/store/qd_interface/Download.php?FType=0",
-  "last_checked_tag": "5.0.0.18548",
+  "last_checked_tag": "5.0.0.18756",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641305983,
+  "previous_timestamp": 1641313977,
   "check_interval": 3600
 }
