@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Tencent.TencentDocs",
   "repo_uri": "https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/latest-win32.yml",
-  "last_checked_tag": "2.2.29",
+  "last_checked_tag": "2.2.30",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641320336,
+  "previous_timestamp": 1641393506,
   "check_interval": 3600
 }

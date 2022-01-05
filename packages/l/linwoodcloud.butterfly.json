@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "LinwoodCloud.Butterfly",
   "repo_uri": "LinwoodCloud/butterfly",
-  "last_checked_tag": "55942792",
+  "last_checked_tag": "56434814",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641320266,
+  "previous_timestamp": 1641392897,
   "check_interval": 3600
 }
