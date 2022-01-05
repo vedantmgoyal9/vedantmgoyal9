@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OpenWhisperSystems.Signal.Beta",
   "repo_uri": "signalapp/Signal-Desktop",
-  "last_checked_tag": "55779156",
+  "last_checked_tag": "56471823",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641393010,
+  "previous_timestamp": 1641400175,
   "check_interval": 3600
 }
