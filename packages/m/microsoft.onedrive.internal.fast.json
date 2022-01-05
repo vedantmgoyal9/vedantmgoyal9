@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.OneDrive.Internal.Fast",
   "repo_uri": "https://g.live.com/1rewlive5skydrive/MsitFastV2",
-  "last_checked_tag": "22.003.0103.0003",
+  "last_checked_tag": "22.004.0104.0001",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641413864,
+  "previous_timestamp": 1641420888,
   "check_interval": 3600
 }
