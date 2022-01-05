@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Microsoft.Edge.Dev",
   "repo_uri": "https://edgeupdates.microsoft.com/api/products",
-  "last_checked_tag": "98.0.1100.3",
+  "last_checked_tag": "98.0.1108.13",
   "asset_regex": ".*.msi$",
   "is_prerelease": true,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641406651,
+  "previous_timestamp": 1641413862,
   "check_interval": 3600
 }
