@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "beekeeper-studio.beekeeper-studio",
   "repo_uri": "beekeeper-studio/beekeeper-studio",
-  "last_checked_tag": "56385876",
+  "last_checked_tag": "56470627",
   "asset_regex": "[0-9]\\.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641399744,
+  "previous_timestamp": 1641403567,
   "check_interval": 3600
 }
