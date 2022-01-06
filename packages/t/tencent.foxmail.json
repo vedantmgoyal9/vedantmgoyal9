@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Tencent.Foxmail",
   "repo_uri": "https://datacollect.foxmail.com.cn/cgi-bin/foxmailupdate?f=xml",
-  "last_checked_tag": "7.2.23.114",
+  "last_checked_tag": "7.2.23.116",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641454073,
+  "previous_timestamp": 1641460991,
   "check_interval": 3600
 }
