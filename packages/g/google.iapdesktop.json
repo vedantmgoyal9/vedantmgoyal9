@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Google.IAPDesktop",
   "repo_uri": "GoogleCloudPlatform/iap-desktop",
-  "last_checked_tag": "55338075",
+  "last_checked_tag": "56589329",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641532787,
+  "previous_timestamp": 1641540122,
   "check_interval": 3600
 }
