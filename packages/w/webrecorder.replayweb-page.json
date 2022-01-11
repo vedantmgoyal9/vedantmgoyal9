@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "webrecorder.replayweb-page",
   "repo_uri": "webrecorder/replayweb.page",
-  "last_checked_tag": "52000140",
+  "last_checked_tag": "56695888",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1641862205,
+  "previous_timestamp": 1641867408,
   "check_interval": 3600
 }
