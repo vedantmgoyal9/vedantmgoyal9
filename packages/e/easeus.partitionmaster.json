@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "EaseUS.PartitionMaster",
+  "repo_uri": "https://download.easeus.com/api/index.php/Home/Index/productInstall?pid=5&version=free",
+  "last_checked_tag": "16.5",
+  "asset_regex": ".exe",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1641723337,
+  "check_interval": 3600
+}
