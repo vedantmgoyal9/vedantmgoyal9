@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Glodon.CADReader.CN",
+  "repo_uri": "http://cad.glodon.com/update/version/info/cadpc",
+  "last_checked_tag": "5.14.4.78",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1641910563,
+  "check_interval": 3600
+}
