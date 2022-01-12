@@ -363,7 +363,6 @@ hisschemoller.music-pattern-generator
 hluk.CopyQ
 HR.Crypter
 HTTPToolKit.HTTPToolKit
-Hypermodules.Hyperamp
 HyperspaceDev.HyperspaceDesktop
 iamscottxu.obs-rtspserver
 ifedapoolarewaju.IGdm
