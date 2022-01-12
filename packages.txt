@@ -34,6 +34,7 @@ AlexanderPershin.lsdeer
 AlexandrSubbotin.Cerebro
 alexkim205.g-desktop-suite
 AlexRedden.G14ControlV2
+alexx2000.DoubleCommander
 Alibaba.aDrive
 Alibaba.DingTalk
 Alibaba.LightProxy
@@ -119,6 +120,7 @@ btargac.excel-parser-processor
 Buttercup.Buttercup
 ByteDance.BytedanceMiniappIDE
 ByteDance.Debugtron
+ByteDance.Feishu
 ByteDance.JianyingPro
 c0re100.qBittorrent-Enhanced-Edition
 c3er.mdview
@@ -157,7 +159,6 @@ CNRISTI.MeshLab
 Cockatrice.Cockatrice
 code52.Carnac
 CodeF0x.violin
-Codeusa.BorderlessGaming
 commercialhaskell.stack
 CondaForge.Miniforge3
 CongusBongus.CDogsSDL
@@ -227,6 +228,7 @@ DuongDieuPhap.ImageGlass
 DupeGuru.DupeGuru
 Duplicati.Duplicati
 e2eSoft.iVCam
+EaseUS.PartitionMaster
 easymodo.qimgv
 Ebbflow.Ebbflow
 EclipseAdoptium.Temurin.11
@@ -318,11 +320,11 @@ GitHub.ClassroomAssistant
 GitHub.cli
 GitHub.GitLFS
 GitSquared.edex-ui
-gitthermal.thermal
 gjthompson1.glue
 GLab.GLab
 Glecun.soundboard
 Glimpse.Glimpse
+Glodon.CADReader.CN
 Glodon.CADReaderInternational
 GnuCash.GnuCash
 goatcorp.XIVLauncher
@@ -907,7 +909,6 @@ th-ch.YouTubeMusic
 thamara.time-to-leave
 ThatOneCalculator.DiscordRPCMaker
 TheGoddessInari.Hamsket
-theIYD.coursehunt
 TheOtterlord.DeckMaster
 ThePBone.GalaxyBudsClient
 thomasnordquist.MQTT-Explorer
@@ -986,6 +987,7 @@ wire.wire
 Workrave.Workrave
 WowUp.Wowup
 Wox.Wox
+Woyun.wolai
 xanderfrangos.crushee
 xanderfrangos.twinkletray
 XCP-ng.Center
