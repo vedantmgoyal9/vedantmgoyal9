@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "Tencent.EDU",
+  "repo_uri": "https://sas.qq.com/cgi-bin/ke_download_pcClient",
+  "last_checked_tag": "3.0.3.48",
+  "asset_regex": ".*.exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1641975941,
+  "check_interval": 3600
+}
