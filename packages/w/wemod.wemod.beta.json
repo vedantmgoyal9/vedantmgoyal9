@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "WeMod.WeMod.Beta",
+  "repo_uri": "https://api.wemod.com/client/channels/beta/releases/latest",
+  "last_checked_tag": "7.1.8-beta00",
+  "asset_regex": ".exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1642095214,
+  "check_interval": 3600
+}
