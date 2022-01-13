@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.WebStorm.EAP",
   "repo_uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=eap&code=WS",
-  "last_checked_tag": "213.6461.19",
+  "last_checked_tag": "213.6777.9",
   "asset_regex": ".*.exe$",
   "is_prerelease": true,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642083195,
+  "previous_timestamp": 1642087366,
   "check_interval": 3600
 }
