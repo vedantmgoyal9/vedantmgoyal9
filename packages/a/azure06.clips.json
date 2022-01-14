@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "azure06.clips",
   "repo_uri": "azure06/clips",
-  "last_checked_tag": "49089905",
+  "last_checked_tag": "56150184",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642137463,
+  "previous_timestamp": 1642144676,
   "check_interval": 3600
 }
