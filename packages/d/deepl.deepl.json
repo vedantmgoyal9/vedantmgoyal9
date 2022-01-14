@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+  "pkgid": "DeepL.DeepL",
+  "repo_uri": "https://appdownload.deepl.com/windows/x64/RELEASES",
+  "last_checked_tag": "3.1.13276",
+  "asset_regex": ".exe$",
+  "is_prerelease": false,
+  "version_method": null,
+  "use_package_script": true,
+  "skip": false,
+  "yamlcreate_autoupgrade": false,
+  "check_existing_pr": true,
+  "previous_timestamp": 1642137584,
+  "check_interval": 3600
+}
