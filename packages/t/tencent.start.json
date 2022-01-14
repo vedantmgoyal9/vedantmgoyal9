@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Tencent.START",
   "repo_uri": "https://api.start.qq.com/cfg/get?biztypes=windows-update-info-start",
-  "last_checked_tag": "0.11.0.7535",
+  "last_checked_tag": "0.11.0.7687",
   "asset_regex": ".exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642101613,
+  "previous_timestamp": 1642148393,
   "check_interval": 3600
 }
