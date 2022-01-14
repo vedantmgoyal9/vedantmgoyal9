@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "TomWatson.BreakTimer",
   "repo_uri": "tom-james-watson/breaktimer-app",
-  "last_checked_tag": "52909167",
+  "last_checked_tag": "57049016",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642169847,
+  "previous_timestamp": 1642177923,
   "check_interval": 3600
 }
