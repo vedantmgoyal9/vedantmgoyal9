@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "jerrod-lankford.google-voice-desktop-app",
   "repo_uri": "jerrod-lankford/google-voice-desktop-app",
-  "last_checked_tag": "56851080",
+  "last_checked_tag": "57203065",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642270687,
+  "previous_timestamp": 1642277913,
   "check_interval": 3600
 }
