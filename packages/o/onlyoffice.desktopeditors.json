@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "ONLYOFFICE.DesktopEditors",
   "repo_uri": "ONLYOFFICE/DesktopEditors",
-  "last_checked_tag": "51618400",
+  "last_checked_tag": "57344153",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642490358,
+  "previous_timestamp": 1642497563,
   "check_interval": 3600
 }
