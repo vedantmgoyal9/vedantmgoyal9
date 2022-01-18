@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "stevencohn.OneMore",
   "repo_uri": "stevencohn/OneMore",
-  "last_checked_tag": "56916508",
+  "last_checked_tag": "57366676",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642508747,
+  "previous_timestamp": 1642515474,
   "check_interval": 3600
 }
