@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "SandboxiePlus.SandboxiePlus",
   "repo_uri": "sandboxie-plus/Sandboxie",
-  "last_checked_tag": "56562415",
+  "last_checked_tag": "57348093",
   "asset_regex": "Sandboxie-Plus.*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642497815,
+  "previous_timestamp": 1642504461,
   "check_interval": 3600
 }
