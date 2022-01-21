@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "calibre.calibre.portable",
   "repo_uri": "kovidgoyal/calibre",
-  "last_checked_tag": "55505718",
+  "last_checked_tag": "57632861",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": "\"$($result.tag_name.TrimStart(\"v\")).0\"",
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642730315,
+  "previous_timestamp": 1642738708,
   "check_interval": 3600
 }
