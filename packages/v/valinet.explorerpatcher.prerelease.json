@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "valinet.ExplorerPatcher.Prerelease",
   "repo_uri": "valinet/ExplorerPatcher",
-  "last_checked_tag": "57754529",
+  "last_checked_tag": "57775642",
   "asset_regex": ".*setup.exe$",
   "is_prerelease": true,
   "version_method": "($result.tag_name | Select-String -Pattern \"[0-9.]+\").Matches.Value",
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642940657,
+  "previous_timestamp": 1642947799,
   "check_interval": 3600
 }
