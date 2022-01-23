@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Alacritty.Alacritty",
   "repo_uri": "alacritty/alacritty",
-  "last_checked_tag": "47213051",
+  "last_checked_tag": "57770909",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1642932832,
+  "previous_timestamp": 1642940382,
   "check_interval": 3600
 }
