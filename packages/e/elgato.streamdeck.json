@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "Elgato.StreamDeck",
   "repo_uri": "https://www.elgato.com/sites/default/files/downloads.json",
-  "last_checked_tag": "5.1.4.14753",
+  "last_checked_tag": "5.2.0.14948",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1643120082,
+  "previous_timestamp": 1643127542,
   "check_interval": 3600
 }
