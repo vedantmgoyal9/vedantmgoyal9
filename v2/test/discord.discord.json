@@ -1,0 +1,25 @@
+{
+    "Identifier": "Discord.Discord",
+    "Update": {
+        "InvokeType": "WebRequest",
+        "Uri": "https://discord.com/api/downloads/distributions/app/installers/latest?arch=x86&platform=win&channel=stable",
+        "Method": "Head",
+        "Headers": {},
+        "Body": "",
+        "UserAgent": ""
+    },
+    "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
+    "VersionRegex": "[0-9.]{3,}",
+    "InstallerRegex": ".exe$",
+    "PreviousVersion": "",
+    "ManifestFields": {
+        "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+        "InstallerUrls": "$Response"
+    },
+    "AdditionalInfo": {},
+    "YamlCreateParams": {
+        "SkipPRCheck": false,
+        "AutoUpgrade": false,
+        "DeletePreviousVersion": false
+    }
+}

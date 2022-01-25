@@ -1,0 +1,28 @@
+{
+    "Identifier": "BraveSoftware.BraveBrowser",
+    "Update": {
+        "InvokeType": "RestMethod",
+        "Uri": "https://api.github.com/repos/brave/brave-browser/releases",
+        "Method": "Get",
+        "Headers": {
+            "Authorization": "tbd",
+            "Accept": "application/vnd.github.v3+json"
+        },
+        "Body": "",
+        "UserAgent": ""
+    },
+    "PostResponseScript": "$Response = $Response | Where-Object { $_.name.Contains(\"Release\") } | Select-Object -First 1",
+    "VersionRegex": "",
+    "InstallerRegex": "BraveBrowserStandaloneSilentSetup.*.exe$",
+    "PreviousVersion": "",
+    "ManifestFields": {
+        "PackageVersion": "\"97.\"+$($Response.tag_name.TrimStart(\"v\"))",
+        "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }"
+    },
+    "AdditionalInfo": {},
+    "YamlCreateParams": {
+        "SkipPRCheck": false,
+        "AutoUpgrade": false,
+        "DeletePreviousVersion": false
+    }
+}

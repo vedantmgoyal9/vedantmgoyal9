@@ -1,0 +1,31 @@
+{
+    "Identifier": "chrisant996.Clink",
+    "Update": {
+        "InvokeType": "RestMethod",
+        "Uri": "https://api.github.com/repos/chrisant996/clink/releases?per_page=1",
+        "Method": "Get",
+        "Headers": {
+            "Authorization": "tbd",
+            "Accept": "application/vnd.github.v3+json"
+        },
+        "Body": "",
+        "UserAgent": ""
+    },
+    "PostResponseScript": "",
+    "VersionRegex": "[0-9]\\.[0-9]\\.[0-9]{1,2}\\.[A-Fa-f0-9]{6}",
+    "InstallerRegex": ".exe$",
+    "PreviousVersion": "",
+    "ManifestFields": {
+        "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
+        "PackageVersion": "($_Object.InstallerUrls | Select-String -Pattern $VersionRegex).Matches.Value",
+        "ReleaseNotesUrl": "$Response.html_url"
+    },
+    "AdditionalInfo": {
+        "PreRelease": false
+    },
+    "YamlCreateParams": {
+        "SkipPRCheck": false,
+        "AutoUpgrade": false,
+        "DeletePreviousVersion": false
+    }
+}
