@@ -1,4 +1,5 @@
 {
+    "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json"
     "Identifier": "BraveSoftware.BraveBrowser",
     "Update": {
         "InvokeType": "RestMethod",

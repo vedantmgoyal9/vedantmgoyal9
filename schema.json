@@ -102,14 +102,6 @@
         },
         "ManifestFields": {
             "$id": "#/properties/ManifestFields",
-            "enum": [
-                "PackageVersion",
-                "InstallerUrls",
-                "LicenseUrl",
-                "ReleaseDate",
-                "ReleaseNotesUrl",
-                "ReleaseNotes"
-            ],
             "required": [
                 "PackageVersion",
                 "InstallerUrls"
