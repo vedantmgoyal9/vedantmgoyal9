@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "tailscale.tailscale",
   "repo_uri": "https://api.github.com/repos/tailscale/tailscale/releases?per_page=1",
-  "last_checked_tag": "57707395",
+  "last_checked_tag": "57982116",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1643167178,
+  "previous_timestamp": 1643174066,
   "check_interval": 3600
 }
