@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "RandomEngy.VidCoder.Beta",
   "repo_uri": "RandomEngy/VidCoder",
-  "last_checked_tag": "57752266",
+  "last_checked_tag": "57970792",
   "asset_regex": "VidCoder.*Beta.exe$",
   "is_prerelease": true,
   "version_method": "$result.tag_name.TrimStart('v').TrimEnd('-beta')",
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1643149184,
+  "previous_timestamp": 1643158089,
   "check_interval": 3600
 }
