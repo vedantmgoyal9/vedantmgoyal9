@@ -1,0 +1,25 @@
+{
+    "Identifier": "JetBrains.IntelliJIDEA.Community",
+    "Update": {
+        "InvokeType": "RestMethod",
+        "Uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=IIC",
+        "Method": "Get",
+        "Headers": {},
+        "Body": "",
+        "UserAgent": ""
+    },
+    "PostResponseScript": "$Response = $Response.IIC",
+    "VersionRegex": "",
+    "InstallerRegex": ".exe$",
+    "PreviousVersion": "",
+    "ManifestFields": {
+        "PackageVersion": "$Response.build",
+        "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")"
+    },
+    "AdditionalInfo": {},
+    "YamlCreateParams": {
+        "SkipPRCheck": false,
+        "AutoUpgrade": false,
+        "DeletePreviousVersion": false
+    }
+}
