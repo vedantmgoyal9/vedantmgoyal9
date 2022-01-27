@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "HearthSim.HearthstoneDeckTracker",
   "repo_uri": "HearthSim/HDT-Releases",
-  "last_checked_tag": "57973372",
+  "last_checked_tag": "58053263",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1643239073,
+  "previous_timestamp": 1643243833,
   "check_interval": 3600
 }
