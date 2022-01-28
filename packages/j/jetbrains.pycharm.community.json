@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "JetBrains.PyCharm.Community",
   "repo_uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=PCC",
-  "last_checked_tag": "213.6461.77",
+  "last_checked_tag": "213.6777.50",
   "asset_regex": ".*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1643379493,
+  "previous_timestamp": 1643387433,
   "check_interval": 3600
 }
