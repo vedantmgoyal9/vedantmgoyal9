@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "syvaidya.openstego",
   "repo_uri": "syvaidya/openstego",
-  "last_checked_tag": "54167324",
+  "last_checked_tag": "58274629",
   "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "is_prerelease": false,
   "version_method": "$result.tag_name.TrimStart(\"openstego-\")",
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1643526875,
+  "previous_timestamp": 1643531040,
   "check_interval": 3600
 }
