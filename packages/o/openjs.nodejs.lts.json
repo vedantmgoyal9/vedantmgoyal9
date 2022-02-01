@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "OpenJS.NodeJS.LTS",
   "repo_uri": "nodejs/node",
-  "last_checked_tag": "56782210",
+  "last_checked_tag": "58428318",
   "asset_regex": ".*.msi$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1643718193,
+  "previous_timestamp": 1643725005,
   "check_interval": 3600
 }
