@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "maygo.tockler",
   "repo_uri": "MayGo/tockler",
-  "last_checked_tag": "57321922",
+  "last_checked_tag": "58422065",
   "asset_regex": "tockler.*-setup-win-(ia32|x64).exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1643746839,
+  "previous_timestamp": 1643754079,
   "check_interval": 3600
 }
