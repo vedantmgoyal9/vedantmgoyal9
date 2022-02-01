@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
   "pkgid": "BraveSoftware.BraveBrowser",
   "repo_uri": "brave/brave-browser",
-  "last_checked_tag": "58275508",
+  "last_checked_tag": "58410396",
   "asset_regex": "BraveBrowserStandaloneSilentSetup.*.exe$",
   "is_prerelease": false,
   "version_method": null,
@@ -10,6 +10,6 @@
   "skip": false,
   "yamlcreate_autoupgrade": false,
   "check_existing_pr": true,
-  "previous_timestamp": 1643703344,
+  "previous_timestamp": 1643711019,
   "check_interval": 3600
 }
