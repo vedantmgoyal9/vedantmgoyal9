@@ -3,7 +3,7 @@
   "pkgid": "msys2.msys2",
   "repo_uri": "msys2/msys2-installer",
   "last_checked_tag": "58217016",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": "msys2-x86_64-*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
