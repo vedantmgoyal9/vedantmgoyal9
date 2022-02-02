@@ -15,7 +15,7 @@
   "PostResponseScript": "$Response = $Response | Where-Object { $_.prerelease -eq $PreRelease } | Select-Object -First 1; $UpdateCondition = $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "",
+  "PreviousVersion": "5.29.1",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "\"https://updates.signal.org/desktop/signal-desktop-win-$($Response.tag_name.TrimStart('v')).exe\"",
@@ -24,7 +24,8 @@
   "AdditionalInfo": {
     "PreRelease": false,
     "PreviousReleaseId": 0
-  },  "PostUpgradeScript": "",
+  },
+  "PostUpgradeScript": "",
   "YamlCreateParams": {
     "SkipPRCheck": false,
     "AutoUpgrade": false,

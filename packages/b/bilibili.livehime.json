@@ -1,28 +1,28 @@
 {
-    "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
-    "Identifier": "Bilibili.Livehime",
-    "Update": {
-        "InvokeType": "RestMethod",
-        "Uri": "https://api.live.bilibili.com/client/v1/LiveHime/download?type=3",
-        "Method": "Get",
-        "Headers": {},
-        "Body": "",
-        "UserAgent": ""
-    },
-    "PostResponseScript": "$Response = $Response.data",
-    "VersionRegex": "[0-9.]+",
-    "InstallerRegex": ".exe$",
-    "PreviousVersion": "",
-    "ManifestFields": {
-        "PackageVersion": "($Response.version | Select-String -Pattern $VersionRegex).Matches.Value",
-        "InstallerUrls": "$Response.dl_url"
-    },
-    "AdditionalInfo": {},
-    "PostUpgradeScript": "",
-    "YamlCreateParams": {
-        "SkipPRCheck": false,
-        "AutoUpgrade": false,
-        "DeletePreviousVersion": false
-    },
-    "SkipPackage": false
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Bilibili.Livehime",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://api.live.bilibili.com/client/v1/LiveHime/download?type=3",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.data",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "4.13.0.2923",
+  "ManifestFields": {
+    "PackageVersion": "($Response.version | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response.dl_url"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

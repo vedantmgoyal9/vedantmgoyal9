@@ -1,28 +1,28 @@
 {
-    "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
-    "Identifier": "Alibaba.DingTalk",
-    "Update": {
-        "InvokeType": "RestMethod",
-        "Uri": "https://im.dingtalk.com/manifest/new/release_windows_vista_later_manual_lowpriority.json",
-        "Method": "Get",
-        "Headers": {},
-        "Body": "",
-        "UserAgent": ""
-    },
-    "PostResponseScript": "$Response = $Response.win.install",
-    "VersionRegex": "[0-9.]+",
-    "InstallerRegex": ".exe$",
-    "PreviousVersion": "",
-    "ManifestFields": {
-        "PackageVersion": "$Response.version",
-        "InstallerUrls": "$Response.url"
-    },
-    "AdditionalInfo": {},
-    "PostUpgradeScript": "",
-    "YamlCreateParams": {
-        "SkipPRCheck": false,
-        "AutoUpgrade": false,
-        "DeletePreviousVersion": false
-    },
-    "SkipPackage": false
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Alibaba.DingTalk",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://im.dingtalk.com/manifest/new/release_windows_vista_later_manual_lowpriority.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.win.install",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "6.3.25-Release.1219101",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "$Response.url"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.result.version",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "",
+  "PreviousVersion": "3.6.6.1",
   "ManifestFields": {
     "PackageVersion": "$Response",
     "InstallerUrls": "@(\"https://appnews.cubejoy.com/app/$($Response)/CubeSetup_v$($Response).exe\", \"https://newsapp.cubejoy.com/app/$($Response)/CubeSetup_HK_TC_v$($Response).exe\")"
