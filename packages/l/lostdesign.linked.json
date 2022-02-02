@@ -3,7 +3,7 @@
   "pkgid": "lostdesign.linked",
   "repo_uri": "lostdesign/linked",
   "last_checked_tag": "58510515",
-  "asset_regex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "asset_regex": "linked-Setup-*.exe$",
   "is_prerelease": false,
   "version_method": null,
   "use_package_script": false,
