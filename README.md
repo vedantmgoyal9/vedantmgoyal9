@@ -1,14 +1,17 @@
 # WinGet Manifests Auto-Updater
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat&color=violet)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+Automatically update package manifests for winget-pkgs repository.
+
+> You can see a list of **PackageIdentifiers** for packages currently auto-updated by this project in [**packages.txt**](./packages.txt) (alphanumerically sorted).
+
 ![GitHub followers](https://img.shields.io/github/followers/vedantmgoyal2009?logo=github&color=indigo)
 ![GitHub Repo stars](https://img.shields.io/github/stars/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=blue)
 ![GitHub forks](https://img.shields.io/github/forks/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=darkgreen)
 ![GitHub](https://img.shields.io/github/license/vedantmgoyal2009/winget-pkgs-automation?logo=github&color=yellow)
 ![Language](https://img.shields.io/badge/language-powershell-blue.svg?logo=powershell&color=orange)
-
-This project programmatically updates manifests of winget packages when the package has an update available.
-
-> You can see a list of **PackageIdentifiers** for packages currently auto-updated by this project in [**packages.txt**](./packages.txt) (alphanumerically sorted).
 
 ## Status
 
@@ -31,25 +34,10 @@ Running automatically on GitHub workflows, this repo has two main components tha
 
 1. **PowerShell scripts**: To update manifests of packages in the [Windows Package Manager Community Repository](https://github.com/microsoft/winget-pkgs), these scripts are executed by a cron job **every hour**.
     - The [`automation.ps1`](./scripts/Automation.ps1) script imports the JSON files and check if a new update is available for the package.
-    - If yes, it calls [`YamlCreate.ps1`](./scripts) to update the manifest for the given package, and
+    - If yes, it calls [`YamlCreate.ps1`](./scripts/YamlCreate.ps1) to update the manifest for the given package, and
     - Submits a pull request on the [winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
 
-2. **JSON files**: Structured data containing the following vital information about each tracked package:
-
-|  Key  | Description |
-| :---: | :--- |
-| pkgid | PackageIdentifier of the package in the winget-pkgs repository |
-| repo_uri | URI of any API/Source/etc. or GitHub repository of the package in the form of `owner/repo` |
-| last_checked_tag | Version/Release ID of the last release of the package |
-| asset_regex | Regular expression to match the asset name of the package |
-| is_prerelease | Whether the package is a prerelease or not |
-| version_method | Method to get the version of the package, if the package doesn't follow [semantic versioning](https://semver.org) |
-| use_package_script | If package uses a separate script for checking updates, then it is `true` |
-| skip | If the package has not been updated for a long time, it can be skipped instead of removing the JSON file (useful when keeping a record of skipped packages) |
-| yamlcreate_autoupgrade | If the package can be auto-updated using **YamlCreate.ps1**'s AutoUpgrade feature, then it is `true` |
-| check_existing_pr | If the automation should check if there is an existing pull request for the update of the package, then it is `true` |
-| previous_timestamp | Timestamp when the package was last updated by the workflow |
-| check_interval | Custom check interval if the package is less frequently updated |
+2. **JSON files**: These JSON files contain the Source/API of the package where the automation can fetch the latest version of the package and update the manifests of the package.
 
 ## Contributors 🎉
 
