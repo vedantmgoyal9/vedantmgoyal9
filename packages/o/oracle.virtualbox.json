@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Oracle.VirtualBox",
-  "repo_uri": "https://download.virtualbox.org/virtualbox/LATEST.TXT",
-  "last_checked_tag": "6.1.32\n",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643221323,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Oracle.VirtualBox",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://download.virtualbox.org/virtualbox/LATEST.TXT",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response -replace '\\n', ''",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "\"https://download.virtualbox.org/virtualbox/$($Response)/$((Invoke-WebRequest -Method Get -Uri https://download.virtualbox.org/virtualbox/$($Response)).Links.href | Where-Object { $_ -match $InstallerRegex })\""
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

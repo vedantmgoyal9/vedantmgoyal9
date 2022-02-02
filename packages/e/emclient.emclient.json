@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "eMClient.eMClient",
-  "repo_uri": "https://www.emclient.com/dist/latest/setup.msi",
-  "last_checked_tag": "8.2.1659.0",
-  "asset_regex": ".*.msi$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643221070,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "eMClient.eMClient",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://www.emclient.com/dist/latest/setup.msi",
+    "Method": "Head",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = ($Response.BaseResponse.RequestMessage.RequestUri.OriginalString | Select-String -Pattern '.*(?=\\?)').Matches.Value",
+  "VersionRegex": "(?<=v)[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

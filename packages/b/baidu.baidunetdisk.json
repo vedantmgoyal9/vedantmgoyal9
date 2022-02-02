@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Baidu.BaiduNetdisk",
-  "repo_uri": "https://pan.baidu.com/disk/cmsdata?do=client",
-  "last_checked_tag": "7.9.1",
-  "asset_regex": ".*.exe",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643224449,
-  "check_interval": 3600
+    "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+    "Identifier": "Baidu.BaiduNetdisk",
+    "Update": {
+        "InvokeType": "RestMethod",
+        "Uri": "https://pan.baidu.com/disk/cmsdata?do=client",
+        "Method": "Get",
+        "Headers": {},
+        "Body": "",
+        "UserAgent": ""
+    },
+    "PostResponseScript": "$Response = $Response.guanjia",
+    "VersionRegex": "[0-9.]{5,6}",
+    "InstallerRegex": ".exe$",
+    "PreviousVersion": "",
+    "ManifestFields": {
+        "PackageVersion": "($Response.url | Select-String -Pattern $VersionRegex).Matches.Value",
+        "InstallerUrls": "$Response.url"
+    },
+    "AdditionalInfo": {},
+    "PostUpgradeScript": "",
+    "YamlCreateParams": {
+        "SkipPRCheck": false,
+        "AutoUpgrade": false,
+        "DeletePreviousVersion": false
+    },
+    "SkipPackage": false
 }

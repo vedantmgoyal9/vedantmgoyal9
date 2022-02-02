@@ -1,15 +1,35 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "chrisant996.Clink",
-  "repo_uri": "chrisant996/clink",
-  "last_checked_tag": "57761907",
-  "asset_regex": ".exe",
-  "is_prerelease": false,
-  "version_method": "($urls[0] | Select-String -Pattern \"[0-9]\\.[0-9]\\.[0-9]{1,2}\\.[A-Fa-f0-9]{6}\").Matches.Value",
-  "use_package_script": false,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643221035,
-  "check_interval": 3600
+    "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+    "Identifier": "chrisant996.Clink",
+    "Update": {
+        "InvokeType": "RestMethod",
+        "Uri": "https://api.github.com/repos/chrisant996/clink/releases?per_page=1",
+        "Method": "Get",
+        "Headers": {
+            "Authorization": "$AuthToken",
+            "Accept": "application/vnd.github.v3+json"
+        },
+        "Body": "",
+        "UserAgent": ""
+    },
+    "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
+    "VersionRegex": "[0-9]\\.[0-9]\\.[0-9]{1,2}\\.[A-Fa-f0-9]{6}",
+    "InstallerRegex": ".exe$",
+    "PreviousVersion": "",
+    "ManifestFields": {
+        "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
+        "PackageVersion": "($_Object.InstallerUrls | Select-String -Pattern $VersionRegex).Matches.Value",
+        "ReleaseNotesUrl": "$Response.html_url"
+    },
+    "AdditionalInfo": {
+        "PreRelease": false,
+        "LastReleaseId": 0
+    },
+    "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
+    "YamlCreateParams": {
+        "SkipPRCheck": false,
+        "AutoUpgrade": false,
+        "DeletePreviousVersion": false
+    },
+    "SkipPackage": false
 }

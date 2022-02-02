@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Freeplane.Freeplane",
-  "repo_uri": "freeplane",
-  "last_checked_tag": "2021-12-18 14:40:32",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643221082,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Freeplane.Freeplane",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://sourceforge.net/projects/freeplane/best_release.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.platform_releases.windows.url",
+  "VersionRegex": "[0-9.]{5,6}",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "($Response.Replace('http://downloads.sourceforge.net/project/freeplane/', 'https://sourceforge.net/projects/freeplane/files/')) -replace '\\?.*', '/download'"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

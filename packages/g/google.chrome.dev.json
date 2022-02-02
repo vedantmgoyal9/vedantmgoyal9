@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Google.Chrome.Dev",
-  "repo_uri": "https://omahaproxy.appspot.com/all.json",
-  "last_checked_tag": "99.0.4840.0",
-  "asset_regex": ".*.msi$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": true,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643221092,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Google.Chrome.Dev",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://omahaproxy.appspot.com/all.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.versions | Where-Object { $_.os -eq 'win' -and $_.channel -eq 'dev' }",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "$Response.current_version",
+    "InstallerUrls": "@('https://dl.google.com/tag/s/dl/chrome/install/dev/googlechromedevstandaloneenterprise64.msi', 'https://dl.google.com/tag/s/dl/chrome/install/dev/googlechromedevstandaloneenterprise.msi')"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": true,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

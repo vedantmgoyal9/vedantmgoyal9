@@ -1,15 +1,31 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "BraveSoftware.BraveBrowser.Nightly",
-  "repo_uri": "brave/brave-browser",
-  "last_checked_tag": "57988298",
-  "asset_regex": "BraveBrowserStandaloneSilentNightlySetup.exe$",
-  "is_prerelease": true,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643224460,
-  "check_interval": 3600
+    "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+    "Identifier": "BraveSoftware.BraveBrowser.Nightly",
+    "Update": {
+        "InvokeType": "RestMethod",
+        "Uri": "https://api.github.com/repos/brave/brave-browser/releases",
+        "Method": "Get",
+        "Headers": {
+            "Authorization": "$AuthToken",
+            "Accept": "application/vnd.github.v3+json"
+        },
+        "Body": "",
+        "UserAgent": ""
+    },
+    "PostResponseScript": "$Response = $Response | Where-Object { $_.name.Contains(\"Nightly\") } | Select-Object -First 1",
+    "VersionRegex": "(?<=v)[0-9.]+",
+    "InstallerRegex": "BraveBrowserStandaloneSilentNightlySetup.*.exe$",
+    "PreviousVersion": "",
+    "ManifestFields": {
+        "PackageVersion": "\"98.\"+$($Response.tag_name.TrimStart(\"v\"))",
+        "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }"
+    },
+    "AdditionalInfo": {},
+    "PostUpgradeScript": "",
+    "YamlCreateParams": {
+        "SkipPRCheck": false,
+        "AutoUpgrade": false,
+        "DeletePreviousVersion": false
+    },
+    "SkipPackage": false
 }

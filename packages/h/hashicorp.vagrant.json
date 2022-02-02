@@ -1,15 +1,31 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Hashicorp.Vagrant",
-  "repo_uri": "https://api.github.com/repos/hashicorp/vagrant/tags?per_page=1",
-  "last_checked_tag": "2.2.19",
-  "asset_regex": ".*.msi$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643221097,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Hashicorp.Vagrant",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://api.github.com/repos/hashicorp/vagrant/tags?per_page=1",
+    "Method": "Get",
+    "Headers": {
+      "Authorization": "$AuthToken",
+      "Accept": "application/vnd.github.v3+json"
+    },
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.name.TrimStart('v')",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "@(\"https://releases.hashicorp.com/vagrant/$($Response)/vagrant_$($Response)_x86_64.msi\", \"https://releases.hashicorp.com/vagrant/$($Response)/vagrant_$($Response)_i686.msi\")"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

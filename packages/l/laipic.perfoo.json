@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "LAIPIC.Perfoo",
-  "repo_uri": "https://presentment-api.laihua.com/common/config?type=120",
-  "last_checked_tag": "v1.0.4",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643221257,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "LAIPIC.Perfoo",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://presentment-api.laihua.com/common/config?type=120",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.data.perfooUpdatePC | ConvertFrom-Json",
+  "VersionRegex": "(?<=v)[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "($Response.versionCode | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response.downloadUrl"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }
