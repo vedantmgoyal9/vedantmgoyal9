@@ -1,6 +1,6 @@
-[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', Justification = 'Dear PSScriptAnalyser, you are a little less advanced. Variables are used in Invoke-Expression, but not in the script body.')]
+[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Dear PSScriptAnalyser, you are a little less advanced. Variables are used in Invoke-Expression, but not in the script body.')]
 
-# Set error action to continue, hide progress bar of webclient.downloadfile
+# Set error action to continue, hide progress bar of Invoke-WebRequest
 $ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
 
