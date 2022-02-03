@@ -15,7 +15,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "gvim.*(x64|x86).exe$",
-  "PreviousVersion": "8.2.4282",
+  "PreviousVersion": "8.2.4286",
   "ManifestFields": {
     "PackageVersion": "($Response.tag_name.TrimStart(\"v\"))",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
@@ -23,7 +23,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 58473597
+    "PreviousReleaseId": 58557411
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
