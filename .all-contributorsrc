@@ -181,6 +181,16 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "felipecrs",
+      "name": "Felipe Santos",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29582865?v=4",
+      "profile": "http://felipecrs.com",
+      "contributions": [
+        "ideas",
+        "bug"
+      ]
     }
   ]
 }
