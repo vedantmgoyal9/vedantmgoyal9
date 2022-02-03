@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Elgato.GameCapture.HD",
-  "repo_uri": "https://www.elgato.com/sites/default/files/downloads.json",
-  "last_checked_tag": "3.70.55.3055",
-  "asset_regex": ".*.msi$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643833000,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Elgato.GameCapture.HD",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.elgato.com/sites/default/files/downloads.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.'gc-win'.downloadURL",
+  "VersionRegex": "[0-9.]{5,}",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "3.70.55.3055",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

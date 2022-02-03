@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Microsoft.Edge",
-  "repo_uri": "https://edgeupdates.microsoft.com/api/products",
-  "last_checked_tag": "97.0.1072.76",
-  "asset_regex": ".*.msi$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643829491,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Microsoft.Edge",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://edgeupdates.microsoft.com/api/products",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = ($Response | Where-Object { $_.Product -eq 'Stable' }).Releases | Where-Object { $_.Platform -eq 'Windows' }",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "97.0.1072.76",
+  "ManifestFields": {
+    "PackageVersion": "$Response[0].ProductVersion",
+    "InstallerUrls": "@($Response[0].Artifacts.Location, $Response[1].Artifacts.Location, $Response[2].Artifacts.Location)"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

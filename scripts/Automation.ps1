@@ -1,243 +1,138 @@
-# Set error action to continue, hide progress bar of webclient.downloadfile
-$ErrorActionPreference = "Continue"
+[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Dear PSScriptAnalyser, you are a little less advanced. Variables are used in Invoke-Expression, but not in the script body.')]
+
+# Set error action to continue, hide progress bar of Invoke-WebRequest
+$ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
 
 # Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, set settings for YamlCreate.ps1
 git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
 git config --global user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com' # Set git email
-$this_authorization = $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)
-git clone https://x-access-token:$($this_authorization)@github.com/microsoft/winget-pkgs.git --quiet # Clones the repository silently
-$currentDir = Get-Location # Get current directory
-Set-Location .\winget-pkgs\Tools # Change directory to Tools
+$AuthToken = $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = 'application/vnd.github.v3+json' } -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)
+git clone https://x-access-token:$($AuthToken)@github.com/microsoft/winget-pkgs.git --quiet # Clones the repository silently
+Set-Location -Path .\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
-git remote add origin https://x-access-token:$($this_authorization)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
-Copy-Item -Path $currentDir\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
-git commit --all -m "Update YamlCreate.ps1 (Unattended)" # Commit changes
-Set-Location $currentDir # Go back to previous working directory
+git remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
+Copy-Item -Path $..\..\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+git commit --all -m 'Update YamlCreate.ps1 (Unattended)' # Commit changes
+Set-Location -Path ..\..\ # Go back to previous working directory
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
-@"
-TestManifestsInSandbox: always
+@'
+TestManifestsInSandbox: never
 SaveToTemporaryFolder: never
 AutoSubmitPRs: always
 ContinueWithExistingPRs: never
 SuppressQuickUpdateWarning: true
 EnableDeveloperOptions: true
-"@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
-Write-Host "Cloned repository, copied YamlCreate.ps1 to Tools directory, and set YamlCreate settings."
+'@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
+Write-Output 'Cloned repository, copied YamlCreate.ps1 to Tools directory, and set YamlCreate settings.'
 
-Function Test-ArpMetadata ($manifestPath) {
-    $getArpEntriesFunctions = {
-        Function Get-ARPTable {
-            $registry_paths = @('HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*')
-            return Get-ItemProperty $registry_paths -ErrorAction SilentlyContinue |
-            Select-Object DisplayName, DisplayVersion, Publisher, @{N = 'ProductCode'; E = { $_.PSChildName } } |
-            Where-Object { $null -ne $_.DisplayName }
-        }
+$UpgradeObject = @()
 
-        # See how the ARP table changes before and after a ScriptBlock.
-        Function Get-ARPTableDifference {
-            Param (
-                [Parameter(Mandatory = $true)]
-                [string] $ScriptToRun
-            )
-            $originalArp = Get-ARPTable
-            $ScriptToRun | Invoke-Expression
-            $currentArp = Get-ARPTable
-            return (Compare-Object $currentArp $originalArp -Property DisplayName, DisplayVersion, Publisher, ProductCode) | Select-Object -Property * -ExcludeProperty SideIndicator
+ForEach ($Package in $(Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.SkipPackage -eq $false })) {
+    $_Object = New-Object -TypeName System.Management.Automation.PSObject
+    $_Object | Add-Member -MemberType NoteProperty -Name 'PackageIdentifier' -Value $Package.Identifier
+    $VersionRegex = $Package.VersionRegex
+    $InstallerRegex = $Package.InstallerRegex
+    If (-not [System.String]::IsNullOrEmpty($Package.AdditionalInfo)) {
+        $Package.AdditionalInfo.PSObject.Properties | ForEach-Object {
+            Set-Variable -Name $_.Name -Value $_.Value
         }
     }
-
-    $manifestInfo = winget show --manifest $ManifestPath
-    $pkgVersion = ($manifestInfo | Select-String "Version:").ToString().TrimStart("Version:").Trim()
-    $pkgPublisher = ($manifestInfo | Select-String "Publisher:").ToString().TrimStart("Publisher:").Trim()
-
-    Write-Host -ForegroundColor Green "PackageVersion in manifest: $pkgVersion"
-    Write-Host -ForegroundColor Green "Publisher in manifest: $pkgPublisher"
-
-    Write-Host -ForegroundColor Green "Installing package... "
-
-    $installJob = Start-Job -InitializationScript $getArpEntriesFunctions -ScriptBlock { Get-ARPTableDifference -ScriptToRun "winget install --manifest $Using:ManifestPath" } -Name wingetInstall | Wait-Job -Timeout 100
-    $difference = $installJob | Receive-Job
-    $difference
-    if ($installJob.State -eq "Completed") {
-        $installationSuccessful = $true
+    $Paramters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
+    If (-not [System.String]::IsNullOrEmpty($Package.Update.Headers)) {
+        $Package.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { ($_.Value -contains "`$AuthToken") ? $Headers.Add($_.Name, "token $($_.Value | Invoke-Expression)") : $Headers.Add($_.Name, $_.Value) } -End { $Paramters.Headers = $Headers }
     }
-    else {
-        $installationSuccessful = $false
-        $installJob | Stop-Job
+    If (-not [System.String]::IsNullOrEmpty($Package.Update.Body)) {
+        $Paramters.Body = $Package.Update.Body
     }
-
-    if ($installationSuccessful -eq $true) {
-        Write-Host -ForegroundColor Green "Successfully installed the package."
-        Write-Host -ForegroundColor Green "Checking ARP entries..."
-        if (-not $pkgPublisher -eq $difference.Vendor) {
-            Write-Host -ForegroundColor Yellow "Publisher in the manifest is different from the one in the ARP."
-            $Script:PrePrBodyContent = "### Publisher in the manifest is different from the one in the ARP.`nPublisher in Manifest`: $pkgPublisher`nPublisher in ARP`: $($arpData.Vendor)"
-        }
-        elseif (-not $pkgVersion -eq $difference.Version) {
-            Write-Host -ForegroundColor Yellow "Version in the manifest is different from the one in the ARP."
-            $Script:PrePrBodyContent = "### Package version in the manifest is different from the one in the ARP.`nVersion in Manifest: $pkgVersion`nVersion in ARP: $($arpData.Version)"
-        }
-        else {
-            Write-Host -ForegroundColor Green "ARP entries are correct."
-            $Script:PrePrBodyContent = "### ARP entries are correct."
+    If (-not [System.String]::IsNullOrEmpty($Package.Update.UserAgent)) {
+        $Paramters.UserAgent = $Package.Update.UserAgent
+    }
+    If ($Package.Update.InvokeType -eq 'RestMethod') {
+        $Response = Invoke-RestMethod @Paramters
+    } ElseIf ($Package.Update.InvokeType -eq 'WebRequest') {
+        $Response = Invoke-WebRequest @Paramters
+    }
+    If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
+        $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
+    }
+    If ([System.Text.RegularExpressions.Regex]::IsMatch($Package.Update.Uri, 'https:\/\/api.github.com\/repos\/.*\/releases\?per_page=1')) {
+        # If the last release was more than 2.5 years ago, automatically add it to the skip list
+        # 3600 secs/hr * 24 hr/day * 365 days * 2.5 years = 78840000 seconds
+        If (([DateTimeOffset]::Now.ToUnixTimeSeconds() - 78840000) -ge [DateTimeOffset]::new($Response.published_at).ToUnixTimeSeconds()) {
+            $Package.SkipPackage = 'Automatically marked as stale, not updated for 2.5 years'
+            ConvertTo-Json -InputObject $Package | Set-Content -Path ..\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
         }
     }
-    else {
-        Write-Host -ForegroundColor Red "Installation timed out."
-        $Script:PrePrBodyContent = "### Installation timed out."
+    $Package.ManifestFields.PSObject.Properties | ForEach-Object {
+        $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
     }
-
-    Clear-Variable -Name difference
-    Clear-Variable -Name installJob
+    If (($null -eq $UpdateCondition) ? ($_Object.PackageVersion -gt $Package.PreviousVersion) : $UpdateCondition) {
+        $_Object | Add-Member -MemberType NoteProperty -Name 'YamlCreateParams' -Value $Package.YamlCreateParams
+        $UpgradeObject += @([PSCustomObject] $_Object)
+        $Package.PreviousVersion = $_Object.PackageVersion
+        If (-not [System.String]::IsNullOrEmpty($Package.PostUpgradeScript)) {
+            $Package.PostUpgradeScript | Invoke-Expression # Run PostUpgradeScript
+        }
+        ConvertTo-Json -InputObject $Package | Set-Content -Path ..\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
+    }
+    Remove-Variable -Name UpdateCondition -ErrorAction SilentlyContinue
 }
 
-Function Update-PackageManifest ($PackageIdentifier, $PackageVersion, $InstallerUrls) {
-    Write-Host -ForegroundColor Green "----------------------------------------------------"
-    # Prints update information, added spaces for indentation
-    Write-Host -ForegroundColor Green "[$Script:i/$Script:cnt] Found update for`: $PackageIdentifier"
-    Write-Host -ForegroundColor Green "   Version`: $PackageVersion"
-    Write-Host -ForegroundColor Green "   Download Urls`:"
-    foreach ($i in $InstallerUrls) { Write-Host -ForegroundColor Green "      $i" }
-    # Generate manifests and submit to winget community repository
-    Write-Host -ForegroundColor Green "   Submitting manifests to repository" # Added spaces for indentation
-    Set-Location .\winget-pkgs\Tools # Change directory to Tools
+ForEach ($Ugrade in $UpgradeObject) {
+    Write-Output -InputObject $Ugrade | Format-List -Property *
+    Set-Location -Path .\winget-pkgs\Tools
     try {
-        if ($Script:package.yamlcreate_autoupgrade -eq $true -and $Script:package.check_existing_pr -eq $true) {
-            Write-Host -ForegroundColor Green "      yamlcreate_autoupgrade: true`n      check_existing_pr: true" # Added spaces for indentation
-            .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -AutoUpgrade
+        If ($Upgrade.YamlCreateParams.AutoUpgrade -eq $true -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
+            Write-Output "YamlCreateParams:`n   AutoUpgrade: true`n   SkipPRCheck: false`n   DeletePreviousVersion: false"
+            .\YamlCreate.ps1 -InputObject $Ugrade -AutoUpgrade
+        } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $true -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
+            Write-Output "YamlCreateParams:`n   AutoUpgrade: false`n   SkipPRCheck: true`n   DeletePreviousVersion: false"
+            .\YamlCreate.ps1 -InputObject $Ugrade -Mode 2 -SkipPRCheck
+        } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $true) {
+            Write-Output "YamlCreateParams:`n   AutoUpgrade: false`n   SkipPRCheck: false`n   DeletePreviousVersion: true"
+            .\YamlCreate.ps1 -InputObject $Ugrade -Mode 2 -DeletePreviousVersion
+        } Else {
+            Write-Output "YamlCreateParams:`n   AutoUpgrade: false`n   SkipPRCheck: false`n   DeletePreviousVersion: false"
+            .\YamlCreate.ps1 -InputObject $Ugrade -Mode 2
         }
-        elseif ($Script:package.yamlcreate_autoupgrade -eq $false -and $Script:package.check_existing_pr -eq $false) {
-            Write-Host -ForegroundColor Green "      yamlcreate_autoupgrade: false`n      check_existing_pr: false" # Added spaces for indentation
-            .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls -SkipPRCheck
-        }
-        else {
-            Write-Host -ForegroundColor Green "   Creating new manifest"
-            .\YamlCreate.ps1 -PackageIdentifier $PackageIdentifier -PackageVersion $PackageVersion -Mode 2 -Param_InstallerUrls $InstallerUrls
-        }
+    } catch {
+        $ErrorUpgradingPkgs += @("- $($Upgrade.PackageIdentifier) version $($Ugrade.PackageVersion)")
+        Write-Error "Error while updating Package $($Upgrade.PackageIdentifier) version $($Ugrade.PackageVersion)"
+        # Revert the changes in the JSON file so that the package can check for updates in the next run
+        git checkout -- ..\..\..\packages\$($Upgrade.PackageIdentifier.Substring(0,1).ToLower())\$($Upgrade.PackageIdentifier.ToLower()).json
     }
-    catch {
-        $Script:erroredPkgs += @("- $PackageIdentifier version $PackageVersion")
-        Write-Error "Error while updating Package $PackageIdentifier version $PackageVersion"
-    }
-    Set-Location $currentDir # Go back to previous working directory
-    Write-Host -ForegroundColor Green "----------------------------------------------------"
+    Set-Location -Path ..\..\
 }
 
-# Set up API headers
-$ms_header = @{
-    Authorization = "Token $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = "application/vnd.github.v3+json"} -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)"
-    Accept        = "application/vnd.github.v3+json"
+Write-Output "`nCommenting errored packages on issue 200"
+$Headers = @{
+    Authorization = "Token $AuthToken"
+    Accept        = 'application/vnd.github.v3+json'
 }
-# TODO: Replace $env:THIS_ID with $env:MS_ID
-
-Function Submit-PullRequest ($headBranch, $prBody) {
-    # Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/microsoft/winget-pkgs/pulls" -Body "{""base"":""master"",""head"":""vedantmgoyal2009:$headBranch"",""body"":""$prBody""}" -Headers $Script:ms_header
-    gh pr create --body "$prBody" -f
+If ($ErrorUpgradingPkgs.Count -gt 0) {
+    $CommentBody = "**[[$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/runs/$($env:GITHUB_RUN_ID))]:** The following packages failed to update:\r\n$($ErrorUpgradingPkgs -join '\r\n')"
+} Else {
+    $CommentBody = "**[[$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/runs/$($env:GITHUB_RUN_ID))]:** All packages were updated successfully :tada:"
 }
-
-$packages = Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json
-
-# Display skipped packages or which have longer check interval
-Write-Host -ForegroundColor Green "----------------------------------------------------"
-foreach ($package in $packages | Where-Object { $_.skip -ne $false }) {
-    Write-Host -ForegroundColor Green "$($package.pkgid)`: $($package.skip)"
-}
-foreach ($package in $packages | Where-Object { $_.skip -eq $false } | Where-Object { ($_.previous_timestamp + $_.check_interval) -gt [DateTimeOffset]::Now.ToUnixTimeSeconds() }) {
-    Write-Host -ForegroundColor Green "$($package.pkgid)`: Last checked sooner than interval"
-}
-Write-Host -ForegroundColor Green "----------------------------------------------------`n"
-
-# Remove skipped packages from the list
-$packages = $packages | Where-Object { $_.skip -eq $false -and ($_.previous_timestamp + $_.check_interval) -le [DateTimeOffset]::Now.ToUnixTimeSeconds() }
-
-$urls = [System.Collections.ArrayList]::new()
-$i = 0
-$cnt = $packages.Count
-foreach ($package in $packages) {
-    $i++
-    $urls.Clear()
-    if ($package.use_package_script -eq $false) {
-        $result = Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$($package.repo_uri)/releases?per_page=1" -Headers $ms_header
-        # Check update is available for this package using release id and last_checked_tag
-        if ($result.prerelease -eq $package.is_prerelease -and $result.id -gt $package.last_checked_tag) {
-            # Get download urls using regex pattern and add to array
-            foreach ($asset in $result.assets) {
-                if ($asset.name -match $package.asset_regex) {
-                    $urls.Add($asset.browser_download_url) | Out-Null
-                }
-            }
-            # Check if urls are found and if so, update package manifest and json
-            if ($urls.Count -gt 0) {
-                # Get version of the package using method specified in the packages.json till microsoft/winget-create#177 is resolved
-                if ($null -eq $package.version_method) {
-                    $version = $result.tag_name.TrimStart("v")
-                }
-                else {
-                    $version = Invoke-Expression $package.version_method
-                }
-                # Print update information, generate and submit manifests
-                Update-PackageManifest $package.pkgid $version $urls.ToArray()
-                # Update the last_checked_tag
-                $package.last_checked_tag = $result.id.ToString()
-            }
+# Delete the old comment if -
+# -> it contains that all packages were updated successfully
+# -> it contains that there were packages that failed to update but a reaction is present on the comment
+Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/200/comments' | Where-Object { $_.user.login -eq 'winget-pkgs-automation-bot[bot]' } | ForEach-Object {
+    If ($_.body.Contains('failed')) {
+        If ((Invoke-RestMethod -Method Get -Uri $_.reactions.url).user.login -contains 'vedantmgoyal2009') {
+            Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$($_.id)" -Headers $Headers | Out-Null
         }
-        else {
-            Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
-            # If the last release was more than 2.5 years ago, automatically add it to the skip list
-            # 3600 secs/hr * 24 hr/day * 365 days * 2.5 years = 78840000 seconds
-            if (([DateTimeOffset]::Now.ToUnixTimeSeconds() - 78840000) -ge [DateTimeOffset]::new($result.published_at).ToUnixTimeSeconds()) {
-                $package.skip = 'Automatically marked as stale, not updated for 2.5 years'
-            }
-        }
-    }
-    else {
-        . ..\package_scripts\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).ps1
-        if ($update_found -eq $true) {
-            # Print update information, generate and submit manifests, updates the last_checked_tag in json
-            Update-PackageManifest $package.pkgid $version $urls.ToArray()
-            $package.last_checked_tag = $jsonTag
-        }
-        else {
-            Write-Host -ForegroundColor DarkYellow "[$i/$cnt] No updates found for`: $($package.pkgid)"
-        }
-    }
-    $package.previous_timestamp = [DateTimeOffset]::Now.ToUnixTimeSeconds()
-    $package | ConvertTo-Json > ..\packages\$($package.pkgid.Substring(0,1).ToLower())\$($package.pkgid.ToLower()).json
-    # Clear the variables for next package
-    Clear-Variable -Name result -ErrorAction SilentlyContinue
-    Clear-Variable -Name version -ErrorAction SilentlyContinue
-    Clear-Variable -Name update_found -ErrorAction SilentlyContinue
-    Clear-Variable -Name jsonTag -ErrorAction SilentlyContinue
-}
-
-# Comment the errored packages on issue 200
-$this_header = @{
-    Authorization = "Token $this_authorization"
-    Accept        = "application/vnd.github.v3+json"
-}
-Write-Host -ForegroundColor Green "`nCommenting errored packages on issue 200"
-if ($Script:erroredPkgs.Count -gt 0) {
-    $comment_body = "**[[$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/runs/$($env:GITHUB_RUN_ID))]:** The following packages failed to update:\r\n$($Script:erroredPkgs -join '\r\n')"
-}
-else {
-    $comment_body = "**[[$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/runs/$($env:GITHUB_RUN_ID))]:** All packages were updated successfully :tada:"
-}
-$previousComments = Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/200/comments" | Where-Object { $_.user.login -eq "winget-pkgs-automation-bot[bot]" }
-# Delete errored packages comment if a reaction by vedantmgoyal2009 is present
-foreach ($comment in $($previousComments | Where-Object { $_.body.Contains('failed') })) {
-    if ((Invoke-RestMethod -Method Get -Uri $comment.reactions.url).user.login -contains "vedantmgoyal2009") {
-        Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$($comment.id)" -Headers $this_header | Out-Null
+    } ElseIf ($_.body.Contains('tada')) {
+        Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$($_.id)" -Headers $Headers | Out-Null
     }
 }
-# Delete the old comment if contains that the packages were updated successfully
-Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/comments/$(($previousComments | Where-Object { $_.body.Contains('tada') }).id)" -Headers $this_header | Out-Null
 # Add the new comment
-Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/200/comments" -Body "{""body"":""$comment_body""}" -Headers $this_header
+Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/winget-pkgs-automation/issues/200/comments' -Body "{""body"":""$CommentBody""}" -Headers $Headers
 
 # Update packages in repository
-Write-Host -ForegroundColor Green "`nUpdating packages"
+Write-Output "`nUpdating packages"
 git pull # to be on a safe side
 git add ..\packages\*
 git commit -m "build: update packages [$env:GITHUB_RUN_NUMBER]"
-git push https://x-access-token:$($this_authorization)@github.com/vedantmgoyal2009/winget-pkgs-automation.git
+git push https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs-automation.git

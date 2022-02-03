@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Cube.CubePlatform",
-  "repo_uri": "https://infobox.cubejoy.com/data.ashx?JsonData={%22Code%22:%2210030%22}",
-  "last_checked_tag": "3.6.6.1",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643832979,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Cube.CubePlatform",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://infobox.cubejoy.com/data.ashx?JsonData={%22Code%22:%2210030%22}",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.result.version",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "3.6.6.1",
+  "ManifestFields": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "@(\"https://appnews.cubejoy.com/app/$($Response)/CubeSetup_v$($Response).exe\", \"https://newsapp.cubejoy.com/app/$($Response)/CubeSetup_HK_TC_v$($Response).exe\")"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

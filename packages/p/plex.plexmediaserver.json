@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Plex.PlexMediaServer",
-  "repo_uri": "https://plex.tv/api/downloads/5.json",
-  "last_checked_tag": "1.25.4.5487-648a8f9f9",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643829646,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Plex.PlexMediaServer",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://plex.tv/api/downloads/5.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.computer.Windows",
+  "VersionRegex": "[0-9.]{2,}",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "1.25.4.5487",
+  "ManifestFields": {
+    "PackageVersion": "($Response.version | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response.releases.url"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

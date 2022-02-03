@@ -1,15 +1,29 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Tencent.QiDian",
-  "repo_uri": "https://qidian.qq.com/store/qd_interface/Download.php?FType=0",
-  "last_checked_tag": "5.0.0.18756",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643829704,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Tencent.QiDian",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://qidian.qq.com/store/qd_interface/Download.php?FType=0",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.data | Where-Object { $_.FPlatform -eq 1 }",
+  "VersionRegex": "[0-9.]{3,}(?=\\.)",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "5.0.0.18756",
+  "ManifestFields": {
+    "PackageVersion": "($Response.FUrl | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response.FUrl",
+    "ReleaseDate": "$Response.FReleaseTime"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }

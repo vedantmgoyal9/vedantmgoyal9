@@ -1,84 +1,178 @@
 {
-    "$id": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
+    "$id": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
     "$schema": "http://json-schema.org/draft-07/schema",
-    "required": [
-        "$schema",
-        "pkgid",
-        "repo_uri",
-        "last_checked_tag",
-        "asset_regex",
-        "is_prerelease",
-        "version_method",
-        "use_package_script",
-        "skip",
-        "yamlcreate_autoupgrade",
-        "check_existing_pr",
-        "previous_timestamp",
-        "check_interval"
-    ],
     "title": "Schema for JSON files in this repository",
     "type": "object",
+    "required": [
+        "$schema",
+        "Identifier",
+        "Update",
+        "PostResponseScript",
+        "VersionRegex",
+        "InstallerRegex",
+        "PreviousVersion",
+        "ManifestFields",
+        "AdditionalInfo",
+        "PostUpgradeScript",
+        "YamlCreateParams",
+        "SkipPackage"
+    ],
     "properties": {
         "$schema": {
             "$id": "#/properties/%24schema",
             "enum": [
-                "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json"
+                "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json"
             ],
             "type": "string"
         },
-        "pkgid": {
-            "$id": "#/properties/pkgid",
+        "Identifier": {
+            "$id": "#/properties/Identifier",
             "type": "string"
         },
-        "repo_uri": {
-            "$id": "#/properties/repo_uri",
+        "Update": {
+            "$id": "#/properties/Update",
+            "type": "object",
+            "required": [
+                "InvokeType",
+                "Uri",
+                "Method",
+                "Headers",
+                "Body",
+                "UserAgent"
+            ],
+            "properties": {
+                "InvokeType": {
+                    "$id": "#/properties/Update/properties/InvokeType",
+                    "enum": [
+                        "RestMethod",
+                        "WebRequest"
+                    ],
+                    "type": "string"
+                },
+                "Uri": {
+                    "$id": "#/properties/Update/properties/Uri",
+                    "type": "string"
+                },
+                "Method": {
+                    "$id": "#/properties/Update/properties/Method",
+                    "enum": [
+                        "Default",
+                        "Delete",
+                        "Get",
+                        "Head",
+                        "Merge",
+                        "Options",
+                        "Patch",
+                        "Post",
+                        "Put",
+                        "Trace"
+                    ],
+                    "type": "string"
+                },
+                "Headers": {
+                    "$id": "#/properties/Update/properties/Headers",
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "Body": {
+                    "$id": "#/properties/Update/properties/Body",
+                    "type": "string"
+                },
+                "UserAgent": {
+                    "$id": "#/properties/Update/properties/UserAgent",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "PostResponseScript": {
+            "$id": "#/properties/PostResponseScript",
             "type": "string"
         },
-        "last_checked_tag": {
-            "$id": "#/properties/last_checked_tag",
+        "VersionRegex": {
+            "$id": "#/properties/VersionRegex",
             "type": "string"
         },
-        "asset_regex": {
-            "$id": "#/properties/asset_regex",
+        "InstallerRegex": {
+            "$id": "#/properties/InstallerRegex",
             "type": "string"
         },
-        "is_prerelease": {
-            "$id": "#/properties/is_prerelease",
+        "PreviousVersion": {
+            "$id": "#/properties/PreviousVersion",
+            "type": "string"
+        },
+        "ManifestFields": {
+            "$id": "#/properties/ManifestFields",
+            "type": "object",
+            "required": [
+                "PackageVersion",
+                "InstallerUrls"
+            ],
+            "properties": {
+                "PackageVersion": {
+                    "$id": "#/properties/ManifestFields/properties/PackageVersion",
+                    "type": "string"
+                },
+                "InstallerUrls": {
+                    "$id": "#/properties/ManifestFields/properties/InstallerUrls",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true
+        },
+        "AdditionalInfo": {
+            "$id": "#/properties/AdditionalInfo",
+            "type": "object",
+            "additionalProperties": true
+        },
+        "PostUpgradeScript": {
+            "$id": "#/properties/PostUpgradeScript",
+            "type": "string"
+        },
+        "YamlCreateParams": {
+            "$id": "#/properties/YamlCreateParams",
+            "type": "object",
+            "required": [
+                "SkipPRCheck",
+                "AutoUpgrade",
+                "DeletePreviousVersion"
+            ],
+            "properties": {
+                "SkipPRCheck": {
+                    "$id": "#/properties/YamlCreateParams/properties/SkipPRCheck",
+                    "enum": [
+                        true,
+                        false
+                    ],
+                    "type": "boolean"
+                },
+                "AutoUpgrade": {
+                    "$id": "#/properties/YamlCreateParams/properties/AutoUpgrade",
+                    "enum": [
+                        true,
+                        false
+                    ],
+                    "type": "boolean"
+                },
+                "DeletePreviousVersion": {
+                    "$id": "#/properties/YamlCreateParams/properties/DeletePreviousVersion",
+                    "enum": [
+                        true,
+                        false
+                    ],
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "SkipPackage": {
+            "$id": "#/properties/SkipPackage",
+            "enum": [
+                true,
+                false
+            ],
             "type": "boolean"
-        },
-        "version_method": {
-            "$id": "#/properties/version_method",
-            "type": [
-                "null",
-                "string"
-            ]
-        },
-        "use_package_script": {
-            "$id": "#/properties/use_package_script",
-            "type": "boolean"
-        },
-        "skip": {
-            "$id": "#/properties/skip",
-            "type": [
-                "string",
-                "boolean"
-            ]
-        },
-        "yamlcreate_autoupgrade": {
-            "$id": "#/properties/yamlcreate_autoupgrade",
-            "type": "boolean"
-        },
-        "check_existing_pr": {
-            "$id": "#/properties/check_existing_pr",
-            "type": "boolean"
-        },
-        "previous_timestamp": {
-            "$id": "#/properties/previous_timestamp",
-            "type": "number"
-        },
-        "check_interval": {
-            "$id": "#/properties/check_interval",
-            "type": "number"
         }
-    }
+    },
+    "additionalProperties": false
 }

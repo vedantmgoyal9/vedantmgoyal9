@@ -1,15 +1,28 @@
 {
-  "$schema": "https://raw.githubusercontent.com/vedantmgoyal2009/winget-pkgs-automation/main/schema.json",
-  "pkgid": "Badlion.BadlionClient",
-  "repo_uri": "https://client-updates-cdn77.badlion.net/latest.yml",
-  "last_checked_tag": "3.6.4",
-  "asset_regex": ".*.exe$",
-  "is_prerelease": false,
-  "version_method": null,
-  "use_package_script": true,
-  "skip": false,
-  "yamlcreate_autoupgrade": false,
-  "check_existing_pr": true,
-  "previous_timestamp": 1643832942,
-  "check_interval": 3600
+  "$schema": "https://github.com/vedantmgoyal2009/winget-pkgs-automation/raw/main/schema.json",
+  "Identifier": "Badlion.BadlionClient",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://client-updates-cdn77.badlion.net/latest.yml",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "3.6.4",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "\"https://client-updates-cdn77.badlion.net/$([System.Uri]::EscapeDataString($Response.path))\""
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
 }
