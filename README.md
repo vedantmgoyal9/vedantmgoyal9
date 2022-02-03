@@ -1,6 +1,6 @@
 # WinGet Manifests Auto-Updater
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Automatically update package manifests for winget-pkgs repository.
@@ -69,6 +69,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://bittu.eu.org"><img src="https://avatars.githubusercontent.com/u/83997633?v=4?s=90" width="90px;" alt=""/><br /><sub><b>Vedant</b></sub></a><br /><a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/issues?q=author%3Avedantmgoyal2009" title="Bug reports">🐛</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/commits?author=vedantmgoyal2009" title="Code">💻</a> <a href="#ideas-vedantmgoyal2009" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/vedantmgoyal2009/winget-pkgs-automation/pulls?q=is%3Apr+reviewed-by%3Avedantmgoyal2009" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://andrewstech.me"><img src="https://avatars.githubusercontent.com/u/45342431?v=4?s=90" width="90px;" alt=""/><br /><sub><b>andrewstech</b></sub></a><br /><a href="#ideas-andrewstech" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/eitsupi"><img src="https://avatars.githubusercontent.com/u/50911393?v=4?s=90" width="90px;" alt=""/><br /><sub><b>eitsupi</b></sub></a><br /><a href="#ideas-eitsupi" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/hmmwhatsthisdo"><img src="https://avatars.githubusercontent.com/u/2093321?v=4?s=90" width="90px;" alt=""/><br /><sub><b>hmmwhatsthisdo</b></sub></a><br /><a href="#ideas-hmmwhatsthisdo" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
