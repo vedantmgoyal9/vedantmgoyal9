@@ -12,8 +12,8 @@ git clone https://x-access-token:$($AuthToken)@github.com/microsoft/winget-pkgs.
 Set-Location -Path .\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
 git remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
-Copy-Item -Path $..\..\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
-git commit --all -m 'Update YamlCreate.ps1 (Unattended)' # Commit changes
+Copy-Item -Path ..\..\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+git commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
 Set-Location -Path ..\..\ # Go back to previous working directory
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
 @'
