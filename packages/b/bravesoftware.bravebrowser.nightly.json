@@ -15,7 +15,7 @@
   "PostResponseScript": "$Response = $Response | Where-Object { $_.name.Contains(\"Nightly\") } | Select-Object -First 1",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "BraveBrowserStandaloneSilentNightlySetup.*.exe$",
-  "PreviousVersion": "98.1.37.23",
+  "PreviousVersion": "98.1.37.21",
   "ManifestFields": {
     "PackageVersion": "\"98.\"+$($Response.tag_name.TrimStart(\"v\"))",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }"
