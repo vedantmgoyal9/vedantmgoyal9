@@ -27,7 +27,7 @@ EnableDeveloperOptions: true
 Write-Output 'Cloned repository, copied YamlCreate.ps1 to Tools directory, and set YamlCreate settings.'
 
 $UpgradeObject = @()
-
+Write-Output 'Checking for updates...'
 ForEach ($Package in $(Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.SkipPackage -eq $false })) {
     $_Object = New-Object -TypeName System.Management.Automation.PSObject
     $_Object | Add-Member -MemberType NoteProperty -Name 'PackageIdentifier' -Value $Package.Identifier
@@ -78,29 +78,30 @@ ForEach ($Package in $(Get-ChildItem ..\packages\ -Recurse -File | Get-Content -
     }
     Remove-Variable -Name UpdateCondition -ErrorAction SilentlyContinue
 }
-
-ForEach ($Ugrade in $UpgradeObject) {
-    Write-Output -InputObject $Ugrade | Format-List -Property *
+Write-Output "Number of package updates found: $($UpgradeObject.Count)`nPackages to be updated:"
+$UpgradeObject | ForEach-Object {
+    Write-Output "-> $($_.PackageIdentifier)"
+}
+ForEach ($Upgrade in $UpgradeObject) {
+    Write-Output -InputObject $Upgrade | Format-List -Property *
     Set-Location -Path .\winget-pkgs\Tools
     try {
         If ($Upgrade.YamlCreateParams.AutoUpgrade -eq $true -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
-            Write-Output "YamlCreateParams:`n   AutoUpgrade: true`n   SkipPRCheck: false`n   DeletePreviousVersion: false"
-            .\YamlCreate.ps1 -InputObject $Ugrade -AutoUpgrade
+            .\YamlCreate.ps1 -InputObject $Upgrade -AutoUpgrade
         } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $true -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
-            Write-Output "YamlCreateParams:`n   AutoUpgrade: false`n   SkipPRCheck: true`n   DeletePreviousVersion: false"
-            .\YamlCreate.ps1 -InputObject $Ugrade -Mode 2 -SkipPRCheck
+            .\YamlCreate.ps1 -InputObject $Upgrade -SkipPRCheck
         } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $true) {
-            Write-Output "YamlCreateParams:`n   AutoUpgrade: false`n   SkipPRCheck: false`n   DeletePreviousVersion: true"
-            .\YamlCreate.ps1 -InputObject $Ugrade -Mode 2 -DeletePreviousVersion
+            .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion
         } Else {
-            Write-Output "YamlCreateParams:`n   AutoUpgrade: false`n   SkipPRCheck: false`n   DeletePreviousVersion: false"
-            .\YamlCreate.ps1 -InputObject $Ugrade -Mode 2
+            .\YamlCreate.ps1 -InputObject $Upgrade
         }
     } catch {
-        $ErrorUpgradingPkgs += @("- $($Upgrade.PackageIdentifier) version $($Ugrade.PackageVersion)")
-        Write-Error "Error while updating Package $($Upgrade.PackageIdentifier) version $($Ugrade.PackageVersion)"
+        Write-Error "Error while updating Package $($Upgrade.PackageIdentifier) version $($Upgrade.PackageVersion)"
+        $ErrorUpgradingPkgs += @("- $($Upgrade.PackageIdentifier) version $($Upgrade.PackageVersion) [$($_.Exception.Message)]")
         # Revert the changes in the JSON file so that the package can check for updates in the next run
-        git checkout -- ..\..\..\packages\$($Upgrade.PackageIdentifier.Substring(0,1).ToLower())\$($Upgrade.PackageIdentifier.ToLower()).json
+        Set-Location -Path ..\..\
+        git checkout -- ..\packages\$($Upgrade.PackageIdentifier.Substring(0,1).ToLower())\$($Upgrade.PackageIdentifier.ToLower()).json
+        Set-Location -Path .\winget-pkgs\Tools
     }
     Set-Location -Path ..\..\
 }
