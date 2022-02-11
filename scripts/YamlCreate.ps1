@@ -20,7 +20,7 @@ if (!(Test-Path $script:SettingsPath)) { '# See https://github.com/microsoft/win
 # Load settings from file
 $ScriptSettings = ConvertFrom-Yaml -Yaml ($(Get-Content -Path $script:SettingsPath -Encoding UTF8) -join "`n")
 
-$ScriptHeader = '# Created with YamlCreate.ps1 v2.0.6 using InputObject 🤖'
+$ScriptHeader = '# Created with YamlCreate.ps1 v2.0.7 using InputObject 🤖'
 $ManifestVersion = '1.1.0'
 $PSDefaultParameterValues = @{ '*:Encoding' = 'UTF8' }
 $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
