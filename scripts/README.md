@@ -6,14 +6,20 @@ This folder contains scripts that automate the process of creating and submittin
 
 This script imports the JSON files and check if a new update is available for the package. If yes, it calls [YamlCreate.ps1](./YamlCreate.ps1) to update the manifest for the given package, and submits a pull request on the [winget-pkgs](https://github.com/microsoft/winget-pkgs) repository.
 
-This script is not intended to be used locally and is meant to be run only on the GitHub Actions Runner. Please use [`Get-Update`](./Get-Update.ps1) to check for package updates manually. 
+This script is not intended to be used locally and is meant to be run only on the GitHub Actions Runner. Please use [`New-Package`](./New-Package.ps1) with the `-Test <PackageIdentifier>` arguments to check for package updates manually.
 
-## [Get-Update.ps1](./Get-Update.ps1)
+## [New-Package.ps1](./New-Package.ps1)
 
-You can use this script to check for package updates manually. Also, you can use it to test the JSON files you have created for a package and verify if they are correct. You can run the following command in Windows Terminal:
+You can use this script to create the JSON file for a package that is to be added to the automation. It will prompt for the required information and then will create the JSON file for the package at the path which will be displayed at the end.
 
 ```pwsh
-.\Get-Update.ps1 [-PackageIdentifier] <string>
+.\New-Package.ps1
+```
+
+You can also use it for testing against any package that you have created.
+
+```pwsh
+.\New-Package -Test <PackageIdentifier>
 ```
 
 > Note: You should run this script from the `scripts` directory only.
