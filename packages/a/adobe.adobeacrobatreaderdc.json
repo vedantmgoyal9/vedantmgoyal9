@@ -15,9 +15,17 @@
   "PreviousVersion": "21.011.20039",
   "ManifestFields": {
     "PackageVersion": "$Response",
-    "InstallerUrls": "@('en_US', 'de_DE', 'es_ES', 'fr_FR', 'ja_JP') | ForEach-Object { \"https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/$($Response.Replace('.', ''))/AcroRdrDC$($Response.Replace('.', ''))_$($_).exe\" }"
+    "InstallerUrls": "$Locales | ForEach-Object { \"https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/$($Response.Replace('.', ''))/AcroRdrDC$($Response.Replace('.', ''))_$($_).exe\" }"
   },
-  "AdditionalInfo": {},
+  "AdditionalInfo": {
+    "Locales": [
+      "en_US",
+      "de_DE",
+      "es_ES",
+      "fr_FR",
+      "ja_JP"
+    ]
+  },
   "PostUpgradeScript": "",
   "YamlCreateParams": {
     "SkipPRCheck": false,
