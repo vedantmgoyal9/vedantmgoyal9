@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.guanjia",
   "VersionRegex": "[0-9.]{5,6}",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "7.11.0",
+  "PreviousVersion": "7.12.1",
   "ManifestFields": {
     "PackageVersion": "($Response.url | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response.url"
