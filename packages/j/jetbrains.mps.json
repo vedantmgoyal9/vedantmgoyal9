@@ -12,9 +12,9 @@
   "PostResponseScript": "$Response = $Response.MPS",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "213.6777.846",
+  "PreviousVersion": "MPS-213.6777.846",
   "ManifestFields": {
-    "PackageVersion": "$Response.build",
+    "PackageVersion": "\"MPS-$($Response.build)\"",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")"
   },
   "AdditionalInfo": {},
