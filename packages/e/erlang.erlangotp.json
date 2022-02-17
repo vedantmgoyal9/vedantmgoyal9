@@ -15,9 +15,9 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "OTP-25.0-rc1",
+  "PreviousVersion": "25.0-rc1",
   "ManifestFields": {
-    "PackageVersion": "$Response.tag_name.TrimStart('v')",
+    "PackageVersion": "$Response.tag_name.TrimStart('OTP-')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
     "ReleaseNotesUrl": "$Response.html_url",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
