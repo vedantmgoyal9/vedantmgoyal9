@@ -19,11 +19,12 @@
   "ManifestFields": {
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
     "PackageVersion": "($_Object.InstallerUrls | Select-String -Pattern $VersionRegex).Matches.Value",
-    "ReleaseNotesUrl": "$Response.html_url"
+    "ReleaseNotesUrl": "$Response.html_url",
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "LastReleaseId": 0
+    "PreviousReleaseId": 0
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
