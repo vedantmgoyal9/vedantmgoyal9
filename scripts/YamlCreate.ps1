@@ -12,11 +12,7 @@ Param
 
 # Set settings directory on basis of Operating System
 $script:SettingsPath = Join-Path $(if ([System.Environment]::OSVersion.Platform -match 'Win') { $env:LOCALAPPDATA } else { $env:HOME + '/.config' } ) -ChildPath 'YamlCreate'
-# Check for settings directory and create it if none exists
-if (!(Test-Path $script:SettingsPath)) { New-Item -ItemType 'Directory' -Force -Path $script:SettingsPath | Out-Null }
-# Check for settings file and create it if none exists
 $script:SettingsPath = $(Join-Path $script:SettingsPath -ChildPath 'Settings.yaml')
-if (!(Test-Path $script:SettingsPath)) { '# See https://github.com/microsoft/winget-pkgs/tree/master/doc/tools/YamlCreate.md for a list of available settings' > $script:SettingsPath }
 # Load settings from file
 $ScriptSettings = ConvertFrom-Yaml -Yaml ($(Get-Content -Path $script:SettingsPath -Encoding UTF8) -join "`n")
 
@@ -747,7 +743,7 @@ if ($script:Option -in @('NewLocale'; 'EditMetadata'; 'RemoveManifest')) {
 # If the user selected `QuickUpdateVersion`, the old manifests must exist
 # If the user selected `New`, the old manifest type is specified as none
 if (-not (Test-Path -Path "$AppFolder\..")) {
-    if ($script:Option -in @('QuickUpdateVersion', 'Auto')) { Write-Host -ForegroundColor Red 'This option requires manifest of previous version of the package. If you want to create a new package, please select Option 1.'; exit }
+    Write-Host -ForegroundColor Red 'This option requires manifest of previous version of the package. If you want to create a new package, please select Option 1.'; exit
     $script:OldManifestType = 'None'
 }
 
@@ -1017,6 +1013,10 @@ Switch ($script:Option) {
         Write-LocaleManifest
         Write-InstallerManifest
         Write-VersionManifest
+        # Delete previous manifests if $DeletePreviousVersion is true
+        if ($DeletePreviousVersion) {
+            Remove-ManifestVersion "$AppFolder\..\$LastVersion"
+        }
     }
 
     'Auto' {
@@ -1096,50 +1096,24 @@ Switch ($script:Option) {
     }
 }
 
-if ($script:Option -ne 'RemoveManifest') {
-    # If the user has winget installed, attempt to validate the manifests
-    if (Get-Command 'winget.exe' -ErrorAction SilentlyContinue) { winget validate $AppFolder }
+# If the user has winget installed, attempt to validate the manifests
+winget validate $AppFolder
 
-    # If the user has sandbox enabled, request to test the manifest in the sandbox
-    if (Get-Command 'WindowsSandbox.exe' -ErrorAction SilentlyContinue) {
-        # Check the settings to see if we need to display this menu
-        switch ($ScriptSettings.TestManifestsInSandbox) {
-            'always' { $script:SandboxTest = '0' }
-            'never' { $script:SandboxTest = '1' }
-        }
-        if ($script:SandboxTest -eq '0') {
-            if (Test-Path -Path "$PSScriptRoot\SandboxTest.ps1") {
-                $SandboxScriptPath = (Resolve-Path "$PSScriptRoot\SandboxTest.ps1").Path
-            } else {
-                while ([string]::IsNullOrWhiteSpace($SandboxScriptPath)) {
-                    Write-Host
-                    Write-Host -ForegroundColor 'Green' -Object 'SandboxTest.ps1 not found, input path'
-                    $SandboxScriptPath = Read-Host -Prompt 'SandboxTest.ps1' | TrimString
-                }
-            }
-            & $SandboxScriptPath -Manifest $AppFolder
-        }
-    }
+# Check the settings to see if we need to display this menu
+if ($ScriptSettings.TestManifestsInSandbox -eq 'always') {
+    # --- call Validate-ArpMetadata function ---
 }
 
 # Determine what type of update should be used as the prefix for the PR
-switch -regex ($Option) {
-    'QuickUpdateVersion|Auto' {
-        $AllVersions = (@($script:ExistingVersions) + @($PackageVersion)) | Sort-Object $ToNatural
-        if ($AllVersions.Count -eq '1') { $CommitType = 'New package' }
-        elseif ($script:PackageVersion -in $script:ExistingVersions) { $CommitType = 'Update' }
-        elseif (($AllVersions.IndexOf($PackageVersion) + 1) -eq $AllVersions.Count) { $CommitType = 'New version' }
-        elseif (($AllVersions.IndexOf($PackageVersion) + 1) -ne $AllVersions.Count) { $CommitType = 'Add version' }
-    }
-}
+$AllVersions = (@($script:ExistingVersions) + @($PackageVersion)) | Sort-Object $ToNatural
+if ($AllVersions.Count -eq '1') { $CommitType = 'New package' }
+elseif ($script:PackageVersion -in $script:ExistingVersions) { $CommitType = 'Update' }
+elseif (($AllVersions.IndexOf($PackageVersion) + 1) -eq $AllVersions.Count) { $CommitType = 'New version' }
+elseif (($AllVersions.IndexOf($PackageVersion) + 1) -ne $AllVersions.Count) { $CommitType = 'Add version' }
+
 
 # Change the users git configuration to suppress some git messages
-$_previousConfig = git config --get core.safecrlf
-if ($_previousConfig) {
-    git config --replace core.safecrlf false
-} else {
-    git config --add core.safecrlf false
-}
+git config core.safecrlf false
 
 # Fetch the upstream branch, create a commit onto the detached head, and push it to a new branch
 git fetch upstream master --quiet
@@ -1160,13 +1134,6 @@ if ($LASTEXITCODE -eq '0') {
     gh pr create -f --body "$($PrePrBodyContent + "`n`n#### Auto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation) in workflow run [$($env:GITHUB_RUN_NUMBER)](https://github.com/vedantmgoyal2009/winget-pkgs-automation/actions/runs/$($env:GITHUB_RUN_ID))")"
     git switch master --quiet
     git pull --quiet
-}
-
-# Restore the user's previous git settings to ensure we don't disrupt their normal flow
-if ($_previousConfig) {
-    git config --replace core.safecrlf $_previousConfig
-} else {
-    git config --unset core.safecrlf
 }
 
 # Error levels for the ReturnValue class
