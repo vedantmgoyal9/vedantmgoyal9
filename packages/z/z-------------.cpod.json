@@ -32,5 +32,5 @@
     "AutoUpgrade": false,
     "DeletePreviousVersion": false
   },
-  "SkipPackage": false
+  "SkipPackage": "Automatically marked as stale, not updated for 2.5 years"
 }
