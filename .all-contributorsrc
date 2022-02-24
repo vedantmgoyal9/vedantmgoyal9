@@ -36,33 +36,12 @@
       ]
     },
     {
-      "login": "all-contributors",
-      "name": "All Contributors",
-      "avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "profile": "https://allcontributors.org",
-      "contributions": [
-        "doc"
-      ]
-    },
-    {
       "login": "SpecterShell",
       "name": "SpecterShell",
       "avatar_url": "https://avatars.githubusercontent.com/u/56779163?v=4",
       "profile": "https://github.com/SpecterShell",
       "contributions": [
         "ideas"
-      ]
-    },
-    {
-      "login": "vedantmgoyal2009",
-      "name": "Vedant",
-      "avatar_url": "https://avatars.githubusercontent.com/u/83997633?v=4",
-      "profile": "https://bittu.eu.org",
-      "contributions": [
-        "bug",
-        "code",
-        "ideas",
-        "review"
       ]
     },
     {

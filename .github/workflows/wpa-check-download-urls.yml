@@ -1,0 +1,37 @@
+name: "[WPA] Check Download Urls"
+on:
+  schedule:
+    - cron: '0 0 * * 0,4'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run a multi-line script
+        shell: pwsh
+        run: |
+          $workingDir = Get-Location
+          $ErrorActionPreference = 'Continue'
+          git clone https://github.com/microsoft/winget-pkgs.git
+          Write-Host "Counting Download URLs..."
+          "Counting Download URLs..." | Out-File -Append -FilePath $workingDir/a-myScript.txt
+          $DownUrls = Get-ChildItem .\winget-pkgs\manifests\ -Recurse -File -Filter *.yaml | Get-Content | Select-String 'InstallerUrl' | ForEach-Object { $_.ToString().Trim() -split '\s' | Select-Object -Last 1 } | Select-Object -Unique
+          Write-Host "Total Download Urls`: $($DownUrls.Count)"
+          "Total Download Urls`: $($DownUrls.Count)" | Out-File -Append -FilePath $workingDir/a-myScript.txt
+          Write-Host "Checking Codes for Download URLs..."
+          "Checking Codes for Download URLs..." | Out-File -Append -FilePath $workingDir/a-myScript.txt
+          Foreach ($Url in $DownUrls) {
+            $ResponseCode = curl -s -o /dev/null --max-time 3 -w "%{http_code}" $Url
+            if ($ResponseCode -notin @("302","200","303","301") -or $Url.Contains("http://")) {
+              "$ResponseCode`: $Url" | Out-File -Append -FilePath $workingDir/a-myScript.txt
+            }
+          }
+          Write-Host "Completed!"
+          "Completed!" | Out-File -Append -FilePath $workingDir/a-myScript.txt
+      - name: Save a-myScript.txt
+        uses: actions/upload-artifact@v2
+        with:
+          name: a-myScript
+          path: a-myScript.txt
