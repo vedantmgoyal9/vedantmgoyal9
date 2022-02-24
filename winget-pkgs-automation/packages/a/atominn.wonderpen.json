@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Atominn.WonderPen",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.atominn.com/api/product/check-update/?app=wonderpen",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "2.0.6",
+  "ManifestFields": {
+    "PackageVersion": "$Response.data.version",
+    "InstallerUrls": "(Invoke-WebRequest -Uri 'https://www.atominn.com/to/get-file/wonderpen?key=win-installer' -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString.Split('?')[0].Trim()"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

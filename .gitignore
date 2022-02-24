@@ -1,13 +1,19 @@
+# Java Compiled Classes
+/java_programs/out/
+
+# Temporary Directory
+/temp/
+
 # winget-pkgs repository
-scripts/winget-pkgs/
+winget-pkgs-automation/scripts/winget-pkgs/
 
 # winget install files in runner
-scripts/winget.msixbundle
-scripts/VCLibs.appx
-scripts/license.xml
+winget-pkgs-automation/scripts/winget.msixbundle
+winget-pkgs-automation/scripts/VCLibs.appx
+winget-pkgs-automation/scripts/license.xml
 
 # temporary script for testing something
-scripts/temp.ps1
+winget-pkgs-automation/scripts/temp.ps1
 
 # commitizen setup (package.json, package-lock.json, and node_modules)
 package.json

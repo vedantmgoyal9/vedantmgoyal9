@@ -1,9 +1,9 @@
 add-contributor:
 - '.all-contributorsrc'
-packages:
-- 'packages/**'
-automation:
-- 'scripts/**'
+wpa-packages:
+- 'winget-pkgs-automation/packages/**'
+wpa-automation:
+- 'winget-pkgs-automation/scripts/**'
 - '.github/**'
 documentation:
 - 'README.md'
