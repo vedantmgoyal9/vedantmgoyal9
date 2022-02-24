@@ -17,7 +17,7 @@
   "InstallerRegex": "BraveBrowserStandaloneSilentBetaSetup.exe$",
   "PreviousVersion": "98.1.37.72",
   "ManifestFields": {
-    "PackageVersion": "\"98.\"+$($Response.tag_name.TrimStart(\"v\"))",
+    "PackageVersion": "\"99.\"+$($Response.tag_name.TrimStart(\"v\"))",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }"
   },
   "AdditionalInfo": {},
