@@ -16,6 +16,9 @@ winget-pkgs-automation/scripts/license.xml
 winget-pkgs-automation/scripts/temp.ps1
 
 # commitizen setup (package.json, package-lock.json, and node_modules)
-package.json
-package-lock.json
-node_modules/
+/package.json
+/package-lock.json
+/node_modules/
+
+# winget-releaser node_modules folder
+/winget-releaser/node_modules/
