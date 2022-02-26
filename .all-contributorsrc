@@ -1,12 +1,12 @@
 {
   "files": [
-    "README.md"
+    "docs/docs/contributors.md"
   ],
   "imageSize": 90,
   "commit": true,
   "contributorsPerLine": 7,
   "contributorsSortAlphabetically": true,
-  "projectName": "winget-pkgs-automation",
+  "projectName": "vedantmgoyal2009",
   "projectOwner": "vedantmgoyal2009",
   "repoType": "github",
   "repoHost": "https://github.com",
