@@ -13,10 +13,10 @@ $PesterPreference.CodeCoverage.CoveragePercentTarget = 100
 $PesterPreference.Output.Verbosity = 'Detailed'
 
 BeforeDiscovery {
-    $PackagesFolder = Resolve-Path -Path "$PSScriptRoot\..\packages"
+    $PackagesFolder = Resolve-Path -Path "$PSScriptRoot\packages"
     $Files = Get-ChildItem -Path $PackagesFolder -Recurse -File
-    $JsonSchemaFilePath = Resolve-Path -Path "$PSScriptRoot\..\schema.json"
-    $PackagesTxtFilePath = Resolve-Path -Path "$PSScriptRoot\..\packages.txt"
+    $JsonSchemaFilePath = Resolve-Path -Path "$PSScriptRoot\schema.json"
+    $PackagesTxtFilePath = Resolve-Path -Path "$PSScriptRoot\packages.txt"
 }
 
 Describe 'Packages' {

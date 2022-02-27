@@ -9,7 +9,7 @@ jobs:
     defaults:
       run:
         shell: pwsh
-        working-directory: winget-pkgs-automation/scripts
+        working-directory: winget-pkgs-automation
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2

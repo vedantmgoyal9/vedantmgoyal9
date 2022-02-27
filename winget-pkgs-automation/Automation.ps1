@@ -113,7 +113,7 @@ Function Read-VersionFromInstaller {
 
 $UpgradeObject = @()
 Write-Output 'Checking for updates...'
-ForEach ($Package in $(Get-ChildItem ..\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.SkipPackage -eq $false })) {
+ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.SkipPackage -eq $false })) {
     $_Object = New-Object -TypeName System.Management.Automation.PSObject
     $_Object | Add-Member -MemberType NoteProperty -Name 'PackageIdentifier' -Value $Package.Identifier
     $VersionRegex = $Package.VersionRegex
@@ -146,7 +146,7 @@ ForEach ($Package in $(Get-ChildItem ..\packages\ -Recurse -File | Get-Content -
         # 3600 secs/hr * 24 hr/day * 365 days * 2.5 years = 78840000 seconds
         If (([DateTimeOffset]::Now.ToUnixTimeSeconds() - 78840000) -ge [DateTimeOffset]::new($Response.published_at).ToUnixTimeSeconds()) {
             $Package.SkipPackage = 'Automatically marked as stale, not updated for 2.5 years'
-            ConvertTo-Json -InputObject $Package | Set-Content -Path ..\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
+            ConvertTo-Json -InputObject $Package | Set-Content -Path .\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
         }
     }
     $Package.ManifestFields.PSObject.Properties | ForEach-Object {
@@ -159,7 +159,7 @@ ForEach ($Package in $(Get-ChildItem ..\packages\ -Recurse -File | Get-Content -
         If (-not [System.String]::IsNullOrEmpty($Package.PostUpgradeScript)) {
             $Package.PostUpgradeScript | Invoke-Expression # Run PostUpgradeScript
         }
-        ConvertTo-Json -InputObject $Package | Set-Content -Path ..\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
+        ConvertTo-Json -InputObject $Package | Set-Content -Path .\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
     }
     Remove-Variable -Name UpdateCondition -ErrorAction SilentlyContinue
 }
@@ -185,7 +185,7 @@ ForEach ($Upgrade in $UpgradeObject) {
         $ErrorUpgradingPkgs += @("- $($Upgrade.PackageIdentifier) version $($Upgrade.PackageVersion) [$($_.Exception.Message)]")
         # Revert the changes in the JSON file so that the package can check for updates in the next run
         Set-Location -Path ..\..\
-        git checkout -- ..\packages\$($Upgrade.PackageIdentifier.Substring(0,1).ToLower())\$($Upgrade.PackageIdentifier.ToLower()).json
+        git checkout -- .\packages\$($Upgrade.PackageIdentifier.Substring(0,1).ToLower())\$($Upgrade.PackageIdentifier.ToLower()).json
         Set-Location -Path .\winget-pkgs\Tools
     }
     Set-Location -Path ..\..\
@@ -219,6 +219,6 @@ Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal20
 # Update packages in repository
 Write-Output "`nUpdating packages"
 git pull # to be on a safe side
-git add ..\packages\*
+git add .\packages\*
 git commit -m "build: update packages [$env:GITHUB_RUN_NUMBER]"
 git push https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git
