@@ -115,7 +115,7 @@ Function Test-Package {
 ### START OF THE SCRIPT ###
 
 If ($PSBoundParameters.ContainsKey('Test')) {
-    $Package = Get-Content -Path "$PSScriptRoot\..\packages\$($Test.Substring(0,1).ToLower())\$($Test.ToLower()).json" -Raw -ErrorAction SilentlyContinue | ConvertFrom-Json
+    $Package = Get-Content -Path "$PSScriptRoot\packages\$($Test.Substring(0,1).ToLower())\$($Test.ToLower()).json" -Raw -ErrorAction SilentlyContinue | ConvertFrom-Json
     If ($Null -eq $Package) {
         Write-Error -Message 'No package found with the given identifier.'
         Exit 1
@@ -157,7 +157,7 @@ Write-Output 'Enter PackageIdentifier of the package (Example: JanDeDobbeleer.Oh
 $Package.Identifier = Get-UserInput -Message 'PackageIdentifier'
 Write-Output ''
 
-$PackageJsonPath = "$PSScriptRoot\..\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json"
+$PackageJsonPath = "$PSScriptRoot\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json"
 
 Write-Output 'Is the package a GitHub package? (meaning: the package is hosted on GitHub)'
 Write-Output 'This will set the following properties automatically:'
