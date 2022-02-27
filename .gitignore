@@ -4,21 +4,17 @@
 # Temporary Directory
 /temp/
 
-# winget-pkgs repository
-winget-pkgs-automation/scripts/winget-pkgs/
+# winget-pkgs-automation
+winget-pkgs-automation/temp.ps1
+winget-pkgs-automation/winget-pkgs/
+winget-pkgs-automation/winget.msixbundle
+winget-pkgs-automation/VCLibs.appx
+winget-pkgs-automation/license.xml
 
-# winget install files in runner
-winget-pkgs-automation/scripts/winget.msixbundle
-winget-pkgs-automation/scripts/VCLibs.appx
-winget-pkgs-automation/scripts/license.xml
-
-# temporary script for testing something
-winget-pkgs-automation/scripts/temp.ps1
+# winget-releaser node_modules folder
+/winget-releaser/node_modules/
 
 # commitizen setup (package.json, package-lock.json, and node_modules)
 /package.json
 /package-lock.json
 /node_modules/
-
-# winget-releaser node_modules folder
-/winget-releaser/node_modules/

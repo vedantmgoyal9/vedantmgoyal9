@@ -3,7 +3,6 @@ add-contributor:
 wpa-packages:
 - 'winget-pkgs-automation/packages/**'
 wpa-automation:
-- 'winget-pkgs-automation/scripts/**'
-- '.github/**'
+- 'winget-pkgs-automation/*'
 documentation:
-- 'README.md'
+- 'docs/**'
