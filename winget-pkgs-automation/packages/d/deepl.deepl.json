@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = ($Response | Select-String -Pattern '(?<=\\s).*(?=\\s\\d)').Matches.Value",
   "VersionRegex": "(?<=-)[0-9.]+(?=-)",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "3.2.3939",
+  "PreviousVersion": "3.3.4484",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "($Response -replace ([System.Uri] $Response).Segments[-1], 'DeepLSetup.exe')"

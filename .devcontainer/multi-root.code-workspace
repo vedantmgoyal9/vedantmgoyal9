@@ -26,6 +26,7 @@
 			"tomoki1207.pdf": [
 				"ui"
 			]
-		}
+		},
+		"terminal.integrated.fontFamily": "Liga SFMono Nerd Font"
 	}
 }

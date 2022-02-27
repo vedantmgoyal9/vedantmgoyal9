@@ -41,7 +41,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/56779163?v=4",
       "profile": "https://github.com/SpecterShell",
       "contributions": [
-        "ideas"
+        "ideas",
+        "code"
       ]
     },
     {
@@ -169,6 +170,46 @@
       "contributions": [
         "ideas",
         "bug"
+      ]
+    },
+    {
+      "login": "vedantmgoyal2009",
+      "name": "Begula",
+      "avatar_url": "https://avatars.githubusercontent.com/u/83997633?v=4",
+      "profile": "https://bittu.eu.org",
+      "contributions": [
+        "bug",
+        "code",
+        "ideas",
+        "review"
+      ]
+    },
+    {
+      "login": "marcauberer",
+      "name": "Marc Auberer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/59527509?v=4",
+      "profile": "http://www.marc-auberer.com",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "sitiom",
+      "name": "sitiom",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56180050?v=4",
+      "profile": "https://github.com/sitiom",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "yazninja",
+      "name": "yazninja",
+      "avatar_url": "https://avatars.githubusercontent.com/u/71800112?v=4",
+      "profile": "https://github.com/yazninja",
+      "contributions": [
+        "ideas"
       ]
     }
   ]

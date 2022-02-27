@@ -1,21 +1,23 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "Atominn.WonderPen",
+  "Identifier": "DigiDNA.iMazing",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://www.atominn.com/api/product/check-update/?app=wonderpen",
+    "Uri": "https://downloads.imazing.com/com.DigiDNA.iMazing2Windows.xml",
     "Method": "Get",
     "Headers": {},
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "",
+  "PostResponseScript": "$Response = $Response[0]",
   "VersionRegex": "[0-9.]+",
-  "InstallerRegex": ".exe$",
-  "PreviousVersion": "2.0.6",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "2.14.6",
   "ManifestFields": {
-    "PackageVersion": "$Response.data.version",
-    "InstallerUrls": "(Invoke-WebRequest -Uri 'https://www.atominn.com/to/get-file/wonderpen?key=win-installer' -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString.Split('?')[0].Trim()"
+    "PackageVersion": "$Response.enclosure.version",
+    "InstallerUrls": "$Response.enclosure.url",
+    "ReleaseDate": "(Get-Date -Date $Response.pubDate).ToString('yyyy-MM-dd')",
+    "ReleaseNotesUrl": "$Response.releaseNotesLink"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

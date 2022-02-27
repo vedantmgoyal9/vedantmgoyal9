@@ -12,7 +12,7 @@
   "PostResponseScript": "",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "21.011.20039",
+  "PreviousVersion": "22.001.20085\n",
   "ManifestFields": {
     "PackageVersion": "$Response",
     "InstallerUrls": "$Locales | ForEach-Object { \"https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/$($Response.Replace('.', ''))/AcroRdrDC$($Response.Replace('.', ''))_$($_).exe\" }"
