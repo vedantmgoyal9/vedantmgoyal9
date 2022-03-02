@@ -324,8 +324,8 @@ gjthompson1.glue
 GLab.GLab
 Glecun.soundboard
 Glimpse.Glimpse
+Glodon.CADReader
 Glodon.CADReader.CN
-Glodon.CADReaderInternational
 GnuCash.GnuCash
 goatcorp.XIVLauncher
 Google.Chrome

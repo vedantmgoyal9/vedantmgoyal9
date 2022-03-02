@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "Glodon.CADReaderInternational",
+  "Identifier": "Glodon.CADReader",
   "Update": {
     "InvokeType": "RestMethod",
     "Uri": "https://cadreader.glodon.com/query/update/cadpc?clientVersion=3.4.3.12&cadpcClientBits=32",
