@@ -23,7 +23,7 @@ jobs:
       env:
         JWT_RB: ${{ secrets.JWT_RB }}
         THIS_ID: ${{ secrets.THIS_ID }}
-    - uses: actions/labeler@v3
+    - uses: actions/labeler@v4.0.0
       with:
         repo-token: "${{ env.GITHUB_TOKEN }}"
         configuration-path: '.github/labeler.yml'
