@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.body",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "5.14.5.79",
+  "PreviousVersion": "5.15.1.81",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "$Response.url"
