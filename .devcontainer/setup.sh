@@ -15,6 +15,8 @@ wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-pr
 sudo dpkg -i packages-microsoft-prod.deb # Register the Microsoft repository GPG keys
 sudo apt-get update # Update the list of packages after we added packages.microsoft.com
 sudo apt-get install -y powershell # Install PowerShell
+# Install powershell-yaml module for winget-pkgs-automation
+pwsh -Command "Install-Module -Name powershell-yaml"
 
 # Install homebrew
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
