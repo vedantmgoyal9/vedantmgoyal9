@@ -3,7 +3,7 @@
   "Identifier": "FengHe.Migi",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://focusnote.com.cn/admin/version/listNew",
+    "Uri": "https://migi.kirakuapp.com/admin/version/listNew",
     "Method": "Post",
     "Headers": {},
     "Body": "platform=0&prodNo=1",
