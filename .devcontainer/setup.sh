@@ -4,6 +4,10 @@
 script_folder="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
 workspaces_folder="$(cd "${script_folder}/../.." && pwd)"
 
+# Install latest NodeJS
+curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 # Installing latest poweshell
 sudo apt-get update
 sudo apt-get install -y wget apt-transport-https software-properties-common # Install pre-requisite packages
