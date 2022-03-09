@@ -15,7 +15,7 @@
   "PreviousVersion": "3.6.6.1",
   "ManifestFields": {
     "PackageVersion": "$Response",
-    "InstallerUrls": "@(\"https://appnews.cubejoy.com/app/$($Response)/CubeSetup_v$($Response).exe\", \"https://newsapp.cubejoy.com/app/$($Response)/CubeSetup_HK_TC_v$($Response).exe\")"
+    "InstallerUrls": "@(\"https://download.cubejoy.com/app/$($Response)/CubeSetup_v$($Response).exe\", \"https://download.cubejoy.com/app/$($Response)/CubeSetup_HK_TC_v$($Response).exe\")"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
