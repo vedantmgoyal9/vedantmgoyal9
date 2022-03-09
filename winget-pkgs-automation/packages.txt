@@ -66,7 +66,6 @@ ArtifexSoftware.GhostScript
 AshishBharadwajJ.Flawesome
 AssetKid.Raider
 assnctr.unfx-proxy-checker
-Atominn.WonderPen
 Audacity.Audacity
 AustinLeath.R6RC
 Authpass.Authpass
@@ -919,6 +918,7 @@ timche.gmail-desktop
 titinko.utsu
 Toggl.TogglDesktop
 Toinane.Colorpicker
+TominLab.WonderPen
 TomWatson.BreakTimer
 TonyPottier.ImageView
 Tox.qTox
