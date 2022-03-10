@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = Invoke-RestMethod -Uri \"$($Response.url)/win32/ia32/latest.yml\" | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "2.3.9",
+  "PreviousVersion": "2.4.0",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "\"https://yunpan.aliyun.com/downloads/apps/desktop/aDrive-$($Response.version).exe\""
