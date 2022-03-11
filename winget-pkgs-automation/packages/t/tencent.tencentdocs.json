@@ -15,7 +15,7 @@
   "PreviousVersion": "2.2.34",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "@(\"https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/$($Response.path)\",\"https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/$($Response.path)\",\"https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/$($Response.version)/$($Response.path.Replace($($Response.version),\"$($Response.version).arm64\"))\")",
+    "InstallerUrls": "@(\"https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/$($Response.path)\", \"https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/$($Response.path)\", \"https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/$($Response.version)/$($Response.path.Replace($Response.version,\"$($Response.version).arm64\"))\")",
     "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {},
