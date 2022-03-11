@@ -138,6 +138,7 @@ Chatty.Chatty
 ChiaNetwork.GUIforChiaBlockchain
 ChilliBits.CCom
 ChilliBits.ComposeGenerator
+ChilliBits.Spice
 chrdavis.smartrename
 chrisant996.Clink
 ChrisKlimas.Twine
