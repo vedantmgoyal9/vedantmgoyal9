@@ -7,12 +7,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'vedantmgoyal2009',
-  tagline: 'I am too lazy that I automate everything',
+  tagline: 'All my projects at one place :)',
   url: 'https://bittu.eu.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/open-book_1f4d6.png',
   organizationName: 'vedantmgoyal2009', // Usually your GitHub org/user name.
   projectName: 'vedantmgoyal2009', // Usually your repo name.
 
@@ -44,25 +44,38 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'Docs',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Logo',
+          src: 'img/open-book_1f4d6.png',
         },
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'wpa-intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'winget-pkgs-automation',
+          },
+          {
+            type: 'doc',
+            docId: 'wr-intro',
+            position: 'left',
+            label: 'winget-releaser',
           },
           // disable blog
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/vedantmgoyal2009/vedantmgoyal2009',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/vedantmgoyal2009/vedantmgoyal2009",
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
+            position: "right"
           },
+          {
+            href: "https://twitter.com/",
+            className: 'header-twitter-link',
+            'aria-label': 'Twitter',
+            position: "right"
+          }
         ],
       },
       footer: {
@@ -114,8 +127,41 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['powershell', 'yaml'],
       },
     }),
+
+  plugins: [
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: true,
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: '/img/open-book_1f4d6.png',
+
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json', // your PWA manifest
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: 'rgb(37, 194, 160)',
+          },
+        ],
+      },
+    ],
+  ],
 };
 
 module.exports = config;
