@@ -1,0 +1,33 @@
+{
+  "name": "winget-releaser",
+  "version": "1.0.0",
+  "description": "Publish new releases of your application to Windows Package Manager Community Repository easily.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vedantmgoyal2009/vedantgoyal2009.git"
+  },
+  "keywords": [
+    "winget",
+    "winget-pkgs",
+    "github-actions",
+    "windows",
+    "package-manager"
+  ],
+  "author": "Vedant",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vedantmgoyal2009/vedantgoyal2009/issues"
+  },
+  "homepage": "https://github.com/vedantmgoyal2009/vedantgoyal2009#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/exec": "^1.1.0",
+    "@actions/github": "^5.0.0",
+    "js-yaml": "^4.1.0",
+    "octokit": "^1.7.1"
+  }
+}
