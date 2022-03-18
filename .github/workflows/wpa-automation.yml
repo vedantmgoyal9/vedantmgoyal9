@@ -1,4 +1,4 @@
-name: "[WPA] Automation"
+name: '[WPA] Automation'
 on:
   schedule:
     - cron: '0 * * * *'
@@ -29,7 +29,7 @@ jobs:
             })({ type: "installation" })).token);
           }
           main();' | Out-File -FilePath auth.js
-          
+
           # Install winget and enable local manifests since microsoft/winget-cli#1453 is merged
           Invoke-WebRequest -Uri 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx' -OutFile 'VCLibs.appx'
           Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -OutFile 'winget.msixbundle'

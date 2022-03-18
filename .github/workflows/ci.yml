@@ -135,7 +135,7 @@ jobs:
       - uses: actions/labeler@v4.0.0
         with:
           repo-token: ${{ env.auth-token }}
-          configuration-path: ".github/labeler.yml"
+          configuration-path: '.github/labeler.yml'
           sync-labels: true
   greeting:
     name: Greeting
@@ -149,5 +149,5 @@ jobs:
       - uses: actions/first-interaction@v1
         with:
           repo-token: ${{ env.auth-token }}
-          issue-message: "Hello @${{ github.actor }}, thank you for submitting an issue!"
-          pr-message: "Hello @${{ github.actor }}, thank you submitting a pull request!"
+          issue-message: 'Hello @${{ github.actor }}, thank you for submitting an issue!'
+          pr-message: 'Hello @${{ github.actor }}, thank you submitting a pull request!'
