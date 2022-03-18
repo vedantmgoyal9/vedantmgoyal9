@@ -28,7 +28,8 @@
 		"wakatime.vscode-wakatime",
 		"ask-toolkit.alexa-skills-kit-toolkit",
 		"ms-python.python",
-		"pspester.pester-test"
+		"pspester.pester-test",
+		"esbenp.prettier-vscode"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
