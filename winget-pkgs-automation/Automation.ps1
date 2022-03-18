@@ -11,7 +11,7 @@ $ProgressPreference = 'SilentlyContinue'
 # Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, set settings for YamlCreate.ps1
 git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
 git config --global user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com' # Set git email
-$AuthToken = $((Invoke-RestMethod -Method Post -Headers @{Authorization = "Bearer $($env:JWT_RB | ruby.exe)"; Accept = 'application/vnd.github.v3+json' } -Uri "https://api.github.com/app/installations/$env:THIS_ID/access_tokens").token)
+$AuthToken = $(node auth.js) # Get bot token from auth.js which was initialized in the workflow
 git clone https://x-access-token:$($AuthToken)@github.com/microsoft/winget-pkgs.git --quiet # Clones the repository silently
 Set-Location -Path .\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
