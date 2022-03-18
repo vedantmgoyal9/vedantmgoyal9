@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.win.install",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "6.3.25-Release.3019101",
+  "PreviousVersion": "6.3.35-Release.3179104",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "$Response.url"
