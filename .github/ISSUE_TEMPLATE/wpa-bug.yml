@@ -1,6 +1,6 @@
-name: "[WPA] Bug Report"
+name: '[WPA] Bug Report'
 description: File a bug report
-title: "[Bug]: "
+title: '[Bug]: '
 labels: [wpa-bug, help wanted]
 assignees: vedantmgoyal2009
 body:
@@ -13,8 +13,8 @@ body:
       label: Is there an existing issue for this?
       description: Please search to see if an issue already exists for the bug you noticed.
       options:
-      - label: I have searched the existing issues
-        required: true
+        - label: I have searched the existing issues
+          required: true
   - type: textarea
     attributes:
       label: What happened?

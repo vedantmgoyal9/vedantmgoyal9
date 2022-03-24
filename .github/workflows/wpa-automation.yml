@@ -1,4 +1,4 @@
-name: "[WPA] Automation"
+name: '[WPA] Automation'
 on:
   schedule:
     - cron: '0 * * * *'
