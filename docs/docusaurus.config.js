@@ -43,6 +43,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId: 'LUFRSGDNDX',
+        apiKey: '52597ca39b33c51291cfa9da168c0d7a',
+        indexName: 'bittu',
+        contextualSearch: true,
+      },
       navbar: {
         title: 'Docs',
         logo: {
