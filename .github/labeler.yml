@@ -1,8 +1,8 @@
 add-contributor:
-- '.all-contributorsrc'
+  - '.all-contributorsrc'
 wpa-packages:
-- 'winget-pkgs-automation/packages/**'
+  - 'winget-pkgs-automation/packages/**'
 wpa-automation:
-- 'winget-pkgs-automation/*'
+  - 'winget-pkgs-automation/*'
 documentation:
-- 'docs/**'
+  - 'docs/**'

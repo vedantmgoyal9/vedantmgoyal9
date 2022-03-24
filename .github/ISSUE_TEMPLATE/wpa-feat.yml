@@ -1,6 +1,6 @@
-name: "[WPA] Feature Request"
+name: '[WPA] Feature Request'
 description: Request a new feature
-title: "[Feature/Idea]: "
+title: '[Feature/Idea]: '
 labels: [wpa-feat]
 assignees: vedantmgoyal2009
 body:
