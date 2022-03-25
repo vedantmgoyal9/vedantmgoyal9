@@ -148,8 +148,14 @@
     },
     "SkipPackage": {
       "$id": "#/properties/SkipPackage",
-      "enum": [true, false],
-      "type": "boolean"
+      "enum": [
+        false,
+        "Automatically marked as stale, not updated for 2.5 years",
+        "Package is no longer maintained",
+        "Published by the developer itself",
+        "Waiting for WinGet's Dependency or Interactive-Only installers support"
+      ],
+      "type": ["boolean","string"]
     }
   },
   "additionalProperties": false

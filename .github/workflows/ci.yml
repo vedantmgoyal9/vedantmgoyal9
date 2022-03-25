@@ -72,7 +72,7 @@ jobs:
           git config --local user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com'
           git commit -m "chore(wpa): update packages.txt" -- ./packages.txt
           git push https://x-access-token:${{ steps.auth.outputs.auth-token }}@github.com/vedantmgoyal2009/vedantmgoyal2009.git
-      - uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@v3
         with:
           name: winget-pkgs-automation-codecov
           directory: ./

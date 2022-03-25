@@ -14,7 +14,8 @@ winget-pkgs-automation/license.xml
 # winget-releaser node_modules folder
 /winget-releaser/node_modules/
 
-# commitizen setup (package.json, package-lock.json, and node_modules)
-/package.json
-/package-lock.json
+# node_modules directory
 /node_modules/
+
+# package-lock.json since it has to be updated frequently
+/package-lock.json
