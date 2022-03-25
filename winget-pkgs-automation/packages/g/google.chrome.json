@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.versions | Where-Object { $_.os -eq 'win' -and $_.channel -eq 'stable' }",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "99.0.4844.82",
+  "PreviousVersion": "99.0.4844.84",
   "ManifestFields": {
     "PackageVersion": "$Response.current_version",
     "InstallerUrls": "@('https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi', 'https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi')"
