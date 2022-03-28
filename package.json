@@ -1,0 +1,51 @@
+{
+    "name": "vedantmgoyal2009",
+    "version": "1.0.0",
+    "description": "All my projects at one place :)",
+    "main": " ",
+    "directories": {
+        "doc": "docs"
+    },
+    "workspaces": [
+        "winget-releaser",
+        "docs",
+        "docs/functions"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vedantmgoyal2009/vedantmgoyal2009.git"
+    },
+    "keywords": [
+        "java",
+        "firebase",
+        "automation",
+        "powershell",
+        "hacktoberfest",
+        "winget-github-actions",
+        "winget-pkgs"
+    ],
+    "author": "Vedant",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues"
+    },
+    "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
+    "devDependencies": {
+        "cz-conventional-changelog": "^3.3.0",
+        "prettier": "^2.6.0"
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 2,
+        "semi": false,
+        "singleQuote": true
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
+}
