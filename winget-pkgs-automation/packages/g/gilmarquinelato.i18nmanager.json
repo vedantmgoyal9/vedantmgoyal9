@@ -32,5 +32,5 @@
     "AutoUpgrade": false,
     "DeletePreviousVersion": false
   },
-  "SkipPackage": "Repository is archived"
+  "SkipPackage": "Package is no longer maintained"
 }
