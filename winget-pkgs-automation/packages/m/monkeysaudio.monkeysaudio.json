@@ -24,7 +24,7 @@
   "YamlCreateParams": {
     "SkipPRCheck": false,
     "AutoUpgrade": false,
-    "DeletePreviousVersion": true
+    "DeletePreviousVersion": false
   },
   "SkipPackage": false
 }
