@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.windows.download_url",
   "VersionRegex": "(?<=\\.)[0-9.]+(?=\\.)",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "7.5.0.2",
+  "PreviousVersion": "7.5.0.3",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "\"https:$($Response)\""
