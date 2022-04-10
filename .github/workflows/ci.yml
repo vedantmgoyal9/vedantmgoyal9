@@ -57,21 +57,28 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: ./.github/authentication
+      - name: Authenticate GitHub Bot
+        run: |
+          npm install @octokit/auth-app
+          echo 'async function main() {
+            console.log((await require("@octokit/auth-app").createAppAuth({
+              appId: ${{ secrets.BT_AP_ID}},
+              privateKey: "${{ secrets.BT_AP_PKY }}",
+              clientId: "${{ secrets.BT_CLNT_ID }}",
+              clientSecret: "${{ secrets.BT_CLNT_SCRT }}",
+              installationId: ${{ secrets.BT_INST_ID }},
+            })({ type: "installation" })).token);
+          }
+          main();' > auth.js
+          echo "::set-output name=token::$(node auth.js)"
         id: auth
-        with:
-          app-id: ${{ secrets.BT_AP_ID}}
-          private-key: ${{ secrets.BT_AP_PKY }}
-          client-id: ${{ secrets.BT_CLNT_ID }}
-          client-secret: ${{ secrets.BT_CLNT_SCRT }}
-          installation-id: ${{ secrets.BT_INST_ID }}
       - name: Run Pester Checks
         run: |
           Invoke-Pester -Output Detailed
           git config --local user.name 'winget-pkgs-automation-bot[bot]'
           git config --local user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com'
           git commit -m "chore(wpa): update packages.txt" -- ./packages.txt
-          git push https://x-access-token:${{ steps.auth.outputs.auth-token }}@github.com/vedantmgoyal2009/vedantmgoyal2009.git
+          git push https://x-access-token:${{ steps.auth.outputs.token }}@github.com/vedantmgoyal2009/vedantmgoyal2009.git
       - uses: codecov/codecov-action@v3
         with:
           name: winget-pkgs-automation-codecov
@@ -118,17 +125,24 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: vedantmgoyal2009/vedantmgoyal2009/.github/authentication@main
+      - name: Authenticate GitHub Bot
+        run: |
+          npm install @octokit/auth-app
+          echo 'async function main() {
+            console.log((await require("@octokit/auth-app").createAppAuth({
+              appId: ${{ secrets.BT_AP_ID}},
+              privateKey: "${{ secrets.BT_AP_PKY }}",
+              clientId: "${{ secrets.BT_CLNT_ID }}",
+              clientSecret: "${{ secrets.BT_CLNT_SCRT }}",
+              installationId: ${{ secrets.BT_INST_ID }},
+            })({ type: "installation" })).token);
+          }
+          main();' > auth.js
+          echo "::set-output name=auth-token::$(node auth.js)"
         id: auth
-        with:
-          app-id: ${{ secrets.BT_AP_ID}}
-          private-key: ${{ secrets.BT_AP_PKY }}
-          client-id: ${{ secrets.BT_CLNT_ID }}
-          client-secret: ${{ secrets.BT_CLNT_SCRT }}
-          installation-id: ${{ secrets.BT_INST_ID }}
       - uses: actions/labeler@v4.0.0
         with:
-          repo-token: ${{ steps.auth.outputs.auth-token }}
+          repo-token: ${{ steps.auth.outputs.token }}
           configuration-path: '.github/labeler.yml'
           sync-labels: true
   greeting:
@@ -139,16 +153,23 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - uses: vedantmgoyal2009/vedantmgoyal2009/.github/authentication@main
-        id: auth
-        with:
-          app-id: ${{ secrets.BT_AP_ID}}
-          private-key: ${{ secrets.BT_AP_PKY }}
-          client-id: ${{ secrets.BT_CLNT_ID }}
-          client-secret: ${{ secrets.BT_CLNT_SCRT }}
-          installation-id: ${{ secrets.BT_INST_ID }}
+      - name: Authenticate GitHub Bot
+        run: |
+          npm install @octokit/auth-app
+          echo 'async function main() {
+            console.log((await require("@octokit/auth-app").createAppAuth({
+              appId: ${{ secrets.BT_AP_ID}},
+              privateKey: "${{ secrets.BT_AP_PKY }}",
+              clientId: "${{ secrets.BT_CLNT_ID }}",
+              clientSecret: "${{ secrets.BT_CLNT_SCRT }}",
+              installationId: ${{ secrets.BT_INST_ID }},
+            })({ type: "installation" })).token);
+          }
+          main();' > auth.js
+          echo "::set-output name=auth-token::$(node auth.js)"
+        id: auth      
       - uses: actions/first-interaction@v1
         with:
-          repo-token: ${{ steps.auth.outputs.auth-token }}
+          repo-token: ${{ steps.auth.outputs.token }}
           issue-message: 'Hello @${{ github.actor }}, thank you for submitting an issue!'
           pr-message: 'Hello @${{ github.actor }}, thank you submitting a pull request!'
