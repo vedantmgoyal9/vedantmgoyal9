@@ -25,12 +25,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - run: npm install @commitlint/config-conventional
-      - name: Commitlint (push)
-        if: github.event_name == 'push'
-        run: git log -1 --pretty=format:"%s" | npx commitlint --verbose
-      - name: Commitlint (pull request)
-        if: github.event_name == 'pull_request'
-        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
       - name: Get commit information
         if: github.event_name == 'push' || github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
         run: |
@@ -42,6 +36,12 @@ jobs:
             echo "::set-output name=wr-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- winget-releaser && echo false || echo true)"
           fi
         id: commit-info
+      - name: Commitlint (push)
+        if: github.event_name == 'push'
+        run: git log -1 --pretty=format:"%s" | npx commitlint --verbose
+      - name: Commitlint (pull request)
+        if: github.event_name == 'pull_request'
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
   winget-pkgs-automation:
     name: WinGet Automation (build)
     needs: get-commit
@@ -74,7 +74,16 @@ jobs:
         id: auth
       - name: Run Pester Checks
         run: |
-          Invoke-Pester -Output Detailed
+          $container = New-PesterContainer -Path $PSScriptRoot
+          $PesterPreference = [PesterConfiguration]::Default
+          $PesterPreference.Run.Container = $container
+          $PesterPreference.Run.Path = '.\test'
+          $PesterPreference.CodeCoverage.Enabled = $true
+          $PesterPreference.CodeCoverage.OutputFormat = 'JaCoCo'
+          $PesterPreference.CodeCoverage.CoveragePercentTarget = 100
+          $PesterPreference.Output.Verbosity = 'Detailed'
+
+          Invoke-Pester -Configuration $PesterPreference
           git config --local user.name 'winget-pkgs-automation-bot[bot]'
           git config --local user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com'
           git commit -m "chore(wpa): update packages.txt" -- ./packages.txt
@@ -167,7 +176,7 @@ jobs:
           }
           main();' > auth.js
           echo "::set-output name=auth-token::$(node auth.js)"
-        id: auth      
+        id: auth
       - uses: actions/first-interaction@v1
         with:
           repo-token: ${{ steps.auth.outputs.token }}
