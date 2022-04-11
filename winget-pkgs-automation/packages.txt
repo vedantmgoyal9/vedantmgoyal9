@@ -712,7 +712,6 @@ PawelPsztyc.AdvancedRestClient
 PDFArranger.PDFArranger
 PDFsam.PDFsam
 Peppy.Osu!
-PeterDaveHello.TransmissionRemoteGUI
 PhilipGerke.Odassey
 PicGo.PicGo
 PicoTorrent.PicoTorrent
