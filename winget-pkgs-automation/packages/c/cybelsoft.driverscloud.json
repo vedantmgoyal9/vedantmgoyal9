@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Cybelsoft.DriversCloud",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://www.driverscloud.com/plugins",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.Links.HREF | Where-Object { $_.StartsWith($StartStr) -and $_.EndsWith($EndStr) } | Sort-Object ($ToNatural | Invoke-Expression) | Select-Object -Last 1",
+  "VersionRegex": "(?<=_)[0-9_]+(?=\\.)",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value.Replace('_','.')",
+    "InstallerUrls": "@(\"$UriPrefix$Response\", \"$UriPrefix$($Response.Replace('x64',''))\")"
+  },
+  "AdditionalInfo": {
+    "UriPrefix": "https://www.driverscloud.com",
+    "ToNatural": "{ [System.Text.RegularExpressions.Regex]::Replace($_, '\\d+', { $args[0].Value.PadLeft(20) }) }",
+    "StartStr": "/plugins/DriversCloudx64",
+    "EndStr": "exe"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
