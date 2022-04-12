@@ -192,6 +192,7 @@ CThingSoftware.Meazure
 Cube.CubePlatform
 cuiocean.zyplayer
 da2x.EdgeDeflector
+dail8859.NotepadNext
 daltonmenezes.electron-screen-recorder
 dangeredwolf.ModernDeck
 DarkfullDante.srtAlign
