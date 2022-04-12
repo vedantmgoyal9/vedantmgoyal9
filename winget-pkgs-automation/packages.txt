@@ -62,6 +62,7 @@ androidWG.Corkscrew
 angryziber.AngryIPScanner
 Anki.Anki
 AnthonyBeaumont.AchievementWatcher
+AntoineAflalo.SoundSwitch
 antonreshetov.massCode
 Appest.Dida
 Appest.TickTick
@@ -74,6 +75,7 @@ AshishBharadwajJ.Flawesome
 AssetKid.Raider
 AtomixProductions.VirtualDJ
 Audacity.Audacity
+Authpass.Authpass
 Automattic.Simplenote
 Automattic.Wordpress
 AutonomousSoftware.MetronomeWallet
@@ -191,6 +193,7 @@ Cryptomator.Cryptomator
 CThingSoftware.Meazure
 Cube.CubePlatform
 cuiocean.zyplayer
+Cybelsoft.DriversCloud
 da2x.EdgeDeflector
 dail8859.NotepadNext
 daltonmenezes.electron-screen-recorder
@@ -328,6 +331,7 @@ Ghostgum.GSview
 gileli121.windowtop
 Gimanh.handscream
 GiorgioTani.PeaZip
+Git.Git
 GitAhead.GitAhead
 GitExtensionsTeam.GitExtensions
 GitHub.Atom
@@ -349,6 +353,7 @@ Google.Chrome.Beta
 Google.Chrome.Canary
 Google.Chrome.Dev
 Google.IAPDesktop
+Google.JapaneseIME
 GorillaDevs.GDLauncher
 Gramps.Gramps
 Greenshot.Greenshot
@@ -479,6 +484,7 @@ KDE.Kate
 KDE.KDEConnect
 KDE.kdevelop
 KDE.kile
+KDE.Okular
 KDE.umbrello
 Kebler.Kebler
 KeePassXCTeam.KeePassXC
@@ -593,9 +599,16 @@ Microsoft.Ironpython2
 Microsoft.Ironpython3
 Microsoft.MsGraphCLI
 Microsoft.MSIXCore
+Microsoft.OneDrive
+Microsoft.OneDrive.Enterprise
+Microsoft.OneDrive.Insiders
+Microsoft.OneDrive.Internal.Fast
+Microsoft.OneDrive.Internal.Slow
 Microsoft.PowerShell
 Microsoft.PowerShell.Preview
 Microsoft.PowerToys
+Microsoft.Teams
+Microsoft.Teams.Preview
 Microsoft.vott
 Microsoft.WindowsTerminal
 Microsoft.WindowsTerminal.Preview
@@ -867,6 +880,7 @@ stnkl.EverythingToolbar
 StrawberryMusicPlayer.Strawberry
 Stream-Pi.Client
 Stream-Pi.Server
+Streamlabs.StreamlabsOBS
 Streamlink.Streamlink
 Streamlink.Streamlink.TwitchGui
 Stretchly.Stretchly
@@ -875,6 +889,7 @@ stromcon.emusak
 subhra74.XtremeDownloadManager
 sufone.qawl
 sum1re.COCR
+SumatraPDF.SumatraPDF
 sunzongzheng.music
 SuperCollider.SuperCollider
 supertiger1234.nertivia
@@ -891,6 +906,7 @@ syvaidya.openstego
 szTheory.exifcleaner
 t1m0thyj.WinDynamicDesktop
 tagspaces.tagspaces
+tailscale.tailscale
 Taisei.Taisei
 TaiStudio.Sofia
 Taozuhong.Kangaroo
@@ -934,6 +950,7 @@ tibbo.ioninja
 Tiled.Tiled
 Timber1900.WebDL
 timche.gmail-desktop
+TimKosse.FileZilla.Client
 titinko.utsu
 Toggl.TogglDesktop
 Toinane.Colorpicker
@@ -971,6 +988,8 @@ VeyonSolutions.Veyon
 ViGEm.ViGEmBus
 vim.vim
 VividDesigns.WifiMouseServer
+VMware.WorkstationPlayer
+VMware.WorkstationPro
 VolkerFischer.Jamulus
 Volta.Volta
 VoyagerX.Vrew
