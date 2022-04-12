@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.Links.HREF | Where-Object { $_.StartsWith($StartStr) -and $_.EndsWith($EndStr) } | Sort-Object ($ToNatural | Invoke-Expression) | Select-Object -Last 1",
   "VersionRegex": "(?<=_)[0-9_]+(?=\\.)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "",
+  "PreviousVersion": "11.1.2.0",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value.Replace('_','.')",
     "InstallerUrls": "@(\"$UriPrefix$Response\", \"$UriPrefix$($Response.Replace('x64',''))\")"
