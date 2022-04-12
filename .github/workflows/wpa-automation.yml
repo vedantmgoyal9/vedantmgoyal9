@@ -15,6 +15,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
+      - name: Clone microsoft/winget-pkgs
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          repository: microsoft/winget-pkgs
+          path: winget-pkgs-automation/winget-pkgs
       - name: Install dependencies
         run: |
           # Initialize auth.js which will be used by the script to get bot token
@@ -50,6 +56,6 @@ jobs:
           Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
           Write-Output "Successfully installed powershell-yaml."
       - name: Run automation script
-        run: .\Automation.ps1
+        run: .\src\Automation.ps1
         env:
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}

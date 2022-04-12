@@ -8,15 +8,14 @@
 $ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
 
-# Clone microsoft/winget-pkgs repository, copy YamlCreate.ps1 to the Tools folder, set settings for YamlCreate.ps1
+# Copy YamlCreate.ps1 to the Tools folder, set settings for YamlCreate.ps1
 git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
 git config --global user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com' # Set git email
 $AuthToken = $(node auth.js) # Get bot token from auth.js which was initialized in the workflow
-git clone https://x-access-token:$($AuthToken)@github.com/microsoft/winget-pkgs.git --quiet # Clones the repository silently
 Set-Location -Path .\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
 git remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
-Copy-Item -Path ..\..\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+Copy-Item -Path ..\..\src\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
 Set-Location -Path ..\..\ # Go back to previous working directory
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
@@ -28,7 +27,7 @@ ContinueWithExistingPRs: never
 SuppressQuickUpdateWarning: true
 EnableDeveloperOptions: true
 '@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
-Write-Output 'Cloned repository, copied YamlCreate.ps1 to Tools directory, and set YamlCreate settings.'
+Write-Output 'Copied YamlCreate.ps1 to Tools directory, and set YamlCreate settings.'
 
 Function Read-VersionFromInstaller {
     [OutputType([System.String])]
