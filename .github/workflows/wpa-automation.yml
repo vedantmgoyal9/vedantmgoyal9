@@ -1,7 +1,8 @@
 name: '[WPA] Automation'
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '00 0-21/3 * * *'
+    - cron: '30 1-22/3 * * *'
   workflow_dispatch:
 jobs:
   build:
