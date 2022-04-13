@@ -677,7 +677,6 @@ nvisionative.nvQuickSite
 NxShellTeam.NxShell
 nzbget.nzbget
 Obsidian.Obsidian
-OBSProject.obs-amd-encoder
 OBSProject.OBSStudio
 OBSProject.OBSStudio.Pre-release
 OctopusDeploy.Server
