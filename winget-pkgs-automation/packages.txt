@@ -35,6 +35,7 @@ AivarAnnamaa.Thonny
 Alacritty.Alacritty
 alagrede.znote
 AlekseyHoffman.Sigma-File-Manager
+alesimula.wsa_pacman
 AlexanderPershin.lsdeer
 AlexandrSubbotin.Cerebro
 alexkim205.g-desktop-suite
@@ -57,6 +58,7 @@ amitmerchant1990.electron-markdownify
 Anaconda.Anaconda3
 Andersama.obs-asio
 AndreasWascher.RepoZ
+AndresMorelos.Invoncify
 andrewbrey.flot
 androidWG.Corkscrew
 angryziber.AngryIPScanner
@@ -167,6 +169,7 @@ CLechasseur.PathCopyCopy
 Clement.bottom
 Clementine.Clementine
 ClickUp.ClickUp
+Cloudflare.cloudflared
 clouDr-f2e.rubick
 clsid2.mpc-hc
 ClusterM.hakchi2
@@ -244,6 +247,7 @@ DrewNaylor.guinget
 DrewNaylor.UXL-Launcher
 dscalzi.HeliosLauncher
 dsheiko.puppetry
+Dummerle.Rare
 DuongDieuPhap.ImageGlass
 DupeGuru.DupeGuru
 Duplicati.Duplicati
@@ -380,6 +384,7 @@ HenriWahl.Nagstamon
 Henry++.ErrorLookup
 Henry++.simplewall
 HeroicGamesLauncher.HeroicGamesLauncher
+Hibbiki.Chromium
 HiroshiFuu.onecopy
 HiroSystems.Clarinet
 hisschemoller.music-pattern-generator
@@ -526,6 +531,7 @@ LibreCAD.LibreCAD
 LibrevaultTeam.Librevault
 lightspark.lightspark
 LightyearVPN.LightyearVPN
+LinuxSuRen.HTTPdownloader
 LinwoodCloud.Butterfly
 LiskFoundation.LiskHub
 listen1.listen1
@@ -860,6 +866,7 @@ spikecodes.peacock
 Splawik.pytigon
 splode.pomotroid
 spluxx.Protoman
+sprout2000.LeafView
 Spyder.Spyder
 sqlectron.sqlectron-gui
 SSBC.Patchwork
@@ -1003,7 +1010,9 @@ wandersick.EnglishizeCmd
 wangyu.BilibiliVideoDownload
 Warzone2100Project.Warzone2100
 Wasmer.Wasmer
+Waterfox.Waterfox
 WeakAuras.WeakAurasCompanion
+webberg.civet
 webrecorder.replayweb-page
 WebTorrent.Desktop
 WeMod.WeMod
