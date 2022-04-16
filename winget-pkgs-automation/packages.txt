@@ -176,7 +176,6 @@ ClusterM.hakchi2
 CNRISTI.MeshLab
 Cockatrice.Cockatrice
 code52.Carnac
-CodeF0x.violin
 commercialhaskell.stack
 CondaForge.Miniforge3
 CongusBongus.CDogsSDL
