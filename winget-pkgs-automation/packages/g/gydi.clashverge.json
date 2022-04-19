@@ -23,7 +23,7 @@
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
-    "PreRelease": true,
+    "PreRelease": false,
     "PreviousReleaseId": 63778807
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
