@@ -88,6 +88,7 @@ azure06.clips
 B3log.SiYuan
 Badlion.BadlionClient
 Baidu.BaiduNetdisk
+Baidu.BaiduSIMeeting
 Baidu.BaiduTranslate
 Baidu.BaiduWenku
 Baidu.SwanIDE
