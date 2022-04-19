@@ -3,25 +3,23 @@
   "Identifier": "Cybelsoft.DriversCloud",
   "Update": {
     "InvokeType": "WebRequest",
-    "Uri": "https://www.driverscloud.com/plugins",
+    "Uri": "https://www.driverscloud.com/en/my-drivers",
     "Method": "Get",
     "Headers": {},
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response = $Response.Links.HREF | Where-Object { $_.StartsWith($StartStr) -and $_.EndsWith($EndStr) } | Sort-Object ($ToNatural | Invoke-Expression) | Select-Object -Last 1",
-  "VersionRegex": "(?<=_)[0-9_]+(?=\\.)",
+  "PostResponseScript": "$Response = ($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+  "VersionRegex": "(?<=version:.*)[0-9.]+(?=<\/div>)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "11.1.2.0",
   "ManifestFields": {
-    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value.Replace('_','.')",
-    "InstallerUrls": "@(\"$UriPrefix$Response\", \"$UriPrefix$($Response.Replace('x64',''))\")"
+    "PackageVersion": "$Response",
+    "InstallerUrls": "@($x64_Uri.Replace('#version', $Response.Replace('.','_')), $x86_Uri.Replace('#version', $Response.Replace('.','_')))"
   },
   "AdditionalInfo": {
-    "UriPrefix": "https://www.driverscloud.com",
-    "ToNatural": "{ [System.Text.RegularExpressions.Regex]::Replace($_, '\\d+', { $args[0].Value.PadLeft(20) }) }",
-    "StartStr": "/plugins/DriversCloudx64",
-    "EndStr": "exe"
+    "x64_Uri": "https://mcdrivers.driverscloud.com/applis/DriversCloudx64_#version.exe",
+    "x86_Uri": "https://mcdrivers.driverscloud.com/applis/DriversCloud_#version.exe"
   },
   "PostUpgradeScript": "",
   "YamlCreateParams": {
