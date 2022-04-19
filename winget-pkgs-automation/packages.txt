@@ -474,6 +474,7 @@ Joplin.Joplin.Pre-release
 JSFoundation.Appium
 jurplel.qView
 k6.k6
+KaiHeiLa.KaiHeiLa
 KaiKramer.KeyStoreExplorer
 Kaitai.StructCompiler
 kapitainsky.RcloneBrowser
