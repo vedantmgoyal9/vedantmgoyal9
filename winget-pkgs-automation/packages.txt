@@ -928,6 +928,7 @@ Telegram.TelegramDesktop
 Telegram.TelegramDesktop.Beta
 Telerik.Fiddler.Everywhere
 Telerik.Fiddler.Everywhere.Insiders
+Tencent.ArtHub
 Tencent.COSBrowser
 Tencent.EDU
 Tencent.EDULite
