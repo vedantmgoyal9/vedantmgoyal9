@@ -149,6 +149,7 @@ Caprine.Caprine
 CCTV.CBox
 Celestia.Celestia
 CertifyTheWeb.CertifySSLManager
+chanplecai.smarttaskbar
 Chatty.Chatty
 ChiaNetwork.GUIforChiaBlockchain
 ChilliBits.CCom
@@ -328,6 +329,7 @@ GDevelop.GDevelop
 Geany.Geany
 GeekCorner.threema
 GenericMappingTools.gmt
+Gephi.Gephi
 gerardog.gsudo
 getgridea.gridea
 Ghostgum.GSview
