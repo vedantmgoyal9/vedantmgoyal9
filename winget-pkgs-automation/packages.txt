@@ -409,6 +409,8 @@ IPFS.IPFS-Desktop
 IRCCloud.IRCCloud
 isaaclevin.presencelight
 IsaqueS.AventurasDeQuintal
+Iterate.Cyberduck
+Iterate.MountainDuck
 JabRef.JabRef
 Jackett.Jackett
 JackHumphries.Socially
