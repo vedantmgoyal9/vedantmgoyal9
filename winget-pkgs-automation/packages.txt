@@ -107,6 +107,7 @@ BetterCrewLink.BetterCrewLink
 BiglySoftware.BiglyBT
 Bilibili.Livehime
 Bililive.BililiveRecorder
+Billfish.Billfish
 BinanceTech.Binance
 Biscuit.Biscuit
 Bisq.Bisq
