@@ -946,6 +946,7 @@ Tencent.QiDian
 Tencent.QQMusic
 Tencent.START
 Tencent.TencentDocs
+Tencent.TencentMeeting
 Tencent.VooVMeeting
 Tencent.Weiyun
 Tenpi.Waifu2xGUI
