@@ -7,6 +7,7 @@
 3ll3d00d.beqdesigner
 3T.Robo3T
 4gray.iptvnator
+64Gram.64Gram
 7room.Aya
 AbdelrahmanBayoumi.Azkar
 Abyss.AbyssOverlay
@@ -66,6 +67,7 @@ Anki.Anki
 AnthonyBeaumont.AchievementWatcher
 AntoineAflalo.SoundSwitch
 antonreshetov.massCode
+AppbyTroye.KoodoReader
 Appest.Dida
 Appest.TickTick
 ArcadeRenegade.SidebarDiagnostics
