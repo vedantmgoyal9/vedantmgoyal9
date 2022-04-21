@@ -294,7 +294,6 @@ Esteem.Esteem
 Ethereum.grid
 EtternaProject.EtternaGame
 Eugeny.Tabby
-EvanCzaplicki.Elm
 evsar3.sshfs-win-manager
 ExpressLRS.ExpressLRS-Configurator
 Fabio286.antares
