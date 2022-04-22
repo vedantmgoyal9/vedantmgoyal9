@@ -4,18 +4,9 @@
 # Temporary Directory
 /temp/
 
-# winget-pkgs-automation
-winget-pkgs-automation/temp.ps1
-winget-pkgs-automation/winget-pkgs/
-winget-pkgs-automation/winget.msixbundle
-winget-pkgs-automation/VCLibs.appx
-winget-pkgs-automation/license.xml
-
-# winget-releaser node_modules folder
-/winget-releaser/node_modules/
-
 # node_modules directory
 /node_modules/
 
-# package-lock.json since it has to be updated frequently
-/package-lock.json
+# winget-pkgs-automation
+winget-pkgs-automation/temp.ps1
+winget-pkgs-automation/winget-pkgs/
