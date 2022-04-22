@@ -25,8 +25,14 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - run: npm install @commitlint/config-conventional
+      - name: Commitlint (push)
+        if: github.event_name == 'push'
+        run: git log -1 --pretty=format:"%s" | npx commitlint --verbose
+      - name: Commitlint (pull request)
+        if: github.event_name == 'pull_request'
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
       - name: Get commit information
-        if: github.event_name == 'push' || github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
+        if: github.event_name == 'push' || github.event_name == 'pull_request' || github.event_name == 'pull_request_target' && ${{ success() || failure() }}
         run: |
           if [ '${{ github.event_name }}' == 'push' ]; then
             echo "::set-output name=wpa-modified::$(git diff --quiet HEAD HEAD~1 -- winget-pkgs-automation && echo false || echo true)"
@@ -36,12 +42,6 @@ jobs:
             # echo "::set-output name=wr-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- winget-releaser && echo false || echo true)"
           fi
         id: commit-info
-      - name: Commitlint (push)
-        if: github.event_name == 'push'
-        run: git log -1 --pretty=format:"%s" | npx commitlint --verbose
-      - name: Commitlint (pull request)
-        if: github.event_name == 'pull_request'
-        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
   winget-pkgs-automation:
     name: WinGet Automation (build)
     needs: get-commit
