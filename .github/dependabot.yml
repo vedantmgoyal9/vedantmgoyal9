@@ -7,7 +7,7 @@ version: 2
 updates:
   # Maintain dependencies for npm
   - package-ecosystem: 'npm' # See documentation for possible values
-    directory: '/winget-releaser' # Location of package manifests
+    directory: '/' # Location of package manifests
     allow:
       - dependency-type: production
       - dependency-type: development

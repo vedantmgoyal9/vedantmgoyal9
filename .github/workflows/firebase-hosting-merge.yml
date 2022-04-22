@@ -15,8 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm ci && npm run build
-        working-directory: docs # firebase is hosted in docs folder
+      - run: npm ci && npm run build --workspace=docs
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           entryPoint: './docs'
