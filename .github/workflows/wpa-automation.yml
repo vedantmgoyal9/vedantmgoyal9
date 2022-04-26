@@ -22,7 +22,7 @@ jobs:
           persist-credentials: false
           repository: microsoft/winget-pkgs
           path: winget-pkgs-automation/winget-pkgs
-      - name: Install dependencies
+      - name: Authenticate GitHub Bot
         run: |
           # Initialize auth.js which will be used by the script to get bot token
           npm install @octokit/auth-app
@@ -36,27 +36,16 @@ jobs:
             })({ type: "installation" })).token);
           }
           main();' | Out-File -FilePath auth.js
-
-          # Install winget and enable local manifests since microsoft/winget-cli#1453 is merged
-          Invoke-WebRequest -Uri 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx' -OutFile 'VCLibs.appx'
-          Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -OutFile 'winget.msixbundle'
-          Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml' -OutFile 'license.xml'
-          Import-Module -Name Appx -UseWindowsPowerShell
-          Add-AppxProvisionedPackage -Online -PackagePath .\winget.msixbundle -DependencyPackagePath .\VCLibs.appx -LicensePath .\license.xml
-          # winget command on windows server -------------------
-          # Source: https://github.com/microsoft/winget-cli/issues/144#issuecomment-849108158
-          Install-Module NtObjectManager -Force # Install NtObjectManager module
-          $installationPath = (Get-AppxPackage Microsoft.DesktopAppInstaller).InstallLocation # Create reparse point
-          Set-ExecutionAlias -Path "C:\Windows\System32\winget.exe" -PackageName "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" -EntryPoint "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget" -Target "$installationPath\AppInstallerCLI.exe" -AppType Desktop -Version 3
-          explorer.exe "shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget"
-          # ----------------------------------------------------
-          winget settings --enable LocalManifestFiles
-          Write-Output " Successfully installed winget and enabled local manifests."
-
-          # Install powershell-yaml, required for YamlCreate.ps1
-          Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
-          Write-Output "Successfully installed powershell-yaml."
       - name: Run automation script
         run: .\src\Automation.ps1
         env:
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+        id: build
+      - name: Upload wingetdev-build-log.txt
+        if: steps.build.outputs.upload_log == 'true'
+        uses: actions/upload-artifact@v1
+        with:
+          name: wingetdev-build-log.txt
+          path: winget-pkgs-automation/wingetdev-build-log.txt
+          if-no-files-found: warn
+          retention-days: 3
