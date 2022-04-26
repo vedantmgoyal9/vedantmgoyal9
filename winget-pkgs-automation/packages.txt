@@ -221,6 +221,7 @@ DebaucheeOpenSourceGroup.Barrier
 deep5050.MrDclutterer
 deep5050.qikQR
 DeepL.DeepL
+deepnight.LDtk
 defi.defi
 deskfiler.deskfiler
 DeskRelief.SitHealthy
@@ -721,6 +722,7 @@ OpenWhisperSystems.Signal.Beta
 opticos.gwsl
 opticos.openinwsl
 Oracle.VirtualBox
+OrangeDrangon.AndroidMessages.Desktop
 Ottomated.CrewLink
 OVRASTeam.OpenVR-AdvancedSettings
 Oxen.Session
@@ -1006,6 +1008,7 @@ vim.vim
 VividDesigns.WifiMouseServer
 VMware.WorkstationPlayer
 VMware.WorkstationPro
+Vogan.TinyCodes
 VolkerFischer.Jamulus
 Volta.Volta
 VoyagerX.Vrew
