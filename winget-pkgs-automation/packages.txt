@@ -297,6 +297,7 @@ EtternaProject.EtternaGame
 Eugeny.Tabby
 evsar3.sshfs-win-manager
 ExpressLRS.ExpressLRS-Configurator
+EYHN.SpaceThumbnails
 Fabio286.antares
 FaisalUmair.Udeler
 FBMods.Launcher
@@ -520,6 +521,7 @@ KYDronePilot.SpaceEye
 LacyMorrow.CrossOver
 LAIPIC.LaiHuaVideo
 LAIPIC.Perfoo
+Lapce.Lapce
 last-hit-team.last-hit
 LaurentPRenedeCotret.pandoc-plot
 Lauriethefish.QuestPatcher
