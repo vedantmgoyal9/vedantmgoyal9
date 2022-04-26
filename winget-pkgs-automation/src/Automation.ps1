@@ -8,10 +8,71 @@
 $ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
 
-# Copy YamlCreate.ps1 to the Tools folder, set settings for YamlCreate.ps1
+# NOTE: Old method to install winget, it works perfectly, but not used because wingetdev is used
+# # Install winget and enable local manifests since microsoft/winget-cli#1453 is merged
+# Invoke-WebRequest -Uri 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx' -OutFile 'VCLibs.appx'
+# Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -OutFile 'winget.msixbundle'
+# Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml' -OutFile 'license.xml'
+# Import-Module -Name Appx -UseWindowsPowerShell
+# Add-AppxProvisionedPackage -Online -PackagePath .\winget.msixbundle -DependencyPackagePath .\VCLibs.appx -LicensePath .\license.xml
+# # winget command on windows server -------------------
+# # Source: https://github.com/microsoft/winget-cli/issues/144#issuecomment-849108158
+# Install-Module NtObjectManager -Force # Install NtObjectManager module
+# $installationPath = (Get-AppxPackage Microsoft.DesktopAppInstaller).InstallLocation # Create reparse point
+# Set-ExecutionAlias -Path 'C:\Windows\System32\winget.exe' -PackageName 'Microsoft.DesktopAppInstaller_8wekyb3d8bbwe' -EntryPoint 'Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget' -Target "$installationPath\AppInstallerCLI.exe" -AppType Desktop -Version 3
+# explorer.exe 'shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget'
+# # ----------------------------------------------------
+# winget settings --enable LocalManifestFiles
+# Write-Output ' Successfully installed winget and enabled local manifests.'
+
+# Setup git authentication credentials and github bot authentication token
+Write-Output 'Setting up git authentication credentials and github bot authentication token...'
 git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
 git config --global user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com' # Set git email
 $AuthToken = $(node auth.js) # Get bot token from auth.js which was initialized in the workflow
+
+# Update wingetdev if a new commit is pushed on microsoft/winget-cli, thanks to @jedieaston for making https://github.com/jedieaston/winget-build
+$WinGetCliCommitInfo = Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/microsoft/winget-cli/commits?per_page=1'
+If ((Get-Content -Raw .\wingetdev\build.json | ConvertFrom-Json).Commit.Sha -ne $WinGetCliCommitInfo.sha) {
+    Write-Output 'New commit pushed on microsoft/winget-cli, updating wingetdev...'
+    Write-Output 'This will take about ~15 minutes... please wait...'
+    Write-Output '::set-output name=upload_log::true' # for github actions to evaluate if wingetdev was built in the run and upload the log as an artifact
+    git clone https://github.com/microsoft/winget-cli.git --quiet
+    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat' x64
+    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -t:restore -m -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath .\wingetdev-build-log.txt -Append
+    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath .\wingetdev-build-log.txt -Append
+    Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination .\wingetdev\WindowsPackageManager.dll -Force
+    Move-Item -Path .\winget-cli\src\x64\Release\AppInstallerCLI\* -Destination .\wingetdev\ -Force
+    Move-Item -Path .\wingetdev\winget.exe -NewName wingetdev.exe -Force # Rename winget.exe to wingetdev.exe, Rename-Item with -Force doesn't work when the destination file already exists
+    ConvertTo-Json -InputObject ([ordered] @{
+        Commit = [ordered] @{
+            Sha = $WinGetCliCommitInfo.sha
+            Message = $WinGetCliCommitInfo.commit.message
+            Author = $WinGetCliCommitInfo.commit.author.name
+        };
+        BuildDateTime = (Get-Date).DateTime.ToString()
+    }) | Set-Content -Path .\wingetdev\build.json
+    git pull # to be on a safe side
+    git add .\wingetdev\*
+    git commit -m "chore(wpa): update wingetdev build [$env:GITHUB_RUN_NUMBER]"
+    git push https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git
+}
+.\wingetdev\wingetdev.exe settings --enable LocalManifestFiles
+
+# Install powershell-yaml, required for YamlCreate.ps1
+Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
+Write-Output 'Successfully installed powershell-yaml.'
+
+# Block microsoft edge updates and stop edgeupdate and edgeupdatem services
+# To prevent edge from updating and changing ARP table during ARP metadata validation
+.\src\EdgeBlocker.cmd /B
+Set-Service -Name edgeupdate -Status Stopped -StartupType Disabled
+Set-Service -Name edgeupdatem -Status Stopped -StartupType Disabled
+
+# Import functions from Functions.ps1
+. .\src\Functions.ps1
+
+# Copy YamlCreate.ps1 to the Tools folder, set settings for YamlCreate.ps1
 Set-Location -Path .\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
 git remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
@@ -28,87 +89,6 @@ SuppressQuickUpdateWarning: true
 EnableDeveloperOptions: true
 '@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
 Write-Output 'Copied YamlCreate.ps1 to Tools directory, and set YamlCreate settings.'
-
-Function Read-VersionFromInstaller {
-    [OutputType([System.String])]
-    Param (
-        [Parameter(Mandatory = $true)]
-        [System.String] $Uri,
-
-        [Parameter(Mandatory = $true)]
-        [System.String] $Property
-    )
-    $FileName = Join-Path -Path $env:TEMP -ChildPath ([System.IO.Path]::GetFileName(([System.Uri] $Uri).LocalPath))
-    Invoke-WebRequest -Uri $Uri -OutFile $FileName
-    If ([System.IO.Path]::GetExtension($FileName) -eq '.msi') {
-        $WindowsInstaller = New-Object -Com WindowsInstaller.Installer
-        $MSI = $WindowsInstaller.OpenDatabase($FileName, 0)
-        $_TablesView = $MSI.OpenView('SELECT * FROM _Tables')
-        $_TablesView.Execute()
-        $_Database = @{}
-        do {
-            $_Table = $_TablesView.Fetch()
-            If ($_Table) {
-                $_TableName = $_Table.GetType().InvokeMember('StringData', 'Public, Instance, GetProperty', $Null, $_Table, 1)
-                $_Database["$_TableName"] = @{}
-            }
-        } while ($_Table)
-        [void][System.Runtime.InteropServices.Marshal]::FinalReleaseComObject($_TablesView)
-        ForEach ($_Table in $_Database.Keys) {
-            $_ItemView = $MSI.OpenView("SELECT * FROM $_Table")
-            $_ItemView.Execute()
-            do {
-                $_Item = $_ItemView.Fetch()
-                If ($_Item) {
-                    $_ItemValue = $Null
-                    $_ItemName = $_Item.GetType().InvokeMember('StringData', 'Public, Instance, GetProperty', $Null, $_Item, 1)
-                    If ($_Table -eq 'Property') {
-                        try {
-                            $_ItemValue = $_Item.GetType().InvokeMember('StringData', 'Public, Instance, GetProperty', $Null, $_Item, 2)
-                        } catch {
-                            Out-Null
-                        }
-                    }
-                    $_Database.$_Table["$_ItemName"] = $_ItemValue
-                }
-            } while ($_Item)
-            [void][System.Runtime.InteropServices.Marshal]::FinalReleaseComObject($_ItemView)
-        }
-        [void][System.Runtime.InteropServices.Marshal]::FinalReleaseComObject($MSI)
-        [void][System.Runtime.InteropServices.Marshal]::FinalReleaseComObject($WindowsInstaller)
-        $PkgVersion = $_Database.Property."$Property"
-    } Else {
-        $MetaDataObject = [ordered] @{}
-        $FileInformation = Get-Item $FileName
-        $ShellFolder = (New-Object -ComObject Shell.Application).Namespace($FileInformation.Directory.FullName)
-        $ShellFile = $ShellFolder.ParseName($FileInformation.Name)
-        $MetaDataProperties = [ordered] @{}
-        0..400 | ForEach-Object -Process {
-            $DataValue = $ShellFolder.GetDetailsOf($Null, $_)
-            $PropertyValue = (Get-Culture).TextInfo.ToTitleCase($DataValue.Trim()).Replace(' ', '')
-            If ($PropertyValue -ne '') {
-                $MetaDataProperties["$_"] = $PropertyValue
-            }
-        }
-        ForEach ($Key in $MetaDataProperties.Keys) {
-            $MetaDataProperty = $MetaDataProperties[$Key]
-            $Value = $ShellFolder.GetDetailsOf($ShellFile, [int] $Key)
-            If ($MetaDataProperty -in 'Attributes', 'Folder', 'Type', 'SpaceFree', 'TotalSize', 'SpaceUsed') {
-                continue
-            }
-            If (($Null -ne $Value) -and ($Value -ne '')) {
-                $MetaDataObject["$MetaDataProperty"] = $Value
-            }
-        }
-        [void][System.Runtime.InteropServices.Marshal]::FinalReleaseComObject($ShellFile)
-        [void][System.Runtime.InteropServices.Marshal]::FinalReleaseComObject($ShellFolder)
-        $PkgVersion = $MetaDataObject."$Property"
-    }
-    [System.GC]::Collect()
-    [System.GC]::WaitForPendingFinalizers()
-    Remove-Item -Path $FileName -Force
-    return $PkgVersion
-}
 
 $UpgradeObject = @()
 Write-Output 'Checking for updates...'
@@ -166,18 +146,18 @@ Write-Output "Number of package updates found: $($UpgradeObject.Count)`nPackages
 $UpgradeObject | ForEach-Object {
     Write-Output "-> $($_.PackageIdentifier)"
 }
+Set-Location -Path .\winget-pkgs\Tools
 ForEach ($Upgrade in $UpgradeObject) {
     Write-Output -InputObject $Upgrade | Format-List -Property *
-    Set-Location -Path .\winget-pkgs\Tools
     try {
         If ($Upgrade.YamlCreateParams.AutoUpgrade -eq $true -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
-            .\YamlCreate.ps1 -InputObject $Upgrade -AutoUpgrade
+            . .\YamlCreate.ps1 -InputObject $Upgrade -AutoUpgrade
         } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $true -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
-            .\YamlCreate.ps1 -InputObject $Upgrade -SkipPRCheck
+            . .\YamlCreate.ps1 -InputObject $Upgrade -SkipPRCheck
         } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $true) {
-            .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion
+            . .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion
         } Else {
-            .\YamlCreate.ps1 -InputObject $Upgrade
+            . .\YamlCreate.ps1 -InputObject $Upgrade
         }
     } catch {
         Write-Error "Error while updating Package $($Upgrade.PackageIdentifier) version $($Upgrade.PackageVersion)"
@@ -187,8 +167,8 @@ ForEach ($Upgrade in $UpgradeObject) {
         git checkout -- .\packages\$($Upgrade.PackageIdentifier.Substring(0,1).ToLower())\$($Upgrade.PackageIdentifier.ToLower()).json
         Set-Location -Path .\winget-pkgs\Tools
     }
-    Set-Location -Path ..\..\
 }
+Set-Location -Path ..\..\ # Go back to winget-pkgs-automation directory
 
 Write-Output "`nCommenting errored packages on issue 200"
 $Headers = @{
@@ -219,5 +199,5 @@ Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal20
 Write-Output "`nUpdating packages"
 git pull # to be on a safe side
 git add .\packages\*
-git commit -m "build: update packages [$env:GITHUB_RUN_NUMBER]"
+git commit -m "build(wpa): update packages [$env:GITHUB_RUN_NUMBER]"
 git push https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git
