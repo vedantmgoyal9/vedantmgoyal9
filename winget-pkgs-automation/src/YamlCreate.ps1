@@ -10,6 +10,8 @@ Param
     [PSCustomObject] $InputObject
 )
 
+$WinGetDev = (Resolve-Path -Path $PSScriptRoot\..\..\wingetdev\wingetdev.exe).Path
+
 # Set settings directory on basis of Operating System
 $script:SettingsPath = Join-Path $(if ([System.Environment]::OSVersion.Platform -match 'Win') { $env:LOCALAPPDATA } else { $env:HOME + '/.config' } ) -ChildPath 'YamlCreate'
 $script:SettingsPath = $(Join-Path $script:SettingsPath -ChildPath 'Settings.yaml')
@@ -974,7 +976,7 @@ Switch ($script:Option) {
                     # If the installer is msix or appx, try getting the new SignatureSha256
                     # If the new SignatureSha256 can't be found, remove it if it exists
                     if ($_NewInstaller.InstallerType -in @('msix', 'appx')) {
-                        if (Get-Command 'winget.exe' -ErrorAction SilentlyContinue) { $NewSignatureSha256 = winget hash -m $script:dest | Select-String -Pattern 'SignatureSha256:' | ConvertFrom-String; if ($NewSignatureSha256.P2) { $NewSignatureSha256 = $NewSignatureSha256.P2.ToUpper() } }
+                        $NewSignatureSha256 = & $WinGetDev hash -m $script:dest | Select-String -Pattern 'SignatureSha256:' | ConvertFrom-String; if ($NewSignatureSha256.P2) { $NewSignatureSha256 = $NewSignatureSha256.P2.ToUpper() }
                     }
                     if (Test-String -not $NewSignatureSha256 -IsNull) {
                         $_NewInstaller['SignatureSha256'] = $NewSignatureSha256
@@ -1056,7 +1058,7 @@ Switch ($script:Option) {
                 # If the installer is msix or appx, try getting the new SignatureSha256
                 # If the new SignatureSha256 can't be found, remove it if it exists
                 if ($_Installer.InstallerType -in @('msix', 'appx')) {
-                    if (Get-Command 'winget.exe' -ErrorAction SilentlyContinue) { $NewSignatureSha256 = winget hash -m $script:dest | Select-String -Pattern 'SignatureSha256:' | ConvertFrom-String; if ($NewSignatureSha256.P2) { $NewSignatureSha256 = $NewSignatureSha256.P2.ToUpper() } }
+                    $NewSignatureSha256 = & $WinGetDev hash -m $script:dest | Select-String -Pattern 'SignatureSha256:' | ConvertFrom-String; if ($NewSignatureSha256.P2) { $NewSignatureSha256 = $NewSignatureSha256.P2.ToUpper() }
                 }
                 if (Test-String -not $NewSignatureSha256 -IsNull) {
                     $_Installer['SignatureSha256'] = $NewSignatureSha256
@@ -1097,7 +1099,7 @@ Switch ($script:Option) {
 }
 
 # If the user has winget installed, attempt to validate the manifests
-winget validate $AppFolder
+& $WinGetDev validate $AppFolder
 
 # Check the settings to see if we need to display this menu
 if ($ScriptSettings.TestManifestsInSandbox -eq 'always') {
