@@ -1,8 +1,8 @@
 {
-    "Commit": {
-        "Message": "",
-        "Author": "",
-        "Sha": ""
-    },
-    "BuildDateTime": ""
+  "Commit": {
+    "Sha": "2937bdfcb3681c45a53eabc6cc45fafc327fa956",
+    "Message": "fix passing null parameters to Find-WinGetPackage (#2092)",
+    "Author": "Tanner Blomster"
+  },
+  "BuildDateTime": "Tuesday, April 26, 2022 5:36:08 PM"
 }
