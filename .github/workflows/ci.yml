@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       is-wpa-modified: ${{ steps.commit-info.outputs.wpa-modified }}
-      is-wr-modified: ${{ steps.commit-info.outputs.wr-modified }}
+      is-docs-modified: ${{ steps.commit-info.outputs.docs-modified }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -36,10 +36,10 @@ jobs:
         run: |
           if [ '${{ github.event_name }}' == 'push' ]; then
             echo "::set-output name=wpa-modified::$(git diff --quiet HEAD HEAD~1 -- winget-pkgs-automation && echo false || echo true)"
-            echo "::set-output name=wr-modified::$(git diff --quiet HEAD HEAD~1 -- winget-releaser && echo false || echo true)"
+            echo "::set-output name=docs-modified::$(git diff --quiet HEAD HEAD~1 -- docs && echo false || echo true)"
           else
             echo "::set-output name=wpa-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- winget-pkgs-automation && echo false || echo true)"
-            echo "::set-output name=wr-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- winget-releaser && echo false || echo true)"
+            echo "::set-output name=docs-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- docs && echo false || echo true)"
           fi
         id: commit-info
   winget-pkgs-automation:
@@ -96,36 +96,42 @@ jobs:
           working-directory: winget-pkgs-automation
           fail_ci_if_error: false
           verbose: true
-  codeql-analysis:
-    name: CodeQL (analyse)
+  build-docs-and-deploy:
+    name: Deploy to Firebase Hosting on merge
+    if: needs.get-commit.outputs.is-docs-modified == 'true' && github.event_name == 'push'
     runs-on: ubuntu-latest
-    needs: get-commit
-    if: needs.get-commit.outputs.is-wr-modified == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request')
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-    strategy:
-      fail-fast: false
-      matrix:
-        language: ['javascript']
-        # language: [ 'java', 'javascript' ] <-- auto-detected, commented manually
-        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
-        # Learn more about CodeQL language support at https://git.io/codeql-language-support
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-      # Initializes the CodeQL tools for scanning.
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: actions/checkout@v3
         with:
-          languages: ${{ matrix.language }}
-      # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-      # If this step fails, then you should remove it and run the build manually (see https://github.com/github/codeql-action)
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v1
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
+          fetch-depth: 0
+          persist-credentials: false
+      - run: npm ci && npm run build --workspace=docs
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          entryPoint: './docs'
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_URLSHORTENER_51B07 }}'
+          channelId: live
+          projectId: urlshortener-51b07
+  preview-docs-pull-request:
+    name: Deploy to Firebase Hosting on PR
+    runs-on: ubuntu-latest
+    if: needs.get-commit.outputs.is-docs-modified == 'true' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - run: npm ci && npm run build --workspace=docs
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          expires: 1h
+          entryPoint: './docs'
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_URLSHORTENER_51B07 }}'
+          projectId: urlshortener-51b07
   label:
     name: Label
     if: github.event_name == 'pull_request_target'
@@ -147,7 +153,7 @@ jobs:
             })({ type: "installation" })).token);
           }
           main();' > auth.js
-          echo "::set-output name=auth-token::$(node auth.js)"
+          echo "::set-output name=token::$(node auth.js)"
         id: auth
       - uses: actions/labeler@v4.0.0
         with:
@@ -175,10 +181,40 @@ jobs:
             })({ type: "installation" })).token);
           }
           main();' > auth.js
-          echo "::set-output name=auth-token::$(node auth.js)"
+          echo "::set-output name=token::$(node auth.js)"
         id: auth
       - uses: actions/first-interaction@v1
         with:
           repo-token: ${{ steps.auth.outputs.token }}
           issue-message: 'Hello @${{ github.actor }}, thank you for submitting an issue!'
           pr-message: 'Hello @${{ github.actor }}, thank you submitting a pull request!'
+  # codeql-analysis:
+  #   name: CodeQL (analyse)
+  #   runs-on: ubuntu-latest
+  #   needs: get-commit
+  #   if: needs.get-commit.outputs.is-wr-modified == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request')
+  #   permissions:
+  #     actions: read
+  #     contents: read
+  #     security-events: write
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       language: ['javascript']
+  #       # language: [ 'java', 'javascript' ] <-- auto-detected, commented manually
+  #       # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+  #       # Learn more about CodeQL language support at https://git.io/codeql-language-support
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
+  #     # Initializes the CodeQL tools for scanning.
+  #     - name: Initialize CodeQL
+  #       uses: github/codeql-action/init@v1
+  #       with:
+  #         languages: ${{ matrix.language }}
+  #     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+  #     # If this step fails, then you should remove it and run the build manually (see https://github.com/github/codeql-action)
+  #     - name: Autobuild
+  #       uses: github/codeql-action/autobuild@v1
+  #     - name: Perform CodeQL Analysis
+  #       uses: github/codeql-action/analyze@v1
