@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "73555181e4ae025f61d97d0e2147cdb47545d1a6",
-    "Message": "Allow winget to install MS Store packages without account (#2095)",
-    "Author": "Zach Willson"
+    "Sha": "0e9711356d8d2704c15027b53f21a2950b3522a2",
+    "Message": "Require selection argument on install/show/search/uninstall (#2125)",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Wednesday, April 27, 2022 1:34:02 AM"
+  "BuildDateTime": "Wednesday, April 27, 2022 10:56:44 PM"
 }
