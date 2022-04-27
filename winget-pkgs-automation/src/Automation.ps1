@@ -25,6 +25,10 @@ $ProgressPreference = 'SilentlyContinue'
 # winget settings --enable LocalManifestFiles
 # Write-Output ' Successfully installed winget and enabled local manifests.'
 
+# Source: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues/251#issuecomment-1109500197 by @SpecterShell
+# to bypass certificate check so that https traffic can be captured of some electron apps
+[System.Environment]::SetEnvironmentVariable('NODE_TLS_REJECT_UNAUTHORIZED', '0', [System.EnvironmentVariableTarget]::Process)
+
 # Setup git authentication credentials and github bot authentication token
 Write-Output 'Setting up git authentication credentials and github bot authentication token...'
 git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
