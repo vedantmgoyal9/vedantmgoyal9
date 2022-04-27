@@ -43,7 +43,7 @@ jobs:
         id: build
       - name: Upload wingetdev-build-log.txt
         if: steps.build.outputs.upload_log == 'true'
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: wingetdev-build-log.txt
           path: winget-pkgs-automation/wingetdev-build-log.txt
