@@ -1017,7 +1017,6 @@ VoyagerX.Vrew
 Vromans.ChordPro
 VSCodium.VSCodium
 Vysor.Vysor
-wagesj45.butterflow-ui
 wahao.Electron-iGot
 WalkoverTechnologies.giddh
 wandersick.ChMac
