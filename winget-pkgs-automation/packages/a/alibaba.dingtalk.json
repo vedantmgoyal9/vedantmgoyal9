@@ -3,7 +3,7 @@
   "Identifier": "Alibaba.DingTalk",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://im.dingtalk.com/manifest/new/release_windows_vista_later_manual_lowpriority.json",
+    "Uri": "https://im.dingtalk.com/manifest/new/website/vista_later.json",
     "Method": "Get",
     "Headers": {},
     "Body": "",
@@ -11,13 +11,17 @@
   },
   "PostResponseScript": "$Response = $Response.win.install",
   "VersionRegex": "[0-9.]+",
-  "InstallerRegex": ".exe$",
-  "PreviousVersion": "6.5.0-Release.3289101",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "$Response.url"
+    "InstallerUrls": "$Response.url",
+    "ReleaseNotes": "$Response.multi_lang_description.en_US[1]",
+    "ReleaseDate": "($Response.multi_lang_description.en_US[0] | Select-String -Pattern $ReleaseDateRegex).Matches.Value"
   },
-  "AdditionalInfo": {},
+  "AdditionalInfo": {
+    "ReleaseDateRegex": "(?<=Date:.*)[0-9-]+"
+  },
   "PostUpgradeScript": "",
   "YamlCreateParams": {
     "SkipPRCheck": false,
