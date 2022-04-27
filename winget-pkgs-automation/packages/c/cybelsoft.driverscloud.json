@@ -2,25 +2,22 @@
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
   "Identifier": "Cybelsoft.DriversCloud",
   "Update": {
-    "InvokeType": "WebRequest",
-    "Uri": "https://www.driverscloud.com/en/my-drivers",
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.driverscloud.com/update.xml",
     "Method": "Get",
     "Headers": {},
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response = ($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+  "PostResponseScript": "$Response = $Response.components.component.Where({ $_.urls.EndsWith('exe') -and -not $_.urls.Contains('Old') })",
   "VersionRegex": "(?<=version:.*)[0-9.]+(?=</div>)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "11.2.4.0",
   "ManifestFields": {
-    "PackageVersion": "$Response",
-    "InstallerUrls": "@($x64_Uri.Replace('#version', $Response.Replace('.','_')), $x86_Uri.Replace('#version', $Response.Replace('.','_')))"
+    "PackageVersion": "$Response[0].version",
+    "InstallerUrls": "$Response.urls"
   },
-  "AdditionalInfo": {
-    "x64_Uri": "https://mcdrivers.driverscloud.com/applis/DriversCloudx64_#version.exe",
-    "x86_Uri": "https://mcdrivers.driverscloud.com/applis/DriversCloud_#version.exe"
-  },
+  "AdditionalInfo": {},
   "PostUpgradeScript": "",
   "YamlCreateParams": {
     "SkipPRCheck": false,
