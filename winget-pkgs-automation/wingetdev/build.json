@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "2937bdfcb3681c45a53eabc6cc45fafc327fa956",
-    "Message": "fix passing null parameters to Find-WinGetPackage (#2092)",
-    "Author": "Tanner Blomster"
+    "Sha": "73555181e4ae025f61d97d0e2147cdb47545d1a6",
+    "Message": "Allow winget to install MS Store packages without account (#2095)",
+    "Author": "Zach Willson"
   },
-  "BuildDateTime": "Tuesday, April 26, 2022 5:36:08 PM"
+  "BuildDateTime": "Wednesday, April 27, 2022 1:34:02 AM"
 }
