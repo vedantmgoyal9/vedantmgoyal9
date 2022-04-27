@@ -1067,6 +1067,7 @@ yafp.ttth
 yang991178.fluent-reader
 Yarn.Yarn
 YaSuenag.SimpleCom
+Yemiao.Xtranslator
 Youdao.YoudaoDict
 Ytmdesktop.Ytmdesktop
 Yuanli.uTools
