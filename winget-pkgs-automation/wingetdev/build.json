@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0e9711356d8d2704c15027b53f21a2950b3522a2",
-    "Message": "Require selection argument on install/show/search/uninstall (#2125)",
-    "Author": "JohnMcPMS"
+    "Sha": "312ad6dc130638946a16b36fbddaf343634ff34e",
+    "Message": "Remove ARP matching for single ARP change, and consider publisher+name for matching (#2119)",
+    "Author": "Chacón"
   },
-  "BuildDateTime": "Wednesday, April 27, 2022 10:56:44 PM"
+  "BuildDateTime": "Thursday, April 28, 2022 5:40:42 AM"
 }
