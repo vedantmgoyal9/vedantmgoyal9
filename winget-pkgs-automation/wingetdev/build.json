@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "312ad6dc130638946a16b36fbddaf343634ff34e",
-    "Message": "Remove ARP matching for single ARP change, and consider publisher+name for matching (#2119)",
-    "Author": "Chacón"
+    "Sha": "5d63c3870e195c9b0ee1618902f6fa7aa43165d1",
+    "Message": "Implementation for Portable install flow (#2078)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Thursday, April 28, 2022 5:40:42 AM"
+  "BuildDateTime": "Thursday, April 28, 2022 9:22:23 PM"
 }
