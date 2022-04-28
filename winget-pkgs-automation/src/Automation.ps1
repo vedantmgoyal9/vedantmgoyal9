@@ -85,7 +85,7 @@ git commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Com
 Set-Location -Path ..\..\ # Go back to previous working directory
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
 @'
-TestManifestsInSandbox: never
+TestManifestsInSandbox: always
 SaveToTemporaryFolder: never
 AutoSubmitPRs: always
 ContinueWithExistingPRs: never
