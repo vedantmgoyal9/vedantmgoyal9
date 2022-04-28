@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - run: npm install @commitlint/config-conventional
+      - run: npm ci
       - name: Commitlint (push)
         if: github.event_name == 'push'
         run: git log -1 --pretty=format:"%s" | npx commitlint --verbose
@@ -59,7 +59,7 @@ jobs:
           persist-credentials: false
       - name: Authenticate GitHub Bot
         run: |
-          npm install @octokit/auth-app
+          npm ci
           echo 'async function main() {
             console.log((await require("@octokit/auth-app").createAppAuth({
               appId: ${{ secrets.BT_AP_ID}},
@@ -98,6 +98,7 @@ jobs:
           verbose: true
   build-docs-and-deploy:
     name: Deploy to Firebase Hosting on merge
+    needs: get-commit
     if: needs.get-commit.outputs.is-docs-modified == 'true' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
@@ -116,6 +117,7 @@ jobs:
           projectId: urlshortener-51b07
   preview-docs-pull-request:
     name: Deploy to Firebase Hosting on PR
+    needs: get-commit
     runs-on: ubuntu-latest
     if: needs.get-commit.outputs.is-docs-modified == 'true' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     steps:
@@ -142,7 +144,7 @@ jobs:
     steps:
       - name: Authenticate GitHub Bot
         run: |
-          npm install @octokit/auth-app
+          npm ci
           echo 'async function main() {
             console.log((await require("@octokit/auth-app").createAppAuth({
               appId: ${{ secrets.BT_AP_ID}},
@@ -170,7 +172,7 @@ jobs:
     steps:
       - name: Authenticate GitHub Bot
         run: |
-          npm install @octokit/auth-app
+          npm ci
           echo 'async function main() {
             console.log((await require("@octokit/auth-app").createAppAuth({
               appId: ${{ secrets.BT_AP_ID}},
