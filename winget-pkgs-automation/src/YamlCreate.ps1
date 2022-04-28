@@ -10,8 +10,6 @@ Param
     [PSCustomObject] $InputObject
 )
 
-$WinGetDev = (Resolve-Path -Path $PSScriptRoot\..\..\wingetdev\wingetdev.exe).Path
-
 # Set settings directory on basis of Operating System
 $script:SettingsPath = Join-Path $(if ([System.Environment]::OSVersion.Platform -match 'Win') { $env:LOCALAPPDATA } else { $env:HOME + '/.config' } ) -ChildPath 'YamlCreate'
 $script:SettingsPath = $(Join-Path $script:SettingsPath -ChildPath 'Settings.yaml')
@@ -699,7 +697,8 @@ $PackageIdentifierFolder = $PackageIdentifier.Replace('.', '\')
 # Check the api for open PR's
 # This is unauthenticated because the call-rate per minute is assumed to be low
 if ($ScriptSettings.ContinueWithExistingPRs -ne 'always' -and $script:Option -ne 'RemoveManifest' -and !$SkipPRCheck) {
-    $PRApiResponse = Invoke-RestMethod -Uri "https://api.github.com/search/issues?q=repo%3Amicrosoft%2Fwinget-pkgs%20is%3Apr%20$($PackageIdentifier -replace '\.', '%2F'))%2F$PackageVersion%20in%3Apath&per_page=1" -ErrorAction SilentlyContinue
+    # Use authentication headers from the automation
+    $PRApiResponse = Invoke-RestMethod -Uri "https://api.github.com/search/issues?q=repo%3Amicrosoft%2Fwinget-pkgs%20is%3Apr%20$($PackageIdentifier -replace '\.', '%2F'))%2F$PackageVersion%20in%3Apath&per_page=1" -Headers $AuthHeaders
     # If there was a PR found, get the URL and title
     if ($PRApiResponse.total_count -gt 0) {
         $_PRUrl = $PRApiResponse.items.html_url
