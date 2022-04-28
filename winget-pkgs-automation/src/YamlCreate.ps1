@@ -1103,7 +1103,8 @@ Switch ($script:Option) {
 
 # Check the settings to see if we need to display this menu
 if ($ScriptSettings.TestManifestsInSandbox -eq 'always') {
-    # --- call Validate-ArpMetadata function ---
+    # dot-source the function to get pull request body
+    . Test-ArpMetadata -ManifestFolder $AppFolder
 }
 
 # Determine what type of update should be used as the prefix for the PR
@@ -1133,7 +1134,7 @@ if ($LASTEXITCODE -eq '0') {
     git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
     git switch -c "$BranchName" --quiet
     git push --set-upstream origin "$BranchName" --quiet
-    gh pr create -f --body "$($PrePrBodyContent + "`n`n#### Auto-updated by [vedantmgoyal2009/winget-pkgs-automation](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/winget-pkgs-automation) in workflow run [$($env:GITHUB_RUN_NUMBER)](https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/runs/$($env:GITHUB_RUN_ID))")"
+    gh pr create -f --body "$PrBody"
     git switch master --quiet
     git pull --quiet
 }
