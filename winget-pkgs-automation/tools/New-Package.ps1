@@ -433,7 +433,7 @@ Process {
                 $FieldName = Get-UserInput -Method String -Message 'FieldName'
                 If ($FieldName -eq 'ReleaseDate') {
                     Write-Output 'Enter the property from which to extract the date (e.g.: "published_at")'
-                    $Expression = "(Get-Date -Date $Response.$(Get-UserInput -Method String -Message 'Property')).ToString('yyyy-MM-dd')"
+                    $Expression = "(Get-Date -Date `$Response.$(Get-UserInput -Method String -Message 'Property')).ToString('yyyy-MM-dd')"
                 } Else {
                     Write-Output 'Enter the power shell expression to extract the value of the ManifestField (e.g.: "$Response.html_url")'
                     $Expression = Get-UserInput -Method Menu -Message 'Expression' -Choices $Choices
