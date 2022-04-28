@@ -27,13 +27,19 @@ $ProgressPreference = 'SilentlyContinue'
 
 # Source: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues/251#issuecomment-1109500197 by @SpecterShell
 # to bypass certificate check so that https traffic can be captured of some electron apps
-[System.Environment]::SetEnvironmentVariable('NODE_TLS_REJECT_UNAUTHORIZED', '0', [System.EnvironmentVariableTarget]::Process)
+# [System.Environment]::SetEnvironmentVariable('NODE_TLS_REJECT_UNAUTHORIZED', '0', [System.EnvironmentVariableTarget]::Process)
 
-# Setup git authentication credentials and github bot authentication token
+# Setup git authentication credentials, authentication headers and wingetdev.exe path variable
 Write-Output 'Setting up git authentication credentials and github bot authentication token...'
 git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
 git config --global user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com' # Set git email
 $AuthToken = $(node auth.js) # Get bot token from auth.js which was initialized in the workflow
+Set-Variable -Name AuthHeaders -Value @{
+    Authorization = "Token $AuthToken"
+    Accept        = 'application/vnd.github.v3+json'
+} -Option AllScope, Constant # Set authentication headers with bot token
+# Set wingetdev.exe path variable which will be used in the whole automation to execute wingetdev.exe commands
+Set-Variable -Name WinGetDev -Value (Resolve-Path -Path .\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
 
 # Update wingetdev if a new commit is pushed on microsoft/winget-cli, thanks to @jedieaston for making https://github.com/jedieaston/winget-build
 $WinGetCliCommitInfo = Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/microsoft/winget-cli/commits?per_page=1'
@@ -47,36 +53,29 @@ If ((Get-Content -Raw .\wingetdev\build.json | ConvertFrom-Json).Commit.Sha -ne 
     & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath .\wingetdev-build-log.txt -Append
     Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination .\wingetdev\WindowsPackageManager.dll -Force
     Move-Item -Path .\winget-cli\src\x64\Release\AppInstallerCLI\* -Destination .\wingetdev\ -Force
-    Move-Item -Path .\wingetdev\winget.exe -NewName wingetdev.exe -Force # Rename winget.exe to wingetdev.exe, Rename-Item with -Force doesn't work when the destination file already exists
+    Move-Item -Path .\wingetdev\winget.exe -Destination wingetdev.exe -Force # Rename winget.exe to wingetdev.exe, Rename-Item with -Force doesn't work when the destination file already exists
     ConvertTo-Json -InputObject ([ordered] @{
-        Commit = [ordered] @{
-            Sha = $WinGetCliCommitInfo.sha
-            Message = $WinGetCliCommitInfo.commit.message
-            Author = $WinGetCliCommitInfo.commit.author.name
-        };
-        BuildDateTime = (Get-Date).DateTime.ToString()
-    }) | Set-Content -Path .\wingetdev\build.json
+            Commit        = [ordered] @{
+                Sha     = $WinGetCliCommitInfo.sha
+                Message = $WinGetCliCommitInfo.commit.message
+                Author  = $WinGetCliCommitInfo.commit.author.name
+            };
+            BuildDateTime = (Get-Date).DateTime.ToString()
+        }) | Set-Content -Path .\wingetdev\build.json
     git pull # to be on a safe side
     git add .\wingetdev\*
     git commit -m "chore(wpa): update wingetdev build [$env:GITHUB_RUN_NUMBER]"
     git push https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git
 }
-.\wingetdev\wingetdev.exe settings --enable LocalManifestFiles
+& $WinGetDev settings --enable LocalManifestFiles
 
-# Install powershell-yaml, required for YamlCreate.ps1
-Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force
-Write-Output 'Successfully installed powershell-yaml.'
-
-# Block microsoft edge updates and stop edgeupdate and edgeupdatem services
-# To prevent edge from updating and changing ARP table during ARP metadata validation
-.\src\EdgeBlocker.cmd /B
-Set-Service -Name edgeupdate -Status Stopped -StartupType Disabled
-Set-Service -Name edgeupdatem -Status Stopped -StartupType Disabled
-
-# Import functions from Functions.ps1
-. .\src\Functions.ps1
-
-# Copy YamlCreate.ps1 to the Tools folder, set settings for YamlCreate.ps1
+# Block microsoft edge updates, install powershell-yaml, import functions, copy YamlCreate.ps1 to the Tools folder and set settings
+.\src\EdgeBlocker.cmd /B # to prevent edge from updating and changing ARP table during ARP metadata validation
+Set-Service -Name edgeupdate -Status Stopped -StartupType Disabled # stop edgeupdate service
+Set-Service -Name edgeupdatem -Status Stopped -StartupType Disabled # stop edgeupdatem service
+Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # install powershell-yaml module
+Write-Output 'Successfully installed powershell-yaml.' # print that powershell-yaml module was installed
+. .\src\Functions.ps1 # Import functions from Functions.ps1
 Set-Location -Path .\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
 git remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
@@ -92,7 +91,7 @@ ContinueWithExistingPRs: never
 SuppressQuickUpdateWarning: true
 EnableDeveloperOptions: true
 '@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
-Write-Output 'Copied YamlCreate.ps1 to Tools directory, and set YamlCreate settings.'
+Write-Output 'Blocked microsoft edge updates, installed powershell-yaml, imported functions, copied YamlCreate.ps1 and set settings'
 
 $UpgradeObject = @()
 Write-Output 'Checking for updates...'
@@ -155,16 +154,16 @@ ForEach ($Upgrade in $UpgradeObject) {
     Write-Output -InputObject $Upgrade | Format-List -Property *
     try {
         If ($Upgrade.YamlCreateParams.AutoUpgrade -eq $true -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
-            . .\YamlCreate.ps1 -InputObject $Upgrade -AutoUpgrade
+            .\YamlCreate.ps1 -InputObject $Upgrade -AutoUpgrade
         } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $true -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
-            . .\YamlCreate.ps1 -InputObject $Upgrade -SkipPRCheck
+            .\YamlCreate.ps1 -InputObject $Upgrade -SkipPRCheck
         } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $true) {
-            . .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion
+            .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion
         } Else {
-            . .\YamlCreate.ps1 -InputObject $Upgrade
+            .\YamlCreate.ps1 -InputObject $Upgrade
         }
     } catch {
-        Write-Error "Error while updating Package $($Upgrade.PackageIdentifier) version $($Upgrade.PackageVersion)"
+        Write-Error "$($Upgrade.PackageIdentifier): $($_.Exception.Message)"
         $ErrorUpgradingPkgs += @("- $($Upgrade.PackageIdentifier) version $($Upgrade.PackageVersion) [$($_.Exception.Message)]")
         # Revert the changes in the JSON file so that the package can check for updates in the next run
         Set-Location -Path ..\..\
@@ -175,10 +174,6 @@ ForEach ($Upgrade in $UpgradeObject) {
 Set-Location -Path ..\..\ # Go back to winget-pkgs-automation directory
 
 Write-Output "`nCommenting errored packages on issue 200"
-$Headers = @{
-    Authorization = "Token $AuthToken"
-    Accept        = 'application/vnd.github.v3+json'
-}
 If ($ErrorUpgradingPkgs.Count -gt 0) {
     $CommentBody = "**[[$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/runs/$($env:GITHUB_RUN_ID))]:** The following packages failed to update:\r\n$($ErrorUpgradingPkgs -join '\r\n')"
 } Else {
@@ -190,14 +185,14 @@ If ($ErrorUpgradingPkgs.Count -gt 0) {
 Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' | Where-Object { $_.user.login -eq 'winget-pkgs-automation-bot[bot]' } | ForEach-Object {
     If ($_.body.Contains('failed')) {
         If ((Invoke-RestMethod -Method Get -Uri $_.reactions.url).user.login -contains 'vedantmgoyal2009') {
-            Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $Headers | Out-Null
+            Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $AuthHeaders | Out-Null
         }
     } ElseIf ($_.body.Contains('tada')) {
-        Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $Headers | Out-Null
+        Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $AuthHeaders | Out-Null
     }
 }
 # Add the new comment
-Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{""body"":""$CommentBody""}" -Headers $Headers
+Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{""body"":""$CommentBody""}" -Headers $AuthHeaders
 
 # Update packages in repository
 Write-Output "`nUpdating packages"
