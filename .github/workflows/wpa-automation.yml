@@ -25,7 +25,7 @@ jobs:
       - name: Authenticate GitHub Bot
         run: |
           # Initialize auth.js which will be used by the script to get bot token
-          npm install @octokit/auth-app
+          npm ci
           Write-Output 'async function main() {
             console.log((await require("@octokit/auth-app").createAppAuth({
               appId: ${{ secrets.BT_AP_ID }},
