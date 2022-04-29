@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString; $RawVersion = Invoke-Expression -Command $RawVersionExpression",
   "VersionRegex": "[0-9.]+(?=_)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "7.62",
+  "PreviousVersion": "7.63",
   "ManifestFields": {
     "PackageVersion": "$RawVersion.Substring(0,1) + '.' + $RawVersion.Substring(1)",
     "InstallerUrls": "@($Response, $Response.Replace('_x64',''))"
