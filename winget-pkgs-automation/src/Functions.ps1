@@ -45,6 +45,53 @@ Function Local:Test-ArpMetadata {
     Remove-Item -Path .\Arp-Difference.json -Force -ErrorAction SilentlyContinue # Remove the difference JSON file after it's been read
 }
 
+Function Local:Submit-Manifest {
+    # Fetch the upstream branch, create a commit onto the detached head, and push it to a new branch
+    git fetch upstream master --quiet
+    git switch -d upstream/master
+    If ($LASTEXITCODE -eq '0') {
+        # Make sure path exists and is valid before hashing
+        $UniqueBranchID = ''
+        If ($script:LocaleManifestPath -and (Test-Path -Path $script:LocaleManifestPath)) { $UniqueBranchID = $UniqueBranchID + $($(Get-FileHash $script:LocaleManifestPath).Hash[0..6] -Join '') }
+        If ($script:InstallerManifestPath -and (Test-Path -Path $script:InstallerManifestPath)) { $UniqueBranchID = $UniqueBranchID + $($(Get-FileHash $script:InstallerManifestPath).Hash[0..6] -Join '') }
+        If ([System.String]::IsNullOrWhiteSpace($UniqueBranchID)) { $UniqueBranchID = 'DEL' }
+        $BranchName = "$PackageIdentifier-$PackageVersion-$UniqueBranchID"
+        # Git branch names cannot start with `.` cannot contain any of {`..`, `\`, `~`, `^`, `:`, ` `, `?`, `@{`, `[`}, and cannot end with {`/`, `.lock`, `.`}
+        $BranchName = $BranchName -replace '[\~,\^,\:,\\,\?,\@\{,\*,\[,\s]{1,}|[.lock|/|\.]*$|^\.{1,}|\.\.', ''
+        # Find open pull requests for same package and overwrite them with new version of the package
+        # To prevent sub-packages being matched in existing PRs, add 'version' to the compare string
+        $OpenPRs = (gh pr list --author vedantmgoyal2009 --search 'draft:false' --json body, headRefName, number, title | ConvertFrom-Json).Where({ $_.title -match '$PackageIdentifier version' }) | Select-Object -First 1
+        # Find draft pull requests if any and overwrite since they are probably errored out and not going to be merged
+        $DraftPRs = gh pr list --draft --author vedantmgoyal2009 -L 1 --json body, headRefName, number, title | ConvertFrom-Json
+        If ($OpenPRs.Count -ge 1) {
+            Write-Output "Found open PR #$($OpenPRs.number) -> $($OpenPRs.title)"
+            git checkout $OpenPRs.headRefName
+            git reset --hard upstream/master
+            git add -A
+            git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
+            git push --force
+            gh pr edit $OpenPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP]" --body "$PrBody"
+        } ElseIf ($DraftPRs.Count -ge 1) {
+            Write-Output "Found draft PR #$($DraftPRs.number) -> $($DraftPRs.title)"
+            gh pr ready $DraftPRs.number # mark pull request as ready for review
+            git checkout $DraftPRs.headRefName
+            git reset --hard upstream/master
+            git add -A
+            git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
+            git push --force
+            gh pr edit $DraftPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP]" --body "$PrBody"
+        } Else {
+            git add -A
+            git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
+            git switch -c "$BranchName" --quiet
+            git push --set-upstream origin "$BranchName" --quiet
+            gh pr create -f --body "$PrBody"
+        }
+        git switch master --quiet
+        git pull --quiet
+    }
+}
+
 Function Read-VersionFromInstaller {
     [OutputType([System.String])]
     Param (
