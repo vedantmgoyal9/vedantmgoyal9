@@ -341,7 +341,7 @@ getgridea.gridea
 Ghostgum.GSview
 gileli121.windowtop
 Gimanh.handscream
-GiorgioTani.PeaZip
+Giorgiotani.Peazip
 Git.Git
 GitAhead.GitAhead
 GitExtensionsTeam.GitExtensions
