@@ -22,17 +22,17 @@ const features = [
     description: (
       <>
         A <b>GitHub Bot</b> which can be used to automate various tasks on the <a href="https://github.com/microsoft/winget-pkgs">
-          Community Repository</a>. Once it is stable, the automation will be merged with the bot.
+          WinGet Community Repository</a>. Once it is stable, the automation will be merged with the bot.
       </>
     ),
   },
   {
-    title: 'WinGet Releaser (WIP)',
+    title: 'WinGet Releaser',
     Svg: require('@site/static/img/actions.png').default,
     description: (
       <>
-        A <b>GitHub Action</b> that software developers can use to publish GitHub Releases automatically
-        with one-time configuration.
+        A <b>GitHub Action</b> that developers can use to publish new versions of their application to <a href="https://github.com/microsoft/winget-pkgs">
+          WinGet Community Repository</a> with one-time configuration.
       </>
     ),
   },

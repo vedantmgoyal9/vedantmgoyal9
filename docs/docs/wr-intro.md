@@ -4,10 +4,54 @@ title: Introduction
 sidebar_label: 👋 Introduction
 ---
 
-# Introduction
+This action is built over the [WinGet Automation][winget-pkgs-automation] project and helps you to publish new releases of your application to the [Windows Package Manager Community Repository][winget-pkgs-repo] easily.
 
-Publish new releases of your application to the [Windows Package Manager Community Repository][winget-pkgs-repo] easily.
+:::info Before you start
 
-Coming soon. Stay tuned.
+You will need to create a Personal Access Token (PAT) with `public_repo` scope.
 
+<img src="/img/pat-scope.jpg" />
+
+:::
+
+## Examples
+
+- Workflow with the minimal configuration:
+
+```yaml
+name: Publish to WinGet
+on:
+  release:
+    types: [released]
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: vedantmgoyal2009/vedantmgoyal2009/winget-pkgs-automation/releaser-action@v1.0.0
+        with:
+          identifier: Package.Identifier
+          token: ${{ secrets.WINGET_TOKEN }}
+```
+
+- Workflow using all the available configuration options:
+
+```yaml
+name: Publish to WinGet
+on:
+  release:
+    types: [released]
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: vedantmgoyal2009/vedantmgoyal2009/winget-pkgs-automation/releaser-action@v1.0.0
+        with:
+          identifier: Package.Identifier
+          version-regex: '[0-9.]+'
+          installer-regex: '\.exe$' # only .exe files
+          delete-previous-version: 'false' # don't forget the quotes
+          token: ${{ secrets.WINGET_TOKEN }}
+```
+
+[winget-pkgs-automation]: https://bittu.eu.org/docs/wpa-intro
 [winget-pkgs-repo]: https://github.com/microsoft/winget-pkgs
