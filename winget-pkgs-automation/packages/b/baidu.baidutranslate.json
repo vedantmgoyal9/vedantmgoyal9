@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "1.5.1",
+  "PreviousVersion": "1.5.2",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "[System.Uri]::EscapeUriString($Response.path)"
