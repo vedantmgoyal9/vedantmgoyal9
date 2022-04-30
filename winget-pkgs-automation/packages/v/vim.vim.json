@@ -14,7 +14,7 @@
   },
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
-  "InstallerRegex": "gvim.*(x64|x86).exe$",
+  "InstallerRegex": "gvim.*(x64).exe$",
   "PreviousVersion": "8.2.4827",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
