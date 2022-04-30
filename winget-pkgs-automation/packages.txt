@@ -142,6 +142,7 @@ ByteDance.JianyingPro
 ByteDance.Lark
 c0re100.qBittorrent-Enhanced-Edition
 c3er.mdview
+Cairo.Cairo
 calibre.calibre
 calibre.calibre.portable
 CameronSutter.Plottr
@@ -256,6 +257,7 @@ Dummerle.Rare
 DuongDieuPhap.ImageGlass
 DupeGuru.DupeGuru
 Duplicati.Duplicati
+dynobo.NormCap
 e2eSoft.iVCam
 EaseUS.PartitionMaster
 easymodo.qimgv
@@ -532,6 +534,7 @@ leezer3.OpenBVE
 LeGitHubDeTai.AnimeBack
 LeiGod.LeiGodAcc
 LeNgocKhoa.Laragon
+Lenovo.LeAppStore
 LeonardoZide.LeoCAD
 Levminer.Authme
 Lexikos.AutoHotkey
@@ -1057,6 +1060,7 @@ xiandanin.magnetW
 Xiaoe.Xiaoetong
 xiaozhu188.electron-vue-cloud-music
 Ximalaya.Ximalaya
+Ximalaya.XimalayaLive
 Xmake-io.Xmake
 XMind.XMind
 XMoto.XMoto
