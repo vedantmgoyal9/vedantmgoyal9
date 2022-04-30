@@ -3,7 +3,7 @@
   "Identifier": "CiderCollective.Cider",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://api.github.com/repos/ciderapp/cider-releases/releases?per_page=3",
+    "Uri": "https://api.github.com/repos/ciderapp/cider-releases/releases?per_page=1",
     "Method": "Get",
     "Headers": {
       "Authorization": "$AuthToken",
