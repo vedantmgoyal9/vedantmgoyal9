@@ -11,8 +11,11 @@ const features = [
     Svg: require('@site/static/img/fintechtocat.png').default,
     description: (
       <>
-        Automatically update package manifests at <a href="https://github.com/microsoft/winget-pkgs">
-          Windows Package Manager Community Repository</a>.
+        Automatically update package manifests at{' '}
+        <a href="https://github.com/microsoft/winget-pkgs">
+          Windows Package Manager Community Repository
+        </a>
+        .
       </>
     ),
   },
@@ -21,17 +24,25 @@ const features = [
     Svg: require('@site/static/img/winget-automation-bot.png').default,
     description: (
       <>
-        A <b>GitHub Bot</b> which can be used to automate various tasks on the <a href="https://github.com/microsoft/winget-pkgs">
-          Community Repository</a>. Once it is stable, the automation will be merged with the bot.
+        A <b>GitHub Bot</b> which can be used to automate various tasks on the{' '}
+        <a href="https://github.com/microsoft/winget-pkgs">
+          WinGet Community Repository
+        </a>
+        . Once it is stable, the automation and the action will be merged with
+        the bot.
       </>
     ),
   },
   {
-    title: 'WinGet Releaser (WIP)',
+    title: 'WinGet Releaser',
     Svg: require('@site/static/img/actions.png').default,
     description: (
       <>
-        A <b>GitHub Action</b> that software developers can use to publish GitHub Releases automatically
+        A <b>GitHub Action</b> that developers can use to publish new versions
+        of their application to{' '}
+        <a href="https://github.com/microsoft/winget-pkgs">
+          WinGet Community Repository
+        </a>{' '}
         with one-time configuration.
       </>
     ),
@@ -63,8 +74,9 @@ export default function Home() {
           <div className={styles.buttons}>
             <Link
               className="button button--outline button--lg"
-              style={{ "border-style": "solid", "border-width": "1px;" }}
-              to="/docs/about-me">
+              style={{ 'border-style': 'solid', 'border-width': '1px;' }}
+              to="/docs/about-me"
+            >
               Get Started
             </Link>
           </div>
