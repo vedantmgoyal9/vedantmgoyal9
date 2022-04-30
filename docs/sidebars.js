@@ -27,15 +27,16 @@ const sidebars = {
         'wpa-intro',
         'wpa-add-a-package',
         'wpa-working',
-        'wpa-scripts',
       ],
     },
     {
       type: 'category',
-      label: 'WinGet Releaser',
+      label: '🛫 WinGet Releaser',
       collapsed: false,
       items: [
-        'wr-intro'
+        'wr-intro',
+        'wr-config',
+        'wr-multipackage',
       ],
     },
     "contributors"

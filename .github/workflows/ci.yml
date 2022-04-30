@@ -107,7 +107,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - run: npm ci && npm run build --workspace=docs
+      - run: npm ci && npm run build --workspace=docs --if-present
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           entryPoint: './docs'
@@ -126,7 +126,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - run: npm ci && npm run build --workspace=docs
+      - run: npm ci && npm run build --workspace=docs --if-present
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           expires: 1h
