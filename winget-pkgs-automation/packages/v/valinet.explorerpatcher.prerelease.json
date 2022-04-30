@@ -15,7 +15,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "setup.exe$",
-  "PreviousVersion": "22000.556.43.4",
+  "PreviousVersion": "22000.613.44.2",
   "ManifestFields": {
     "PackageVersion": "($Response.tag_name | Select-String -Pattern '[0-9.]+').Matches.Value",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
@@ -24,7 +24,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": true,
-    "PreviousReleaseId": 63192045
+    "PreviousReleaseId": 65723117
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
