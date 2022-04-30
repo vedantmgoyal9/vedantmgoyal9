@@ -3,7 +3,7 @@
   "Identifier": "CiderCollective.Cider",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://api.github.com/repos/ciderapp/cider-releases/releases?per_page=1",
+    "Uri": "https://api.github.com/repos/ciderapp/cider-releases/releases?per_page=3",
     "Method": "Get",
     "Headers": {
       "Authorization": "$AuthToken",
@@ -12,7 +12,7 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$UpdateCondition = $Response | Where-Object { $_.name -match 'main' -and $_.prerelease -eq $PreRelease -and $_.id -gt $PreviousReleaseId}",
+  "PostResponseScript": "$UpdateCondition = $Response | Where-Object { $_.name -match 'main' -and $_.prerelease -eq $PreRelease -and $_.id -gt $PreviousReleaseId }",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "winget.*(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "1.4.5.2031",
