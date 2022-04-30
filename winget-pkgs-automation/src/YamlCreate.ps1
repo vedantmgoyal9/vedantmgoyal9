@@ -1113,30 +1113,11 @@ elseif ($script:PackageVersion -in $script:ExistingVersions) { $CommitType = 'Up
 elseif (($AllVersions.IndexOf($PackageVersion) + 1) -eq $AllVersions.Count) { $CommitType = 'New version' }
 elseif (($AllVersions.IndexOf($PackageVersion) + 1) -ne $AllVersions.Count) { $CommitType = 'Add version' }
 
-
 # Change the users git configuration to suppress some git messages
 git config core.safecrlf false
 
-# Fetch the upstream branch, create a commit onto the detached head, and push it to a new branch
-git fetch upstream master --quiet
-git switch -d upstream/master
-if ($LASTEXITCODE -eq '0') {
-    # Make sure path exists and is valid before hashing
-    $UniqueBranchID = ''
-    if ($script:LocaleManifestPath -and (Test-Path -Path $script:LocaleManifestPath)) { $UniqueBranchID = $UniqueBranchID + $($(Get-FileHash $script:LocaleManifestPath).Hash[0..6] -Join '') }
-    if ($script:InstallerManifestPath -and (Test-Path -Path $script:InstallerManifestPath)) { $UniqueBranchID = $UniqueBranchID + $($(Get-FileHash $script:InstallerManifestPath).Hash[0..6] -Join '') }
-    if (Test-String -IsNull $UniqueBranchID) { $UniqueBranchID = 'DEL' }
-    $BranchName = "$PackageIdentifier-$PackageVersion-$UniqueBranchID"
-    # Git branch names cannot start with `.` cannot contain any of {`..`, `\`, `~`, `^`, `:`, ` `, `?`, `@{`, `[`}, and cannot end with {`/`, `.lock`, `.`}
-    $BranchName = $BranchName -replace '[\~,\^,\:,\\,\?,\@\{,\*,\[,\s]{1,}|[.lock|/|\.]*$|^\.{1,}|\.\.', ''
-    git add -A
-    git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
-    git switch -c "$BranchName" --quiet
-    git push --set-upstream origin "$BranchName" --quiet
-    gh pr create -f --body "$PrBody"
-    git switch master --quiet
-    git pull --quiet
-}
+# Dot-source the function to run in current scope
+. Submit-Manifest
 
 # Error levels for the ReturnValue class
 Enum ErrorLevel {
