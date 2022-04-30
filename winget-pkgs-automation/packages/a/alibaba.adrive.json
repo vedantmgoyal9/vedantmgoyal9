@@ -15,7 +15,8 @@
   "PreviousVersion": "3.2.1",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "\"https://yunpan.aliyun.com/downloads/apps/desktop/aDrive-$($Response.version).exe\""
+    "InstallerUrls": "$Response.files[0].url",
+    "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
