@@ -144,7 +144,7 @@ jobs:
     steps:
       - name: Authenticate GitHub Bot
         run: |
-          npm ci
+          npm install @octokit/auth-app
           echo 'async function main() {
             console.log((await require("@octokit/auth-app").createAppAuth({
               appId: ${{ secrets.BT_AP_ID}},
@@ -172,7 +172,7 @@ jobs:
     steps:
       - name: Authenticate GitHub Bot
         run: |
-          npm ci
+          npm install @octokit/auth-app
           echo 'async function main() {
             console.log((await require("@octokit/auth-app").createAppAuth({
               appId: ${{ secrets.BT_AP_ID}},
