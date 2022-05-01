@@ -794,6 +794,11 @@ RaspberryPiFoundation.RaspberryPiImager
 raycho.raycho
 Recoupler.AudioBookConverter
 RedHat.Podman
+Redisant.DataAssistant
+Redisant.KafkaAssistant
+Redisant.LittleTips
+Redisant.RedisAssistant
+Redisant.ZooKeeperAssistant
 Reginald.Reginald
 Renode.Renode
 ResponsivelyApp.ResponsivelyApp
