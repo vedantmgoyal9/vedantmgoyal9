@@ -346,9 +346,7 @@ Process {
         If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
             $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
         }
-        $Properties = @()
-        
-        $Package.PostResponseScript -ne '$Response = $Response | ConvertFrom-Yaml' ? @($Response.PSObject.Properties.Where({ $_.MemberType -eq 'NoteProperty' }).Name) : $Response.Keys | ForEach-Object { "`$Response.$($_)" }
+        $Choices += $Package.PostResponseScript -ne '$Response = $Response | ConvertFrom-Yaml' ? $Response.PSObject.Properties.Where({ $_.MemberType -eq 'NoteProperty' }).Name : $Response.Keys | ForEach-Object { "`$Response.$($_)" }
     }
     $Choices += @('Custom')
 
