@@ -46,9 +46,7 @@ Function Local:Test-ArpMetadata {
 }
 
 Function Local:Submit-Manifest {
-    # Fetch the upstream branch, create a commit onto the detached head, and push it to a new branch
-    git fetch upstream master --quiet
-    git switch -d upstream/master
+    git fetch upstream master --quiet # Fetch the upstream branch
     If ($LASTEXITCODE -eq '0') {
         # Make sure path exists and is valid before hashing
         $UniqueBranchID = ''
@@ -58,37 +56,51 @@ Function Local:Submit-Manifest {
         $BranchName = "$PackageIdentifier-$PackageVersion-$UniqueBranchID"
         # Git branch names cannot start with `.` cannot contain any of {`..`, `\`, `~`, `^`, `:`, ` `, `?`, `@{`, `[`}, and cannot end with {`/`, `.lock`, `.`}
         $BranchName = $BranchName -replace '[\~,\^,\:,\\,\?,\@\{,\*,\[,\s]{1,}|[.lock|/|\.]*$|^\.{1,}|\.\.', ''
+        # Commit first, since when switching branches, changes except untracked files are lost
+        git add -A
+        git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
+        $CommitId = git log --format=%H -n 1 # Store the commit id of the commit that was just made
         # Find open pull requests for same package and overwrite them with new version of the package
         # To prevent sub-packages being matched in existing PRs, add 'version' to the compare string
-        $OpenPRs = (gh pr list --author vedantmgoyal2009 --search draft:false --json 'headRefName,number,title' | ConvertFrom-Json).Where({ $_.title -match '$PackageIdentifier version' }) | Select-Object -First 1
+        $OpenPRs = (gh pr list --author vedantmgoyal2009 --search 'draft:false' --json 'headRefName,number,title' | ConvertFrom-Json).Where({ $_.title -match '$PackageIdentifier version' }) | Select-Object -First 1
         # Find draft pull requests if any and overwrite since they are probably errored out and not going to be merged
-        $DraftPRs = gh pr list --draft --author vedantmgoyal2009 -L 1 --json 'headRefName,number,title' | ConvertFrom-Json
+        $DraftPRs = gh pr list --draft --author vedantmgoyal2009 --limit 1 --json 'headRefName,number,title' | ConvertFrom-Json
         If ($OpenPRs.Count -ge 1) {
             Write-Output "Found open PR #$($OpenPRs.number) -> $($OpenPRs.title)"
             git checkout $OpenPRs.headRefName
             git reset --hard upstream/master
-            git add -A
-            git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
+            git cherry-pick $CommitId # Cherry-pick the commit that was just made on master
             git push --force
             gh pr edit $OpenPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP]" --body "$PrBody"
         } ElseIf ($DraftPRs.Count -ge 1) {
             Write-Output "Found draft PR #$($DraftPRs.number) -> $($DraftPRs.title)"
-            gh pr ready $DraftPRs.number # mark pull request as ready for review
+            gh pr ready $DraftPRs.number # Mark pull request as ready for review
             git checkout $DraftPRs.headRefName
             git reset --hard upstream/master
-            git add -A
-            git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
+            git cherry-pick $CommitId # Cherry-pick the commit that was just made on master
             git push --force
             gh pr edit $DraftPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP]" --body "$PrBody"
         } Else {
-            git add -A
-            git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
+            # Create a commit onto the detached head, and push it to a new branch
+            git switch -d upstream/master
+            git cherry-pick $CommitId # Cherry-pick the commit that was just made on master
             git switch -c "$BranchName" --quiet
             git push --set-upstream origin "$BranchName" --quiet
             gh pr create -f --body "$PrBody"
         }
         git switch master --quiet
         git pull --quiet
+    }
+}
+
+Function Local:Search-ExistingPullRequest {
+    $ExistingPRs = gh pr list --search "$($PackageIdentifier.Replace('.', ' ')) $PackageVersion -author:vedantmgoyal2009" --json 'title,url' | ConvertFrom-Json
+    If ($ExistingPRs.Count -gt 0) {
+        $ExistingPRs.ForEach({
+            Write-Output "Found existing PR: $($_.title)"
+            Write-Output "-> $($_.url)"
+        })
+        Exit 0
     }
 }
 
