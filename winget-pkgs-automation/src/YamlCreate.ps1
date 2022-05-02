@@ -694,19 +694,9 @@ $script:PackageVersion = $InputObject.PackageVersion
 
 $PackageIdentifierFolder = $PackageIdentifier.Replace('.', '\')
 
-# Check the api for open PR's
-# This is unauthenticated because the call-rate per minute is assumed to be low
-if ($ScriptSettings.ContinueWithExistingPRs -ne 'always' -and $script:Option -ne 'RemoveManifest' -and !$SkipPRCheck) {
-    # Use authentication headers from the automation
-    $PRApiResponse = Invoke-RestMethod -Headers $AuthHeaders -Uri "https://api.github.com/search/issues?q=repo%3Amicrosoft%2Fwinget-pkgs%20is%3Apr%20$($PackageIdentifier -replace '\.', '%2F'))%2F$PackageVersion%20in%3Apath&per_page=1"
-    # If there was a PR found, get the URL and title
-    if ($PRApiResponse.total_count -gt 0) {
-        $_PRUrl = $PRApiResponse.items.html_url
-        $_PRTitle = $PRApiResponse.items.title
-        Write-Host -ForegroundColor Red "[Existing PR Found] $_PRTitle`n--->  $_PRUrl"
-        exit
-    }
-}
+# Automation function to search for alread open pull request for the package
+# Dot-source the function to run in current scope
+. Search-ExistingPullRequest
 
 # Set the root folder where new manifests should be created
 if (Test-Path -Path "$PSScriptRoot\..\manifests") {

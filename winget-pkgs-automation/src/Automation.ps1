@@ -29,15 +29,11 @@ $ProgressPreference = 'SilentlyContinue'
 # to bypass certificate check so that https traffic can be captured of some electron apps
 # [System.Environment]::SetEnvironmentVariable('NODE_TLS_REJECT_UNAUTHORIZED', '0', [System.EnvironmentVariableTarget]::Process)
 
-# Setup git authentication credentials, authentication headers and wingetdev.exe path variable
+# Setup git authentication credentials, bot authentication token and wingetdev.exe path variable
 Write-Output 'Setting up git authentication credentials and github bot authentication token...'
 git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
 git config --global user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com' # Set git email
 $AuthToken = $(node auth.js) # Get bot token from auth.js which was initialized in the workflow
-Set-Variable -Name AuthHeaders -Value @{
-    Authorization = "Token $AuthToken"
-    Accept        = 'application/vnd.github.v3+json'
-} -Option AllScope, Constant # Set authentication headers with bot token
 # Set wingetdev.exe path variable which will be used in the whole automation to execute wingetdev.exe commands
 Set-Variable -Name WinGetDev -Value (Resolve-Path -Path .\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
 
@@ -79,6 +75,7 @@ Write-Output 'Successfully installed powershell-yaml.' # print that powershell-y
 Set-Location -Path .\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
 git remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
+git fetch origin --quiet # Fetch branches from origin, quiet to not print anything
 Copy-Item -Path ..\..\src\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
 Set-Location -Path ..\..\ # Go back to previous working directory
@@ -101,9 +98,9 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
     $VersionRegex = $Package.VersionRegex
     $InstallerRegex = $Package.InstallerRegex
     If (-not [System.String]::IsNullOrEmpty($Package.AdditionalInfo)) {
-        $Package.AdditionalInfo.PSObject.Properties | ForEach-Object {
+        $Package.AdditionalInfo.PSObject.Properties.ForEach({
             Set-Variable -Name $_.Name -Value $_.Value
-        }
+        })
     }
     $Paramters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
     If (-not [System.String]::IsNullOrEmpty($Package.Update.Headers)) {
@@ -115,24 +112,29 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
     If (-not [System.String]::IsNullOrEmpty($Package.Update.UserAgent)) {
         $Paramters.UserAgent = $Package.Update.UserAgent
     }
-    If ($Package.Update.InvokeType -eq 'RestMethod') {
-        $Response = Invoke-RestMethod @Paramters
-    } ElseIf ($Package.Update.InvokeType -eq 'WebRequest') {
-        $Response = Invoke-WebRequest @Paramters
-    }
-    If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
-        $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
-    }
-    If ([System.Text.RegularExpressions.Regex]::IsMatch($Package.Update.Uri, 'https:\/\/api.github.com\/repos\/.*\/releases\?per_page=1')) {
-        # If the last release was more than 2.5 years ago, automatically add it to the skip list
-        # 3600 secs/hr * 24 hr/day * 365 days * 2.5 years = 78840000 seconds
-        If (([DateTimeOffset]::Now.ToUnixTimeSeconds() - 78840000) -ge [DateTimeOffset]::new($Response.published_at).ToUnixTimeSeconds()) {
-            $Package.SkipPackage = 'Automatically marked as stale, not updated for 2.5 years'
-            ConvertTo-Json -InputObject $Package | Set-Content -Path .\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
+    try {
+        If ($Package.Update.InvokeType -eq 'RestMethod') {
+            $Response = Invoke-RestMethod @Paramters
+        } ElseIf ($Package.Update.InvokeType -eq 'WebRequest') {
+            $Response = Invoke-WebRequest @Paramters
         }
-    }
-    $Package.ManifestFields.PSObject.Properties | ForEach-Object {
-        $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
+        If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
+            $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
+        }
+        If ([System.Text.RegularExpressions.Regex]::IsMatch($Package.Update.Uri, 'https:\/\/api.github.com\/repos\/.*\/releases\?per_page=1')) {
+            # If the last release was more than 2.5 years ago, automatically add it to the skip list
+            # 3600 secs/hr * 24 hr/day * 365 days * 2.5 years = 78840000 seconds
+            If (([DateTimeOffset]::Now.ToUnixTimeSeconds() - 78840000) -ge [DateTimeOffset]::new($Response.published_at).ToUnixTimeSeconds()) {
+                $Package.SkipPackage = 'Automatically marked as stale, not updated for 2.5 years'
+                ConvertTo-Json -InputObject $Package | Set-Content -Path .\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
+            }
+        }
+        $Package.ManifestFields.PSObject.Properties.ForEach({
+            $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
+        })
+    } catch {
+        Write-Error "Error checking for updates for $($Package.Identifier) $($_.Exception.Message)"
+        $ErrorGettingUpdates += @("- $($Package.Identifier) [$($_.Exception.Message)]")
     }
     If (($null -eq $UpdateCondition) ? ($_Object.PackageVersion -gt $Package.PreviousVersion) : $UpdateCondition) {
         $_Object | Add-Member -MemberType NoteProperty -Name 'YamlCreateParams' -Value $Package.YamlCreateParams
@@ -146,9 +148,9 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
     Remove-Variable -Name UpdateCondition -ErrorAction SilentlyContinue
 }
 Write-Output "Number of package updates found: $($UpgradeObject.Count)`nPackages to be updated:"
-$UpgradeObject | ForEach-Object {
+$UpgradeObject.ForEach({
     Write-Output "-> $($_.PackageIdentifier)"
-}
+})
 Set-Location -Path .\winget-pkgs\Tools
 ForEach ($Upgrade in $UpgradeObject) {
     Write-Output -InputObject $Upgrade | Format-List -Property *
@@ -173,26 +175,32 @@ ForEach ($Upgrade in $UpgradeObject) {
 }
 Set-Location -Path ..\..\ # Go back to winget-pkgs-automation directory
 
-Write-Output "`nCommenting errored packages on issue 200"
-If ($ErrorUpgradingPkgs.Count -gt 0) {
-    $CommentBody = "**[[$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/runs/$($env:GITHUB_RUN_ID))]:** The following packages failed to update:\r\n$($ErrorUpgradingPkgs -join '\r\n')"
+Write-Output "`nComment the results of the run on the issue #200 (Automation Health)`n"
+$Headers = @{
+    Authorization = "Token $AuthToken"
+    Accept        = 'application/vnd.github.v3+json'
+}
+$CommentBody = "### Results of Automation run [$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/runs/$($env:GITHUB_RUN_ID))\r\n"
+$CommentBody += '**Error while checking for updates for packages:** ' # Add space for better formatting
+If ($ErrorGettingUpdates.Count -gt 0) {
+    $CommentBody += "$($ErrorGettingUpdates.Count) packages had errors while checking for updates.\r\n"
+    $CommentBody += "$($ErrorGettingUpdates -join '\r\n')\r\n"
 } Else {
-    $CommentBody = "**[[$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/runs/$($env:GITHUB_RUN_ID))]:** All packages were updated successfully :tada:"
+    $CommentBody += 'No errors while checking for updates for packages :tada:\r\n'
 }
-# Delete the old comment if -
-# -> it contains that all packages were updated successfully
-# -> it contains that there were packages that failed to update but a reaction is present on the comment
-Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' | Where-Object { $_.user.login -eq 'winget-pkgs-automation-bot[bot]' } | ForEach-Object {
-    If ($_.body.Contains('failed')) {
-        If ((Invoke-RestMethod -Method Get -Uri $_.reactions.url).user.login -contains 'vedantmgoyal2009') {
-            Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $AuthHeaders | Out-Null
-        }
-    } ElseIf ($_.body.Contains('tada')) {
-        Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $AuthHeaders | Out-Null
-    }
+$CommentBody += '**Error while upgrading packages:** ' # Add space for better formatting
+If ($ErrorUpgradingPkgs.Count -gt 0) {
+    $CommentBody += "$($ErrorUpgradingPkgs.Count) package manifests were not submitted.\r\n"
+    $CommentBody += "$($ErrorUpgradingPkgs -join '\r\n')"
+} Else {
+    $CommentBody += 'All packages were updated successfully :tada:'
 }
-# Add the new comment
-Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{""body"":""$CommentBody""}" -Headers $AuthHeaders
+# Delete all previous comments since we are already reverting the changes in the JSON file so that they can be upgarded in the next run
+(Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments').Where({ $_.user.login -eq 'winget-pkgs-automation-bot[bot]' }).ForEach({
+    Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $Headers | Out-Null
+})
+# Add the new comment to the issue containing the results of the automation run
+Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{""body"":""$CommentBody""}" -Headers $Headers
 
 # Update packages in repository
 Write-Output "`nUpdating packages"

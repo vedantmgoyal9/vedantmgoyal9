@@ -115,6 +115,15 @@ Begin {
         Remove-Item -Path $FileName -Force
         return $PkgVersion
     }
+
+    # HIDE PROGRESS BAR OF INVOKE-WEBREQUEST #
+    #
+    # To hide the progress bar of Invoke-WebRequest, we need to set the
+    # $ProgressPreference variable to 'SilentlyContinue'
+    #
+    ###########################################
+
+    $ProgressPreference = 'SilentlyContinue'
 }
 
 Process {
@@ -157,6 +166,11 @@ Process {
         $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
     }
     $Package.ManifestFields.PSObject.Properties | ForEach-Object {
+        # If Read-VersionFromInstaller function is being called, and script is not being called from another script,
+        # inform the user that it may take some time to download the installer
+        If ($Null -eq $MyInvocation.PSCommandPath -and $_.Value -match 'Read-VersionFromInstaller') {
+            Write-Output 'Downloading the installer to get the version... This may take some time.'
+        }
         $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
     }
 
