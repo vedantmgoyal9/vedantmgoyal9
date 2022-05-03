@@ -19,9 +19,10 @@ jobs:
       - name: Clone microsoft/winget-pkgs
         uses: actions/checkout@v3
         with:
+          fetch-depth: 0
+          path: winget-pkgs-automation/winget-pkgs
           persist-credentials: false
           repository: microsoft/winget-pkgs
-          path: winget-pkgs-automation/winget-pkgs
       - name: Authenticate GitHub Bot
         run: |
           # Initialize auth.js which will be used by the script to get bot token
