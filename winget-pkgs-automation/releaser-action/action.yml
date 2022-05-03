@@ -45,7 +45,7 @@ runs:
       with:
         path: winget-pkgs-automation/winget-pkgs
         repository: microsoft/winget-pkgs
-        token: '${{ inputs.token }}'
+        token: ${{ inputs.token }}
     - name: Setup working environment
       run: |
         # Setup working environment
@@ -69,8 +69,6 @@ runs:
         '@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml
       shell: pwsh
       working-directory: winget-pkgs-automation/winget-pkgs/Tools
-      env:
-        GITHUB_TOKEN: '${{ inputs.token }}'
     - name: Update manifests and publish
       run: |
         # Update manifests and publish
@@ -80,20 +78,36 @@ runs:
         $Upgrade = [System.Management.Automation.PSObject] @{
           PackageIdentifier = '${{ inputs.identifier }}'
           PackageVersion = ('${{ github.event.release.tag_name }}' | Select-String -Pattern '${{ inputs.version-regex }}').Matches.Value
-          InstallerUrls = $env:RELEASE_ASSETS | ForEach-Object { if ($_.name -match '${{ inputs.installers-regex }}') { $_.browser_download_url } }
+          InstallerUrls = ($env:RELEASE_ASSETS_JSON | ConvertFrom-Json).ForEach({ if ($_.name -match '${{ inputs.installers-regex }}') { $_.browser_download_url } })
           ReleaseNotesUrl = '${{ github.event.release.html_url }}'
           ReleaseDate = (Get-Date -Date '${{ github.event.release.published_at }}').ToString('yyyy-MM-dd')
         }
-        If ('${{ inputs.delete-previous-version }}' -eq 'false' ? $true : $false) {
-          . .\YamlCreate.ps1 -InputObject $Upgrade # Dot-source the script to get pull request body
-        } Else {
-          . .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion # Dot-source the script to get pull request body
+        Function Invoke-YamlCreate {
+          If ('${{ inputs.delete-previous-version }}' -eq 'false' ? $true : $false) {
+            . .\YamlCreate.ps1 -InputObject $Upgrade # Dot-source the script to get pull request body
+          } Else {
+            . .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion # Dot-source the script to get pull request body
+          }
+        }
+        # In case ci/user publishes the release and adds the release assets later, we can wait for sometime and refresh InstallerUrls
+        # Wait time is 2.5 minutes so that action doesn't take long time to complete
+        # User can re-run failed jobs to retry after he has added all release assets
+        try {
+          . Invoke-YamlCreate
+        } catch {
+          If ($_.Exception.Message -in @('Installer URLs are required', 'Number of InstallerUrls are not equal')) {
+            Start-Sleep -Seconds 150
+            $Upgrade.InstallerUrls = (Invoke-RestMethod -Uri '${{ github.event.release.assets_url }}').ForEach({ if ($_.name -match '${{ inputs.installers-regex }}') { $_.browser_download_url } })
+            . Invoke-YamlCreate
+          } Else {
+            throw $_.Exception.Message
+          }
         }
       working-directory: winget-pkgs-automation/winget-pkgs/Tools
       shell: pwsh
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
-        RELEASE_ASSETS: ${{ github.event.release.assets }}
+        RELEASE_ASSETS_JSON: ${{ toJSON(github.event.release.assets) }}
 branding:
   color: blue
   icon: upload-cloud
