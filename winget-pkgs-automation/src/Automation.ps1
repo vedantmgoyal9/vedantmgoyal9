@@ -133,7 +133,7 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
             $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
         })
     } catch {
-        Write-Error "Error checking for updates for $($Package.Identifier) $($_.Exception.Message)"
+        Write-Error "Error checking for updates for $($Package.Identifier)`n-> $($_.Exception.Message)"
         $ErrorGettingUpdates += @("- $($Package.Identifier) [$($_.Exception.Message)]")
     }
     If (($null -eq $UpdateCondition) ? ($_Object.PackageVersion -gt $Package.PreviousVersion) : $UpdateCondition) {
@@ -200,7 +200,7 @@ If ($ErrorUpgradingPkgs.Count -gt 0) {
     Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $Headers | Out-Null
 })
 # Add the new comment to the issue containing the results of the automation run
-Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{""body"":""$CommentBody""}" -Headers $Headers
+Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{`"body`":$($CommentBody | ConvertTo-Json)}" -Headers $Headers
 
 # Update packages in repository
 Write-Output "`nUpdating packages"
