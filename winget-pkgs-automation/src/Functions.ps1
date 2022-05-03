@@ -71,7 +71,7 @@ Function Local:Submit-Manifest {
             git reset --hard upstream/master
             git cherry-pick $CommitId # Cherry-pick the commit that was just made on master
             git push --force
-            gh pr edit $OpenPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP]" --body "$PrBody"
+            gh pr edit $OpenPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP-O]" --body "$PrBody"
         } ElseIf ($DraftPRs.Count -ge 1) {
             Write-Output "Found draft PR #$($DraftPRs.number) -> $($DraftPRs.title)"
             gh pr ready $DraftPRs.number # Mark pull request as ready for review
@@ -79,7 +79,7 @@ Function Local:Submit-Manifest {
             git reset --hard upstream/master
             git cherry-pick $CommitId # Cherry-pick the commit that was just made on master
             git push --force
-            gh pr edit $DraftPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP]" --body "$PrBody"
+            gh pr edit $DraftPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP-D]" --body "$PrBody"
         } Else {
             # Create a commit onto the detached head, and push it to a new branch
             git switch -d upstream/master

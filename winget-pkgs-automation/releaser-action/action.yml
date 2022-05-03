@@ -1,4 +1,3 @@
-# yaml-language-server: https://github.com/ScheaStore/schemastore/blob/master/src/schemas/json/github-action.json
 name: WinGet Releaser
 description: Publish new releases of your application to Windows Package Manager Community Repository easily.
 inputs:
@@ -25,29 +24,41 @@ runs:
   steps:
     - name: Check runner OS and workflow trigger event
       run: |
-        $GitHubEvent = '${{ toJSON(github.event) }}' | ConvertFrom-Json
+        # Check runner OS and workflow trigger event
         if ($IsWindows -eq $false) {
           throw 'This action is only supported on Windows.'
         }
         if ('${{ github.event_name }}' -ne 'release') {
           throw 'This action is only supported on release event.'
         }
-        If ($GitHubEvent.action -ne 'released') {
+        If ('${{ github.event.action }}' -ne 'released') {
           throw 'This action is only supported on released event type.'
         }
       shell: pwsh
-    - name: Checkout winget-pkgs repository
+    - name: Checkout action repository
       uses: actions/checkout@v3
       with:
         persist-credentials: false
+        repository: vedantmgoyal2009/vedantmgoyal2009
+    - name: Checkout winget-pkgs repository
+      uses: actions/checkout@v3
+      with:
+        path: winget-pkgs-automation/winget-pkgs
         repository: microsoft/winget-pkgs
-    - name: Setup YamlCreate and configure authentication token
+        token: '${{ inputs.token }}'
+    - name: Setup working environment
       run: |
+        # Setup working environment
+        Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # Install powershell-yaml module
+        # Set git user name, email and remotes
+        git config --local user.name '${{ github.repository_owner }}'
+        git config --local user.email '${{ github.event.repository.owner.id }}+${{ github.repository_owner }}@users.noreply.github.com'
         git remote rename origin upstream
         git remote add origin https://github.com/${{ github.repository_owner }}/winget-pkgs.git
+        # Copy YamlCreate to Tools folder and set settings
         Copy-Item -Path ..\..\src\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force
-        git commit --all -m 'Update YamlCreate.ps1 with InputObject functionality'
-        New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force
+        git commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' --quiet
+        New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null
         @'
         TestManifestsInSandbox: never
         SaveToTemporaryFolder: never
@@ -56,35 +67,33 @@ runs:
         SuppressQuickUpdateWarning: true
         EnableDeveloperOptions: true
         '@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml
-        Write-Output 'YamlCreate settings configured.'
-      working-directory: winget-pkgs\Tools
       shell: pwsh
-    - name: Update manifests and publish
-      run: |
-        $ReleaseInfo = Invoke-RestMethod -Method Get -Uri $GitHubEvent.release.url
-        $PackageIdentifier = '${{ inputs.identifier }}'
-        $PackageVersion = ($ReleaseInfo.tag_name | Select-String -Pattern '${{ inputs.version-regex }}').Matches.Value
-        $InstallerUrls = $ReleaseInfo.assets | ForEach-Object { if ($_.name -match '${{ inputs.installers-regex }}') { $_.browser_download_url } }
-        $ReleaseNotesUrl = $ReleaseInfo.html_url
-        $ReleaseDate = (Get-Date -Date $ReleaseInfo.published_at).ToString('yyyy-MM-dd')
-        $DeletePreviousVersion = ('${{ inputs.delete-previous-version }}' -eq 'false') ? $false : $true
-
-        $Upgrade = New-Object -TypeName System.Management.Automation.PSObject
-        $Upgrade | Add-Member -MemberType NoteProperty -Name 'PackageIdentifier' -Value $PackageIdentifier
-        $Upgrade | Add-Member -MemberType NoteProperty -Name 'PackageVersion' -Value $PackageVersion
-        $Upgrade | Add-Member -MemberType NoteProperty -Name 'InstallerUrls' -Value $InstallerUrls
-        $Upgrade | Add-Member -MemberType NoteProperty -Name 'ReleaseNotesUrl' -Value $ReleaseNotesUrl
-        $Upgrade | Add-Member -MemberType NoteProperty -Name 'ReleaseDate' -Value $ReleaseDate
-
-        If ($DeletePreviousVersion -eq $false) {
-          .\YamlCreate.ps1 -InputObject $Upgrade
-        } Else {
-          .\YamlDelete.ps1 -InputObject $Upgrade -DeletePreviousVersion
-        }
-      working-directory: winget-pkgs
-      shell: pwsh
+      working-directory: winget-pkgs-automation/winget-pkgs/Tools
       env:
         GITHUB_TOKEN: '${{ inputs.token }}'
+    - name: Update manifests and publish
+      run: |
+        # Update manifests and publish
+        $WinGetDev = (Resolve-Path -Path ..\..\wingetdev\wingetdev.exe).Path # Set wingetdev.exe path variable
+        $PrBody = '### Pull request has been automatically created using 🛫 [WinGet Releaser](https://bittu.eu.org/docs/wr-intro).' # Set pull reuqest body
+        . ..\..\src\Functions.ps1 # Import functions
+        $Upgrade = [System.Management.Automation.PSObject] @{
+          PackageIdentifier = '${{ inputs.identifier }}'
+          PackageVersion = ('${{ github.event.release.tag_name }}' | Select-String -Pattern '${{ inputs.version-regex }}').Matches.Value
+          InstallerUrls = $env:RELEASE_ASSETS | ForEach-Object { if ($_.name -match '${{ inputs.installers-regex }}') { $_.browser_download_url } }
+          ReleaseNotesUrl = '${{ github.event.release.html_url }}'
+          ReleaseDate = (Get-Date -Date '${{ github.event.release.published_at }}').ToString('yyyy-MM-dd')
+        }
+        If ('${{ inputs.delete-previous-version }}' -eq 'false' ? $true : $false) {
+          . .\YamlCreate.ps1 -InputObject $Upgrade # Dot-source the script to get pull request body
+        } Else {
+          . .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion # Dot-source the script to get pull request body
+        }
+      working-directory: winget-pkgs-automation/winget-pkgs/Tools
+      shell: pwsh
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        RELEASE_ASSETS: ${{ github.event.release.assets }}
 branding:
   color: blue
   icon: upload-cloud
