@@ -676,7 +676,6 @@ Nevcairiel.LAVFilters
 NewzenMC.NewzenLauncher
 Nextcloud.NextcloudDesktop
 NexusMods.Vortex
-ngudbhav.lazyType
 ngudbhav.TriCo
 NhekoReborn.Nheko
 NickeManarin.ScreenToGif
