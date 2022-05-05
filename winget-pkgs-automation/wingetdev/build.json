@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "5d63c3870e195c9b0ee1618902f6fa7aa43165d1",
-    "Message": "Implementation for Portable install flow (#2078)",
+    "Sha": "41e741a9d9473fddf5d528aaafd90e326adf4c48",
+    "Message": "Fix packageId and sourceId match check for portable install (#2138)",
     "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Thursday, April 28, 2022 9:22:23 PM"
+  "BuildDateTime": "Thursday, May 5, 2022 12:58:27 AM"
 }
