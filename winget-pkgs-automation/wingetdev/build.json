@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "41e741a9d9473fddf5d528aaafd90e326adf4c48",
-    "Message": "Fix packageId and sourceId match check for portable install (#2138)",
-    "Author": "Ryan Fu"
+    "Sha": "740808ddd8a46d2da91d45eae2136bef4528377d",
+    "Message": "Act on elevation requirements in majority cases (#2126)\n\nWhen `ElevationRequirement` is set to `elevationProhibited` is set and winget is run elevated, block the installation with an error.\r\n\r\nWhen `elevatesSelf` or `elevationRequired` is set and winget is not run elevated, inform the user that an elevation prompt is expected.  Also in the case of `elevationRequired`, use the `runas` verb on ShellExecute to run the installer elevated.  This can be used on installers that will fail if they are not run elevated.",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Thursday, May 5, 2022 12:58:27 AM"
+  "BuildDateTime": "Thursday, May 5, 2022 6:27:15 PM"
 }
