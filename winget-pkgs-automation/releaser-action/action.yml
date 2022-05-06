@@ -43,6 +43,7 @@ runs:
     - name: Checkout winget-pkgs repository
       uses: actions/checkout@v3
       with:
+        fetch-depth: 0
         path: winget-pkgs-automation/winget-pkgs
         repository: microsoft/winget-pkgs
         token: ${{ inputs.token }}
