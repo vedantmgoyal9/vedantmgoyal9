@@ -294,7 +294,6 @@ EQAditu.AdvancedCombatTracker
 Erlang.ErlangOTP
 ErykRakowski.Multrin
 Esteem.Esteem
-Ethereum.grid
 EtternaProject.EtternaGame
 Eugeny.Tabby
 evsar3.sshfs-win-manager
