@@ -48,7 +48,7 @@ jobs:
         with:
           identifier: Package.Identifier
           version-regex: '[0-9.]+'
-          installer-regex: '\.exe$' # only .exe files
+          installers-regex: '\.exe$' # only .exe files
           delete-previous-version: 'false' # don't forget the quotes
           token: ${{ secrets.WINGET_TOKEN }}
 ```
