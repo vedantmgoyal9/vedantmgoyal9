@@ -17,7 +17,7 @@
   "InstallerRegex": "winget.*(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "1.4.5-beta.2222",
   "ManifestFields": {
-    "PackageVersion": "$Response.tag_name.TrimStart('v').Split('.')[0] + '.' + $Response.tag_name.TrimStart('v').Split('.')[1] + '.' + $Response.tag_name.TrimStart('v').Split('.')[2] + '-beta.' + $Response.tag_name.TrimStart('v').Split('.')[3]",
+    "PackageVersion": "$Response.tag_name.TrimStart('v').Split('.')[0] + '.' + $Response.tag_name.TrimStart('v').Split('.')[1] + '.' + $Response.tag_name.TrimStart('v').Split('.')[2] + '-beta'",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
     "ReleaseNotesUrl": "$Response.html_url",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
