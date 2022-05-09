@@ -569,7 +569,6 @@ lukehaas.RunJS
 LUPhysics.PyMODA
 luyuhuang.DWords2
 lyswhut.lx-music-desktop
-MacType.MacType
 madisvain.upcount
 majsoulplus.majsoul-plus
 MaLuns.wallhaven-electron
@@ -992,7 +991,6 @@ TTKN.CNKIExpress
 TUG.TeXworks
 Twistedst.scale-serial-reader
 Tympanix.Electorrent
-Tyrrrz.LightBulb
 UMEZAWATakeshi.UtvideoCodecSuite
 Unicorn.PaintAid
 UniversalMediaServer.UniversalMediaServer
