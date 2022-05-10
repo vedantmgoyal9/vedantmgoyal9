@@ -19,6 +19,10 @@ inputs:
   token:
     required: true
     description: GitHub token to create pull request on Windows Package Manager Community Repository.
+  fork-user:
+    required: true
+    description: GitHub username where the fork of winget-pkgs is present.
+    default: ${{ github.repository_owner }}
 runs:
   using: composite
   steps:
@@ -31,8 +35,8 @@ runs:
         if ('${{ github.event_name }}' -ne 'release') {
           throw 'This action is only supported on release event.'
         }
-        If ('${{ github.event.action }}' -ne 'released') {
-          throw 'This action is only supported on released event type.'
+        if ('${{ github.event.action }}' -notin @('released', 'prereleased')) {
+          throw 'This action is only supported on released and prereleased event types.'
         }
       shell: pwsh
     - name: Checkout action repository
@@ -55,7 +59,7 @@ runs:
         git config --local user.name '${{ github.repository_owner }}'
         git config --local user.email '${{ github.event.repository.owner.id }}+${{ github.repository_owner }}@users.noreply.github.com'
         git remote rename origin upstream
-        git remote add origin https://github.com/${{ github.repository_owner }}/winget-pkgs.git
+        git remote add origin https://github.com/${{ inputs.fork-user }}/winget-pkgs.git
         # Copy YamlCreate to Tools folder and set settings
         Copy-Item -Path ..\..\src\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force
         git commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' --quiet
@@ -83,26 +87,31 @@ runs:
           ReleaseNotesUrl = '${{ github.event.release.html_url }}'
           ReleaseDate = (Get-Date -Date '${{ github.event.release.published_at }}').ToString('yyyy-MM-dd')
         }
-        Function Invoke-YamlCreate {
-          If ('${{ inputs.delete-previous-version }}' -eq 'false' ? $true : $false) {
-            . .\YamlCreate.ps1 -InputObject $Upgrade # Dot-source the script to get pull request body
-          } Else {
-            . .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion # Dot-source the script to get pull request body
-          }
-        }
-        # In case ci/user publishes the release and adds the release assets later, we can wait for sometime and refresh InstallerUrls
-        # Wait time is 2.5 minutes so that action doesn't take long time to complete
-        # User can re-run failed jobs to retry after he has added all release assets
-        try {
-          . Invoke-YamlCreate
-        } catch {
-          If ($_.Exception.Message -in @('Installer URLs are required', 'Number of InstallerUrls are not equal')) {
-            Start-Sleep -Seconds 150
-            $Upgrade.InstallerUrls = (Invoke-RestMethod -Uri '${{ github.event.release.assets_url }}').ForEach({ if ($_.name -match '${{ inputs.installers-regex }}') { $_.browser_download_url } })
-            . Invoke-YamlCreate
-          } Else {
-            throw $_.Exception.Message
-          }
+        $NoOfTimes = 0
+        while ($NoOfTimes -le 6) { # Retry total 5 times, on 6th time, throw that action timed out and finish
+            try {
+                If ('${{ inputs.delete-previous-version }}' -eq 'false' ? $true : $false) {
+                    . .\YamlCreate.ps1 -InputObject $Upgrade # Dot-source the script to get pull request body
+                } Else {
+                    . .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion # Dot-source the script to get pull request body
+                }
+                break
+            } catch {
+                If ($NoOfTimes -ne 6 -and $_.Exception.Message -in @('Installer URLs are required', 'Number of InstallerUrls are not equal')) {
+                    $NoOfTimes++
+                    Write-Output "Retrying to get installer URLs... [$NoOfTimes/5] (next retry after 10 minutes)"
+                    Start-Sleep -Seconds 600 # Wait for 10 minutes so we don't hit GitHub API rate limit
+                    $Upgrade.InstallerUrls = (Invoke-RestMethod -Uri '${{ github.event.release.assets_url }}').ForEach({ if ($_.name -match '${{ inputs.installers-regex }}') { $_.browser_download_url } })
+                } ElseIf ($NoOfTimes -eq 6 -and $_.Exception.Message -in @('Installer URLs are required', 'Number of InstallerUrls are not equal')) {
+                    throw @"
+        Error: 404_SOME_ASSETS_WERE_NOT_FOUND
+        If the release CI is still running, please wait till all artifacts are available and then re-run the job.
+        Learn more about this error at: https://bittu.eu.org/docs/wr-notes.
+        "@
+                } Else {
+                    throw $_.Exception.Message
+                }
+            }
         }
       working-directory: winget-pkgs-automation/winget-pkgs/Tools
       shell: pwsh
