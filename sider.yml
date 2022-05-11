@@ -1,0 +1,102 @@
+# This is a configuration file to customize code analysis by Sider.
+#
+# For more information, see the documentation:
+# https://help.sider.review/getting-started/custom-configuration
+
+# Customize each tool. If analyses fail, try adjusting each option referencing the following example.
+linter:
+
+#   # actionlint example. See https://help.sider.review/tools/others/actionlint
+#   actionlint:
+#     root_dir: project/
+#     target:
+#       - .github/workflows/one_workflow.yml
+#       - .github/workflows/another_workflow.yml
+#     ignore:
+#       - "job .* needs job"
+#       - "unknown Webhook event"
+
+#   # Checkstyle example. See https://help.sider.review/tools/java/checkstyle
+#   checkstyle:
+#     root_dir: project/
+#     dependencies:
+#       - "my.company.com:checkstyle-rules:1.0.0"
+#     config: custom-checkstyle.xml
+#     target: src/
+#     exclude: vendor/
+#     ignore: [warning, info]
+#     properties: custom-checkstyle.properties
+
+#   # hadolint example. See https://help.sider.review/tools/dockerfile/hadolint
+#   hadolint:
+#     root_dir: project/
+#     target:
+#       - images/**/Dockerfile
+#     ignore:
+#       - DL3003
+#       - SC1010
+#     trusted-registry:
+#       - docker.io
+#       - my-company.com:5000
+#     config: config/hadolint.yaml
+
+#   # Misspell example. See https://help.sider.review/tools/others/misspell
+#   misspell:
+#     root_dir: project/
+#     target: [src/, test/]
+#     exclude: ["**/*.min.*"]
+#     locale: UK
+#     ignore: [center, behavior]
+
+#   # PMD Java example. See https://help.sider.review/tools/java/pmd
+#   pmd_java:
+#     root_dir: project/
+#     dependencies:
+#       - "my.company.com:pmd-ruleset:1.2.3"
+#     target: src/
+#     rulesets:
+#       - category/java/errorprone.xml
+#       - your_pmd_custom_rules.xml
+#     encoding: ISO-8859-1
+#     min_priority: 3
+
+#   # remark-lint example. See https://help.sider.review/tools/markdown/remark-lint
+#   remark_lint:
+#     root_dir: project/
+#     dependencies:
+#       - my-remark-plugin@2
+#     npm_install: false
+#     target: [docs/]
+#     ext: "md,markdown"
+#     rc-path: config/.remarkrc
+#     ignore-path: config/.remarkignore
+#     use:
+#       - remark-lint-file-extension
+#       - remark-lint-no-heading-punctuation
+
+#   # ShellCheck example. See https://help.sider.review/tools/shellscript/shellcheck
+#   shellcheck:
+#     root_dir: project/
+#     target:
+#       - "**/*.{sh,bash}"
+#       - shebang: true
+#     include: [SC2104, SC2105]
+#     exclude: [SC1000, SC1118]
+#     enable: all
+#     shell: bash
+#     severity: error
+#     norc: true
+
+# Ignore specific files. Example:
+# ignore:
+#   - "*.pdf"
+#   - "*.mp4"
+#   - "*.min.*"
+#   - "images/**"
+
+# Exclude specific branches. Example:
+# branches:
+#   exclude:
+#     - master
+#     - development
+#     - /^release-.*$/
