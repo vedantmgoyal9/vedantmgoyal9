@@ -102,21 +102,21 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
             Set-Variable -Name $_.Name -Value $_.Value
         })
     }
-    $Paramters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
+    $Parameters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
     If (-not [System.String]::IsNullOrEmpty($Package.Update.Headers)) {
-        $Package.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { ($_.Value -contains "`$AuthToken") ? $Headers.Add($_.Name, "token $($_.Value | Invoke-Expression)") : $Headers.Add($_.Name, $_.Value) } -End { $Paramters.Headers = $Headers }
+        $Package.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { ($_.Value -contains "`$AuthToken") ? $Headers.Add($_.Name, "token $($_.Value | Invoke-Expression)") : $Headers.Add($_.Name, $_.Value) } -End { $Parameters.Headers = $Headers }
     }
     If (-not [System.String]::IsNullOrEmpty($Package.Update.Body)) {
-        $Paramters.Body = $Package.Update.Body
+        $Parameters.Body = $Package.Update.Body
     }
     If (-not [System.String]::IsNullOrEmpty($Package.Update.UserAgent)) {
-        $Paramters.UserAgent = $Package.Update.UserAgent
+        $Parameters.UserAgent = $Package.Update.UserAgent
     }
     try {
         If ($Package.Update.InvokeType -eq 'RestMethod') {
-            $Response = Invoke-RestMethod @Paramters
+            $Response = Invoke-RestMethod @Parameters
         } ElseIf ($Package.Update.InvokeType -eq 'WebRequest') {
-            $Response = Invoke-WebRequest @Paramters
+            $Response = Invoke-WebRequest @Parameters
         }
         If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
             $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
