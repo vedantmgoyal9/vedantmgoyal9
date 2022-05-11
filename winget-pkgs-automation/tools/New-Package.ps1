@@ -332,17 +332,17 @@ Process {
     # Fetch the source/api/updater to get its properties in the form of a PSObject so that user can select them interactively
     $Choices = @('$Response')
     If ($Package.Update.InvokeType -eq 'RestMethod') {
-        $Paramters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
+        $Parameters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
         If (-not [System.String]::IsNullOrEmpty($Package.Update.Headers)) {
-            $Package.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { If ($_.Value -notcontains "`$AuthToken") { $Headers.Add($_.Name, $_.Value) } } -End { $Paramters.Headers = $Headers }
+            $Package.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { If ($_.Value -notcontains "`$AuthToken") { $Headers.Add($_.Name, $_.Value) } } -End { $Parameters.Headers = $Headers }
         }
         If (-not [System.String]::IsNullOrEmpty($Package.Update.Body)) {
-            $Paramters.Body = $Package.Update.Body
+            $Parameters.Body = $Package.Update.Body
         }
         If (-not [System.String]::IsNullOrEmpty($Package.Update.UserAgent)) {
-            $Paramters.UserAgent = $Package.Update.UserAgent
+            $Parameters.UserAgent = $Package.Update.UserAgent
         }
-        $Response = Invoke-RestMethod @Paramters
+        $Response = Invoke-RestMethod @Parameters
         If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
             $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
         }
