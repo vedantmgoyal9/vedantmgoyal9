@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "55bf254999edd1373d1df15a55b07776e4125af0",
-    "Message": "Loc error as warning (#2144)",
-    "Author": "yao-msft"
+    "Sha": "3b356a82cb0b58dc7a3c737e786eb85bd03b9ee3",
+    "Message": "Fixed builds on VS 2022 17.2. (#2156)",
+    "Author": "Easton Pillay"
   },
-  "BuildDateTime": "Tuesday, May 10, 2022 12:57:22 AM"
+  "BuildDateTime": "Friday, May 13, 2022 10:59:50 PM"
 }
