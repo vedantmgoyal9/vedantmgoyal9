@@ -1,13 +1,24 @@
-name: '[WPA] Feature Request'
+name: 'Feature Request'
 description: Request a new feature
 title: '[Feature/Idea]: '
-labels: [wpa-feat]
+labels: [feat]
 assignees: vedantmgoyal2009
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for taking the time to request a new feature!
+  - type: dropdown
+    attributes:
+      label: Project Name
+      description: Please select the project this feature belongs to.
+      multiple: false
+      options:
+        - WinGet Automation
+        - WinGet Releaser Action
+        - Other
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: What would you like to see changed/added?
