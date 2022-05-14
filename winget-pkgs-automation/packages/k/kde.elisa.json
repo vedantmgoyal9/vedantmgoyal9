@@ -12,13 +12,13 @@
   "PostResponseScript": "$Response = $Response.lastSuccessfulBuild; $UpdateCondition = $Response.number -gt $PreviousBuildNumber",
   "VersionRegex": "[0-9.]{5,}",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "22.04.0",
+  "PreviousVersion": "22.04.1",
   "ManifestFields": {
     "InstallerUrls": "\"$($Response.url)artifact/$((Invoke-RestMethod -Method Get -Uri \"$($Response.url)api/json\").artifacts.FileName -match $InstallerRegex)\"",
     "PackageVersion": "($_Object.InstallerUrls | Select-String -Pattern $VersionRegex).Matches.Value"
   },
   "AdditionalInfo": {
-    "PreviousBuildNumber": 1130
+    "PreviousBuildNumber": 1133
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousBuildNumber = $Response.number",
   "YamlCreateParams": {
