@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "3b356a82cb0b58dc7a3c737e786eb85bd03b9ee3",
-    "Message": "Fixed builds on VS 2022 17.2. (#2156)",
-    "Author": "Easton Pillay"
+    "Sha": "4df817b3e9fec7f62a57eefb0ab41be4ff6a23dd",
+    "Message": "Implementation for Portable Uninstall and Upgrade (#2140)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Friday, May 13, 2022 10:59:50 PM"
+  "BuildDateTime": "Saturday, May 14, 2022 3:54:40 AM"
 }
