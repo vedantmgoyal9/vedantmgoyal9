@@ -8,7 +8,8 @@
     },
     "workspaces": [
         "docs",
-        "docs/functions"
+        "docs/functions",
+        ".devcontainer/wpa-pkg-manager"
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,12 +33,15 @@
         "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues"
     },
     "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
-    "devDependencies": {
+    "dependencies": {
         "@commitlint/config-conventional": "16.2.4",
+        "@octokit/auth-app": "^3.6.1",
         "commitizen": "^4.2.4",
         "cz-conventional-changelog": "^3.3.0",
-        "@octokit/auth-app": "^3.6.1",
-        "prettier": "^2.6.0"
+        "generator-code": "^1.6.10",
+        "prettier": "^2.6.0",
+        "vsce": "^2.7.0",
+        "yo": "^4.3.0"
     },
     "prettier": {
         "trailingComma": "es5",
