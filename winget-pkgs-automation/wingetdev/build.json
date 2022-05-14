@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "3b356a82cb0b58dc7a3c737e786eb85bd03b9ee3",
-    "Message": "Fixed builds on VS 2022 17.2. (#2156)",
-    "Author": "Easton Pillay"
+    "Sha": "a989c11e91b78c070bcc97c6ac2c0308a97fb867",
+    "Message": "Doc for ARP version mapping change (#2162)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Friday, May 13, 2022 10:59:50 PM"
+  "BuildDateTime": "Tuesday, May 17, 2022 11:06:21 PM"
 }
