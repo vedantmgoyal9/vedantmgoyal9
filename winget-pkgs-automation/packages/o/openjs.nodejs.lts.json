@@ -15,14 +15,14 @@
   "PostResponseScript": "$Response = $Response | Where-Object { $_.name.Contains('LTS') } | Select-Object -First 1; $UpdateCondition = $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "14.19.2",
+  "PreviousVersion": "14.19.3",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "@(\"https://nodejs.org/dist/$($Response.tag_name)/node-$($Response.tag_name)-x64.msi\", \"https://nodejs.org/dist/$($Response.tag_name)/node-$($Response.tag_name)-x86.msi\")",
     "ReleaseNotesUrl": "$Response.html_url"
   },
   "AdditionalInfo": {
-    "PreviousReleaseId": 66044883
+    "PreviousReleaseId": 67108560
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
