@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "4df817b3e9fec7f62a57eefb0ab41be4ff6a23dd",
-    "Message": "Implementation for Portable Uninstall and Upgrade (#2140)",
-    "Author": "Ryan Fu"
+    "Sha": "0b1142f20e6fa74d345ed781ba594fd0fb513a30",
+    "Message": "Load index from validated msix for unpackaged context (#2139)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Monday, May 16, 2022 3:09:34 AM"
+  "BuildDateTime": "Tuesday, May 17, 2022 1:01:21 AM"
 }
