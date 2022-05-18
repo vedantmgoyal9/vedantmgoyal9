@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "a989c11e91b78c070bcc97c6ac2c0308a97fb867",
-    "Message": "Doc for ARP version mapping change (#2162)",
-    "Author": "yao-msft"
+    "Sha": "8ded03a778ca50499e99d3eba39ade3b71ab1198",
+    "Message": "Fix list/upgrade table for packages with multiple ARP entries. (#2137)\n\nNow, winget will always use the PackageName from the Add and Remove Programs table, instead of the one in the manifest",
+    "Author": "Easton Pillay"
   },
-  "BuildDateTime": "Tuesday, May 17, 2022 11:06:21 PM"
+  "BuildDateTime": "Wednesday, May 18, 2022 6:32:03 PM"
 }
