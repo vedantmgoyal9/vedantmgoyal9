@@ -34,7 +34,7 @@
     },
     "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
     "dependencies": {
-        "@commitlint/config-conventional": "16.2.4",
+        "@commitlint/config-conventional": "17.0.0",
         "@octokit/auth-app": "^3.6.1",
         "commitizen": "^4.2.4",
         "cz-conventional-changelog": "^3.3.0",
