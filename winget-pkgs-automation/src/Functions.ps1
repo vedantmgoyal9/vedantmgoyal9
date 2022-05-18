@@ -9,8 +9,8 @@ Function Local:Test-ArpMetadata {
         Function Get-ARPTable {
             $RegistryPaths = @('HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*')
             return Get-ItemProperty -Path $RegistryPaths -ErrorAction SilentlyContinue |
-            Select-Object DisplayName, DisplayVersion, Publisher, @{ N = 'ProductCode'; E = { $_.PSChildName } } |
-            Where-Object { $Null -ne $_.DisplayName -and $_.SystemComponent -ne 1 }
+                Select-Object DisplayName, DisplayVersion, Publisher, @{ N = 'ProductCode'; E = { $_.PSChildName } } |
+                Where-Object { $Null -ne $_.DisplayName -and $_.SystemComponent -ne 1 }
         }
     }
     # Get the data needed to compare the ARP metadata from the manifest
@@ -62,17 +62,19 @@ Function Local:Submit-Manifest {
         $CommitId = git log --format=%H -n 1 # Store the commit id of the commit that was just made
         # Find open pull requests for same package and overwrite them with new version of the package
         # To prevent sub-packages being matched in existing PRs, add 'version' to the compare string
-        $OpenPRs = (gh pr list --author vedantmgoyal2009 --search 'draft:false' --json 'headRefName,number,title' | ConvertFrom-Json).Where({ $_.title -match '$PackageIdentifier version' }) | Select-Object -First 1
+        $OpenPRs = (gh pr list --author vedantmgoyal2009 --search 'draft:false' --json 'headRefName,number,title' | ConvertFrom-Json).Where({ $_.title -match "$PackageIdentifier version" }) | Select-Object -First 1
         # Find draft pull requests if any and overwrite since they are probably errored out and not going to be merged
         $DraftPRs = gh pr list --draft --author vedantmgoyal2009 --limit 1 --json 'headRefName,number,title' | ConvertFrom-Json
-        If ($OpenPRs.Count -ge 1) {
+        If ($OpenPRs.Count -ge 1 -and $env:GITHUB_WORKFLOW -eq '[WPA] Automation') {
+            # Only force-push during automation workflow, avoid conflicts with releaser-action
             Write-Output "Found open PR #$($OpenPRs.number) -> $($OpenPRs.title)"
             git checkout $OpenPRs.headRefName
             git reset --hard upstream/master
             git cherry-pick $CommitId # Cherry-pick the commit that was just made on master
             git push --force
             gh pr edit $OpenPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP-O]" --body "$PrBody"
-        } ElseIf ($DraftPRs.Count -ge 1) {
+        } ElseIf ($DraftPRs.Count -ge 1 -and $env:GITHUB_WORKFLOW -eq '[WPA] Automation') {
+            # Only force-push during automation workflow, avoid conflicts with releaser-action
             Write-Output "Found draft PR #$($DraftPRs.number) -> $($DraftPRs.title)"
             gh pr ready $DraftPRs.number # Mark pull request as ready for review
             git checkout $DraftPRs.headRefName
@@ -95,11 +97,11 @@ Function Local:Submit-Manifest {
 
 Function Local:Search-ExistingPullRequest {
     $ExistingPRs = gh pr list --search "$($PackageIdentifier.Replace('.', ' ')) $PackageVersion -author:vedantmgoyal2009" --json 'title,url' | ConvertFrom-Json
-    If ($ExistingPRs.Count -gt 0) {
+    If ($ExistingPRs.Count -gt 0 -and $env:GITHUB_WORKFLOW -eq '[WPA] Automation') {
         $ExistingPRs.ForEach({
-            Write-Output "Found existing PR: $($_.title)"
-            Write-Output "-> $($_.url)"
-        })
+                Write-Output "Found existing PR: $($_.title)"
+                Write-Output "-> $($_.url)"
+            })
         Exit 0
     }
 }
