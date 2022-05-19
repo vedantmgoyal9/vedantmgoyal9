@@ -1,32 +1,46 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "../../winget-pkgs"
-		}
-	],
-	"settings": {
-		"powershell.codeFormatting.autoCorrectAliases": true,
-		"powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
-		"powershell.codeFormatting.preset": "OTBS",
-		"powershell.codeFormatting.trimWhitespaceAroundPipe": true,
-		"powershell.codeFormatting.useConstantStrings": true,
-		"powershell.codeFormatting.useCorrectCasing": true,
-		"powershell.codeFormatting.whitespaceBetweenParameters": true,
-		"workbench.colorTheme": "Visual Studio Dark",
-		"terminal.integrated.defaultProfile.linux": "pwsh",
-		"gitlens.currentLine.enabled": false,
-		"powershell.pester.debugOutputVerbosity": "Detailed",
-		"powershell.pester.outputVerbosity": "Detailed",
-		"powershell.pester.useLegacyCodeLens": false,
-		"powershell.scriptAnalysis.settingsPath": "",
-		"remote.extensionKind": {
-			"tomoki1207.pdf": [
-				"ui"
-			]
-		},
-		"terminal.integrated.fontFamily": "Liga SFMono Nerd Font"
-	}
+    "folders": [
+        {
+            "name": "vedantmgoyal2009",
+            "path": ".."
+        },
+        {
+            "name": "winget-pkgs",
+            "path": "../../winget-pkgs"
+        }
+    ],
+    "launch": {
+        "configurations": [
+            {
+                "name": "test wpa-pkg-manager",
+                "type": "extensionHost",
+                "request": "launch",
+                "args": [
+                    "--extensionDevelopmentPath=${workspaceFolder:vedantmgoyal2009}/.devcontainer/wpa-pkg-manager"
+                ]
+            }
+        ]
+    },
+    "settings": {
+        "powershell.codeFormatting.autoCorrectAliases": true,
+        "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+        "powershell.codeFormatting.preset": "OTBS",
+        "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+        "powershell.codeFormatting.useConstantStrings": true,
+        "powershell.codeFormatting.useCorrectCasing": true,
+        "powershell.codeFormatting.whitespaceBetweenParameters": true,
+        "workbench.colorTheme": "Visual Studio Dark",
+        "terminal.integrated.defaultProfile.linux": "pwsh",
+        "gitlens.currentLine.enabled": false,
+        "powershell.pester.debugOutputVerbosity": "Detailed",
+        "powershell.pester.outputVerbosity": "Detailed",
+        "powershell.pester.useLegacyCodeLens": false,
+        "powershell.scriptAnalysis.settingsPath": "",
+        "remote.extensionKind": {
+            "tomoki1207.pdf": [
+                "ui"
+            ]
+        },
+        "terminal.integrated.fontFamily": "Liga SFMono Nerd Font"
+    }
 }
