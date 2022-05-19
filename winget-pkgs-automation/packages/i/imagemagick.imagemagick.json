@@ -15,13 +15,13 @@
   "PostResponseScript": "$UpdateCondition = $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "7.1.0.34",
+  "PreviousVersion": "7.1.0.35",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.Replace('-', '.')",
     "InstallerUrls": "@(\"https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-$($Response.tag_name)-Q16-HDRI-x64-dll.exe\", \"https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-$($Response.tag_name)-Q16-HDRI-x86-dll.exe\")"
   },
   "AdditionalInfo": {
-    "PreviousReleaseId": 66996252
+    "PreviousReleaseId": 67325278
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
