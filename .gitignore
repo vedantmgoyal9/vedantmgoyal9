@@ -5,7 +5,7 @@
 /temp/
 
 # node_modules directory
-/node_modules/
+node_modules
 
 # winget-pkgs-automation
 winget-pkgs-automation/temp.ps1
