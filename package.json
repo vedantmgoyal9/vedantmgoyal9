@@ -40,7 +40,7 @@
         "cz-conventional-changelog": "^3.3.0",
         "generator-code": "^1.6.10",
         "prettier": "^2.6.0",
-        "vsce": "^2.7.0",
+        "vsce": "^2.8.0",
         "yo": "^4.3.0"
     },
     "prettier": {
