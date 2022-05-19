@@ -11,7 +11,13 @@ Param (
         HelpMessage = 'The PackageIdentifier of the package to get the updates for.'
     )]
     [ValidateNotNullOrEmpty()]
-    [System.String] $PackageIdentifier
+    [System.String] $PackageIdentifier,
+
+    [Parameter(
+        Mandatory = $false,
+        HelpMessage = 'If you want to disable recursion, just in any specific use case.'
+    )]
+    [System.Management.Automation.SwitchParameter] $DisableRecursion
 )
 
 <#
@@ -181,7 +187,7 @@ Process {
 }
 
 End {
-    If ($Null -eq $MyInvocation.PSCommandPath) {
+    If ($Null -eq $MyInvocation.PSCommandPath -and -not $DisableRecursion) {
         Write-Output 'Do you want to test another package?'
         Write-Output 'Choice (y/n): '
         If (([System.Console]::ReadKey('NoEcho,IncludeKeyDown')).Key -eq 'Y') {
