@@ -221,6 +221,16 @@
         "ideas",
         "doc"
       ]
+    },
+    {
+      "login": "piraces",
+      "name": "Raul Piraces Alastuey",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11027628?v=4",
+      "profile": "http://piraces.dev",
+      "contributions": [
+        "code",
+        "bug"
+      ]
     }
   ]
 }
