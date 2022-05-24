@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.'4kcu-win'.downloadURL",
   "VersionRegex": "[0-9.]{6,}",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "1.7.6.4888",
+  "PreviousVersion": "1.7.7.4908",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response"
