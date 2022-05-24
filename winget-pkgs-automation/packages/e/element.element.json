@@ -15,14 +15,14 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "1.10.12",
+  "PreviousVersion": "1.10.13",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "\"https://packages.riot.im/desktop/install/win32/x64/Element%20Setup%20$($Response.tag_name.TrimStart('v')).exe\""
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 66481687
+    "PreviousReleaseId": 67667936
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
