@@ -24,7 +24,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": true,
-    "PreviousReleaseId": 67906145
+    "PreviousReleaseId": 67934119
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
