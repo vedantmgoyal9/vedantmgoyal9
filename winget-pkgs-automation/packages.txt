@@ -190,6 +190,7 @@ Coq.CoqPlatform
 corda.node-explorer
 CorporateClashCrew.ToontownCorporateClash
 CorsixTH.CorsixTH
+CosmoX.Lepton
 CozyCloud.CozyDrive
 CozyCloud.CozyDrive.Beta
 Cppcheck.Cppcheck
@@ -371,7 +372,6 @@ gtamas.etcdmanager
 gurayyarar.SnipCommand
 GyDi.ClashVerge
 H2IK.JoystickGremlin
-hackjutsu.Lepton
 HakuNeko.HakuNeko
 HandBrake.HandBrake
 HandyOrg.HandyWinget-GUI
