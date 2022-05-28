@@ -1,7 +1,6 @@
 115.115
 115.115Chrome
 1MHz.Knotes
-1zilc.FishingFunds
 360.360Chrome
 360.360zip
 3ll3d00d.beqdesigner
@@ -59,7 +58,6 @@ amitmerchant1990.electron-markdownify
 Anaconda.Anaconda3
 Andersama.obs-asio
 AndreasWascher.RepoZ
-AndresMorelos.Invoncify
 andrewbrey.flot
 androidWG.Corkscrew
 angryziber.AngryIPScanner
@@ -373,7 +371,6 @@ gtamas.etcdmanager
 gurayyarar.SnipCommand
 GyDi.ClashVerge
 H2IK.JoystickGremlin
-h3poteto.whalebird-desktop
 hackjutsu.Lepton
 HakuNeko.HakuNeko
 HandBrake.HandBrake
@@ -416,7 +413,6 @@ IsaqueS.AventurasDeQuintal
 Iterate.Cyberduck
 Iterate.MountainDuck
 JabRef.JabRef
-Jackett.Jackett
 JackHumphries.Socially
 JackieLiu.NotepadsApp
 jamaljsr.Polar
@@ -831,7 +827,6 @@ SamHocevar.WinCompose
 SamuelAttard.GooglePlayMusicDesktopPlayer
 samuelmeuli.mini-diary
 Sandboxie.Classic
-Sandboxie.Plus
 SartoxOnlyGNU.Audacium
 SatisfactoryModding.SatisfactoryModManager
 SatoshiLabs.trezor-suite
@@ -881,7 +876,6 @@ spikecodes.peacock
 Splawik.pytigon
 splode.pomotroid
 spluxx.Protoman
-sprout2000.LeafView
 Spyder.Spyder
 sqlectron.sqlectron-gui
 SSBC.Patchwork
