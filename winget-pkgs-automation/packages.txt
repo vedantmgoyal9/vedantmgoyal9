@@ -401,7 +401,6 @@ HumbleBundle.HumbleApp
 HyperspaceDev.HyperspaceDesktop
 iamscottxu.obs-rtspserver
 ifedapoolarewaju.IGdm
-Igoravl.TfsCmdlets
 IliasHad.makerlapse
 ImageMagick.ImageMagick
 InfiniteRed.Reactotron
