@@ -504,7 +504,6 @@ Kebler.Kebler
 KeePassXCTeam.KeePassXC
 KeeWeb.KeeWeb
 kerinlin.OrangePlayer
-KiCad.KiCad
 Kingsoft.KDocs
 Kiraku.AudioJam
 KirillOsenkov.MSBuildStructuredLogViewer
