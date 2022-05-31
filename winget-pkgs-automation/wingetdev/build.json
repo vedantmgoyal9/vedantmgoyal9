@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "8d703ff6c2b8a3df8fd6dbf299c81bf794d3df62",
-    "Message": "Improve ARP matching heuristic (#2179)",
+    "Sha": "3f4645ae09be2c304f25e33a7642c65de432e897",
+    "Message": "Improve error handling in correlation test script (#2206)\n\nThis contains two changes to improve the error handling in the correlation test script:\r\n1. In case we are using the dev package, when installing the VCLibs dependency, fall back to downloading it if it is not present in the SDK folder. This allows running the script from a machine that doesn't have dev dependencies by simply copying the dev package folder there.\r\n2. Add a timeout for the install operation on the correlation program to ensure the results JSON is generated with the appropriate message, instead of being empty due to the driver script killing the sandbox. This ensures timeouts are reported in the failed.json when processing the results.",
     "Author": "Chacón"
   },
-  "BuildDateTime": "Wednesday, May 25, 2022 1:09:23 AM"
+  "BuildDateTime": "Tuesday, May 31, 2022 10:40:33 PM"
 }
