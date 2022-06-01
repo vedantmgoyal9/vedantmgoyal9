@@ -15,7 +15,7 @@
   "PostResponseScript": "",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "2.7.4.0",
+  "PreviousVersion": "2.7.5.0",
   "ManifestFields": {
     "PackageVersion": "\"$($Response.name).0\"",
     "InstallerUrls": "\"https://awscli.amazonaws.com/AWSCLIV2-$($Response.name).msi\""
