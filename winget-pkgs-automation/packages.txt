@@ -110,7 +110,6 @@ BinanceTech.Binance
 Biscuit.Biscuit
 Bisq.Bisq
 BiSS.WSLDiskShrinker
-BitComet.BitComet
 Bitwarden.Bitwarden
 blaadje.Todolist
 Blocknetproject.Blocknet
@@ -180,6 +179,7 @@ ClusterM.hakchi2
 CNRISTI.MeshLab
 Cockatrice.Cockatrice
 code52.Carnac
+CometNetwork.BitComet
 commercialhaskell.stack
 CondaForge.Miniforge3
 CongusBongus.CDogsSDL
