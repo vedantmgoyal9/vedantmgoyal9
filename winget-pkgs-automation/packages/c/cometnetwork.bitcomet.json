@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "BitComet.BitComet",
+  "Identifier": "CometNetwork.BitComet",
   "Update": {
     "InvokeType": "RestMethod",
     "Uri": "https://update.bitcomet.com/client/bitcomet",
