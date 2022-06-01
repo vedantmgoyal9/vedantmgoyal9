@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "3f4645ae09be2c304f25e33a7642c65de432e897",
-    "Message": "Improve error handling in correlation test script (#2206)\n\nThis contains two changes to improve the error handling in the correlation test script:\r\n1. In case we are using the dev package, when installing the VCLibs dependency, fall back to downloading it if it is not present in the SDK folder. This allows running the script from a machine that doesn't have dev dependencies by simply copying the dev package folder there.\r\n2. Add a timeout for the install operation on the correlation program to ensure the results JSON is generated with the appropriate message, instead of being empty due to the driver script killing the sandbox. This ensures timeouts are reported in the failed.json when processing the results.",
-    "Author": "Chacón"
+    "Sha": "c1a122e377e713b567f55d3864d1f1cf96f08aa8",
+    "Message": "add support for returnresponseurl (#2210)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Tuesday, May 31, 2022 10:40:33 PM"
+  "BuildDateTime": "Wednesday, June 1, 2022 10:38:49 PM"
 }
