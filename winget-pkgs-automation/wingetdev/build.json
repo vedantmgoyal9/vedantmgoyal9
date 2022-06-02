@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "43af2815d3ea1ac1b8234199fb00ad6d36ad0149",
-    "Message": "Display InstallationNotes after a successful install (#2211)",
+    "Sha": "babc5a429260b593a4c8a5aa10d66902ede25dbf",
+    "Message": "Display documentations in show command (#2212)",
     "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Thursday, June 2, 2022 10:36:52 PM"
+  "BuildDateTime": "Thursday, June 2, 2022 11:37:09 PM"
 }
