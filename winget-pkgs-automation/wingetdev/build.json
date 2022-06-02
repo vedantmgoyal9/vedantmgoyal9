@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "c1a122e377e713b567f55d3864d1f1cf96f08aa8",
-    "Message": "add support for returnresponseurl (#2210)",
+    "Sha": "43af2815d3ea1ac1b8234199fb00ad6d36ad0149",
+    "Message": "Display InstallationNotes after a successful install (#2211)",
     "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Wednesday, June 1, 2022 10:38:49 PM"
+  "BuildDateTime": "Thursday, June 2, 2022 10:36:52 PM"
 }
