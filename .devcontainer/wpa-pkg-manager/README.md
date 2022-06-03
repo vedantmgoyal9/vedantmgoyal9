@@ -1,6 +1,6 @@
 # wpa-pkg-manager README
 
-This is the README for your extension "wpa-pkg-manager". After writing up a brief description, we recommend including the following sections.
+This is the README for my extension "wpa-pkg-manager". After writing up a brief description, we recommend including the following sections.
 
 ## Requirements
 
