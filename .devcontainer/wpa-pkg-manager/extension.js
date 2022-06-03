@@ -53,7 +53,7 @@ function activate(context) {
             }).then(selection => {
                 let selectedAction = selection;
                 if (selectedAction.includes('open')) {
-                    vscode.window.showTextDocument(selectedPkgPath);
+                    vscode.window.showTextDocument(vscode.Uri.file(selectedPkgPath));
                 } else if (selectedAction.includes('skip')) {
                     vscode.workspace.fs.readFile(vscode.Uri.file(`${vscode.workspace.workspaceFolders[0].uri.path}/winget-pkgs-automation/schema.json`)).then(schemaDoc => {
                         let skipChoices = JSON.parse(Buffer.from(schemaDoc).toString('utf8')).properties.SkipPackage.enum;
