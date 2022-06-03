@@ -6,14 +6,18 @@
     "engines": {
         "vscode": "^1.67.0"
     },
+    "main": "./extension.js",
     "categories": [
         "Testing",
         "Other"
     ],
     "activationEvents": [
-        "*"
+        "workspaceContains:winget-pkgs-automation/packages/**/*.json"
     ],
-    "main": "./extension.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vedantmgoyal2009/vedantmgoyal2009.git"
+    },
     "contributes": {
         "commands": [
             {
