@@ -38,7 +38,7 @@
         "@octokit/auth-app": "^3.6.1",
         "commitizen": "^4.2.4",
         "cz-conventional-changelog": "^3.3.0",
-        "generator-code": "^1.6.10",
+        "generator-code": "^1.6.11",
         "prettier": "^2.6.0",
         "vsce": "^2.9.1",
         "yo": "^4.3.0"
