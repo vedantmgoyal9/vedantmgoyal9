@@ -14,7 +14,7 @@
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "1.5.3",
   "ManifestFields": {
-    "PackageVersion": "$Response.enclosure.version",
+    "PackageVersion": "$Response.enclosure.version + '.0'",
     "InstallerUrls": "$Response.enclosure.url",
     "ReleaseDate": "(Get-Date -Date $Response.pubDate).ToString('yyyy-MM-dd')",
     "ReleaseNotesUrl": "$Response.releaseNotesLink"
