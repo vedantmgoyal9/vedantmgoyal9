@@ -18,13 +18,13 @@
   "PreviousVersion": "3.4.4",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.Trim('rel')",
-    "InstallerUrls": "@($x64_Uri.Replace('version', $Response.tag_name.Trim('rel')), $x86_Uri.Replace('version', $Response.tag_name.Trim('rel')))",
+    "InstallerUrls": "@($x64_Uri.Replace('#version', $Response.tag_name.Trim('rel')), $x86_Uri.Replace('#version', $Response.tag_name.Trim('rel')))",
     "ReleaseNotesUrl": "$Response.html_url",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
-    "x64_Uri": "https://files.sumatrapdfreader.org/file/kjk-files/software/sumatrapdf/rel/SumatraPDF-version-64-install.exe",
-    "x86_Uri": "https://files.sumatrapdfreader.org/file/kjk-files/software/sumatrapdf/rel/SumatraPDF-version-install.exe",
+    "x64_Uri": "https://www.sumatrapdfreader.org/dl/rel/#version/SumatraPDF-#version-64-install.exe",
+    "x86_Uri": "https://www.sumatrapdfreader.org/dl/rel/#version/SumatraPDF-#version-install.exe",
     "PreRelease": false,
     "PreviousReleaseId": 68477654
   },
