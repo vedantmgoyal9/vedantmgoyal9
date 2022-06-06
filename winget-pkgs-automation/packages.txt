@@ -115,6 +115,7 @@ blaadje.Todolist
 Blocknetproject.Blocknet
 Bloodshed.Dev-C++
 bluecfd.bluecfd
+blueedge.android11react
 blueedge.win11react
 BlueJTeam.BlueJ
 boostio.boostnote
