@@ -155,7 +155,7 @@
         "Published by the developer itself",
         "Waiting for WinGet's Dependency or Interactive-Only installers support"
       ],
-      "type": ["boolean","string"]
+      "type": ["boolean", "string"]
     }
   },
   "additionalProperties": false
