@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "babc5a429260b593a4c8a5aa10d66902ede25dbf",
-    "Message": "Display documentations in show command (#2212)",
-    "Author": "Ryan Fu"
+    "Sha": "9d34634d6868b26b606bf77c18d5978fd2eef907",
+    "Message": "Add missing localization error handling for root level localization info (#2220)",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Thursday, June 2, 2022 11:37:09 PM"
+  "BuildDateTime": "Monday, June 6, 2022 9:35:28 PM"
 }
