@@ -9,4 +9,8 @@ name = "java"
 enabled = true
 
   [analyzers.meta]
-  runtime_version = "11"
+  runtime_version = "17"
+
+[[transformers]]
+name = "google-java-format"
+enabled = true
