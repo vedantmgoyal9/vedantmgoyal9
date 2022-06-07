@@ -103,6 +103,7 @@ BespokeSynth.BespokeSynth
 Betaflight.Betaflight-Configurator
 BetterCrewLink.BetterCrewLink
 BiglySoftware.BiglyBT
+Bilibili.Bilibili
 Bilibili.Livehime
 Bililive.BililiveRecorder
 Billfish.Billfish
@@ -138,6 +139,7 @@ ByteDance.Debugtron
 ByteDance.Feishu
 ByteDance.JianyingPro
 ByteDance.Lark
+ByteDance.StreamingTool
 c0re100.qBittorrent-Enhanced-Edition
 c3er.mdview
 Cairo.Cairo
@@ -320,6 +322,7 @@ FlyByWireSimulations.FlyByWireSimulationsInstaller
 Flywheel.Local
 Fndroid.ClashForWindows
 FontForge.FontForge
+ForgQi.Biliup
 Foundry376.Mailspring
 foxglove.studio
 FrancisBanyikwa.SiriKali
@@ -467,6 +470,7 @@ jhen0409.react-native-debugger
 JIACHENG135.JCPlayer
 jie17.v2ray-electron
 Jigsaw.OutlineManager
+JinweiZhiguang.MasterGo
 Jisco.VisualFamilyTree
 Jitsi.Meet
 JiveOff.roPresence
@@ -679,6 +683,7 @@ nodemailer.nodemailer
 nomacs.nomacs
 notable.notable
 Notepad++.Notepad++
+NotionRepackaged.NotionEnhanced
 nrittsti.NTag
 nteract.nteract
 nukeop.nuclear
