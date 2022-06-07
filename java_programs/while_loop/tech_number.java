@@ -1,5 +1,7 @@
 package java_programs.while_loop;
+
 import java.util.Scanner;
+
 /*
  *  If the given number has an even number of digits and the number can be divided exactly
  *  into two parts from the middle.
@@ -8,18 +10,18 @@ import java.util.Scanner;
  *  For example, 3025 is a tech number.
  */
 public class tech_number {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter a number : ");
-        int n=sc.nextInt(),c=0,t=n;
-        while(t!=0) {
-            c++;
-            t/=10;
-        }
-        if(c%2==0 && (int)Math.pow((n/(int)Math.pow(10,c/2))+(n%(int)Math.pow(10,c/2)),2)==n)
-                System.out.println(n+" is a tech number");
-        else
-            System.out.println(n+" is not a tech number");
-        sc.close();
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter a number : ");
+    int n = sc.nextInt(), c = 0, t = n;
+    while (t != 0) {
+      c++;
+      t /= 10;
     }
+    if (c % 2 == 0
+        && (int) Math.pow((n / (int) Math.pow(10, c / 2)) + (n % (int) Math.pow(10, c / 2)), 2)
+            == n) System.out.println(n + " is a tech number");
+    else System.out.println(n + " is not a tech number");
+    sc.close();
+  }
 }
