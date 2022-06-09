@@ -138,6 +138,7 @@ ByteDance.Debugtron
 ByteDance.Feishu
 ByteDance.JianyingPro
 ByteDance.Lark
+ByteDance.StreamingTool
 c0re100.qBittorrent-Enhanced-Edition
 c3er.mdview
 Cairo.Cairo
