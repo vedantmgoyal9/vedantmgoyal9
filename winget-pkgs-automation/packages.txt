@@ -679,6 +679,7 @@ nodemailer.nodemailer
 nomacs.nomacs
 notable.notable
 Notepad++.Notepad++
+NotionRepackaged.NotionEnhanced
 nrittsti.NTag
 nteract.nteract
 nukeop.nuclear
