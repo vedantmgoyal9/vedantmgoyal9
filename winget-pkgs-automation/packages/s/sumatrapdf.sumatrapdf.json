@@ -15,7 +15,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "3.4.5",
+  "PreviousVersion": "3.4.6",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.Trim('rel')",
     "InstallerUrls": "@($x64_Uri.Replace('#version', $Response.tag_name.Trim('rel')), $x86_Uri.Replace('#version', $Response.tag_name.Trim('rel')))",
@@ -26,7 +26,7 @@
     "x64_Uri": "https://www.sumatrapdfreader.org/dl/rel/#version/SumatraPDF-#version-64-install.exe",
     "x86_Uri": "https://www.sumatrapdfreader.org/dl/rel/#version/SumatraPDF-#version-install.exe",
     "PreRelease": false,
-    "PreviousReleaseId": 68676609
+    "PreviousReleaseId": 69007756
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
