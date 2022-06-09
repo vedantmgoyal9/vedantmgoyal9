@@ -322,6 +322,7 @@ FlyByWireSimulations.FlyByWireSimulationsInstaller
 Flywheel.Local
 Fndroid.ClashForWindows
 FontForge.FontForge
+ForgQi.Biliup
 Foundry376.Mailspring
 foxglove.studio
 FrancisBanyikwa.SiriKali
@@ -469,6 +470,7 @@ jhen0409.react-native-debugger
 JIACHENG135.JCPlayer
 jie17.v2ray-electron
 Jigsaw.OutlineManager
+JinweiZhiguang.MasterGo
 Jisco.VisualFamilyTree
 Jitsi.Meet
 JiveOff.roPresence
