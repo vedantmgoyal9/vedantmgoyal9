@@ -103,6 +103,7 @@ BespokeSynth.BespokeSynth
 Betaflight.Betaflight-Configurator
 BetterCrewLink.BetterCrewLink
 BiglySoftware.BiglyBT
+Bilibili.Bilibili
 Bilibili.Livehime
 Bililive.BililiveRecorder
 Billfish.Billfish
