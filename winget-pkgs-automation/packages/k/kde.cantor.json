@@ -18,7 +18,7 @@
     "PackageVersion": "($_Object.InstallerUrls | Select-String -Pattern $VersionRegex).Matches.Value"
   },
   "AdditionalInfo": {
-    "PreviousBuildNumber": 560
+    "PreviousBuildNumber": 561
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousBuildNumber = $Response.number",
   "YamlCreateParams": {
