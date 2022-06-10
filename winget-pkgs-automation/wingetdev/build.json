@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "18e2a1da45fb30912be1cd13cce71ba2db44b87c",
-    "Message": "Indent documentations in 'show' command (#2234)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "65ecb0c1340ca931f9379ae9bb5f607f8a92fa02",
+    "Message": "make portable feature stable (#2233)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Friday, June 10, 2022 8:39:29 AM"
+  "BuildDateTime": "Friday, June 10, 2022 5:38:09 PM"
 }
