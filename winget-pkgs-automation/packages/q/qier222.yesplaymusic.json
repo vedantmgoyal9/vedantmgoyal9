@@ -14,7 +14,7 @@
   },
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
-  "InstallerRegex": "^YesPlayMusic-Setup-.{5}.exe$",
+  "InstallerRegex": "^YesPlayMusic-Setup-.*.exe$",
   "PreviousVersion": "0.4.5",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
