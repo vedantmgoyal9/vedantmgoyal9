@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "9d34634d6868b26b606bf77c18d5978fd2eef907",
-    "Message": "Add missing localization error handling for root level localization info (#2220)",
-    "Author": "JohnMcPMS"
+    "Sha": "18e2a1da45fb30912be1cd13cce71ba2db44b87c",
+    "Message": "Indent documentations in 'show' command (#2234)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Monday, June 6, 2022 9:35:28 PM"
+  "BuildDateTime": "Friday, June 10, 2022 8:39:29 AM"
 }
