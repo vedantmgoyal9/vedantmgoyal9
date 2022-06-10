@@ -27,7 +27,7 @@ jobs:
   publish:
     runs-on: windows-latest # action can only be run on windows
     steps:
-      - uses: vedantmgoyal2009/vedantmgoyal2009/winget-pkgs-automation/releaser-action@v1.0.0
+      - uses: vedantmgoyal2009/winget-releaser@latest
         with:
           identifier: Package.Identifier
           token: ${{ secrets.WINGET_TOKEN }}
@@ -44,7 +44,7 @@ jobs:
   publish:
     runs-on: windows-latest # action can only be run on windows
     steps:
-      - uses: vedantmgoyal2009/vedantmgoyal2009/winget-pkgs-automation/releaser-action@v1.0.0
+      - uses: vedantmgoyal2009/winget-releaser@latest
         with:
           identifier: Package.Identifier
           version-regex: '[0-9.]+'

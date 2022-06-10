@@ -15,16 +15,16 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "xmake-v.*.exe$",
-  "PreviousVersion": "2.6.7",
+  "PreviousVersion": "2.6.8",
   "ManifestFields": {
-    "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
+    "PackageVersion": "Read-VersionFromInstaller -Uri $_Object.InstallerUrls[0] -Property ProductVersion",
     "ReleaseNotesUrl": "$Response.html_url",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 68084049
+    "PreviousReleaseId": 70045892
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {

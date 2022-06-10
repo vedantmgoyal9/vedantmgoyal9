@@ -15,7 +15,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "[0-9]\\.exe$",
-  "PreviousVersion": "3.4.3",
+  "PreviousVersion": "3.5.1",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
@@ -24,7 +24,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 67398327
+    "PreviousReleaseId": 71133644
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {

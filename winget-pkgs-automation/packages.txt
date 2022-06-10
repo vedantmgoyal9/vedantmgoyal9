@@ -116,19 +116,18 @@ blaadje.Todolist
 Blocknetproject.Blocknet
 Bloodshed.Dev-C++
 bluecfd.bluecfd
-blueedge.android11react
-blueedge.win11react
 BlueJTeam.BlueJ
 boostio.boostnote
 bornova.numara
 BornToBeRoot.NETworkManager
+Bosyun.BoardMix
+Bosyun.Pixso
 BoxHero.BoxHero
 BraveSoftware.BraveBrowser
 BraveSoftware.BraveBrowser.Beta
 BraveSoftware.BraveBrowser.Dev
 BraveSoftware.BraveBrowser.Nightly
 brianlima.uwphook
-bricelam.imageresizer
 brimdata.brim
 brrd.abricotine
 brunurd.companion
@@ -303,7 +302,6 @@ ExpressLRS.ExpressLRS-Configurator
 EYHN.SpaceThumbnails
 Fabio286.antares
 FaisalUmair.Udeler
-FBMods.Launcher
 Fedora.FedoraMediaWriter
 FelixRieseberg.MacintoshJS
 FelixRieseberg.Windows95
@@ -320,7 +318,6 @@ floating.frame
 Flow-Launcher.Flow-Launcher
 FlyByWireSimulations.FlyByWireSimulationsInstaller
 Flywheel.Local
-Fndroid.ClashForWindows
 FontForge.FontForge
 ForgQi.Biliup
 Foundry376.Mailspring
@@ -379,7 +376,6 @@ H2IK.JoystickGremlin
 HakuNeko.HakuNeko
 HandBrake.HandBrake
 HandyOrg.HandyWinget-GUI
-Harmonoid.Harmonoid
 HarshKhandeparkar.RainbowBoard
 Hashicorp.Vagrant
 HaxeFoundation.Haxe
@@ -393,7 +389,6 @@ Henry++.simplewall
 HeroicGamesLauncher.HeroicGamesLauncher
 Hibbiki.Chromium
 HiroshiFuu.onecopy
-HiroSystems.Clarinet
 hisschemoller.music-pattern-generator
 hluk.CopyQ
 HR.Crypter
@@ -484,7 +479,6 @@ Joplin.Joplin.Pre-release
 JSFoundation.Appium
 jurplel.qView
 k6.k6
-KaiHeiLa.KaiHeiLa
 KaiKramer.KeyStoreExplorer
 Kaitai.StructCompiler
 kapitainsky.RcloneBrowser
@@ -511,6 +505,7 @@ Kitware.CMake
 klinker24.google-calendar-desktop
 Klocman.BulkCrapUninstaller
 knoopx.feeder
+KOOK.KOOK
 KorigamiK.mangu
 KoushikNaskar.InteractiveDataEditor
 KristenMcWilliam.Nyrna
@@ -580,10 +575,7 @@ martinchrzan.ColorPicker
 MartonSalomvary.SoundCleod
 MasterPackager.MasterPackager
 MatthijsGroen.Geppetto
-matvelloso.electron-office-365
-matvelloso.electron-office-consumer
 maurizuki.O2
-maximmax42.CustomRP
 Maximus5.ConEmu
 maygo.tockler
 mb21.panwriter
@@ -614,7 +606,6 @@ Microsoft.Edge.Dev
 Microsoft.Ironpython2
 Microsoft.Ironpython3
 Microsoft.MsGraphCLI
-Microsoft.MSIXCore
 Microsoft.OneDrive
 Microsoft.OneDrive.Enterprise
 Microsoft.OneDrive.Insiders
@@ -679,7 +670,6 @@ NickeManarin.ScreenToGif
 NickGottschlich.SocialAmnesia
 nimblenote.nimblenote
 NishkalKashyap.Quark
-nodemailer.nodemailer
 nomacs.nomacs
 notable.notable
 Notepad++.Notepad++
@@ -691,7 +681,6 @@ Nushell.Nushell
 Nutstore.Nutstore
 nuttyartist.notes
 nvisionative.nvQuickSite
-NxShellTeam.NxShell
 nzbget.nzbget
 Obsidian.Obsidian
 OBSProject.OBSStudio
@@ -770,13 +759,14 @@ PurpleI2P.i2pd
 pyfa.pyfa
 Qalculate.Qalculate
 qier222.yesplaymusic
+Qingfeng.HeyboxAccelerator
+Qingfeng.HeyboxWow
 qishibo.AnotherRedisDesktopManager
 QL-Win.QuickLook
 QMK.QMKToolbox
 QMPlay2.QMPlay2
 QTextPad.QTextPad
 quick123.quickredis
-QuintonReeves.RedEclipse
 QuodLibet.QuodLibet
 qutebrowser.qutebrowser
 Qv2ray.Qv2ray
@@ -815,6 +805,8 @@ rocksdanister.LivelyWallpaper
 RoderickQiu.wnr
 RoniLehto.LMath
 RProject.R
+RStudio.RStudio.2022.OpenSource
+RStudio.RStudio.2022.OpenSource
 Ruben2776.PicView
 RubinderSingh.Ditto++
 RubyInstallerTeam.Ruby
@@ -830,7 +822,6 @@ SageMath.SageMath
 SaiSandeepVaddi.TenHands
 SaladTechnologies.Salad
 SamHocevar.WinCompose
-SamuelAttard.GooglePlayMusicDesktopPlayer
 samuelmeuli.mini-diary
 Sandboxie.Classic
 SartoxOnlyGNU.Audacium
@@ -918,7 +909,6 @@ SuperTux.SuperTux
 surajrathod.eagluet
 SurgeSynth.Surge
 suse.RancherDesktop
-Suwayomi.Tachidesk-JUI
 SVGExplorerExtension.SVGExplorerExtension
 SWI-Prolog.SWI-Prolog
 swiftyapp.swifty
@@ -1008,7 +998,6 @@ vcync.modV
 Velocidex.Velociraptor
 VeyonSolutions.Veyon
 ViGEm.ViGEmBus
-vim.vim
 VividDesigns.WifiMouseServer
 VMware.WorkstationPlayer
 VMware.WorkstationPro
@@ -1055,13 +1044,13 @@ xanderfrangos.crushee
 xanderfrangos.twinkletray
 XCP-ng.Center
 xgi.houdoku
-xiandanin.magnetW
 Xiaoe.Xiaoetong
 xiaozhu188.electron-vue-cloud-music
 Ximalaya.Ximalaya
 Ximalaya.XimalayaLive
 Xmake-io.Xmake
 XMind.XMind
+XMind.XMind.8
 XMoto.XMoto
 YACReader.YACReader
 yafp.media-dupes
