@@ -303,7 +303,6 @@ ExpressLRS.ExpressLRS-Configurator
 EYHN.SpaceThumbnails
 Fabio286.antares
 FaisalUmair.Udeler
-FBMods.Launcher
 Fedora.FedoraMediaWriter
 FelixRieseberg.MacintoshJS
 FelixRieseberg.Windows95
