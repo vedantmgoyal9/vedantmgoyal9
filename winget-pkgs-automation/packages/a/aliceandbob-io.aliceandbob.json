@@ -17,7 +17,7 @@
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "1.0.0-beta.2",
   "ManifestFields": {
-    "PackageVersion": "$Response.tag_name.TrimStart('v')",
+    "PackageVersion": "$Response.tag_name.TrimStart('v').Replace('beta.', 'Beta')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
     "ReleaseNotesUrl": "$Response.html_url",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
