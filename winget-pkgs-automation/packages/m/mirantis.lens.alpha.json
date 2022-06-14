@@ -12,7 +12,7 @@
   "PostResponseScript": "",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "5.5.4-latest.20220609.2",
+  "PreviousVersion": "5.6.0-alpha.1.20220614.2",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "\"https://api.k8slens.dev/binaries/Lens%20Setup%20$($Response.version).exe\"",
