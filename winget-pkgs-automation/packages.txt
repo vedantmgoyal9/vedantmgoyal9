@@ -769,6 +769,7 @@ PurpleI2P.i2pd
 pyfa.pyfa
 Qalculate.Qalculate
 qier222.yesplaymusic
+Qingfeng.HeyboxAccelerator
 qishibo.AnotherRedisDesktopManager
 QL-Win.QuickLook
 QMK.QMKToolbox
