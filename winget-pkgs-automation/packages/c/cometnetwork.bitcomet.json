@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.BitComet.AutoUpdate.UpdateGroupList.LatestDownload.file1.'#text'",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "1.89",
+  "PreviousVersion": "1.90",
   "ManifestFields": {
     "PackageVersion": "$Response",
     "InstallerUrls": "\"https://download.bitcomet.com/achive/BitComet_$($Response)_setup.exe\""
