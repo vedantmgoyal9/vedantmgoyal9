@@ -3,7 +3,7 @@
   "Identifier": "Redisant.LittleTips",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://www.redisant.com/lt/activate/checkUpdate",
+    "Uri": "https://www.redisant.com/ltip/activate/checkUpdate",
     "Method": "Get",
     "Headers": {},
     "Body": "",
