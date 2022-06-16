@@ -1063,6 +1063,7 @@ Ximalaya.Ximalaya
 Ximalaya.XimalayaLive
 Xmake-io.Xmake
 XMind.XMind
+XMind.XMind.8
 XMoto.XMoto
 YACReader.YACReader
 yafp.media-dupes
