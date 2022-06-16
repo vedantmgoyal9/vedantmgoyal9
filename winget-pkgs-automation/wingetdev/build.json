@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "7d86fc0a229383a131d834009084e81604024a7e",
-    "Message": "Add simple stats to correlation result processing script (#2229)\n\nThis changes the script that processes correlation results to produce simple stats of how many packages were correlated successfully. This can be used to easily evaluate if the correlation heuristic is doing well.\r\n\r\nIt also fixes an issue when running the script on powershell instead of pwsh, where a path join didn't use the full path and resulted in not being able to find the result JSON files.",
-    "Author": "Flor Chacón"
+    "Sha": "5bdc55ea4aa66877694133c96763fba46381e1dd",
+    "Message": "Enable long aliases (#2107)\n\nThis change allows for argument aliases to be more than 1 character",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Friday, June 10, 2022 7:34:18 PM"
+  "BuildDateTime": "Thursday, June 16, 2022 6:42:45 PM"
 }
