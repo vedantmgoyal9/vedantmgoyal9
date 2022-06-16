@@ -40,7 +40,7 @@
         "commitlint": "^17.0.2",
         "cz-conventional-changelog": "^3.3.0",
         "generator-code": "^1.6.11",
-        "prettier": "^2.7.0",
+        "prettier": "^2.7.1",
         "vsce": "^2.9.1",
         "yo": "^4.3.0"
     },
