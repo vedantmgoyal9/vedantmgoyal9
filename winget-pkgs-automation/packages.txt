@@ -770,6 +770,7 @@ pyfa.pyfa
 Qalculate.Qalculate
 qier222.yesplaymusic
 Qingfeng.HeyboxAccelerator
+Qingfeng.HeyboxWow
 qishibo.AnotherRedisDesktopManager
 QL-Win.QuickLook
 QMK.QMKToolbox
