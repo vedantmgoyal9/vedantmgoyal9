@@ -610,7 +610,6 @@ Microsoft.Edge.Dev
 Microsoft.Ironpython2
 Microsoft.Ironpython3
 Microsoft.MsGraphCLI
-Microsoft.MSIXCore
 Microsoft.OneDrive
 Microsoft.OneDrive.Enterprise
 Microsoft.OneDrive.Insiders
