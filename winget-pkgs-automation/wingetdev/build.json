@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "5bdc55ea4aa66877694133c96763fba46381e1dd",
-    "Message": "Enable long aliases (#2107)\n\nThis change allows for argument aliases to be more than 1 character",
-    "Author": "Kaleb Luedtke"
+    "Sha": "d55174394ea4d5526b3b6066d883ee0e565f7162",
+    "Message": "Check symlink target before removal (#2242)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Thursday, June 16, 2022 6:42:45 PM"
+  "BuildDateTime": "Friday, June 17, 2022 9:32:38 PM"
 }
