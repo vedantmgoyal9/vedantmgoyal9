@@ -15,7 +15,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.name -match 'main' -and $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "winget.*(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "1.5.1-beta.70",
+  "PreviousVersion": "1.5.1-beta.71",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
@@ -24,7 +24,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 69584347
+    "PreviousReleaseId": 69684379
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
