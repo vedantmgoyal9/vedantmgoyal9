@@ -319,7 +319,6 @@ floating.frame
 Flow-Launcher.Flow-Launcher
 FlyByWireSimulations.FlyByWireSimulationsInstaller
 Flywheel.Local
-Fndroid.ClashForWindows
 FontForge.FontForge
 ForgQi.Biliup
 Foundry376.Mailspring
