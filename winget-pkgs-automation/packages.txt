@@ -578,8 +578,6 @@ martinchrzan.ColorPicker
 MartonSalomvary.SoundCleod
 MasterPackager.MasterPackager
 MatthijsGroen.Geppetto
-matvelloso.electron-office-365
-matvelloso.electron-office-consumer
 maurizuki.O2
 maximmax42.CustomRP
 Maximus5.ConEmu
