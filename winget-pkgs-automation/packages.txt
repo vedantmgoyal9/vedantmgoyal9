@@ -773,7 +773,6 @@ QMK.QMKToolbox
 QMPlay2.QMPlay2
 QTextPad.QTextPad
 quick123.quickredis
-QuintonReeves.RedEclipse
 QuodLibet.QuodLibet
 qutebrowser.qutebrowser
 Qv2ray.Qv2ray
