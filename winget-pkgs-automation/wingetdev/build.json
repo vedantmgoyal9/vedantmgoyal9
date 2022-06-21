@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "d55174394ea4d5526b3b6066d883ee0e565f7162",
-    "Message": "Check symlink target before removal (#2242)",
+    "Sha": "f14909aba2578b0b8b57cb700ffcdeddb196f878",
+    "Message": "update locale strings (#2264)",
     "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Friday, June 17, 2022 9:32:38 PM"
+  "BuildDateTime": "Tuesday, June 21, 2022 12:58:14 PM"
 }
