@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "c854548d8889f78a4c8582d065bac2f768017a4d",
-    "Message": "Add support for UnsupportedArguments (#2216)",
-    "Author": "Ryan Fu"
+    "Sha": "9056c0fc3fe4a362ef2644ba080f88698836576b",
+    "Message": "Validate manifest installers (MSIX) (#2215)\n\n* Init manifest installer validation\r\n\r\n* Init test cases and misc enhancements\r\n\r\n* Adding more unit tests\r\n\r\n* Updated manifest validation code\r\n\r\n* Updated messages and misc enhancements\r\n\r\n* Added UT for version number struct\r\n\r\n* Fixed unit test\r\n\r\n* Added flag and handle installer error\r\n\r\n* Updated validate command default options\r\n\r\n* Addressed comment\r\n\r\n* Addressed comment\r\n\r\n* Addressed comment\r\n\r\n* Addressed comments\r\n\r\n* Addressed comment\r\n\r\n* Check if package is contained within bundle\r\n\r\n* Adddressed comment and added treatErrorAsWarning\r\n\r\n* Updated UT for versions\r\n\r\n* Addressed comments\r\n\r\n* Exclude msixbundle for spelling checker\r\n\r\n* Addressed comments\r\n\r\n* Addressed comments\r\n\r\n* Addressed comments\r\n\r\n* Addressed comments\r\n\r\n* Addressed comments\r\n\r\n* Addressed comments\r\n\r\n* Updated error message\r\n\r\n* Fixed Versions merge conflict\r\n\r\n* Addressed comments + added one more UT\r\n\r\n* Updated test yaml package id\r\n\r\n* Addressed comment\r\n\r\n* Addressed comment",
+    "Author": "AmirMS"
   },
-  "BuildDateTime": "Tuesday, June 21, 2022 11:32:52 PM"
+  "BuildDateTime": "Wednesday, June 22, 2022 2:10:08 AM"
 }
