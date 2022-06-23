@@ -390,7 +390,6 @@ Henry++.simplewall
 HeroicGamesLauncher.HeroicGamesLauncher
 Hibbiki.Chromium
 HiroshiFuu.onecopy
-HiroSystems.Clarinet
 hisschemoller.music-pattern-generator
 hluk.CopyQ
 HR.Crypter
@@ -685,7 +684,6 @@ Nushell.Nushell
 Nutstore.Nutstore
 nuttyartist.notes
 nvisionative.nvQuickSite
-NxShellTeam.NxShell
 nzbget.nzbget
 Obsidian.Obsidian
 OBSProject.OBSStudio
