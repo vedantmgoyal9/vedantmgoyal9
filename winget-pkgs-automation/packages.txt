@@ -128,7 +128,6 @@ BraveSoftware.BraveBrowser.Beta
 BraveSoftware.BraveBrowser.Dev
 BraveSoftware.BraveBrowser.Nightly
 brianlima.uwphook
-bricelam.imageresizer
 brimdata.brim
 brrd.abricotine
 brunurd.companion
