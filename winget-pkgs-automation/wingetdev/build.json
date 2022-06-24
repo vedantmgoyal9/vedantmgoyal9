@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "ea9337683ae91d24400c0733c11b611f11a80eb3",
-    "Message": "Fix unsupported args unit tests (#2277)",
-    "Author": "Ryan Fu"
+    "Sha": "331d0ee8ff1e9c8841c34eb8ba4a38f1dd5fbbd9",
+    "Message": "Mitigate crash that can occur when installed version is null (#2278)",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Friday, June 24, 2022 2:04:29 AM"
+  "BuildDateTime": "Friday, June 24, 2022 3:58:19 AM"
 }
