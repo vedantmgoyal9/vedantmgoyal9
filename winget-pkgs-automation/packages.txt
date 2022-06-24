@@ -122,6 +122,8 @@ BlueJTeam.BlueJ
 boostio.boostnote
 bornova.numara
 BornToBeRoot.NETworkManager
+Bosyun.BoardMix
+Bosyun.Pixso
 BoxHero.BoxHero
 BraveSoftware.BraveBrowser
 BraveSoftware.BraveBrowser.Beta
