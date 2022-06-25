@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "9f8ceea4fb8959552075d7c6f8679abc6a310306",
-    "Message": "Create WinGetUtil functionality for running installed package correlation (#2221)\n\nThe goal of this change is to expose functionality to run the installed package correlation and gather the results.  This will be used to validate and enhance manifests and allows us to use the same correlation code throughout the system.\r\n\r\nThe biggest changes to existing code are:\r\n1. Moving the JSON utility methods out of Repository and into Common\r\n2. Moving the correlation code to be object oriented, enabling easier reuse (and allowing for more control in the future)\r\n\r\nBeyond those changes, the majority of the work is in creating the JSON (de)serialization and handling updating the metadata that has been collected.\r\n\r\nMore work is still needed to:\r\n1. Collect more information for diagnostic purposes, like the top results for diagnostics when there is no confident match.\r\n2. Leveraging the previous metadata results to improve correlation.\r\n3. Enable more control over weighting the correlation heuristics, enabling a difference between running on an end user system and in a \"clean room\" of validation.",
-    "Author": "JohnMcPMS"
+    "Sha": "eec1c6199db5551671f42db4f24e227754706938",
+    "Message": "Addition of Initial 1.3 Schema (#2189)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Friday, June 24, 2022 6:40:32 PM"
+  "BuildDateTime": "Saturday, June 25, 2022 2:03:21 AM"
 }
