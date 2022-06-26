@@ -37,7 +37,7 @@
         "@commitlint/config-conventional": "17.0.2",
         "@octokit/auth-app": "^3.6.1",
         "commitizen": "^4.2.4",
-        "commitlint": "^17.0.2",
+        "commitlint": "^17.0.3",
         "cz-conventional-changelog": "^3.3.0",
         "generator-code": "^1.6.11",
         "prettier": "^2.7.1",
