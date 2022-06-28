@@ -116,8 +116,6 @@ blaadje.Todolist
 Blocknetproject.Blocknet
 Bloodshed.Dev-C++
 bluecfd.bluecfd
-blueedge.android11react
-blueedge.win11react
 BlueJTeam.BlueJ
 boostio.boostnote
 bornova.numara
@@ -579,7 +577,6 @@ MartonSalomvary.SoundCleod
 MasterPackager.MasterPackager
 MatthijsGroen.Geppetto
 maurizuki.O2
-maximmax42.CustomRP
 Maximus5.ConEmu
 maygo.tockler
 mb21.panwriter
