@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "eec1c6199db5551671f42db4f24e227754706938",
-    "Message": "Addition of Initial 1.3 Schema (#2189)",
-    "Author": "Ryan Fu"
+    "Sha": "7d86189312e5f1c536d43041abc759ae708d0e81",
+    "Message": "Add extra compilation flags for debug info (#2281)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Saturday, June 25, 2022 2:03:21 AM"
+  "BuildDateTime": "Tuesday, June 28, 2022 6:50:37 PM"
 }
