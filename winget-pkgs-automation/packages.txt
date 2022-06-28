@@ -913,7 +913,6 @@ SuperTux.SuperTux
 surajrathod.eagluet
 SurgeSynth.Surge
 suse.RancherDesktop
-Suwayomi.Tachidesk-JUI
 SVGExplorerExtension.SVGExplorerExtension
 SWI-Prolog.SWI-Prolog
 swiftyapp.swifty
@@ -1003,7 +1002,6 @@ vcync.modV
 Velocidex.Velociraptor
 VeyonSolutions.Veyon
 ViGEm.ViGEmBus
-vim.vim
 VividDesigns.WifiMouseServer
 VMware.WorkstationPlayer
 VMware.WorkstationPro
