@@ -30,7 +30,7 @@
   "YamlCreateParams": {
     "SkipPRCheck": false,
     "AutoUpgrade": false,
-    "DeletePreviousVersion": false
+    "DeletePreviousVersion": "Published by the developer itself"
   },
   "SkipPackage": false
 }
