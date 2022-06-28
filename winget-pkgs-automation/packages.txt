@@ -376,7 +376,6 @@ H2IK.JoystickGremlin
 HakuNeko.HakuNeko
 HandBrake.HandBrake
 HandyOrg.HandyWinget-GUI
-Harmonoid.Harmonoid
 HarshKhandeparkar.RainbowBoard
 Hashicorp.Vagrant
 HaxeFoundation.Haxe
