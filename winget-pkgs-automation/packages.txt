@@ -806,6 +806,7 @@ rocksdanister.LivelyWallpaper
 RoderickQiu.wnr
 RoniLehto.LMath
 RProject.R
+RStudio.RStudio.2022.OpenSource
 Ruben2776.PicView
 RubinderSingh.Ditto++
 RubyInstallerTeam.Ruby
