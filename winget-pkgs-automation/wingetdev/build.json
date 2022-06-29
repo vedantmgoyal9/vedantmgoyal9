@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "7d86189312e5f1c536d43041abc759ae708d0e81",
-    "Message": "Add extra compilation flags for debug info (#2281)",
-    "Author": "Flor Chacón"
+    "Sha": "0ec61312d9bf0c94d2bcc004d4c48232e0f6b867",
+    "Message": "Add `.github/fabricbot.json` (#2285)\n\nCo-authored-by: msftbot[bot] <48340428+msftbot[bot]@users.noreply.github.com>",
+    "Author": "msftbot[bot]"
   },
-  "BuildDateTime": "Tuesday, June 28, 2022 6:50:37 PM"
+  "BuildDateTime": "Wednesday, June 29, 2022 11:31:07 PM"
 }
