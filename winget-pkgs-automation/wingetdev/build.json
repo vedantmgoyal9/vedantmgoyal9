@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0ec61312d9bf0c94d2bcc004d4c48232e0f6b867",
-    "Message": "Add `.github/fabricbot.json` (#2285)\n\nCo-authored-by: msftbot[bot] <48340428+msftbot[bot]@users.noreply.github.com>",
-    "Author": "msftbot[bot]"
+    "Sha": "aa6f589aef75295c04bca1d21ed4510e117af98f",
+    "Message": "Update fabricbot.json (#2293)",
+    "Author": "Vedant"
   },
-  "BuildDateTime": "Wednesday, June 29, 2022 11:31:07 PM"
+  "BuildDateTime": "Thursday, June 30, 2022 4:56:03 PM"
 }
