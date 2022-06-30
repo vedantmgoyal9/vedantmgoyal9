@@ -670,7 +670,6 @@ NickeManarin.ScreenToGif
 NickGottschlich.SocialAmnesia
 nimblenote.nimblenote
 NishkalKashyap.Quark
-nodemailer.nodemailer
 nomacs.nomacs
 notable.notable
 Notepad++.Notepad++
