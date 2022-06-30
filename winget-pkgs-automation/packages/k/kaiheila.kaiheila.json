@@ -3,7 +3,7 @@
   "Identifier": "KaiHeiLa.KaiHeiLa",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://www.kaiheila.cn/api/v2/updates/latest-version?platform=windows",
+    "Uri": "https://www.kookapp.cn/api/v2/updates/latest-version?platform=windows",
     "Method": "Get",
     "Headers": {},
     "Body": "",
