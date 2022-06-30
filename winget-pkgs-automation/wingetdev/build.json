@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "aa6f589aef75295c04bca1d21ed4510e117af98f",
-    "Message": "Update fabricbot.json (#2293)",
-    "Author": "Vedant"
+    "Sha": "785668d1e2c5675cd477339420a2a7acb877a9f0",
+    "Message": "Fix WinGetUtil WinGetCreateManifest result (#2296)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Thursday, June 30, 2022 4:56:03 PM"
+  "BuildDateTime": "Thursday, June 30, 2022 8:47:31 PM"
 }
