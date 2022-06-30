@@ -1045,7 +1045,6 @@ xanderfrangos.crushee
 xanderfrangos.twinkletray
 XCP-ng.Center
 xgi.houdoku
-xiandanin.magnetW
 Xiaoe.Xiaoetong
 xiaozhu188.electron-vue-cloud-music
 Ximalaya.Ximalaya
