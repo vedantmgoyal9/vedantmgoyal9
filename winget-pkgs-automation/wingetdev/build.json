@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "b64293847aa2908b4def178054d9a940ceaf4c68",
-    "Message": "Add alternate name to Usage String (#2268)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "de4aa01c959c8e09b880209380589982a0b5e6a6",
+    "Message": "Prevent null characters from getting into SQLite (#2289)\n\nIn order to prevent null characters from entering SQLite at all, the string binding functions are updated to throw if an embedded null is present.  Additionally, the consistency check is updated to detect strings with embedded null characters.\r\n\r\nIn order to prevent attempting to send null characters into the database at all, the `NormalizedString` type used throughout the manifest is updated to also replace any null characters with spaces.  This will allow those packages to be listed now.",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Tuesday, July 5, 2022 8:25:32 PM"
+  "BuildDateTime": "Tuesday, July 5, 2022 10:30:32 PM"
 }
