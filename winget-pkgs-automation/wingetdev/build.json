@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "785668d1e2c5675cd477339420a2a7acb877a9f0",
-    "Message": "Fix WinGetUtil WinGetCreateManifest result (#2296)",
-    "Author": "yao-msft"
+    "Sha": "b64293847aa2908b4def178054d9a940ceaf4c68",
+    "Message": "Add alternate name to Usage String (#2268)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Thursday, June 30, 2022 8:47:31 PM"
+  "BuildDateTime": "Tuesday, July 5, 2022 8:25:32 PM"
 }
