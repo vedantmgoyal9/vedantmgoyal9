@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "dea9a204d8dfbb3fe3e4dbfe54bf94251a4d8bfe",
-    "Message": "Schema additions for Zip support (#2288)",
-    "Author": "Ryan Fu"
+    "Sha": "a56372ba05d8f4423cb7cf5be0b5c0bacb445ca3",
+    "Message": "Feat: Wait upon command completion (#2236)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Tuesday, July 5, 2022 11:26:20 PM"
+  "BuildDateTime": "Wednesday, July 6, 2022 9:21:12 PM"
 }
