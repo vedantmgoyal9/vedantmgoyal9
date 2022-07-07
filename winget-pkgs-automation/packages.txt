@@ -822,7 +822,6 @@ SageMath.SageMath
 SaiSandeepVaddi.TenHands
 SaladTechnologies.Salad
 SamHocevar.WinCompose
-SamuelAttard.GooglePlayMusicDesktopPlayer
 samuelmeuli.mini-diary
 Sandboxie.Classic
 SartoxOnlyGNU.Audacium
