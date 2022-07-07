@@ -15,7 +15,7 @@
   "PostResponseScript": "$Response = $Response.name.TrimStart('v')",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "2022.02.3+492",
+  "PreviousVersion": "2022.07.0+548",
   "ManifestFields": {
     "PackageVersion": "$Response",
     "InstallerUrls": "\"https://download1.rstudio.org/desktop/windows/RStudio-$($Response.Replace('+', '-')).exe\""
