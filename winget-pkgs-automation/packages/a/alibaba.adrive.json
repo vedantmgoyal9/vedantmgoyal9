@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = Invoke-RestMethod -Uri \"$($Response.url)/win32/ia32/latest.yml\" | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "3.6.0",
+  "PreviousVersion": "3.6.1",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "$Response.files[0].url",
