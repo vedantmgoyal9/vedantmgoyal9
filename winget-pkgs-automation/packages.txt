@@ -880,6 +880,7 @@ stacks.stacks
 StandardNotes.StandardNotes
 staniel359.muffon
 stax76.mpvdotnet
+steamgriddb.rommanager
 Steccas.ProtonClient
 StefanMalzner.Franz
 StefansTools.BowPad
