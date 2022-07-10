@@ -4,11 +4,8 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-  issues:
-    types: [opened, reopened]
-  pull_request_target: # for label
 concurrency:
-  group: ${{ github.workflow }}
+  group: ${{ github.event.number || github.event_name }}
   cancel-in-progress: true
 jobs:
   get-commit:
@@ -16,8 +13,31 @@ jobs:
     if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     outputs:
-      is-wpa-modified: ${{ steps.commit-info.outputs.wpa-modified }}
-      is-docs-modified: ${{ steps.commit-info.outputs.docs-modified }}
+      is-wpa-modified: steps.commit-info.outputs.wpa-modified
+      is-docs-modified: steps.commit-info.outputs.docs-modified
+      is-vscode-extension-modified: steps.commit-info.outputs.vscode-extension-modified
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Get commit information
+        run: |
+          if [ '${{ github.event_name }}' == 'push' ]; then
+            echo "::set-output name=wpa-modified::$(git diff --quiet HEAD HEAD~1 -- src/winget-pkgs-automation && echo false || echo true)"
+            echo "::set-output name=docs-modified::$(git diff --quiet HEAD HEAD~1 -- docs && echo false || echo true)"
+            echo "::set-output name=vscode-extension-modified::$(git diff --quiet HEAD HEAD~1 -- src/vsc* README.md LICENSE CODE_OF_CONDUCT.md packag*.json && echo false || echo true)"
+          else
+            echo "::set-output name=wpa-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- src/winget-pkgs-automation && echo false || echo true)"
+            echo "::set-output name=docs-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- docs && echo false || echo true)"
+            echo "::set-output name=vscode-extension-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- src/vsc* README.md LICENSE CODE_OF_CONDUCT.md packag*.json && echo false || echo true)"
+          fi
+        id: commit-info
+  commitlint:
+    name: Commitlint
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -25,32 +45,21 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - run: npm ci
-      - name: Commitlint (push)
+      - name: Validate Commit Message (push)
         if: github.event_name == 'push'
         run: git log -1 --pretty=format:"%s" | npx commitlint --verbose
-      - name: Commitlint (pull request)
+      - name: Validate Commit Message (pull request)
         if: github.event_name == 'pull_request'
         run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
-      - name: Get commit information
-        if: github.event_name == 'push' || github.event_name == 'pull_request' || github.event_name == 'pull_request_target' && ${{ success() || failure() }}
-        run: |
-          if [ '${{ github.event_name }}' == 'push' ]; then
-            echo "::set-output name=wpa-modified::$(git diff --quiet HEAD HEAD~1 -- winget-pkgs-automation && echo false || echo true)"
-            echo "::set-output name=docs-modified::$(git diff --quiet HEAD HEAD~1 -- docs && echo false || echo true)"
-          else
-            echo "::set-output name=wpa-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- winget-pkgs-automation && echo false || echo true)"
-            echo "::set-output name=docs-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- docs && echo false || echo true)"
-          fi
-        id: commit-info
   winget-pkgs-automation:
     name: WinGet Automation (build)
     needs: get-commit
-    if: needs.get-commit.outputs.is-wpa-modified == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request' || github.event.name == 'pull_request_target')
+    if: needs.get-commit.outputs.is-wpa-modified == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request')
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: pwsh
-        working-directory: winget-pkgs-automation
+        working-directory: src/winget-pkgs-automation
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -77,7 +86,6 @@ jobs:
           $container = New-PesterContainer -Path $PSScriptRoot
           $PesterPreference = [PesterConfiguration]::Default
           $PesterPreference.Run.Container = $container
-          $PesterPreference.Run.Path = '.\test'
           $PesterPreference.CodeCoverage.Enabled = $true
           $PesterPreference.CodeCoverage.OutputFormat = 'JaCoCo'
           $PesterPreference.CodeCoverage.CoveragePercentTarget = 100
@@ -93,9 +101,25 @@ jobs:
           name: winget-pkgs-automation-codecov
           directory: ./
           files: ./coverage.xml
-          working-directory: winget-pkgs-automation
+          working-directory: src/winget-pkgs-automation
           fail_ci_if_error: false
           verbose: true
+  vscode-extension-publish:
+    name: Publish VSCode Extension
+    needs: get-commit
+    if: needs.get-commit.outputs.is-vscode-extension-modified == 'true' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - run: npm ci
+      - name: Publish to Marketplace
+        run: npm run vs-publish
+        env:
+          VSCE_PAT: ${{ secrets.VS_MRKTPLACE }}
   build-docs-and-deploy:
     name: Deploy to Firebase Hosting on merge
     needs: get-commit
@@ -118,8 +142,8 @@ jobs:
   preview-docs-pull-request:
     name: Deploy to Firebase Hosting on PR
     needs: get-commit
+    if: needs.get-commit.outputs.is-docs-modified == 'true' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    if: needs.get-commit.outputs.is-docs-modified == 'true' && (github.event_name == 'pull_request' || github.event.name == 'pull_request_target') && github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -134,62 +158,6 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_URLSHORTENER_51B07 }}'
           projectId: urlshortener-51b07
-  label:
-    name: Label
-    if: github.event_name == 'pull_request_target'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Authenticate GitHub Bot
-        run: |
-          npm install @octokit/auth-app
-          echo 'async function main() {
-            console.log((await require("@octokit/auth-app").createAppAuth({
-              appId: ${{ secrets.BT_AP_ID}},
-              privateKey: "${{ secrets.BT_AP_PKY }}",
-              clientId: "${{ secrets.BT_CLNT_ID }}",
-              clientSecret: "${{ secrets.BT_CLNT_SCRT }}",
-              installationId: ${{ secrets.BT_INST_ID }},
-            })({ type: "installation" })).token);
-          }
-          main();' > auth.js
-          echo "::set-output name=token::$(node auth.js)"
-        id: auth
-      - uses: actions/labeler@v4.0.0
-        with:
-          repo-token: ${{ steps.auth.outputs.token }}
-          configuration-path: '.github/labeler.yml'
-          sync-labels: true
-  greeting:
-    name: Greeting
-    if: github.event_name == 'issues' || github.event_name == 'pull_request' || github.event.name == 'pull_request_target'
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
-    steps:
-      - name: Authenticate GitHub Bot
-        run: |
-          npm install @octokit/auth-app
-          echo 'async function main() {
-            console.log((await require("@octokit/auth-app").createAppAuth({
-              appId: ${{ secrets.BT_AP_ID}},
-              privateKey: "${{ secrets.BT_AP_PKY }}",
-              clientId: "${{ secrets.BT_CLNT_ID }}",
-              clientSecret: "${{ secrets.BT_CLNT_SCRT }}",
-              installationId: ${{ secrets.BT_INST_ID }},
-            })({ type: "installation" })).token);
-          }
-          main();' > auth.js
-          echo "::set-output name=token::$(node auth.js)"
-        id: auth
-      - uses: actions/first-interaction@v1
-        with:
-          repo-token: ${{ steps.auth.outputs.token }}
-          issue-message: 'Hello @${{ github.actor }}, thank you for submitting an issue!'
-          pr-message: 'Hello @${{ github.actor }}, thank you submitting a pull request!'
   # codeql-analysis:
   #   name: CodeQL (analyse)
   #   runs-on: ubuntu-latest
