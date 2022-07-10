@@ -50,9 +50,8 @@ Begin {
             [Parameter(Mandatory = $true)]
             [System.String] $Property
         )
-        # $FileName = Join-Path -Path $env:TEMP -ChildPath ([System.IO.Path]::GetFileName(([System.Uri] $Uri).LocalPath))
-        # Invoke-WebRequest -Uri $Uri -OutFile $FileName
-		$FileName = "C:\Users\vedan\Downloads\OneMarkSetupX64.0_1_6_6.msi"
+        $FileName = Join-Path -Path $env:TEMP -ChildPath ([System.IO.Path]::GetFileName(([System.Uri] $Uri).LocalPath))
+        Invoke-WebRequest -Uri $Uri -OutFile $FileName
         If ([System.IO.Path]::GetExtension($FileName) -eq '.msi') {
             $WindowsInstaller = New-Object -Com WindowsInstaller.Installer
             $MSI = $WindowsInstaller.OpenDatabase($FileName, 0)

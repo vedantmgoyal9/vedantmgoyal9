@@ -73,12 +73,12 @@ Set-Service -Name edgeupdate -Status Stopped -StartupType Disabled # stop edgeup
 Set-Service -Name edgeupdatem -Status Stopped -StartupType Disabled # stop edgeupdatem service
 Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # install powershell-yaml module
 Write-Output 'Successfully installed powershell-yaml.' # print that powershell-yaml module was installed
-. .\src\Functions.ps1 # Import functions from Functions.ps1
+. .\Functions.ps1 # Import functions from Functions.ps1
 Set-Location -Path .\winget-pkgs\Tools # Change directory to Tools
 git remote rename origin upstream # Rename origin to upstream
 git remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
 git fetch origin --quiet # Fetch branches from origin, quiet to not print anything
-Copy-Item -Path ..\..\src\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+Copy-Item -Path ..\..\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
 Set-Location -Path ..\..\ # Go back to previous working directory
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
