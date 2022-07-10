@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "1MHz.Knotes",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://knotes2-release-cn.s3.amazonaws.com/win/latest.yml",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "2.11.2",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "\"https://knotes2-release-cn.s3.amazonaws.com/win/$([System.Uri]::EscapeDataString($Response.path))\""
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
