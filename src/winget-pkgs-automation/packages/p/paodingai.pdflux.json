@@ -1,0 +1,29 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "PaodingAI.PDFlux",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://pdflux.com/downloads/latest.yml",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "6.0.7",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "\"https://pdflux.com/downloads/$($Response.path)\"",
+    "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
