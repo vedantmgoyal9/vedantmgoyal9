@@ -1,0 +1,31 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "RStudio.RStudio.2022.OpenSource",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://api.github.com/repos/rstudio/rstudio/tags?per_page=1",
+    "Method": "Get",
+    "Headers": {
+      "Authorization": "$AuthToken",
+      "Accept": "application/vnd.github.v3+json"
+    },
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.name.TrimStart('v')",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "2022.07.0+548",
+  "ManifestFields": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "\"https://download1.rstudio.org/desktop/windows/RStudio-$($Response.Replace('+', '-')).exe\""
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

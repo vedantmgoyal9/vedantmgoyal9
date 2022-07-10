@@ -27,6 +27,7 @@ const sidebars = {
         'wpa-intro',
         'wpa-add-a-package',
         'wpa-working',
+        'wpa-packages',
       ],
     },
     {

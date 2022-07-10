@@ -1,0 +1,32 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "Tencent.ArtHub",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "http://dldir1.qq.com/arthub/desktop/versions/latest-win32.yml",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "1.5.0",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "\"https://dldir1.qq.com/arthub/desktop/versions/$($Response.path)\"",
+    "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')",
+    "ReleaseNotes": "([System.IO.StreamReader]::new((Invoke-WebRequest -Uri $ReleaseNotesSource.Replace('#version', $Response.version)).RawContentStream).ReadToEnd() | ConvertFrom-Json).features -replace '^','- ' -join \"`n\""
+  },
+  "AdditionalInfo": {
+    "ReleaseNotesSource": "https://dldir1.qq.com/arthub/desktop/versions/version-summary-#version-win32.txt"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "XMind.XMind.8",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.xmind.net/_api/checkVersion/0?distrib=cathy_win32",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$ReleaseDateRaw = $Response.buildId.Substring($Response.buildId.LastIndexOf('.') + 1, 8)",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "3.7.9.201912052356",
+  "ManifestFields": {
+    "PackageVersion": "($Response.buildId | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response.download",
+    "ReleaseNotes": "$Response.whatsNew",
+    "ReleaseDate": "$ReleaseDateRaw.Substring(0, 4) + '-' + $ReleaseDateRaw.Substring(4, 2) + '-' + $ReleaseDateRaw.Substring(6, 2)"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "ByteDance.Feishu",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.feishu.cn/api/downloads",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.versions.Windows",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "5.9.11",
+  "ManifestFields": {
+    "PackageVersion": "($Response.version_number | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response.download_link"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

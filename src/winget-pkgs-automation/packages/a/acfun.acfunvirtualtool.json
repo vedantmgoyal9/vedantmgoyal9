@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "AcFun.AcFunVirtualTool",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://api.kuaishouzt.com/rest/zt/appsupport/checkupgrade?appver=1.16.0.598&kpn=ACFUN_APP.LIVE.PC&kpf=WINDOWS_PC",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.releaseInfo",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "1.30.0.1523",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "$Response.downloadUrl"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

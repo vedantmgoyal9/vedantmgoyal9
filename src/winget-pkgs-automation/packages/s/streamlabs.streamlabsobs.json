@@ -1,0 +1,31 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "Streamlabs.StreamlabsOBS",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://api.github.com/repos/stream-labs/desktop/tags?per_page=1",
+    "Method": "Get",
+    "Headers": {
+      "Authorization": "$AuthToken",
+      "Accept": "application/vnd.github.v3+json"
+    },
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.name.TrimStart('v'); $UpdateCondition = -not $Response.Contains('-')",
+  "VersionRegex": "(?<=v)[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "\"https://slobs-cdn.streamlabs.com/Streamlabs+OBS+Setup+$($Response).exe\""
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

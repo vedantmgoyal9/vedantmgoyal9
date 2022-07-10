@@ -9,7 +9,7 @@ jobs:
     defaults:
       run:
         shell: pwsh
-        working-directory: winget-pkgs-automation
+        working-directory: src/winget-pkgs-automation
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          path: winget-pkgs-automation/winget-pkgs
+          path: src/winget-pkgs-automation/winget-pkgs
           persist-credentials: false
           repository: microsoft/winget-pkgs
       - name: Authenticate GitHub Bot
@@ -37,7 +37,7 @@ jobs:
           }
           main();' | Out-File -FilePath auth.js
       - name: Run automation script
-        run: .\src\Automation.ps1
+        run: .\Automation.ps1
         env:
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
         id: build
@@ -46,6 +46,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: wingetdev-build-log.txt
-          path: winget-pkgs-automation/wingetdev-build-log.txt
+          path: src/winget-pkgs-automation/wingetdev-build-log.txt
           if-no-files-found: warn
           retention-days: 3

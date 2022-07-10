@@ -1,0 +1,36 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "LucasReade.OhHaiBrowser",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://api.github.com/repos/OhHaiBrowser/Browser/releases?per_page=1",
+    "Method": "Get",
+    "Headers": {
+      "Authorization": "$AuthToken",
+      "Accept": "application/vnd.github.v3+json"
+    },
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
+  "VersionRegex": "(?<=v)[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "3.4",
+  "ManifestFields": {
+    "PackageVersion": "$Response.tag_name.TrimStart('v')",
+    "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
+    "ReleaseNotesUrl": "$Response.html_url",
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {
+    "PreRelease": false,
+    "PreviousReleaseId": 26354359
+  },
+  "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

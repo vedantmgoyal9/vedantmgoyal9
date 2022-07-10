@@ -9,8 +9,7 @@ updates:
   - package-ecosystem: 'npm' # See documentation for possible values
     directory: '/' # Location of package manifests
     allow:
-      - dependency-type: production
-      - dependency-type: development
+      - dependency-type: all
     schedule:
       interval: 'daily'
       timezone: 'Asia/Kolkata'
@@ -25,38 +24,6 @@ updates:
   # Maintain dependencies for npm
   - package-ecosystem: 'npm' # See documentation for possible values
     directory: '/docs' # Location of package manifests
-    allow:
-      - dependency-type: all
-    schedule:
-      interval: 'daily'
-      timezone: 'Asia/Kolkata'
-    labels:
-      - 'dependencies'
-    reviewers:
-      - 'vedantmgoyal2009'
-    commit-message:
-      prefix: 'chore(deps)'
-    target-branch: 'main'
-
-  # Maintain dependencies for npm
-  - package-ecosystem: 'npm' # See documentation for possible values
-    directory: '/docs/functions' # Location of package manifests
-    allow:
-      - dependency-type: all
-    schedule:
-      interval: 'daily'
-      timezone: 'Asia/Kolkata'
-    labels:
-      - 'dependencies'
-    reviewers:
-      - 'vedantmgoyal2009'
-    commit-message:
-      prefix: 'chore(deps)'
-    target-branch: 'main'
-
-  # Maintain dependencies for npm
-  - package-ecosystem: 'npm' # See documentation for possible values
-    directory: '/.devcontainer/wpa-pkg-manager' # Location of package manifests
     allow:
       - dependency-type: all
     schedule:
