@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "Kingsoft.KDocs",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.kdocs.cn/kd/api/configure/list?idList=autoDownload",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = ($Response.data.autoDownload | ConvertFrom-Json).kdesktopWin.1001",
+  "VersionRegex": "(?<=v)[0-9.]+(?=\\.)",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "3.6.2",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

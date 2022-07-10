@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "BlueJTeam.BlueJ",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "http://www.bluej.org/version.info",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = ($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "5.0.2",
+  "ManifestFields": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "\"https://www.bluej.org/download/files/BlueJ-windows-$($Response.Replace('.','')).msi\""
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
