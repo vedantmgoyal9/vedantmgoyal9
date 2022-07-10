@@ -1,0 +1,31 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "Citrix.Workspace",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://www.citrix.com/pt-br/downloads/workspace-app/windows/workspace-app-for-windows-latest.html",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.Content",
+  "VersionRegex": "(?<=<p>Version:.*)[0-9.]+(?=\\s.*</p>)",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "22.6.0.60",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "\"https://downloadplugins.citrix.com/ReceiverUpdates/Prod/Receiver/Win/CitrixWorkspaceApp$($_Object.PackageVersion).exe\"",
+    "ReleaseDate": "(Get-Date -Date (($Response | Select-String -Pattern $ReleaseDateRegex).Matches.Value)).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {
+    "ReleaseDateRegex": "(?<=<h3>Release.Date:\\s).*(?=</h3>)"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

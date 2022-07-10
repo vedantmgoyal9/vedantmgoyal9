@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "LAIPIC.LaiHuaVideo",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://video.laihua.com/common/config?type=15",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.data.videoUpdate | ConvertFrom-Json",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "1.1.1",
+  "ManifestFields": {
+    "PackageVersion": "$Response.versionCode",
+    "InstallerUrls": "$Response.downloadUrl"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

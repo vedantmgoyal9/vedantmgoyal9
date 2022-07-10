@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "Google.Chrome.Dev",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://omahaproxy.appspot.com/all.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.versions | Where-Object { $_.os -eq 'win' -and $_.channel -eq 'dev' }",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "99.0.4844.17",
+  "ManifestFields": {
+    "PackageVersion": "$Response.current_version",
+    "InstallerUrls": "@('https://dl.google.com/tag/s/dl/chrome/install/dev/googlechromedevstandaloneenterprise64.msi', 'https://dl.google.com/tag/s/dl/chrome/install/dev/googlechromedevstandaloneenterprise.msi')"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": true,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

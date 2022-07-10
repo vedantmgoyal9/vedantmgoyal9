@@ -1,0 +1,31 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "Microsoft.Teams",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://teams.microsoft.com/desktopclient/installer/windows/x64?ring=general",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response2 = Invoke-RestMethod -Uri $x86_Uri; $Response3 = Invoke-RestMethod -Uri $Arm64_Uri",
+  "VersionRegex": "([0-9.]){3,}",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "1.5.00.9163",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "@($Response, $Response2, $Response3, $Response.Replace('exe','msi'), $Response2.Replace('exe','msi'), $Response3.Replace('exe','msi'))"
+  },
+  "AdditionalInfo": {
+    "x86_Uri": "https://teams.microsoft.com/desktopclient/installer/windows/x32?ring=general",
+    "Arm64_Uri": "https://teams.microsoft.com/desktopclient/installer/windows/arm64?ring=general"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": true
+  },
+  "SkipPackage": false
+}

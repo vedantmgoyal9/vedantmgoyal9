@@ -1,12 +1,27 @@
-# Java Compiled Classes
-/java_programs/out/
-
 # Temporary Directory
-/temp/
+temp
 
 # node_modules directory
 node_modules
 
+# whatsapp bot session
+.wwebjs_auth
+
+# env - environment variables
+.env
+
 # winget-pkgs-automation
-winget-pkgs-automation/temp.ps1
-winget-pkgs-automation/winget-pkgs/
+src/winget-pkgs-automation/winget-pkgs/
+
+# vscode extension files (*.vsix)
+*.vsix
+
+# docs - generated files
+docs/build
+docs/.docusaurus
+docs/.cache-loader
+docs/.DS_Store
+docs/.env.local
+docs/.env.development.local
+docs/.env.test.local
+docs/.env.production.local
