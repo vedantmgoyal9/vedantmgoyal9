@@ -42,7 +42,7 @@
         "firebase": "^9.8.4",
         "probot": "^12.2.4",
         "qrcode-terminal": "^0.12.0",
-        "vsce": "^2.9.2",
+        "vsce": "^2.10.0",
         "whatsapp-web.js": "^1.17.0"
     },
     "devDependencies": {
@@ -51,10 +51,10 @@
         "@types/node": "18.x",
         "@types/vscode": "^1.68.0",
         "@vscode/test-electron": "^2.1.5",
-        "commitizen": "^4.2.4",
+        "commitizen": "^4.2.5",
         "commitlint": "^17.0.3",
         "cz-conventional-changelog": "^3.3.0",
-        "eslint": "^8.18.0",
+        "eslint": "^8.20.0",
         "glob": "^8.0.1",
         "prettier": "^2.7.1",
         "smee-client": "^1.2.2"
