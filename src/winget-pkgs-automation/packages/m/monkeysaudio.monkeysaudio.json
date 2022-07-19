@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "MonkeysAudio.MonkeysAudio",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://monkeysaudio.com/x64",
+    "Method": "Head",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString; $RawVersion = Invoke-Expression -Command $RawVersionExpression",
+  "VersionRegex": "[0-9.]+(?=_)",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "8.20",
+  "ManifestFields": {
+    "PackageVersion": "$RawVersion.Substring(0,1) + '.' + $RawVersion.Substring(1)",
+    "InstallerUrls": "@($Response, $Response.Replace('_x64',''))"
+  },
+  "AdditionalInfo": {
+    "RawVersionExpression": "($Response | Select-String -Pattern $VersionRegex).Matches.Value"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "WeMod.WeMod.Beta",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://api.wemod.com/client/channels/beta/releases/latest",
+    "Method": "Head",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
+  "VersionRegex": "[0-9.]{2,}.*(?=\\.)",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "8.3.0-beta00",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "AutoUpgrade": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

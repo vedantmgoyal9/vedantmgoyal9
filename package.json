@@ -1,18 +1,21 @@
 {
     "name": "vedantmgoyal2009",
     "version": "1.0.0",
-    "description": "All my projects at one place :)",
-    "main": " ",
+    "publisher": "vedantmgoyal2009",
+    "description": "vscode extension, github bot, and more...",
+    "main": "./src/vscode-extension.js",
+    "private": true,
     "directories": {
         "doc": "docs"
     },
     "workspaces": [
-        "docs",
-        "docs/functions",
-        ".devcontainer/wpa-pkg-manager"
+        "docs"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "vs-publish": "vsce unpublish --force && vsce publish",
+        "gh-bot": "probot run ./src/github-bot.js",
+        "wa-bot": "node ./src/whatsapp-bot.js"
     },
     "repository": {
         "type": "git",
@@ -20,34 +23,92 @@
     },
     "keywords": [
         "java",
-        "firebase",
+        "winget",
         "automation",
         "powershell",
-        "hacktoberfest",
-        "winget-github-actions",
-        "winget-pkgs"
+        "probot-app",
+        "hacktoberfest"
     ],
     "author": "Vedant",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues"
+        "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues",
+        "email": "bugs-github@bittu.eu.org"
     },
-    "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
+    "homepage": "https://bittu.eu.org/",
     "dependencies": {
-        "@commitlint/config-conventional": "17.0.2",
-        "@octokit/auth-app": "^3.6.1",
-        "commitizen": "^4.2.4",
-        "commitlint": "^17.0.2",
-        "cz-conventional-changelog": "^3.3.0",
-        "generator-code": "^1.6.11",
-        "prettier": "^2.7.1",
+        "@octokit/auth-app": "^4.0.4",
+        "dotenv": "^16.0.1",
+        "firebase": "^9.8.4",
+        "probot": "^12.2.4",
+        "qrcode-terminal": "^0.12.0",
         "vsce": "^2.9.2",
-        "yo": "^4.3.0"
+        "whatsapp-web.js": "^1.17.0"
     },
+    "devDependencies": {
+        "@commitlint/config-conventional": "17.0.3",
+        "@types/glob": "^7.2.0",
+        "@types/node": "18.x",
+        "@types/vscode": "^1.68.0",
+        "@vscode/test-electron": "^2.1.5",
+        "commitizen": "^4.2.4",
+        "commitlint": "^17.0.3",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^8.18.0",
+        "glob": "^8.0.1",
+        "prettier": "^2.7.1",
+        "smee-client": "^1.2.2"
+    },
+    "sponsor": {
+        "url": "https://github.com/sponsors/vedantmgoyal2009"
+    },
+    "icon": "docs/static/img/icons8-google-code-500.png",
+    "contributes": {
+        "commands": [
+            {
+                "command": "vedantmgoyal2009.helloWorld",
+                "title": "Hello World",
+                "category": "vedantmgoyal2009"
+            },
+            {
+                "command": "vedantmgoyal2009.manageWpaPackages",
+                "title": "manage wpa packages",
+                "category": "vedantmgoyal2009"
+            }
+        ]
+    },
+    "extensionPack": [
+        "github.copilot-nightly",
+        "eamodio.gitlens-insiders",
+        "dbaeumer.vscode-eslint",
+        "redhat.java",
+        "ms-vscode.powershell-preview",
+        "ms-vscode.wordcount",
+        "redhat.vscode-yaml",
+        "mutantdino.resourcemonitor",
+        "visualstudioexptteam.vscodeintellicode",
+        "wakatime.vscode-wakatime",
+        "ask-toolkit.alexa-skills-kit-toolkit",
+        "ms-python.python",
+        "pspester.pester-test",
+        "esbenp.prettier-vscode",
+        "GitHub.copilot-labs"
+    ],
+    "activationEvents": [
+        "workspaceContains:src/winget-pkgs-automation/packages/**/*.json"
+    ],
+    "engines": {
+        "node": ">= 16.15.1",
+        "vscode": "^1.68.0"
+    },
+    "categories": [
+        "Testing",
+        "Other"
+    ],
     "prettier": {
         "trailingComma": "es5",
         "tabWidth": 2,
-        "semi": false,
+        "semi": true,
         "singleQuote": true
     },
     "commitlint": {
@@ -58,6 +119,31 @@
     "config": {
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": false,
+            "commonjs": true,
+            "es6": true,
+            "node": true,
+            "mocha": true
+        },
+        "parserOptions": {
+            "ecmaVersion": 2018,
+            "ecmaFeatures": {
+                "jsx": true
+            },
+            "sourceType": "module"
+        },
+        "rules": {
+            "no-const-assign": "warn",
+            "no-this-before-super": "warn",
+            "no-undef": "warn",
+            "no-unreachable": "warn",
+            "no-unused-vars": "warn",
+            "constructor-super": "warn",
+            "valid-typeof": "warn"
         }
     }
 }
