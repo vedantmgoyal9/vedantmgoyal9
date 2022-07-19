@@ -51,7 +51,7 @@
         "@types/node": "18.x",
         "@types/vscode": "^1.68.0",
         "@vscode/test-electron": "^2.1.5",
-        "commitizen": "^4.2.4",
+        "commitizen": "^4.2.5",
         "commitlint": "^17.0.3",
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.18.0",
