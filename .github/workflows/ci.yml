@@ -99,7 +99,7 @@ jobs:
           Invoke-Pester -Configuration $PesterPreference
           git config --local user.name 'winget-pkgs-automation-bot[bot]'
           git config --local user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com'
-          git commit -m "chore(wpa): update packages.txt" -- ./packages.txt
+          git commit -m "docs(wpa): update wpa-packages.md" -- ../../docs/docs/wpa-packages.md
           git push https://x-access-token:${{ steps.auth.outputs.token }}@github.com/vedantmgoyal2009/vedantmgoyal2009.git
       - uses: codecov/codecov-action@v3
         with:
