@@ -10,13 +10,13 @@ concurrency:
 jobs:
   get-commit:
     name: Get Commit
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    # if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     outputs:
-      is-wpa-modified: steps.commit-info.outputs.wpa-modified
-      is-docs-modified: steps.commit-info.outputs.docs-modified
-      is-vscode-extension-modified: steps.commit-info.outputs.vscode-extension-modified
-      run-codeql-analysis: steps.commit-info.outputs.codeql-analysis
+      is-wpa-modified: '${{ steps.commit-info.outputs.wpa-modified }}'
+      is-docs-modified: '${{ steps.commit-info.outputs.docs-modified }}'
+      is-vscode-extension-modified: '${{ steps.commit-info.outputs.vscode-extension-modified }}'
+      run-codeql-analysis: '${{ steps.commit-info.outputs.codeql-analysis }}'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -26,6 +26,7 @@ jobs:
       - name: Get commit information
         run: |
           if [ '${{ github.event_name }}' == 'push' ]; then
+            echo push
             echo "::set-output name=wpa-modified::$(git diff --quiet HEAD HEAD~1 -- src/winget-pkgs-automation && echo false || echo true)"
             echo "::set-output name=docs-modified::$(git diff --quiet HEAD HEAD~1 -- docs && echo false || echo true)"
             echo "::set-output name=vscode-extension-modified::$(git diff --quiet HEAD HEAD~1 -- src/vsc* README.md LICENSE CODE_OF_CONDUCT.md packag*.json && echo false || echo true)"
@@ -39,7 +40,7 @@ jobs:
         id: commit-info
   commitlint:
     name: Commitlint
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    # if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -57,7 +58,8 @@ jobs:
   winget-pkgs-automation:
     name: WinGet Automation (build)
     needs: get-commit
-    if: needs.get-commit.outputs.is-wpa-modified == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request')
+    if: needs.get-commit.outputs.is-wpa-modified == 'true'
+    # if: needs.get-commit.outputs.is-wpa-modified == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request')
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -165,7 +167,8 @@ jobs:
     name: CodeQL (analyse)
     runs-on: ubuntu-latest
     needs: get-commit
-    if: needs.get-commit.outputs.run-codeql-analysis == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request')
+    if: needs.get-commit.outputs.run-codeql-analysis == 'true'
+    # if: needs.get-commit.outputs.run-codeql-analysis == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request')
     permissions:
       actions: read
       contents: read

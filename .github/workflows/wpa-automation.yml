@@ -3,6 +3,9 @@ on:
   schedule:
     - cron: '0 * * * *'
   workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: windows-latest
@@ -40,12 +43,3 @@ jobs:
         run: .\Automation.ps1
         env:
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
-        id: build
-      - name: Upload wingetdev-build-log.txt
-        if: steps.build.outputs.upload_log == 'true'
-        uses: actions/upload-artifact@v3
-        with:
-          name: wingetdev-build-log.txt
-          path: src/winget-pkgs-automation/wingetdev-build-log.txt
-          if-no-files-found: warn
-          retention-days: 3

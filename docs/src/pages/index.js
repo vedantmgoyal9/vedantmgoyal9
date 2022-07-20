@@ -1,9 +1,9 @@
-import React from 'react'
-import clsx from 'clsx'
-import Layout from '@theme/Layout'
-import Link from '@docusaurus/Link'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import styles from './index.module.css'
+import React from 'react';
+import clsx from 'clsx';
+import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import styles from './index.module.css';
 
 const features = [
   {
@@ -47,7 +47,7 @@ const features = [
       </>
     ),
   },
-]
+];
 
 function Feature({ Svg, title, description }) {
   return (
@@ -60,11 +60,11 @@ function Feature({ Svg, title, description }) {
         <p>{description}</p>
       </div>
     </div>
-  )
+  );
 }
 
 export default function Home() {
-  const { siteConfig } = useDocusaurusContext()
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout title="Home" description={siteConfig.tagline}>
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
@@ -94,5 +94,5 @@ export default function Home() {
         </section>
       </main>
     </Layout>
-  )
+  );
 }

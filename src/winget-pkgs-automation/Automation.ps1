@@ -38,16 +38,16 @@ $AuthToken = $(node auth.js) # Get bot token from auth.js which was initialized 
 Set-Variable -Name WinGetDev -Value (Resolve-Path -Path ..\..\tools\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
 
 # Update wingetdev if a new commit is pushed on microsoft/winget-cli, thanks to @jedieaston for making https://github.com/jedieaston/winget-build
+# Path to wingetdev.exe is also used in winget-releaser action, so update the path in the action whenever wingetdev is moved in this repository
 $WinGetCliCommitInfo = Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/microsoft/winget-cli/commits?per_page=1'
 If ((Get-Content -Raw ..\..\tools\wingetdev\build.json | ConvertFrom-Json).Commit.Sha -ne $WinGetCliCommitInfo.sha) {
     Write-Output 'New commit pushed on microsoft/winget-cli, updating wingetdev...'
     Write-Output 'This will take about ~15 minutes... please wait...'
-    Write-Output '::set-output name=upload_log::true' # for github actions to evaluate if wingetdev was built in the run and upload the log as an artifact
     git clone https://github.com/microsoft/winget-cli.git --quiet
     & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat' x64
-    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -t:restore -m -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath .\wingetdev-build-log.txt -Append
-    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath .\wingetdev-build-log.txt -Append
-    Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination .\wingetdev\WindowsPackageManager.dll -Force
+    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -t:restore -m -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath ..\..\tools\wingetdev\log.txt -Append
+    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath ..\..\tools\wingetdev\log.txt -Append
+    Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination ..\..\tools\wingetdev\WindowsPackageManager.dll -Force
     Move-Item -Path .\winget-cli\src\x64\Release\AppInstallerCLI\* -Destination ..\..\tools\wingetdev -Force
     Move-Item -Path ..\..\tools\wingetdev\winget.exe -Destination wingetdev.exe -Force # Rename winget.exe to wingetdev.exe, Rename-Item with -Force doesn't work when the destination file already exists
     ConvertTo-Json -InputObject ([ordered] @{
@@ -57,9 +57,9 @@ If ((Get-Content -Raw ..\..\tools\wingetdev\build.json | ConvertFrom-Json).Commi
                 Author  = $WinGetCliCommitInfo.commit.author.name
             };
             BuildDateTime = (Get-Date).DateTime.ToString()
-        }) | Set-Content -Path .\wingetdev\build.json
+        }) | Set-Content -Path ..\..\tools\wingetdev\build.json
     git pull # to be on a safe side
-    git add .\wingetdev\*
+    git add ..\..\tools\wingetdev\*
     git commit -m "chore(wpa): update wingetdev build [$env:GITHUB_RUN_NUMBER]"
     git push https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git
 }
@@ -202,7 +202,7 @@ If ($ErrorUpgradingPkgs.Count -gt 0) {
     Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $Headers | Out-Null
 })
 # Add the new comment to the issue containing the results of the automation run
-Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{`"body`":$($CommentBody | ConvertTo-Json)}" -Headers $Headers
+Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{`"body`":`"$CommentBody`"}" -Headers $Headers
 
 # Update packages in repository
 Write-Output "`nUpdating packages"

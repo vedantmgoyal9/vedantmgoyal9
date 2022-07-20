@@ -38,6 +38,7 @@ const sidebars = {
         'wr-intro',
         'wr-config',
         'wr-multipackage',
+        'wr-playground',
       ],
     },
     "contributors"

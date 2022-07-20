@@ -1,14 +1,26 @@
 require('dotenv').config();
-import { randomBytes } from 'crypto';
+const { readFileSync, createWriteStream } = require('fs');
+const { format } = require('util');
+const { randomBytes } = require('crypto');
+const { generate } = require('qrcode-terminal');
+const { initializeApp } = require('firebase/app');
+const { getFirestore, doc, getDoc, updateDoc } = require('firebase/firestore/lite');
+const { Client, LocalAuth } = require('whatsapp-web.js');
 const server = require('express')();
-import { generate } from 'qrcode-terminal';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, updateDoc } from 'firebase/firestore/lite';
-import { Client, LocalAuth } from 'whatsapp-web.js';
+const log_file = createWriteStream(__dirname + '/' + process.env.FRBE_PH_FL, {
+  flags: 'w',
+});
+const log_stdout = process.stdout;
 const wa = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: { headless: true },
 });
+
+// make console.log to output to both console and log file
+console.log = function (log_line) {
+  log_file.write(format(log_line) + '\n');
+  log_stdout.write(format(log_line) + '\n');
+};
 
 // initialize server
 server.listen(process.env.PT, () => {
@@ -46,10 +58,22 @@ wa.on('message', (message) => {
     wa.sendMessage(message.from, `Authentication key: ${auth}`);
     updateDoc(database, { [`${message.from.split('@')[0]}`]: auth }).then(
       function () {
-        console.log('+' + message.from.split('@')[0] + ' has been registered.');
+        console.log(`+${message.from.split('@')[0]} has been registered`);
       }
     );
   }
+});
+
+// make logs available on the internet
+// hide phone number on the internet, privacy is important!
+server.get(process.env.FRBE_LN_PH_LG, function (req, res) {
+  res.status(200);
+  res.send(
+    readFileSync(process.env.FRBE_PH_FL, 'utf8').replace(
+      /(?<=\+[0-9]{3})\d+(?=\s)/g,
+      'XXXXXXXXX'
+    )
+  );
 });
 
 // start listening on server and send the message to the user
@@ -71,6 +95,9 @@ server.get(process.env.FRBE_LN_PH, (req, res) => {
             <b>To</b>: +${req.query.sendto} <br>
             <b>Message</b>: ${req.query.text}
           `);
+          console.log(
+            `To: +${req.query.sendto}; Message: ${req.query.text}\n-----------`
+          );
         }
       );
     } else if (
