@@ -13,10 +13,10 @@ jobs:
     # if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     outputs:
-      is-wpa-modified: steps.commit-info.outputs.wpa-modified
-      is-docs-modified: steps.commit-info.outputs.docs-modified
-      is-vscode-extension-modified: steps.commit-info.outputs.vscode-extension-modified
-      run-codeql-analysis: steps.commit-info.outputs.codeql-analysis
+      is-wpa-modified: '${{ steps.commit-info.outputs.wpa-modified }}'
+      is-docs-modified: '${{ steps.commit-info.outputs.docs-modified }}'
+      is-vscode-extension-modified: '${{ steps.commit-info.outputs.vscode-extension-modified }}'
+      run-codeql-analysis: '${{ steps.commit-info.outputs.codeql-analysis }}'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -26,6 +26,7 @@ jobs:
       - name: Get commit information
         run: |
           if [ '${{ github.event_name }}' == 'push' ]; then
+            echo push
             echo "::set-output name=wpa-modified::$(git diff --quiet HEAD HEAD~1 -- src/winget-pkgs-automation && echo false || echo true)"
             echo "::set-output name=docs-modified::$(git diff --quiet HEAD HEAD~1 -- docs && echo false || echo true)"
             echo "::set-output name=vscode-extension-modified::$(git diff --quiet HEAD HEAD~1 -- src/vsc* README.md LICENSE CODE_OF_CONDUCT.md packag*.json && echo false || echo true)"

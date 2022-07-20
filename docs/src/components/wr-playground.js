@@ -23,22 +23,16 @@ export default function WrPlayground() {
     fetch('https://api.github.com/repos/' + ghRepo + '/releases/latest').then(
       (res) => {
         res.json().then((data) => {
-          setOutput(
-            `Package Identifier: ${pkgId}\n` +
-              `Package Version: ${new RegExp(verRegex, 'g').exec(
-                data.tag_name
-              )}\n` +
-              `Installer Urls: ${JSON.stringify(
-                data.assets.flatMap((element) =>
-                  new RegExp(instRegex, 'g').test(element.name)
-                    ? element.browser_download_url
-                    : []
-                ),
-                null,
-                2
-              )}
-          `
-          );
+          setOutput(`Package Identifier: ${pkgId}\n` +
+          `Package Version: ${new RegExp(verRegex, 'g').exec(data.tag_name)}\n` +
+          `Installer Urls: ${JSON.stringify(
+            data.assets.flatMap((element) =>
+              new RegExp(instRegex, 'g').test(element.name)
+                ? element.browser_download_url
+                : []
+            ), null, 2
+          )}
+          `);
         });
       }
     );
