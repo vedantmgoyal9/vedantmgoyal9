@@ -4,7 +4,12 @@ const { format } = require('util');
 const { randomBytes } = require('crypto');
 const { generate } = require('qrcode-terminal');
 const { initializeApp } = require('firebase/app');
-const { getFirestore, doc, getDoc, updateDoc } = require('firebase/firestore/lite');
+const {
+  getFirestore,
+  doc,
+  getDoc,
+  updateDoc,
+} = require('firebase/firestore/lite');
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const server = require('express')();
 const log_file = createWriteStream(__dirname + '/' + process.env.FRBE_PH_FL, {
