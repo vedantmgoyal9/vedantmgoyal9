@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "a56372ba05d8f4423cb7cf5be0b5c0bacb445ca3",
-    "Message": "Feat: Wait upon command completion (#2236)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "8abc3252b4cf9109e370eff2bd9528e12b4e03ed",
+    "Message": "Explicit ACLs (#2324)\n\nExplicitly apply ACLs to some locations.  All are consistent with the default owners of these locations (on the current versions of Windows supported).\r\n\r\nThe locations being affected are:\r\n- Temp :: Giving the current user full control (this has affected users in the past if their temp location did not allow Execute)\r\n- SecureSettings :: Admins own and user can read.  This is how it is now, but being explicit.\r\n- LocalState/StandardSettings/UserFileSettings :: Current user owns.  Again, not changed but being explicit.",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Wednesday, July 6, 2022 9:21:12 PM"
+  "BuildDateTime": "Wednesday, July 20, 2022 1:48:13 PM"
 }
