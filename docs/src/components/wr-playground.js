@@ -23,16 +23,22 @@ export default function WrPlayground() {
     fetch('https://api.github.com/repos/' + ghRepo + '/releases/latest').then(
       (res) => {
         res.json().then((data) => {
-          setOutput(`Package Identifier: ${pkgId}\n` +
-          `Package Version: ${new RegExp(verRegex, 'g').exec(data.tag_name)}\n` +
-          `Installer Urls: ${JSON.stringify(
-            data.assets.flatMap((element) =>
-              new RegExp(instRegex, 'g').test(element.name)
-                ? element.browser_download_url
-                : []
-            ), null, 2
-          )}
-          `);
+          setOutput(
+            `Package Identifier: ${pkgId}\n` +
+              `Package Version: ${new RegExp(verRegex, 'g').exec(
+                data.tag_name
+              )}\n` +
+              `Installer Urls: ${JSON.stringify(
+                data.assets.flatMap((element) =>
+                  new RegExp(instRegex, 'g').test(element.name)
+                    ? element.browser_download_url
+                    : []
+                ),
+                null,
+                2
+              )}
+          `
+          );
         });
       }
     );
@@ -74,7 +80,7 @@ export default function WrPlayground() {
           id="inst-regex"
           name="inst-regex"
           className="input-field"
-          placeholder='Regular expression to filter installer URLs'
+          placeholder="Regular expression to filter installer URLs"
           defaultValue=".(exe|msi|msix|appx)(bundle){0,1}$"
           onChange={(event) => {
             setInstRegex(event.target.value);
