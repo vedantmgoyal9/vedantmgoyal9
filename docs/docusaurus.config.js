@@ -11,7 +11,7 @@ const config = {
   url: 'https://bittu.eu.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/open-book_1f4d6.png',
   organizationName: 'vedantmgoyal2009', // Usually your GitHub org/user name.
   projectName: 'vedantmgoyal2009', // Usually your repo name.
