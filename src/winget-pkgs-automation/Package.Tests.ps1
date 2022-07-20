@@ -14,9 +14,9 @@ Describe 'Packages' {
             $_.Directory.Name | Should -BeExactly $_.BaseName[0]
         }
 
-        # It 'Validate JSON with Schema' {
-        #     Test-Json -Json $JsonContent -SchemaFile $JsonSchemaFilePath -ErrorAction Stop
-        # }
+        It 'Validate JSON with Schema' {
+            Test-Json -Json $JsonContent -SchemaFile $JsonSchemaFilePath -ErrorAction Stop
+        }
     }
 
     AfterAll {
@@ -33,7 +33,7 @@ sidebar_label: 📦 Packages
         } | ConvertFrom-Json | Where-Object {
             $_.SkipPackage -eq $false
         } | Select-Object -ExpandProperty Identifier | Sort-Object | ForEach-Object {
-            "- [$_](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/src/winget-pkgs-automation/packages/$($_.Substring(0, 1))/$($_.ToLower()).json)"
+            "- [$_](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/src/winget-pkgs-automation/packages/$($_.Substring(0,1).ToLower())/$($_.ToLower()).json)"
         } | Out-File -Append -Encoding UTF8 -FilePath $PackagesTxtFilePath
     }
 }
