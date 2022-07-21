@@ -9,15 +9,20 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response = $Response.Replace('ï»¿','') | ConvertFrom-Json",
+  "PostResponseScript": "$Response = $Response.Replace('﻿','') | ConvertFrom-Json",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
   "PreviousVersion": "4.1.5.0",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "@((Invoke-WebRequest -Uri 'https://ticktick.com/static/getApp/download?type=win64' -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString, (Invoke-WebRequest -Uri 'https://ticktick.com/static/getApp/download?type=win' -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString)"
+    "InstallerUrls": "@((Invoke-WebRequest -Uri $x86InstUriSource -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString, (Invoke-WebRequest -Uri $x64InstUriSource -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString)",
+    "ReleaseNotes": "$Response.data[1].content",
+    "ReleaseDate": "[System.DateTime]::ParseExact($Response.release_date, 'yyyyMMdd', $Null).ToString('yyyy-MM-dd')"
   },
-  "AdditionalInfo": {},
+  "AdditionalInfo": {
+    "x86InstUriSource": "https://ticktick.com/static/getApp/download?type=win",
+    "x64InstUriSource": "https://ticktick.com/static/getApp/download?type=win64"
+  },
   "PostUpgradeScript": "",
   "YamlCreateParams": {
     "SkipPRCheck": false,

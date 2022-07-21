@@ -15,7 +15,8 @@
   "PreviousVersion": "5.9.15",
   "ManifestFields": {
     "PackageVersion": "($Response.version_number | Select-String -Pattern $VersionRegex).Matches.Value",
-    "InstallerUrls": "$Response.download_link"
+    "InstallerUrls": "$Response.download_link",
+    "ReleaseDate": "[System.DateTimeOffset]::FromUnixTimeSeconds($Response.release_time).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

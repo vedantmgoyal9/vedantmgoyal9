@@ -17,14 +17,14 @@
   "PreviousVersion": "2.3.8",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "@($x64_Uri.Replace('#version', $Response.version), $x86_Uri.Replace('#version', $Response.version), $Arm64_Uri.Replace('#version', $Response.version))",
+    "InstallerUrls": "@($x86_Uri.Replace('#version', $Response.version), $x64_Uri.Replace('#version', $Response.version), $Arm64_Uri.Replace('#version', $Response.version))",
     "ReleaseDate": "($Response.update_info | Select-String -Pattern $ReleaseDateRegex).Matches.Value",
     "ReleaseNotes": "$Response.update_info"
   },
   "AdditionalInfo": {
     "ReleaseDateRegex": "(?<=\\s)[0-9-]+",
-    "x64_Uri": "https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/#version/TencentDocs#version.x64.30002.exe",
     "x86_Uri": "https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/#version/TencentDocs#version.ia32.30002.exe",
+    "x64_Uri": "https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/#version/TencentDocs#version.x64.30002.exe",
     "Arm64_Uri": "https://dldir1.qq.com/weiyun/tencentdocs/electron-update/release/#version/TencentDocs#version.arm64.30002.exe"
   },
   "PostUpgradeScript": "",

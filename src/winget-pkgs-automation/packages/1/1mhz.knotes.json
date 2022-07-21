@@ -15,7 +15,8 @@
   "PreviousVersion": "2.11.2",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "\"https://knotes2-release-cn.s3.amazonaws.com/win/$([System.Uri]::EscapeDataString($Response.path))\""
+    "InstallerUrls": "\"https://knotes2-release-cn.s3.amazonaws.com/win/$([System.Uri]::EscapeDataString($Response.path))\"",
+    "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
