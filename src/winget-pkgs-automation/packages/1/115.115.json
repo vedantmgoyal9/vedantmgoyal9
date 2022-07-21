@@ -15,7 +15,8 @@
   "PreviousVersion": "1.0.8.9",
   "ManifestFields": {
     "PackageVersion": "$Response.version_code",
-    "InstallerUrls": "$Response.version_url"
+    "InstallerUrls": "$Response.version_url",
+    "ReleaseDate": "[System.DateTimeOffset]::FromUnixTimeSeconds($Response.created_time).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

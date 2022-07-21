@@ -15,7 +15,8 @@
   "PreviousVersion": "1.30.0.1523",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "$Response.downloadUrl"
+    "InstallerUrls": "$Response.downloadUrl",
+    "ReleaseNotes": "$Response.message"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

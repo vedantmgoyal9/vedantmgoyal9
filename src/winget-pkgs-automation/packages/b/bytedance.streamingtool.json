@@ -15,7 +15,7 @@
   "PreviousVersion": "3.2.4",
   "ManifestFields": {
     "PackageVersion": "$Response.manifest.win32.version",
-    "InstallerUrls": "@($Response.manifest.win32.extra.x64.installerUrl, $Response.manifest.win32.extra.x86.installerUrl)",
+    "InstallerUrls": "@($Response.manifest.win32.extra.x86.installerUrl, $Response.manifest.win32.extra.x64.installerUrl)",
     "ReleaseNotes": "'\"' + $Response.releaseNote + '\"' | ConvertFrom-Json"
   },
   "AdditionalInfo": {},
