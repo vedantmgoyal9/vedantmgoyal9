@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "8abc3252b4cf9109e370eff2bd9528e12b4e03ed",
-    "Message": "Explicit ACLs (#2324)\n\nExplicitly apply ACLs to some locations.  All are consistent with the default owners of these locations (on the current versions of Windows supported).\r\n\r\nThe locations being affected are:\r\n- Temp :: Giving the current user full control (this has affected users in the past if their temp location did not allow Execute)\r\n- SecureSettings :: Admins own and user can read.  This is how it is now, but being explicit.\r\n- LocalState/StandardSettings/UserFileSettings :: Current user owns.  Again, not changed but being explicit.",
-    "Author": "JohnMcPMS"
+    "Sha": "6aff1fb2f5e5eeee808efe2e5a7f23711fe738bf",
+    "Message": "Add InstallationMetadata to manifests for future deep installation detection (#2350)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Wednesday, July 20, 2022 1:48:13 PM"
+  "BuildDateTime": "Thursday, July 21, 2022 3:28:42 AM"
 }
