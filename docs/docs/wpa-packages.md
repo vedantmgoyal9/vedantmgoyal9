@@ -883,6 +883,7 @@ sidebar_label: 📦 Packages
 - [StandardNotes.StandardNotes](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/src/winget-pkgs-automation/packages/s/standardnotes.standardnotes.json)
 - [staniel359.muffon](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/src/winget-pkgs-automation/packages/s/staniel359.muffon.json)
 - [stax76.mpvdotnet](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/src/winget-pkgs-automation/packages/s/stax76.mpvdotnet.json)
+- [SteamGridDB.RomManager](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/src/winget-pkgs-automation/packages/s/steamgriddb.rommanager.json)
 - [Steccas.ProtonClient](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/src/winget-pkgs-automation/packages/s/steccas.protonclient.json)
 - [StefanMalzner.Franz](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/src/winget-pkgs-automation/packages/s/stefanmalzner.franz.json)
 - [StefansTools.BowPad](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/src/winget-pkgs-automation/packages/s/stefanstools.bowpad.json)
