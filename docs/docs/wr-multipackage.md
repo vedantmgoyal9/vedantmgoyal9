@@ -1,7 +1,7 @@
 ---
 id: wr-multipackage
 title: Setup multiple packages
-sidebar_label: 🗃️ Mutliple packages
+sidebar_label: 🗃️ Multiple packages
 ---
 
 Currently, the action does **not** support updating multiple packages from one repository.
