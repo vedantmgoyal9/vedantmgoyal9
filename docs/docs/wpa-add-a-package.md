@@ -32,6 +32,6 @@ You can use the [`Test-Package`][test-package-script] script in case you have ma
 
 3. Submit the issue and wait for the package to be added to the automation.
 
-[new-package-script]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/winget-pkgs-automation/tools/New-Package.ps1
-[test-package-script]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/winget-pkgs-automation/tools/Test-Package.ps1
+[new-package-script]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/tools/New-Package.ps1
+[test-package-script]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/tools/Test-Package.ps1
 [new-package-issue]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues/new?assignees=vedantmgoyal2009&labels=new+package&template=package_request.yml&title=%5BNew+Package%5D%3A+
