@@ -12,7 +12,7 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$UpdateCondition = $Response.name -match 'develop' -and $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
+  "PostResponseScript": "$UpdateCondition = $Response.name -match 'main' -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "winget.*(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "1.4.7-alpha",
