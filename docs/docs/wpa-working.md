@@ -32,6 +32,6 @@ Licensed under MIT License. Copyright (c) Microsoft Corporation.
 
 These JSON files contain the source and other information to fetch the latest version and download urls of a package.
 
-[automation-ps1]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/winget-pkgs-automation/src/Automation.ps1
-[yamlcreate-ps1]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/winget-pkgs-automation/src/YamlCreate.ps1
+[automation-ps1]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/src/winget-pkgs-automation/Automation.ps1
+[yamlcreate-ps1]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/src/winget-pkgs-automation/YamlCreate.ps1
 [winget-pkgs-repo]: https://github.com/microsoft/winget-pkgs
