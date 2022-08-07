@@ -54,7 +54,7 @@
         "commitizen": "^4.2.5",
         "commitlint": "^17.0.3",
         "cz-conventional-changelog": "^3.3.0",
-        "eslint": "^8.20.0",
+        "eslint": "^8.21.0",
         "glob": "^8.0.1",
         "prettier": "^2.7.1",
         "smee-client": "^1.2.2"
