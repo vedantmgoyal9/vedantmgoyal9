@@ -13,7 +13,7 @@
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "vs-publish": "vsce unpublish --force && vsce publish",
+        "vs-publish": "vsce unpublish --force -p $env:VSCE_PAT && vsce publish -p $env:VSCE_PAT",
         "gh-bot": "probot run ./src/github-bot.js",
         "wa-bot": "node ./src/whatsapp-bot.js"
     },
