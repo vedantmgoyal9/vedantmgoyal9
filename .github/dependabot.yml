@@ -21,22 +21,6 @@ updates:
       prefix: 'chore(deps)'
     target-branch: 'main'
 
-  # Maintain dependencies for npm
-  - package-ecosystem: 'npm' # See documentation for possible values
-    directory: '/docs' # Location of package manifests
-    allow:
-      - dependency-type: all
-    schedule:
-      interval: 'daily'
-      timezone: 'Asia/Kolkata'
-    labels:
-      - 'dependencies'
-    reviewers:
-      - 'vedantmgoyal2009'
-    commit-message:
-      prefix: 'chore(deps)'
-    target-branch: 'main'
-
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: 'github-actions'
     # Workflow files stored in the
