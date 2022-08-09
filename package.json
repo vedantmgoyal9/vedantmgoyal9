@@ -37,7 +37,6 @@
     },
     "homepage": "https://bittu.eu.org/",
     "dependencies": {
-        "@octokit/auth-app": "^4.0.4",
         "dotenv": "^16.0.1",
         "firebase": "^9.9.1",
         "probot": "^12.2.4",
@@ -47,17 +46,12 @@
     },
     "devDependencies": {
         "@commitlint/config-conventional": "17.0.3",
-        "@types/glob": "^7.2.0",
         "@types/node": "18.x",
         "@types/vscode": "^1.70.0",
-        "@vscode/test-electron": "^2.1.5",
         "commitizen": "^4.2.5",
         "commitlint": "^17.0.3",
         "cz-conventional-changelog": "^3.3.0",
-        "eslint": "^8.21.0",
-        "glob": "^8.0.1",
-        "prettier": "^2.7.1",
-        "smee-client": "^1.2.2"
+        "prettier": "^2.7.1"
     },
     "sponsor": {
         "url": "https://github.com/sponsors/vedantmgoyal2009"
@@ -78,21 +72,17 @@
         ]
     },
     "extensionPack": [
-        "github.copilot-nightly",
+        "ms-vscode.cpptools-extension-pack",
+        "vscjava.vscode-java-pack",
+        "ms-python.python",
         "eamodio.gitlens-insiders",
-        "dbaeumer.vscode-eslint",
-        "redhat.java",
+        "github.copilot-nightly",
+        "GitHub.copilot-labs",
         "ms-vscode.powershell-preview",
-        "ms-vscode.wordcount",
         "redhat.vscode-yaml",
         "mutantdino.resourcemonitor",
-        "visualstudioexptteam.vscodeintellicode",
-        "wakatime.vscode-wakatime",
         "ask-toolkit.alexa-skills-kit-toolkit",
-        "ms-python.python",
-        "pspester.pester-test",
-        "esbenp.prettier-vscode",
-        "GitHub.copilot-labs"
+        "esbenp.prettier-vscode"
     ],
     "activationEvents": [
         "workspaceContains:src/winget-pkgs-automation/packages/**/*.json"
