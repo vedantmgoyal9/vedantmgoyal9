@@ -10,10 +10,8 @@ concurrency:
 jobs:
   get-commit:
     name: Get Commit
-    # if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     outputs:
-      is-wpa-modified: '${{ steps.commit-info.outputs.wpa-modified }}'
       is-docs-modified: '${{ steps.commit-info.outputs.docs-modified }}'
       is-vscode-extension-modified: '${{ steps.commit-info.outputs.vscode-extension-modified }}'
       run-codeql-analysis: '${{ steps.commit-info.outputs.codeql-analysis }}'
@@ -27,12 +25,10 @@ jobs:
         run: |
           if [ '${{ github.event_name }}' == 'push' ]; then
             echo push
-            echo "::set-output name=wpa-modified::$(git diff --quiet HEAD HEAD~1 -- src/winget-pkgs-automation && echo false || echo true)"
             echo "::set-output name=docs-modified::$(git diff --quiet HEAD HEAD~1 -- docs && echo false || echo true)"
             echo "::set-output name=vscode-extension-modified::$(git diff --quiet HEAD HEAD~1 -- src/vsc* README.md LICENSE CODE_OF_CONDUCT.md packag*.json && echo false || echo true)"
             echo "::set-output name=codeql-analysis::$(git diff --quiet HEAD HEAD~1 -- src/*.js && echo false || echo true)"
           else
-            echo "::set-output name=wpa-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- src/winget-pkgs-automation && echo false || echo true)"
             echo "::set-output name=docs-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- docs && echo false || echo true)"
             echo "::set-output name=vscode-extension-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- src/vsc* README.md LICENSE CODE_OF_CONDUCT.md packag*.json && echo false || echo true)"
             echo "::set-output name=codeql-analysis::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- src/*.js && echo false || echo true)"
@@ -40,7 +36,6 @@ jobs:
         id: commit-info
   commitlint:
     name: Commitlint
-    # if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -55,60 +50,6 @@ jobs:
       - name: Validate Commit Message (pull request)
         if: github.event_name == 'pull_request'
         run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
-  winget-pkgs-automation:
-    name: WinGet Automation (build)
-    needs: get-commit
-    if: needs.get-commit.outputs.is-wpa-modified == 'true'
-    # if: needs.get-commit.outputs.is-wpa-modified == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request')
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: pwsh
-        working-directory: src/winget-pkgs-automation
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Authenticate GitHub Bot
-        run: |
-          npm ci
-          echo 'async function main() {
-            console.log((await require("@octokit/auth-app").createAppAuth({
-              appId: ${{ secrets.BT_AP_ID}},
-              privateKey: "${{ secrets.BT_AP_PKY }}",
-              clientId: "${{ secrets.BT_CLNT_ID }}",
-              clientSecret: "${{ secrets.BT_CLNT_SCRT }}",
-              installationId: ${{ secrets.BT_INST_ID }},
-            })({ type: "installation" })).token);
-          }
-          main();' > auth.js
-          echo "::set-output name=token::$(node auth.js)"
-        id: auth
-      - name: Run Pester Checks
-        run: |
-          $container = New-PesterContainer -Path $PSScriptRoot
-          $PesterPreference = [PesterConfiguration]::Default
-          $PesterPreference.Run.Container = $container
-          $PesterPreference.CodeCoverage.Enabled = $true
-          $PesterPreference.CodeCoverage.OutputFormat = 'JaCoCo'
-          $PesterPreference.CodeCoverage.CoveragePercentTarget = 100
-          $PesterPreference.Output.Verbosity = 'Detailed'
-
-          Invoke-Pester -Configuration $PesterPreference
-          git config --local user.name 'winget-pkgs-automation-bot[bot]'
-          git config --local user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com'
-          git commit -m "docs(wpa): update wpa-packages.md" -- ../../docs/docs/wpa-packages.md
-          git push https://x-access-token:${{ steps.auth.outputs.token }}@github.com/vedantmgoyal2009/vedantmgoyal2009.git
-      - uses: codecov/codecov-action@v3
-        with:
-          name: winget-pkgs-automation-codecov
-          directory: ./
-          files: ./coverage.xml
-          working-directory: src/winget-pkgs-automation
-          fail_ci_if_error: false
-          verbose: true
   vscode-extension-publish:
     name: Publish VSCode Extension
     needs: get-commit
@@ -168,7 +109,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: get-commit
     if: needs.get-commit.outputs.run-codeql-analysis == 'true'
-    # if: needs.get-commit.outputs.run-codeql-analysis == 'true' && (github.event_name == 'push' || github.event_name == 'pull_request')
     permissions:
       actions: read
       contents: read
