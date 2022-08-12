@@ -29,7 +29,7 @@ jobs:
         run: |
           # Initialize auth.js which will be used by the script to get bot token
           npm ci
-          Write-Output 'async function main() {
+          Write-Output '(async () => {
             console.log((await require("@octokit/auth-app").createAppAuth({
               appId: ${{ secrets.BT_AP_ID }},
               privateKey: "${{ secrets.BT_AP_PKY }}",
@@ -37,8 +37,7 @@ jobs:
               clientSecret: "${{ secrets.BT_CLNT_SCRT }}",
               installationId: ${{ secrets.BT_INST_ID }},
             })({ type: "installation" })).token);
-          }
-          main();' | Out-File -FilePath auth.js
+          })();' | Out-File -FilePath auth.js
       - name: Run automation script
         run: .\Automation.ps1
         env:

@@ -129,11 +129,10 @@ function activate(context) {
                       '-NoProfile',
                       '-NoExit',
                       '-Command',
-                      './Test-Package.ps1',
+                      './Manage-WpaPackages.ps1',
                       '-PackageIdentifier',
                       `${selectedPkg}`,
-                      '-DisableRecursion',
-                      '| Format-List -Property *',
+                      '-TestPackage',
                     ],
                     hideFromUser: false,
                   })
