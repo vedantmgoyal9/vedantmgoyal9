@@ -33,7 +33,7 @@ server.listen(process.env.PT, () => {
 // intialize whatsapp
 wa.initialize();
 wa.on('qr', (qr) => {
-  process.stdout.write(qr + "\n")
+  process.stdout.write(qr + '\n');
 });
 wa.on('authenticated', () => {
   console.log('Session authentication successful or restored.');
@@ -90,19 +90,17 @@ server.get('/', (req, res) => {
   getDoc(database).then((doc) => {
     const authInDatabase = doc.data()[`${req.query.to}`];
     if (authInDatabase === req.query.auth) {
-      wa.sendMessage(`${req.query.to}@c.us`, `${req.query.msg}`).then(
-        () => {
-          res.status(200);
-          res.send(`
+      wa.sendMessage(`${req.query.to}@c.us`, `${req.query.msg}`).then(() => {
+        res.status(200);
+        res.send(`
             <b>Status</b>: Successful <br>
             <b>To</b>: +${req.query.to} <br>
             <b>Message</b>: ${req.query.msg}
           `);
-          console.log(
-            `To: +${req.query.to}; Message: ${req.query.msg}\n-----------`
-          );
-        }
-      );
+        console.log(
+          `To: +${req.query.to}; Message: ${req.query.msg}\n-----------`
+        );
+      });
     } else if (
       authInDatabase != req.query.auth &&
       authInDatabase != undefined
