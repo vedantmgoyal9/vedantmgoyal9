@@ -61,7 +61,7 @@ wa.on('message', (message) => {
     wa.sendMessage(message.from, `Authentication key: ${auth}`);
     updateDoc(database, { [`${message.from.split('@')[0]}`]: auth }).then(
       function () {
-        console.log(`+${message.from.split('@')[0]} has been registered`);
+        console.log(`+${message.from.split('@')[0]} has been registered.`);
       }
     );
   }
@@ -72,10 +72,9 @@ wa.on('message', (message) => {
 server.get('/logs.txt', function (req, res) {
   res.status(200);
   res.send(
-    readFileSync(`${__dirname}/logs.txt`, 'utf8').replace(
-      /(?<=\+[0-9]{3})\d+(?=\s)/g,
-      'XXXXXXXXX'
-    )
+    readFileSync(`${__dirname}/logs.txt`, 'utf8')
+      .replace(/(?<=\+[0-9]{3})\d+(?=\s)/g, 'XXXXXXXXX')
+      .replace(/\n/g, '<br/>') // replace new lines with <br/>
   );
 });
 

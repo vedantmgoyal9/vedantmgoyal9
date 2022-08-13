@@ -15,7 +15,7 @@ module.exports = (app) => {
         ...context.payload.head_commit.added,
         ...context.payload.head_commit.modified,
         ...context.payload.head_commit.removed,
-      ].some((file) => file.test(/^src\/winget-pkgs-automation\/.*/g))
+      ].some((file) => /^src\/winget-pkgs-automation\/.*/g.test(file))
     ) {
       app.log.info('-----------');
       app.log.info('Updating wpa-packages.md');
