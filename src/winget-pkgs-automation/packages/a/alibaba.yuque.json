@@ -3,7 +3,7 @@
   "Identifier": "Alibaba.Yuque",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://app.nlark.com/yuque-desktop/v2/latest-lark.json",
+    "Uri": "https://app.nlark.com/yuque-desktop/v4/latest.json",
     "Method": "Get",
     "Headers": {},
     "Body": "",
