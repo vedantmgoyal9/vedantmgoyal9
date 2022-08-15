@@ -84,7 +84,7 @@
     },
     "PostResponseScript": {
       "$id": "#/properties/PostResponseScript",
-      "type": "string"
+      "type": ["string", "array"]
     },
     "VersionRegex": {
       "$id": "#/properties/VersionRegex",
@@ -150,10 +150,7 @@
       "$id": "#/properties/SkipPackage",
       "enum": [
         false,
-        "Automatically marked as stale, not updated for 2.5 years",
-        "Package is no longer maintained",
-        "Published by the developer itself",
-        "Waiting for WinGet's Dependency or Interactive-Only installers support"
+        "Automatically marked as stale, not updated for 2.5 years"
       ],
       "type": ["boolean", "string"]
     }
