@@ -32,5 +32,5 @@
     "AutoUpgrade": false,
     "DeletePreviousVersion": false
   },
-  "SkipPackage": "Waiting for WinGet's Dependency or Interactive-Only installers support"
+  "SkipPackage": false
 }

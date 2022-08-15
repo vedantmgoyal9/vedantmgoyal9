@@ -12,7 +12,10 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response = $Response | Where-Object { $_.name.Contains('LTS') } | Select-Object -First 1; $UpdateCondition = $Response.id -gt $PreviousReleaseId",
+  "PostResponseScript": [
+    "$Response = $Response | Where-Object { $_.name.Contains('LTS') } | Select-Object -First 1",
+    "$UpdateCondition = $Response.id -gt $PreviousReleaseId"
+  ],
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
   "PreviousVersion": "16.16.0",

@@ -31,8 +31,8 @@ $ProgressPreference = 'SilentlyContinue'
 
 # Setup git authentication credentials, bot authentication token and wingetdev.exe path variable
 Write-Output 'Setting up git authentication credentials and github bot authentication token...'
-git config --global user.name 'winget-pkgs-automation-bot[bot]' # Set git username
-git config --global user.email '93540089+winget-pkgs-automation-bot[bot]@users.noreply.github.com' # Set git email
+git config --global user.name 'vedantmgoyal2009[bot]' # Set git username
+git config --global user.email '110876359+vedantmgoyal2009[bot]@users.noreply.github.com' # Set git email
 $AuthToken = $(node auth.js) # Get bot token from auth.js which was initialized in the workflow
 # Set wingetdev.exe path variable which will be used in the whole automation to execute wingetdev.exe commands
 Set-Variable -Name WinGetDev -Value (Resolve-Path -Path ..\..\tools\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
@@ -74,13 +74,12 @@ Set-Service -Name edgeupdatem -Status Stopped -StartupType Disabled # stop edgeu
 Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # install powershell-yaml module
 Write-Output 'Successfully installed powershell-yaml.' # print that powershell-yaml module was installed
 . .\Functions.ps1 # Import functions from Functions.ps1
-Set-Location -Path .\winget-pkgs\Tools # Change directory to Tools
-git remote rename origin upstream # Rename origin to upstream
-git remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
-git fetch origin --quiet # Fetch branches from origin, quiet to not print anything
-Copy-Item -Path ..\..\YamlCreate.ps1 -Destination .\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
-git commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
-Set-Location -Path ..\..\ # Go back to previous working directory
+git clone https://github.com/microsoft/winget-pkgs.git --quiet # Clone microsoft/winget-pkgs repository
+git -C winget-pkgs remote rename origin upstream # Rename origin to upstream
+git -C winget-pkgs remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
+git -C winget-pkgs fetch origin --quiet # Fetch branches from origin, quiet to not print anything
+Copy-Item -Path .\YamlCreate.ps1 -Destination .\winget-pkgs\Tools\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
+git -C winget-pkgs commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
 New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
 @'
 TestManifestsInSandbox: always
@@ -101,8 +100,8 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
     $InstallerRegex = $Package.InstallerRegex
     If (-not [System.String]::IsNullOrEmpty($Package.AdditionalInfo)) {
         $Package.AdditionalInfo.PSObject.Properties.ForEach({
-            Set-Variable -Name $_.Name -Value $_.Value
-        })
+                Set-Variable -Name $_.Name -Value $_.Value
+            })
     }
     $Parameters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
     If (-not [System.String]::IsNullOrEmpty($Package.Update.Headers)) {
@@ -121,7 +120,14 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
             $Response = Invoke-WebRequest @Parameters
         }
         If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
-            $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
+            # Run PostResponseScript if it is not empty
+            If ($Package.PostResponseScript -isnot [System.Array]) {
+                $Package.PostResponseScript | Invoke-Expression
+            } Else {
+                $Package.PostResponseScript.ForEach({
+                        $_ | Invoke-Expression
+                    })
+            }
         }
         If ([System.Text.RegularExpressions.Regex]::IsMatch($Package.Update.Uri, 'https:\/\/api.github.com\/repos\/.*\/releases\?per_page=1')) {
             # If the last release was more than 2.5 years ago, automatically add it to the skip list
@@ -132,8 +138,8 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
             }
         }
         $Package.ManifestFields.PSObject.Properties.ForEach({
-            $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
-        })
+                $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
+            })
     } catch {
         Write-Error "Error checking for updates for $($Package.Identifier)`n-> $($_.Exception.Message)"
         $ErrorGettingUpdates += @("- $($Package.Identifier) [$($_.Exception.Message)]")
@@ -151,8 +157,8 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
 }
 Write-Output "Number of package updates found: $($UpgradeObject.Count)`nPackages to be updated:"
 $UpgradeObject.ForEach({
-    Write-Output "-> $($_.PackageIdentifier)"
-})
+        Write-Output "-> $($_.PackageIdentifier)"
+    })
 Set-Location -Path .\winget-pkgs\Tools
 ForEach ($Upgrade in $UpgradeObject) {
     Write-Output -InputObject $Upgrade | Format-List -Property *
@@ -199,8 +205,8 @@ If ($ErrorUpgradingPkgs.Count -gt 0) {
 }
 # Delete all previous comments since we are already reverting the changes in the JSON file so that they can be upgarded in the next run
 (Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments').Where({ $_.user.login -eq 'winget-pkgs-automation-bot[bot]' }).ForEach({
-    Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $Headers | Out-Null
-})
+        Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $Headers | Out-Null
+    })
 # Add the new comment to the issue containing the results of the automation run
 Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{`"body`":`"$CommentBody`"}" -Headers $Headers
 

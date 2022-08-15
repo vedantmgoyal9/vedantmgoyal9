@@ -12,7 +12,7 @@ const {
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const server = require('express')();
 const log_file = createWriteStream(`${__dirname}/logs.txt`, {
-  flags: 'w',
+  flags: 'a',
 });
 const wa = new Client({
   authStrategy: new LocalAuth(),
@@ -73,7 +73,7 @@ server.get('/logs.txt', function (req, res) {
   res.status(200);
   res.send(
     readFileSync(`${__dirname}/logs.txt`, 'utf8')
-      .replace(/(?<=\+[0-9]{3})\d+(?=\s)/g, 'XXXXXXXXX')
+      .replace(/(?<=\+[0-9]{3})\d+(?=;|\s)/g, 'XXXXXXXXX')
       .replace(/\n/g, '<br/>') // replace new lines with <br/>
   );
 });

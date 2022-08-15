@@ -9,7 +9,10 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response = $Response.lastSuccessfulBuild; $UpdateCondition = $Response.number -gt $PreviousBuildNumber",
+  "PostResponseScript": [
+    "$Response = $Response.lastSuccessfulBuild",
+    "$UpdateCondition = $Response.number -gt $PreviousBuildNumber"
+  ],
   "VersionRegex": "[0-9.]{5,}",
   "InstallerRegex": ".exe$",
   "PreviousVersion": "2.9.93",
