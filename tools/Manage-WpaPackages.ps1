@@ -310,9 +310,9 @@ Begin {
         $VersionRegex = $PackageObject.VersionRegex
         $InstallerRegex = $PackageObject.InstallerRegex
         If (-not [System.String]::IsNullOrEmpty($PackageObject.AdditionalInfo)) {
-            $PackageObject.AdditionalInfo.PSObject.Properties | ForEach-Object {
-                Set-Variable -Name $_.Name -Value $_.Value
-            }
+            $Package.AdditionalInfo.PSObject.Properties.ForEach({
+                    Set-Variable -Name $_.Name -Value $_.Value
+                })
         }
         $Parameters = @{ Method = $PackageObject.Update.Method; Uri = $PackageObject.Update.Uri }
         If (-not [System.String]::IsNullOrEmpty($PackageObject.Update.Headers)) {
@@ -330,27 +330,34 @@ Begin {
             $Response = Invoke-WebRequest @Parameters
         }
         If (-not [System.String]::IsNullOrEmpty($PackageObject.PostResponseScript)) {
-            $PackageObject.PostResponseScript | Invoke-Expression # Run PostResponseScript
-        }
-        $PackageObject.ManifestFields.PSObject.Properties | ForEach-Object {
-            # If Read-VersionFromInstaller function is being called, inform the
-            # user that it may take some time to download the installer
-            If ($_.Value -match 'Read-VersionFromInstaller') {
-                Write-Output 'Downloading the installer to get the version... This may take some time...'
+            # Run PostResponseScript if it is not empty
+            If ($Package.PostResponseScript -isnot [System.Array]) {
+                $Package.PostResponseScript | Invoke-Expression
+            } Else {
+                $Package.PostResponseScript.ForEach({
+                        $_ | Invoke-Expression
+                    })
             }
-            $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
         }
+        $PackageObject.ManifestFields.PSObject.Properties.ForEach({
+                # If Read-VersionFromInstaller function is being called, inform the
+                # user that it may take some time to download the installer
+                If ($_.Value -match 'Read-VersionFromInstaller') {
+                    Write-Output 'Downloading the installer to get the version... This may take some time...'
+                }
+                $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
+            })
 
         Write-Output -InputObject $_Object | Format-List -Property *
 
         # Perform validation of the response object
         $_IsValid = $true
-        $_Object.PSObject.Properties | ForEach-Object {
-            If ($Null -eq $_.Value) {
-                Write-Error "$($_.Name) doesn't have a value, it's empty"
-                $_IsValid = $false
-            }
-        }
+        $_Object.PSObject.Properties.ForEach({
+                If ($Null -eq $_.Value) {
+                    Write-Error "$($_.Name) doesn't have a value, it's empty"
+                    $_IsValid = $false
+                }
+            })
         If ($_IsValid -eq $true) {
             Write-Output 'The package is valid!'
         } Else {
@@ -494,6 +501,9 @@ Process {
         $Package.PostResponseScript = '$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString'
     } Else {
         $Package.PostResponseScript = Get-UserInput -Method Menu -Message 'PostResponseScript' -Choices @('$Response = $Response | ConvertFrom-Yaml', 'Custom') -AllowEmpty
+        If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript) -and -not $Package.PostResponseScript.Contains('ForEach') -and $Package.PostResponseScript.Contains(';')) {
+            $Package.PostResponseScript = $Package.PostResponseScript.Split(';').ForEach({ $_.Trim() })
+        }
     }
     Write-Output ''
 
@@ -514,7 +524,7 @@ Process {
         If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
             $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
         }
-        $Choices += $Package.PostResponseScript -ne '$Response = $Response | ConvertFrom-Yaml' ? $Response.PSObject.Properties.Where({ $_.MemberType -eq 'NoteProperty' }).Name : $Response.Keys | ForEach-Object { "`$Response.$($_)" }
+        $Choices += $Package.PostResponseScript -ne '$Response = $Response | ConvertFrom-Yaml' ? $Response.PSObject.Properties.Where({ $_.MemberType -eq 'NoteProperty' }).Name : $Response.Keys.ForEach({ "`$Response.$($_)" })
     }
     $Choices += @('Custom')
 

@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       is-docs-modified: '${{ steps.commit-info.outputs.docs-modified }}'
-      is-vscode-extension-modified: '${{ steps.commit-info.outputs.vscode-extension-modified }}'
       run-codeql-analysis: '${{ steps.commit-info.outputs.codeql-analysis }}'
     steps:
       - name: Checkout repository
@@ -26,11 +25,9 @@ jobs:
           if [ '${{ github.event_name }}' == 'push' ]; then
             echo push
             echo "::set-output name=docs-modified::$(git diff --quiet HEAD HEAD~1 -- docs && echo false || echo true)"
-            echo "::set-output name=vscode-extension-modified::$(git diff --quiet HEAD HEAD~1 -- src/vsc* README.md LICENSE CODE_OF_CONDUCT.md packag*.json && echo false || echo true)"
             echo "::set-output name=codeql-analysis::$(git diff --quiet HEAD HEAD~1 -- src/*.js && echo false || echo true)"
           else
             echo "::set-output name=docs-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- docs && echo false || echo true)"
-            echo "::set-output name=vscode-extension-modified::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- src/vsc* README.md LICENSE CODE_OF_CONDUCT.md packag*.json && echo false || echo true)"
             echo "::set-output name=codeql-analysis::$(git diff --quiet ${{ github.pull_request.base.sha }} ${{ github.pull_request.head.sha }} -- src/*.js && echo false || echo true)"
           fi
         id: commit-info
@@ -50,22 +47,6 @@ jobs:
       - name: Validate Commit Message (pull request)
         if: github.event_name == 'pull_request'
         run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
-  vscode-extension-publish:
-    name: Publish VSCode Extension
-    needs: get-commit
-    if: needs.get-commit.outputs.is-vscode-extension-modified == 'true' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - run: npm ci
-      - name: Publish to Marketplace
-        run: npm run vs-publish
-        env:
-          VSCE_PAT: ${{ secrets.VS_MRKTPLACE }}
   build-docs-and-deploy:
     name: Deploy to Firebase Hosting on merge
     needs: get-commit

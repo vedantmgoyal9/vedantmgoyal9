@@ -9,7 +9,10 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response2 = Invoke-RestMethod -Uri $x86_Uri; $Response3 = Invoke-RestMethod -Uri $Arm64_Uri",
+  "PostResponseScript": [
+    "$Response2 = Invoke-RestMethod -Uri $x86_Uri",
+    "$Response3 = Invoke-RestMethod -Uri $Arm64_Uri"
+  ],
   "VersionRegex": "([0-9.]){3,}",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "1.5.00.9567",
