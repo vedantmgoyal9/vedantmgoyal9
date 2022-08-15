@@ -9,7 +9,10 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString; $RawVersion = Invoke-Expression -Command $RawVersionExpression",
+  "PostResponseScript": [
+    "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
+    "$RawVersion = Invoke-Expression -Command $RawVersionExpression"
+  ],
   "VersionRegex": "[0-9.]+(?=_)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "8.20",
