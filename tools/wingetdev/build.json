@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "ada3bf561bdd41762083c9fc0e8a6d64722baaec",
-    "Message": "Standardize 'Show' labels to manifest fields (#2311)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "f95cdb9a596b1cf0d34aacf93721d45c114c8396",
+    "Message": "Add DisplayName to InstallationMetadata installed files (#2442)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Sunday, July 31, 2022 3:54:59 PM"
+  "BuildDateTime": "Monday, August 15, 2022 3:21:55 PM"
 }
