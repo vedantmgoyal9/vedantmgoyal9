@@ -3,7 +3,7 @@
   "Identifier": "Alibaba.Yuque",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://app.nlark.com/yuque-desktop/v2/latest-lark.json",
+    "Uri": "https://app.nlark.com/yuque-desktop/v4/latest.json",
     "Method": "Get",
     "Headers": {},
     "Body": "",
@@ -15,7 +15,8 @@
   "PreviousVersion": "1.1.4",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "$Response.exe_url"
+    "InstallerUrls": "$Response.exe_url",
+    "ReleaseNotes": "$Response.change_logs -join \"`n\""
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
