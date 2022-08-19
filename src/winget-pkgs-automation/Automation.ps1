@@ -65,7 +65,7 @@ If ((Get-Content -Raw ..\..\tools\wingetdev\build.json | ConvertFrom-Json).Commi
 }
 & $WinGetDev settings --enable LocalManifestFiles
 
-# Block microsoft edge updates, install powershell-yaml, import functions, copy YamlCreate.ps1 to the Tools folder and set settings
+# Block microsoft edge updates, install powershell-yaml, import functions, copy YamlCreate.ps1 to the Tools folder, and update git configuration
 ## to prevent edge from updating and changing ARP table during ARP metadata validation
 New-Item -Path HKLM:\SOFTWARE\Microsoft\EdgeUpdate -Force
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\EdgeUpdate -Name DoNotUpdateToEdgeWithChromium -Value 1 -PropertyType DWord -Force
@@ -78,18 +78,10 @@ git clone https://github.com/microsoft/winget-pkgs.git --quiet # Clone microsoft
 git -C winget-pkgs remote rename origin upstream # Rename origin to upstream
 git -C winget-pkgs remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
 git -C winget-pkgs fetch origin --quiet # Fetch branches from origin, quiet to not print anything
+git -C winget-pkgs config core.safecrlf false # Change core.safecrlf to false to suppress some git messages, from YamlCreate.ps1
 Copy-Item -Path .\YamlCreate.ps1 -Destination .\winget-pkgs\Tools\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git -C winget-pkgs commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
-New-Item -ItemType File -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -Force | Out-Null # Create Settings.yaml file
-@'
-TestManifestsInSandbox: always
-SaveToTemporaryFolder: never
-AutoSubmitPRs: always
-ContinueWithExistingPRs: never
-SuppressQuickUpdateWarning: true
-EnableDeveloperOptions: true
-'@ | Set-Content -Path $env:LOCALAPPDATA\YamlCreate\Settings.yaml # YamlCreate settings
-Write-Output 'Blocked microsoft edge updates, installed powershell-yaml, imported functions, copied YamlCreate.ps1 and set settings'
+Write-Output 'Blocked microsoft edge updates, installed powershell-yaml, imported functions, copied YamlCreate.ps1, and updated git configuration.'
 
 $UpgradeObject = @()
 Write-Output 'Checking for updates...'
@@ -145,7 +137,8 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
         $ErrorGettingUpdates += @("- $($Package.Identifier) [$($_.Exception.Message)]")
     }
     If (($null -eq $UpdateCondition) ? ($_Object.PackageVersion -gt $Package.PreviousVersion) : $UpdateCondition) {
-        $_Object | Add-Member -MemberType NoteProperty -Name 'YamlCreateParams' -Value $Package.YamlCreateParams
+        $_Object | Add-Member -MemberType NoteProperty -Name 'SkipPRCheck' -Value $Package.YamlCreateParams.SkipPRCheck
+        $_Object | Add-Member -MemberType NoteProperty -Name 'DeletePreviousVersion' -Value $Package.YamlCreateParams.DeletePreviousVersion
         $UpgradeObject += @([PSCustomObject] $_Object)
         $Package.PreviousVersion = $_Object.PackageVersion
         If (-not [System.String]::IsNullOrEmpty($Package.PostUpgradeScript)) {
@@ -163,15 +156,18 @@ Set-Location -Path .\winget-pkgs\Tools
 ForEach ($Upgrade in $UpgradeObject) {
     Write-Output -InputObject $Upgrade | Format-List -Property *
     try {
-        If ($Upgrade.YamlCreateParams.AutoUpgrade -eq $true -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
-            .\YamlCreate.ps1 -InputObject $Upgrade -AutoUpgrade
-        } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $true -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $false) {
-            .\YamlCreate.ps1 -InputObject $Upgrade -SkipPRCheck
-        } ElseIf ($Upgrade.YamlCreateParams.AutoUpgrade -eq $false -and $Upgrade.YamlCreateParams.SkipPRCheck -eq $false -and $Upgrade.YamlCreateParams.DeletePreviousVersion -eq $true) {
-            .\YamlCreate.ps1 -InputObject $Upgrade -DeletePreviousVersion
-        } Else {
-            .\YamlCreate.ps1 -InputObject $Upgrade
+        # Check for existing PRs, if package has skip pr check set to false
+        If (-not $Upgrade.SkipPRCheck) {
+            $ExistingPRs = gh pr list --search "$($Upgrade.PackageIdentifier.Replace('.', ' ')) $($Upgrade.PackageVersion)" --json 'title,url' | ConvertFrom-Json
+            If ($ExistingPRs.Count -gt 0) {
+                $ExistingPRs.ForEach({
+                        Write-Output "Found existing PR: $($_.title)"
+                        Write-Output "-> $($_.url)"
+                    })
+                Continue
+            }
         }
+        .\YamlCreate.ps1 -InputObject $Upgrade
     } catch {
         Write-Error "$($Upgrade.PackageIdentifier): $($_.Exception.Message)"
         $ErrorUpgradingPkgs += @("- $($Upgrade.PackageIdentifier) version $($Upgrade.PackageVersion) [$($_.Exception.Message)]")

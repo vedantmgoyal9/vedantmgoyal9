@@ -26,7 +26,6 @@
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
     "SkipPRCheck": false,
-    "AutoUpgrade": false,
     "DeletePreviousVersion": false
   },
   "SkipPackage": false

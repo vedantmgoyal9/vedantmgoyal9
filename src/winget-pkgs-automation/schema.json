@@ -126,15 +126,10 @@
     "YamlCreateParams": {
       "$id": "#/properties/YamlCreateParams",
       "type": "object",
-      "required": ["SkipPRCheck", "AutoUpgrade", "DeletePreviousVersion"],
+      "required": ["SkipPRCheck", "DeletePreviousVersion"],
       "properties": {
         "SkipPRCheck": {
           "$id": "#/properties/YamlCreateParams/properties/SkipPRCheck",
-          "enum": [true, false],
-          "type": "boolean"
-        },
-        "AutoUpgrade": {
-          "$id": "#/properties/YamlCreateParams/properties/AutoUpgrade",
           "enum": [true, false],
           "type": "boolean"
         },

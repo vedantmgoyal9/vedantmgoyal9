@@ -30,7 +30,6 @@
   "PostUpgradeScript": "",
   "YamlCreateParams": {
     "SkipPRCheck": false,
-    "AutoUpgrade": false,
     "DeletePreviousVersion": false
   },
   "SkipPackage": false

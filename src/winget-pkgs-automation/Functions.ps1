@@ -93,17 +93,6 @@ Function Local:Submit-Manifest {
     }
 }
 
-Function Local:Search-ExistingPullRequest {
-    $ExistingPRs = gh pr list --search "$($PackageIdentifier.Replace('.', ' ')) $PackageVersion" --json 'title,url' | ConvertFrom-Json
-    If ($ExistingPRs.Count -gt 0) {
-        $ExistingPRs.ForEach({
-                Write-Output "Found existing PR: $($_.title)"
-                Write-Output "-> $($_.url)"
-            })
-        Exit 0
-    }
-}
-
 Function Read-VersionFromInstaller {
     [OutputType([System.String])]
     Param (
