@@ -15,14 +15,16 @@
   "PreviousVersion": "99.0.4844.51",
   "ManifestFields": {
     "PackageVersion": "$Response.current_version",
-    "InstallerUrls": "@('https://dl.google.com/tag/s/dl/chrome/install/beta/googlechromebetastandaloneenterprise64.msi', 'https://dl.google.com/tag/s/dl/chrome/install/beta/googlechromebetastandaloneenterprise.msi')"
+    "InstallerUrls": "@($x64_Uri, $x86_Uri)"
   },
-  "AdditionalInfo": {},
+  "AdditionalInfo": {
+    "x64_Uri": "https://dl.google.com/tag/s/dl/chrome/install/beta/googlechromebetastandaloneenterprise64.msi",
+    "x86_Uri": "https://dl.google.com/tag/s/dl/chrome/install/beta/googlechromebetastandaloneenterprise.msi"
+  },
   "PostUpgradeScript": "",
   "YamlCreateParams": {
     "SkipPRCheck": false,
-    "AutoUpgrade": true,
-    "DeletePreviousVersion": false
+    "DeletePreviousVersion": true
   },
   "SkipPackage": false
 }
