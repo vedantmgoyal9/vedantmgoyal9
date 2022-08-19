@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f95cdb9a596b1cf0d34aacf93721d45c114c8396",
-    "Message": "Add DisplayName to InstallationMetadata installed files (#2442)",
-    "Author": "yao-msft"
+    "Sha": "5d7ebe34acd1f971df01cb3a0391474086539297",
+    "Message": "Update Documentation for schema 1.2 (#2429)\n\n* Remove old and unused PR template\r\n\r\n* Remove old spelling action which was replaced by .github/workflows/spelling2.yml\r\n\r\n* Remove disabled fabricbot jobs\r\n\r\n* Remove reference to schema which has been moved to pkgs\r\n\r\n* Update references to current milestones\r\n\r\n* Remove block comment in release roadmap\r\n\r\n* Update to VS2022 per the Visual Studio downloads page\r\n\r\n* Docs updates\r\n\r\n* Remove Version reference from Visual Studio\r\n\r\n* Fix linter auto-updates to Table of contents\r\n\r\n* Apply suggestions from code review\r\n\r\nCo-authored-by: JohnMcPMS <johnmcp@microsoft.com>\r\n\r\n* Restore workflow file\r\n\r\n* Fix incorrect descriptions\r\n\r\nCo-authored-by: JohnMcPMS <johnmcp@microsoft.com>",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Monday, August 15, 2022 3:21:55 PM"
+  "BuildDateTime": "Friday, August 19, 2022 2:54:05 PM"
 }
