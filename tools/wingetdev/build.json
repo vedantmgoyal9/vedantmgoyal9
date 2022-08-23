@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f40d4d9910c0dc3791cc6c5cca68d0fccaca0503",
-    "Message": "Increase PackageIdentifier segments to max 8 (#2461)",
-    "Author": "yao-msft"
+    "Sha": "ba0b9fc29293936d8f04421d2204b75d559922f2",
+    "Message": "Use check-spelling/check-spelling@v0.0.20 (#2467)",
+    "Author": "Josh Soref"
   },
-  "BuildDateTime": "Tuesday, August 23, 2022 4:06:40 PM"
+  "BuildDateTime": "Tuesday, August 23, 2022 5:34:48 PM"
 }
