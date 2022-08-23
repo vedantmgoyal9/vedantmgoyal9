@@ -58,8 +58,12 @@ Function Local:Submit-Manifest {
         $BranchName = $BranchName -replace '[\~,\^,\:,\\,\?,\@\{,\*,\[,\s]{1,}|[.lock|/|\.]*$|^\.{1,}|\.\.', ''
         # Commit first, since when switching branches, changes except untracked files are lost
         git add -A
-        git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion" --quiet
-        $CommitId = git log --format=%H -n 1 # Store the commit id of the commit that was just made
+        git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion"
+        $CommitId = git log --format=%H -1 # Store the commit id of the commit that was just made
+        If ($PreviousCommitId -eq $CommitId) { # If the commit id is the same as the previous commit id,
+            Write-Output 'Re-use PR check: No changes made...' # then there were no changes made
+            return
+        }
         # Find open pull requests for same package and overwrite them with new version of the package
         # To prevent sub-packages being matched in existing PRs, add 'version' to the compare string
         $OpenPRs = (gh pr list --author vedantmgoyal2009 --search 'draft:false' --json 'headRefName,number,title' | ConvertFrom-Json).Where({ $_.title -match "$PackageIdentifier version" }) | Select-Object -First 1
@@ -88,6 +92,7 @@ Function Local:Submit-Manifest {
             git push --set-upstream origin "$BranchName" --quiet
             gh pr create -f --body "$PrBody"
         }
+        $PreviousCommitId = $CommitId
         git switch master --quiet
         git pull --quiet
     }
