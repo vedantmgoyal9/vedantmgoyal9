@@ -33,7 +33,7 @@ $ProgressPreference = 'SilentlyContinue'
 Write-Output 'Setting up git authentication credentials and github bot authentication token...'
 git config --global user.name 'vedantmgoyal2009[bot]' # Set git username
 git config --global user.email '110876359+vedantmgoyal2009[bot]@users.noreply.github.com' # Set git email
-$AuthToken = $(node auth.js) # Get bot token from auth.js which was initialized in the workflow
+$AuthToken = node .\auth.js # Get bot token from auth.js which was initialized in the workflow
 # Set wingetdev.exe path variable which will be used in the whole automation to execute wingetdev.exe commands
 Set-Variable -Name WinGetDev -Value (Resolve-Path -Path ..\..\tools\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
 
@@ -61,7 +61,7 @@ If ((Get-Content -Raw ..\..\tools\wingetdev\build.json | ConvertFrom-Json).Commi
     git pull # to be on a safe side
     git add ..\..\tools\wingetdev\*
     git commit -m "chore(wpa): update wingetdev build [$env:GITHUB_RUN_NUMBER]"
-    git push https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git
+    git push https://x-access-token:$AuthToken@github.com/vedantmgoyal2009/vedantmgoyal2009.git
 }
 & $WinGetDev settings --enable LocalManifestFiles
 
@@ -76,7 +76,7 @@ Write-Output 'Successfully installed powershell-yaml.' # print that powershell-y
 . .\Functions.ps1 # Import functions from Functions.ps1
 git clone https://github.com/microsoft/winget-pkgs.git --quiet # Clone microsoft/winget-pkgs repository
 git -C winget-pkgs remote rename origin upstream # Rename origin to upstream
-git -C winget-pkgs remote add origin https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
+git -C winget-pkgs remote add origin https://x-access-token:$AuthToken@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
 git -C winget-pkgs fetch origin --quiet # Fetch branches from origin, quiet to not print anything
 git -C winget-pkgs config core.safecrlf false # Change core.safecrlf to false to suppress some git messages, from YamlCreate.ps1
 Copy-Item -Path .\YamlCreate.ps1 -Destination .\winget-pkgs\Tools\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
@@ -168,6 +168,16 @@ ForEach ($Upgrade in $UpgradeObject) {
             }
         }
         .\YamlCreate.ps1 -InputObject $Upgrade
+        # Regenerate new auth token, if it is expired after 1 hour
+        try {
+            Invoke-RestMethod -Uri 'https://api.github.com/rate_limit' -Headers @{
+                Authorization = "Token $AuthToken"
+                Accept        = 'application/vnd.github.v3+json'
+            } -Method Get | Out-Null
+        } catch {
+            $AuthToken = node .\auth.js
+            git remote set-url origin https://x-access-token:$AuthToken@github.com/vedantmgoyal2009/winget-pkgs.git
+        }
     } catch {
         Write-Error "$($Upgrade.PackageIdentifier): $($_.Exception.Message)"
         $ErrorUpgradingPkgs += @("- $($Upgrade.PackageIdentifier) version $($Upgrade.PackageVersion) [$($_.Exception.Message)]")
@@ -211,4 +221,4 @@ Write-Output "`nUpdating packages"
 git pull # to be on a safe side
 git add .\packages\*
 git commit -m "build(wpa): update packages [$env:GITHUB_RUN_NUMBER]"
-git push https://x-access-token:$($AuthToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git
+git push https://x-access-token:$AuthToken@github.com/vedantmgoyal2009/vedantmgoyal2009.git
