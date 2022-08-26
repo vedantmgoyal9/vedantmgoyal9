@@ -45,7 +45,7 @@ export default function WrPlayground() {
   }, [pkgId, verRegex, instRegex, ghRepo]);
   return (
     <div>
-      <label for="pkg-id" className="input">
+      <label htmlFor="pkg-id" className="input">
         <input
           type="text"
           id="pkg-id"
@@ -59,7 +59,7 @@ export default function WrPlayground() {
         <span className="input-label"> Identifier </span>
       </label>
 
-      <label for="ver-regex" className="input">
+      <label htmlFor="ver-regex" className="input">
         <input
           type="text"
           id="ver-regex"
@@ -74,7 +74,7 @@ export default function WrPlayground() {
         <span className="input-label"> Version Regex </span>
       </label>
 
-      <label for="inst-regex" className="input">
+      <label htmlFor="inst-regex" className="input">
         <input
           type="text"
           id="inst-regex"
@@ -89,7 +89,7 @@ export default function WrPlayground() {
         <span className="input-label"> Installer Regex </span>
       </label>
 
-      <label for="del-prev-ver" className="input">
+      <label htmlFor="del-prev-ver" className="input">
         <input
           type="text"
           id="del-prev-ver"
@@ -101,7 +101,7 @@ export default function WrPlayground() {
         <span className="input-label"> Delete Previous Version </span>
       </label>
 
-      <label for="auth-tkn" className="input">
+      <label htmlFor="auth-tkn" className="input">
         <input
           type="text"
           id="auth-tkn"
@@ -113,7 +113,7 @@ export default function WrPlayground() {
         <span className="input-label"> Token </span>
       </label>
 
-      <label for="user-forked" className="input">
+      <label htmlFor="user-forked" className="input">
         <input
           type="text"
           id="user-forked"
@@ -127,7 +127,7 @@ export default function WrPlayground() {
 
       <hr />
 
-      <label for="test-repo" className="input">
+      <label htmlFor="test-repo" className="input">
         <input
           type="text"
           id="test-repo"
