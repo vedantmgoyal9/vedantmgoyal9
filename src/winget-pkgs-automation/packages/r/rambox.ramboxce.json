@@ -3,7 +3,7 @@
   "Identifier": "Rambox.RamboxCE",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://api.github.com/repos/ramboxapp/community-edition/releases?per_page=1",
+    "Uri": "https://api.github.com/repos/ramboxapp/download/releases?per_page=1",
     "Method": "Get",
     "Headers": {
       "Authorization": "$AuthToken",

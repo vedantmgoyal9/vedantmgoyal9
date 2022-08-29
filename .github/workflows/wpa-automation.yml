@@ -26,8 +26,6 @@ jobs:
             console.log((await require("@octokit/auth-app").createAppAuth({
               appId: ${{ secrets.BT_AP_ID }},
               privateKey: "${{ secrets.BT_AP_PKY }}",
-              clientId: "${{ secrets.BT_CLNT_ID }}",
-              clientSecret: "${{ secrets.BT_CLNT_SCRT }}",
               installationId: ${{ secrets.BT_INST_ID }},
             })({ type: "installation" })).token);
           })();' | Out-File -FilePath auth.js

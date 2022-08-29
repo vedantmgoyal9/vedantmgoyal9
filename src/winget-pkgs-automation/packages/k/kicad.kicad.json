@@ -2,8 +2,8 @@
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
   "Identifier": "KiCad.KiCad",
   "Update": {
-    "InvokeType": "RestMethod",
-    "Uri": "https://api.github.com/repos/KiCad/kicad-winbuilder/releases?per_page=1",
+    "InvokeType": "WebRequest",
+    "Uri": "https://downloads.kicad.org/kicad/windows/explore/stable",
     "Method": "Get",
     "Headers": {
       "Authorization": "$AuthToken",
@@ -12,24 +12,19 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
-  "VersionRegex": "(?<=v)[0-9.]+",
+  "PostResponseScript": "$Response = $Response.Links.href.Where({ $_.EndsWith('.exe') -and $_ -notmatch 'product|lite' }) | Sort-Object | Select-Object -Last 2",
+  "VersionRegex": "(?<=-)[0-9.]+",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "5.1.5",
   "ManifestFields": {
-    "PackageVersion": "$Response.tag_name.TrimStart('v')",
-    "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
-    "ReleaseNotesUrl": "$Response.html_url",
-    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+    "PackageVersion": "($Response[0] | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response"
   },
-  "AdditionalInfo": {
-    "PreRelease": false,
-    "PreviousReleaseId": 21807725
-  },
+  "AdditionalInfo": {},
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
     "SkipPRCheck": false,
     "DeletePreviousVersion": false
   },
-  "SkipPackage": "Automatically marked as stale, not updated for 2.5 years"
+  "SkipPackage": false
 }
