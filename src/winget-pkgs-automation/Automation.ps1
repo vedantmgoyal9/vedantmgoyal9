@@ -175,7 +175,7 @@ ForEach ($Upgrade in $UpgradeObject) {
                 Accept        = 'application/vnd.github.v3+json'
             } -Method Get | Out-Null
         } catch {
-            $AuthToken = node .\auth.js
+            $AuthToken = node ..\..\auth.js
             git remote set-url origin https://x-access-token:$AuthToken@github.com/vedantmgoyal2009/winget-pkgs.git
         }
     } catch {
