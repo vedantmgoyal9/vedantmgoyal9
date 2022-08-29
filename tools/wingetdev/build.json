@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "ba0b9fc29293936d8f04421d2204b75d559922f2",
-    "Message": "Use check-spelling/check-spelling@v0.0.20 (#2467)",
-    "Author": "Josh Soref"
+    "Sha": "1a6ca17040a0577dceb25af3232649e4bd271b81",
+    "Message": "Add PortableIndex for tracking portable files (#2459)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Tuesday, August 23, 2022 5:34:48 PM"
+  "BuildDateTime": "Monday, August 29, 2022 1:09:08 PM"
 }
