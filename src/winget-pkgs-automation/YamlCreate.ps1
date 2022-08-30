@@ -765,7 +765,7 @@ if ($script:Option -in @('NewLocale'; 'EditMetadata'; 'RemoveManifest')) {
 # If the user selected `QuickUpdateVersion`, the old manifests must exist
 # If the user selected `New`, the old manifest type is specified as none
 if (-not (Test-Path -Path "$AppFolder\..")) {
-    Write-Host -ForegroundColor Red 'This option requires manifest of previous version of the package. If you want to create a new package, please select Option 1.'; exit
+    throw 'This option requires manifest of previous version of the package. If you want to create a new package, please select Option 1.'
     $script:OldManifestType = 'None'
 }
 
