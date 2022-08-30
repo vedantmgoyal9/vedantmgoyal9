@@ -14,7 +14,7 @@
   "InstallerRegex": ".msi$",
   "PreviousVersion": "9.0.1708",
   "ManifestFields": {
-    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value + '.0'",
     "InstallerUrls": "$Response"
   },
   "AdditionalInfo": {},
