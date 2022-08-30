@@ -11,10 +11,8 @@ class PalindromeNo {
       r = r * 10 + t % 10;
       t = t / 10;
     }
-    if (r == t)
-      System.out.print("Palindrome number");
-    else
-      System.out.print("Not Palindrome number");
+    if (r == t) System.out.print("Palindrome number");
+    else System.out.print("Not Palindrome number");
     sc.close();
   }
 }
