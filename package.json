@@ -37,7 +37,7 @@
     },
     "homepage": "https://bittu.eu.org/",
     "dependencies": {
-        "dotenv": "^16.0.1",
+        "dotenv": "^16.0.2",
         "firebase": "^9.9.3",
         "probot": "^12.2.4",
         "vsce": "^2.10.2",
