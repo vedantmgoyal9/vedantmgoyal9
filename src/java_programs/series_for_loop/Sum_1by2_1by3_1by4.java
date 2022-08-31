@@ -1,4 +1,5 @@
 package series_for_loop;
+
 class Sum_1by2_1by3_1by4 {
   public static void main(String[] args) {
     java.util.Scanner sc = new java.util.Scanner(System.in);

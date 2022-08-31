@@ -1,5 +1,6 @@
 // Write a program to enter date, month and year and check if it is valid or not.
 package date_day_year;
+
 public class DateValidityLeap {
   public static void main(String[] args) {
     java.util.Scanner sc = new java.util.Scanner(System.in);

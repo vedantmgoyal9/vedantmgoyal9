@@ -1,4 +1,5 @@
 package series_for_loop.pdf;
+
 class u_SeriesX_Fibonacci {
   public static void main(String[] args) {
     java.util.Scanner sc = new java.util.Scanner(System.in);
