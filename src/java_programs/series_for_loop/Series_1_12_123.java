@@ -1,4 +1,5 @@
 package series_for_loop;
+
 class Series_1_12_123 {
   public static void main(String[] args) {
     java.util.Scanner sc = new java.util.Scanner(System.in);

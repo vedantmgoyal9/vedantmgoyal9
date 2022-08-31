@@ -15,6 +15,7 @@ public class Overload1 {
     }
     System.out.println("Sum of the Series: " + s);
   }
+
   private static void SumSeries() {
     long s = 1;
     for (int i = 2; i <= 20; i++) s += s * i;

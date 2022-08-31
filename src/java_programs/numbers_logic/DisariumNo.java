@@ -1,5 +1,7 @@
 package numbers_logic;
+
 import java.io.IOException;
+
 class DisariumNo {
   public static void main(String[] args) throws IOException {
     java.util.Scanner sc = new java.util.Scanner(System.in);

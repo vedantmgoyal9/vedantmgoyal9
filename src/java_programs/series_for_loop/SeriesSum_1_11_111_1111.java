@@ -1,4 +1,5 @@
 package series_for_loop;
+
 public class SeriesSum_1_11_111_1111 {
   public static void main(String[] args) {
     java.util.Scanner sc = new java.util.Scanner(System.in);
