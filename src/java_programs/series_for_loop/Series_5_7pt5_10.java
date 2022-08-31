@@ -1,5 +1,7 @@
 package series_for_loop;
+
 import java.text.DecimalFormat;
+
 class Series_5_7pt5_10 {
   public static void main(String[] args) {
     DecimalFormat rmDecZero = new DecimalFormat("0.#"); // removing zero after decimal

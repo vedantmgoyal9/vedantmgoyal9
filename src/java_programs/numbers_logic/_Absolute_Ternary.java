@@ -1,4 +1,5 @@
 package numbers_logic;
+
 public class _Absolute_Ternary {
   public static void main(String[] args) {
     java.util.Scanner sc = new java.util.Scanner(System.in);

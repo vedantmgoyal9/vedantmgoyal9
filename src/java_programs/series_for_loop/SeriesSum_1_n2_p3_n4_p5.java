@@ -1,4 +1,5 @@
 package series_for_loop;
+
 class SeriesSum_1_n2_p3_n4_p5 {
   public static void main(String[] args) {
     java.util.Scanner sc = new java.util.Scanner(System.in);
