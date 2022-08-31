@@ -1,10 +1,7 @@
-package java_programs.numbers_logic;
-
-import java.util.*;
-
+package numbers_logic;
 class ReverseUpperLowerNestedLoopWithZero2 {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter upper & lower limits ");
     int u = sc.nextInt(), l = sc.nextInt(), i, t;
     for (i = l; i <= u; i++) {

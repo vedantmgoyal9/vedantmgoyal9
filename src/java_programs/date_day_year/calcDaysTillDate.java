@@ -1,10 +1,7 @@
-package java_programs.date_day_year;
-
-import java.util.Scanner;
-
+package date_day_year;
 public class calcDaysTillDate {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter date (dd/mm/yyyy) : ");
     int d = sc.nextInt(), m = sc.nextInt(), y = sc.nextInt(), c = 0;
     for (int i = 1; i < m; i++)

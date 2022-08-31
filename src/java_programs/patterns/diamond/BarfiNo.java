@@ -1,10 +1,7 @@
-package java_programs.patterns.diamond;
-
-import java.util.Scanner;
-
+package patterns.diamond;
 public class BarfiNo {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a no. : ");
     int n = sc.nextInt();
     int i, j;

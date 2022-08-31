@@ -1,10 +1,7 @@
-package java_programs.numbers_logic;
-
-import java.util.*;
-
+package numbers_logic;
 class FrequencyDigit {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a no : ");
     int n = sc.nextInt();
     System.out.print("Enter a digit : ");

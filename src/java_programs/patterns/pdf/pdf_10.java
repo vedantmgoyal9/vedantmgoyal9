@@ -1,14 +1,12 @@
-package java_programs.patterns.pdf;
+package patterns.pdf;
 /*  d c b a
     c b a
     b a
     a
 */
-import java.util.Scanner;
-
 public class pdf_10 {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter no. of lines to print : ");
     int lines = sc.nextInt();
     for (int i = lines; i >= 1; i--) {

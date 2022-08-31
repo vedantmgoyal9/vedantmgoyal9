@@ -1,10 +1,7 @@
-package java_programs.patterns.combined;
-
-import java.util.Scanner;
-
+package patterns.combined;
 public class b {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter no. of lines to print : ");
     int n = sc.nextInt(), s = -1;
     for (int i = n; i >= 1; i--) {

@@ -1,10 +1,6 @@
-package java_programs;
-
-import java.util.Scanner;
-
 public class PalindromeWords {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter a string: ");
     String str = sc.nextLine().trim() + " ", word = "", rword = "";
     for (int i = 0; i < str.length(); i++) {
@@ -16,5 +12,6 @@ public class PalindromeWords {
         word = rword = "";
       }
     }
+    sc.close();
   }
 }

@@ -1,12 +1,8 @@
-package java_programs;
-
-import java.util.Scanner;
-
 public class NewWordWithRepeatedAlphabets {
   public static void main(String[] args) throws Exception {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a sentence : ");
-    String str = "all students will get their success";
+    String str = sc.nextLine(); // "all students will get their success"
     String rw = "";
     String temp = "";
     String result = "";
@@ -33,5 +29,6 @@ public class NewWordWithRepeatedAlphabets {
     System.out.println(rw);
     System.out.println(str);
     System.out.println(result);
+    sc.close();
   }
 }

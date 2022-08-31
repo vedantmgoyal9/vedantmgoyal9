@@ -1,13 +1,10 @@
-package java_programs.numbers_logic;
-
-import java.util.*;
+package numbers_logic;
 // A positive integer whose sum of digits of its square is equal
 // to the number itself is called a neon number.
 // 9^2 = 81, 8 + 1 = 9, 9 is a neon number.
-
 class NeonNo {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     int n, sq, s = 0;
     System.out.print("enter a number : ");
     n = sc.nextInt();

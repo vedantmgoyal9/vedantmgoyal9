@@ -1,11 +1,8 @@
-package java_programs.series_for_loop.pdf;
-
-import java.util.Scanner;
+package series_for_loop.pdf;
 // Y. (X^2)/2! - (X^4)/4! + (X^6)/6! - (X^8)/8!...................(X^N)/N!
-
 public class y_SeriesX {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter X and no. of terms : ");
     int x = sc.nextInt(), n = sc.nextInt();
     double f = 1, s = 0;

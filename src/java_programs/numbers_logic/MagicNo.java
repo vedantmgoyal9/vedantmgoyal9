@@ -1,10 +1,7 @@
-package java_programs.numbers_logic;
-
-import java.util.*;
-
+package numbers_logic;
 class MagicNo {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter a number : ");
     int n = sc.nextInt();
     while (n > 9) {

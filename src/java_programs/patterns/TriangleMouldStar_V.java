@@ -1,10 +1,7 @@
-package java_programs.patterns;
-
-import java.util.Scanner;
-
+package patterns;
 public class TriangleMouldStar_V {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a no. : ");
     int n = sc.nextInt(), s = n * 2 - 3;
     for (int i = 1; i <= n; i++) {

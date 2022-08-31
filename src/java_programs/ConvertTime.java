@@ -1,11 +1,7 @@
-package java_programs;
-
 // 8545 2 Hours, 22 minutes and 25 seconds
-import java.util.*;
-
 class ConvertTime {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     int h, m, s;
     System.out.print("Enter seconds : ");
     s = sc.nextInt();
