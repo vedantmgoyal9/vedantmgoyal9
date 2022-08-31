@@ -1,11 +1,8 @@
-package java_programs.series_for_loop.pdf;
-
-import java.util.Scanner;
+package series_for_loop.pdf;
 // J. S = 1/1! + 2/2! + 3/3! + ..........................+ N/N!
-
 public class j_SeriesX {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter no. of terms : ");
     int n = sc.nextInt();
     double s = 0, f = 1;

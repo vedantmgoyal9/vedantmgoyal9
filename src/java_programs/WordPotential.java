@@ -1,12 +1,8 @@
-package java_programs;
-
-import java.util.Scanner;
 // Write a program to input a word and display its potential.
 // For example, if the word is hello then its potential is 8+5+12+12+15=52
-
 public class WordPotential {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter a word: ");
     String word = sc.next().toLowerCase();
     // when using .toLowerCase(), subtract 96
@@ -16,5 +12,6 @@ public class WordPotential {
       potential += (int) word.charAt(i) - 96;
     }
     System.out.println("Potential of the word: " + potential);
+    sc.close();
   }
 }

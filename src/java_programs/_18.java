@@ -1,10 +1,6 @@
-package java_programs;
-
-import java.util.Scanner;
-
 public class _18 {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a sentence: ");
     String str = sc.nextLine().trim() + " ", temp = "";
     for (int i = 0; i < str.length(); i++) {
@@ -15,5 +11,6 @@ public class _18 {
         temp = "";
       }
     }
+    sc.close();
   }
 }

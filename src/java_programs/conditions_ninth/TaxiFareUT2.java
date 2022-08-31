@@ -1,7 +1,4 @@
-package java_programs.conditions_ninth;
-
-import java.util.*;
-
+package conditions_ninth;
 /*
  * WAP to compute the amount that a customer pays for the taxi that he hires
  * based on the following conditions: [12]
@@ -14,7 +11,7 @@ Input the taxi number & the number of kilometres travelled by him
  */
 class TaxiFareUT2 {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter Taxi Number : ");
     String taxiNo = sc.nextLine();
     System.out.print("Enter distance : ");

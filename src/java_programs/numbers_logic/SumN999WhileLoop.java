@@ -1,10 +1,7 @@
-package java_programs.numbers_logic;
-
-import java.util.Scanner;
-
+package numbers_logic;
 public class SumN999WhileLoop {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter some numbers : ");
     int n, sum = 0;
     while (true) {

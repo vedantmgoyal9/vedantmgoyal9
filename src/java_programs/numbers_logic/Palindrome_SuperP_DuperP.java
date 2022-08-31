@@ -1,17 +1,14 @@
-package java_programs.numbers_logic;
-
-import java.util.Scanner;
-
+package numbers_logic;
 public class Palindrome_SuperP_DuperP {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter a number: ");
     int n = sc.nextInt();
     enterChoice(n);
+    sc.close();
   }
-
   private static void enterChoice(int n) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter a choice:");
     System.out.println("A: Check number for Palindrome");
     System.out.println("B: Check number for Super Palindrome");
@@ -39,8 +36,8 @@ public class Palindrome_SuperP_DuperP {
         enterChoice(n);
         break;
     }
+    sc.close();
   }
-
   private static boolean checkPalindrome(int n) {
     int x = 0, t = n;
     while (t != 0) {

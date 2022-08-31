@@ -1,5 +1,4 @@
-package java_programs.numbers_logic;
-
+package numbers_logic;
 /*
  * WAP to find Armstrong number between 100 to 500.
  * Armstrong number is in which the the sum of the

@@ -1,7 +1,4 @@
-package java_programs.conditions_ninth;
-
-import java.util.*;
-
+package conditions_ninth;
 /*
  * Write a program to input monthly sale of a sales person and calculate
  * commission according to given slab:
@@ -13,7 +10,7 @@ import java.util.*;
  */
 class Commission {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter monthly sale : ");
     double s = sc.nextDouble(), c;
     if (s <= 100000) c = 0;

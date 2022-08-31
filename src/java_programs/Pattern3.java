@@ -1,10 +1,6 @@
-package java_programs;
-
-import java.util.Scanner;
-
 public class Pattern3 {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a word :- ");
     String w = sc.next();
     int b = w.length() + 1, e = w.length() / 2 + 1;
@@ -16,5 +12,6 @@ public class Pattern3 {
       e--;
       b++;
     }
+    sc.close();
   }
 }

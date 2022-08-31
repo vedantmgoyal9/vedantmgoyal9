@@ -1,7 +1,4 @@
-package java_programs.conditions_ninth;
-
-import java.util.*;
-
+package conditions_ninth;
 /*      Income         Tax
  * 250000              Nil.
  * 250001 to 500000    10%
@@ -10,7 +7,7 @@ import java.util.*;
  */
 class IncomeTax {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter Annual Income : ");
     double inc = sc.nextDouble(), tax = 0;
     if (inc <= 250000) tax = 0;

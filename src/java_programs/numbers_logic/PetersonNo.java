@@ -1,11 +1,8 @@
-package java_programs.numbers_logic;
-
-import java.util.Scanner;
+package numbers_logic;
 // A number in which the sum of factorials of each digit is equal to the sum of the number itself
-
 public class PetersonNo {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter a number : ");
     int n = sc.nextInt(), sum = 0, t = n, f = 1;
     while (t > 0) {

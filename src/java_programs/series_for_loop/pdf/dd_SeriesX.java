@@ -1,4 +1,4 @@
-package java_programs.series_for_loop.pdf;
+package series_for_loop.pdf;
 // DD. S = 1 X 2 + 2 X 3 + 3 X 4 +...... + 19 X 20
 public class dd_SeriesX {
   public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package java_programs.series_for_loop.pdf;
+package series_for_loop.pdf;
 // V. 1/2 + 2/4 + 3/8 + 4/16.......................(10 TERMS)
 public class v_SeriesX {
   public static void main(String[] args) {

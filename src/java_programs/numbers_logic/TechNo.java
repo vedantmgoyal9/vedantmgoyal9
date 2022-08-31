@@ -1,7 +1,4 @@
-package java_programs.numbers_logic;
-
-import java.util.Scanner;
-
+package numbers_logic;
 /*
  *  If the given number has an even number of digits and the number can be divided exactly
  *  into two parts from the middle.
@@ -11,7 +8,7 @@ import java.util.Scanner;
  */
 public class TechNo {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a number : ");
     int n = sc.nextInt(), c = 0, t = n;
     while (t != 0) {

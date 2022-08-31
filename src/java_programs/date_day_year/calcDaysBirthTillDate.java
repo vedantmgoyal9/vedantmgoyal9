@@ -1,10 +1,7 @@
-package java_programs.date_day_year;
-
-import java.util.Scanner;
-
+package date_day_year;
 public class calcDaysBirthTillDate {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter your birthday (dd/mm/yyyy): ");
     int bd = sc.nextInt(), bm = sc.nextInt(), by = sc.nextInt();
     System.out.print("Enter current date (dd/mm/yyyy) : ");

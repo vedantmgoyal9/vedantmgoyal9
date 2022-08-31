@@ -1,11 +1,8 @@
-package java_programs.series_for_loop.pdf;
-
-import java.util.Scanner;
+package series_for_loop.pdf;
 // H. 1!, 2!, 3!..................... N TERMS.
-
 public class h_SeriesX {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter no. of terms : ");
     int n = sc.nextInt();
     for (int i = 1; i <= n; i++) {

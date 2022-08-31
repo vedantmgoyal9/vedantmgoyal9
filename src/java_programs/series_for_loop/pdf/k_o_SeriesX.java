@@ -1,11 +1,8 @@
-package java_programs.series_for_loop.pdf;
-
-import java.util.Scanner;
+package series_for_loop.pdf;
 // K nd O. S = 1 + X + X^2 + X^3 + .......................+ X^N
-
 public class k_o_SeriesX {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter X and no. of terms : ");
     int x = sc.nextInt(), n = sc.nextInt(), sum = 1 + x;
     System.out.print(1 + " + " + x);

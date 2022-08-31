@@ -1,10 +1,7 @@
-package java_programs.series_for_loop;
-
-import java.util.*;
-
+package series_for_loop;
 public class Series_1_22_333 {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter no. of terms : ");
     int n = sc.nextInt(), a = 0;
     for (int i = 1; i <= n; i++) {

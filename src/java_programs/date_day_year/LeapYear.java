@@ -1,10 +1,7 @@
-package java_programs.date_day_year;
-
-import java.util.*;
-
+package date_day_year;
 public class LeapYear {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a year : ");
     int y = sc.nextInt();
     if (y % 400 == 0 || (y % 4 == 0 && y % 100 != 0)) System.out.print(y + " is a leap year");

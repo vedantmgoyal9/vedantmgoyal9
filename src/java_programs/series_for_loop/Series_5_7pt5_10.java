@@ -1,12 +1,9 @@
-package java_programs.series_for_loop;
-
+package series_for_loop;
 import java.text.DecimalFormat;
-import java.util.Scanner;
-
 class Series_5_7pt5_10 {
   public static void main(String[] args) {
     DecimalFormat rmDecZero = new DecimalFormat("0.#"); // removing zero after decimal
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter no. of terms : ");
     int n = sc.nextInt();
     double a = 5;

@@ -1,11 +1,7 @@
-package java_programs;
-
-import java.util.Scanner;
-
 // program to replace a vowel with the next vowel in alphabet
 public class NextVowel {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter a string: ");
     String s = sc.nextLine();
     for (int i = s.length(); i > 0; i--) {
@@ -15,5 +11,6 @@ public class NextVowel {
     for (int i = s.length(); i > 0; i--) {
       System.out.println(s.substring(0, i));
     }
+    sc.close();
   }
 }

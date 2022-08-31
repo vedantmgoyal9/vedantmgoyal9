@@ -1,11 +1,8 @@
-package java_programs.series_for_loop;
-
+package series_for_loop;
 // 1,11,101,1001,10001.............
-import java.util.*;
-
 class Series1_11_101_1001 {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Input number of terms : ");
     int n = sc.nextInt();
     long a = 1, s = 1;
