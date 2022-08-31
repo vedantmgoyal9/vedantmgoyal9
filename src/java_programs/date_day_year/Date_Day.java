@@ -1,10 +1,7 @@
-package java_programs.date_day_year;
-
-import java.util.Scanner;
-
+package date_day_year;
 public class Date_Day {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter current date (dd/mm/yyyy) : ");
     int d = sc.nextInt(), m = sc.nextInt(), y = sc.nextInt(), i, c = 0;
     for (i = 1; i < y; i++)

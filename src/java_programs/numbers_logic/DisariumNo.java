@@ -1,11 +1,8 @@
-package java_programs.numbers_logic;
-
+package numbers_logic;
 import java.io.IOException;
-import java.util.Scanner;
-
 class DisariumNo {
   public static void main(String[] args) throws IOException {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a no : ");
     int n = sc.nextInt(), count = 0, t = n, sum = 0;
     while (t != 0) {

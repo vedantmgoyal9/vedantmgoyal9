@@ -1,11 +1,8 @@
-package java_programs.series_for_loop.pdf;
-
-import java.util.*;
+package series_for_loop.pdf;
 // G. 0,7, 26, 63.............. N TERMS.
-
 class g_SeriesX {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter no. of terms : ");
     int n = sc.nextInt(), i, a;
     for (i = 1; i <= n; i++) {

@@ -1,10 +1,6 @@
-package java_programs;
-
-import java.util.*;
-
 class LCM {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter 2 nos. : ");
     int a = sc.nextInt();
     int b = sc.nextInt();

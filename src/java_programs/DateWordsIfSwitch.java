@@ -1,10 +1,6 @@
-package java_programs.switch_case;
-
-import java.util.*;
-
 class DateWordsIfSwitch {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter date, month and year : ");
     int d = sc.nextInt(), m = sc.nextInt(), y = sc.nextInt();
     System.out.print(d);

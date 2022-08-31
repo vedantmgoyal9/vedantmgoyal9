@@ -1,10 +1,7 @@
-package java_programs.series_for_loop.pdf;
-
-import java.util.Scanner;
-
+package series_for_loop.pdf;
 class u_SeriesX_Fibonacci {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter number of terms : ");
     int n = sc.nextInt(), a = 0, b = 1, c;
     for (int i = 1; i <= n; i++) {

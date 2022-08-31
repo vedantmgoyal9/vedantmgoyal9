@@ -1,10 +1,7 @@
-package java_programs.numbers_logic;
-
-import java.util.*;
-
+package numbers_logic;
 public class SumOfAltDigitsWhileLoop {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a number : ");
     int n = sc.nextInt(), sumOdd = 0, sumEven = 0, c = 1;
     while (n != 0) {

@@ -1,10 +1,6 @@
-package java_programs;
-
-import java.util.*;
-
 class NegativePositiveWhileLoop {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter number of numbers : ");
     int n = sc.nextInt(), v, i = 1, cn = 0, cp = 0;
     while (i <= n) {

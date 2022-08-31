@@ -1,10 +1,7 @@
-package java_programs.numbers_logic;
-
-import java.util.*;
-
+package numbers_logic;
 public class SumFLand2F2LWhileLoop {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a even-digited no : ");
     int n = sc.nextInt(), c = 0, r = 0, t = n;
     while (t != 0) {

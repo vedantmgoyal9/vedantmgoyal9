@@ -1,4 +1,4 @@
-package java_programs.series_for_loop.pdf;
+package series_for_loop.pdf;
 // S. 1,2,6,24,120................(10 TERM)
 public class s_SeriesX {
   public static void main(String[] args) {

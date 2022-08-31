@@ -1,10 +1,8 @@
-package java_programs.numbers_logic;
+package numbers_logic;
 // ICSE 2018
-import java.util.Scanner;
-
 public class PronicNo {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter a number: ");
     int n = sc.nextInt(), i = 1;
     boolean isPronic = false;
@@ -16,5 +14,6 @@ public class PronicNo {
       i++;
     } while (i * (i + 1) <= n);
     System.out.println(isPronic ? "Pronic Number" : "Not a Pronic Number");
+    sc.close();
   }
 }

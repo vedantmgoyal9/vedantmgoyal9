@@ -1,10 +1,7 @@
-package java_programs.conditions_ninth;
-
-import java.util.*;
-
+package conditions_ninth;
 class Leap_Simple1 {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a year : ");
     int y = sc.nextInt();
     if (y % 400 == 0) System.out.print("Leap");

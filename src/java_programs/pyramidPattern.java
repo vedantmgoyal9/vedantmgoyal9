@@ -1,10 +1,6 @@
-package java_programs;
-
-import java.util.Scanner;
-
 public class pyramidPattern {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter no. of lines to print pattern : ");
     int n = sc.nextInt(), t1 = 0, t2 = 0;
     while (t1 < n) {

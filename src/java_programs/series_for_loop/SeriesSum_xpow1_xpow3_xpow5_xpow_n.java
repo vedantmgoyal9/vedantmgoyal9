@@ -1,10 +1,7 @@
-package java_programs.series_for_loop;
-
-import java.util.Scanner;
-
+package series_for_loop;
 class SeriesSum_xpow1_xpow3_xpow5_xpow_n {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("This program calculates sum=x^1+x^3+x^5...x^n");
     System.out.print("Enter x : ");
     int x = sc.nextInt();

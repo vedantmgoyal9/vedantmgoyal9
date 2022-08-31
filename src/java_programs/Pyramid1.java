@@ -1,5 +1,3 @@
-package java_programs;
-
 public class Pyramid1 {
   public static void main(String[] args) {
     int rows = 5;
