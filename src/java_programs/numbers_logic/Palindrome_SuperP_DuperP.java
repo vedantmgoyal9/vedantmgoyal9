@@ -1,4 +1,5 @@
 package numbers_logic;
+
 public class Palindrome_SuperP_DuperP {
   public static void main(String[] args) {
     java.util.Scanner sc = new java.util.Scanner(System.in);
@@ -7,6 +8,7 @@ public class Palindrome_SuperP_DuperP {
     enterChoice(n);
     sc.close();
   }
+
   private static void enterChoice(int n) {
     java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.println("Enter a choice:");
@@ -38,6 +40,7 @@ public class Palindrome_SuperP_DuperP {
     }
     sc.close();
   }
+
   private static boolean checkPalindrome(int n) {
     int x = 0, t = n;
     while (t != 0) {
