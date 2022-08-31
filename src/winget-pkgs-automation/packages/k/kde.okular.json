@@ -15,13 +15,13 @@
   ],
   "VersionRegex": "[0-9.]{5,}",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "22.04.1",
+  "PreviousVersion": "22.08.0",
   "ManifestFields": {
     "InstallerUrls": "\"$($Response.url)artifact/$((Invoke-RestMethod -Method Get -Uri \"$($Response.url)api/json\\\").artifacts.FileName -match $InstallerRegex)\"",
     "PackageVersion": "($_Object.InstallerUrls | Select-String -Pattern $VersionRegex).Matches.Value"
   },
   "AdditionalInfo": {
-    "PreviousBuildNumber": 1034
+    "PreviousBuildNumber": 1123
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousBuildNumber = $Response.number",
   "YamlCreateParams": {
