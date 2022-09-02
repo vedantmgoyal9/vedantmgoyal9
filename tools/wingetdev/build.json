@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "d86a67e7cc22127ea4c7024b117011eb980a8f4b",
-    "Message": "Add `$schema` to `cgmanifest.json` (#2487)",
-    "Author": "Jamie Magee"
+    "Sha": "a62f102472e9d81ccf965663732e5cda1a04cbda",
+    "Message": "Update link to VS Installer Project extension (#2488)\n\nThe link should point to Microsoft Visual Studio Installer Projects 2022 instead of the the older one, as the project now builds with VS2022.",
+    "Author": "Borislav Ivanov"
   },
-  "BuildDateTime": "Thursday, September 1, 2022 7:27:22 PM"
+  "BuildDateTime": "Friday, September 2, 2022 5:30:12 PM"
 }
