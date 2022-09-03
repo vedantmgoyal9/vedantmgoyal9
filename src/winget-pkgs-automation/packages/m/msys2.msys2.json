@@ -15,7 +15,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "msys2-x86_64-.*\\.exe$",
-  "PreviousVersion": "20220603",
+  "PreviousVersion": "20220904",
   "ManifestFields": {
     "PackageVersion": "($Response.tag_name.Replace('-', ''))",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
@@ -23,7 +23,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 68575585
+    "PreviousReleaseId": 76220654
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
