@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.components.component.Where({ $_.urls.EndsWith('exe') -and -not $_.urls.Contains('Old') })",
   "VersionRegex": "(?<=version:.*)[0-9.]+(?=</div>)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "11.2.5.0",
+  "PreviousVersion": "11.2.6.0",
   "ManifestFields": {
     "PackageVersion": "$Response[0].version",
     "InstallerUrls": "$Response.urls"
