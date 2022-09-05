@@ -1,0 +1,33 @@
+{
+    "folders": [
+        {
+            "name": "vedantmgoyal2009",
+            "path": ".."
+        },
+        {
+            "name": "winget-releaser",
+            "path": "../../winget-releaser"
+        },
+        {
+            "name": "winget-pkgs",
+            "path": "../../winget-pkgs"
+        }
+    ],
+    "settings": {
+        "powershell.codeFormatting.autoCorrectAliases": true,
+        "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+        "powershell.codeFormatting.preset": "OTBS",
+        "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+        "powershell.codeFormatting.useConstantStrings": true,
+        "powershell.codeFormatting.useCorrectCasing": true,
+        "powershell.codeFormatting.whitespaceBetweenParameters": true,
+        "workbench.colorTheme": "Visual Studio Dark",
+        "terminal.integrated.defaultProfile.linux": "pwsh",
+        "gitlens.currentLine.enabled": false,
+        "powershell.pester.debugOutputVerbosity": "Detailed",
+        "powershell.pester.outputVerbosity": "Detailed",
+        "powershell.pester.useLegacyCodeLens": false,
+        "powershell.scriptAnalysis.settingsPath": "",
+        "terminal.integrated.fontFamily": "Liga SFMono Nerd Font"
+    }
+}
