@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "a62f102472e9d81ccf965663732e5cda1a04cbda",
-    "Message": "Update link to VS Installer Project extension (#2488)\n\nThe link should point to Microsoft Visual Studio Installer Projects 2022 instead of the the older one, as the project now builds with VS2022.",
-    "Author": "Borislav Ivanov"
+    "Sha": "56df5adb2f974230c3db8fb7f84d2fe3150eb859",
+    "Message": "Removed en-US in links (#2494)",
+    "Author": "Joakim"
   },
-  "BuildDateTime": "Friday, September 2, 2022 5:30:12 PM"
+  "BuildDateTime": "Monday, September 5, 2022 3:53:27 AM"
 }
