@@ -4,8 +4,9 @@ temp
 # node_modules directory
 node_modules
 
-# whatsapp bot session
+# whatsapp bot logs and session
 .wwebjs_auth
+src/logs.txt
 
 # env - environment variables
 .env

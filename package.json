@@ -70,25 +70,12 @@
             }
         ]
     },
-    "extensionPack": [
-        "ms-vscode.cpptools-extension-pack",
-        "vscjava.vscode-java-pack",
-        "ms-python.python",
-        "eamodio.gitlens-insiders",
-        "github.copilot-nightly",
-        "GitHub.copilot-labs",
-        "ms-vscode.powershell-preview",
-        "redhat.vscode-yaml",
-        "mutantdino.resourcemonitor",
-        "ask-toolkit.alexa-skills-kit-toolkit",
-        "esbenp.prettier-vscode"
-    ],
     "activationEvents": [
         "workspaceContains:src/winget-pkgs-automation/packages/**/*.json"
     ],
     "engines": {
-        "node": ">= 16.15.1",
-        "vscode": "^1.68.0"
+        "node": ">= 18.8.0",
+        "vscode": "^1.70.0"
     },
     "categories": [
         "Testing",

@@ -20,7 +20,8 @@
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
     "PackageVersion": "($_Object.InstallerUrls | Select-String -Pattern $VersionRegex).Matches.Value",
     "ReleaseNotesUrl": "$Response.html_url",
-    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')",
+    "ProductCode": "'clink_' + $_Object.PackageVersion"
   },
   "AdditionalInfo": {
     "PreRelease": false,
