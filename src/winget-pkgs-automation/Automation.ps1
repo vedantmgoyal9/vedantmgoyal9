@@ -158,7 +158,7 @@ ForEach ($Upgrade in $UpgradeObject) {
     try {
         # Check for existing PRs, if package has skip pr check set to false
         If (-not $Upgrade.SkipPRCheck) {
-            $ExistingPRs = gh pr list --search "$($Upgrade.PackageIdentifier.Replace('.', ' ')) $($Upgrade.PackageVersion) draft:false" --state 'all' --json 'title,url' | ConvertFrom-Json
+            $ExistingPRs = gh pr list --search "$($Upgrade.PackageIdentifier.Replace('.', ' ')) $($Upgrade.PackageVersion) in:title draft:false" --state 'all' --json 'title,url' | ConvertFrom-Json
             If ($ExistingPRs.Count -gt 0) {
                 $ExistingPRs.ForEach({
                         Write-Output "Found existing PR: $($_.title)"

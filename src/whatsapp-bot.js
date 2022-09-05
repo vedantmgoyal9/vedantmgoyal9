@@ -15,8 +15,8 @@ const log_file = createWriteStream(`${__dirname}/logs.txt`, {
   flags: 'a',
 });
 const wa = new Client({
-  authStrategy: new LocalAuth(),
-  puppeteer: { headless: true },
+  authStrategy: new LocalAuth(), // 👇 remove args when not running on linux
+  puppeteer: { headless: true, args: ['--no-sandbox'] },
 });
 
 // make console.log to output to both console and log file
