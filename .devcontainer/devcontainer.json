@@ -47,17 +47,10 @@
     "powershell": "latest",
     "dotnet": "latest"
   },
-
   "customizations": {
     "codespaces": {
       "repositories": {
-        "vedantmgoyal2009/vedantmgoyal2009": {
-          "permissions": "write-all"
-        },
-        "vedantmgoyal2009/winget-releaser": {
-          "permissions": "write-all"
-        },
-        "vedantmgoyal2009/winget-pkgs": {
+        "vedantmgoyal2009/*": {
           "permissions": "write-all"
         }
       }
