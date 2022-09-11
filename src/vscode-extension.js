@@ -124,10 +124,8 @@ function activate(context) {
                   .createTerminal({
                     name: `Test ${selectedPkg}`,
                     cwd: `${vscode.workspace.workspaceFolders[0].uri.fsPath}/tools`,
-                    shellPath: 'pwsh.exe',
+                    shellPath: 'pwsh',
                     shellArgs: [
-                      '-NoProfile',
-                      '-NoExit',
                       '-Command',
                       './Manage-WpaPackages.ps1',
                       '-PackageIdentifier',

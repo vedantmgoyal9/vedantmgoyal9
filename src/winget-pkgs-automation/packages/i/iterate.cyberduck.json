@@ -17,7 +17,7 @@
     "PackageVersion": "($Response.title | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "@($Response.enclosure.url, $Response.enclosure.url.Replace('exe','msi'))",
     "ReleaseNotesUrl": "$Response.releaseNotesLink",
-    "ReleaseDate": "(Get-Date -Date $Response.pubDate).ToString('yyyy-MM-dd')"
+    "ReleaseDate": "[System.DateTime]::ParseExact($Response.pubDate.Substring(0,10), 'dd/MM/yyyy', $Null).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

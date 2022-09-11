@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
-  "Identifier": "Jellyfin.JellyfinServer",
+  "Identifier": "Jellyfin.Server",
   "Update": {
     "InvokeType": "RestMethod",
     "Uri": "https://api.github.com/repos/jellyfin/jellyfin/releases",
