@@ -30,5 +30,19 @@
         "powershell.scriptAnalysis.settingsPath": "",
         "terminal.integrated.fontFamily": "Liga SFMono Nerd Font",
         "powershell.cwd": "/workspaces/vedantmgoyal2009"
+    },
+    "launch": {
+        "configurations": [
+            {
+                "name": "Launch Extension",
+                "request": "launch",
+                "type": "extensionHost",
+                "args": [
+                    "--extensionDevelopmentPath=${workspaceFolder:vedantmgoyal2009}/src/vscode-extension.js"
+                ],
+                // "preLaunchTask": "npm",
+            }
+        ],
+        "compounds": []
     }
 }

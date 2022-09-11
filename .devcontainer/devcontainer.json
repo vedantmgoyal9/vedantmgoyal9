@@ -11,10 +11,11 @@
 
   // Set *default* container specific settings.json values on container create.
   "settings": {},
-  "postStartCommand": "brew update && brew upgrade oh-my-posh && exec bash",
+  "postStartCommand": "bash .devcontainer/setup.sh postStartCmd",
 
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
+    "vedantmgoyal2009.vedantmgoyal2009",
     "vscjava.vscode-java-pack",
     "ms-vscode.cpptools-extension-pack",
     "ms-python.python",

@@ -95,7 +95,12 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
                 Set-Variable -Name $_.Name -Value $_.Value
             })
     }
-    $Parameters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
+    $Parameters = @{
+        Method = $Package.Update.Method;
+        # Some packages need to have previous version in api url to get the latest version, so if
+        # '#PKG_PREVIOUS_VER' is present in url, replace it with previous version of package json
+        Uri = $Package.Update.Uri.Replace('#PKG_PREVIOUS_VER', $Package.PreviousVersion);
+    }
     If (-not [System.String]::IsNullOrEmpty($Package.Update.Headers)) {
         $Package.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { ($_.Value -contains "`$AuthToken") ? $Headers.Add($_.Name, "token $($_.Value | Invoke-Expression)") : $Headers.Add($_.Name, $_.Value) } -End { $Parameters.Headers = $Headers }
     }

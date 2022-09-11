@@ -13,11 +13,11 @@
     "UserAgent": ""
   },
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
-  "VersionRegex": "(?<=v)[0-9.]+",
+  "VersionRegex": "(?<=_)[0-9.]+(?=\\.zip)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "4.2.11",
   "ManifestFields": {
-    "PackageVersion": "$Response.tag_name.TrimStart('v')",
+    "PackageVersion": "($Response.assets.name.Where({$_ -match 'dbg'}) | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
     "ReleaseNotesUrl": "$Response.html_url",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
