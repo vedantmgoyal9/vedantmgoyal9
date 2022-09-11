@@ -15,7 +15,7 @@
   "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.currentversion",
-    "InstallerUrls": "@($Response.amd64binary.url, $Response.binary.url)"
+    "InstallerUrls": "@($Response.arm64binary.url, $Response.amd64binary.url, $Response.binary.url)"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

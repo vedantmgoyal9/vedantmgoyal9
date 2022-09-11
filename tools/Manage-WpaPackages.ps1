@@ -295,7 +295,12 @@ Function Test-Package {
                 Set-Variable -Name $_.Name -Value $_.Value
             })
     }
-    $Parameters = @{ Method = $PackageObject.Update.Method; Uri = $PackageObject.Update.Uri }
+    $Parameters = @{
+        Method = $Package.Update.Method;
+        # Some packages need to have previous version in api url to get the latest version, so if
+        # '#PKG_PREVIOUS_VER' is present in url, replace it with previous version of package json
+        Uri = $Package.Update.Uri.Replace('#PKG_PREVIOUS_VER', $Package.PreviousVersion);
+    }
     If (-not [System.String]::IsNullOrEmpty($PackageObject.Update.Headers)) {
         $PackageObject.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { If ($_.Value -notcontains "`$AuthToken") { $Headers.Add($_.Name, $_.Value) } } -End { $Parameters.Headers = $Headers }
     }
@@ -378,7 +383,6 @@ If ($TestPackage) {
         PostUpgradeScript  = '';
         YamlCreateParams   = [ordered] @{
             SkipPRCheck           = $false;
-            AutoUpgrade           = $false;
             DeletePreviousVersion = $false;
         };
         SkipPackage        = $false

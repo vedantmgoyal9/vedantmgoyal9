@@ -41,15 +41,21 @@ module.exports = (app) => {
         { shell: 'pwsh', cwd: `${__dirname}/winget-pkgs-automation/packages` }
       );
       execSync(
-        `git commit -m \"docs(wpa): update wpa-packages.md\" -- wpa-packages.md`,
+        `git -c commit.gpgsign=false commit --author \"vedantmgoyal2009[bot] <110876359+vedantmgoyal2009[bot]@users.noreply.github.com>\" -m \"docs(wpa): update wpa-packages.md\" -- wpa-packages.md`,
         {
           cwd: `${__dirname}/../docs/docs`,
         }
       );
       execSync(
-        `git push https://x-access-token:${await context.github.auth({
-          type: 'installation',
-        }).token}@github.com/vedantmgoyal2009/vedantmgoyal2009.git`,
+        `git push https://x-access-token:${
+          (
+            await (
+              await app.auth()
+            ).apps.createInstallationAccessToken({
+              installation_id: context.payload.installation.id,
+            })
+          ).data.token
+        }@github.com/vedantmgoyal2009/vedantmgoyal2009.git`,
         {
           cwd: `${__dirname}/../docs`,
         }

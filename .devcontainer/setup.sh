@@ -1,16 +1,26 @@
 #!/usr/bin/env bash
 
+# postStartCommand: "bash /workspace/.devcontainer/setup.sh"
+if [ -n "$1" ]; then
+    echo "Mode: postStartCommand"
+    gh codespace ports visibility 59457:public 59456:public 3000:private -c $CODESPACE_NAME
+    screen -dmS bot1 npm run gh-bot
+    brew update && brew upgrade oh-my-posh
+    exit
+fi
+
 # Directories
 script_folder="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
 workspaces_folder="$(cd "${script_folder}/../.." && pwd)"
 
 # Installing softwares
 sudo apt-get update
-sudo apt install -y npm neofetch default-jre default-jdk
+sudo apt install -y npm neofetch default-jre default-jdk screen
 # Install oh-my-posh
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
 # Copy PowerShell Profile
-cp "${workspaces_folder}/vedantmgoyal2009/.devcontainer/profile.ps1" >> $(pwsh -Command '$PROFILE')
+mkdir -p $(pwsh -Command '$PROFILE | Split-Path')
+cp "${workspaces_folder}/vedantmgoyal2009/.devcontainer/profile.ps1" $(pwsh -Command '$PROFILE')
 # Add oh-my-posh to bash profile
 echo 'eval "$(oh-my-posh init bash --config /workspaces/vedantmgoyal2009/.devcontainer/mytheme.omp.json)"' >> /home/vscode/.bashrc
 # Install winget-pkgs yamlcreate powershell-yaml
