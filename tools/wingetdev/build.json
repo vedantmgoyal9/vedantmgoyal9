@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "56df5adb2f974230c3db8fb7f84d2fe3150eb859",
-    "Message": "Removed en-US in links (#2494)",
-    "Author": "Joakim"
+    "Sha": "f9fc158c2cf69952de1abd738438caa37161c1fa",
+    "Message": "Add logo to README.md (#2507)\n\n* Add logo to README.md\r\n\r\n* Add files via upload\r\n\r\n* Delete 189525588-aa097af3-2c30-4421-9757-83300715ed93.png\r\n\r\n* Add files via upload\r\n\r\n* Update README.md",
+    "Author": "Vedant"
   },
-  "BuildDateTime": "Monday, September 5, 2022 3:53:27 AM"
+  "BuildDateTime": "Monday, September 12, 2022 3:52:58 PM"
 }
