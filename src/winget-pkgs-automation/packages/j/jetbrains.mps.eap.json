@@ -12,10 +12,12 @@
   "PostResponseScript": "$Response = $Response.MPS",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "MPS-222.3345.848",
+  "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "\"MPS-$($Response.build)\"",
-    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")"
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ProductCode": "'JetBrains MPS ' + $Response.version -replace '-EAP.*',' EAP'"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
