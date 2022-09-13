@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f9fc158c2cf69952de1abd738438caa37161c1fa",
-    "Message": "Add logo to README.md (#2507)\n\n* Add logo to README.md\r\n\r\n* Add files via upload\r\n\r\n* Delete 189525588-aa097af3-2c30-4421-9757-83300715ed93.png\r\n\r\n* Add files via upload\r\n\r\n* Update README.md",
-    "Author": "Vedant"
+    "Sha": "993de6b6996023c399071be59fdf35ba60cd1d83",
+    "Message": "Return error codes for dependencies failure (#2410)\n\n* Surface dependencies specific errors\r\n\r\n* Updated flags result\r\n\r\n* Sort alphabetically\r\n\r\n* Return message ID when string mapping not found\r\n\r\n* Addressed PR comments\r\n\r\n* Renamed field to context\r\n\r\n* Proper name change\r\n\r\n* Addressed PR comments\r\n\r\n* Addressed PR comments\r\n\r\n* Change method name to reflect functionality.\r\n\r\n* Included excluded files.\r\n\r\n* Addressed PR comments\r\n\r\n* Spaces and indentation fix.\r\n\r\n* Add capability to return multiple error result.\r\n\r\n* code refactor\r\n\r\n* Addressed pr comment\r\n\r\n* Addressed PR comments\r\n\r\n* Addressed pr comment\r\n\r\nCo-authored-by: Akinwale Alagbe <akalagbe@microsoft.com>",
+    "Author": "Akinwale Alagbe"
   },
-  "BuildDateTime": "Monday, September 12, 2022 3:52:58 PM"
+  "BuildDateTime": "Tuesday, September 13, 2022 7:37:48 PM"
 }
