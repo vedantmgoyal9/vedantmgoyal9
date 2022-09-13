@@ -12,18 +12,13 @@
   "PostResponseScript": "$Response = $Response.RD",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "",
+  "PreviousVersion": "2022.2.3",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
     "ReleaseDate": "$Response.date",
     "AppsAndFeaturesEntries": [
-      {
-        "DisplayName": "'JetBrains Rider ' + $Response.version",
-        "Publisher": "'JetBrains s.r.o.'",
-        "DisplayVersion": "$Response.build",
-        "ProductCode": "'JetBrains Rider ' + $Response.version"
-      }
+      "@{DisplayName='JetBrains Rider ' + $Response.version; Publisher='JetBrains s.r.o.'; DisplayVersion=$Response.build; ProductCode='JetBrains Rider ' + $Response.version}"
     ]
   },
   "AdditionalInfo": {},

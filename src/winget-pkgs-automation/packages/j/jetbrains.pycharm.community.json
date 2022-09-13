@@ -12,19 +12,14 @@
   "PostResponseScript": "$Response = $Response.PCC",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "",
+  "PreviousVersion": "2022.2.1",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
     "ReleaseDate": "$Response.date",
     "ReleaseNotesUrl": "$Response.notesLink",
     "AppsAndFeaturesEntries": [
-      {
-        "DisplayName": "'PyCharm Community Edition ' + $Response.majorVersion",
-        "Publisher": "'JetBrains s.r.o.'",
-        "DisplayVersion": "$Response.build",
-        "ProductCode": "'PyCharm Community Edition ' + $Response.majorVersion"
-      }
+      "@{DisplayName='PyCharm Community Edition ' + $Response.majorVersion; Publisher='JetBrains s.r.o.'; DisplayVersion=$Response.build; ProductCode='PyCharm Community Edition ' + $Response.majorVersion}"
     ]
   },
   "AdditionalInfo": {},
