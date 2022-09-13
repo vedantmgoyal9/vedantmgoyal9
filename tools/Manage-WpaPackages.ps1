@@ -299,7 +299,7 @@ Function Test-Package {
         Method = $Package.Update.Method;
         # Some packages need to have previous version in api url to get the latest version, so if
         # '#PKG_PREVIOUS_VER' is present in url, replace it with previous version of package json
-        Uri = $Package.Update.Uri.Replace('#PKG_PREVIOUS_VER', $Package.PreviousVersion);
+        Uri    = $Package.Update.Uri.Replace('#PKG_PREVIOUS_VER', $Package.PreviousVersion);
     }
     If (-not [System.String]::IsNullOrEmpty($PackageObject.Update.Headers)) {
         $PackageObject.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { If ($_.Value -notcontains "`$AuthToken") { $Headers.Add($_.Name, $_.Value) } } -End { $Parameters.Headers = $Headers }
@@ -331,7 +331,22 @@ Function Test-Package {
             If ($_.Value -match 'Read-VersionFromInstaller') {
                 Write-Output 'Downloading the installer to get the version... This may take some time...'
             }
-            $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
+            $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value $(
+                If ($_.Name -eq 'AppsAndFeaturesEntries') {
+                    $_NestedObjectArray = @()
+                    for ($_Index = 0; $_Index -lt $PackageObject.ManifestFields.AppsAndFeaturesEntries.Length; $_Index++) {
+                        <# Action that will repeat until the condition is met #>
+                        $_NestedObject = New-Object -TypeName System.Management.Automation.PSObject
+                        $Package.ManifestFields.AppsAndFeaturesEntries[$_Index].PSObject.Properties.ForEach({
+                                $_NestedObject | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value | Invoke-Expression)
+                            })
+                        $_NestedObjectArray += $_NestedObject
+                    }
+                    @(, $_NestedObjectArray) # Return array of nested objects *forcefully*
+                } Else {
+                    ($_.Value | Invoke-Expression)
+                }
+            )
         })
 
     Write-Output -InputObject $_Object | Format-List -Property *

@@ -15,10 +15,13 @@
   ],
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "2021.2.3 (build 99711)",
+  "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.version + \" (build $($Response.build))\"",
-    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")"
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ReleaseNotesUrl": "$Response.notesLink",
+    "ProductCode": "'JetBrains TeamCity'"
   },
   "AdditionalInfo": {
     "LastBuildNumber": "99711"

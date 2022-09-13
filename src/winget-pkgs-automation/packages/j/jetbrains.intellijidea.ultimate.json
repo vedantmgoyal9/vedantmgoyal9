@@ -12,10 +12,20 @@
   "PostResponseScript": "$Response = $Response.IIU",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "222.3739.54",
+  "PreviousVersion": "",
   "ManifestFields": {
-    "PackageVersion": "$Response.build",
-    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")"
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ReleaseNotesUrl": "$Response.notesLink",
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "'IntelliJ IDEA ' + $Response.majorVersion",
+        "Publisher": "'JetBrains s.r.o.'",
+        "DisplayVersion": "$Response.build",
+        "ProductCode": "'IntelliJ IDEA ' + $Response.majorVersion"
+      }
+    ]
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

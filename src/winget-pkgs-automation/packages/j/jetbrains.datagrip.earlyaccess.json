@@ -12,10 +12,13 @@
   "PostResponseScript": "$Response = $Response.DG",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "222.3345.35",
+  "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.build",
-    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")"
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ReleaseNotesUrl": "$Response.notesLink",
+    "ProductCode:": "'DataGrip ' + $Response.build"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

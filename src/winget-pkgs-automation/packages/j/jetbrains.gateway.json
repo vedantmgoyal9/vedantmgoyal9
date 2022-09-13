@@ -1,24 +1,31 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
-  "Identifier": "JetBrains.WebStorm.EAP",
+  "Identifier": "JetBrains.Gateway",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=eap&code=WS",
+    "Uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=GW",
     "Method": "Get",
     "Headers": {},
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response = $Response.WS",
+  "PostResponseScript": "$Response = $Response.GW",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
   "PreviousVersion": "",
   "ManifestFields": {
-    "PackageVersion": "$Response.build",
+    "PackageVersion": "$Response.version",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
     "ReleaseDate": "$Response.date",
     "ReleaseNotesUrl": "$Response.notesLink",
-    "ProductCode:": "'WebStorm ' + $Response.build"
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "'JetBrains Gateway ' + $Response.majorVersion",
+        "Publisher": "'JetBrains s.r.o.'",
+        "DisplayVersion": "$Response.build",
+        "ProductCode": "'JetBrains Gateway ' + $Response.majorVersion"
+      }
+    ]
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
