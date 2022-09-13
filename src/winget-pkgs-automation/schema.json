@@ -43,7 +43,10 @@
       "properties": {
         "InvokeType": {
           "$id": "#/properties/Update/properties/InvokeType",
-          "enum": ["RestMethod", "WebRequest"],
+          "enum": [
+            "RestMethod",
+            "WebRequest"
+          ],
           "type": "string"
         },
         "Uri": {
@@ -84,7 +87,10 @@
     },
     "PostResponseScript": {
       "$id": "#/properties/PostResponseScript",
-      "type": ["string", "array"]
+      "type": [
+        "string",
+        "array"
+      ]
     },
     "VersionRegex": {
       "$id": "#/properties/VersionRegex",
@@ -101,7 +107,10 @@
     "ManifestFields": {
       "$id": "#/properties/ManifestFields",
       "type": "object",
-      "required": ["PackageVersion", "InstallerUrls"],
+      "required": [
+        "PackageVersion",
+        "InstallerUrls"
+      ],
       "properties": {
         "PackageVersion": {
           "$id": "#/properties/ManifestFields/properties/PackageVersion",
@@ -110,6 +119,45 @@
         "InstallerUrls": {
           "$id": "#/properties/ManifestFields/properties/InstallerUrls",
           "type": "string"
+        },
+        "ProductCode": {
+          "$id": "#/properties/ManifestFields/properties/ProductCode",
+          "type": "string"
+        },
+        "ReleaseDate": {
+          "$id": "#/properties/ManifestFields/properties/ReleaseDate",
+          "type": "string"
+        },
+        "ReleaseNotesUrl": {
+          "$id": "#/properties/ManifestFields/properties/ReleaseNotesUrl",
+          "type": "string"
+        },
+        "ReleaseNotes": {
+          "$id": "#/properties/ManifestFields/properties/ReleaseNotes",
+          "type": "string"
+        },
+        "AppsAndFeaturesEntries": {
+          "$id": "#/properties/ManifestFields/properties/AppsAndFeaturesEntries",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "DisplayName": {
+                "type": "string"
+              },
+              "Publisher": {
+                "type": "string"
+              },
+              "DisplayVersion": {
+                "type": "string"
+              },
+              "ProductCode": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "uniqueItems": true
         }
       },
       "additionalProperties": true
@@ -126,16 +174,25 @@
     "YamlCreateParams": {
       "$id": "#/properties/YamlCreateParams",
       "type": "object",
-      "required": ["SkipPRCheck", "DeletePreviousVersion"],
+      "required": [
+        "SkipPRCheck",
+        "DeletePreviousVersion"
+      ],
       "properties": {
         "SkipPRCheck": {
           "$id": "#/properties/YamlCreateParams/properties/SkipPRCheck",
-          "enum": [true, false],
+          "enum": [
+            true,
+            false
+          ],
           "type": "boolean"
         },
         "DeletePreviousVersion": {
           "$id": "#/properties/YamlCreateParams/properties/DeletePreviousVersion",
-          "enum": [true, false],
+          "enum": [
+            true,
+            false
+          ],
           "type": "boolean"
         }
       },
@@ -147,7 +204,10 @@
         false,
         "Automatically marked as stale, not updated for 2.5 years"
       ],
-      "type": ["boolean", "string"]
+      "type": [
+        "boolean",
+        "string"
+      ]
     }
   },
   "additionalProperties": false

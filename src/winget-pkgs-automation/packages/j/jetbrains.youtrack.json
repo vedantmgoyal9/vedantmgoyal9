@@ -12,10 +12,17 @@
   "PostResponseScript": "$Response = $Response.YTD",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "22.2.55618",
+  "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.version.Split('20')[1] + '.' + $Response.build",
-    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")"
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ReleaseNotesUrl": "$Response.notesLink",
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "'JetBrains YouTrack' + $Response.version"
+      }
+    ]
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

@@ -12,10 +12,12 @@
   "PostResponseScript": "$Response = $Response.PS",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "222.4167.9",
+  "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.build",
-    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")"
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ProductCode:": "'PhpStorm ' + $Response.build"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

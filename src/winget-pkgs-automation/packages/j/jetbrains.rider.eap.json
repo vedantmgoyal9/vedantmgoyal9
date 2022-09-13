@@ -12,10 +12,12 @@
   "PostResponseScript": "$Response = $Response.RD",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "222.3345.9",
+  "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.build",
-    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")"
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ProductCode:": "'JetBrains Rider ' + $Response.build"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
