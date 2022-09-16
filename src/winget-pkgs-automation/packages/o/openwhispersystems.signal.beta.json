@@ -18,7 +18,7 @@
   ],
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "5.59.0-beta.1",
+  "PreviousVersion": "5.60.0-beta.1",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "\"https://updates.signal.org/desktop/signal-desktop-beta-win-$($Response.tag_name.TrimStart('v')).exe\"",
