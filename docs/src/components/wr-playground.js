@@ -4,7 +4,6 @@ import CodeBlock from '@theme/CodeBlock';
 export default function WrPlayground() {
   const [result, setOutput] = useState('Please enter the required inputs...');
   const [pkgId, setPkgId] = useState('');
-  const [version, setVersion] = useState('');
   const [instRegex, setInstRegex] = useState(
     '.(exe|msi|msix|appx)(bundle){0,1}$'
   );
@@ -27,12 +26,14 @@ export default function WrPlayground() {
             JSON.stringify(
               {
                 PackageIdentifier: pkgId,
-                PackageVersion: version || /[0-9.]+/g.exec(data.tag_name)[0],
+                PackageVersion: /(?<=v).*/g.exec(data.tag_name)[0],
                 InstallerUrls: data.assets.flatMap((element) =>
                   new RegExp(instRegex, 'g').test(element.name)
                     ? element.browser_download_url
                     : []
                 ),
+                ReleaseDate: new Date(data.published_at).toISOString().slice(0, 10),
+                ReleaseNotesUrl: data.html_url,
               },
               null,
               2
@@ -41,7 +42,7 @@ export default function WrPlayground() {
         });
       }
     );
-  }, [pkgId, version, instRegex, ghRepo]);
+  }, [pkgId, instRegex, ghRepo]);
   return (
     <div>
       <label htmlFor="pkg-id" className="input">
@@ -58,19 +59,16 @@ export default function WrPlayground() {
         <span className="input-label"> Identifier </span>
       </label>
 
-      <label htmlFor="ver-regex" className="input">
+      <label htmlFor="pkg-version" className="input">
         <input
           type="text"
-          id="ver-regex"
-          name="ver-regex"
+          id="pkg-version"
+          name="pkg-version"
           className="input-field"
-          placeholder="RegEx to select version from GitHub release tag"
-          defaultValue="[0-9.]+"
-          onChange={(event) => {
-            setVerRegex(event.target.value);
-          }}
+          value="The PackageVersion of package, would be used as it is, if provided. See: https://github.com/vedantmgoyal2009/winget-releaser/#version-version"
+          disabled="true"
         />
-        <span className="input-label"> Version Regex </span>
+        <span className="input-label"> Version </span>
       </label>
 
       <label htmlFor="inst-regex" className="input">
@@ -86,6 +84,18 @@ export default function WrPlayground() {
           }}
         />
         <span className="input-label"> Installer Regex </span>
+      </label>
+
+      <label htmlFor="release-tagname" className="input">
+        <input
+          type="text"
+          id="release-tagname"
+          name="release-tagname"
+          className="input-field"
+          value="⚠️ Not available on web version :-("
+          disabled="true"
+        />
+        <span className="input-label"> Release Tag </span>
       </label>
 
       <label htmlFor="del-prev-ver" className="input">

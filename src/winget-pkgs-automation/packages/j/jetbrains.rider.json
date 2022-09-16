@@ -20,7 +20,6 @@
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "'JetBrains Rider ' + $Response.version",
-        "Publisher": "'JetBrains s.r.o.'",
         "DisplayVersion": "$Response.build",
         "ProductCode": "'JetBrains Rider ' + $Response.version"
       }

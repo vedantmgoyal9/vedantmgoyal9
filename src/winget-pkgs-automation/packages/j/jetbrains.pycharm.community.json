@@ -21,7 +21,6 @@
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "'PyCharm Community Edition ' + $Response.majorVersion",
-        "Publisher": "'JetBrains s.r.o.'",
         "DisplayVersion": "$Response.build",
         "ProductCode": "'PyCharm Community Edition ' + $Response.majorVersion"
       }
