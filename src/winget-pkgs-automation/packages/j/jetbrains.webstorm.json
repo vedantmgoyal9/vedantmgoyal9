@@ -21,7 +21,6 @@
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "'WebStorm ' + $Response.majorVersion",
-        "Publisher": "'JetBrains s.r.o.'",
         "DisplayVersion": "$Response.build",
         "ProductCode": "'WebStorm ' + $Response.majorVersion"
       }

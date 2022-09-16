@@ -21,7 +21,6 @@
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "'IntelliJ IDEA ' + $Response.majorVersion",
-        "Publisher": "'JetBrains s.r.o.'",
         "DisplayVersion": "$Response.build",
         "ProductCode": "'IntelliJ IDEA ' + $Response.majorVersion"
       }

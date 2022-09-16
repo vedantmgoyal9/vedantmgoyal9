@@ -21,7 +21,6 @@
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "'DataGrip ' + $Response.majorVersion",
-        "Publisher": "'JetBrains s.r.o.'",
         "DisplayVersion": "$Response.build",
         "ProductCode": "'DataGrip ' + $Response.majorVersion"
       }
