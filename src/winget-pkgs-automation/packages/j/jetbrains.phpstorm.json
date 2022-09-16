@@ -20,7 +20,6 @@
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "'PhpStorm ' + $Response.version",
-        "Publisher": "'JetBrains s.r.o.'",
         "DisplayVersion": "$Response.build",
         "ProductCode": "'PhpStorm ' + $Response.version"
       }
