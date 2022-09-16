@@ -362,7 +362,7 @@ Function Test-Package {
     If ($_IsValid -eq $true) {
         Write-Output 'The package is valid!'
     } Else {
-        Write-Error "Some values are missing or empty, please fix the json file manually and run:`n   .\Manage-WpaPackages.ps1 $($Package.Identifier) -TestPackage"
+        Write-Error "Some values are missing or empty, please fix the json file manually and run:`n   .\Manage-WpaPackages.ps1 -TestPackage $($Package.Identifier)"
     }
 }
 #endregion functions

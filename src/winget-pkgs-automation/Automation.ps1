@@ -139,7 +139,7 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
                 $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value $(
                     If ($_.Name -eq 'AppsAndFeaturesEntries') {
                         $_NestedObjectArray = @()
-                        for ($_Index = 0; $_Index -lt $PackageObject.ManifestFields.AppsAndFeaturesEntries.Length; $_Index++) {
+                        for ($_Index = 0; $_Index -lt $Package.ManifestFields.AppsAndFeaturesEntries.Length; $_Index++) {
                             <# Action that will repeat until the condition is met #>
                             $_NestedObject = New-Object -TypeName System.Management.Automation.PSObject
                             $Package.ManifestFields.AppsAndFeaturesEntries[$_Index].PSObject.Properties.ForEach({
