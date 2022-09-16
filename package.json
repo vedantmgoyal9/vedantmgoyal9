@@ -15,7 +15,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "vs-publish": "vsce unpublish --force && vsce publish",
         "gh-bot": "probot run ./src/github-bot.js",
-        "wa-bot": "node ./src/whatsapp-bot.js"
+        "wa-bot": "node ./src/whatsapp-bot.js",
+        "start-docs": "npm run start --workspace docs -- --host 0.0.0.0"
     },
     "repository": {
         "type": "git",

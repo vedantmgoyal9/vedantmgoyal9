@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'vedantmgoyal2009',
-  tagline: 'All my projects at one place :)',
+  tagline: 'A home for my hobby projects & their docs :)',
   url: 'https://bittu.eu.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -60,13 +60,13 @@ const config = {
             type: 'doc',
             docId: 'wpa-intro',
             position: 'left',
-            label: 'winget-pkgs-automation',
+            label: 'WinGet Automation',
           },
           {
             type: 'doc',
-            docId: 'wr-intro',
+            docId: 'wr-playground',
             position: 'left',
-            label: 'winget-releaser',
+            label: 'WinGet Releaser Dry Run',
           },
           // disable blog
           // {to: '/blog', label: 'Blog', position: 'left'},
@@ -86,48 +86,6 @@ const config = {
       },
       footer: {
         style: 'dark',
-        // disable links section in footer
-        // links: [
-        //   {
-        //     title: 'Docs',
-        //     items: [
-        //       {
-        //         label: 'Tutorial',
-        //         to: '/docs/intro',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     title: 'Community',
-        //     items: [
-        //       {
-        //         label: 'Stack Overflow',
-        //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-        //       },
-        //       {
-        //         label: 'Discord',
-        //         href: 'https://discordapp.com/invite/docusaurus',
-        //       },
-        //       {
-        //         label: 'Twitter',
-        //         href: 'https://twitter.com/docusaurus',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     title: 'More',
-        //     items: [
-        //       {
-        //         label: 'Blog',
-        //         to: '/blog',
-        //       },
-        //       {
-        //         label: 'GitHub',
-        //         href: 'https://github.com/facebook/docusaurus',
-        //       },
-        //     ],
-        //   },
-        // ],
         copyright: `Copyright © ${new Date().getFullYear()} Vedant and contributors.`,
       },
       prism: {

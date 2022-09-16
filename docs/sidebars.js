@@ -23,24 +23,14 @@ const sidebars = {
       type: 'category',
       label: '🤖 WinGet Automation',
       collapsed: false,
+      collapsible: false,
       items: [
         'wpa-intro',
         'wpa-add-a-package',
-        'wpa-working',
         'wpa-packages',
       ],
     },
-    {
-      type: 'category',
-      label: '🛫 WinGet Releaser',
-      collapsed: false,
-      items: [
-        'wr-intro',
-        'wr-config',
-        'wr-multipackage',
-        'wr-playground',
-      ],
-    },
+    "wr-playground",
     "contributors"
   ]
 };
