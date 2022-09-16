@@ -17,7 +17,7 @@
     "PackageVersion": "$Response.curr_version",
     "InstallerUrls": "$Response.download_url",
     "ReleaseNotes": "$Response.instruction",
-    "ReleaseNotesUrl": "\"https://live.bilibili.com/liveHime/\""
+    "ReleaseNotesUrl": "'https://live.bilibili.com/liveHime/'"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
