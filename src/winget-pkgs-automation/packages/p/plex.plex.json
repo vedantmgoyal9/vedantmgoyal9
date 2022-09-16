@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.computer.Windows",
   "VersionRegex": "[0-9.]{5,6}",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "1.53.1",
+  "PreviousVersion": "1.54.1",
   "ManifestFields": {
     "PackageVersion": "($Response.version | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response.releases.url"
