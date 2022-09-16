@@ -18,7 +18,12 @@
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
     "ReleaseDate": "$Response.date",
     "AppsAndFeaturesEntries": [
-      "@{DisplayName='JetBrains Rider ' + $Response.version; Publisher='JetBrains s.r.o.'; DisplayVersion=$Response.build; ProductCode='JetBrains Rider ' + $Response.version}"
+      {
+        "DisplayName": "'JetBrains Rider ' + $Response.version",
+        "Publisher": "'JetBrains s.r.o.'",
+        "DisplayVersion": "$Response.build",
+        "ProductCode": "'JetBrains Rider ' + $Response.version"
+      }
     ]
   },
   "AdditionalInfo": {},

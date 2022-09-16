@@ -2,9 +2,11 @@
 import CodeBlock from '@theme/CodeBlock';
 
 export default function WrPlayground() {
-  const [result, setOutput] = useState('Please enter the required inputs...');
+  const [result, setOutput] = useState(
+    'Please enter the required inputs...'
+  );
   const [pkgId, setPkgId] = useState('');
-  const [verRegex, setVerRegex] = useState('[0-9.]+');
+  const [version, setVersion] = useState('');
   const [instRegex, setInstRegex] = useState(
     '.(exe|msi|msix|appx)(bundle){0,1}$'
   );
@@ -20,29 +22,23 @@ export default function WrPlayground() {
       );
       return;
     }
-    fetch('https://api.github.com/repos/' + ghRepo + '/releases/latest').then(
-      (res) => {
-        res.json().then((data) => {
-          setOutput(
-            `Package Identifier: ${pkgId}\n` +
-              `Package Version: ${new RegExp(verRegex, 'g').exec(
-                data.tag_name
-              )}\n` +
-              `Installer Urls: ${JSON.stringify(
-                data.assets.flatMap((element) =>
-                  new RegExp(instRegex, 'g').test(element.name)
-                    ? element.browser_download_url
-                    : []
-                ),
-                null,
-                2
-              )}
-          `
-          );
-        });
-      }
-    );
-  }, [pkgId, verRegex, instRegex, ghRepo]);
+    fetch(
+      'https://api.github.com/repos/' + ghRepo + '/releases/latest'
+    ).then((res) => {
+      res.json().then((data) => {
+        setOutput(JSON.stringify({
+          PackageIdentifier: pkgId,
+          PackageVersion: version || /[0-9.]+/g.exec(data.tag_name)[0],
+          InstallerUrls: data.assets.flatMap((element) =>
+            new RegExp(instRegex, 'g').test(element.name)
+              ? element.browser_download_url
+              : []
+          ),
+        }, null, 2)
+        );
+      });
+    });
+  }, [pkgId, version, instRegex, ghRepo]);
   return (
     <div>
       <label htmlFor="pkg-id" className="input">

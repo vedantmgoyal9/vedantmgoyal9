@@ -6,7 +6,7 @@ sidebar_label: ➕ How to add a package?
 
 You can add a package to the automation in two ways:
 
-### 1. Use [`New-Package`][new-package-script] script to create the JSON file for the package
+### 1. Use [`Manage-WpaPackages.ps1`][wpa-pkgs-script] script to create the JSON file for the package
 
 The script will ask you for the required information and create a JSON file for the package at the path (in lowercase):
 
@@ -16,10 +16,10 @@ The script will ask you for the required information and create a JSON file for 
 
 :::tip Testing the package json file
 
-You can use the [`Test-Package`][test-package-script] script in case you have made some changes to the JSON file and want to test it. Run the following command:
+You can use the [`-TestPackage`][wpa-pkgs-script] switch to test the package JSON file in case you have made some changes to the JSON file and want to test it. Run the following command:
 
 ```pwsh
-.\Test-Package.ps1 -PackageIdentifier <package-identifier>
+.\Manage-WpaPackages.ps1 -TestPackage <package-identifier>
 ```
 
 :::
@@ -32,6 +32,5 @@ You can use the [`Test-Package`][test-package-script] script in case you have ma
 
 3. Submit the issue and wait for the package to be added to the automation.
 
-[new-package-script]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/tools/New-Package.ps1
-[test-package-script]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/tools/Test-Package.ps1
+[wpa-pkgs-script]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/tools/New-Package.ps1
 [new-package-issue]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues/new?assignees=vedantmgoyal2009&labels=new+package&template=package_request.yml&title=%5BNew+Package%5D%3A+

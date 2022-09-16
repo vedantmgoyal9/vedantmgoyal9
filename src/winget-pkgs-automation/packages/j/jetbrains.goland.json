@@ -19,7 +19,12 @@
     "ReleaseDate": "$Response.date",
     "ReleaseNotesUrl": "$Response.notesLink",
     "AppsAndFeaturesEntries": [
-      "@{DisplayName='GoLand ' + $Response.majorVersion; Publisher='JetBrains s.r.o.'; DisplayVersion=$Response.build; ProductCode='GoLand ' + $Response.majorVersion}"
+      {
+        "DisplayName": "'GoLand ' + $Response.majorVersion",
+        "Publisher": "'JetBrains s.r.o.'",
+        "DisplayVersion": "$Response.build",
+        "ProductCode": "'GoLand ' + $Response.majorVersion"
+      }
     ]
   },
   "AdditionalInfo": {},

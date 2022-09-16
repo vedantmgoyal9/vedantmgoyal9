@@ -19,7 +19,12 @@
     "ReleaseDate": "$Response.date",
     "ReleaseNotesUrl": "$Response.notesLink",
     "AppsAndFeaturesEntries": [
-      "@{DisplayName='PyCharm ' + $Response.majorVersion; Publisher='JetBrains s.r.o.'; DisplayVersion=$Response.build; ProductCode='PyCharm ' + $Response.majorVersion}"
+      {
+        "DisplayName": "'PyCharm ' + $Response.majorVersion",
+        "Publisher": "'JetBrains s.r.o.'",
+        "DisplayVersion": "$Response.build",
+        "ProductCode": "'PyCharm ' + $Response.majorVersion"
+      }
     ]
   },
   "AdditionalInfo": {},

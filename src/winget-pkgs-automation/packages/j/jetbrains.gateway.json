@@ -19,7 +19,12 @@
     "ReleaseDate": "$Response.date",
     "ReleaseNotesUrl": "$Response.notesLink",
     "AppsAndFeaturesEntries": [
-      "@{DisplayName='JetBrains Gateway ' + $Response.majorVersion; Publisher='JetBrains s.r.o.'; DisplayVersion=$Response.build; ProductCode='JetBrains Gateway ' + $Response.majorVersion}"
+      {
+        "DisplayName": "'JetBrains Gateway ' + $Response.majorVersion",
+        "Publisher": "'JetBrains s.r.o.'",
+        "DisplayVersion": "$Response.build",
+        "ProductCode": "'JetBrains Gateway ' + $Response.majorVersion"
+      }
     ]
   },
   "AdditionalInfo": {},

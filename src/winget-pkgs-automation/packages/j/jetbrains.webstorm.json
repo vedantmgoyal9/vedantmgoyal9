@@ -19,7 +19,12 @@
     "ReleaseDate": "$Response.date",
     "ReleaseNotesUrl": "$Response.notesLink",
     "AppsAndFeaturesEntries": [
-      "@{DisplayName='WebStorm ' + $Response.majorVersion; Publisher='JetBrains s.r.o.'; DisplayVersion=$Response.build; ProductCode='WebStorm ' + $Response.majorVersion}"
+      {
+        "DisplayName": "'WebStorm ' + $Response.majorVersion",
+        "Publisher": "'JetBrains s.r.o.'",
+        "DisplayVersion": "$Response.build",
+        "ProductCode": "'WebStorm ' + $Response.majorVersion"
+      }
     ]
   },
   "AdditionalInfo": {},
