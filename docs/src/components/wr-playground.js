@@ -32,7 +32,9 @@ export default function WrPlayground() {
                     ? element.browser_download_url
                     : []
                 ),
-                ReleaseDate: new Date(data.published_at).toISOString().slice(0, 10),
+                ReleaseDate: new Date(data.published_at)
+                  .toISOString()
+                  .slice(0, 10),
                 ReleaseNotesUrl: data.html_url,
               },
               null,
