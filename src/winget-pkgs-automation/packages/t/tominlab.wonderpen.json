@@ -15,7 +15,7 @@
   "PreviousVersion": "2.1.8",
   "ManifestFields": {
     "PackageVersion": "$Response.data.version",
-    "InstallerUrls": "(Invoke-WebRequest -Uri 'https://www.tominlab.com/to/get-file/wonderpen?key=win-installer' -Method Head).BaseResponse.RequestMessage.RequestUri",
+    "InstallerUrls": "(Invoke-WebRequest -Uri 'https://www.tominlab.com/to/get-file/wonderpen?key=win-installer' -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString",
     "ReleaseDate": "$ReleaseInfo.date",
     "ReleaseNotes": "$ReleaseInfo.desc.en"
   },
