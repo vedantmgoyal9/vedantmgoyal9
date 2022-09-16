@@ -15,9 +15,10 @@
   "PreviousVersion": "1.5.0",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "(Invoke-WebRequest $InstallerUrlApi.Replace('#path', $Response.path) -Method Head -Headers @{appversion='0'}).BaseResponse.RequestMessage.RequestUri.AbsoluteUri",
+    "InstallerUrls": "(Invoke-WebRequest $InstallerUrlApi.Replace('#path', $Response.path) -Method Head -Headers @{appversion='0.0.0'}).BaseResponse.RequestMessage.RequestUri.AbsoluteUri",
     "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')",
-    "ReleaseNotes": "$Response.news"
+    "ReleaseNotes": "$Response.news",
+    "ReleaseNotesUrl": "\"https://app.bilibili.com/\""
   },
   "AdditionalInfo": {
     "InstallerUrlApi": "https://api.bilibili.com/x/elec-frontend/update/#path"

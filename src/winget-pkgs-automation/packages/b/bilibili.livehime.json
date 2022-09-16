@@ -3,7 +3,7 @@
   "Identifier": "Bilibili.Livehime",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://api.live.bilibili.com/client/v1/LiveHime/download?type=3",
+    "Uri": "https://api.live.bilibili.com/xlive/app-blink/v1/liveVersionInfo/getHomePageLiveVersion?system_version=2",
     "Method": "Get",
     "Headers": {},
     "Body": "",
@@ -14,8 +14,10 @@
   "InstallerRegex": ".exe$",
   "PreviousVersion": "4.24.4.3823",
   "ManifestFields": {
-    "PackageVersion": "($Response.version | Select-String -Pattern $VersionRegex).Matches.Value",
-    "InstallerUrls": "$Response.dl_url"
+    "PackageVersion": "$Response.curr_version",
+    "InstallerUrls": "$Response.download_url",
+    "ReleaseNotes": "$Response.instruction",
+    "ReleaseNotesUrl": "\"https://live.bilibili.com/liveHime/\""
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
