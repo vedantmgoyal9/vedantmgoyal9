@@ -19,7 +19,7 @@
   "ManifestFields": {
     "PackageVersion": "$Response.version.TrimStart('v') -replace '-nightly.*', $Null",
     "InstallerUrls": "@($x64_Uri.Replace('#raw_version', $Response.version), $x86_Uri.Replace('#raw_version', $Response.version))",
-    "ReleaseNotesUrl": "$Response.date"
+    "ReleaseDate": "$Response.date"
   },
   "AdditionalInfo": {
     "x64_Uri": "https://nodejs.org/download/nightly/#raw_version/node-#raw_version-x64.msi",

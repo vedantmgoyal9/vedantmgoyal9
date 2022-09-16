@@ -21,7 +21,6 @@
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "'IntelliJ IDEA Educational Edition ' + $Response.majorVersion",
-        "Publisher": "'JetBrains s.r.o.'",
         "DisplayVersion": "$Response.build",
         "ProductCode": "'IntelliJ IDEA Educational Edition ' + $Response.majorVersion"
       }
