@@ -15,8 +15,7 @@
   "PreviousVersion": "0.11.0.9200",
   "ManifestFields": {
     "PackageVersion": "$Response.latestversion",
-    "InstallerUrls": "$Response.downloadurl",
-    "ReleaseDate": "$Response.updatedate.Replace('.', '-')"
+    "InstallerUrls": "$Response.downloadurl"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
