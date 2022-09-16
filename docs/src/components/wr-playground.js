@@ -2,9 +2,7 @@
 import CodeBlock from '@theme/CodeBlock';
 
 export default function WrPlayground() {
-  const [result, setOutput] = useState(
-    'Please enter the required inputs...'
-  );
+  const [result, setOutput] = useState('Please enter the required inputs...');
   const [pkgId, setPkgId] = useState('');
   const [version, setVersion] = useState('');
   const [instRegex, setInstRegex] = useState(
@@ -22,22 +20,27 @@ export default function WrPlayground() {
       );
       return;
     }
-    fetch(
-      'https://api.github.com/repos/' + ghRepo + '/releases/latest'
-    ).then((res) => {
-      res.json().then((data) => {
-        setOutput(JSON.stringify({
-          PackageIdentifier: pkgId,
-          PackageVersion: version || /[0-9.]+/g.exec(data.tag_name)[0],
-          InstallerUrls: data.assets.flatMap((element) =>
-            new RegExp(instRegex, 'g').test(element.name)
-              ? element.browser_download_url
-              : []
-          ),
-        }, null, 2)
-        );
-      });
-    });
+    fetch('https://api.github.com/repos/' + ghRepo + '/releases/latest').then(
+      (res) => {
+        res.json().then((data) => {
+          setOutput(
+            JSON.stringify(
+              {
+                PackageIdentifier: pkgId,
+                PackageVersion: version || /[0-9.]+/g.exec(data.tag_name)[0],
+                InstallerUrls: data.assets.flatMap((element) =>
+                  new RegExp(instRegex, 'g').test(element.name)
+                    ? element.browser_download_url
+                    : []
+                ),
+              },
+              null,
+              2
+            )
+          );
+        });
+      }
+    );
   }, [pkgId, version, instRegex, ghRepo]);
   return (
     <div>
