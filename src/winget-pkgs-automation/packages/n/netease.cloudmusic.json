@@ -6,18 +6,20 @@
     "Uri": "https://interface.music.163.com/eapi/pc/upgrade/get",
     "Method": "Post",
     "Headers": {
-      "Cookie": "appver=0.0;MUSIC_A=15e860272ed0803ccf979188982b610ab086a424d18df0f04ee8b1d194962355ef2ae33b30bb5917c514d981210de4857a446f6ceddb779fec58efb075f2174dcb7ce23cca3bd6be03a4f1d7e1fccdebb72149bd3b14523943124f3fcebe94e446b14e3f0c3f8af94212382188fe1965"
+      "Cookie": "osver=Microsoft-Windows-10;appver=0.0;MUSIC_A=6085dfaeef3309e0d72e0231322c9f08c51ccb892523f22b1765f4fa54aaee6cbd4c8cbd56003dc8aea6fe1f7a17619db0b4ac32bcfbfd0454cd702b5b9d6a67e9a393e284f6205e62736fd6082ade0a7eb301809b02b3ba17f4d258053c06b0f7b1f8b4bcdb9c2e6d1ca43adf6aa0dac55792a47c98c1db4212382188fe1965"
     },
     "Body": "params=20AD5BCD8A21D010D72912FBE854AED808316493CA0F1AFE015054D5D9F452EE14A89C9856B184A3A769A1CF152C95220F755B69B92FCCD42CD28ECD3863AA13EC8A69A8492450918B43244EAEC7B8A7A5AA8276F767371D7B1F3B63F6BCD00A",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response = $Response.data.packageVO",
+  "PostResponseScript": "$Response = $Response.data",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "2.9.8.199759",
   "ManifestFields": {
-    "PackageVersion": "$Response.appver + '.' + $Response.buildver",
-    "InstallerUrls": "$Response.downloadUrl"
+    "PackageVersion": "$Response.packageVO.appver + '.' + $Response.packageVO.buildver",
+    "InstallerUrls": "$Response.packageVO.downloadUrl",
+    "ReleaseNotes": "$Response.upgradeContent",
+    "ReleaseNotesUrl": "\"https://music.163.com/#/pcupdatelog\""
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
