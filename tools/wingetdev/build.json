@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "993de6b6996023c399071be59fdf35ba60cd1d83",
-    "Message": "Return error codes for dependencies failure (#2410)\n\n* Surface dependencies specific errors\r\n\r\n* Updated flags result\r\n\r\n* Sort alphabetically\r\n\r\n* Return message ID when string mapping not found\r\n\r\n* Addressed PR comments\r\n\r\n* Renamed field to context\r\n\r\n* Proper name change\r\n\r\n* Addressed PR comments\r\n\r\n* Addressed PR comments\r\n\r\n* Change method name to reflect functionality.\r\n\r\n* Included excluded files.\r\n\r\n* Addressed PR comments\r\n\r\n* Spaces and indentation fix.\r\n\r\n* Add capability to return multiple error result.\r\n\r\n* code refactor\r\n\r\n* Addressed pr comment\r\n\r\n* Addressed PR comments\r\n\r\n* Addressed pr comment\r\n\r\nCo-authored-by: Akinwale Alagbe <akalagbe@microsoft.com>",
-    "Author": "Akinwale Alagbe"
+    "Sha": "e583f91512638da6edb815ab2fe1f4cc845b0ed1",
+    "Message": "Fix installer metadata collection (#2517)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Tuesday, September 13, 2022 7:37:48 PM"
+  "BuildDateTime": "Friday, September 16, 2022 3:39:26 AM"
 }
