@@ -131,7 +131,8 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
             # 3600 secs/hr * 24 hr/day * 365 days * 2.5 years = 78840000 seconds
             If (([DateTimeOffset]::Now.ToUnixTimeSeconds() - 78840000) -ge [DateTimeOffset]::new($Response.published_at).ToUnixTimeSeconds()) {
                 $Package.SkipPackage = 'Automatically marked as stale, not updated for 2.5 years'
-                ConvertTo-Json -InputObject $Package | Set-Content -Path .\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
+                # ConvertTo-Json: set depth to 100 (maxiumum) to prevent error when converting to json
+                ConvertTo-Json -InputObject $Package -Depth 100 | Set-Content -Path .\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
             }
         }
         $Package.ManifestFields.PSObject.Properties.ForEach({
@@ -164,7 +165,8 @@ ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -R
         If (-not [System.String]::IsNullOrEmpty($Package.PostUpgradeScript)) {
             $Package.PostUpgradeScript | Invoke-Expression # Run PostUpgradeScript
         }
-        ConvertTo-Json -InputObject $Package | Set-Content -Path .\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
+        # ConvertTo-Json: set depth to 100 (maxiumum) to prevent error when converting to json
+        ConvertTo-Json -InputObject $Package -Depth 100 | Set-Content -Path .\packages\$($Package.Identifier.Substring(0,1).ToLower())\$($Package.Identifier.ToLower()).json
     }
     Remove-Variable -Name UpdateCondition -ErrorAction SilentlyContinue
 }
