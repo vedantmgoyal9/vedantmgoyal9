@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.TBA",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "1.25.12999",
+  "PreviousVersion": "1.26.0.13072",
   "ManifestFields": {
     "PackageVersion": "$Response.build",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",

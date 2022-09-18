@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "e583f91512638da6edb815ab2fe1f4cc845b0ed1",
-    "Message": "Fix installer metadata collection (#2517)",
-    "Author": "yao-msft"
+    "Sha": "f804b953e4e5cdf584ee6c5e414421b08cb749ca",
+    "Message": "Suppress reboot by default on Inno based installers (#2536)",
+    "Author": "SpecterShell"
   },
-  "BuildDateTime": "Friday, September 16, 2022 3:39:26 AM"
+  "BuildDateTime": "Wednesday, September 21, 2022 9:43:48 PM"
 }
