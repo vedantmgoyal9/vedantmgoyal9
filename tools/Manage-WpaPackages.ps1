@@ -501,7 +501,7 @@ If ($IsGitHub -eq $true) {
     Write-Output '-> Automatically detected and set (since the method is Head)'
     $Package.PostResponseScript = '$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString'
 } Else {
-    $Package.PostResponseScript = Get-UserInput -Method Menu -Message 'PostResponseScript' -Choices @('$Response = $Response | ConvertFrom-Yaml', 'Custom') -AllowEmpty
+    $Package.PostResponseScript = Get-UserInput -Method Menu -Message 'PostResponseScript' -Choices @('$Response = $Response | ConvertFrom-Yaml', '$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml', 'Custom') -AllowEmpty
     If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript) -and -not $Package.PostResponseScript.Contains('ForEach') -and $Package.PostResponseScript.Contains(';')) {
         $Package.PostResponseScript = $Package.PostResponseScript.Split(';').ForEach({ $_.Trim() })
     }

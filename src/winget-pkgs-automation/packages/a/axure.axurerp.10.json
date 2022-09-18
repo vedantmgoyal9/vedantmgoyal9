@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "Axure.AxureRP.10",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.axure.com/update-check/CheckForUpdate?info=%7B%22ClientVersion%22%3A%2210.0.0.0%22%2C%22ClientOS%22%3A%22Windows%22%7D",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$ResponseSplitted = $Response -split '\n'",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "($ResponseSplitted[4] | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$InstUri.Replace('#id', ($ResponseSplitted[1] | ConvertFrom-StringData).id)",
+    "ReleaseNotes": "(($Response -split '\n\n\n')[0] -split '\n' | Select-Object -Skip 6) -join \"`n\" -replace 'message=<title>',$Null",
+    "ReleaseNotesUrl": "'https://www.axure.com/release-history'",
+    "ReleaseDate": "(Get-Date -Date ($ResponseSplitted[5] | Select-String -Pattern $ReleaseDateRegex).Matches.Value).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {
+    "InstUri": "https://axure.cachefly.net/versions/10-0/AxureRP-Setup-#id.exe",
+    "ReleaseDateRegex": "[0-9\/]+"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
