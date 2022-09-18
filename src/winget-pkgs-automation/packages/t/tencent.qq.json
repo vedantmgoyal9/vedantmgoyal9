@@ -12,15 +12,15 @@
   "PostResponseScript": "$Response = $Response | Select-Object -Property Content, Links",
   "VersionRegex": "(?<=QQ)[0-9.]+(?=\\.exe)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "",
+  "PreviousVersion": "9.6.6.28796",
   "ManifestFields": {
     "PackageVersion": "($Response.Links.href.Where({ $_.EndsWith('.exe') }) | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response.Links.href.Where({ $_.EndsWith('.exe') })",
-    "ReleaseDate": "(Get-Date -Date (($Response.Content | Select-String -Pattern $ReleaseDateRegex).Matches.Value -replace '[^0-9]', '\/').Trim('\/')).ToString('yyyy-MM-dd')"
+    "ReleaseDate": "(Get-Date -Date (($Response.Content | Select-String -Pattern $ReleaseDateRegex).Matches.Value -replace '[^0-9]', '/').Trim('/')).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
     "Comment": "Chinese unicode characters taken from website for regex matching",
-    "ReleaseDateRegex": "(?<=\\>发布时间：).*(?=\\<\/span\\>)"
+    "ReleaseDateRegex": "(?<=\\>发布时间：).*(?=\\</span\\>)"
   },
   "PostUpgradeScript": "",
   "YamlCreateParams": {
