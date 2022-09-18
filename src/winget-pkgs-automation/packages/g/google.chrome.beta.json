@@ -15,7 +15,8 @@
   "PreviousVersion": "99.0.4844.51",
   "ManifestFields": {
     "PackageVersion": "$Response.current_version",
-    "InstallerUrls": "@($x64_Uri, $x86_Uri)"
+    "InstallerUrls": "@($x64_Uri, $x86_Uri)",
+    "ReleaseDate": "(Get-Date -Date $Response.current_reldate).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
     "x64_Uri": "https://dl.google.com/tag/s/dl/chrome/install/beta/googlechromebetastandaloneenterprise64.msi",
