@@ -15,7 +15,7 @@
   "PostResponseScript": "$Response = $Response.name.TrimStart('v')",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "2.2.19",
+  "PreviousVersion": "2.3.0",
   "ManifestFields": {
     "PackageVersion": "$Response",
     "InstallerUrls": "@(\"https://releases.hashicorp.com/vagrant/$($Response)/vagrant_$($Response)_x86_64.msi\", \"https://releases.hashicorp.com/vagrant/$($Response)/vagrant_$($Response)_i686.msi\")"
