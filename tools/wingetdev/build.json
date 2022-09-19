@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "e583f91512638da6edb815ab2fe1f4cc845b0ed1",
-    "Message": "Fix installer metadata collection (#2517)",
-    "Author": "yao-msft"
+    "Sha": "28741001257faa4deaf0bda51b93af04c597f75f",
+    "Message": "Add Aliases to allow for quick upgrade of all and unknown (#2518)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Friday, September 16, 2022 3:39:26 AM"
+  "BuildDateTime": "Monday, September 19, 2022 9:29:24 PM"
 }
