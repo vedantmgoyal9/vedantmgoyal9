@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "28741001257faa4deaf0bda51b93af04c597f75f",
-    "Message": "Add Aliases to allow for quick upgrade of all and unknown (#2518)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "a92346db8dce0ba7700ddb9490917a90309aad71",
+    "Message": "Expose deeper installation detection through Com  (#2420)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Monday, September 19, 2022 9:29:24 PM"
+  "BuildDateTime": "Monday, September 19, 2022 11:35:16 PM"
 }
