@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "1.8.28",
+  "PreviousVersion": "1.8.29",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "'https://download.remnote.io/' + [System.Uri]::EscapeDataString($Response.path)",
