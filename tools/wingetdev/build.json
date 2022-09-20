@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "a92346db8dce0ba7700ddb9490917a90309aad71",
-    "Message": "Expose deeper installation detection through Com  (#2420)",
-    "Author": "yao-msft"
+    "Sha": "4a5611fd9eded2a783c9f803f1a05ff039ccf33f",
+    "Message": "Merge pull request #2511 from ryfu-msft/pure",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Monday, September 19, 2022 11:35:16 PM"
+  "BuildDateTime": "Tuesday, September 20, 2022 6:31:02 PM"
 }
