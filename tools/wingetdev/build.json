@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "4a5611fd9eded2a783c9f803f1a05ff039ccf33f",
-    "Message": "Merge pull request #2511 from ryfu-msft/pure",
-    "Author": "Ryan Fu"
+    "Sha": "f804b953e4e5cdf584ee6c5e414421b08cb749ca",
+    "Message": "Suppress reboot by default on Inno based installers (#2536)",
+    "Author": "SpecterShell"
   },
-  "BuildDateTime": "Tuesday, September 20, 2022 6:31:02 PM"
+  "BuildDateTime": "Wednesday, September 21, 2022 9:43:48 PM"
 }
