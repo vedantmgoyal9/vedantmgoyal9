@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
-  "Identifier": "Elgato.GameCapture.HD",
+  "Identifier": "Elgato.CameraHub",
   "Update": {
     "InvokeType": "RestMethod",
     "Uri": "https://www.elgato.com/sites/default/files/downloads.json",
@@ -9,10 +9,10 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$Response = $Response.'gc-win'.downloadURL",
+  "PostResponseScript": "$Response = $Response.'camera-hub-win'.downloadURL",
   "VersionRegex": "(?<=_)[0-9.]+(?=_)",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "3.70.56.3056",
+  "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response"
