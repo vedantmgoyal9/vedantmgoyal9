@@ -3,7 +3,7 @@
   "Identifier": "Tencent.TencentMeeting",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://meeting.tencent.com/web-service/query-app-update-info/?os=Windows&sdk_id=0300000000&from=2&appver=#PKG_PREVIOUS_VER",
+    "Uri": "https://meeting.tencent.com/web-service/query-app-update-info/?os=Windows&sdk_id=0300000000&from=2&app_publish_channel=TencentInside&appver=#PKG_PREVIOUS_VER",
     "Method": "Get",
     "Headers": {},
     "Body": "",
