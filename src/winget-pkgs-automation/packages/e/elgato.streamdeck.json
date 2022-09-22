@@ -10,7 +10,7 @@
     "UserAgent": ""
   },
   "PostResponseScript": "$Response = $Response.'sd-win'.downloadURL",
-  "VersionRegex": "[0-9.]{2,}(?=\\.)",
+  "VersionRegex": "(?<=_)[0-9.]+(?=\\.)",
   "InstallerRegex": ".msi$",
   "PreviousVersion": "5.3.1.15197",
   "ManifestFields": {
