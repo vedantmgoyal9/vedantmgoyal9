@@ -10,7 +10,7 @@
     "UserAgent": ""
   },
   "PostResponseScript": "$Response = $Response.'4kcu-win'.downloadURL",
-  "VersionRegex": "[0-9.]{6,}",
+  "VersionRegex": "(?<=_)[0-9.]+(?=_)",
   "InstallerRegex": ".msi$",
   "PreviousVersion": "1.7.8.4914",
   "ManifestFields": {
