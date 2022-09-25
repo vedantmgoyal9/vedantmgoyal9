@@ -33,7 +33,7 @@ function activate(context) {
 
   let manageWpaPkgs = vscode.commands.registerCommand(
     'vedantmgoyal2009.manageWpaPackages',
-    async function () {
+    async () => {
       let pkgList = new Map();
       let dirContents = await vscode.workspace.findFiles(
         `src/winget-pkgs-automation/packages/**/*.json`
@@ -126,6 +126,8 @@ function activate(context) {
                     cwd: `${vscode.workspace.workspaceFolders[0].uri.fsPath}/tools`,
                     shellPath: 'pwsh',
                     shellArgs: [
+                      '-NoExit',
+                      '-NoProfile',
                       '-Command',
                       './Manage-WpaPackages.ps1',
                       '-PackageIdentifier',
