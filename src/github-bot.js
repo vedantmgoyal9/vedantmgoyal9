@@ -19,6 +19,7 @@ module.exports = (app) => {
     ) {
       app.log.info('-----------');
       app.log.info('Updating wpa-packages.md');
+      execSync('git pull', { cwd: `${__dirname}/..` });
       writeFileSync(
         `${__dirname}/../docs/docs/wpa-packages.md`,
         [
