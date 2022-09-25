@@ -15,7 +15,7 @@
   "PostResponseScript": "$Response = $Response | Where-Object { $_.name.Contains(\"Release\") } | Select-Object -First 1",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "BraveBrowserStandaloneSilentSetup.*.exe$",
-  "PreviousVersion": "",
+  "PreviousVersion": "100.1.44.97",
   "ManifestFields": {
     "PackageVersion": "\"100.\"+$($Response.tag_name.TrimStart(\"v\"))",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }"
