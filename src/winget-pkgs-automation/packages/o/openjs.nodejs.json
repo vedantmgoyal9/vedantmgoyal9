@@ -18,14 +18,14 @@
   ],
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "18.9.1",
+  "PreviousVersion": "18.10.0",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "@(\"https://nodejs.org/dist/$($Response.tag_name)/node-$($Response.tag_name)-x64.msi\", \"https://nodejs.org/dist/$($Response.tag_name)/node-$($Response.tag_name)-x86.msi\")",
     "ReleaseNotesUrl": "$Response.html_url"
   },
   "AdditionalInfo": {
-    "PreviousReleaseId": 78003987
+    "PreviousReleaseId": 78484294
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {

@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f804b953e4e5cdf584ee6c5e414421b08cb749ca",
-    "Message": "Suppress reboot by default on Inno based installers (#2536)",
-    "Author": "SpecterShell"
+    "Sha": "8d0996fc4921261b3eb46b0351793f53e8e918f4",
+    "Message": "Make Symlink Target Canonical (#2563)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Wednesday, September 21, 2022 9:43:48 PM"
+  "BuildDateTime": "Saturday, October 1, 2022 3:15:20 AM"
 }
