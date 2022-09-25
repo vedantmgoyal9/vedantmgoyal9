@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f804b953e4e5cdf584ee6c5e414421b08cb749ca",
-    "Message": "Suppress reboot by default on Inno based installers (#2536)",
-    "Author": "SpecterShell"
+    "Sha": "2f5008223fa939c3b5dbe8c29ddd3cb484ef96c0",
+    "Message": "Add client support for parsing rest schema v1.4 (#2473)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Wednesday, September 21, 2022 9:43:48 PM"
+  "BuildDateTime": "Sunday, September 25, 2022 4:52:58 AM"
 }
