@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "2f5008223fa939c3b5dbe8c29ddd3cb484ef96c0",
-    "Message": "Add client support for parsing rest schema v1.4 (#2473)",
-    "Author": "yao-msft"
+    "Sha": "082b9907644244c8697b4cdd4616ea111f15b73a",
+    "Message": "Add experimental argument to open logs folder (#2510)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Sunday, September 25, 2022 4:52:58 AM"
+  "BuildDateTime": "Tuesday, September 27, 2022 4:59:25 AM"
 }
