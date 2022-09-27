@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "082b9907644244c8697b4cdd4616ea111f15b73a",
-    "Message": "Add experimental argument to open logs folder (#2510)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "e0ac9653f30b93847784d43b56210d8e4a47eec4",
+    "Message": "Add support for installing portables from a zip  (#2500)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Tuesday, September 27, 2022 4:59:25 AM"
+  "BuildDateTime": "Tuesday, September 27, 2022 6:04:06 PM"
 }
