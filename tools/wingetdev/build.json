@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "e0ac9653f30b93847784d43b56210d8e4a47eec4",
-    "Message": "Add support for installing portables from a zip  (#2500)",
-    "Author": "Ryan Fu"
+    "Sha": "9d93f82d2c80a593d396fb0c6994f660a8308fff",
+    "Message": "map operation return code for msstore type as well (#2540)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Tuesday, September 27, 2022 6:04:06 PM"
+  "BuildDateTime": "Tuesday, September 27, 2022 9:42:00 PM"
 }
