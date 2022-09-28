@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "9d93f82d2c80a593d396fb0c6994f660a8308fff",
-    "Message": "map operation return code for msstore type as well (#2540)",
+    "Sha": "9d8aafc1e9ca314e54a866ba5a39ec612c553f8b",
+    "Message": "Fix installer renaming failure from encoded url (#2555)",
     "Author": "yao-msft"
   },
-  "BuildDateTime": "Tuesday, September 27, 2022 9:42:00 PM"
+  "BuildDateTime": "Wednesday, September 28, 2022 2:52:55 AM"
 }
