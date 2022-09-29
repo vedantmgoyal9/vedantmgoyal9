@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "9d8aafc1e9ca314e54a866ba5a39ec612c553f8b",
-    "Message": "Fix installer renaming failure from encoded url (#2555)",
-    "Author": "yao-msft"
+    "Sha": "a394ea820386514ece1c88ce0af039db1d18251a",
+    "Message": "add purelib to cgmanifest (#2556)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Wednesday, September 28, 2022 2:52:55 AM"
+  "BuildDateTime": "Thursday, September 29, 2022 5:02:12 PM"
 }
