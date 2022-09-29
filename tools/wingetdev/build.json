@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "6777a54600df98056d0d75983fdb7f265cabe6f5",
-    "Message": "Added WinGetUtil E2E tests (#2542)",
-    "Author": "AmirMS"
+    "Sha": "8a8ad84c47705971b62492808800045c6f91961f",
+    "Message": "Add space before path when files remain on uninstall (#2560)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Thursday, September 29, 2022 7:45:03 PM"
+  "BuildDateTime": "Thursday, September 29, 2022 10:47:52 PM"
 }
