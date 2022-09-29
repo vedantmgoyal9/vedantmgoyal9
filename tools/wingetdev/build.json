@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "a394ea820386514ece1c88ce0af039db1d18251a",
-    "Message": "add purelib to cgmanifest (#2556)",
-    "Author": "Ryan Fu"
+    "Sha": "6777a54600df98056d0d75983fdb7f265cabe6f5",
+    "Message": "Added WinGetUtil E2E tests (#2542)",
+    "Author": "AmirMS"
   },
-  "BuildDateTime": "Thursday, September 29, 2022 5:02:12 PM"
+  "BuildDateTime": "Thursday, September 29, 2022 7:45:03 PM"
 }
