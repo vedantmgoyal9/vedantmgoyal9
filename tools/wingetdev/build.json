@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "8a8ad84c47705971b62492808800045c6f91961f",
-    "Message": "Add space before path when files remain on uninstall (#2560)",
+    "Sha": "5c4c0b44157322b4c305af9b6c6a17ed77a2213e",
+    "Message": "Additional logging when validating portable file fails (#2562)",
     "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Thursday, September 29, 2022 10:47:52 PM"
+  "BuildDateTime": "Friday, September 30, 2022 10:49:32 PM"
 }
