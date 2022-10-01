@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "5c4c0b44157322b4c305af9b6c6a17ed77a2213e",
-    "Message": "Additional logging when validating portable file fails (#2562)",
+    "Sha": "8d0996fc4921261b3eb46b0351793f53e8e918f4",
+    "Message": "Make Symlink Target Canonical (#2563)",
     "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Friday, September 30, 2022 10:49:32 PM"
+  "BuildDateTime": "Saturday, October 1, 2022 3:15:20 AM"
 }
