@@ -1,0 +1,31 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json",
+  "Identifier": "Wondershare.PDFReader.CN",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://cbs.wondershare.com/go.php?m=upgrade_info&pid=13143&version=1.0.1",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = Select-Xml -Content ([System.IO.StreamReader]::new($Response.RawContentStream).ReadToEnd()) -XPath '/Respone/WhatNews/Item' | Select-Object -First 1 -ExpandProperty Node",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "$Response.Version",
+    "InstallerUrls": "@($x64InstUri.Replace('#version',$Response.Version), $x86InstUri.Replace('#version',$Response.Version))",
+    "ReleaseNotes": "$Response.Text.'#cdata-section'"
+  },
+  "AdditionalInfo": {
+    "x64InstUri": "https://cc-download.wondershare.cc/cbs_down/pdfreader_64bit_#version_full13143.exe",
+    "x86InstUri": "https://cc-download.wondershare.cc/cbs_down/pdfreader_#version_full13143.exe"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
