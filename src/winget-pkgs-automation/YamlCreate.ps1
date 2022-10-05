@@ -4,9 +4,13 @@
 Param
 (
     [Parameter(Mandatory = $true)]
-    [PSCustomObject] $InputObject
+    [PSCustomObject] $InputObject,
+    [switch] $Check
 )
-
+If ($Check) {
+    xyz
+    Exit
+}
 $ScriptHeader = '# Created with YamlCreate.ps1 v2.1.3 using InputObject 🤖'
 $ManifestVersion = '1.2.0'
 $PSDefaultParameterValues = @{ '*:Encoding' = 'UTF8' }

@@ -18,8 +18,9 @@
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "$Response.downloads.url",
-    "ReleaseNotesUrl": "$Response.releaseNotes.url",
-    "ReleaseNotes": "(& ($ParseReleaseNotes | Invoke-Expression) (Invoke-RestMethod $Response.releaseNotes.url)) -replace '\\x1b\\[[0-9;]*m' -replace '^\\s+'"
+    "ReleaseNotesUrl": "'https://unity3d.com/unity/whats-new/' + $Response.version -replace 'f1'",
+    "ReleaseNotes": "(& ($ParseReleaseNotes | Invoke-Expression) (Invoke-RestMethod $Response.releaseNotes.url)) -replace '\\x1b\\[[0-9;]*m' -replace '^\\s+'",
+    "ProductCode": "'Unity ' + $Response.version"
   },
   "AdditionalInfo": {
     "RegexInReleaseNotes": "To remove Markdown escape regexes (ANSI/VT100), additional regexes has been added in ReleaseNotes field",

@@ -19,7 +19,7 @@
     "PackageVersion": "$Response.version",
     "InstallerUrls": "$Response.downloads.url",
     "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')",
-    "ReleaseNotesUrl": "$Response.releaseNotes.url",
+    "ReleaseNotesUrl": "'https://unity3d.com/unity/whats-new/' + $Response.version -replace 'f1'",
     "ReleaseNotes": "(& ($ParseReleaseNotes | Invoke-Expression) (Invoke-RestMethod $Response.releaseNotes.url)) -replace '\\x1b\\[[0-9;]*m' -replace '^\\s+'"
   },
   "AdditionalInfo": {

@@ -1,9 +1,16 @@
 # Make function available to local scope so that it is automatically imported to script scope
 Function Local:Test-ArpMetadata {
+    $MyInvocation | ConvertTo-Json
+}
+Function Local:Test-ArpMetadata {
     Param (
         [Parameter(Mandatory = $true)]
         [System.String] $ManifestFolder
     )
+    If (-not $MyInvocation.PSCommandPath.EndsWith('Automation.ps1')) {
+        Write-Output 'This function is only available in the Automation.ps1 script.'
+        return
+    }
     $FunctionsForJob = {
         # Function to get the add/remove programs entries from the registries
         Function Get-ARPTable {
@@ -46,6 +53,10 @@ Function Local:Test-ArpMetadata {
 }
 
 Function Local:Submit-Manifest {
+    If (-not $MyInvocation.PSCommandPath.EndsWith('Automation.ps1') -or -not $MyInvocation.PSCommandPath.EndsWith('Add-PackageVersions.ps1')) {
+        Write-Output 'This function is only available in the Automation.ps1 and Add-PackageVersions.ps1 scripts.'
+        return
+    }
     git fetch upstream master --quiet # Fetch the upstream branch
     If ($LASTEXITCODE -eq '0') {
         # Make sure path exists and is valid before hashing
@@ -60,7 +71,8 @@ Function Local:Submit-Manifest {
         git add -A
         git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion"
         $CommitId = git log --format=%H -1 # Store the commit id of the commit that was just made
-        If ($PreviousCommitId -eq $CommitId) { # If the commit id is the same as the previous commit id,
+        If ($PreviousCommitId -eq $CommitId) {
+            # If the commit id is the same as the previous commit id,
             Write-Output 'Re-use PR check: No changes made...' # then there were no changes made
             return
         }
