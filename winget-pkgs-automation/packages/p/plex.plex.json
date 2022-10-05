@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Plex.Plex",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://plex.tv/api/downloads/6.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.computer.Windows",
+  "VersionRegex": "[0-9.]{5,6}",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "1.55.0",
+  "ManifestFields": {
+    "PackageVersion": "($Response.version | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response.releases.url"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

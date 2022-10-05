@@ -1,0 +1,29 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "JetBrains.Hub",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=HB",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.HB",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "22.2.15088",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version.Split('20')[1] + '.' + $Response.build",
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ReleaseNotesUrl": "$Response.notesLink"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

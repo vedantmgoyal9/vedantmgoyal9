@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "JetBrains.PyCharm.Professional.EAP",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=eap&code=PCP",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.PCP",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".*.exe$",
+  "PreviousVersion": "223.4884.74",
+  "ManifestFields": {
+    "PackageVersion": "$Response.build",
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ReleaseNotesUrl": "$Response.notesLink",
+    "ProductCode:": "'PyCharm ' + $Response.build"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

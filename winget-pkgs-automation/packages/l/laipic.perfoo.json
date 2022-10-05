@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "LAIPIC.Perfoo",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://presentment-api.laihua.com/common/config?type=120",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.data.perfooUpdatePC | ConvertFrom-Json",
+  "VersionRegex": "(?<=v)[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "1.0.5",
+  "ManifestFields": {
+    "PackageVersion": "($Response.versionCode | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response.downloadUrl"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
