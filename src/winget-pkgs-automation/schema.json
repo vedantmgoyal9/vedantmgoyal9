@@ -43,10 +43,7 @@
       "properties": {
         "InvokeType": {
           "$id": "#/properties/Update/properties/InvokeType",
-          "enum": [
-            "RestMethod",
-            "WebRequest"
-          ],
+          "enum": ["RestMethod", "WebRequest"],
           "type": "string"
         },
         "Uri": {
@@ -87,10 +84,7 @@
     },
     "PostResponseScript": {
       "$id": "#/properties/PostResponseScript",
-      "type": [
-        "string",
-        "array"
-      ]
+      "type": ["string", "array"]
     },
     "VersionRegex": {
       "$id": "#/properties/VersionRegex",
@@ -107,10 +101,7 @@
     "ManifestFields": {
       "$id": "#/properties/ManifestFields",
       "type": "object",
-      "required": [
-        "PackageVersion",
-        "InstallerUrls"
-      ],
+      "required": ["PackageVersion", "InstallerUrls"],
       "properties": {
         "PackageVersion": {
           "$id": "#/properties/ManifestFields/properties/PackageVersion",
@@ -174,25 +165,16 @@
     "YamlCreateParams": {
       "$id": "#/properties/YamlCreateParams",
       "type": "object",
-      "required": [
-        "SkipPRCheck",
-        "DeletePreviousVersion"
-      ],
+      "required": ["SkipPRCheck", "DeletePreviousVersion"],
       "properties": {
         "SkipPRCheck": {
           "$id": "#/properties/YamlCreateParams/properties/SkipPRCheck",
-          "enum": [
-            true,
-            false
-          ],
+          "enum": [true, false],
           "type": "boolean"
         },
         "DeletePreviousVersion": {
           "$id": "#/properties/YamlCreateParams/properties/DeletePreviousVersion",
-          "enum": [
-            true,
-            false
-          ],
+          "enum": [true, false],
           "type": "boolean"
         }
       },
@@ -204,10 +186,7 @@
         false,
         "Automatically marked as stale, not updated for 2.5 years"
       ],
-      "type": [
-        "boolean",
-        "string"
-      ]
+      "type": ["boolean", "string"]
     }
   },
   "additionalProperties": false

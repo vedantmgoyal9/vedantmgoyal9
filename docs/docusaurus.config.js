@@ -24,7 +24,8 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/vedantmgoyal2009/vedantmgoyal2009/edit/main/docs/',
+          editUrl:
+            'https://github.com/vedantmgoyal2009/vedantmgoyal2009/edit/main/docs/',
         },
         blog: false, // disable blog
         // blog: {
@@ -71,17 +72,17 @@ const config = {
           // disable blog
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: "https://github.com/vedantmgoyal2009/vedantmgoyal2009",
+            href: 'https://github.com/vedantmgoyal2009/vedantmgoyal2009',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
-            position: "right"
+            position: 'right',
           },
           {
-            href: "https://twitter.com/",
+            href: 'https://twitter.com/',
             className: 'header-twitter-link',
             'aria-label': 'Twitter',
-            position: "right"
-          }
+            position: 'right',
+          },
         ],
       },
       footer: {
@@ -110,7 +111,6 @@ const config = {
             tagName: 'link',
             rel: 'icon',
             href: '/img/open-book_1f4d6.png',
-
           },
           {
             tagName: 'link',

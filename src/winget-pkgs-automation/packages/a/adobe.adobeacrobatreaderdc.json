@@ -18,13 +18,7 @@
     "InstallerUrls": "$Locales | ForEach-Object { \"https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/$($Response.Replace('.', ''))/AcroRdrDC$($Response.Replace('.', ''))_$($_).exe\" }"
   },
   "AdditionalInfo": {
-    "Locales": [
-      "en_US",
-      "de_DE",
-      "es_ES",
-      "fr_FR",
-      "ja_JP"
-    ]
+    "Locales": ["en_US", "de_DE", "es_ES", "fr_FR", "ja_JP"]
   },
   "PostUpgradeScript": "",
   "YamlCreateParams": {
