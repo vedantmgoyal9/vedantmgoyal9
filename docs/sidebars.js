@@ -18,21 +18,17 @@ const sidebars = {
 
   // But you can create a sidebar manually
   docs: [
-    "about-me",
+    'about-me',
     {
       type: 'category',
       label: '🤖 WinGet Automation',
       collapsed: false,
       collapsible: false,
-      items: [
-        'wpa-intro',
-        'wpa-add-a-package',
-        'wpa-packages',
-      ],
+      items: ['wpa-intro', 'wpa-add-a-package', 'wpa-packages'],
     },
-    "wr-playground",
-    "contributors"
-  ]
+    'wr-playground',
+    'contributors',
+  ],
 };
 
 module.exports = sidebars;
