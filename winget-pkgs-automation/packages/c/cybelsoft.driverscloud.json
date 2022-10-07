@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Cybelsoft.DriversCloud",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.driverscloud.com/update.xml",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.components.component.Where({ $_.urls.EndsWith('exe') -and -not $_.urls.Contains('Old') })",
+  "VersionRegex": "(?<=version:.*)[0-9.]+(?=</div>)",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "11.2.6.0",
+  "ManifestFields": {
+    "PackageVersion": "$Response[0].version",
+    "InstallerUrls": "$Response.urls"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Discord.Discord.Canary",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://discord.com/api/downloads/distributions/app/installers/latest?arch=x86&platform=win&channel=canary",
+    "Method": "Head",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
+  "VersionRegex": "[0-9.]{3,}",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "1.0.49",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

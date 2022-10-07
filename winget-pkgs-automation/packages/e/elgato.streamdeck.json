@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Elgato.StreamDeck",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.elgato.com/sites/default/files/downloads.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.'sd-win'.downloadURL",
+  "VersionRegex": "(?<=_)[0-9.]+(?=\\.)",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "5.3.3.15214",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

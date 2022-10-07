@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Freeplane.Freeplane",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://sourceforge.net/projects/freeplane/best_release.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.platform_releases.windows.url",
+  "VersionRegex": "[0-9.]{5,6}",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "1.9.14",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "($Response.Replace('http://downloads.sourceforge.net/project/freeplane/', 'https://sourceforge.net/projects/freeplane/files/')) -replace '\\?.*', '/download'"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

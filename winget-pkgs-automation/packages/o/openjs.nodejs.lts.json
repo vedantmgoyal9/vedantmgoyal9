@@ -1,0 +1,36 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "OpenJS.NodeJS.LTS",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://api.github.com/repos/nodejs/node/releases",
+    "Method": "Get",
+    "Headers": {
+      "Authorization": "$AuthToken",
+      "Accept": "application/vnd.github.v3+json"
+    },
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": [
+    "$Response = $Response | Where-Object { $_.name.Contains('LTS') } | Select-Object -First 1",
+    "$UpdateCondition = $Response.id -gt $PreviousReleaseId"
+  ],
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "16.17.1",
+  "ManifestFields": {
+    "PackageVersion": "$Response.tag_name.TrimStart('v')",
+    "InstallerUrls": "@(\"https://nodejs.org/dist/$($Response.tag_name)/node-$($Response.tag_name)-x64.msi\", \"https://nodejs.org/dist/$($Response.tag_name)/node-$($Response.tag_name)-x86.msi\")",
+    "ReleaseNotesUrl": "$Response.html_url"
+  },
+  "AdditionalInfo": {
+    "PreviousReleaseId": 78003975
+  },
+  "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

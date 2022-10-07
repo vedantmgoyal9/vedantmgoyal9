@@ -1,0 +1,35 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Adobe.AdobeAcrobatReaderDC",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://armmf.adobe.com/arm-manifests/mac/AcrobatDC/reader/current_version.txt",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "22.001.20169",
+  "ManifestFields": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "$Locales | ForEach-Object { \"https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/$($Response.Replace('.', ''))/AcroRdrDC$($Response.Replace('.', ''))_$($_).exe\" }"
+  },
+  "AdditionalInfo": {
+    "Locales": [
+      "en_US",
+      "de_DE",
+      "es_ES",
+      "fr_FR",
+      "ja_JP"
+    ]
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

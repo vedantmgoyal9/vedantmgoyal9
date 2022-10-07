@@ -1,1 +1,3 @@
-/home/linuxbrew/.linuxbrew/bin/oh-my-posh init pwsh --config /workspaces/vedantmgoyal2009/.devcontainer/mytheme.omp.json | Invoke-Expression
+$HomeBrew = '/home/linuxbrew/.linuxbrew/bin/brew'
+$OhMyPosh = '/home/linuxbrew/.linuxbrew/bin/oh-my-posh'
+(& $OhMyPosh init pwsh -c "$(& $HomeBrew --prefix oh-my-posh)/themes/takuya.omp.json")  | Invoke-Expression

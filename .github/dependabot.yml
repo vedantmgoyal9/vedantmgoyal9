@@ -15,8 +15,6 @@ updates:
       timezone: 'Asia/Kolkata'
     labels:
       - 'dependencies'
-    reviewers:
-      - 'vedantmgoyal2009'
     commit-message:
       prefix: 'chore(deps)'
     target-branch: 'main'
@@ -31,8 +29,6 @@ updates:
       timezone: 'Asia/Kolkata'
     labels:
       - 'dependencies'
-    reviewers:
-      - 'vedantmgoyal2009'
     commit-message:
       prefix: 'chore(deps)'
     target-branch: 'main'

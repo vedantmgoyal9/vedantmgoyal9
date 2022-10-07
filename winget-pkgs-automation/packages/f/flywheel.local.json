@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Flywheel.Local",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://cdn.localwp.com/stable/latest/windows",
+    "Method": "Head",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
+  "VersionRegex": "(?<=-)[0-9.]+(?=-)",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "6.4.3",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

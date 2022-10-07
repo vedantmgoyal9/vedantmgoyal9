@@ -2,9 +2,7 @@
 **/**
 
 # Whitelist needed files
-!docs/static/img/icons8-google-code-500.png
-!src/vscode-extension.js
-!CODE_OF_CONDUCT.md
+!tools/vscode-extension.js
 !LICENSE
 !package-lock.json
 !package.json

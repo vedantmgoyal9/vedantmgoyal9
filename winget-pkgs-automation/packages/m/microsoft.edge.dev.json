@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Microsoft.Edge.Dev",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://edgeupdates.microsoft.com/api/products",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = ($Response | Where-Object { $_.Product -eq 'Dev' }).Releases | Where-Object { $_.Platform -eq 'Windows' }",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "107.0.1402.2",
+  "ManifestFields": {
+    "PackageVersion": "$Response[0].ProductVersion",
+    "InstallerUrls": "@($Response[0].Artifacts.Location, $Response[1].Artifacts.Location, $Response[2].Artifacts.Location)"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": true
+  },
+  "SkipPackage": false
+}

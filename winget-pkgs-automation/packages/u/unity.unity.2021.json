@@ -1,0 +1,36 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Unity.Unity.2021",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://live-platform-api.prd.ld.unity3d.com/graphql",
+    "Method": "Post",
+    "Headers": {
+      "Content-Type": "application/json"
+    },
+    "Body": "{\"variables\":{\"version\":\"2021\"},\"query\":\"query GetUnityReleases($version: String) {getUnityReleases(limit: 1 stream: [TECH, LTS] platform: WINDOWS architecture: X86_64 version: $version) {edges {node {version releaseDate releaseNotes{url} downloads {... on UnityReleaseHubDownload {url}}}}}}\",\"operationName\":\"GetUnityReleases\"}",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.data.getUnityReleases.edges[0].node",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "2021.3.11f1",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "$Response.downloads.url",
+    "ReleaseNotesUrl": "'https://unity3d.com/unity/whats-new/' + $Response.version -replace 'f1'",
+    "ReleaseNotes": "(& ($ParseReleaseNotes | Invoke-Expression) (Invoke-RestMethod $Response.releaseNotes.url)) -replace '\\x1b\\[[0-9;]*m' -replace '^\\s+'",
+    "ProductCode": "'Unity ' + $Response.version"
+  },
+  "AdditionalInfo": {
+    "RegexInReleaseNotes": "To remove Markdown escape regexes (ANSI/VT100), additional regexes has been added in ReleaseNotes field",
+    "ReferenceNote": "Release Notes expression by @SpecterShell, https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues/868",
+    "ParseReleaseNotes": "{ Param ($String) return ((Show-Markdown -InputObject $String) -creplace '�\\[(?:.*?)m(.+?)�\\[0m', '$1').Split(\"Release Notes\")[1].Split(\"Packages updated\")[0].Split(\"Package changes\")[0].Split(\"System Requirements\")[0].Trim() -creplace '(?m)^(\\w.+)\\n\\n-', \"`$1`n-\" }"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

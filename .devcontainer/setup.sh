@@ -22,7 +22,7 @@ brew install jandedobbeleer/oh-my-posh/oh-my-posh
 mkdir -p $(pwsh -Command '$PROFILE | Split-Path')
 cp "${workspaces_folder}/vedantmgoyal2009/.devcontainer/profile.ps1" $(pwsh -Command '$PROFILE')
 # Add oh-my-posh to bash profile
-echo 'eval "$(oh-my-posh init bash --config /workspaces/vedantmgoyal2009/.devcontainer/mytheme.omp.json)"' >> /home/vscode/.bashrc
+echo 'eval "$(oh-my-posh init bash -c $(brew --prefix oh-my-posh)/themes/takuya.omp.json)"' >> /home/vscode/.bashrc
 # Install winget-pkgs yamlcreate powershell-yaml
 pwsh -Command "Install-Module -Name powershell-yaml -Force"
 

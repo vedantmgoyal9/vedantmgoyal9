@@ -1,0 +1,37 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Atlassian.Sourcetree",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://www.sourcetreeapp.com/download-archives",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": [
+    "$Response = $Response.Links.href.ForEach({ $_ -replace $ReplaceUriRegEx, $ReplaceWith })",
+    "$Response = $Response.Where({ $_ -match $MatchRegEx })",
+    "$Response = $Response | Select-Object -Unique",
+    "$Response = $Response | Sort-Object -Descending { [System.Text.RegularExpressions.Regex]::Replace($_,'\\d+',{ $args[0].Value.PadLeft(20) }) }"
+  ],
+  "VersionRegex": "(?<=_|-)[0-9.]+(?=\\.)",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "3.4.9",
+  "ManifestFields": {
+    "PackageVersion": "($Response[0] | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "@($Response.Where({ $_.EndsWith('exe') })[0], $Response.Where({ $_.EndsWith('msi') })[0])",
+    "ReleaseNotesUrl": "$Response.Where({ $_.EndsWith('html') })[0]"
+  },
+  "AdditionalInfo": {
+    "ReplaceUriRegEx": "https://product-downloads\\.atlassian\\.com",
+    "ReplaceWith": "https://downloads.atlassian.com",
+    "MatchRegEx": "^https://downloads.atlassian.com/software/sourcetree/windows/ga/.*(ReleaseNotes_[0-9.]+\\.html|\\.exe|\\.msi)$"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

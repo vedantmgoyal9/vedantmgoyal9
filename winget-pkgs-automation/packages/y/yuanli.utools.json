@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Yuanli.uTools",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://publish.u-tools.cn/version2/latest.yml",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "3.0.2",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "@(\"https://res.u-tools.cn/version2/uTools-$($Response.version).exe\", \"https://res.u-tools.cn/version2/uTools-$($Response.version)-ia32.exe\")",
+    "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

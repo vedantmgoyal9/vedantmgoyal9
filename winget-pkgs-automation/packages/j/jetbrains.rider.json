@@ -1,0 +1,35 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "JetBrains.Rider",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=RD",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.RD",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".*.exe$",
+  "PreviousVersion": "2022.2.3",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "'JetBrains Rider ' + $Response.version",
+        "DisplayVersion": "$Response.build",
+        "ProductCode": "'JetBrains Rider ' + $Response.version"
+      }
+    ]
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

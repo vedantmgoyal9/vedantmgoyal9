@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Tencent.QiDian",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://qidian.qq.com/store/qd_interface/Download.php?FType=0",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.data | Where-Object { $_.FPlatform -eq 1 }",
+  "VersionRegex": "[0-9.]{3,}(?=\\.)",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "5.3.2.19217",
+  "ManifestFields": {
+    "PackageVersion": "($Response.FUrl | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response.FUrl",
+    "ReleaseDate": "$Response.FReleaseTime"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
