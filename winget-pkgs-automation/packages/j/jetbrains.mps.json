@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "JetBrains.MPS",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=MPS",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.MPS",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".*.exe$",
+  "PreviousVersion": "MPS-213.7172.958",
+  "ManifestFields": {
+    "PackageVersion": "\"MPS-$($Response.build)\"",
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ReleaseNotesUrl": "$Response.notesLink",
+    "ProductCode": "'JetBrains MPS ' + $Response.version"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

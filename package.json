@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "publisher": "vedantmgoyal2009",
     "description": "vscode extension, github bot, and more...",
-    "main": "./src/vscode-extension.js",
+    "main": "./tools/vscode-extension.js",
     "private": true,
     "directories": {
         "doc": "docs"
@@ -14,9 +14,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "vs-publish": "vsce unpublish --force && vsce publish",
-        "gh-bot": "probot run ./src/github-bot.js",
-        "wa-bot": "node ./src/whatsapp-bot.js",
-        "start-docs": "npm run start --workspace docs -- --host 0.0.0.0"
+        "gh-bot": "probot run ./tools/github-bot.js",
+        "wa-bot": "node ./tools/whatsapp-bot.js"
     },
     "repository": {
         "type": "git",
@@ -56,7 +55,6 @@
     "sponsor": {
         "url": "https://github.com/sponsors/vedantmgoyal2009"
     },
-    "icon": "docs/static/img/icons8-google-code-500.png",
     "contributes": {
         "commands": [
             {
@@ -72,7 +70,7 @@
         ]
     },
     "activationEvents": [
-        "workspaceContains:src/winget-pkgs-automation/packages/**/*.json"
+        "workspaceContains:winget-pkgs-automation/packages/**/*.json"
     ],
     "engines": {
         "node": ">= 18.8.0",

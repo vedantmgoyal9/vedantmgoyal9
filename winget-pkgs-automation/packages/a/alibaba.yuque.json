@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Alibaba.Yuque",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://app.nlark.com/yuque-desktop/v4/latest.json",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.stable | Where-Object { $_.platform -eq 'win32' }",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "1.7.1",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "$Response.exe_url",
+    "ReleaseNotes": "$Response.change_logs -join \"`n\""
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

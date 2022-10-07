@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "115.115",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://appversion.115.com/1/web/1.0/api/chrome",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.data.window_115",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "2.0.0.19",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version_code",
+    "InstallerUrls": "$Response.version_url",
+    "ReleaseDate": "[System.DateTimeOffset]::FromUnixTimeSeconds($Response.created_time).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "JetBrains.Toolbox",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=TBA",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.TBA",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".*.exe$",
+  "PreviousVersion": "1.26.1.13138",
+  "ManifestFields": {
+    "PackageVersion": "$Response.build",
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "ReleaseNotesUrl": "$Response.notesLink",
+    "ProductCode": "'Toolbox'"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

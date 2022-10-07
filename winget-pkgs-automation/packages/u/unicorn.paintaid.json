@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Unicorn.PaintAid",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "http://pa.udongman.cn/index.php/upgrade/",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.updater",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "2.3.1.0",
+  "ManifestFields": {
+    "PackageVersion": "$Response.win_mversion + '.' + $Response.win_subversion",
+    "InstallerUrls": "$Response.TypeWin.package_url.Replace('http', 'https') + $Response.TypeWin.package.name"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

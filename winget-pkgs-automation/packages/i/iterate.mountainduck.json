@@ -1,0 +1,29 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Iterate.MountainDuck",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://version.mountainduck.io/windows/changelog.rss",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "4.12.3.20144",
+  "ManifestFields": {
+    "PackageVersion": "$Response.enclosure.shortVersionString + '.' + $Response.enclosure.version",
+    "InstallerUrls": "@($Response.enclosure.url, $Response.enclosure.url.Replace('exe','msi'))",
+    "ReleaseDate": "[System.DateTime]::ParseExact($Response.pubDate.Substring(0,10), 'dd/MM/yyyy', $Null).ToString('yyyy-MM-dd')",
+    "ReleaseNotesUrl": "$Response.releaseNotesLink"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Moonsworth.LunarClient",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://launcherupdates.lunarclientcdn.com/latest.yml",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "2.9.5",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "\"https://launcherupdates.lunarclientcdn.com/$([System.Uri]::EscapeDataString($Response.path))\"",
+    "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
