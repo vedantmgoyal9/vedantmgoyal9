@@ -1,0 +1,32 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Youku.Youku",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://pcclient.download.youku.com/iku-win-release/latest.yml",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
+  "VersionRegex": "[0-9.]+(?=\\.)",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "9.2.9.1004",
+  "ManifestFields": {
+    "PackageVersion": "($Response.path | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$InstUri.Replace('#path', $Response.path)",
+    "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')",
+    "ReleaseNotes": "((Invoke-RestMethod -Uri $ReleaseNotesSource).TrimStart('cbUpdateConfig(').TrimEnd(')') | ConvertFrom-Json).win.strategies[-1].method.feature.Replace('<li>',\"`n- \") -replace '^\n|</li>',$Null"
+  },
+  "AdditionalInfo": {
+    "InstUri": "https://pcclient.download.youku.com/iku-win-release/#path",
+    "ReleaseNotesSource": "https://hudong.alicdn.com/api/data/v2/698d45f854c64b95a87f2a947ed4e12b.js"
+  },
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "eMClient.eMClient",
+  "Update": {
+    "InvokeType": "WebRequest",
+    "Uri": "https://www.emclient.com/dist/latest/setup.msi",
+    "Method": "Head",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = ($Response.BaseResponse.RequestMessage.RequestUri.OriginalString | Select-String -Pattern '.*(?=\\?)').Matches.Value",
+  "VersionRegex": "(?<=v)[0-9.]+",
+  "InstallerRegex": ".msi$",
+  "PreviousVersion": "9.1.2109.0",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value + '.0'",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

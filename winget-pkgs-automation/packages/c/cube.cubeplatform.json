@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Cube.CubePlatform",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://infobox.cubejoy.com/data.ashx?JsonData={%22Code%22:%2210030%22}",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$Response = $Response.result.version",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "3.7.3.1",
+  "ManifestFields": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "@(\"https://download.cubejoy.com/app/$($Response)/CubeSetup_v$($Response).exe\", \"https://download.cubejoy.com/app/$($Response)/CubeSetup_HK_TC_v$($Response).exe\")"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}

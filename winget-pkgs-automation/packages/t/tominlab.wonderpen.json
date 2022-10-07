@@ -1,0 +1,29 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "TominLab.WonderPen",
+  "Update": {
+    "InvokeType": "RestMethod",
+    "Uri": "https://www.tominlab.com/api/product/check-update?app=wonderpen",
+    "Method": "Get",
+    "Headers": {},
+    "Body": "",
+    "UserAgent": ""
+  },
+  "PostResponseScript": "$ReleaseInfo = (Invoke-RestMethod -Method Get -Uri 'https://www.tominlab.com/api/product/update-detail?app=wonderpen').data[0]",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "2.1.8",
+  "ManifestFields": {
+    "PackageVersion": "$Response.data.version",
+    "InstallerUrls": "(Invoke-WebRequest -Uri 'https://www.tominlab.com/to/get-file/wonderpen?key=win-installer' -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString",
+    "ReleaseDate": "$ReleaseInfo.date",
+    "ReleaseNotes": "$ReleaseInfo.desc.en"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "YamlCreateParams": {
+    "SkipPRCheck": false,
+    "DeletePreviousVersion": false
+  },
+  "SkipPackage": false
+}
