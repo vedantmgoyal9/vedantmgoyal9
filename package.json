@@ -38,7 +38,7 @@
     "homepage": "https://bittu.eu.org/",
     "dependencies": {
         "dotenv": "^16.0.2",
-        "firebase": "^9.10.0",
+        "firebase": "^9.11.0",
         "probot": "^12.2.4",
         "vsce": "^2.10.2",
         "whatsapp-web.js": "^1.17.0"
