@@ -203,7 +203,6 @@
 - [DavidRios.Remindr](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/winget-pkgs-automation/packages/d/davidrios.remindr.json)
 - [DavidWheatley.fs2020-livery-manager](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/winget-pkgs-automation/packages/d/davidwheatley.fs2020-livery-manager.json)
 - [DaxStudio.DaxStudio](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/winget-pkgs-automation/packages/d/daxstudio.daxstudio.json)
-- [DBBrowserForSQLite.DBBrowserForSQLite](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/winget-pkgs-automation/packages/d/dbbrowserforsqlite.dbbrowserforsqlite.json)
 - [dbeaver.dbeaver](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/winget-pkgs-automation/packages/d/dbeaver.dbeaver.json)
 - [DCSS.DungeonCrawlStoneSoup](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/winget-pkgs-automation/packages/d/dcss.dungeoncrawlstonesoup.json)
 - [DebaucheeOpenSourceGroup.Barrier](https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/winget-pkgs-automation/packages/d/debaucheeopensourcegroup.barrier.json)
