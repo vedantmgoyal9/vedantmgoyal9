@@ -90,15 +90,23 @@
       "type": [
         "string",
         "array"
+      ],
+      "examples": [
+        "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId #default-gh",
+        "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString #default-headrequest",
+        "$Response = $Response | ConvertFrom-Yaml",
+        "$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml"
       ]
     },
     "VersionRegex": {
       "$id": "#/properties/VersionRegex",
-      "type": "string"
+      "type": "string",
+      "default": "(?<=v)[0-9.]+"
     },
     "InstallerRegex": {
       "$id": "#/properties/InstallerRegex",
-      "type": "string"
+      "type": "string",
+      "default": ".(exe|msi|msix|appx)(bundle){0,1}$"
     },
     "PreviousVersion": {
       "$id": "#/properties/PreviousVersion",
@@ -114,11 +122,21 @@
       "properties": {
         "PackageVersion": {
           "$id": "#/properties/ManifestFields/properties/PackageVersion",
-          "type": "string"
+          "type": "string",
+          "examples": [
+            "$Response.tag_name.TrimStart('v') #default-gh",
+            "($Response | Select-String -Pattern $VersionRegex).Matches.Value #default-headrequest",
+            "$Response.version"
+          ]
         },
         "InstallerUrls": {
           "$id": "#/properties/ManifestFields/properties/InstallerUrls",
-          "type": "string"
+          "type": "string",
+          "examples": [
+            "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } } #default-gh",
+            "$Response #default-headrequest",
+            "$InstUri.Replace('#version', $Response.version)"
+          ]
         },
         "ProductCode": {
           "$id": "#/properties/ManifestFields/properties/ProductCode",
@@ -126,11 +144,15 @@
         },
         "ReleaseDate": {
           "$id": "#/properties/ManifestFields/properties/ReleaseDate",
-          "type": "string"
+          "type": "string",
+          "default": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
         },
         "ReleaseNotesUrl": {
           "$id": "#/properties/ManifestFields/properties/ReleaseNotesUrl",
-          "type": "string"
+          "type": "string",
+          "examples": [
+            "$Response.html_url #default-gh"
+          ]
         },
         "ReleaseNotes": {
           "$id": "#/properties/ManifestFields/properties/ReleaseNotes",
@@ -169,7 +191,10 @@
     },
     "PostUpgradeScript": {
       "$id": "#/properties/PostUpgradeScript",
-      "type": "string"
+      "type": "string",
+      "examples": [
+        "$Package.AdditionalInfo.PreviousReleaseId = $Response.id #default-gh"
+      ]
     },
     "YamlCreateParams": {
       "$id": "#/properties/YamlCreateParams",
@@ -181,19 +206,13 @@
       "properties": {
         "SkipPRCheck": {
           "$id": "#/properties/YamlCreateParams/properties/SkipPRCheck",
-          "enum": [
-            true,
-            false
-          ],
-          "type": "boolean"
+          "type": "boolean",
+          "default": false
         },
         "DeletePreviousVersion": {
           "$id": "#/properties/YamlCreateParams/properties/DeletePreviousVersion",
-          "enum": [
-            true,
-            false
-          ],
-          "type": "boolean"
+          "type": "boolean",
+          "default": false
         }
       },
       "additionalProperties": false
@@ -207,7 +226,8 @@
       "type": [
         "boolean",
         "string"
-      ]
+      ],
+      "default": false
     }
   },
   "additionalProperties": false

@@ -5,7 +5,7 @@ Function Local:Test-ArpMetadata {
         [System.String] $ManifestFolder
     )
     $RootInvocation = (Get-Variable MyInvocation -Scope 1).Value
-    If (-not $RootInvocation.PSCommandPath.EndsWith('Automation.ps1')) {
+    If ($RootInvocation.MyCommand.Name -ne 'Automation.ps1') {
         Write-Output 'This function is only available in the Automation.ps1 script.'
         return
     }
@@ -52,7 +52,7 @@ Function Local:Test-ArpMetadata {
 
 Function Local:Submit-Manifest {
     $RootInvocation = (Get-Variable MyInvocation -Scope 1).Value
-    If (-not $RootInvocation.PSCommandPath.EndsWith('Automation.ps1') -or -not $RootInvocation.PSCommandPath.EndsWith('Add-PackageVersions.ps1')) {
+    If ($RootInvocation.MyCommand.Name -notin @('Automation.ps1', 'Add-PackageVersions.ps1')) {
         Write-Output 'This function is only available in the Automation.ps1 and Add-PackageVersions.ps1 scripts.'
         return
     }
@@ -70,9 +70,9 @@ Function Local:Submit-Manifest {
         git add -A
         git commit -m "$CommitType`: $PackageIdentifier version $PackageVersion"
         $CommitId = git log --format=%H -1 # Store the commit id of the commit that was just made
+        # If the commit id is same as previous commit id, then there are no changes made
         If ($PreviousCommitId -eq $CommitId) {
-            # If the commit id is same as previous commit id, then there are no changes made
-            Write-Output 'Re-use PR check: No changes made...' # 
+            Write-Output 'Re-use PR check: No changes made...'
             return
         }
         # Find open pull requests for same package and overwrite them with new version of the package
@@ -80,7 +80,8 @@ Function Local:Submit-Manifest {
         $OpenPRs = (gh pr list --author vedantmgoyal2009 --search 'draft:false' --json 'headRefName,number,title' | ConvertFrom-Json).Where({ $_.title -match "$PackageIdentifier version" }) | Select-Object -First 1
         # Find draft pull requests if any and overwrite since they are probably errored out and not going to be merged
         $DraftPRs = gh pr list --draft --author vedantmgoyal2009 --limit 1 --json 'headRefName,number,title' | ConvertFrom-Json
-        If ($OpenPRs.Count -ge 1) {
+        # Do not overwrite open PRs when Add-PackageVersions.ps1 is being run
+        If ($OpenPRs.Count -ge 1 -and $RootInvocation.MyCommand.Name -ne 'Add-PackageVersions.ps1') {
             Write-Output "Found open PR #$($OpenPRs.number) -> $($OpenPRs.title)"
             git checkout $OpenPRs.headRefName
             git revert HEAD --no-edit
@@ -94,14 +95,14 @@ Function Local:Submit-Manifest {
             git reset --hard upstream/master
             git cherry-pick $CommitId # Cherry-pick the commit that was just made on master
             git push --force
-            gh pr edit $DraftPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP-D]" --body "$PrBody"
+            gh pr edit $DraftPRs.number --title "$CommitType`: $PackageIdentifier version $PackageVersion [FP-D]" --body ($Null -ne $PrBody ? "$PrBody" : 'null')
         } Else {
             # Create a commit onto the detached head, and push it to a new branch
             git switch -d upstream/master
             git cherry-pick $CommitId # Cherry-pick the commit that was just made on master
             git switch -c "$BranchName" --quiet
             git push --set-upstream origin "$BranchName" --quiet
-            gh pr create -f --body "$PrBody"
+            gh pr create -f --body ($Null -ne $PrBody ? "$PrBody" : 'null')
         }
         $PreviousCommitId = $CommitId
         git switch master --quiet

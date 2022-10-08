@@ -1,5 +1,5 @@
 name: CI
-run-name: ${{ github.event.head_commit.message || inputs.what-to-run || 'WinGet Automation' }}
+run-name: ${{ inputs.what-to-run || 'WinGet Automation' }}
 on:
   schedule:
     - cron: '0 * * * *'
@@ -34,12 +34,12 @@ jobs:
           persist-credentials: false
       - name: Run automation script
         run: |
-          If ($env:GITHUB_EVENT_NAME -eq 'schedule' -or  'WinGet Automation' -eq '${{ inputs.what-to-run }}') {
-            .\Automation.ps1
-          } ElseIf ('Add package versions (Json input)' -eq '${{ inputs.what-to-run }}') {
+          If ('Add package versions (Json input)' -eq '${{ inputs.what-to-run }}') {
             .\Add-PackageVersions.ps1 -JsonInput '${{ inputs.json-input }}'
           } ElseIf ('Move packages (Json input)' -eq '${{ inputs.what-to-run }}') {
             .\Move-Packages.ps1 -JsonInput '${{ inputs.json-input }}'
+          } Else {
+            .\Automation.ps1
           }
         env:
           AP_ID: ${{ secrets.BT_AP_ID }}
