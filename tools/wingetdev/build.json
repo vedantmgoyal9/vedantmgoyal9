@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "8d0996fc4921261b3eb46b0351793f53e8e918f4",
-    "Message": "Make Symlink Target Canonical (#2563)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "4b613b3057df01b8225ff50a73af971fa27d02b5",
+    "Message": "Improve installer selection during upgrade (#2570)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Saturday, October 1, 2022 3:15:20 AM"
+  "BuildDateTime": "Saturday, October 8, 2022 6:29:02 PM"
 }
