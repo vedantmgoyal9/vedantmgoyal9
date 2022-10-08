@@ -12,7 +12,7 @@
   "PostResponseScript": "$ReleaseInfo = (Invoke-RestMethod -Method Get -Uri 'https://www.tominlab.com/api/product/update-detail?app=wonderpen').data[0]",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "2.1.8",
+  "PreviousVersion": "2.2.0",
   "ManifestFields": {
     "PackageVersion": "$Response.data.version",
     "InstallerUrls": "(Invoke-WebRequest -Uri 'https://www.tominlab.com/to/get-file/wonderpen?key=win-installer' -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString",
