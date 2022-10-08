@@ -355,7 +355,6 @@ Function Test-Package {
     $_IsValid = $true
     $_Object.PSObject.Properties.ForEach({
             If ($Null -eq $_.Value) {
-                Write-Error "$($_.Name) doesn't have a value, it's empty"
                 $_IsValid = $false
             }
         })
@@ -368,40 +367,12 @@ Function Test-Package {
 #endregion functions
 
 #region script
-$PackageJsonPath = "$PSScriptRoot\..\src\winget-pkgs-automation\packages\$($PackageIdentifier.Substring(0,1).ToLower())\$($PackageIdentifier.ToLower()).json"
+$PackageJsonPath = "$PSScriptRoot\..\winget-pkgs-automation\packages\$($PackageIdentifier.Substring(0,1).ToLower())\$($PackageIdentifier.ToLower()).json"
 
 If ($TestPackage) {
     $Package = Get-Content -Raw $PackageJsonPath | ConvertFrom-Json
     Test-Package -PackageObject $Package
     return
-} Else {
-    $Package = [System.Management.Automation.PSObject] [ordered] @{
-        '$schema'          = 'https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/src/winget-pkgs-automation/schema.json';
-        Identifier         = $PackageIdentifier;
-        Update             = [ordered] @{
-            InvokeType = '';
-            Uri        = '';
-            Method     = '';
-            Headers    = @{};
-            Body       = '';
-            UserAgent  = ''
-        };
-        PostResponseScript = '';
-        VersionRegex       = '';
-        InstallerRegex     = '';
-        PreviousVersion    = '';
-        ManifestFields     = [ordered] @{
-            PackageVersion = '';
-            InstallerUrls  = '';
-        };
-        AdditionalInfo     = @{};
-        PostUpgradeScript  = '';
-        YamlCreateParams   = [ordered] @{
-            SkipPRCheck           = $false;
-            DeletePreviousVersion = $false;
-        };
-        SkipPackage        = $false
-    }
 }
 
 # Check if the package json file already exists
@@ -414,6 +385,38 @@ If (Test-Path -Path $PackageJsonPath -PathType Leaf) {
     }
 }
 
+Set-Variable -Name Schema -Value $(
+    Invoke-RestMethod -Uri https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json -Method Get
+).properties -Option Constant
+
+$Package = [System.Management.Automation.PSObject] [ordered] @{
+    '$schema'          = $Schema.'$schema'.enum[0];
+    Identifier         = $PackageIdentifier;
+    Update             = [ordered] @{
+        InvokeType = '';
+        Uri        = '';
+        Method     = '';
+        Headers    = @{};
+        Body       = '';
+        UserAgent  = ''
+    };
+    PostResponseScript = '';
+    VersionRegex       = $Schema.VersionRegex.default;
+    InstallerRegex     = $Schema.InstallerRegex.default;
+    PreviousVersion    = '';
+    ManifestFields     = [ordered] @{
+        PackageVersion = '';
+        InstallerUrls  = '';
+    };
+    AdditionalInfo     = @{};
+    PostUpgradeScript  = '';
+    YamlCreateParams   = [ordered] @{
+        SkipPRCheck           = $Schema.YamlCreateParams.properties.SkipPRCheck.default;
+        DeletePreviousVersion = $Schema.YamlCreateParams.properties.DeletePreviousVersion.default;
+    };
+    SkipPackage        = $Schema.SkipPackage.default;
+}
+
 Write-Output 'Is the package a GitHub package? (meaning: the package is hosted on GitHub)'
 Write-Output 'This will set the following properties automatically:'
 Write-Output '-> InvokeType: RestMethod'
@@ -423,33 +426,40 @@ Write-Output '-> PostResponseScript: Default UpdateCondition expression'
 Write-Output '-> ManifestFields: PackageVersion, InstallerUrls, ReleaseNotesUrl & ReleaseDate'
 Write-Output '-> AdditionalInfo: PreRelease and PreviousReleaseId'
 Write-Output '-> PostUpgradeScript $Package.AdditionalInfo.PreviousReleaseId = $Response.id'
-$IsGitHub = Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y = $true; N = $false }
-Write-Output "`n"
 
-Write-Output 'Enter URI of the Source/API/Updater (e.g.: https://api.github.com/repos/JanDeDobbeleer/oh-my-posh/releases?per_page=1)'
-If ($IsGitHub -eq $true) {
-    Write-Output 'Note: since this is a GitHub package, enter the repository in the owner/repository format'
+If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y = $true; N = $false }) {
+    Write-Output 'Enter the repository in the owner/repository format'
+    $Package.Update.InvokeType = 'RestMethod'
     $GitHubOwnerRepo = Get-UserInput -Method String -Message 'owner/repository'
     $Package.Update.Uri = "https://api.github.com/repos/$($GitHubOwnerRepo)/releases?per_page=1"
-} Else {
-    $Package.Update.Uri = Get-UserInput -Method String -Message 'Uri'
-}
-Write-Output ''
-
-Write-Output 'What is the InvokeType? [R: RestMethod; W: WebRequest]'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> RestMethod (automatically set since this is a GitHub package)'
-    $Package.Update.InvokeType = 'RestMethod'
-} Else {
-    $Package.Update.InvokeType = Get-UserInput -Method KeyPress -Message 'InvokeType: ' -ReturnValues @{ R = 'RestMethod'; W = 'WebRequest' }
-}
-Write-Output ''
-
-Write-Output 'Enter the Request Method (e.g.: Get, Post)'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Get (automatically set since this is a GitHub package)'
     $Package.Update.Method = 'Get'
+    $Package.Update.Headers = [ordered] @{
+        Authorization = '$AuthToken';
+        Accept        = 'application/vnd.github.v3+json'
+    }
+    $Package.PostResponseScript = [System.String] $Schema.PostResponseScript.examples.Where({ $_.Contains('#default-gh') })
+    $Package.ManifestFields.PackageVersion = [System.String] $Schema.ManifestFields.properties.PackageVersion.examples.Where({ $_.Contains('#default-gh') })
+    $Package.ManifestFields.InstallerUrls = [System.String] $Schema.ManifestFields.properties.InstallerUrls.examples.Where({ $_.Contains('#default-gh') })
+    $Package.ManifestFields.ReleaseNotesUrl = [System.String] $Schema.ManifestFields.properties.ReleaseNotesUrl.examples.Where({ $_.Contains('#default-gh') })
+    $Package.ManifestFields.ReleaseDate = [System.String] $Schema.ManifestFields.properties.ReleaseDate.default
+    $Package.AdditionalInfo = [ordered] @{
+        PreRelease        = $false;
+        PreviousReleaseId = 0
+    }
+    $Package.PostUpgradeScript = [System.String] $Schema.PostUpgradeScript.examples.Where({ $_.Contains('#default-gh') })
+    Write-Output '--- Generated package json with GitHub defaults ---'
+    Write-Output 'NOTE: You can modify the package json file manually if the defaults are not suitable for the package.'
 } Else {
+    Write-Output ''
+    Write-Output 'Enter URI of the Source/API/Updater (e.g.: https://api.github.com/repos/JanDeDobbeleer/oh-my-posh/releases?per_page=1)'
+    $Package.Update.Uri = Get-UserInput -Method String -Message 'Uri'
+    Write-Output ''
+
+    Write-Output 'What is the InvokeType? [R: RestMethod; W: WebRequest]'
+    $Package.Update.InvokeType = Get-UserInput -Method KeyPress -Message 'InvokeType: ' -ReturnValues @{ R = 'RestMethod'; W = 'WebRequest' }
+    Write-Output ''
+
+    Write-Output 'Enter the Request Method (e.g.: Get, Post)'
     Write-Output 'Enter 1 to 9 to select the method'
     Write-Output '1. Get'
     Write-Output '2. Post'
@@ -461,148 +471,81 @@ If ($IsGitHub -eq $true) {
     Write-Output '8. Options'
     Write-Output '9. Trace'
     $Package.Update.Method = Get-UserInput -Method KeyPress -Message 'Method: ' -ReturnValues @{ D1 = 'Get'; D2 = 'Post'; D3 = 'Head'; D4 = 'Put'; D5 = 'Delete'; D6 = 'Patch'; D7 = 'Merge'; D8 = 'Options'; D9 = 'Trace' }
-}
-Write-Output ''
+    Write-Output ''
 
-Write-Output 'Headers: (e.g.: @{ Accept = "application/vnd.github.v3+json" })'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Default GitHub headers (automatically set since this is a GitHub package)'
-    $Package.Update.Headers = [ordered] @{
-        Authorization = '$AuthToken';
-        Accept        = 'application/vnd.github.v3+json'
-    }
-} Else {
+    Write-Output 'Headers: (e.g.: @{ Accept = "application/vnd.github.v3+json" })'
     Write-Output 'Note: Enter the headers as a Hashtable (e.g.: Accept = "application/vnd.github.v3+json" })'
     $Package.Update.Headers = Get-UserInput -Method String -Message 'Headers' -AllowEmpty | ConvertFrom-StringData
-}
-Write-Output ''
+    Write-Output ''
 
-Write-Output 'Request Body: (e.g.: "field1=value1&field2=value2")'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Empty (automatically set since this is a GitHub package)'
-} Else {
+    Write-Output 'Request Body: (e.g.: "field1=value1&field2=value2")'
     $Package.Update.Body = Get-UserInput -Method String -Message 'Body' -AllowEmpty
-}
-Write-Output ''
+    Write-Output ''
 
-Write-Output 'UserAgent: (e.g.: "winget/1.0")'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Empty (automatically set since this is a GitHub package)'
-} Else {
+    Write-Output 'UserAgent: (e.g.: "winget/1.0")'
     $Package.Update.UserAgent = Get-UserInput -Method String -Message 'UserAgent' -AllowEmpty
-}
-Write-Output ''
+    Write-Output ''
 
-Write-Output 'PostResponseScript (script block to further process the response received from the source/api/updater)'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Default UpdateCondition expression (automatically set since this is a GitHub package)'
-    $Package.PostResponseScript = '$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId'
-} ElseIf ($Package.Update.Method -eq 'Head') {
-    Write-Output '-> Automatically detected and set (since the method is Head)'
-    $Package.PostResponseScript = '$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString'
-} Else {
-    $Package.PostResponseScript = Get-UserInput -Method Menu -Message 'PostResponseScript' -Choices @('$Response = $Response | ConvertFrom-Yaml', '$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml', 'Custom') -AllowEmpty
-    If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript) -and -not $Package.PostResponseScript.Contains('ForEach') -and $Package.PostResponseScript.Contains(';')) {
-        $Package.PostResponseScript = $Package.PostResponseScript.Split(';').ForEach({ $_.Trim() })
+    Write-Output 'PostResponseScript (script block to further process the response received from the source/api/updater)'
+    If ($Package.Update.Method -eq 'Head') {
+        Write-Output '-> Automatically detected and set (since the method is Head)'
+        $Package.PostResponseScript = '$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString'
+    } Else {
+        $Package.PostResponseScript = Get-UserInput -Method Menu -Message 'PostResponseScript' -Choices @($Schema.ManifestFields.properties.InstallerUrls.examples, 'Custom') -AllowEmpty
+        If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript) -and -not $Package.PostResponseScript.Contains('ForEach') -and $Package.PostResponseScript.Contains(';')) {
+            $Package.PostResponseScript = $Package.PostResponseScript.Split(';').ForEach({ $_.Trim() })
+        }
     }
-}
-Write-Output ''
+    Write-Output ''
 
-# Fetch the source/api/updater to get its properties in the form of a PSObject so that user can select them interactively
-$Choices = @('$Response')
-If ($Package.Update.InvokeType -eq 'RestMethod') {
-    $Parameters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
-    If (-not [System.String]::IsNullOrEmpty($Package.Update.Headers)) {
-        $Package.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { If ($_.Value -notcontains "`$AuthToken") { $Headers.Add($_.Name, $_.Value) } } -End { $Parameters.Headers = $Headers }
+    # Fetch the source/api/updater to get its properties in the form of a PSObject so that user can select them interactively
+    $Choices = @('$Response')
+    If ($Package.Update.InvokeType -eq 'RestMethod') {
+        $Parameters = @{ Method = $Package.Update.Method; Uri = $Package.Update.Uri }
+        If (-not [System.String]::IsNullOrEmpty($Package.Update.Headers)) {
+            $Package.Update.Headers.PSObject.Properties | ForEach-Object -Begin { $Headers = @{} } -Process { If ($_.Value -notcontains "`$AuthToken") { $Headers.Add($_.Name, $_.Value) } } -End { $Parameters.Headers = $Headers }
+        }
+        If (-not [System.String]::IsNullOrEmpty($Package.Update.Body)) {
+            $Parameters.Body = $Package.Update.Body
+        }
+        If (-not [System.String]::IsNullOrEmpty($Package.Update.UserAgent)) {
+            $Parameters.UserAgent = $Package.Update.UserAgent
+        }
+        $Response = Invoke-RestMethod @Parameters
+        If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
+            $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
+        }
+        $Choices += $Package.PostResponseScript -ne '$Response = $Response | ConvertFrom-Yaml' ? $Response.PSObject.Properties.Where({ $_.MemberType -eq 'NoteProperty' }).Name : $Response.Keys.ForEach({ "`$Response.$($_)" })
     }
-    If (-not [System.String]::IsNullOrEmpty($Package.Update.Body)) {
-        $Parameters.Body = $Package.Update.Body
-    }
-    If (-not [System.String]::IsNullOrEmpty($Package.Update.UserAgent)) {
-        $Parameters.UserAgent = $Package.Update.UserAgent
-    }
-    $Response = Invoke-RestMethod @Parameters
-    If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
-        $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
-    }
-    $Choices += $Package.PostResponseScript -ne '$Response = $Response | ConvertFrom-Yaml' ? $Response.PSObject.Properties.Where({ $_.MemberType -eq 'NoteProperty' }).Name : $Response.Keys.ForEach({ "`$Response.$($_)" })
-}
-$Choices += @('Custom')
+    $Choices += @('Custom')
 
-Write-Output 'VersionRegex (regular expression to extract the version from the response)'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Default GitHub version regex (automatically set since this is a GitHub package)'
-    $Package.VersionRegex = '(?<=v)[0-9.]+'
-} Else {
-    $Package.VersionRegex = Get-UserInput -Method String -Message 'VersionRegex' -DefaultValue '[0-9.]+'
-}
-Write-Output ''
+    Write-Output 'VersionRegex (regular expression to extract the version from the response)'
+    $Package.VersionRegex = Get-UserInput -Method String -Message 'VersionRegex'
+    Write-Output ''
 
-Write-Output 'InstallerRegex (regular expression to extract the installer url from the response)'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Default GitHub installer regex (automatically set since this is a GitHub package)'
-    $Package.InstallerRegex = '.(exe|msi|msix|appx)(bundle){0,1}$'
-} Else {
-    $Package.InstallerRegex = Get-UserInput -Method String -Message 'InstallerRegex' -DefaultValue '.(exe|msi|msix|appx)(bundle){0,1}$'
-}
-Write-Output ''
+    Write-Output 'InstallerRegex (regular expression to extract the installer url from the response)'
+    $Package.InstallerRegex = Get-UserInput -Method String -Message 'InstallerRegex'
+    Write-Output ''
 
-Write-Output 'AdditionalInfo: additional information to be stored for the package update (e.g.: PreRelease, PreviousReleaseId)'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Set according to the GitHub package (automatically set since this is a GitHub package)'
-    $Package.AdditionalInfo = [ordered] @{
-        PreRelease        = $false;
-        PreviousReleaseId = 0
-    }
-} Else {
+    Write-Output 'AdditionalInfo: additional information to be stored for the package update (e.g.: PreRelease, PreviousReleaseId)'
     Write-Output 'Note: Enter the data in String format (e.g.: "PreRelease=true `n PreviousReleaseId=123")'
     $Package.AdditionalInfo = Get-UserInput -Method String -Message 'AdditionalInfo' -AllowEmpty | ConvertFrom-StringData
-}
-Write-Output ''
+    Write-Output ''
 
-Write-Output 'PostUpgradeScript (script block to run after the package is upgraded)'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Default script block (automatically set since this is a GitHub package)'
-    $Package.PostUpgradeScript = '$Package.AdditionalInfo.PreviousReleaseId = $Response.id'
-} Else {
+    Write-Output 'PostUpgradeScript (script block to run after the package is upgraded)'
     $Package.PostUpgradeScript = Get-UserInput -Method String -Message 'PostUpgradeScript' -AllowEmpty
-}
-Write-Output ''
+    Write-Output ''
 
-Write-Output "----- ManifestFields -----`n"
+    Write-Output "----- ManifestFields -----`n"
 
-Write-Output 'PackageVersion: (expression to extract the version from the response)'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Default expression (automatically set since this is a GitHub package)'
-    $Package.ManifestFields = [ordered] @{
-        PackageVersion = '$Response.tag_name.TrimStart(''v'')'
-    }
-} Else {
-    $Package.ManifestFields = [ordered] @{
-        PackageVersion = Get-UserInput -Method Menu -Message 'Select a property which contains the PackageVersion' -Choices ($Choices + '($Response | Select-String -Pattern $VersionRegex).Matches.Value')
-    }
-}
-Write-Output ''
+    Write-Output 'PackageVersion: (expression to extract the version from the response)'
+    $Package.ManifestFieldsPackageVersion = Get-UserInput -Method Menu -Message 'Select a property which contains the PackageVersion' -Choices ($Choices + '($Response | Select-String -Pattern $VersionRegex).Matches.Value')
+    Write-Output ''
 
-Write-Output 'InstallerUrls: (expression to extract the installer urls from the response)'
-If ($IsGitHub -eq $true) {
-    Write-Output '-> Default expression (automatically set since this is a GitHub package)'
-    $Package.ManifestFields += [ordered] @{
-        InstallerUrls = '$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }'
-    }
-} Else {
-    $Package.ManifestFields += [ordered] @{
-        InstallerUrls = Get-UserInput -Method Menu -Message 'Select a property which contains the InstallerUrls' -Choices $Choices
-    }
-}
-Write-Output ''
+    Write-Output 'InstallerUrls: (expression to extract the installer urls from the response)'
+    $Package.ManifestFields.InstallerUrls = Get-UserInput -Method Menu -Message 'Select a property which contains the InstallerUrls' -Choices $Choices
+    Write-Output ''
 
-If ($IsGitHub -eq $true) {
-    $Package.ManifestFields += [ordered] @{
-        ReleaseNotesUrl = '$Response.html_url';
-        ReleaseDate     = '(Get-Date -Date $Response.published_at).ToString(''yyyy-MM-dd'')'
-    }
-} Else {
     Write-Output 'Do you want to add any other ManifestFields?'
     If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y = $true; N = $false }) {
         do {
@@ -619,7 +562,6 @@ If ($IsGitHub -eq $true) {
                 $FieldName = $Expression
             }
             Write-Output ''
-
         } until (Get-UserInput -Method KeyPress -Message 'Add another ManifestField? (y/n): ' -ReturnValues @{ Y = $false; N = $true })
     }
     Write-Output ''
@@ -631,7 +573,6 @@ Write-Output "JSON file created: $((Resolve-Path $PackageJsonPath).Path)"
 Write-Output "`n----- Test package -----`n"
 Write-Output 'Do you want to test the package?'
 If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y = $true; N = $false }) {
-    Write-Output ''
-    Test-Package -PackageObject $Package
+    & $PSCommandPath -TestPackage -PackageIdentifier $PackageIdentifier
 }
 #endregion script
