@@ -15,7 +15,7 @@
   "PreviousVersion": "22.3.8241.0",
   "ManifestFields": {
     "PackageVersion": "\"$($Response).0\"",
-    "InstallerUrls": "\"https://www.masterpackager.com/installer/public/standard/masterpackager_$($Response).0.msi\""
+    "InstallerUrls": "\"https://www.masterpackager.com/installer/masterpackager_$($Response).0.msi\""
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
