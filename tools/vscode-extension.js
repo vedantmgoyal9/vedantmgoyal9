@@ -31,8 +31,8 @@ function activate(context) {
     }
   );
 
-  let manageWpaPkgs = vscode.commands.registerCommand(
-    'vedantmgoyal2009.manageWpaPackages',
+  let testWpaPkgs = vscode.commands.registerCommand(
+    'vedantmgoyal2009.testWpaPackageJson',
     async () => {
       let pkgList = new Map();
       let dirContents = await vscode.workspace.findFiles(
@@ -57,94 +57,30 @@ function activate(context) {
           placeHolder: 'Select a package from the list',
           canPickMany: false,
         })
-        .then((selection) => {
-          let selectedPkg = selection;
-          let selectedPkgPath = pkgList.get(selectedPkg);
+        .then((selectedPackageId) => {
           vscode.window
-            .showQuickPick(
-              [
-                'open package json file',
-                'skip package (prevent future updates)',
-                'test package (using Test-Package.ps1)',
+            .createTerminal({
+              name: `Test ${selectedPackageId}`,
+              cwd: `${vscode.workspace.workspaceFolders[0].uri.fsPath}/tools`,
+              shellPath: 'pwsh',
+              shellArgs: [
+                '-NoExit',
+                '-NoProfile',
+                '-Command',
+                './Manage-WpaPackages.ps1',
+                '-PackageIdentifier',
+                `${selectedPackageId}`,
+                '-TestPackage',
               ],
-              {
-                title: 'Select an action',
-                placeHolder: 'Select an action from the list',
-                canPickMany: false,
-              }
-            )
-            .then((selection) => {
-              let selectedAction = selection;
-              if (selectedAction.includes('open')) {
-                vscode.window.showTextDocument(
-                  vscode.Uri.file(selectedPkgPath)
-                );
-              } else if (selectedAction.includes('skip')) {
-                vscode.workspace.fs
-                  .readFile(
-                    vscode.Uri.file(
-                      `${vscode.workspace.workspaceFolders[0].uri.path}/winget-pkgs-automation/schema.json`
-                    )
-                  )
-                  .then((schemaDoc) => {
-                    let skipChoices = JSON.parse(
-                      Buffer.from(schemaDoc).toString('utf8')
-                    ).properties.SkipPackage.enum;
-                    skipChoices[skipChoices.indexOf(false)] = 'false';
-                    vscode.window
-                      .showQuickPick(skipChoices, {
-                        title: 'Select a reason to skip package',
-                        placeHolder:
-                          'Select a reason to skip package from the list',
-                        canPickMany: false,
-                      })
-                      .then((selection) => {
-                        let skipReason =
-                          selection === 'false' ? false : selection;
-                        vscode.workspace
-                          .openTextDocument(selectedPkgPath)
-                          .then((pkgDoc) => {
-                            let pkgObj = JSON.parse(pkgDoc.getText());
-                            pkgObj.SkipPackage = skipReason;
-                            vscode.workspace.fs
-                              .writeFile(
-                                pkgDoc.uri,
-                                Buffer.from(JSON.stringify(pkgObj, null, 2))
-                              )
-                              .then(() => {
-                                vscode.window.showInformationMessage(
-                                  `Skip ${selectedPkg} reason: ${skipReason}`
-                                );
-                              });
-                          });
-                      });
-                  });
-              } else if (selectedAction.includes('test')) {
-                vscode.window
-                  .createTerminal({
-                    name: `Test ${selectedPkg}`,
-                    cwd: `${vscode.workspace.workspaceFolders[0].uri.fsPath}/tools`,
-                    shellPath: 'pwsh',
-                    shellArgs: [
-                      '-NoExit',
-                      '-NoProfile',
-                      '-Command',
-                      './Manage-WpaPackages.ps1',
-                      '-PackageIdentifier',
-                      `${selectedPkg}`,
-                      '-TestPackage',
-                    ],
-                    hideFromUser: false,
-                  })
-                  .show();
-              }
-            });
+              hideFromUser: false,
+            })
+            .show();
         });
     }
   );
 
   context.subscriptions.push(disposable);
-  context.subscriptions.push(manageWpaPkgs);
+  context.subscriptions.push(testWpaPkgs);
 }
 
 // this method is called when your extension is deactivated
