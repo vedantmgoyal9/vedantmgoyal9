@@ -63,8 +63,8 @@
                 "category": "vedantmgoyal2009"
             },
             {
-                "command": "vedantmgoyal2009.manageWpaPackages",
-                "title": "manage wpa packages",
+                "command": "vedantmgoyal2009.testWpaPackageJson",
+                "title": "test wpa package json",
                 "category": "vedantmgoyal2009"
             }
         ]
@@ -74,7 +74,7 @@
     ],
     "engines": {
         "node": ">= 18.8.0",
-        "vscode": "^1.70.0"
+        "vscode": "^1.72.0"
     },
     "categories": [
         "Testing",

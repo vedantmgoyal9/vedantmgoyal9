@@ -9,7 +9,7 @@ module.exports = (app) => {
   app.log.info('Yay, the app was loaded!');
 
   app.on('push', async (context) => {
-    // Update wpa-packages.md (currently maintained packages)
+    // Update winget-pkgs-automation/README.md (currently maintained packages)
     if (
       [
         ...context.payload.head_commit.added,
@@ -37,26 +37,33 @@ module.exports = (app) => {
           cwd: `${__dirname}/../winget-pkgs-automation/packages`,
         }
       );
-      execSync(
-        `git -c commit.gpgsign=false commit --author \"vedantmgoyal2009[bot] <110876359+vedantmgoyal2009[bot]@users.noreply.github.com>\" -m \"docs(wpa): update winget-pkgs-automation/README.md\" -- README.md`,
-        {
+      try {
+        execSync(`git diff -s --exit-code README.md`, {
           cwd: `${__dirname}/../winget-pkgs-automation`,
-        }
-      );
-      execSync(
-        `git push https://x-access-token:${
-          (
-            await (
-              await app.auth()
-            ).apps.createInstallationAccessToken({
-              installation_id: context.payload.installation.id,
-            })
-          ).data.token
-        }@github.com/vedantmgoyal2009/vedantmgoyal2009.git`,
-        {
-          cwd: `${__dirname}/../winget-pkgs-automation`,
-        }
-      );
+        });
+      } catch (error) {
+        app.log.info('README.md has changed, committing...');
+        execSync(
+          `git -c commit.gpgsign=false commit --author \"vedantmgoyal2009[bot] <110876359+vedantmgoyal2009[bot]@users.noreply.github.com>\" -m \"docs(wpa): update winget-pkgs-automation/README.md\" -- README.md`,
+          {
+            cwd: `${__dirname}/../winget-pkgs-automation`,
+          }
+        );
+        execSync(
+          `git push https://x-access-token:${
+            (
+              await (
+                await app.auth()
+              ).apps.createInstallationAccessToken({
+                installation_id: context.payload.installation.id,
+              })
+            ).data.token
+          }@github.com/vedantmgoyal2009/vedantmgoyal2009.git`,
+          {
+            cwd: `${__dirname}/../winget-pkgs-automation`,
+          }
+        );
+      }
     }
   });
 
@@ -66,59 +73,43 @@ module.exports = (app) => {
       app.log.info('-----------');
       app.log.info('command: /approve-and-merge');
       app.log.info('issue/pull_request: ' + context.payload.issue.number);
-      context.octokit.pulls.removeRequestedReviewers({
-        owner: context.payload.repository.owner.login,
-        repo: context.payload.repository.name,
-        pull_number: context.payload.issue.number,
-        reviewers: ['vedantmgoyal2009'],
-      });
-      context.octokit.pulls.createReview({
-        owner: context.payload.repository.owner.login,
-        repo: context.payload.repository.name,
-        pull_number: context.payload.issue.number,
-        event: 'APPROVE',
-      });
-      context.octokit.pulls.merge({
-        owner: context.payload.repository.owner.login,
-        repo: context.payload.repository.name,
-        pull_number: context.payload.issue.number,
-        merge_method: 'squash',
-      });
+      context.octokit.pulls.removeRequestedReviewers(
+        context.pullRequest({ reviewers: ['vedantmgoyal2009'] })
+      );
+      context.octokit.pulls.createReview(
+        context.pullRequest({ event: 'APPROVE' })
+      );
+      context.octokit.pulls.merge(
+        context.pullRequest({ merge_method: 'squash' })
+      );
     }
 
     // command: /label-and-merge
-    // if (context.payload.comment.body.includes('/label-and-merge')) {
-    //   app.log.info('-----------');
-    //   app.log.info('command: /label-and-merge');
-    //   app.log.info('issue/pull_request: ' + context.payload.issue.number);
-    //   let labels = context.payload.comment.body
-    //     .replace(/\/label-and-merge\s/g, '')
-    //     .split(' ');
-    //   app.log.info('labels: ' + labels);
-    //   context.octokit.issues.addLabels({
-    //     owner: context.payload.repository.owner.login,
-    //     repo: context.payload.repository.name,
-    //     issue_number: context.payload.issue.number,
-    //     labels: labels,
-    //   });
-    //   context.octokit.pulls.removeRequestedReviewers({
-    //     owner: context.payload.repository.owner.login,
-    //     repo: context.payload.repository.name,
-    //     pull_number: context.payload.issue.number,
-    //     reviewers: ['vedantmgoyal2009'],
-    //   });
-    //   context.octokit.pulls.createReview({
-    //     owner: context.payload.repository.owner.login,
-    //     repo: context.payload.repository.name,
-    //     pull_number: context.payload.issue.number,
-    //     event: 'APPROVE',
-    //   });
-    //   context.octokit.pulls.merge({
-    //     owner: context.payload.repository.owner.login,
-    //     repo: context.payload.repository.name,
-    //     pull_number: context.payload.issue.number,
-    //     merge_method: 'squash',
-    //   });
-    // }
+    if (context.payload.comment.body.includes('/label-and-merge')) {
+      app.log.info('-----------');
+      app.log.info('command: /label-and-merge');
+      app.log.info('issue/pull_request: ' + context.payload.issue.number);
+      let labels = context.payload.comment.body
+        .replace(/\/label-and-merge/g, '')
+        .split(',')
+        .map((label) => label.replace(/\s+|;?/g, ''));
+      app.log.info('labels: ' + labels);
+      if (labels.length > 0) {
+        context.octokit.issues.addLabels(context.issue({ labels: labels }));
+      } else {
+        app.log.error(
+          'Could not parse labels, skip adding labels and merging...'
+        );
+      }
+      context.octokit.pulls.removeRequestedReviewers(
+        context.pullRequest({ reviewers: ['vedantmgoyal2009'] })
+      );
+      context.octokit.pulls.createReview(
+        context.pullRequest({ event: 'APPROVE' })
+      );
+      context.octokit.pulls.merge(
+        context.pullRequest({ merge_method: 'squash' })
+      );
+    }
   });
 };

@@ -57,8 +57,8 @@ If ((Get-Content -Raw ..\tools\wingetdev\build.json | ConvertFrom-Json).Commit.S
     & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat' x64
     & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -t:restore -m -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath ..\tools\wingetdev\log.txt -Append
     & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath ..\tools\wingetdev\log.txt -Append
-    Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination ..\..\tools\wingetdev\WindowsPackageManager.dll -Force
-    Move-Item -Path .\winget-cli\src\x64\Release\AppInstallerCLI\* -Destination ..\..\tools\wingetdev -Force
+    Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination ..\tools\wingetdev\WindowsPackageManager.dll -Force
+    Move-Item -Path .\winget-cli\src\x64\Release\AppInstallerCLI\* -Destination ..\tools\wingetdev -Force
     Move-Item -Path ..\tools\wingetdev\winget.exe -Destination wingetdev.exe -Force # Rename winget.exe to wingetdev.exe, Rename-Item with -Force doesn't work when the destination file already exists
     ConvertTo-Json -InputObject ([ordered] @{
             Commit        = [ordered] @{
@@ -95,7 +95,9 @@ Write-Output 'Blocked microsoft edge updates, installed powershell-yaml, importe
 
 $UpgradeObject = @()
 Write-Output 'Checking for updates...'
-ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.SkipPackage -eq $false })) {
+ForEach ($PackageJson in (Get-ChildItem .\packages\ -Recurse -File)) {
+    $Package = $PackageJson | Get-Content -Raw | ConvertFrom-Json # Parse json file
+    If ($Package.SkipPackage -ne $false) { Continue } # Skip package if SkipPackage not equal to false
     $_Object = New-Object -TypeName System.Management.Automation.PSObject
     $_Object | Add-Member -MemberType NoteProperty -Name 'PackageIdentifier' -Value $Package.Identifier
     $VersionRegex = $Package.VersionRegex
@@ -221,7 +223,7 @@ ForEach ($Upgrade in $UpgradeObject) {
 }
 Set-Location -Path ..\..\ # Go back to winget-pkgs-automation directory
 
-Write-Output "`nComment the results of the run on the issue #200 (Automation Health)`n"
+Write-Output "`nComment the results of the run on the issue #900 (Automation Health)`n"
 $Headers = @{
     Authorization = "Token $AuthToken"
     Accept        = 'application/vnd.github.v3+json'
@@ -242,11 +244,11 @@ If ($ErrorUpgradingPkgs.Count -gt 0) {
     $CommentBody += 'All packages were updated successfully :tada:'
 }
 # Delete all previous comments since we are already reverting the changes in the JSON file so that they can be upgarded in the next run
-(Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments').Where({ $_.user.login -eq 'winget-pkgs-automation-bot[bot]' }).ForEach({
+(Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/900/comments').Where({ $_.user.login -eq 'winget-pkgs-automation-bot[bot]' }).ForEach({
         Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $Headers | Out-Null
     })
 # Add the new comment to the issue containing the results of the automation run
-Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/200/comments' -Body "{`"body`":`"$CommentBody`"}" -Headers $Headers
+Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/900/comments' -Body "{`"body`":`"$CommentBody`"}" -Headers $Headers
 
 # Update packages in repository
 Write-Output "`nUpdating packages"
