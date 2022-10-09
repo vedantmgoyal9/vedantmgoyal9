@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "4b613b3057df01b8225ff50a73af971fa27d02b5",
-    "Message": "Improve installer selection during upgrade (#2570)",
+    "Sha": "d54c5a3d438b25289e574d305b9b2e8881b27b59",
+    "Message": "Make Install flow aware of package installed status (#2539)",
     "Author": "yao-msft"
   },
-  "BuildDateTime": "Sunday, October 9, 2022 7:47:44 AM"
+  "BuildDateTime": "Sunday, October 9, 2022 8:42:36 PM"
 }
