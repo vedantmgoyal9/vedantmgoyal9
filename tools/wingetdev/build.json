@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "8d0996fc4921261b3eb46b0351793f53e8e918f4",
-    "Message": "Make Symlink Target Canonical (#2563)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "3aa7aa444b862d7a186ad13cdc7322c3e6186f07",
+    "Message": "Fix error when everything fails (#2593)",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Saturday, October 1, 2022 3:15:20 AM"
+  "BuildDateTime": "Thursday, October 13, 2022 3:30:08 PM"
 }
