@@ -11,6 +11,7 @@ on:
         options:
           - WinGet Automation
           - Add package versions (Json input)
+          - Add Arp entries (Json input)
           - Move packages (Json input)
         default: 'WinGet Automation'
         required: true
@@ -23,10 +24,6 @@ jobs:
   wpa-automation:
     name: WinGet Automation
     runs-on: windows-latest
-    defaults:
-      run:
-        shell: pwsh
-        working-directory: winget-pkgs-automation
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -36,6 +33,8 @@ jobs:
         run: |
           If ('Add package versions (Json input)' -eq '${{ inputs.what-to-run }}') {
             .\Add-PackageVersions.ps1 -JsonInput '${{ inputs.json-input }}'
+          } ElseIf ('Add Arp entries (Json input)' -eq '${{ inputs.what-to-run }}') {
+            .\Add-ArpEntries.ps1 -JsonInput '${{ inputs.json-input }}'
           } ElseIf ('Move packages (Json input)' -eq '${{ inputs.what-to-run }}') {
             .\Move-Packages.ps1 -JsonInput '${{ inputs.json-input }}'
           } Else {
@@ -46,6 +45,8 @@ jobs:
           AP_PKY: ${{ secrets.BT_AP_PKY }}
           INST_ID: ${{ secrets.BT_INST_ID }}
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+        shell: pwsh
+        working-directory: winget-pkgs-automation
   codeql-analysis:
     name: CodeQL (analyse)
     if: github.event_name == 'schedule'

@@ -1,0 +1,6 @@
+# Ignore everything
+**/**
+
+# Whitelist only the files we need
+manifests
+wingetdev

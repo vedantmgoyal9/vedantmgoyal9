@@ -332,7 +332,7 @@ Function Test-Package {
                 Write-Output 'Downloading the installer to get the version... This may take some time...'
             }
             $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value $(
-                If ($_.Name -eq 'AppsAndFeaturesEntries') {
+                If ($_.Name -in @('AppsAndFeaturesEntries','Agreements','Documentations')) {
                     $_NestedObjectArray = @()
                     for ($_Index = 0; $_Index -lt $PackageObject.ManifestFields.AppsAndFeaturesEntries.Length; $_Index++) {
                         <# Action that will repeat until the condition is met #>

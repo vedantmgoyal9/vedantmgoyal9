@@ -32,7 +32,7 @@
   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [3000, 59457, 59456],
+  "forwardPorts": [3000, 59457, 59456, 59455],
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "bash .devcontainer/setup.sh",
@@ -40,13 +40,40 @@
   // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "vscode",
   "features": {
-    "git": "latest",
-    "github-cli": "latest",
-    "homebrew": "latest",
-    "node": "latest",
-    "python": "latest",
-    "powershell": "latest",
-    "dotnet": "latest"
+    "desktop-lite": {
+      "version": "latest",
+      "webPort": 59455,
+      "password": "jsg/osgn:"
+    },
+    "docker-in-docker": {
+      "version": "latest",
+      "moby": false,
+      "dockerDashComposeVersion": "v2"
+    },
+    "dotnet": {
+      "version": "latest",
+      "runtimeOnly": true,  // Install just dotnet runtime if true, sdk if false.
+      "installUsingApt": true
+    },
+    "github-cli": {
+      "version": "latest",
+      "installDirectlyFromGitHubRelease": true
+    },
+    "homebrew": {
+      "version": "latest",
+      "shallow": true
+    },
+    "node": {
+      "version": "latest",
+      "nodeGypDependencies": false // ,
+      // "nvmInstallPath": "/usr/local/share/nvm"
+    },
+    "powershell": {
+      "version": "latest"
+    }
+    // "python": {
+    //   "version": "latest"
+    // }
   },
   "customizations": {
     "codespaces": {

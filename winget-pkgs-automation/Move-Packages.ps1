@@ -53,15 +53,18 @@ git -C winget-pkgs fetch origin --quiet # Fetch branches from origin, quiet to n
 git -C winget-pkgs config core.safecrlf false # Change core.safecrlf to false to suppress some git messages, from YamlCreate.ps1
 # Copy-Item -Path .\YamlCreate.ps1 -Destination .\winget-pkgs\Tools\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 # git -C winget-pkgs commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
-New-Item -Value 'EnableDeveloperOptions: true' -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -ItemType File -Force # Create Settings.yaml file
+New-Item -Value @'
+AutoSubmitPRs: never
+EnableDeveloperOptions: true
+'@ -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -ItemType File -Force # Create Settings.yaml file
 Write-Output 'Blocked microsoft edge updates, installed powershell-yaml, imported functions, copied YamlCreate.ps1, and updated git configuration.'
 
 $PSDefaultParameterValues = @{ '*:Encoding' = 'UTF8' }
 $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $false
 $ofs = ', '
-
-Set-Location -Path .\$PSScriptRoot\winget-pkgs\Tools\
-$ManifestsFolder = (Resolve-Path "$PSScriptRoot\..\manifests").Path
+# Thanks to @Trenly for their work at Move-Packages.ps1, on which this script is based on
+Set-Location -Path .\winget-pkgs\Tools\
+$ManifestsFolder = (Resolve-Path ..\manifests\).Path
 foreach ($i in ConvertFrom-Json -InputObject $JsonInput) {
     $FromPackage = $i.FromPackage
     $ToPackage = $i.ToPackage

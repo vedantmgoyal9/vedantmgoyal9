@@ -1,3 +1,4 @@
+#Requires -Version 7.2.2
 [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(
     'PSUseDeclaredVarsMoreThanAssignments',
     '',
@@ -149,7 +150,7 @@ ForEach ($PackageJson in (Get-ChildItem .\packages\ -Recurse -File)) {
         }
         $Package.ManifestFields.PSObject.Properties.ForEach({
                 $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value $(
-                    If ($_.Name -eq 'AppsAndFeaturesEntries') {
+                    If ($_.Name -in @('AppsAndFeaturesEntries','Agreements','Documentations')) {
                         $_NestedObjectArray = @()
                         for ($_Index = 0; $_Index -lt $Package.ManifestFields.AppsAndFeaturesEntries.Length; $_Index++) {
                             <# Action that will repeat until the condition is met #>
@@ -184,7 +185,7 @@ ForEach ($PackageJson in (Get-ChildItem .\packages\ -Recurse -File)) {
 }
 Write-Output "Number of package updates found: $($UpgradeObject.Count)`nPackages to be updated:"
 $UpgradeObject.ForEach({
-        Write-Output "-> $($_.PackageIdentifier)"
+        Write-Output "-> $($_.PackageIdentifier) version $($_.PackageVersion)"
     })
 Set-Location -Path .\winget-pkgs\Tools
 ForEach ($Upgrade in $UpgradeObject) {
