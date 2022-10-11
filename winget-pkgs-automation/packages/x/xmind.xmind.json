@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "XMind.XMind",
+  "Identifier": "Xmind.Xmind",
   "Update": {
     "InvokeType": "RestMethod",
     "Uri": "https://www.xmind.net/xmind/update/latest-win64.yml",
