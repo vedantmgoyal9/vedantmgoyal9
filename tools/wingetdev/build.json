@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "d54c5a3d438b25289e574d305b9b2e8881b27b59",
-    "Message": "Make Install flow aware of package installed status (#2539)",
-    "Author": "yao-msft"
+    "Sha": "685a06afd533db22374cf93a00e7cdb63e098240",
+    "Message": "Enable mechanism for some control over correlation (#2577)\n\n## Change\r\nThe primary change is to enable some control over the correlation functionality so that different situations can behave differently.  Specifically, the utility functionality of metadata collection, which is intended to be run in a \"clean room\" environment, can assume that a single change to ARP represents the target entry.\r\n\r\nIn addition, this change enables diagnostic information to be output by the metadata collection.  This includes the reason that an entry was chosen, and the confidence value for various possible entries if the heuristic matching is attempted.\r\n\r\nFinally, the correlation testbed is enhanced to run the metadata collection, allowing it to be tested alongside the inline correlation.  The scripts have various improvements, such as a `-Wait` to leave the sandbox active and forcing the CSV to be output with a UTF8-BOM (Excel requires the BOM in order to open the CSV as UTF8).",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Sunday, October 9, 2022 8:42:36 PM"
+  "BuildDateTime": "Tuesday, October 11, 2022 2:07:19 PM"
 }
