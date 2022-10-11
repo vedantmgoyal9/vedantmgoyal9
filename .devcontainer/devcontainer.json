@@ -52,7 +52,7 @@
     },
     "dotnet": {
       "version": "latest",
-      "runtimeOnly": true,  // Install just dotnet runtime if true, sdk if false.
+      "runtimeOnly": true, // Install just dotnet runtime if true, sdk if false.
       "installUsingApt": true
     },
     "github-cli": {
