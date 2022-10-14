@@ -11,12 +11,13 @@ Function Local:Test-ArpMetadata {
     }
     $FunctionsForJob = {
         # Function to get the add/remove programs entries from the registries
-        Function Get-ARPTable {
+        Function Get-ArpTable {
             $RegistryPaths = @('HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*')
             return Get-ItemProperty -Path $RegistryPaths -ErrorAction SilentlyContinue |
-                Select-Object DisplayName, DisplayVersion, Publisher, @{ N = 'ProductCode'; E = { $_.PSChildName } } |
-                Where-Object { $Null -ne $_.DisplayName -and $_.SystemComponent -ne 1 }
-        }
+                Select-Object DisplayName, DisplayVersion, Publisher, SystemComponent, @{ N = 'ProductCode'; E = { $_.PSChildName } } |
+                Where-Object { $Null -ne $_.DisplayName -and $_.SystemComponent -ne 1 } |
+                Select-Object DisplayName, DisplayVersion, Publisher, ProductCode
+        } 
     }
     # Get the data needed to compare the ARP metadata from the manifest
     $ManifestPath = (Resolve-Path -Path $ManifestFolder).Path
@@ -24,11 +25,11 @@ Function Local:Test-ArpMetadata {
     $Manifest = @($ManifestRaw[0] -replace 'Found', 'PackageName:' -replace '\[.*\..*\]', '') + $ManifestRaw.Where({ $_ -match ':' }) | ConvertFrom-StringData -Delimiter ':'
     $ProductCode = (Get-Content -Path (Get-ChildItem -Path $ManifestPath -Filter '*installer*').FullName | ConvertFrom-Yaml).Installers.Where({ $_.InstallerUrl -eq $Manifest.'Download Url' }).ProductCode
     # Install the manifest, compare the changes in the arp table, and output the result to the JSON file
-    $Job = Start-Job -InitializationScript $FunctionsForJob -Name 'InstallAndGetArp' -ScriptBlock {
-        $ArpBeforeInstall = Get-ARPTable # Get Add/Remove Programs entries before installing the package
+    $Job = Start-Job -Name 'InstallAndGetArp' -InitializationScript $FunctionsForJob -ScriptBlock {
+        $ArpBeforeInstall = Get-ArpTable # Get Add/Remove Programs entries before installing the package
         & $Using:WinGetDev install --manifest "$Using:ManifestPath" --no-vt # Install the manifest
         # Get the difference between current and before-install Add/Remove Programs entries and output them in JSON format to a file
-        ConvertTo-Json -InputObject @(Compare-Object -ReferenceObject (Get-ARPTable) -DifferenceObject $ArpBeforeInstall -Property DisplayName, DisplayVersion, Publisher, ProductCode | Select-Object -Property * -ExcludeProperty SideIndicator) | Set-Content -Path .\Arp-Difference.json
+        ConvertTo-Json -InputObject @(Compare-Object -ReferenceObject (Get-ArpTable) -DifferenceObject $ArpBeforeInstall -Property DisplayName, DisplayVersion, Publisher, ProductCode | Select-Object -Property * -ExcludeProperty SideIndicator) | Set-Content -Path .\Arp-Difference.json
     } | Wait-Job -Timeout 120 # Timeout after 2 minutes
     $Job | Receive-Job -ErrorAction SilentlyContinue # Get the stdout of the job
     $ArpDiff = Get-Content -Path .\Arp-Difference.json -Raw | ConvertFrom-Json # Read the difference JSON file
@@ -108,6 +109,30 @@ Function Local:Submit-Manifest {
         git switch master --quiet
         git pull --quiet
     }
+}
+
+# Function for docker container of Add-ArpEntries.ps1 script
+Function Initialize-Container {
+    # Function to get the add/remove programs entries from the registries
+    Function Get-ArpTable {
+        $RegistryPaths = @('HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*')
+        return Get-ItemProperty -Path $RegistryPaths -ErrorAction SilentlyContinue |
+            Select-Object DisplayName, DisplayVersion, Publisher, SystemComponent, @{ N = 'ProductCode'; E = { $_.PSChildName } } |
+            Where-Object { $Null -ne $_.DisplayName -and $_.SystemComponent -ne 1 } |
+            Select-Object DisplayName, DisplayVersion, Publisher, ProductCode
+    }
+    Set-Service -Name edgeupdate -Status Stopped -StartupType Disabled # stop edgeupdate service
+    Set-Service -Name edgeupdatem -Status Stopped -StartupType Disabled # stop edgeupdatem service
+    $ArpBeforeInstall = Get-ArpTable # Get Add/Remove Programs entries before installing the package
+    .\wingetdev.exe install --manifest .\manifests\ --log .\winget-install.log --force # use --force to override installer hash check
+    If ($LastExitCode -ne 0) {
+        ConvertTo-Json -InputObject @{ Error = "ExitCode`: $LastExitCode" } | Set-Content -Path .\output.json
+        Exit
+    }
+    # Get the difference between current and before-install Arp entries and output them in JSON format to a file
+    ConvertTo-Json -InputObject @(Compare-Object -ReferenceObject (Get-ArpTable) -DifferenceObject $ArpBeforeInstall -Property DisplayName, DisplayVersion, Publisher, ProductCode |
+            Select-Object -Property * -ExcludeProperty SideIndicator) | 
+            Set-Content -Path .\Arp-Difference.json
 }
 
 Function Read-VersionFromInstaller {
