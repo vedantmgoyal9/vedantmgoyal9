@@ -21,5 +21,5 @@ Hi, I am Vedant :smiley:
 [github-followers-badge]: https://img.shields.io/github/followers/vedantmgoyal2009?logo=github&color=indigo&style=for-the-badge
 [github-sponsors-badge]: https://img.shields.io/github/sponsors/vedantmgoyal2009?logo=githubsponsors&style=for-the-badge
 [github-user-stars-badge]: https://img.shields.io/github/stars/vedantmgoyal2009?affiliations=OWNER%2CCOLLABORATOR&style=for-the-badge
-[github-readme-stats-card]: https://github-readme-stats.vercel.app/api?username=vedantmgoyal2009&show_icons=true&include_all_commits=true
-[github-top-languages-card]: https://github-readme-stats.vercel.app/api/top-langs/?username=vedantmgoyal2009&layout=compact
+[github-readme-stats-card]: https://github-readme-stats.vercel.app/api?username=vedantmgoyal2009&show_icons=true&theme=gruvbox
+[github-top-languages-card]: https://github-readme-stats.vercel.app/api/top-langs/?username=vedantmgoyal2009&layout=compact&theme=gruvbox

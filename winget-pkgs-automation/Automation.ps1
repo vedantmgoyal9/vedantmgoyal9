@@ -1,3 +1,4 @@
+#Requires -Version 7.2.2
 [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(
     'PSUseDeclaredVarsMoreThanAssignments',
     '',
@@ -46,7 +47,6 @@ Write-Output @"
 $AuthToken = node .\auth.js # Get bot token from auth.js which was initialized in the workflow
 # Set wingetdev.exe path variable which will be used in the whole automation to execute wingetdev.exe commands
 Set-Variable -Name WinGetDev -Value (Resolve-Path -Path ..\tools\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
-
 # Update wingetdev if a new commit is pushed on microsoft/winget-cli, thanks to @jedieaston for making https://github.com/jedieaston/winget-build
 # Path to wingetdev.exe is also used in winget-releaser action, so update the path in the action whenever wingetdev is moved in this repository
 $WinGetCliCommitInfo = Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/microsoft/winget-cli/commits?per_page=1'
@@ -73,6 +73,8 @@ If ((Get-Content -Raw ..\tools\wingetdev\build.json | ConvertFrom-Json).Commit.S
     git commit -m "chore(wpa): update wingetdev build [$env:GITHUB_RUN_NUMBER]"
     git push https://x-access-token:$AuthToken@github.com/vedantmgoyal2009/vedantmgoyal2009.git
 }
+# Enable installation of local manifests by wingetdev, disabled by default for security purposes
+## See https://github.com/microsoft/winget-cli/pull/1453 for more info
 & $WinGetDev settings --enable LocalManifestFiles
 
 # Block microsoft edge updates, install powershell-yaml, import functions, copy YamlCreate.ps1 to the Tools folder, and update git configuration
@@ -91,6 +93,10 @@ git -C winget-pkgs fetch origin --quiet # Fetch branches from origin, quiet to n
 git -C winget-pkgs config core.safecrlf false # Change core.safecrlf to false to suppress some git messages, from YamlCreate.ps1
 Copy-Item -Path .\YamlCreate.ps1 -Destination .\winget-pkgs\Tools\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git -C winget-pkgs commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
+# New-Item -Value @'
+# AutoSubmitPRs: never
+# EnableDeveloperOptions: true
+# '@ -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -ItemType File -Force # Create Settings.yaml file
 Write-Output 'Blocked microsoft edge updates, installed powershell-yaml, imported functions, copied YamlCreate.ps1, and updated git configuration.'
 
 $UpgradeObject = @()
@@ -149,7 +155,7 @@ ForEach ($PackageJson in (Get-ChildItem .\packages\ -Recurse -File)) {
         }
         $Package.ManifestFields.PSObject.Properties.ForEach({
                 $_Object | Add-Member -MemberType NoteProperty -Name $_.Name -Value $(
-                    If ($_.Name -eq 'AppsAndFeaturesEntries') {
+                    If ($_.Name -in @('AppsAndFeaturesEntries', 'Agreements', 'Documentations')) {
                         $_NestedObjectArray = @()
                         for ($_Index = 0; $_Index -lt $Package.ManifestFields.AppsAndFeaturesEntries.Length; $_Index++) {
                             <# Action that will repeat until the condition is met #>
@@ -182,9 +188,10 @@ ForEach ($PackageJson in (Get-ChildItem .\packages\ -Recurse -File)) {
     }
     Remove-Variable -Name UpdateCondition -ErrorAction SilentlyContinue
 }
-Write-Output "Number of package updates found: $($UpgradeObject.Count)`nPackages to be updated:"
+Write-Output "Number of package updates found: $($UpgradeObject.Count)"
+Wrute-Output 'Packages to be updated:'
 $UpgradeObject.ForEach({
-        Write-Output "-> $($_.PackageIdentifier)"
+        Write-Output "-> $($_.PackageIdentifier) version $($_.PackageVersion)"
     })
 Set-Location -Path .\winget-pkgs\Tools
 ForEach ($Upgrade in $UpgradeObject) {
