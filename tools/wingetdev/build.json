@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "3aa7aa444b862d7a186ad13cdc7322c3e6186f07",
-    "Message": "Fix error when everything fails (#2593)",
-    "Author": "JohnMcPMS"
+    "Sha": "cf4a6cfb13a2bd4c9244f98e0bc01893ae6def47",
+    "Message": "Fix compliance issues by setting Newtonsoft.Json to recommended version (#2609)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Thursday, October 13, 2022 3:30:08 PM"
+  "BuildDateTime": "Wednesday, October 19, 2022 8:44:52 PM"
 }
