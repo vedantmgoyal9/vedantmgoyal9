@@ -35,6 +35,11 @@ Write-Output @"
 $AuthToken = node .\auth.js # Get bot token from auth.js which was initialized in the workflow
 # Set wingetdev.exe path variable which will be used in the whole automation to execute wingetdev.exe commands
 Set-Variable -Name WinGetDev -Value (Resolve-Path -Path ..\tools\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
+# Update wingetdev if a new commit is pushed on microsoft/winget-cli, thanks to @jedieaston for making https://github.com/jedieaston/winget-build
+# Path to wingetdev.exe is also used in winget-releaser action, so update the path in the action whenever wingetdev is moved in this repository
+## Removed since Automation.ps1 already updates wingetdev build, no need to check for updates and update it again here
+# Enable installation of local manifests by wingetdev, disabled by default for security purposes
+## See https://github.com/microsoft/winget-cli/pull/1453 for more info
 & $WinGetDev settings --enable LocalManifestFiles
 
 # Block microsoft edge updates, install powershell-yaml, import functions, copy YamlCreate.ps1 to the Tools folder, and update git configuration
@@ -53,16 +58,25 @@ git -C winget-pkgs fetch origin --quiet # Fetch branches from origin, quiet to n
 git -C winget-pkgs config core.safecrlf false # Change core.safecrlf to false to suppress some git messages, from YamlCreate.ps1
 # Copy-Item -Path .\YamlCreate.ps1 -Destination .\winget-pkgs\Tools\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 # git -C winget-pkgs commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
-New-Item -Value 'EnableDeveloperOptions: true' -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -ItemType File -Force # Create Settings.yaml file
+New-Item -Value @'
+AutoSubmitPRs: never
+EnableDeveloperOptions: true
+'@ -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -ItemType File -Force # Create Settings.yaml file
 Write-Output 'Blocked microsoft edge updates, installed powershell-yaml, imported functions, copied YamlCreate.ps1, and updated git configuration.'
 
 $PSDefaultParameterValues = @{ '*:Encoding' = 'UTF8' }
 $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $false
 $ofs = ', '
 
-Set-Location -Path .\$PSScriptRoot\winget-pkgs\Tools\
-$ManifestsFolder = (Resolve-Path "$PSScriptRoot\..\manifests").Path
-foreach ($i in ConvertFrom-Json -InputObject $JsonInput) {
+$UpgradeObject = ConvertFrom-Json -InputObject $JsonInput -NoEnumerate # Convert JsonInput to a PSCustomObject
+Write-Output "Total number of packages to move: $($UpgradeObject.Count)" # Print total number of packages
+Write-Output 'Packages and their versions to be moved:' # Print packages and their versions to be moved
+$UpgradeObject.ForEach({
+        Write-Output "-> [$($_.FromPackage) -> $($_.ToPackage)]: $NewMoniker - $($_.VersionsToMove ? $_.VersionsToMove -join ', ' : 'All versions')"
+    })
+Set-Location -Path .\winget-pkgs\Tools\
+$ManifestsFolder = (Resolve-Path ..\manifests\).Path
+ForEach ($i in $UpgradeObject) {
     $FromPackage = $i.FromPackage
     $ToPackage = $i.ToPackage
     $NewMoniker = $i.NewMoniker
@@ -84,14 +98,14 @@ foreach ($i in ConvertFrom-Json -InputObject $JsonInput) {
 
     # If VersionsToMove is already specified, we will skip this step
     ## If we are okay to move it, get a list of the versions to move
-    $VersionsToMove ??= @(Get-ChildItem -Path $FromAppFolder | Where-Object { @(Get-ChildItem -Directory -Path $_.FullName).Count -eq 0 }).Name
+    $VersionsToMove ??= @((Get-ChildItem -Path $FromAppFolder).Where({ @(Get-ChildItem -Directory -Path $_.FullName).Count -eq 0 })).Name
 
     If ($VersionsToMove.Count -eq 0) {
         Write-Output "[$FromPackage -> $ToPackage]: Skipping because there are no versions to move."
         continue
     }
 
-    foreach ($Version in $VersionsToMove) {
+    ForEach ($Version in $VersionsToMove) {
         # Copy the manifests to the new directory
         $SourceFolder = Join-Path -Path $script:FromAppFolder -ChildPath $Version
         $DestinationFolder = Join-Path -Path $script:ToAppFolder -ChildPath $Version

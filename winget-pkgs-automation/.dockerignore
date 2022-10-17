@@ -1,0 +1,11 @@
+# Ignoring everything and only excluding the required files
+# will save time which docker will spend on copying the
+# files from here to build context directory.
+
+# Ignore everything
+**/**
+
+# Exclude only the required files
+!Functions.ps1
+!vc_redist.x64.exe
+!wingetdev
