@@ -3,7 +3,7 @@
   "Identifier": "Bitwarden.Bitwarden",
   "Update": {
     "InvokeType": "RestMethod",
-    "Uri": "https://api.github.com/repos/bitwarden/clients/releases?per_page=1",
+    "Uri": "https://api.github.com/repos/bitwarden/clients/releases?per_page=10",
     "Method": "Get",
     "Headers": {
       "Authorization": "$AuthToken",
@@ -12,7 +12,10 @@
     "Body": "",
     "UserAgent": ""
   },
-  "PostResponseScript": "$UpdateCondition = $Response.tag_name.StartsWith('desktop-') -and $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
+  "PostResponseScript": [
+    "$Response = $Response.Where({ $_.tag_name.StartsWith('desktop-') }) | Select-Object -First 1",
+    "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId"
+  ],
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "Bitwarden-Installer.*.exe$",
   "PreviousVersion": "2022.9.0",
@@ -24,7 +27,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 76905168
+    "PreviousReleaseId": 0
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {

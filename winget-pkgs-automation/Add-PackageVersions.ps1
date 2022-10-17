@@ -35,6 +35,11 @@ Write-Output @"
 $AuthToken = node .\auth.js # Get bot token from auth.js which was initialized in the workflow
 # Set wingetdev.exe path variable which will be used in the whole automation to execute wingetdev.exe commands
 Set-Variable -Name WinGetDev -Value (Resolve-Path -Path ..\tools\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
+# Update wingetdev if a new commit is pushed on microsoft/winget-cli, thanks to @jedieaston for making https://github.com/jedieaston/winget-build
+# Path to wingetdev.exe is also used in winget-releaser action, so update the path in the action whenever wingetdev is moved in this repository
+## Removed since Automation.ps1 already updates wingetdev build, no need to check for updates and update it again here
+# Enable installation of local manifests by wingetdev, disabled by default for security purposes
+## See https://github.com/microsoft/winget-cli/pull/1453 for more info
 & $WinGetDev settings --enable LocalManifestFiles
 
 # Block microsoft edge updates, install powershell-yaml, import functions, copy YamlCreate.ps1 to the Tools folder, and update git configuration
@@ -53,9 +58,14 @@ git -C winget-pkgs fetch origin --quiet # Fetch branches from origin, quiet to n
 git -C winget-pkgs config core.safecrlf false # Change core.safecrlf to false to suppress some git messages, from YamlCreate.ps1
 Copy-Item -Path .\YamlCreate.ps1 -Destination .\winget-pkgs\Tools\YamlCreate.ps1 -Force # Copy YamlCreate.ps1 to Tools directory
 git -C winget-pkgs commit --all -m 'Update YamlCreate.ps1 with InputObject functionality' # Commit changes
+# New-Item -Value @'
+# AutoSubmitPRs: never
+# EnableDeveloperOptions: true
+# '@ -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -ItemType File -Force # Create Settings.yaml file
 Write-Output 'Blocked microsoft edge updates, installed powershell-yaml, imported functions, copied YamlCreate.ps1, and updated git configuration.'
 
-$UpgradeObject = ConvertFrom-Json -InputObject $JsonInput # Convert JsonInput to a PSCustomObject
+$UpgradeObject = ConvertFrom-Json -InputObject $JsonInput -NoEnumerate # Convert JsonInput to a PSCustomObject
+Write-Output "Total number of packages: $($UpgradeObject.Count)" # Print total number of packages
 Write-Output 'These are packages and their versions that will be added to winget-pkgs:'
 $UpgradeObject.ForEach({
         Write-Output "-> $($_.PackageIdentifier) version $($_.PackageVersion)"
