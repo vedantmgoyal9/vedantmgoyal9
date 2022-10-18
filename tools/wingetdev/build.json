@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "02ff0063e824b8cda96b70ab876fcdc8823786d7",
-    "Message": "Fix PowerShell module for release configuration (#2599)",
-    "Author": "Ryan Fu"
+    "Sha": "5e94550dcf80be52bea759c72bb28194beebd89b",
+    "Message": "Treat little numbers as big numbers (#2606)",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Tuesday, October 18, 2022 9:39:35 PM"
+  "BuildDateTime": "Tuesday, October 18, 2022 11:45:35 PM"
 }
