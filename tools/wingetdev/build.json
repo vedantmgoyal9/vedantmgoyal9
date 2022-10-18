@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "3aa7aa444b862d7a186ad13cdc7322c3e6186f07",
-    "Message": "Fix error when everything fails (#2593)",
-    "Author": "JohnMcPMS"
+    "Sha": "02ff0063e824b8cda96b70ab876fcdc8823786d7",
+    "Message": "Fix PowerShell module for release configuration (#2599)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Thursday, October 13, 2022 3:30:08 PM"
+  "BuildDateTime": "Tuesday, October 18, 2022 9:39:35 PM"
 }
