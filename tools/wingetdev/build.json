@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "5e94550dcf80be52bea759c72bb28194beebd89b",
-    "Message": "Treat little numbers as big numbers (#2606)",
-    "Author": "JohnMcPMS"
+    "Sha": "cf4a6cfb13a2bd4c9244f98e0bc01893ae6def47",
+    "Message": "Fix compliance issues by setting Newtonsoft.Json to recommended version (#2609)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Tuesday, October 18, 2022 11:45:35 PM"
+  "BuildDateTime": "Wednesday, October 19, 2022 8:44:52 PM"
 }
