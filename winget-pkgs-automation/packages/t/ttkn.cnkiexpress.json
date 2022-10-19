@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "0.2.27",
+  "PreviousVersion": "0.2.28",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "\"https://download.cnki.net/cnkiexpress/$([System.Uri]::EscapeUriString($Response.path))\"",
