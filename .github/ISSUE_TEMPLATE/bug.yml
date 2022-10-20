@@ -15,17 +15,6 @@ body:
       options:
         - label: I have searched the existing issues
           required: true
-  - type: dropdown
-    attributes:
-      label: Project Name
-      description: Please select the project this bug belongs to.
-      multiple: false
-      options:
-        - WinGet Automation
-        - WinGet Releaser Action
-        - Other
-    validations:
-      required: true
   - type: textarea
     attributes:
       label: What happened?

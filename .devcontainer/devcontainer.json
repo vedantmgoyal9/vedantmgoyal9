@@ -65,14 +65,14 @@
     },
     "node": {
       "version": "latest",
-      "nodeGypDependencies": false // ,
-      // "nvmInstallPath": "/usr/local/share/nvm"
+      "nodeGypDependencies": false // , see https://github.com/devcontainers/features
+      // "nvmInstallPath": "/usr/local/share/nvm" - default value
     },
     "powershell": {
       "version": "latest"
     } // ,
     // "python": {
-    //   "version": "latest"
+    //   "version": "latest" - will uncomment when I will learn python :D
     // }
   },
   "customizations": {

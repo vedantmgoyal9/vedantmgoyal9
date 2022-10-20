@@ -11,8 +11,8 @@ on:
         options:
           - WinGet Automation
           - Add package versions (Json input)
-          - Move packages (Json input)
           - Add Arp entries (Json input)
+          - Move packages (Json input)
         default: 'WinGet Automation'
         required: true
       json-input:
