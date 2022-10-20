@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0fc32ec0a4da98529669260d1b9cee908603bd89",
-    "Message": "Fix internal build (#2610)",
-    "Author": "yao-msft"
+    "Sha": "199b9b0f9db51362eb1bf82540c57d80ba22df9a",
+    "Message": "Added info about reinstalling App Installer to troubleshooting README.md (#2616)\n\nAdded hints how to reinstall App Installer",
+    "Author": "Alexander Gayko"
   },
-  "BuildDateTime": "Thursday, October 20, 2022 9:40:05 PM"
+  "BuildDateTime": "Thursday, October 20, 2022 10:46:46 PM"
 }
