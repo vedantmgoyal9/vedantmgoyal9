@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "cf4a6cfb13a2bd4c9244f98e0bc01893ae6def47",
-    "Message": "Fix compliance issues by setting Newtonsoft.Json to recommended version (#2609)",
+    "Sha": "0fc32ec0a4da98529669260d1b9cee908603bd89",
+    "Message": "Fix internal build (#2610)",
     "Author": "yao-msft"
   },
-  "BuildDateTime": "Wednesday, October 19, 2022 8:44:52 PM"
+  "BuildDateTime": "Thursday, October 20, 2022 9:40:05 PM"
 }
