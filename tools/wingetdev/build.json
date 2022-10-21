@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "199b9b0f9db51362eb1bf82540c57d80ba22df9a",
-    "Message": "Added info about reinstalling App Installer to troubleshooting README.md (#2616)\n\nAdded hints how to reinstall App Installer",
-    "Author": "Alexander Gayko"
+    "Sha": "5cd56162ecd70d84f19c01f11320afb9a1995ea2",
+    "Message": "update protocol max to 64 (#2620)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Thursday, October 20, 2022 10:46:46 PM"
+  "BuildDateTime": "Friday, October 21, 2022 9:44:53 PM"
 }
