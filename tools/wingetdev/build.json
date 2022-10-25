@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "cf4a6cfb13a2bd4c9244f98e0bc01893ae6def47",
-    "Message": "Fix compliance issues by setting Newtonsoft.Json to recommended version (#2609)",
-    "Author": "yao-msft"
+    "Sha": "5cd56162ecd70d84f19c01f11320afb9a1995ea2",
+    "Message": "update protocol max to 64 (#2620)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Wednesday, October 19, 2022 8:44:52 PM"
+  "BuildDateTime": "Tuesday, October 25, 2022 1:35:16 PM"
 }
