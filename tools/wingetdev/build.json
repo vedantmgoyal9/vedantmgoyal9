@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "5cd56162ecd70d84f19c01f11320afb9a1995ea2",
-    "Message": "update protocol max to 64 (#2620)",
-    "Author": "Ryan Fu"
+    "Sha": "edfc884fd3a54ff1cda372bbe7588d8025d0e1e1",
+    "Message": "Print command aliases added on portable install (#2621)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Tuesday, October 25, 2022 1:35:16 PM"
+  "BuildDateTime": "Tuesday, October 25, 2022 7:12:24 PM"
 }
