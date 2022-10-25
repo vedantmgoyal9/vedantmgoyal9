@@ -9,23 +9,6 @@
 $ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
 
-# NOTE: Old method to install winget, it works perfectly, but not used because wingetdev is used
-# # Install winget and enable local manifests since microsoft/winget-cli#1453 is merged
-# Invoke-WebRequest -Uri 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx' -OutFile 'VCLibs.appx'
-# Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -OutFile 'winget.msixbundle'
-# Invoke-WebRequest -Uri 'https://github.com/microsoft/winget-cli/releases/download/v1.1.12701/9c0fe2ce7f8e410eb4a8f417de74517e_License1.xml' -OutFile 'license.xml'
-# Import-Module -Name Appx -UseWindowsPowerShell
-# Add-AppxProvisionedPackage -Online -PackagePath .\winget.msixbundle -DependencyPackagePath .\VCLibs.appx -LicensePath .\license.xml
-# # winget command on windows server -------------------
-# # Source: https://github.com/microsoft/winget-cli/issues/144#issuecomment-849108158
-# Install-Module NtObjectManager -Force # Install NtObjectManager module
-# $installationPath = (Get-AppxPackage Microsoft.DesktopAppInstaller).InstallLocation # Create reparse point
-# Set-ExecutionAlias -Path 'C:\Windows\System32\winget.exe' -PackageName 'Microsoft.DesktopAppInstaller_8wekyb3d8bbwe' -EntryPoint 'Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget' -Target "$installationPath\AppInstallerCLI.exe" -AppType Desktop -Version 3
-# explorer.exe 'shell:appsFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe!winget'
-# # ----------------------------------------------------
-# winget settings --enable LocalManifestFiles
-# Write-Output ' Successfully installed winget and enabled local manifests.'
-
 # Source: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues/251#issuecomment-1109500197 by @SpecterShell
 # to bypass certificate check so that https traffic can be captured of some electron apps
 # [System.Environment]::SetEnvironmentVariable('NODE_TLS_REJECT_UNAUTHORIZED', '0', [System.EnvironmentVariableTarget]::Process)
@@ -100,10 +83,9 @@ git -C winget-pkgs commit --all -m 'Update YamlCreate.ps1 with InputObject funct
 Write-Output 'Blocked microsoft edge updates, installed powershell-yaml, imported functions, copied YamlCreate.ps1, and updated git configuration.'
 
 $UpgradeObject = @()
+$_Object = New-Object -TypeName System.Management.Automation.PSObject
 Write-Output 'Checking for updates...'
-ForEach ($PackageJson in (Get-ChildItem .\packages\ -Recurse -File)) {
-    $Package = $PackageJson | Get-Content -Raw | ConvertFrom-Json # Parse json file
-    If ($Package.SkipPackage -ne $false) { Continue } # Skip package if SkipPackage not equal to false
+ForEach ($Package in $(Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json | Where-Object { $_.SkipPackage -eq $false })) {
     $_Object = New-Object -TypeName System.Management.Automation.PSObject
     $_Object | Add-Member -MemberType NoteProperty -Name 'PackageIdentifier' -Value $Package.Identifier
     $VersionRegex = $Package.VersionRegex
