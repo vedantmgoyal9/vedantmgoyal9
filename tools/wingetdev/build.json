@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "cf4a6cfb13a2bd4c9244f98e0bc01893ae6def47",
-    "Message": "Fix compliance issues by setting Newtonsoft.Json to recommended version (#2609)",
-    "Author": "yao-msft"
+    "Sha": "91a1729d3e2ec7261edc5faf91f3c114bc3f3f8c",
+    "Message": "Add Expected Return Code for InvalidParameter (#2635)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Wednesday, October 19, 2022 8:44:52 PM"
+  "BuildDateTime": "Thursday, October 27, 2022 6:10:42 AM"
 }
