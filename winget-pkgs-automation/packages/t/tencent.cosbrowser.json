@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "2.9.5",
+  "PreviousVersion": "2.9.6",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "\"https://cos5.cloud.tencent.com/cosbrowser/$($Response.path)\""
