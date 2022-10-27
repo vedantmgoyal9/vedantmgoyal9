@@ -38,17 +38,17 @@
     "homepage": "https://bittu.eu.org/",
     "dependencies": {
         "dotenv": "^16.0.2",
-        "firebase": "^9.12.1",
+        "firebase": "^9.13.0",
         "probot": "^12.2.4",
         "vsce": "^2.13.0",
         "whatsapp-web.js": "^1.18.2"
     },
     "devDependencies": {
-        "@commitlint/config-conventional": "17.1.0",
+        "@commitlint/config-conventional": "17.2.0",
         "@types/node": "18.x",
         "@types/vscode": "^1.72.0",
         "commitizen": "^4.2.5",
-        "commitlint": "^17.0.3",
+        "commitlint": "^17.2.0",
         "cz-conventional-changelog": "^3.3.0",
         "prettier": "^2.7.1"
     },

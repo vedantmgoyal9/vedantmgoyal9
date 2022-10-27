@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "cf4a6cfb13a2bd4c9244f98e0bc01893ae6def47",
-    "Message": "Fix compliance issues by setting Newtonsoft.Json to recommended version (#2609)",
-    "Author": "yao-msft"
+    "Sha": "28711270db1b3950f2ef614cfd934b8f3543f1ba",
+    "Message": "Add an issue option to guide users to winget-pkgs for package issues (#2658)",
+    "Author": "SpecterShell"
   },
-  "BuildDateTime": "Wednesday, October 19, 2022 8:44:52 PM"
+  "BuildDateTime": "Wednesday, November 2, 2022 4:56:34 PM"
 }
