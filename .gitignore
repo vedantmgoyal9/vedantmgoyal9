@@ -1,6 +1,10 @@
 # Temporary Directory
 temp
 
+# java_programs directory
+java_programs/*.class
+java_programs/*.ctxt
+
 # node_modules directory
 node_modules
 

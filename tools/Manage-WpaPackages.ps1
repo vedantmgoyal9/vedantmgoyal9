@@ -491,7 +491,7 @@ If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y 
         Write-Output '-> Automatically detected and set (since the method is Head)'
         $Package.PostResponseScript = '$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString'
     } Else {
-        $Package.PostResponseScript = Get-UserInput -Method Menu -Message 'PostResponseScript' -Choices @($Schema.ManifestFields.properties.InstallerUrls.examples, 'Custom') -AllowEmpty
+        $Package.PostResponseScript = Get-UserInput -Method Menu -Message 'PostResponseScript' -Choices ($Schema.PostResponseScript.examples + 'Custom') -AllowEmpty
         If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript) -and -not $Package.PostResponseScript.Contains('ForEach') -and $Package.PostResponseScript.Contains(';')) {
             $Package.PostResponseScript = $Package.PostResponseScript.Split(';').ForEach({ $_.Trim() })
         }
@@ -512,19 +512,26 @@ If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y 
             $Parameters.UserAgent = $Package.Update.UserAgent
         }
         $Response = Invoke-RestMethod @Parameters
-        If (-not [System.String]::IsNullOrEmpty($Package.PostResponseScript)) {
-            $Package.PostResponseScript | Invoke-Expression # Run PostResponseScript
+        If (-not [System.String]::IsNullOrEmpty($PackageObject.PostResponseScript)) {
+            # Run PostResponseScript if it is not empty
+            If ($Package.PostResponseScript -isnot [System.Array]) {
+                $Package.PostResponseScript | Invoke-Expression
+            } Else {
+                $Package.PostResponseScript.ForEach({
+                        $_ | Invoke-Expression
+                    })
+            }
         }
         $Choices += $Package.PostResponseScript -ne '$Response = $Response | ConvertFrom-Yaml' ? $Response.PSObject.Properties.Where({ $_.MemberType -eq 'NoteProperty' }).Name : $Response.Keys.ForEach({ "`$Response.$($_)" })
     }
     $Choices += @('Custom')
 
     Write-Output 'VersionRegex (regular expression to extract the version from the response)'
-    $Package.VersionRegex = Get-UserInput -Method String -Message 'VersionRegex'
+    $Package.VersionRegex = Get-UserInput -Method String -Message 'VersionRegex' -DefaultValue $Schema.VersionRegex.default
     Write-Output ''
 
     Write-Output 'InstallerRegex (regular expression to extract the installer url from the response)'
-    $Package.InstallerRegex = Get-UserInput -Method String -Message 'InstallerRegex'
+    $Package.InstallerRegex = Get-UserInput -Method String -Message 'InstallerRegex' -DefaultValue $Schema.InstallerRegex.default
     Write-Output ''
 
     Write-Output 'AdditionalInfo: additional information to be stored for the package update (e.g.: PreRelease, PreviousReleaseId)'
@@ -539,7 +546,7 @@ If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y 
     Write-Output "----- ManifestFields -----`n"
 
     Write-Output 'PackageVersion: (expression to extract the version from the response)'
-    $Package.ManifestFieldsPackageVersion = Get-UserInput -Method Menu -Message 'Select a property which contains the PackageVersion' -Choices ($Choices + '($Response | Select-String -Pattern $VersionRegex).Matches.Value')
+    $Package.ManifestFields.PackageVersion = Get-UserInput -Method Menu -Message 'Select a property which contains the PackageVersion' -Choices ($Choices + '($Response | Select-String -Pattern $VersionRegex).Matches.Value')
     Write-Output ''
 
     Write-Output 'InstallerUrls: (expression to extract the installer urls from the response)'
