@@ -11,6 +11,7 @@
 
   // Set *default* container specific settings.json values on container create.
   "settings": {},
+  "postAttachCommand": "bash .devcontainer/setup.sh postAttachCmd",
   "postStartCommand": "bash .devcontainer/setup.sh postStartCmd",
 
   // Add the IDs of extensions you want installed when the container is created.
@@ -33,6 +34,21 @@
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000, 59455, 59456, 59457],
+  "portsAttributes": {
+    "3000": {
+      "label": "NodeJS Server",
+      "onAutoForward": "notify",
+      "protocol": "https"
+    },
+    "59450-59459": {
+      "label": "Ports for tools",
+      "onAutoForward": "notify",
+      "protocol": "https"
+    }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "notify"
+  },
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "bash .devcontainer/setup.sh",
