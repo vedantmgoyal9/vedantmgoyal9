@@ -2,7 +2,7 @@
 
 # postStartCommand: "bash /workspace/.devcontainer/setup.sh"
 if [ -n "$1" ]; then
-    echo "Mode: postStartCommand"
+    echo "Mode: postAttachCmd/postStartCmd"
     gh codespace ports visibility 59457:public 59456:public 3000:private -c $CODESPACE_NAME
     screen -dmS bot1 npm run gh-bot
     brew update && brew upgrade oh-my-posh
