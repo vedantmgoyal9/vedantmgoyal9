@@ -15,14 +15,14 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "1.10.1",
+  "PreviousVersion": "1.10.2",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name",
     "InstallerUrls": "\"https://download.zerotier.com/RELEASES/$($Response.tag_name)/dist/ZeroTierOne.msi\""
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 71005197
+    "PreviousReleaseId": 81710856
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
