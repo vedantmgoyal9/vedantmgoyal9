@@ -18,14 +18,14 @@
   ],
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "10.8.6",
+  "PreviousVersion": "10.8.7",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "\"https://repo.jellyfin.org/releases/server/windows/stable/installer/jellyfin_$($Response.tag_name.TrimStart('v'))_windows-x64.exe\""
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 81436085
+    "PreviousReleaseId": 81617957
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
