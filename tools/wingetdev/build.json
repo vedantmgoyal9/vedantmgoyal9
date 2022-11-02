@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "91a1729d3e2ec7261edc5faf91f3c114bc3f3f8c",
-    "Message": "Add Expected Return Code for InvalidParameter (#2635)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "28711270db1b3950f2ef614cfd934b8f3543f1ba",
+    "Message": "Add an issue option to guide users to winget-pkgs for package issues (#2658)",
+    "Author": "SpecterShell"
   },
-  "BuildDateTime": "Thursday, October 27, 2022 6:10:42 AM"
+  "BuildDateTime": "Wednesday, November 2, 2022 4:56:34 PM"
 }
