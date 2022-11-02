@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.versions | Where-Object { $_.os -eq 'win' -and $_.channel -eq 'beta' }",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "108.0.5359.22",
+  "PreviousVersion": "108.0.5359.29",
   "ManifestFields": {
     "PackageVersion": "$Response.current_version",
     "InstallerUrls": "@($x64_Uri, $x86_Uri)",
