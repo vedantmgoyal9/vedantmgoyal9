@@ -81,6 +81,7 @@ ForEach ($i in $UpgradeObject) {
     $ToPackage = $i.ToPackage
     $NewMoniker = $i.NewMoniker
     $VersionsToMove = $i.VersionsToMove
+    $IgnoreValidationFile = $i.IgnoreValidationFile
 
     If ($Null -eq $FromPackage -or $Null -eq $ToPackage -or $Null -eq $NewMoniker) {
         Write-Output "[$FromPackage] -> [$ToPackage]: [$NewMoniker] - One or more parameters are not set. Skipping..."
@@ -92,7 +93,7 @@ ForEach ($i in $UpgradeObject) {
     $script:ToAppFolder = Join-Path $ManifestsFolder -ChildPath $ToPackage.ToLower()[0] | Join-Path -ChildPath $ToPackage.Replace('.', '\')
 
     # Ensure there are only .yaml files and no sub-packages
-    if ($(Get-ChildItem -Path $script:FromAppFolder -Exclude *.yaml -Recurse -File).Count) { 
+    if ($(Get-ChildItem -Path $script:FromAppFolder -Exclude *.yaml -Recurse -File).Count -and $IgnoreValidationFile -eq $false) {
         throw [System.InvalidOperationException]::new('Cannot move packages which contain .validation files')
     }
 
@@ -131,14 +132,14 @@ ForEach ($i in $UpgradeObject) {
         gh pr create -f
 
         Start-Sleep -Seconds 11
-    
+
         # Remove the old manifest
         $PathToVersion = $SourceFolder
         do {
             Remove-Item -Path $PathToVersion -Recurse -Force
             $PathToVersion = Split-Path $PathToVersion
         } while (@(Get-ChildItem $PathToVersion).Count -eq 0)
-    
+
         # Create new branch from master, add the removed files, commit, and push
         git fetch upstream master --quiet
         git switch -d upstream/master
