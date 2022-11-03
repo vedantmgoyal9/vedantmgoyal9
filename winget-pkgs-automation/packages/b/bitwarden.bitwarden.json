@@ -18,7 +18,7 @@
   ],
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "Bitwarden-Installer.*.exe$",
-  "PreviousVersion": "2022.10.1",
+  "PreviousVersion": "2022.11.0",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('desktop-v')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
@@ -27,7 +27,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 80490584
+    "PreviousReleaseId": 84456095
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {

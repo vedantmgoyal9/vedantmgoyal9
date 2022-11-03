@@ -15,7 +15,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "xmake-v.*.exe$",
-  "PreviousVersion": "2.7.2+202210100423",
+  "PreviousVersion": null,
   "ManifestFields": {
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
     "PackageVersion": "Read-VersionFromInstaller -Uri $_Object.InstallerUrls[0] -Property ProductVersion",
@@ -24,7 +24,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 79388340
+    "PreviousReleaseId": 82332662
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {

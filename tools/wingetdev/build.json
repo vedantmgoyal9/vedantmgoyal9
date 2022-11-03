@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "28711270db1b3950f2ef614cfd934b8f3543f1ba",
-    "Message": "Add an issue option to guide users to winget-pkgs for package issues (#2658)",
-    "Author": "SpecterShell"
+    "Sha": "7341858460fd64abf8224c89c52dfd9c07177748",
+    "Message": "Miscellaneous project cleanup (#2738)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Wednesday, November 2, 2022 4:56:34 PM"
+  "BuildDateTime": "Saturday, December 3, 2022 2:19:15 AM"
 }

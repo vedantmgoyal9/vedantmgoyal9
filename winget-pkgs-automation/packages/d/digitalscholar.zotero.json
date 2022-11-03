@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "Zotero.Zotero",
+  "Identifier": "DigitalScholar.Zotero",
   "Update": {
     "InvokeType": "RestMethod",
     "Uri": "https://www.zotero.org/download/client/update/0/0/WINNT_x86/en-US/release/update.xml",

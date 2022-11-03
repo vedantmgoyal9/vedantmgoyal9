@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.windows_download_pkg.channel_default",
   "VersionRegex": "(?<=_)[0-9_]+(?=_)",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "3.5.0.9238",
+  "PreviousVersion": "3.6.0.9326",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value.Replace('_', '.')",
     "InstallerUrls": "$Response"
