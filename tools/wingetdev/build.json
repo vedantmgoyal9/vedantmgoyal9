@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "28711270db1b3950f2ef614cfd934b8f3543f1ba",
-    "Message": "Add an issue option to guide users to winget-pkgs for package issues (#2658)",
-    "Author": "SpecterShell"
+    "Sha": "171d95bc05bd42c1f495814a996f82038acf8016",
+    "Message": "Get arguments when using archive type package (#2660)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Wednesday, November 2, 2022 4:56:34 PM"
+  "BuildDateTime": "Thursday, November 3, 2022 10:34:04 PM"
 }
