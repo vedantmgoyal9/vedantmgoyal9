@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "58beda46d30db7ffc0a81818de2c9e049c1f29a1",
-    "Message": "Disable toast notification for silent mode for MSStore type installation (#2652)",
+    "Sha": "fb376750c1441c5ac947fb45186b104c6c556fae",
+    "Message": "Support --no-upgrade option for install flow (#2655)",
     "Author": "yao-msft"
   },
-  "BuildDateTime": "Friday, November 4, 2022 4:19:35 AM"
+  "BuildDateTime": "Friday, November 4, 2022 10:26:23 PM"
 }
