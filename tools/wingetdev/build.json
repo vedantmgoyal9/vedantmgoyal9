@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "171d95bc05bd42c1f495814a996f82038acf8016",
-    "Message": "Get arguments when using archive type package (#2660)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "58beda46d30db7ffc0a81818de2c9e049c1f29a1",
+    "Message": "Disable toast notification for silent mode for MSStore type installation (#2652)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Thursday, November 3, 2022 10:34:04 PM"
+  "BuildDateTime": "Friday, November 4, 2022 4:19:35 AM"
 }
