@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "fb376750c1441c5ac947fb45186b104c6c556fae",
-    "Message": "Support --no-upgrade option for install flow (#2655)",
-    "Author": "yao-msft"
+    "Sha": "34e8cbd322260641a1e9623f37a63feda9c5d8e7",
+    "Message": "Group policy control for BypassCertificatePinningForMicrosoftStore (#2637)",
+    "Author": "AmirMS"
   },
-  "BuildDateTime": "Friday, November 4, 2022 10:26:23 PM"
+  "BuildDateTime": "Monday, November 7, 2022 6:23:36 PM"
 }
