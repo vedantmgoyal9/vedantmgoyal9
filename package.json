@@ -40,7 +40,7 @@
         "dotenv": "^16.0.2",
         "firebase": "^9.13.0",
         "probot": "^12.2.4",
-        "vsce": "^2.13.0",
+        "vsce": "^2.14.0",
         "whatsapp-web.js": "^1.18.2"
     },
     "devDependencies": {
