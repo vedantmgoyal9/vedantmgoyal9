@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = ($Response | Where-Object { $_.Product -eq 'Dev' }).Releases | Where-Object { $_.Platform -eq 'Windows' }",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "108.0.1462.2",
+  "PreviousVersion": "109.0.1481.0",
   "ManifestFields": {
     "PackageVersion": "$Response[0].ProductVersion",
     "InstallerUrls": "@($Response[0].Artifacts.Location, $Response[1].Artifacts.Location, $Response[2].Artifacts.Location)"
