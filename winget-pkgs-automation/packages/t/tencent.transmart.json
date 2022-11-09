@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.value.windows[0]",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "Alpha0.8.6",
+  "PreviousVersion": "Alpha0.8.7",
   "ManifestFields": {
     "PackageVersion": "$Response.version -replace '\\(.*\\)', $Null",
     "InstallerUrls": "$Response.url",
