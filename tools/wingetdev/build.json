@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "34e8cbd322260641a1e9623f37a63feda9c5d8e7",
-    "Message": "Group policy control for BypassCertificatePinningForMicrosoftStore (#2637)",
-    "Author": "AmirMS"
+    "Sha": "fa660c6b6e460fb69da95baa979fb6281a5587f5",
+    "Message": "update localized strings (#2684)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Monday, November 7, 2022 6:23:36 PM"
+  "BuildDateTime": "Wednesday, November 9, 2022 12:54:05 AM"
 }
