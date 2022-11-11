@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "fa660c6b6e460fb69da95baa979fb6281a5587f5",
-    "Message": "update localized strings (#2684)",
-    "Author": "Ryan Fu"
+    "Sha": "de94283ff11c71b497bb44f116b11b1866d52aa3",
+    "Message": "Update NuGet Packages (#2690)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Wednesday, November 9, 2022 12:54:05 AM"
+  "BuildDateTime": "Friday, November 11, 2022 10:18:16 PM"
 }
