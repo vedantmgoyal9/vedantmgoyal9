@@ -15,11 +15,11 @@
   "PreviousVersion": "4.3.3.0",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "@((Invoke-WebRequest -Uri $x64_UriSource -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString, (Invoke-WebRequest -Uri $x86_UriSource -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString)"
+    "InstallerUrls": "@((Invoke-WebRequest -Uri $x86_UriSource -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString, (Invoke-WebRequest -Uri $x64_UriSource -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString)"
   },
   "AdditionalInfo": {
-    "x64_UriSource": "https://www.dida365.com/static/getApp/download?type=win64",
-    "x86_UriSource": "https://www.dida365.com/static/getApp/download?type=win"
+    "x86_UriSource": "https://www.dida365.com/static/getApp/download?type=win",
+    "x64_UriSource": "https://www.dida365.com/static/getApp/download?type=win64"
   },
   "PostUpgradeScript": "",
   "YamlCreateParams": {

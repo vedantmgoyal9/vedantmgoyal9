@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "Unicorn.PaintAid",
+  "Identifier": "ULAB.PaintAid",
   "Update": {
     "InvokeType": "RestMethod",
     "Uri": "http://pa.udongman.cn/index.php/upgrade/",
