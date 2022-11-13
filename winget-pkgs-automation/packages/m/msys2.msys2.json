@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "msys2.msys2",
+  "Identifier": "MSYS2.MSYS2",
   "Update": {
     "InvokeType": "RestMethod",
     "Uri": "https://api.github.com/repos/msys2/msys2-installer/releases?per_page=1",
