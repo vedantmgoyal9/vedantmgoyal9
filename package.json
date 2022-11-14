@@ -41,7 +41,7 @@
         "firebase": "^9.14.0",
         "probot": "^12.2.4",
         "vsce": "^2.14.0",
-        "whatsapp-web.js": "^1.18.2"
+        "whatsapp-web.js": "^1.18.3"
     },
     "devDependencies": {
         "@commitlint/config-conventional": "17.2.0",
