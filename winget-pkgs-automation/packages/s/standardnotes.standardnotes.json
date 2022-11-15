@@ -15,7 +15,7 @@
   "PostResponseScript": "$Response = $Response | Where-Object { $_.name.Contains('Desktop') } | Select-Object -First 1",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "3.23.292",
+  "PreviousVersion": "3.23.297",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('@standardnotes/desktop@')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
@@ -24,7 +24,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 82794583
+    "PreviousReleaseId": 83130829
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "YamlCreateParams": {
