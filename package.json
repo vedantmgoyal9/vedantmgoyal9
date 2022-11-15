@@ -46,7 +46,7 @@
     "devDependencies": {
         "@commitlint/config-conventional": "17.2.0",
         "@types/node": "18.x",
-        "@types/vscode": "^1.73.0",
+        "@types/vscode": "^1.73.1",
         "commitizen": "^4.2.5",
         "commitlint": "^17.2.0",
         "cz-conventional-changelog": "^3.3.0",
