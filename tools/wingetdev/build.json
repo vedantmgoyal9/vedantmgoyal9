@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "de94283ff11c71b497bb44f116b11b1866d52aa3",
-    "Message": "Update NuGet Packages (#2690)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "caadda4dfea452c32a042365dedf3ef8dd54486f",
+    "Message": "Don't enable/disable admin settings if group policy prevents it (#2683)",
+    "Author": "AmirMS"
   },
-  "BuildDateTime": "Friday, November 11, 2022 10:18:16 PM"
+  "BuildDateTime": "Tuesday, November 15, 2022 2:58:45 AM"
 }
