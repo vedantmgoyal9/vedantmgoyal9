@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = ($Response.Replace('ï»¿', '') | ConvertFrom-Json).result.update_url",
   "VersionRegex": "[0-9.]{2,}",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "5.1.1.4",
+  "PreviousVersion": "5.1.2.0",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response"
