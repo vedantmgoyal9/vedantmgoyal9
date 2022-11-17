@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "caadda4dfea452c32a042365dedf3ef8dd54486f",
-    "Message": "Don't enable/disable admin settings if group policy prevents it (#2683)",
-    "Author": "AmirMS"
+    "Sha": "166109632305278988b07e088cf30c9699a33b7b",
+    "Message": "Add spectre configuration for PureLib (#2704)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Tuesday, November 15, 2022 2:58:45 AM"
+  "BuildDateTime": "Thursday, November 17, 2022 10:19:57 PM"
 }
