@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response | Select-Object -Property Content, Links",
   "VersionRegex": "(?<=QQ)[0-9.]+(?=\\.exe)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "9.6.8.28823",
+  "PreviousVersion": "9.6.9.28856",
   "ManifestFields": {
     "PackageVersion": "($Response.Links.href.Where({ $_.EndsWith('.exe') }) | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response.Links.href.Where({ $_.EndsWith('.exe') })",
