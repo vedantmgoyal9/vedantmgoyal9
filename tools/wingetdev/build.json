@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "166109632305278988b07e088cf30c9699a33b7b",
-    "Message": "Add spectre configuration for PureLib (#2704)",
-    "Author": "Ryan Fu"
+    "Sha": "1520f75301b8092ca52828d1fad1381ffcc64cb1",
+    "Message": "Fix renaming issue with invalid file character url (#2708)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Thursday, November 17, 2022 10:19:57 PM"
+  "BuildDateTime": "Saturday, November 19, 2022 2:49:17 AM"
 }
