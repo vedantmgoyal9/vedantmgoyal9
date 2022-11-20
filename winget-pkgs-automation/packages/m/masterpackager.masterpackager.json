@@ -12,7 +12,7 @@
   "PostResponseScript": "",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "22.4.8356.0",
+  "PreviousVersion": "22.4.8361.0",
   "ManifestFields": {
     "PackageVersion": "\"$($Response).0\"",
     "InstallerUrls": "\"https://www.masterpackager.com/installer/masterpackager_$($Response).0.msi\""
