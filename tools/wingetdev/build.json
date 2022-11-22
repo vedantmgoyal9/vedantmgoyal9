@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "1520f75301b8092ca52828d1fad1381ffcc64cb1",
-    "Message": "Fix renaming issue with invalid file character url (#2708)",
-    "Author": "yao-msft"
+    "Sha": "dc3c7c69d883fd2b9b581eb906ef9db9a35c322d",
+    "Message": "Merge pull request #2713 from ryfu-msft/resetUndocked",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Saturday, November 19, 2022 2:49:17 AM"
+  "BuildDateTime": "Tuesday, November 22, 2022 9:19:20 PM"
 }
