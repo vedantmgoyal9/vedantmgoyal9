@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "dc3c7c69d883fd2b9b581eb906ef9db9a35c322d",
-    "Message": "Merge pull request #2713 from ryfu-msft/resetUndocked",
-    "Author": "Ryan Fu"
+    "Sha": "bb0d3601cddb09e5c4821f106c49e44039eb93fb",
+    "Message": "Clean build from winget-cli (#2698)\n\n* Build clean from a fresh VM\r\n\r\n* Make AppInstallerCLIPackage default\r\n\r\n* Remove 19041 and update AppIntallerCaller\r\n\r\n* PR comments and add include",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Tuesday, November 22, 2022 9:19:20 PM"
+  "BuildDateTime": "Wednesday, November 23, 2022 11:19:52 PM"
 }
