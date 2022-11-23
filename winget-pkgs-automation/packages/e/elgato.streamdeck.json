@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.'sd-win'.downloadURL",
   "VersionRegex": "(?<=_)[0-9.]+(?=\\.)",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "6.0.0.17703",
+  "PreviousVersion": "6.0.1.17722",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response"
