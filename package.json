@@ -44,7 +44,7 @@
         "whatsapp-web.js": "^1.18.3"
     },
     "devDependencies": {
-        "@commitlint/config-conventional": "17.2.0",
+        "@commitlint/config-conventional": "17.3.0",
         "@types/node": "18.x",
         "@types/vscode": "^1.73.1",
         "commitizen": "^4.2.5",
