@@ -24,7 +24,7 @@
   "AdditionalInfo": {
     "x64_Uri": "https://nodejs.org/download/nightly/#raw_version/node-#raw_version-x64.msi",
     "x86_Uri": "https://nodejs.org/download/nightly/#raw_version/node-#raw_version-x86.msi",
-    "PreviousVersionRaw": "v20.0.0-nightly202211269bc00fd66c"
+    "PreviousVersionRaw": "v20.0.0-nightly202211278d0c214a8f"
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousVersionRaw = $Response.version",
   "YamlCreateParams": {
