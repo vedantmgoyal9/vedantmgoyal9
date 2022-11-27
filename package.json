@@ -30,10 +30,9 @@
         "hacktoberfest"
     ],
     "author": "Vedant",
-    "license": "MIT",
+    "license": "AGPL-3.0",
     "bugs": {
-        "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues",
-        "email": "bugs-github@bittu.eu.org"
+        "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues"
     },
     "homepage": "https://bittu.eu.org/",
     "dependencies": {
@@ -81,7 +80,7 @@
         "Other"
     ],
     "prettier": {
-        "trailingComma": "es5",
+        "trailingComma": "all",
         "tabWidth": 2,
         "semi": true,
         "singleQuote": true
