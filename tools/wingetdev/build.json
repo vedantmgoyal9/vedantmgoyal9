@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "bb0d3601cddb09e5c4821f106c49e44039eb93fb",
-    "Message": "Clean build from winget-cli (#2698)\n\n* Build clean from a fresh VM\r\n\r\n* Make AppInstallerCLIPackage default\r\n\r\n* Remove 19041 and update AppIntallerCaller\r\n\r\n* PR comments and add include",
-    "Author": "Ruben Guerrero"
+    "Sha": "4b8e189de036c81d8605ad6a61a51005f8e4d78d",
+    "Message": "Upgrade check-spelling to v0.0.21 (#2728)",
+    "Author": "Josh Soref"
   },
-  "BuildDateTime": "Wednesday, November 23, 2022 11:19:52 PM"
+  "BuildDateTime": "Friday, December 2, 2022 9:24:47 PM"
 }
