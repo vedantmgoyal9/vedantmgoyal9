@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = ([System.XML.XMLDocument] $Response.Replace('ï»¿','')).root.update | Select-Object -Last 1",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "22.227.1030.0001",
+  "PreviousVersion": "22.238.1114.0002",
   "ManifestFields": {
     "PackageVersion": "$Response.currentversion",
     "InstallerUrls": "@($Response.amd64binary.url, $Response.binary.url)"
