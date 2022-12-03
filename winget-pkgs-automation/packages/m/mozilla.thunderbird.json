@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.LATEST_THUNDERBIRD_VERSION",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "102.5.0",
+  "PreviousVersion": "102.5.1",
   "ManifestFields": {
     "PackageVersion": "$Response",
     "InstallerUrls": "$Locales | ForEach-Object { \"https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/$($Response)/win64/$($_)/Thunderbird%20Setup%20$($Response).msi\"; \"https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/$($Response)/win32/$($_)/Thunderbird%20Setup%20$($Response).msi\" }"
