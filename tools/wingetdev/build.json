@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "114ce1ed780cceedcd092a0da319fc37a1acae98",
-    "Message": "Standardize how arguments are used in resource strings (#2737)",
-    "Author": "Flor Chacón"
+    "Sha": "7341858460fd64abf8224c89c52dfd9c07177748",
+    "Message": "Miscellaneous project cleanup (#2738)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Saturday, December 3, 2022 12:44:37 AM"
+  "BuildDateTime": "Saturday, December 3, 2022 2:19:15 AM"
 }
