@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "4b8e189de036c81d8605ad6a61a51005f8e4d78d",
-    "Message": "Upgrade check-spelling to v0.0.21 (#2728)",
-    "Author": "Josh Soref"
+    "Sha": "114ce1ed780cceedcd092a0da319fc37a1acae98",
+    "Message": "Standardize how arguments are used in resource strings (#2737)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Friday, December 2, 2022 9:24:47 PM"
+  "BuildDateTime": "Saturday, December 3, 2022 12:44:37 AM"
 }
