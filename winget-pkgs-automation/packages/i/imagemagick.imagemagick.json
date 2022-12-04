@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.RDF.Content.about",
   "VersionRegex": "(?<=-)[0-9.-]+(?=-)",
   "InstallerRegex": "ImageMagick-[0-9.-]+-Q16-HDRI-(x64|x86|arm64)-dll.exe$",
-  "PreviousVersion": "7.1.0.52",
+  "PreviousVersion": "7.1.0.53",
   "ManifestFields": {
     "InstallerUrls": "($Response.Where({ $_ -match $InstallerRegex }) | Sort-Object -Descending | Select-Object -First 3).ForEach({ $InstUriPrefix + $_ })",
     "PackageVersion": "($_Object.InstallerUrls[0] | Select-String -Pattern $VersionRegex).Matches.Value.Replace('-','.')"
