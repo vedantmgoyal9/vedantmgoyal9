@@ -22,7 +22,7 @@ module.exports = (app) => {
       execSync('git pull', { cwd: `${__dirname}/..` });
       writeFileSync(
         `${__dirname}/../winget-pkgs-automation/README.md`,
-        `# Currently maintained packages 📦\n\n`
+        `# Currently maintained packages 📦\n\n`,
       );
       execSync(
         `Get-ChildItem . -Recurse -File | Get-Content -Raw | Where-Object {
@@ -35,7 +35,7 @@ module.exports = (app) => {
         {
           shell: 'pwsh',
           cwd: `${__dirname}/../winget-pkgs-automation/packages`,
-        }
+        },
       );
       try {
         execSync(`git diff -s --exit-code README.md`, {
@@ -47,7 +47,7 @@ module.exports = (app) => {
           `git -c commit.gpgsign=false commit --author \"vedantmgoyal2009[bot] <110876359+vedantmgoyal2009[bot]@users.noreply.github.com>\" -m \"docs(wpa): update winget-pkgs-automation/README.md\" -- README.md`,
           {
             cwd: `${__dirname}/../winget-pkgs-automation`,
-          }
+          },
         );
         execSync(
           `git push https://x-access-token:${
@@ -61,7 +61,7 @@ module.exports = (app) => {
           }@github.com/vedantmgoyal2009/vedantmgoyal2009.git`,
           {
             cwd: `${__dirname}/../winget-pkgs-automation`,
-          }
+          },
         );
       }
     }
@@ -74,13 +74,13 @@ module.exports = (app) => {
       app.log.info('command: /approve-and-merge');
       app.log.info('issue/pull_request: ' + context.payload.issue.number);
       context.octokit.pulls.removeRequestedReviewers(
-        context.pullRequest({ reviewers: ['vedantmgoyal2009'] })
+        context.pullRequest({ reviewers: ['vedantmgoyal2009'] }),
       );
       context.octokit.pulls.createReview(
-        context.pullRequest({ event: 'APPROVE' })
+        context.pullRequest({ event: 'APPROVE' }),
       );
       context.octokit.pulls.merge(
-        context.pullRequest({ merge_method: 'squash' })
+        context.pullRequest({ merge_method: 'squash' }),
       );
     }
 
@@ -98,17 +98,17 @@ module.exports = (app) => {
         context.octokit.issues.addLabels(context.issue({ labels: labels }));
       } else {
         app.log.error(
-          'Could not parse labels, skip adding labels and merging...'
+          'Could not parse labels, skip adding labels and merging...',
         );
       }
       context.octokit.pulls.removeRequestedReviewers(
-        context.pullRequest({ reviewers: ['vedantmgoyal2009'] })
+        context.pullRequest({ reviewers: ['vedantmgoyal2009'] }),
       );
       context.octokit.pulls.createReview(
-        context.pullRequest({ event: 'APPROVE' })
+        context.pullRequest({ event: 'APPROVE' }),
       );
       context.octokit.pulls.merge(
-        context.pullRequest({ merge_method: 'squash' })
+        context.pullRequest({ merge_method: 'squash' }),
       );
     }
   });
