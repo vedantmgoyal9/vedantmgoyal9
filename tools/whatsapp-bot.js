@@ -62,7 +62,7 @@ wa.on('message', (message) => {
     updateDoc(database, { [`${message.from.split('@')[0]}`]: auth }).then(
       function () {
         console.log(`+${message.from.split('@')[0]} has been registered.`);
-      }
+      },
     );
   }
 });
@@ -74,7 +74,7 @@ server.get('/logs.txt', function (req, res) {
   res.send(
     readFileSync(`${__dirname}/logs.txt`, 'utf8')
       .replace(/(?<=\+[0-9]{3})\d+(?=;|\s)/g, 'XXXXXXXXX')
-      .replace(/\n/g, '<br/>') // replace new lines with <br/>
+      .replace(/\n/g, '<br/>'), // replace new lines with <br/>
   );
 });
 
@@ -97,7 +97,7 @@ server.get('/', (req, res) => {
             <b>Message</b>: ${req.query.msg}
           `);
         console.log(
-          `To: +${req.query.to}; Message: ${req.query.msg}\n-----------`
+          `To: +${req.query.to}; Message: ${req.query.msg}\n-----------`,
         );
       });
     } else if (

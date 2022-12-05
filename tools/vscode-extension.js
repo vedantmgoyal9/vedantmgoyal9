@@ -13,7 +13,7 @@ function activate(context) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
   console.log(
-    'Congratulations, your extension "vedantmgoyal2009" is now active!'
+    'Congratulations, your extension "vedantmgoyal2009" is now active!',
   );
 
   // The command has been defined in the package.json file
@@ -26,9 +26,9 @@ function activate(context) {
 
       // Display a message box to the user
       vscode.window.showInformationMessage(
-        'Hello World from vedantmgoyal2009 extension!'
+        'Hello World from vedantmgoyal2009 extension!',
       );
-    }
+    },
   );
 
   let testWpaPkgs = vscode.commands.registerCommand(
@@ -36,18 +36,18 @@ function activate(context) {
     async () => {
       let pkgList = new Map();
       let dirContents = await vscode.workspace.findFiles(
-        `winget-pkgs-automation/packages/**/*.json`
+        `winget-pkgs-automation/packages/**/*.json`,
       );
       if (dirContents.length === 0) {
         vscode.window.showInformationMessage(
-          'No packages found. Please verify you have opened vedantmgoyal2009 folder in your workspace.'
+          'No packages found. Please verify you have opened vedantmgoyal2009 folder in your workspace.',
         );
         return;
       }
       dirContents.forEach((file) => {
         let packageIdentifier = file.path.substring(
           file.path.lastIndexOf('/') + 1,
-          file.path.lastIndexOf('.')
+          file.path.lastIndexOf('.'),
         );
         pkgList.set(packageIdentifier, file.fsPath);
       });
@@ -76,7 +76,7 @@ function activate(context) {
             })
             .show();
         });
-    }
+    },
   );
 
   context.subscriptions.push(disposable);
