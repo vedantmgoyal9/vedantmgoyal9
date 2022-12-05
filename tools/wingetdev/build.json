@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "bc9d2194647d14e21fc375c74b5b80ee60fe34fe",
+    "Message": "Add nuget config file for public dependencies (#2763)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Monday, December 5, 2022 11:19:58 AM"
+  "BuildDateTime": "Wednesday, December 14, 2022 9:17:39 PM"
 }
