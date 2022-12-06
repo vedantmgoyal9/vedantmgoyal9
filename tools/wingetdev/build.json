@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "32ee81b430f5bce2546dcd741ff1bc7792db8ec0",
-    "Message": "Update powershell module target framework to 4.8 (#2741)",
+    "Sha": "b025a3f7e6f259e297d835ada4861f9f83c0791b",
+    "Message": "Allow upgrade for unknown version packages (#2747)",
     "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Monday, December 5, 2022 9:18:14 PM"
+  "BuildDateTime": "Tuesday, December 6, 2022 4:22:28 PM"
 }
