@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "b025a3f7e6f259e297d835ada4861f9f83c0791b",
+    "Message": "Allow upgrade for unknown version packages (#2747)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Tuesday, December 6, 2022 5:16:21 PM"
+  "BuildDateTime": "Tuesday, December 6, 2022 6:21:51 PM"
 }
