@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "a6e32af263b72837446150e5999a73d6c80ac2a9",
-    "Message": "Bump Newtonsoft.Json in /src/WinGetUtilInterop.UnitTests (#2753)\n\nBumps [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) from 13.0.1 to 13.0.2.\r\n- [Release notes](https://github.com/JamesNK/Newtonsoft.Json/releases)\r\n- [Commits](https://github.com/JamesNK/Newtonsoft.Json/compare/13.0.1...13.0.2)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: Newtonsoft.Json\r\n  dependency-type: direct:production\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-    "Author": "dependabot[bot]"
+    "Sha": "6caf7968eace405cad6b4a1ada4d9e3df4485b2c",
+    "Message": "Infra changes for Microsoft.WinGet.Client and AppInstallerCLIE2ETests (#2746)",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Wednesday, December 7, 2022 8:18:31 PM"
+  "BuildDateTime": "Wednesday, December 7, 2022 10:16:03 PM"
 }
