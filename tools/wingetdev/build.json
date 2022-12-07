@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "b025a3f7e6f259e297d835ada4861f9f83c0791b",
-    "Message": "Allow upgrade for unknown version packages (#2747)",
-    "Author": "Ryan Fu"
+    "Sha": "a6e32af263b72837446150e5999a73d6c80ac2a9",
+    "Message": "Bump Newtonsoft.Json in /src/WinGetUtilInterop.UnitTests (#2753)\n\nBumps [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) from 13.0.1 to 13.0.2.\r\n- [Release notes](https://github.com/JamesNK/Newtonsoft.Json/releases)\r\n- [Commits](https://github.com/JamesNK/Newtonsoft.Json/compare/13.0.1...13.0.2)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: Newtonsoft.Json\r\n  dependency-type: direct:production\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+    "Author": "dependabot[bot]"
   },
-  "BuildDateTime": "Tuesday, December 6, 2022 6:21:51 PM"
+  "BuildDateTime": "Wednesday, December 7, 2022 8:18:31 PM"
 }
