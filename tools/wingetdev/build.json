@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "01a88f579d88c022b54c6aab31ad33a8d8d3bfb2",
-    "Message": "remove nuget config file (#2756)\n\nCo-authored-by: Ryan Fu <Fu.Ryan@microsoft.com>",
-    "Author": "Ryan Fu"
+    "Sha": "291651fb3ffca3171e483979c5f2a4eab223144d",
+    "Message": "Add empty `pin` command (#2733)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Thursday, December 8, 2022 2:28:47 AM"
+  "BuildDateTime": "Thursday, December 8, 2022 10:21:01 PM"
 }
