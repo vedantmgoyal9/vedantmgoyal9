@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "92d91adfdd8b2051247fe689f24146159274b46f",
+    "Message": "Fix issue that only 1 dependency package is installed (#2761)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Sunday, December 11, 2022 4:26:42 AM"
+  "BuildDateTime": "Sunday, December 11, 2022 5:21:38 AM"
 }
