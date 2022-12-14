@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "050056a6ceb46dcd62127da112255dceed8114f1",
-    "Message": "Export command for winget settings. (#2719)",
-    "Author": "Ruben Guerrero"
+    "Sha": "bc9d2194647d14e21fc375c74b5b80ee60fe34fe",
+    "Message": "Add nuget config file for public dependencies (#2763)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Tuesday, December 13, 2022 7:22:04 AM"
+  "BuildDateTime": "Wednesday, December 14, 2022 9:17:39 PM"
 }
