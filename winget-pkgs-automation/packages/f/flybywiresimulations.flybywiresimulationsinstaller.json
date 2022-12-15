@@ -31,5 +31,5 @@
     "SkipPRCheck": false,
     "DeletePreviousVersion": false
   },
-  "SkipPackage": false
+  "SkipPackage": true
 }
