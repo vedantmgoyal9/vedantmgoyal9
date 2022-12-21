@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "probot": "^12.2.4",
-    "@vscode/vsce": "^2.15.0"
+    "@vscode/vsce": "^2.16.0"
   },
   "devDependencies": {
     "prettier": "^2.8.1"
