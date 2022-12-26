@@ -38,8 +38,8 @@ If ((Get-Content -Raw ..\tools\wingetdev\build.json | ConvertFrom-Json).Commit.S
     Write-Output 'This will take about ~15 minutes... please wait...'
     git clone https://github.com/microsoft/winget-cli.git --quiet
     & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat' x64
-    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -t:restore -m -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath ..\tools\wingetdev\log.txt -Append
-    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath ..\tools\wingetdev\log.txt -Append
+    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -t:restore -m -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath ..\tools\wingetdev\log-restore.txt -Append
+    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln | Out-File -FilePath ..\tools\wingetdev\log-build.txt -Append
     Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination ..\tools\wingetdev\WindowsPackageManager.dll -Force
     Move-Item -Path .\winget-cli\src\x64\Release\AppInstallerCLI\* -Destination ..\tools\wingetdev -Force
     Move-Item -Path ..\tools\wingetdev\winget.exe -Destination wingetdev.exe -Force # Rename winget.exe to wingetdev.exe, Rename-Item with -Force doesn't work when the destination file already exists
