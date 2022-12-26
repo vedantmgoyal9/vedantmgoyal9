@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.'cc-win'.downloadURL",
   "VersionRegex": "(?<=_)[0-9.]+(?=_)",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "1.4.0.981",
+  "PreviousVersion": "1.4.1.983",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response"
