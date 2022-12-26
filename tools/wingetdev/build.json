@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "bc9d2194647d14e21fc375c74b5b80ee60fe34fe",
-    "Message": "Add nuget config file for public dependencies (#2763)",
-    "Author": "Ryan Fu"
+    "Sha": "fe1eef3400b6dc03df66a93211b85fec0d7a44e3",
+    "Message": "Adjust spacing and punctuation for manifest validation messages (#2805)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Wednesday, December 14, 2022 9:17:39 PM"
+  "BuildDateTime": "Tuesday, January 3, 2023 7:23:05 PM"
 }
