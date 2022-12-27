@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "b906673e803d071afee3482249b8627570bc89d4",
+    "Message": "Update PowerShell Module Dependency Docs (#2797)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Tuesday, December 27, 2022 9:21:16 PM"
+  "BuildDateTime": "Tuesday, December 27, 2022 10:16:53 PM"
 }
