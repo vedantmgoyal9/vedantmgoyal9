@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "fe1eef3400b6dc03df66a93211b85fec0d7a44e3",
-    "Message": "Adjust spacing and punctuation for manifest validation messages (#2805)",
-    "Author": "Kaleb Luedtke"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Wednesday, December 28, 2022 7:23:43 AM"
+  "BuildDateTime": "Wednesday, December 28, 2022 8:30:39 AM"
 }
