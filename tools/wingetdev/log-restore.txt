@@ -23518,3 +23518,787 @@ Build succeeded.
     0 Error(s)
 
 Time Elapsed 00:01:17.66
+MSBuild version 17.4.1+9a89d02ff for .NET Framework
+Build started 12/30/2022 12:09:20 PM.
+     1>Project "D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLI.sln" on node 1 (Restore target(s)).
+     1>ValidateSolutionConfiguration:
+         Building solution configuration "Release|x64".
+       ValidateProjects:
+         The project "AppInstallerTestMsiInstaller" is not selected for building in solution configuration "Release|x64".
+         The project "WinGetYamlFuzzing" is not selected for building in solution configuration "Release|x64".
+       _GetAllRestoreProjectPathItems:
+         Determining projects to restore...
+       Restore:
+         X.509 certificate chain validation will use the default trust store selected by .NET.
+         Restoring NuGet package Microsoft.Windows.ImplementationLibrary.1.0.210204.1.
+         Restoring NuGet package Microsoft.Windows.CppWinRT.2.0.210505.3.
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.windows.cppwinrt/2.0.210505.3/microsoft.windows.cppwinrt.2.0.210505.3.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.windows.implementationlibrary/1.0.210204.1/microsoft.windows.implementationlibrary.1.0.210204.1.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.windows.cppwinrt/2.0.210505.3/microsoft.windows.cppwinrt.2.0.210505.3.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.windows.implementationlibrary/1.0.210204.1/microsoft.windows.implementationlibrary.1.0.210204.1.nupkg 51ms
+         Installed Microsoft.Windows.CppWinRT 2.0.210505.3 from https://api.nuget.org/v3/index.json with content hash LdIL4c/N0HUV8qt1lUeDzer/7MQhFndn/6ysQ3ueYNMtpxpGYQlsRLp91nnqje2fKG7NCZ0lmuMcelC3xdazfA==.
+         Adding package 'Microsoft.Windows.CppWinRT.2.0.210505.3' to folder 'D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\packages'
+         Added package 'Microsoft.Windows.CppWinRT.2.0.210505.3' to folder 'D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\packages'
+         Restoring NuGet package Microsoft.Windows.ImplementationLibrary.1.0.200519.2.
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.windows.implementationlibrary/1.0.200519.2/microsoft.windows.implementationlibrary.1.0.200519.2.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.windows.implementationlibrary/1.0.200519.2/microsoft.windows.implementationlibrary.1.0.200519.2.nupkg 12ms
+         Installed Microsoft.Windows.ImplementationLibrary 1.0.210204.1 from https://api.nuget.org/v3/index.json with content hash V+keaOniscgyu9jdYj9uxPKXzRpIcZ2CdAXkEwK8C7Yupuh4Q5BVMUh3ozkL/5LrIukkWAqNd9d9WiSt3k+/kA==.
+         Adding package 'Microsoft.Windows.ImplementationLibrary.1.0.210204.1' to folder 'D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\packages'
+         Added package 'Microsoft.Windows.ImplementationLibrary.1.0.210204.1' to folder 'D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\packages'
+         Installed Microsoft.Windows.ImplementationLibrary 1.0.200519.2 from https://api.nuget.org/v3/index.json with content hash 361U4iie4N1w8Sc+DoU+8q/DfJYRNrQ07KanHUooKO3XaVfFtJON8OS3+QtrReclVoxL5a68F3U2Uuq+fPty+Q==.
+         Adding package 'Microsoft.Windows.ImplementationLibrary.1.0.200519.2' to folder 'D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\packages'
+         Added package 'Microsoft.Windows.ImplementationLibrary.1.0.200519.2' to folder 'D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\packages'
+         Restoring packages for D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIPackage\AppInstallerCLIPackage.wapproj...
+         Restoring packages for D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerTestMsixInstaller\AppInstallerTestMsixInstaller.wapproj...
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIPackage\obj\AppInstallerCLIPackage.wapproj.nuget.g.props.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerTestMsixInstaller\obj\AppInstallerTestMsixInstaller.wapproj.nuget.g.props.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerTestMsixInstaller\obj\AppInstallerTestMsixInstaller.wapproj.nuget.g.targets.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIPackage\obj\AppInstallerCLIPackage.wapproj.nuget.g.targets.
+         Writing assets file to disk. Path: D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIPackage\obj\project.assets.json
+         Writing assets file to disk. Path: D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerTestMsixInstaller\obj\project.assets.json
+         Restored D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerTestMsixInstaller\AppInstallerTestMsixInstaller.wapproj (in 349 ms).
+         Restored D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIPackage\AppInstallerCLIPackage.wapproj (in 349 ms).
+         Restoring packages for D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\IndexCreationTool\IndexCreationTool.csproj...
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\IndexCreationTool\obj\IndexCreationTool.csproj.nuget.g.props.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\IndexCreationTool\obj\IndexCreationTool.csproj.nuget.g.targets.
+         Restoring packages for D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIE2ETests\AppInstallerCLIE2ETests.csproj...
+         Writing assets file to disk. Path: D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\IndexCreationTool\obj\project.assets.json
+         Restored D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\IndexCreationTool\IndexCreationTool.csproj (in 19 ms).
+         Restoring packages for D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop\WinGetUtilInterop.csproj...
+           GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json
+           GET https://api.nuget.org/v3-flatcontainer/yamldotnet/index.json
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.msix.utils/index.json
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/index.json
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.windows.cswinrt/index.json
+           GET https://api.nuget.org/v3-flatcontainer/nunit/index.json
+           GET https://api.nuget.org/v3-flatcontainer/nunit3testadapter/index.json
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+           GET https://api.nuget.org/v3-flatcontainer/stylecop.analyzers/index.json
+           GET https://api.nuget.org/v3-flatcontainer/netstandard.library/index.json
+           OK https://api.nuget.org/v3-flatcontainer/nunit3testadapter/index.json 63ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 65ms
+           OK https://api.nuget.org/v3-flatcontainer/nunit/index.json 67ms
+           OK https://api.nuget.org/v3-flatcontainer/yamldotnet/index.json 72ms
+           OK https://api.nuget.org/v3-flatcontainer/stylecop.analyzers/index.json 68ms
+           OK https://api.nuget.org/v3-flatcontainer/netstandard.library/index.json 70ms
+           OK https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json 80ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/16.5.0/microsoft.net.test.sdk.16.5.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/nunit3testadapter/3.15.1/nunit3testadapter.3.15.1.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/nunit/3.12.0/nunit.3.12.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/yamldotnet/8.1.2/yamldotnet.8.1.2.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/stylecop.analyzers/1.1.118/stylecop.analyzers.1.1.118.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/13.0.2/newtonsoft.json.13.0.2.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/16.5.0/microsoft.net.test.sdk.16.5.0.nupkg 15ms
+           OK https://api.nuget.org/v3-flatcontainer/nunit/3.12.0/nunit.3.12.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/nunit3testadapter/3.15.1/nunit3testadapter.3.15.1.nupkg 15ms
+           OK https://api.nuget.org/v3-flatcontainer/yamldotnet/8.1.2/yamldotnet.8.1.2.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/stylecop.analyzers/1.1.118/stylecop.analyzers.1.1.118.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/newtonsoft.json/13.0.2/newtonsoft.json.13.0.2.nupkg 14ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.testhost/index.json
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.codecoverage/index.json
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/index.json 153ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.windows.cswinrt/index.json 159ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.windows.cswinrt/1.6.5/microsoft.windows.cswinrt.1.6.5.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.internalabstractions/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.componentmodel.eventbasedasync/index.json
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg 14ms
+           GET https://api.nuget.org/v3-flatcontainer/system.componentmodel.typeconverter/index.json
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.windows.cswinrt/1.6.5/microsoft.windows.cswinrt.1.6.5.nupkg 18ms
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.process/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection/index.json
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.codecoverage/index.json 42ms
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices.runtimeinformation/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.thread/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.xmldocument/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.xpath.xmldocument/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.accesscontrol/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.principal.windows/index.json
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.testhost/index.json 71ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.codecoverage/16.5.0/microsoft.codecoverage.16.5.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.componentmodel.eventbasedasync/index.json 49ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.testhost/16.5.0/microsoft.testplatform.testhost.16.5.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.internalabstractions/index.json 52ms
+           GET https://api.nuget.org/v3-flatcontainer/system.componentmodel.eventbasedasync/4.3.0/system.componentmodel.eventbasedasync.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.internalabstractions/1.0.0/microsoft.dotnet.internalabstractions.1.0.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.componentmodel.typeconverter/index.json 41ms
+           GET https://api.nuget.org/v3-flatcontainer/system.componentmodel.typeconverter/4.3.0/system.componentmodel.typeconverter.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.codecoverage/16.5.0/microsoft.codecoverage.16.5.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.testhost/16.5.0/microsoft.testplatform.testhost.16.5.0.nupkg 13ms
+           OK https://api.nuget.org/v3-flatcontainer/system.componentmodel.eventbasedasync/4.3.0/system.componentmodel.eventbasedasync.4.3.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.internalabstractions/1.0.0/microsoft.dotnet.internalabstractions.1.0.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/system.componentmodel.typeconverter/4.3.0/system.componentmodel.typeconverter.4.3.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.accesscontrol/index.json 40ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.principal.windows/index.json 49ms
+           GET https://api.nuget.org/v3-flatcontainer/system.appcontext/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.collections/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.io/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.io.filesystem/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.resources.resourcemanager/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection/index.json 71ms
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.extensions/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.threading/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.tasks/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.xmldocument/index.json 77ms
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection/4.3.0/system.reflection.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.xpath.xmldocument/index.json 77ms
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.xpath.xmldocument/4.3.0/system.xml.xpath.xmldocument.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.thread/index.json 82ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices.runtimeinformation/index.json 83ms
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.process/index.json 86ms
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.thread/4.3.0/system.threading.thread.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices.runtimeinformation/4.3.0/system.runtime.interopservices.runtimeinformation.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection/4.3.0/system.reflection.4.3.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices.runtimeinformation/4.3.0/system.runtime.interopservices.runtimeinformation.4.3.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.thread/4.3.0/system.threading.thread.4.3.0.nupkg 11ms
+           GET https://api.nuget.org/v3-flatcontainer/system.collections.nongeneric/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.collections.specialized/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.componentmodel/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.process/4.3.0/system.diagnostics.process.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.componentmodel.primitives/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.globalization/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.linq/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.extensions/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.primitives/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices/index.json 39ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io/index.json 45ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/index.json 43ms
+           OK https://api.nuget.org/v3-flatcontainer/system.collections/index.json 47ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io.filesystem/index.json 45ms
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices/4.1.0/system.runtime.interopservices.4.1.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg 37ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.extensions/index.json 44ms
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.process/4.3.0/system.diagnostics.process.4.3.0.nupkg 11ms
+           GET https://api.nuget.org/v3-flatcontainer/system.io/4.1.0/system.io.4.1.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/4.1.0/system.reflection.typeextensions.4.1.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/4.3.0/system.reflection.typeextensions.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.xpath.xmldocument/4.3.0/system.xml.xpath.xmldocument.4.3.0.nupkg 38ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg 47ms
+           GET https://api.nuget.org/v3-flatcontainer/system.collections/4.0.11/system.collections.4.0.11.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices/4.1.0/system.runtime.interopservices.4.1.0.nupkg 12ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/4.1.0/system.reflection.typeextensions.4.1.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io/4.1.0/system.io.4.1.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/4.3.0/system.reflection.typeextensions.4.3.0.nupkg 12ms
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices/4.3.0/system.runtime.interopservices.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.extensions/4.1.0/system.runtime.extensions.4.1.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.extensions/4.3.0/system.runtime.extensions.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.resources.resourcemanager/index.json 69ms
+           GET https://api.nuget.org/v3-flatcontainer/system.collections/4.3.0/system.collections.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.tasks/index.json 75ms
+           GET https://api.nuget.org/v3-flatcontainer/system.io.filesystem/4.0.1/system.io.filesystem.4.0.1.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime/index.json 79ms
+           OK https://api.nuget.org/v3-flatcontainer/system.threading/index.json 79ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/index.json 72ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices/4.3.0/system.runtime.interopservices.4.3.0.nupkg 16ms
+           OK https://api.nuget.org/v3-flatcontainer/system.collections.nongeneric/index.json 52ms
+           GET https://api.nuget.org/v3-flatcontainer/system.resources.resourcemanager/4.3.0/system.resources.resourcemanager.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.extensions/4.3.0/system.runtime.extensions.4.3.0.nupkg 15ms
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.collections/4.3.0/system.collections.4.3.0.nupkg 18ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.extensions/4.1.0/system.runtime.extensions.4.1.0.nupkg 20ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime/4.3.0/system.runtime.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.threading/4.3.0/system.threading.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.collections.nongeneric/4.3.0/system.collections.nongeneric.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.debug/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.appcontext/index.json 100ms
+           GET https://api.nuget.org/v3-flatcontainer/system.io/4.3.0/system.io.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg 12ms
+           GET https://api.nuget.org/v3-flatcontainer/system.text.encoding/index.json
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg 11ms
+           GET https://api.nuget.org/v3-flatcontainer/system.appcontext/4.1.0/system.appcontext.4.1.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.readerwriter/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime/4.3.0/system.runtime.4.3.0.nupkg 13ms
+           OK https://api.nuget.org/v3-flatcontainer/system.threading/4.3.0/system.threading.4.3.0.nupkg 14ms
+           OK https://api.nuget.org/v3-flatcontainer/system.collections.nongeneric/4.3.0/system.collections.nongeneric.4.3.0.nupkg 14ms
+           OK https://api.nuget.org/v3-flatcontainer/system.appcontext/4.1.0/system.appcontext.4.1.0.nupkg 13ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.primitives/index.json 77ms
+           OK https://api.nuget.org/v3-flatcontainer/system.componentmodel.primitives/index.json 83ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system/index.json 57ms
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.xpath/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.globalization/index.json 91ms
+           OK https://api.nuget.org/v3-flatcontainer/system.collections/4.0.11/system.collections.4.0.11.nupkg 73ms
+           OK https://api.nuget.org/v3-flatcontainer/system.linq/index.json 91ms
+           GET https://api.nuget.org/v3-flatcontainer/system.componentmodel.primitives/4.3.0/system.componentmodel.primitives.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.collections.specialized/index.json 98ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.extensions/index.json 90ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.io.filesystem/4.0.1/system.io.filesystem.4.0.1.nupkg 55ms
+           OK https://api.nuget.org/v3-flatcontainer/system.resources.resourcemanager/4.3.0/system.resources.resourcemanager.4.3.0.nupkg 51ms
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.debug/index.json 40ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/system.componentmodel.primitives/4.3.0/system.componentmodel.primitives.4.3.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io/4.3.0/system.io.4.3.0.nupkg 44ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg 12ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.targets/index.json
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/1.0.1/microsoft.netcore.platforms.1.0.1.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime/4.1.0/system.runtime.4.1.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.globalization/4.3.0/system.globalization.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.linq/4.3.0/system.linq.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.collections.specialized/4.3.0/system.collections.specialized.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.extensions/4.3.0/system.reflection.extensions.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.xpath/index.json 41ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/1.0.1/microsoft.netcore.platforms.1.0.1.nupkg 8ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime/4.1.0/system.runtime.4.1.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/system.globalization/4.3.0/system.globalization.4.3.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/system.linq/4.3.0/system.linq.4.3.0.nupkg 9ms
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.readerwriter/index.json 71ms
+           OK https://api.nuget.org/v3-flatcontainer/system.text.encoding/index.json 73ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.extensions/4.3.0/system.reflection.extensions.4.3.0.nupkg 20ms
+           OK https://api.nuget.org/v3-flatcontainer/system.collections.specialized/4.3.0/system.collections.specialized.4.3.0.nupkg 23ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.targets/index.json 39ms
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.componentmodel/index.json 159ms
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.xpath/4.3.0/system.xml.xpath.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.xpath/4.3.0/system.xml.xpath.4.3.0.nupkg 14ms
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg 14ms
+           OK https://api.nuget.org/v3-flatcontainer/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg 11ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.targets/1.0.1/microsoft.netcore.targets.1.0.1.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.componentmodel/4.3.0/system.componentmodel.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.targets/1.0.1/microsoft.netcore.targets.1.0.1.nupkg 9ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg 13ms
+           OK https://api.nuget.org/v3-flatcontainer/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/system.componentmodel/4.3.0/system.componentmodel.4.3.0.nupkg 10ms
+           GET https://api.nuget.org/v3-flatcontainer/system.globalization.extensions/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.io.filesystem.primitives/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.handles/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.text.encoding/4.0.11/system.text.encoding.4.0.11.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.tasks/4.0.11/system.threading.tasks.4.0.11.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.text.encoding/4.0.11/system.text.encoding.4.0.11.nupkg 13ms
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.tasks/4.0.11/system.threading.tasks.4.0.11.nupkg 14ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/system.globalization.extensions/index.json 40ms
+           GET https://api.nuget.org/v3-flatcontainer/system.globalization.extensions/4.3.0/system.globalization.extensions.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.win32.primitives/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.io.filesystem/4.3.0/system.io.filesystem.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.text.encoding.extensions/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.io.filesystem.primitives/index.json 43ms
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.threadpool/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.handles/index.json 45ms
+           OK https://api.nuget.org/v3-flatcontainer/system.globalization.extensions/4.3.0/system.globalization.extensions.4.3.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io.filesystem/4.3.0/system.io.filesystem.4.3.0.nupkg 14ms
+           GET https://api.nuget.org/v3-flatcontainer/system.io.filesystem.primitives/4.0.1/system.io.filesystem.primitives.4.0.1.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.io.filesystem.primitives/4.3.0/system.io.filesystem.primitives.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.io.filesystem.primitives/4.3.0/system.io.filesystem.primitives.4.3.0.nupkg 16ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io.filesystem.primitives/4.0.1/system.io.filesystem.primitives.4.0.1.nupkg 17ms
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.handles/4.0.1/system.runtime.handles.4.0.1.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.handles/4.3.0/system.runtime.handles.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.threadpool/index.json 39ms
+           OK https://api.nuget.org/v3-flatcontainer/system.text.encoding.extensions/index.json 43ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.handles/4.3.0/system.runtime.handles.4.3.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.handles/4.0.1/system.runtime.handles.4.0.1.nupkg 13ms
+         Installed Microsoft.NETCore.Platforms 1.1.0 from https://api.nuget.org/v3/index.json with content hash kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==.
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.threadpool/4.3.0/system.threading.threadpool.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.text.encoding.extensions/4.3.0/system.text.encoding.extensions.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.threadpool/4.3.0/system.threading.threadpool.4.3.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/system.text.encoding.extensions/4.3.0/system.text.encoding.extensions.4.3.0.nupkg 8ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.win32.primitives/index.json 129ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.win32.primitives/4.3.0/microsoft.win32.primitives.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.win32.primitives/4.3.0/microsoft.win32.primitives.4.3.0.nupkg 12ms
+           GET https://api.nuget.org/v3-flatcontainer/system.text.regularexpressions/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.primitives/4.0.1/system.reflection.primitives.4.0.1.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/index.json 42ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.primitives/4.0.1/system.reflection.primitives.4.0.1.nupkg 9ms
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/4.3.0/system.threading.tasks.extensions.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/4.3.0/system.threading.tasks.extensions.4.3.0.nupkg 12ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.text.regularexpressions/index.json 128ms
+           GET https://api.nuget.org/v3-flatcontainer/system.text.regularexpressions/4.3.0/system.text.regularexpressions.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/index.json 39ms
+           OK https://api.nuget.org/v3-flatcontainer/system.text.regularexpressions/4.3.0/system.text.regularexpressions.4.3.0.nupkg 13ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/16.5.0/microsoft.testplatform.objectmodel.16.5.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/16.5.0/microsoft.testplatform.objectmodel.16.5.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.msix.utils/index.json 1169ms
+         Installed YamlDotNet 8.1.2 from https://api.nuget.org/v3/index.json with content hash GlPKbb4l+91dyYVKV7UnJlr2CWooNNM1ayZWC90QAmlFPgbwSkfhgId7dGjTAHqkB84BZqjMSy5PlAYf1iejVA==.
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.msix.utils/2.1.1/microsoft.msix.utils.2.1.1.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/nuget.frameworks/index.json
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.msix.utils/2.1.1/microsoft.msix.utils.2.1.1.nupkg 13ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.commandlineutils/index.json
+           OK https://api.nuget.org/v3-flatcontainer/nuget.frameworks/index.json 41ms
+           GET https://api.nuget.org/v3-flatcontainer/nuget.frameworks/5.0.0/nuget.frameworks.5.0.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/nuget.frameworks/5.0.0/nuget.frameworks.5.0.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.commandlineutils/index.json 129ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.commandlineutils/1.1.1/microsoft.extensions.commandlineutils.1.1.1.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.commandlineutils/1.1.1/microsoft.extensions.commandlineutils.1.1.1.nupkg 13ms
+           GET https://api.nuget.org/v3-flatcontainer/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg 11ms
+           GET https://api.nuget.org/v3-flatcontainer/system.appcontext/4.3.0/system.appcontext.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.collections.concurrent/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.console/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.tools/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.tracing/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.globalization.calendars/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.io.compression/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.io.compression.zipfile/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.linq.expressions/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.net.http/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.net.primitives/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.net.sockets/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.objectmodel/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.numerics/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.algorithms/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.encoding/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.primitives/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.x509certificates/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.timer/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.xdocument/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.appcontext/4.3.0/system.appcontext.4.3.0.nupkg 27ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.primitives/index.json 41ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.numerics/index.json 43ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io.compression.zipfile/index.json 49ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io.compression/index.json 50ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.algorithms/index.json 45ms
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.xdocument/index.json 41ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.x509certificates/index.json 43ms
+           OK https://api.nuget.org/v3-flatcontainer/system.net.http/index.json 50ms
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.tracing/index.json 54ms
+           OK https://api.nuget.org/v3-flatcontainer/system.net.sockets/index.json 50ms
+           OK https://api.nuget.org/v3-flatcontainer/system.globalization.calendars/index.json 55ms
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.timer/index.json 45ms
+           OK https://api.nuget.org/v3-flatcontainer/system.net.primitives/index.json 52ms
+           OK https://api.nuget.org/v3-flatcontainer/system.linq.expressions/index.json 54ms
+           OK https://api.nuget.org/v3-flatcontainer/system.collections.concurrent/index.json 60ms
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.tools/index.json 58ms
+           OK https://api.nuget.org/v3-flatcontainer/system.console/index.json 60ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.encoding/index.json 50ms
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.numerics/4.3.0/system.runtime.numerics.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.primitives/4.3.0/system.security.cryptography.primitives.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.io.compression.zipfile/4.3.0/system.io.compression.zipfile.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.io.compression/4.3.0/system.io.compression.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.algorithms/4.3.0/system.security.cryptography.algorithms.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.x509certificates/4.3.0/system.security.cryptography.x509certificates.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.net.http/4.3.0/system.net.http.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.tracing/4.3.0/system.diagnostics.tracing.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.net.sockets/4.3.0/system.net.sockets.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.globalization.calendars/4.3.0/system.globalization.calendars.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.net.primitives/4.3.0/system.net.primitives.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.linq.expressions/4.3.0/system.linq.expressions.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.collections.concurrent/4.3.0/system.collections.concurrent.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.tools/4.3.0/system.diagnostics.tools.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.console/4.3.0/system.console.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.encoding/4.3.0/system.security.cryptography.encoding.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.objectmodel/index.json 105ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io.compression/4.3.0/system.io.compression.4.3.0.nupkg 45ms
+           OK https://api.nuget.org/v3-flatcontainer/system.io.compression.zipfile/4.3.0/system.io.compression.zipfile.4.3.0.nupkg 47ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.primitives/4.3.0/system.security.cryptography.primitives.4.3.0.nupkg 49ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.algorithms/4.3.0/system.security.cryptography.algorithms.4.3.0.nupkg 45ms
+           OK https://api.nuget.org/v3-flatcontainer/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg 43ms
+           OK https://api.nuget.org/v3-flatcontainer/system.net.http/4.3.0/system.net.http.4.3.0.nupkg 41ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.x509certificates/4.3.0/system.security.cryptography.x509certificates.4.3.0.nupkg 42ms
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.tracing/4.3.0/system.diagnostics.tracing.4.3.0.nupkg 39ms
+           OK https://api.nuget.org/v3-flatcontainer/system.net.sockets/4.3.0/system.net.sockets.4.3.0.nupkg 38ms
+           OK https://api.nuget.org/v3-flatcontainer/system.globalization.calendars/4.3.0/system.globalization.calendars.4.3.0.nupkg 37ms
+           OK https://api.nuget.org/v3-flatcontainer/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg 36ms
+           OK https://api.nuget.org/v3-flatcontainer/system.net.primitives/4.3.0/system.net.primitives.4.3.0.nupkg 34ms
+           OK https://api.nuget.org/v3-flatcontainer/system.linq.expressions/4.3.0/system.linq.expressions.4.3.0.nupkg 32ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.numerics/4.3.0/system.runtime.numerics.4.3.0.nupkg 56ms
+           OK https://api.nuget.org/v3-flatcontainer/system.collections.concurrent/4.3.0/system.collections.concurrent.4.3.0.nupkg 33ms
+           GET https://api.nuget.org/v3-flatcontainer/system.objectmodel/4.3.0/system.objectmodel.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.tools/4.3.0/system.diagnostics.tools.4.3.0.nupkg 16ms
+           OK https://api.nuget.org/v3-flatcontainer/system.console/4.3.0/system.console.4.3.0.nupkg 14ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.encoding/4.3.0/system.security.cryptography.encoding.4.3.0.nupkg 13ms
+           OK https://api.nuget.org/v3-flatcontainer/system.objectmodel/4.3.0/system.objectmodel.4.3.0.nupkg 12ms
+           GET https://api.nuget.org/v3-flatcontainer/system.buffers/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system.security.cryptography.apple/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system.io.compression/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.buffers/index.json 43ms
+           GET https://api.nuget.org/v3-flatcontainer/system.buffers/4.3.0/system.buffers.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system.security.cryptography.openssl/index.json 41ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system.security.cryptography.openssl/4.3.0/runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system.net.http/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.cng/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.csp/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.openssl/index.json
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system.security.cryptography.openssl/4.3.0/runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/system.buffers/4.3.0/system.buffers.4.3.0.nupkg 23ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/index.json
+           GET https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/index.json
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system.security.cryptography.apple/index.json 52ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system.io.compression/index.json 41ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system.security.cryptography.apple/4.3.0/runtime.native.system.security.cryptography.apple.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system.io.compression/4.3.0/runtime.native.system.io.compression.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system.security.cryptography.apple/4.3.0/runtime.native.system.security.cryptography.apple.4.3.0.nupkg 9ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system.io.compression/4.3.0/runtime.native.system.io.compression.4.3.0.nupkg 12ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json
+         Installed NETStandard.Library 2.0.3 from https://api.nuget.org/v3/index.json with content hash st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==.
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.csp/index.json 39ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system.net.http/index.json 41ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.cng/index.json 41ms
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.csp/4.3.0/system.security.cryptography.csp.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.openssl/index.json 41ms
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.cng/4.3.0/system.security.cryptography.cng.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/runtime.native.system.net.http/4.3.0/runtime.native.system.net.http.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.security.cryptography.openssl/4.3.0/system.security.cryptography.openssl.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/index.json 41ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl/index.json 45ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/index.json 41ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/index.json 41ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/index.json 49ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.native.system.net.http/4.3.0/runtime.native.system.net.http.4.3.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.csp/4.3.0/system.security.cryptography.csp.4.3.0.nupkg 14ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl/index.json 45ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.openssl/4.3.0/system.security.cryptography.openssl.4.3.0.nupkg 12ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl/index.json 48ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl/index.json 48ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl/index.json 52ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl/index.json 50ms
+           OK https://api.nuget.org/v3-flatcontainer/system.security.cryptography.cng/4.3.0/system.security.cryptography.cng.4.3.0.nupkg 15ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 10ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 9ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 9ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 9ms
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json 41ms
+           GET https://api.nuget.org/v3-flatcontainer/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 9ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 11ms
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/4.3.0/system.diagnostics.diagnosticsource.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit.ilgeneration/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/4.3.0/system.diagnostics.diagnosticsource.4.3.0.nupkg 10ms
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop\obj\WinGetUtilInterop.csproj.nuget.g.props.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop\obj\WinGetUtilInterop.csproj.nuget.g.targets.
+         Writing assets file to disk. Path: D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop\obj\project.assets.json
+           OK https://api.nuget.org/v3-flatcontainer/runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg 72ms
+         Restored D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop\WinGetUtilInterop.csproj (in 1.9 sec).
+         Restoring packages for D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop.UnitTests\WinGetUtilInterop.UnitTests.csproj...
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.applicationinsights/index.json
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.aspnet.webapi.client/index.json
+           GET https://api.nuget.org/v3-flatcontainer/moq/index.json
+           GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+           GET https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/index.json 38ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit/index.json 41ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/index.json 128ms
+           GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/4.3.0/system.reflection.emit.lightweight.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit.ilgeneration/index.json 43ms
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit/4.3.0/system.reflection.emit.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/4.3.0/system.reflection.emit.lightweight.4.3.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit/4.3.0/system.reflection.emit.4.3.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg 13ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.aspnet.webapi.client/index.json 38ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.applicationinsights/index.json 41ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.aspnet.webapi.client/5.2.9/microsoft.aspnet.webapi.client.5.2.9.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 39ms
+           OK https://api.nuget.org/v3-flatcontainer/moq/index.json 40ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/index.json 39ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.applicationinsights/2.21.0/microsoft.applicationinsights.2.21.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 40ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.aspnet.webapi.client/5.2.9/microsoft.aspnet.webapi.client.5.2.9.nupkg 13ms
+           GET https://api.nuget.org/v3-flatcontainer/moq/4.18.2/moq.4.18.2.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/2.4.5/xunit.runner.visualstudio.2.4.5.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/xunit/2.4.2/xunit.2.4.2.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/1.2.0/coverlet.collector.1.2.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.applicationinsights/2.21.0/microsoft.applicationinsights.2.21.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/moq/4.18.2/moq.4.18.2.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/2.4.5/xunit.runner.visualstudio.2.4.5.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/1.2.0/coverlet.collector.1.2.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit/2.4.2/xunit.2.4.2.nupkg 13ms
+         Installed runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple 4.3.0 from https://api.nuget.org/v3/index.json with content hash kVXCuMTrTlxq4XOOMAysuNwsXWpYeboGddNGpIgNSZmv1b6r/s/DPk0fYMB7Q5Qo4bY68o48jt4T4y5BVecbCQ==.
+         Installed System.Diagnostics.DiagnosticSource 4.3.0 from https://api.nuget.org/v3/index.json with content hash tD6kosZnTAGdrEa0tZSuFyunMbt/5KYDnHdndJYGqZoNy00XVXyACd5d6KnE1YgYv3ne2CjtAfNXo/fwEhnKUA==.
+         Installed runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash NS1U+700m4KFRHR5o4vo9DSlTmlCKu/u7dtE5sUHVIPB+xpXxYQvgBgA6wEIeCz6Yfn0Z52/72WYsToCEPJnrw==.
+           GET https://api.nuget.org/v3-flatcontainer/xunit.core/index.json
+           GET https://api.nuget.org/v3-flatcontainer/xunit.assert/index.json
+           GET https://api.nuget.org/v3-flatcontainer/xunit.analyzers/index.json
+           OK https://api.nuget.org/v3-flatcontainer/xunit.analyzers/index.json 42ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit.assert/index.json 43ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit.core/index.json 50ms
+         Installed runtime.native.System.Net.Http 4.3.0 from https://api.nuget.org/v3/index.json with content hash ZVuZJqnnegJhd2k/PtAbbIcZ3aZeITq3sj06oKfMBSfphW3HDmk/t4ObvbOk/JA/swGR0LNqMksAh/f7gpTROg==.
+         Installed runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash ytoewC6wGorL7KoCAvRfsgoJPJbNq+64k2SqW6JcOAebWsFUvCCYgfzQMrnpvPiEl4OrblUlhF2ji+Q1+SVLrQ==.
+         Installed runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash KeLz4HClKf+nFS7p/6Fi/CqyLXh81FpiGzcmuS8DGi9lUqSnZ6Es23/gv2O+1XVGfrbNmviF7CckBpavkBoIFQ==.
+         Installed runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==.
+         Installed runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash X7IdhILzr4ROXd8mI1BUCQMSHSQwelUlBjF1JyTKCjXaOGn2fB4EKBxQbCK2VjO3WaWIdlXZL3W6TiIVnrhX4g==.
+         Installed runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash b3pthNgxxFcD+Pc0WSEoC0+md3MyhRS6aCEeenvNE3Fdw1HyJ18ZhRFVJJzIeR/O/jpxPboB805Ho0T3Ul7w8A==.
+         Installed runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash c3YNH1GQJbfIPJeCnr4avseugSqPrxwIqzthYyZDN6EuOyNOzq+y2KSUfRcXauya1sF4foESTgwM5e1A8arAKw==.
+         Installed runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash nyFNiCk/r+VOiIqreLix8yN+q3Wga9+SE8BCgkf+2BwEKiNx6DyvFjCgkfV743/grxv8jHJ8gUK4XEQw7yzRYg==.
+         Installed runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash I8bKw2I8k58Wx7fMKQJn2R8lamboCAiHfHeV/pS65ScKWMMI0+wJkLYlEKvgW1D/XvSl/221clBoR2q9QNNM7A==.
+         Installed Microsoft.Msix.Utils 2.1.1 from https://api.nuget.org/v3/index.json with content hash Wr91gFj1cufBZMIc22bpojAgdilQsCtTO0MDj2RfPlohYPf47dH2GQ+8hMJWttaIrVUG/vgeM0gUBAp3Pz4Hvw==.
+         Installed System.Reflection.Emit.Lightweight 4.3.0 from https://api.nuget.org/v3/index.json with content hash oadVHGSMsTmZsAF864QYN1t1QzZjIcuKU3l2S9cZOwDdDueNTrqq1yRj7koFfIGEnKpt6NjpL3rOzRhs4ryOgA==.
+         Installed System.Reflection.Emit.ILGeneration 4.3.0 from https://api.nuget.org/v3/index.json with content hash 59tBslAk9733NXLrUJrwNZEzbMAcu8k344OYo+wfSVygcgZ9lgBdGIzH/nrg3LYhXceynyvTc8t5/GD4Ri0/ng==.
+         Installed Newtonsoft.Json 13.0.2 from https://api.nuget.org/v3/index.json with content hash R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg==.
+         Installed Microsoft.Extensions.CommandLineUtils 1.1.1 from https://api.nuget.org/v3/index.json with content hash vsI1L6Bx602aQ/8051nrRbAWGxCQQX7IKT/9XApnEYfzLPBX7LcCZuwnDyD1bHTm2D8GcMweVSPr1H2rAfAgbA==.
+         Installed Microsoft.NET.Test.Sdk 16.5.0 from https://api.nuget.org/v3/index.json with content hash yHZOhVSPuGqgHi+KhHiAZqNY08avkQraXKvgKgDU8c/ztmGzw7gmukkv49EaTq6T3xmp4XroWk3gAlbJHMxl8w==.
+         Installed System.Reflection.Emit 4.3.0 from https://api.nuget.org/v3/index.json with content hash 228FG0jLcIwTVJyz8CLFKueVqQK36ANazUManGaJHkO0icjiIypKW7YLWLIWahyIkdh5M7mV2dJepllLyA1SKg==.
+         Installed StyleCop.Analyzers 1.1.118 from https://api.nuget.org/v3/index.json with content hash Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==.
+         Installed NUnit3TestAdapter 3.15.1 from https://api.nuget.org/v3/index.json with content hash gqy0llGjhJYq9ebFvtbmBcF/MY8z5kcTIxYs+eXwp2d4Ntha8pSPxUzryvBm7H46VbWI6FS5/XNbxwiQpe88vQ==.
+         Installed Microsoft.Win32.Registry 5.0.0 from https://api.nuget.org/v3/index.json with content hash dDoKi0PnDz31yAyETfRntsLArTlVAVzUzCIvvEDsDsucrl33Dl8pIJG06ePTJTI3tGpeyHS9Cq7Foc/s4EeKcg==.
+         Installed System.Security.AccessControl 5.0.0 from https://api.nuget.org/v3/index.json with content hash dagJ1mHZO3Ani8GH0PHpPEe/oYO+rVdbQjvjJkBRNQkX4t0r1iaeGn8+/ybkSLEan3/slM0t59SVdHzuHf2jmw==.
+         Installed System.Reflection 4.3.0 from https://api.nuget.org/v3/index.json with content hash KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ==.
+         Installed Microsoft.DotNet.InternalAbstractions 1.0.0 from https://api.nuget.org/v3/index.json with content hash AAguUq7YyKk3yDWPoWA8DrLZvURxB/LrDdTn1h5lmPeznkFUpfC3p459w5mQYQE0qpquf/CkSQZ0etiV5vRHFA==.
+         Installed System.Buffers 4.3.0 from https://api.nuget.org/v3/index.json with content hash ratu44uTIHgeBeI0dE8DWvmXVBSo4u7ozRZZHOMmK/JPpYyo0dAfgSiHlpiObMQ5lEtEyIXA40sKRYg5J6A8uQ==.
+         Installed runtime.native.System.IO.Compression 4.3.0 from https://api.nuget.org/v3/index.json with content hash INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==.
+         Installed System.Runtime.InteropServices.RuntimeInformation 4.3.0 from https://api.nuget.org/v3/index.json with content hash cbz4YJMqRDR7oLeMRbdYv7mYzc++17lNhScCX0goO2XpGWdvAt60CGN+FHdePUEHCe/Jy9jUlvNAiNdM+7jsOw==.
+         Installed NuGet.Frameworks 5.0.0+42a8779499c1d1ed2488c2e6b9e2ee6ff6107766 from https://api.nuget.org/v3/index.json with content hash c5JVjuVAm4f7E9Vj+v09Z9s2ZsqFDjBpcsyS3M9xRo0bEdm/LVZSzLxxNvfvAwRiiE8nwe1h2G4OwiwlzFKXlA==.
+         Installed System.Threading.Thread 4.3.0 from https://api.nuget.org/v3/index.json with content hash OHmbT+Zz065NKII/ZHcH9XO1dEuLGI1L2k7uYss+9C1jLxTC9kTZZuzUOyXHayRk+dft9CiDf3I/QZ0t8JKyBQ==.
+         Installed NUnit 3.12.0 from https://api.nuget.org/v3/index.json with content hash 3oJTrcUcT9wmweBUwgUf0f1XIYy6RZq2ziV+RM95HMKAJGsHPN2i3MKK1dAPvDPMRLz799Llj4eyu/STB9Q7OA==.
+         Installed Microsoft.Windows.CsWinRT 1.6.5 from https://api.nuget.org/v3/index.json with content hash m/Ucb8MHb1F1ic4pshZDph3oMLFJAJESWWNVcNB11It5gQjZ0EA/TniO39bi6ADeIRKAGIn0OmREllSaAjwQYQ==.
+         Installed System.ComponentModel.TypeConverter 4.3.0 from https://api.nuget.org/v3/index.json with content hash 16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==.
+         Installed System.ComponentModel.EventBasedAsync 4.3.0 from https://api.nuget.org/v3/index.json with content hash fCFl8f0XdwA/BuoNrVBB5D0Y48/hv2J+w4xSDdXQitXZsR6UCSOrDVE7TCUraY802ENwcHUnUCv4En8CupDU1g==.
+         Installed System.Diagnostics.Process 4.3.0 from https://api.nuget.org/v3/index.json with content hash J0wOX07+QASQblsfxmIMFc9Iq7KTXYL3zs2G/Xc704Ylv3NpuVdo6gij6V3PGiptTxqsK0K7CdXenRvKUnkA2g==.
+         Installed System.Security.Principal.Windows 5.0.0 from https://api.nuget.org/v3/index.json with content hash t0MGLukB5WAVU9bO3MGzvlGnyJPgUlcwerXn1kzBRjwLKixT96XV0Uza41W49gVd8zEMFu9vQEFlv0IOrytICA==.
+         Installed System.Collections 4.0.11 from https://api.nuget.org/v3/index.json with content hash YUJGz6eFKqS0V//mLt25vFGrrCvOnsXjlvFQs+KimpwNxug9x0Pzy4PlFMU3Q2IzqAa9G2L4LsK3+9vCBK7oTg==.
+         Installed NETStandard.Library 1.6.1 from https://api.nuget.org/v3/index.json with content hash WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==.
+         Installed Microsoft.NETCore.Platforms 5.0.0 from https://api.nuget.org/v3/index.json with content hash VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==.
+         Installed System.Threading.Tasks.Extensions 4.3.0 from https://api.nuget.org/v3/index.json with content hash npvJkVKl5rKXrtl1Kkm6OhOUaYGEiF9wFbppFRWSMoApKzt2PiPHT2Bb8a5sAWxprvdOAtvaARS9QYMznEUtug==.
+         Installed System.Xml.XmlDocument 4.3.0 from https://api.nuget.org/v3/index.json with content hash lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==.
+         Installed NETStandard.Library 2.0.0 from https://api.nuget.org/v3/index.json with content hash 7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==.
+         Installed System.IO 4.1.0 from https://api.nuget.org/v3/index.json with content hash 3KlTJceQc3gnGIaHZ7UBZO26SHL1SHE4ddrmiwumFnId+CEHP+O8r386tZKaE6zlk5/mF8vifMBzHj9SaXN+mQ==.
+         Installed System.Resources.ResourceManager 4.3.0 from https://api.nuget.org/v3/index.json with content hash /zrcPkkWdZmI4F92gL/TPumP98AVDu/Wxr3CSJGQQ+XN6wbRZcyfSKVoPo17ilb3iOr0cCRqJInGwNMolqhS8A==.
+           GET https://api.nuget.org/v3-flatcontainer/xunit.assert/2.4.2/xunit.assert.2.4.2.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/xunit.analyzers/1.0.0/xunit.analyzers.1.0.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/xunit.core/2.4.2/xunit.core.2.4.2.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/xunit.assert/2.4.2/xunit.assert.2.4.2.nupkg 85ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit.analyzers/1.0.0/xunit.analyzers.1.0.0.nupkg 83ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit.core/2.4.2/xunit.core.2.4.2.nupkg 88ms
+         Installed runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash +yH1a49wJMy8Zt4yx5RhJrxO/DBDByAiCzNwiETI+1S4mPdCu0OY4djdciC7Vssk0l22wQaDLrXxXkp+3+7bVA==.
+         Installed System.Globalization.Extensions 4.3.0 from https://api.nuget.org/v3/index.json with content hash FhKmdR6MPG+pxow6wGtNAWdZh7noIOpdD5TwQ3CprzgIE1bBBoim0vbR1+AWsWjQmU7zXHgQo4TWSP6lCeiWcQ==.
+         Installed System.IO.FileSystem 4.0.1 from https://api.nuget.org/v3/index.json with content hash IBErlVq5jOggAD69bg1t0pJcHaDbJbWNUZTPI96fkYWzwYbN6D9wRHMULLDd9dHsl7C2YsxXL31LMfPI1SWt8w==.
+         Installed System.Xml.XPath.XmlDocument 4.3.0 from https://api.nuget.org/v3/index.json with content hash A/uxsWi/Ifzkmd4ArTLISMbfFs6XpRPsXZonrIqyTY70xi8t+mDtvSM5Os0RqyRDobjMBwIDHDL4NOIbkDwf7A==.
+         Installed System.Reflection.TypeExtensions 4.1.0 from https://api.nuget.org/v3/index.json with content hash tsQ/ptQ3H5FYfON8lL4MxRk/8kFyE0A+tGPXmVP967cT/gzLHYxIejIYSxp4JmIeFHVP78g/F2FE1mUUTbDtrg==.
+         Installed System.AppContext 4.1.0 from https://api.nuget.org/v3/index.json with content hash 3QjO4jNV7PdKkmQAVp9atA+usVnKRwI3Kx1nMwJ93T0LcQfx7pKAYk0nKz5wn1oP5iqlhZuy6RXOFdhr7rDwow==.
+         Installed System.Runtime.InteropServices 4.1.0 from https://api.nuget.org/v3/index.json with content hash 16eu3kjHS633yYdkjwShDHZLRNMKVi/s0bY8ODiqJ2RfMhDMAwxZaUaWVnZ2P71kr/or+X9o/xFWtNqz8ivieQ==.
+         Installed Microsoft.CodeCoverage 16.5.0 from https://api.nuget.org/v3/index.json with content hash PM5YLtyN45EyUGePJpaNogndlaQPrMgQQXHKMhMESC6KfSVvt+j7+dxBi8NYC6X6dZVysf7ngwhSW3wwvPJRSQ==.
+         Installed System.Threading 4.3.0 from https://api.nuget.org/v3/index.json with content hash VkUS0kOBcUf3Wwm0TSbrevDDZ6BlM+b/HRiapRFWjM5O0NS0LviG0glKmFK+hhPDd1XFeSdU1GmlLhb2CoVpIw==.
+         Installed System.Runtime.Extensions 4.1.0 from https://api.nuget.org/v3/index.json with content hash CUOHjTT/vgP0qGW22U4/hDlOqXmcPq5YicBaXdUR2UiUoLwBT+olO6we4DVbq57jeX5uXH2uerVZhf0qGj+sVQ==.
+         Installed System.Reflection.Primitives 4.0.1 from https://api.nuget.org/v3/index.json with content hash 4inTox4wTBaDhB7V3mPvp9XlCbeGYWVEM9/fXALd52vNEAVisc1BoVWQPuUuD0Ga//dNbA/WeMy9u9mzLxGTHQ==.
+         Installed System.Runtime.Handles 4.0.1 from https://api.nuget.org/v3/index.json with content hash nCJvEKguXEvk2ymk1gqj625vVnlK3/xdGzx0vOKicQkoquaTBJTP13AIYkocSUwHCLNBwUbXTqTWGDxBTWpt7g==.
+         Installed System.Runtime 4.3.0 from https://api.nuget.org/v3/index.json with content hash JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==.
+           GET https://api.nuget.org/v3-flatcontainer/xunit.extensibility.core/index.json
+           GET https://api.nuget.org/v3-flatcontainer/xunit.extensibility.execution/index.json
+           GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json.bson/index.json
+           OK https://api.nuget.org/v3-flatcontainer/xunit.extensibility.execution/index.json 43ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit.extensibility.core/index.json 45ms
+           GET https://api.nuget.org/v3-flatcontainer/xunit.extensibility.core/2.4.2/xunit.extensibility.core.2.4.2.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/xunit.extensibility.execution/2.4.2/xunit.extensibility.execution.2.4.2.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/xunit.extensibility.core/2.4.2/xunit.extensibility.core.2.4.2.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit.extensibility.execution/2.4.2/xunit.extensibility.execution.2.4.2.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/newtonsoft.json.bson/index.json 40ms
+           GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json.bson/1.0.1/newtonsoft.json.bson.1.0.1.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/castle.core/index.json
+           GET https://api.nuget.org/v3-flatcontainer/xunit.abstractions/index.json
+           OK https://api.nuget.org/v3-flatcontainer/newtonsoft.json.bson/1.0.1/newtonsoft.json.bson.1.0.1.nupkg 11ms
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/5.0.0/system.diagnostics.diagnosticsource.5.0.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/5.0.0/system.diagnostics.diagnosticsource.5.0.0.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/castle.core/index.json 42ms
+           OK https://api.nuget.org/v3-flatcontainer/xunit.abstractions/index.json 42ms
+           GET https://api.nuget.org/v3-flatcontainer/castle.core/5.1.0/castle.core.5.1.0.nupkg
+         Installed System.Threading.Tasks 4.3.0 from https://api.nuget.org/v3/index.json with content hash LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==.
+         Installed runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash HdSSp5MnJSsg08KMfZThpuLPJpPwE5hBXvHwoKWosyHHfe8Mh5WKT0ylEOf6yNzX6Ngjxe4Whkafh5q7Ymac4Q==.
+         Installed runtime.native.System.Security.Cryptography.Apple 4.3.0 from https://api.nuget.org/v3/index.json with content hash DloMk88juo0OuOWr56QG7MNchmafTLYWvABy36izkrLI5VledI0rq28KGs1i9wbpeT9NPQrx/wTf8U2vazqQ3Q==.
+         Installed System.Security.Cryptography.OpenSsl 4.3.0 from https://api.nuget.org/v3/index.json with content hash h4CEgOgv5PKVF/HwaHzJRiVboL2THYCou97zpmhjghx5frc7fIvlkY1jL+lnIQyChrJDMNEXS6r7byGif8Cy4w==.
+         Installed System.Security.Cryptography.Csp 4.3.0 from https://api.nuget.org/v3/index.json with content hash X4s/FCkEUnRGnwR3aSfVIkldBmtURMhmexALNTwpjklzxWU7yjMk7GHLKOZTNkgnWnE0q7+BCf9N2LVRWxewaA==.
+         Installed System.IO.FileSystem.Primitives 4.0.1 from https://api.nuget.org/v3/index.json with content hash kWkKD203JJKxJeE74p8aF8y4Qc9r9WQx4C0cHzHPrY3fv/L/IhWnyCHaFJ3H1QPOH6A93whlQ2vG5nHlBDvzWQ==.
+         Installed System.Collections 4.3.0 from https://api.nuget.org/v3/index.json with content hash 3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==.
+         Installed System.Collections.NonGeneric 4.3.0 from https://api.nuget.org/v3/index.json with content hash prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==.
+         Installed System.Security.Cryptography.Cng 4.3.0 from https://api.nuget.org/v3/index.json with content hash 03idZOqFlsKRL4W+LuCpJ6dBYDUWReug6lZjBa3uJWnk5sPCUXckocevTaUA8iT/MFSrY/2HXkOt753xQ/cf8g==.
+         Installed System.Collections.Specialized 4.3.0 from https://api.nuget.org/v3/index.json with content hash Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==.
+         Installed System.ComponentModel.Primitives 4.3.0 from https://api.nuget.org/v3/index.json with content hash j8GUkCpM8V4d4vhLIIoBLGey2Z5bCkMVNjEZseyAlm4n5arcsJOeI3zkUP+zvZgzsbLTYh4lYeP/ZD/gdIAPrw==.
+         Installed System.Reflection.Extensions 4.3.0 from https://api.nuget.org/v3/index.json with content hash rJkrJD3kBI5B712aRu4DpSIiHRtr6QlfZSQsb0hYHrDCZORXCFjQfoipo2LaMUHoT9i1B7j7MnfaEKWDFmFQNQ==.
+           GET https://api.nuget.org/v3-flatcontainer/xunit.abstractions/2.0.3/xunit.abstractions.2.0.3.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/xunit.abstractions/2.0.3/xunit.abstractions.2.0.3.nupkg 15ms
+         Installed System.ComponentModel 4.3.0 from https://api.nuget.org/v3/index.json with content hash VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==.
+         Installed System.Linq 4.3.0 from https://api.nuget.org/v3/index.json with content hash 5DbqIUpsDp0dFftytzuMmc0oeMdQwjcP/EWxsksIz/w1TcFRkZ3yKKz0PqiYFMmEwPSWw+qNVqD7PJ889JzHbw==.
+           OK https://api.nuget.org/v3-flatcontainer/castle.core/5.1.0/castle.core.5.1.0.nupkg 1319ms
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.eventlog/index.json
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.eventlog/index.json 54ms
+         Installed runtime.native.System 4.3.0 from https://api.nuget.org/v3/index.json with content hash c/qWt2LieNZIj1jGnVNsE2Kl23Ya2aSTBuXMD6V7k9KWr6l16Tqdwq+hJScEpWER9753NWC8h96PaVNY5Ld7Jw==.
+         Installed System.Globalization 4.3.0 from https://api.nuget.org/v3/index.json with content hash kYdVd2f2PAdFGblzFswE4hkNANJBKRmsfa2X5LG2AcWE1c7/4t0pYae1L8vfZ5xvE2nK/R9JprtToA61OSHWIg==.
+         Installed Microsoft.Win32.Primitives 4.3.0 from https://api.nuget.org/v3/index.json with content hash 9ZQKCWxH7Ijp9BfahvL2Zyf1cJIk8XYLF6Yjzr2yi0b2cOut/HQ31qf1ThHAgCc3WiZMdnWcfJCgN82/0UunxA==.
+         Installed System.IO.FileSystem.Primitives 4.3.0 from https://api.nuget.org/v3/index.json with content hash 6QOb2XFLch7bEc4lIcJH49nJN2HV+OC3fHDgsLVsBVBk3Y4hFAnOBGzJ2lUu7CyDDFo9IBWkSsnbkT6IBwwiMw==.
+         Installed System.Runtime.Handles 4.3.0 from https://api.nuget.org/v3/index.json with content hash OKiSUN7DmTWeYb3l51A7EYaeNMnvxwE249YtZz7yooT4gOZhmTjIn48KgSsw2k2lYdLgTKNJw/ZIfSElwDRVgg==.
+         Installed System.IO.FileSystem 4.3.0 from https://api.nuget.org/v3/index.json with content hash 3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==.
+         Installed Microsoft.TestPlatform.TestHost 16.5.0 from https://api.nuget.org/v3/index.json with content hash ytGymboQIvjNX5pLC0yp/Bz9sGDHqSnLQgBRtd4VrqOUgKmmcfxMYZ6p0TBZgAT1oijdC6xqUZ7rl8mbaaXTJw==.
+         Installed System.Diagnostics.Debug 4.3.0 from https://api.nuget.org/v3/index.json with content hash ZUhUOdqmaG5Jk3Xdb8xi5kIyQYAA4PnTNlHx1mu9ZY3qv4ELIdKbnL/akbGaKi2RnNUWaZsAs31rvzFdewTj2g==.
+         Installed System.Reflection.Primitives 4.3.0 from https://api.nuget.org/v3/index.json with content hash 5RXItQz5As4xN2/YUDxdpsEkMhvw3e6aNveFXUn4Hl/udNTCNhnKp8lT9fnc3MhvGKh1baak5CovpuQUXHAlIA==.
+         Installed System.Reflection.TypeExtensions 4.3.0 from https://api.nuget.org/v3/index.json with content hash 7u6ulLcZbyxB5Gq0nMkQttcdBTx57ibzw+4IOXEfR+sXYQoHvjW5LTLyNr8O22UIMrqYbchJQJnos4eooYzYJA==.
+           GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.eventlog/4.7.0/system.diagnostics.eventlog.4.7.0.nupkg
+         Installed System.Text.Encoding 4.3.0 from https://api.nuget.org/v3/index.json with content hash BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==.
+           OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.eventlog/4.7.0/system.diagnostics.eventlog.4.7.0.nupkg 30ms
+         Installed System.Text.Encoding.Extensions 4.3.0 from https://api.nuget.org/v3/index.json with content hash YVMK0Bt/A43RmwizJoZ22ei2nmrhobgeiYwFzC4YAN+nue8RF6djXDMog0UCn+brerQoYVyaS+ghy9P/MUVcmw==.
+         Installed System.Threading.Tasks 4.0.11 from https://api.nuget.org/v3/index.json with content hash k1S4Gc6IGwtHGT8188RSeGaX86Qw/wnrgNLshJvsdNUOPP9etMmo8S07c+UlOAx4K/xLuN9ivA1bD0LVurtIxQ==.
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg 8ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg 21ms
+           GET https://api.nuget.org/v3-flatcontainer/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg 17ms
+         Installed Microsoft.NETCore.Targets 1.1.0 from https://api.nuget.org/v3/index.json with content hash aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==.
+         Installed Microsoft.NETCore.Platforms 3.1.0 from https://api.nuget.org/v3/index.json with content hash z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==.
+         Installed System.Globalization.Calendars 4.3.0 from https://api.nuget.org/v3/index.json with content hash GUlBtdOWT4LTV3I+9/PJW+56AnnChTaOqqTLFtdmype/L500M2LIyXgmtd9X2P2VOkmJd5c67H5SaC2QcL1bFA==.
+         Installed System.Runtime.Extensions 4.3.0 from https://api.nuget.org/v3/index.json with content hash guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==.
+         Installed xunit.abstractions 2.0.3 from https://api.nuget.org/v3/index.json with content hash pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==.
+         Installed System.IO.Compression.ZipFile 4.3.0 from https://api.nuget.org/v3/index.json with content hash G4HwjEsgIwy3JFBduZ9quBkAu+eUwjIdJleuNSgmUojbH6O3mlvEIme+GHx/cLlTAPcrnnL7GqvB9pTlWRfhOg==.
+         Installed System.Xml.XPath 4.3.0 from https://api.nuget.org/v3/index.json with content hash v1JQ5SETnQusqmS3RwStF7vwQ3L02imIzl++sewmt23VGygix04pEH+FCj1yWb+z4GDzKiljr1W7Wfvrx0YwgA==.
+         Installed System.Console 4.3.0 from https://api.nuget.org/v3/index.json with content hash DHDrIxiqk1h03m6khKWV2X8p/uvN79rgSqpilL6uzpmSfxfU5ng8VcPtW4qsDsQDHiTv6IPV9TmD5M/vElPNLg==.
+         Installed System.Threading.ThreadPool 4.3.0 from https://api.nuget.org/v3/index.json with content hash k/+g4b7vjdd4aix83sTgC9VG6oXYKAktSfNIJUNGxPEj7ryEOfzHHhfnmsZvjxawwcD9HyWXKCXmPjX8U4zeSw==.
+         Installed System.Diagnostics.Tools 4.3.0 from https://api.nuget.org/v3/index.json with content hash UUvkJfSYJMM6x527dJg2VyWPSRqIVB0Z7dbjHst1zmwTXz5CcXSYJFWRpuigfbO1Lf7yfZiIaEUesfnl/g5EyA==.
+         Installed System.AppContext 4.3.0 from https://api.nuget.org/v3/index.json with content hash fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==.
+         Installed System.Security.AccessControl 4.7.0 from https://api.nuget.org/v3/index.json with content hash JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==.
+         Installed Microsoft.Win32.Registry 4.7.0 from https://api.nuget.org/v3/index.json with content hash KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==.
+         Installed System.Xml.XDocument 4.3.0 from https://api.nuget.org/v3/index.json with content hash 5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==.
+         Installed Microsoft.TestPlatform.ObjectModel 16.5.0 from https://api.nuget.org/v3/index.json with content hash NnLFxmFBCAS6kye2JFszD5WKgj4Zve5KX/R0mhYwh6BVnSeybI2unRnjEPtLyY3CAVhwrY4bh/8LNFtslAcGZg==.
+         Installed System.Xml.ReaderWriter 4.3.0 from https://api.nuget.org/v3/index.json with content hash GrprA+Z0RUXaR4N7/eW71j1rgMnEnEVlgii49GZyAjTH7uliMnrOU3HNFBr6fEDBCJCIdlVNq9hHbaDR621XBA==.
+         Installed System.Security.Principal.Windows 4.7.0 from https://api.nuget.org/v3/index.json with content hash ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==.
+         Installed System.IO 4.3.0 from https://api.nuget.org/v3/index.json with content hash 3qjaHvxQPDpSOYICjUoTsmoq5u6QJAFRUITgeT/4gqkF1bajbSmb1kwSxEA8AHlofqgcKJcM8udgieRNhaJ5Cg==.
+         Installed System.IO.Compression 4.3.0 from https://api.nuget.org/v3/index.json with content hash YHndyoiV90iu4iKG115ibkhrG+S3jBm8Ap9OwoUAzO5oPDAWcr0SFwQFm0HjM8WkEZWo0zvLTyLmbvTkW1bXgg==.
+         Installed System.Collections.Concurrent 4.3.0 from https://api.nuget.org/v3/index.json with content hash ztl69Xp0Y/UXCL+3v3tEU+lIy+bvjKNUmopn1wep/a291pVPK7dxBd6T7WnlQqRog+d1a/hSsgRsmFnIBKTPLQ==.
+         Installed Microsoft.NETCore.Platforms 1.0.1 from https://api.nuget.org/v3/index.json with content hash 2G6OjjJzwBfNOO8myRV/nFrbTw5iA+DEm0N+qUqhrOmaVtn4pC77h38I1jsXGw5VH55+dPfQsqHD0We9sCl9FQ==.
+         Installed System.Security.Cryptography.Primitives 4.3.0 from https://api.nuget.org/v3/index.json with content hash 7bDIyVFNL/xKeFHjhobUAQqSpJq9YTOpbEs6mR233Et01STBMXNAc/V+BM6dwYGc95gVh/Zf+iVXWzj3mE8DWg==.
+         Installed System.Linq.Expressions 4.3.0 from https://api.nuget.org/v3/index.json with content hash PGKkrd2khG4CnlyJwxwwaWWiSiWFNBGlgXvJpeO0xCXrZ89ODrQ6tjEWS/kOqZ8GwEOUATtKtzp1eRgmYNfclg==.
+         Installed Microsoft.ApplicationInsights 2.21.0 from https://api.nuget.org/v3/index.json with content hash btZEDWAFNo9CoYliMCriSMTX3ruRGZTtYw4mo2XyyfLlowFicYVM2Xszi5evDG95QRYV7MbbH3D2RqVwfZlJHw==.
+         Installed Moq 4.18.2 from https://api.nuget.org/v3/index.json with content hash SjxKYS5nX6prcaT8ZjbkONh3vnh0Rxru09+gQ1a07v4TM530Oe/jq3Q4dOZPfo1wq0LYmTgLOZKrqRfEx4auPw==.
+         Installed System.Security.Cryptography.Algorithms 4.3.0 from https://api.nuget.org/v3/index.json with content hash W1kd2Y8mYSCgc3ULTAZ0hOP2dSdG5YauTb1089T0/kRcN2MpSAW1izOFROrJgxSlMn3ArsgHXagigyi+ibhevg==.
+         Installed System.Diagnostics.Tracing 4.3.0 from https://api.nuget.org/v3/index.json with content hash rswfv0f/Cqkh78rA5S8eN8Neocz234+emGCtTF3lxPY96F+mmmUen6tbn0glN6PMvlKQb9bPAY5e9u7fgPTkKw==.
+         Installed System.Net.Sockets 4.3.0 from https://api.nuget.org/v3/index.json with content hash m6icV6TqQOAdgt5N/9I5KNpjom/5NFtkmGseEH+AK/hny8XrytLH3+b5M8zL/Ycg3fhIocFpUMyl/wpFnVRvdw==.
+         Installed xunit.runner.visualstudio 2.4.5 from https://api.nuget.org/v3/index.json with content hash OwHamvBdUKgqsXfBzWiCW/O98BTx81UKzx2bieIOQI7CZFE5NEQZGi8PBQGIKawDW96xeRffiNf20SjfC0x9hw==.
+         Installed System.Runtime.InteropServices 4.3.0 from https://api.nuget.org/v3/index.json with content hash uv1ynXqiMK8mp1GM3jDqPCFN66eJ5w5XNomaK2XD+TuCroNTLFGeZ+WCmBMcBDyTFKou3P6cR6J/QsaqDp7fGQ==.
+         Installed System.Threading.Timer 4.3.0 from https://api.nuget.org/v3/index.json with content hash Z6YfyYTCg7lOZjJzBjONJTFKGN9/NIYKSxhU5GRd+DTwHSZyvWp1xuI5aR+dLg+ayyC5Xv57KiY4oJ0tMO89fQ==.
+         Installed System.Runtime.Numerics 4.3.0 from https://api.nuget.org/v3/index.json with content hash yMH+MfdzHjy17l2KESnPiF2dwq7T+xLnSJar7slyimAkUh/gTrS9/UQOtv7xarskJ2/XDSNvfLGOBQPjL7PaHQ==.
+         Installed Newtonsoft.Json.Bson 1.0.1 from https://api.nuget.org/v3/index.json with content hash 5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==.
+         Installed xunit 2.4.2 from https://api.nuget.org/v3/index.json with content hash 6Mj73Ont3zj2CJuoykVJfE0ZmRwn7C+pTuRP8c4bnaaTFjwNG6tGe0prJ1yIbMe9AHrpDys63ctWacSsFJWK/w==.
+         Installed System.Security.Cryptography.X509Certificates 4.3.0 from https://api.nuget.org/v3/index.json with content hash t2Tmu6Y2NtJ2um0RtcuhP7ZdNNxXEgUm2JeoA/0NvlMjAhKCnM1NX07TDl3244mVp3QU6LPEhT3HTtH1uF7IYw==.
+         Installed Microsoft.NETCore.Targets 1.0.1 from https://api.nuget.org/v3/index.json with content hash rkn+fKobF/cbWfnnfBOQHKVKIOpxMZBvlSHkqDWgBpwGDcLRduvs3D9OLGeV6GWGvVwNlVi2CBbTjuPmtHvyNw==.
+         Installed System.ObjectModel 4.3.0 from https://api.nuget.org/v3/index.json with content hash bdX+80eKv9bN6K4N+d77OankKHGn6CH711a6fcOpMQu2Fckp/Ft4L/kW9WznHpyR0NRAvJutzOMHNNlBGvxQzQ==.
+         Installed xunit.assert 2.4.2 from https://api.nuget.org/v3/index.json with content hash pxJISOFjn2XTTi1mcDCkRZrTFb9OtRRCtx2kZFNF51GdReLr1ls2rnyxvAS4JO247K3aNtflvh5Q0346K5BROA==.
+         Installed xunit.core 2.4.2 from https://api.nuget.org/v3/index.json with content hash KB4yGCxNqIVyekhJLXtKSEq6BaXVp/JO3mbGVE1hxypZTLEe7h+sTbAhpA+yZW2dPtXTuiW+C1B2oxxHEkrmOw==.
+         Installed xunit.extensibility.execution 2.4.2 from https://api.nuget.org/v3/index.json with content hash CZmgcKkwpyo8FlupZdWpJCryrAOWLh1FBPG6gmVZuPQkGQsim/oL4PcP4nfrC2hHgXUFtluvaJ0Sp9PQKUMNpg==.
+         Installed xunit.analyzers 1.0.0 from https://api.nuget.org/v3/index.json with content hash BeO8hEgs/c8Ls2647fPfieMngncvf0D0xYNDfIO59MolxtCtVjFRd6SRc+7tj8VMqkVOuJcnc9eh4ngI2cAmLQ==.
+         Installed Microsoft.AspNet.WebApi.Client 5.2.9 from https://api.nuget.org/v3/index.json with content hash cuVhPjjNMSEFpKXweMNBbsG4RUFuuZpFBm8tSyw309U9JEjcnbB6n3EPb4xwgcy9bJ38ctIbv5G8zXUBhlrPWw==.
+         Installed System.Diagnostics.DiagnosticSource 5.0.0 from https://api.nuget.org/v3/index.json with content hash tCQTzPsGZh/A9LhhA6zrqCRV4hOHsK90/G7q3Khxmn6tnB1PuNU0cRaKANP2AWcF9bn0zsuOoZOSrHuJk6oNBA==.
+         Installed System.Text.RegularExpressions 4.3.0 from https://api.nuget.org/v3/index.json with content hash RpT2DA+L660cBt1FssIE9CAGpLFdFPuheB7pLpKpn6ZXNby7jDERe8Ua/Ne2xGiwLVG2JOqziiaVCGDon5sKFA==.
+         Installed Castle.Core 5.1.0 from https://api.nuget.org/v3/index.json with content hash 31UJpTHOiWq95CDOHazE3Ub/hE/PydNWsJMwnEVTqFFP4WhAugwpaVGxzOxKgNeSUUeqS2W6lxV+q7u1pAOfXg==.
+         Installed xunit.extensibility.core 2.4.2 from https://api.nuget.org/v3/index.json with content hash W1BoXTIN1C6kpVSMw25huSet25ky6IAQUNovu3zGOGN/jWnbgSoTyCrlIhmXSg0tH5nEf8q7h3OjNHOjyu5PfA==.
+         Installed System.Diagnostics.EventLog 4.7.0 from https://api.nuget.org/v3/index.json with content hash iDoKGQcRwX0qwY+eAEkaJGae0d/lHlxtslO+t8pJWAUxlvY3tqLtVOPnW2UU4cFjP0Y/L1QBqhkZfSyGqVMR2w==.
+         Installed System.Security.Cryptography.Encoding 4.3.0 from https://api.nuget.org/v3/index.json with content hash 1DEWjZZly9ae9C79vFwqaO5kaOlI5q+3/55ohmq/7dpDyDfc8lYe7YVxJUZ5MF/NtbkRjwFRo14yM4OEo9EmDw==.
+         Installed coverlet.collector 1.2.0 from https://api.nuget.org/v3/index.json with content hash ZB+EGXsVBIn8cew7D3S2c+rgIlokKv1dSwsXEoiFQaNXF/BSxp9Rlfz/jV1ehSWH5XpLitfRxFNW3ok7uPDOXA==.
+         Installed System.Text.Encoding 4.0.11 from https://api.nuget.org/v3/index.json with content hash U3gGeMlDZXxCEiY4DwVLSacg+DFWCvoiX+JThA/rvw37Sqrku7sEFeVBBBMBnfB6FeZHsyDx85HlKL19x0HtZA==.
+         Installed System.Runtime 4.1.0 from https://api.nuget.org/v3/index.json with content hash v6c/4Yaa9uWsq+JMhnOFewrYkgdNHNG2eMKuNqRn8P733rNXeRCGvV5FkkjBXn2dbVkPXOsO0xjsEeM1q2zC0g==.
+         Installed System.Net.Primitives 4.3.0 from https://api.nuget.org/v3/index.json with content hash qOu+hDwFwoZPbzPvwut2qATe3ygjeQBDQj91xlsaqGFQUI5i4ZnZb8yyQuLGpDGivEPIt8EJkd1BVzVoP31FXA==.
+         Installed System.Net.Http 4.3.0 from https://api.nuget.org/v3/index.json with content hash sYg+FtILtRQuYWSIAuNOELwVuVsxVyJGWQyOnlAzhV4xvhyFnON1bAzYYC+jjRW8JREM45R0R5Dgi8MTC5sEwA==.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIE2ETests\obj\AppInstallerCLIE2ETests.csproj.nuget.g.props.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIE2ETests\obj\AppInstallerCLIE2ETests.csproj.nuget.g.targets.
+         Writing assets file to disk. Path: D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIE2ETests\obj\project.assets.json
+         Restored D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIE2ETests\AppInstallerCLIE2ETests.csproj (in 21.96 sec).
+         Restoring packages for D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\PowerShell\Microsoft.WinGet.Client\Microsoft.WinGet.Client.csproj...
+           GET https://api.nuget.org/v3-flatcontainer/powershellstandard.library/index.json
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop.UnitTests\obj\WinGetUtilInterop.UnitTests.csproj.nuget.g.props.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop.UnitTests\obj\WinGetUtilInterop.UnitTests.csproj.nuget.g.targets.
+         Writing assets file to disk. Path: D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop.UnitTests\obj\project.assets.json
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/index.json
+         Restored D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop.UnitTests\WinGetUtilInterop.UnitTests.csproj (in 20.04 sec).
+         Restoring packages for D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\Microsoft.Management.Deployment.Projection\Microsoft.Management.Deployment.Projection.csproj...
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\Microsoft.Management.Deployment.Projection\obj\Microsoft.Management.Deployment.Projection.csproj.nuget.g.props.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\Microsoft.Management.Deployment.Projection\obj\Microsoft.Management.Deployment.Projection.csproj.nuget.g.targets.
+         Writing assets file to disk. Path: D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\Microsoft.Management.Deployment.Projection\obj\project.assets.json
+         Restored D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\Microsoft.Management.Deployment.Projection\Microsoft.Management.Deployment.Projection.csproj (in 2 ms).
+         Restoring packages for D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\LocalhostWebServer\LocalhostWebServer.csproj...
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\LocalhostWebServer\obj\LocalhostWebServer.csproj.nuget.g.props.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\LocalhostWebServer\obj\LocalhostWebServer.csproj.nuget.g.targets.
+         Writing assets file to disk. Path: D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\LocalhostWebServer\obj\project.assets.json
+         Restored D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\LocalhostWebServer\LocalhostWebServer.csproj (in 0.8 ms).
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/index.json 43ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/10.0.22000.196/microsoft.windows.sdk.contracts.10.0.22000.196.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/10.0.22000.196/microsoft.windows.sdk.contracts.10.0.22000.196.nupkg 13ms
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.windowsruntime/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices.windowsruntime/index.json
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.windowsruntime.ui.xaml/index.json
+           OK https://api.nuget.org/v3-flatcontainer/powershellstandard.library/index.json 134ms
+           GET https://api.nuget.org/v3-flatcontainer/powershellstandard.library/5.1.1/powershellstandard.library.5.1.1.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/powershellstandard.library/5.1.1/powershellstandard.library.5.1.1.nupkg 12ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices.windowsruntime/index.json 41ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.windowsruntime.ui.xaml/index.json 40ms
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.windowsruntime.ui.xaml/4.6.0/system.runtime.windowsruntime.ui.xaml.4.6.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.windowsruntime/index.json 46ms
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices.windowsruntime/4.3.0/system.runtime.interopservices.windowsruntime.4.3.0.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/system.runtime.windowsruntime/4.6.0/system.runtime.windowsruntime.4.6.0.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.interopservices.windowsruntime/4.3.0/system.runtime.interopservices.windowsruntime.4.3.0.nupkg 11ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.windowsruntime/4.6.0/system.runtime.windowsruntime.4.6.0.nupkg 10ms
+           OK https://api.nuget.org/v3-flatcontainer/system.runtime.windowsruntime.ui.xaml/4.6.0/system.runtime.windowsruntime.ui.xaml.4.6.0.nupkg 21ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.net.ref/index.json
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.net.ref/index.json 42ms
+           GET https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.net.ref/10.0.22000.28/microsoft.windows.sdk.net.ref.10.0.22000.28.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.net.ref/10.0.22000.28/microsoft.windows.sdk.net.ref.10.0.22000.28.nupkg 23ms
+         Installed PowerShellStandard.Library 5.1.1 from https://api.nuget.org/v3/index.json with content hash e31xJjG+Kjbv6YF3Yq6D4Dl3or8v7LrNF41k3CXrWozW6hR1zcOe5KYuZJaGSiAgLnwP8wcW+I3+IWEzMPZKXQ==.
+         Installed System.Runtime.InteropServices.WindowsRuntime 4.3.0 from https://api.nuget.org/v3/index.json with content hash J4GUi3xZQLUBasNwZnjrffN8i5wpHrBtZoLG+OhRyGo/+YunMRWWtwoMDlUAIdmX0uRfpHIBDSV6zyr3yf00TA==.
+         Installed System.Runtime.WindowsRuntime.UI.Xaml 4.6.0 from https://api.nuget.org/v3/index.json with content hash r4tNw5v5kqRJ9HikWpcyNf3suGw7DjX93svj9iBjtdeLqL8jt9Z+7f+s4wrKZJr84u8IMsrIjt8K6jYvkRqMSg==.
+         Installed System.Runtime.WindowsRuntime 4.6.0 from https://api.nuget.org/v3/index.json with content hash IWrs1TmbxP65ZZjIglNyvDkFNoV5q2Pofg5WO7I8RKQOpLdFprQSh3xesOoClBqR4JHr4nEB1Xk1MqLPW1jPuQ==.
+         Installed Microsoft.Windows.SDK.Contracts 10.0.22000.196 from https://api.nuget.org/v3/index.json with content hash PsZ40Oj4Y4XUjmHo++aJxZZHRo6CUx6t+xoDwQS/pMPzU9DPvQQ0yCMfar1BsGVF4gJUqzh+U29qF0bEdCruAQ==.
+         Installed Microsoft.Windows.SDK.NET.Ref 10.0.22000.28 from https://api.nuget.org/v3/index.json with content hash BegFqM5TNEBAioCMebFxk1pSz3V3fTLyD8BlNmPKQJVFxqbfyexTb/jhu6xNw5VvyjjrvLCVEJNuOXWSQtsztg==.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\PowerShell\Microsoft.WinGet.Client\obj\Microsoft.WinGet.Client.csproj.nuget.g.props.
+         Generating MSBuild file D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\PowerShell\Microsoft.WinGet.Client\obj\Microsoft.WinGet.Client.csproj.nuget.g.targets.
+         Writing assets file to disk. Path: D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\PowerShell\Microsoft.WinGet.Client\obj\project.assets.json
+         Restored D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\PowerShell\Microsoft.WinGet.Client\Microsoft.WinGet.Client.csproj (in 2.94 sec).
+         
+         NuGet Config files used:
+             D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\NuGet.Config
+             C:\Users\runneradmin\AppData\Roaming\NuGet\NuGet.Config
+             C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.FallbackLocation.config
+             C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
+         
+         Feeds used:
+             https://api.nuget.org/v3/index.json
+             C:\Program Files\dotnet\library-packs
+         
+         Installed:
+             3 package(s) to packages.config projects
+             3 package(s) to D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop\WinGetUtilInterop.csproj
+             118 package(s) to D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLIE2ETests\AppInstallerCLIE2ETests.csproj
+             106 package(s) to D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\WinGetUtilInterop.UnitTests\WinGetUtilInterop.UnitTests.csproj
+             1 package(s) to D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\Microsoft.Management.Deployment.Projection\Microsoft.Management.Deployment.Projection.csproj
+             7 package(s) to D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\PowerShell\Microsoft.WinGet.Client\Microsoft.WinGet.Client.csproj
+     1>Done Building Project "D:\a\vedantmgoyal2009\vedantmgoyal2009\winget-pkgs-automation\winget-cli\src\AppInstallerCLI.sln" (Restore target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:48.34
