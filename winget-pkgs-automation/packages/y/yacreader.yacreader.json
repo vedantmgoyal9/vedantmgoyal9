@@ -14,7 +14,7 @@
   },
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
-  "InstallerRegex": "(x64-7z-qt6|x86-7z)\.exe$",
+  "InstallerRegex": "(x64-7z-qt6|x86-7z).exe$",
   "PreviousVersion": "9.10.0",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
