@@ -27,7 +27,7 @@
     "@vscode/vsce": "^2.16.0"
   },
   "devDependencies": {
-    "prettier": "^2.8.1"
+    "prettier": "^2.8.2"
   },
   "contributes": {
     "commands": [
