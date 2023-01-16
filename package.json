@@ -23,7 +23,7 @@
     "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues"
   },
   "dependencies": {
-    "probot": "^12.2.9",
+    "probot": "^12.3.0",
     "@vscode/vsce": "^2.16.0"
   },
   "devDependencies": {
