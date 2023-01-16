@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "fe1eef3400b6dc03df66a93211b85fec0d7a44e3",
-    "Message": "Adjust spacing and punctuation for manifest validation messages (#2805)",
+    "Sha": "36d4495115c5cb1b112b2f6d48440eca2e9133ea",
+    "Message": "Allow Version Listing through 'Winget Search' (#2847)",
     "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Tuesday, January 3, 2023 7:23:05 PM"
+  "BuildDateTime": "Thursday, January 26, 2023 12:44:34 AM"
 }
