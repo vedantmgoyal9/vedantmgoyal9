@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "6683dbe12382c8b5ecd01796085436c19c624bd5",
-    "Message": "Block msix provisioning api calls where known OS bugs exist (#2855)",
-    "Author": "yao-msft"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Tuesday, January 17, 2023 8:16:42 PM"
+  "BuildDateTime": "Wednesday, January 18, 2023 2:34:46 AM"
 }
