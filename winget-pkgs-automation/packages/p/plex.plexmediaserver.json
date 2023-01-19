@@ -11,11 +11,11 @@
   },
   "PostResponseScript": "$Response = $Response.computer.Windows",
   "VersionRegex": "[0-9.]{2,}",
-  "InstallerRegex": ".exe$",
+  "InstallerRegex": "x86_64\.exe$",
   "PreviousVersion": "1.28.2.6151",
   "ManifestFields": {
     "PackageVersion": "($Response.version | Select-String -Pattern $VersionRegex).Matches.Value",
-    "InstallerUrls": "$Response.releases.url"
+    "InstallerUrls": "$Response.releases.url.Where({ $_ -match $InstallerRegex })"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
