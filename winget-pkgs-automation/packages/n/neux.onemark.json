@@ -102,7 +102,7 @@
     null,
     null,
     null,
-    "0.3.4"
+    "0.3.9"
   ],
   "ManifestFields": {
     "PackageVersion": "Read-VersionFromInstaller -Uri $Response.url -Property ProductVersion",
