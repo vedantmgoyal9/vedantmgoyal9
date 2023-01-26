@@ -2,12 +2,11 @@
   "name": "vedantmgoyal2009",
   "version": "1.0.0",
   "publisher": "vedantmgoyal2009",
-  "description": "vscode extension, github bot, and more...",
-  "main": "./tools/vscode-extension.js",
+  "description": "java programs, github bot, and more...",
+  "main": "index.js",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "vs-publish": "vsce unpublish --force && vsce publish",
     "gh-bot": "probot run ./tools/github-bot.js"
   },
   "repository": {
@@ -23,51 +22,6 @@
     "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues"
   },
   "dependencies": {
-    "probot": "^12.3.0",
-    "@vscode/vsce": "^2.16.0"
-  },
-  "devDependencies": {
-    "prettier": "^2.8.3"
-  },
-  "contributes": {
-    "commands": [
-      {
-        "command": "vedantmgoyal2009.helloWorld",
-        "title": "Hello World",
-        "category": "vedantmgoyal2009"
-      },
-      {
-        "command": "vedantmgoyal2009.testWpaPackageJson",
-        "title": "test wpa package json",
-        "category": "vedantmgoyal2009"
-      }
-    ]
-  },
-  "activationEvents": [
-    "workspaceContains:winget-pkgs-automation/packages/**/*.json"
-  ],
-  "engines": {
-    "node": ">= 18.8.0",
-    "vscode": "^1.72.0"
-  },
-  "categories": [
-    "Testing",
-    "Other"
-  ],
-  "prettier": {
-    "trailingComma": "all",
-    "tabWidth": 2,
-    "semi": true,
-    "singleQuote": true
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "probot": "^12.3.0"
   }
 }

@@ -1,9 +1,0 @@
-# Ignore everything
-**/**
-
-# Whitelist needed files
-!tools/vscode-extension.js
-!LICENSE
-!package-lock.json
-!package.json
-!README.md

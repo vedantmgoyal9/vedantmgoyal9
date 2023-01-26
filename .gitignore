@@ -22,6 +22,3 @@ winget-pkgs-automation/manifests
 winget-pkgs-automation/vc_redist.x64.exe
 winget-pkgs-automation/winget-cli/
 winget-pkgs-automation/winget-pkgs/
-
-# vscode extension files (*.vsix)
-*.vsix
