@@ -7,10 +7,6 @@
         {
             "name": "winget-releaser",
             "path": "../../winget-releaser"
-        },
-        {
-            "name": "winget-pkgs",
-            "path": "../../winget-pkgs"
         }
     ],
     "settings": {

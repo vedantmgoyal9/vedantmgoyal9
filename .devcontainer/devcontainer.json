@@ -9,28 +9,38 @@
     "args": { "VARIANT": "ubuntu-22.04" }
   },
 
-  // Set *default* container specific settings.json values on container create.
-  "settings": {},
   "postAttachCommand": "bash .devcontainer/setup.sh postAttachCmd",
   "postStartCommand": "bash .devcontainer/setup.sh postStartCmd",
 
-  // Add the IDs of extensions you want installed when the container is created.
-  "extensions": [
-    "vedantmgoyal2009.vedantmgoyal2009",
-    "vscjava.vscode-java-pack",
-    "ms-vscode.cpptools-extension-pack",
-    "ms-python.python",
-    "github.copilot-nightly",
-    "eamodio.gitlens-insiders",
-    "GitHub.copilot-labs",
-    "ms-vscode.powershell-preview",
-    "ms-vscode.wordcount",
-    "redhat.vscode-yaml",
-    "mutantdino.resourcemonitor",
-    "visualstudioexptteam.vscodeintellicode",
-    "ask-toolkit.alexa-skills-kit-toolkit",
-    "esbenp.prettier-vscode"
-  ],
+  "customizations": {
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {},
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-python.python",
+        "github.copilot-nightly",
+        "eamodio.gitlens-insiders",
+        "GitHub.copilot-labs",
+        "ms-vscode.powershell-preview",
+        "ms-vscode.wordcount",
+        "redhat.vscode-yaml",
+        "mutantdino.resourcemonitor",
+        "visualstudioexptteam.vscodeintellicode",
+        "ask-toolkit.alexa-skills-kit-toolkit",
+        "esbenp.prettier-vscode"
+      ]
+    },
+    "codespaces": {
+      "repositories": {
+        "vedantmgoyal2009/*": {
+          "permissions": "write-all"
+        }
+      }
+    }
+  },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000, 59455, 59456, 59457],
@@ -56,11 +66,11 @@
   // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "vscode",
   "features": {
-    "desktop-lite": {
-      "version": "latest",
-      "webPort": 59455,
-      "password": "jsg/osgn:"
-    },
+    // "desktop-lite": {
+    //   "version": "latest",
+    //   "webPort": 59455,
+    //   "password": "jsg/osgn:"
+    // },
     "docker-in-docker": {
       "version": "latest",
       "moby": false,
@@ -68,7 +78,7 @@
     },
     "dotnet": {
       "version": "latest",
-      "runtimeOnly": true, // Install just dotnet runtime if true, sdk if false.
+      "runtimeOnly": false, // Install just dotnet runtime if true, sdk if false.
       "installUsingApt": true
     },
     "github-cli": {
@@ -86,18 +96,9 @@
     },
     "powershell": {
       "version": "latest"
-    } // ,
-    // "python": {
-    //   "version": "latest" - will uncomment when I will learn python :D
-    // }
-  },
-  "customizations": {
-    "codespaces": {
-      "repositories": {
-        "vedantmgoyal2009/*": {
-          "permissions": "write-all"
-        }
-      }
+    },
+    "python": {
+      "version": "latest"
     }
   }
 }
