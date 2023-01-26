@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "36d4495115c5cb1b112b2f6d48440eca2e9133ea",
-    "Message": "Allow Version Listing through 'Winget Search' (#2847)",
+    "Sha": "c49ef19fc8809b6b76e8e8e70c1d8cc34f280da5",
+    "Message": "Show Enabled Admin Settings in --info (#2901)",
     "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Thursday, January 26, 2023 12:44:34 AM"
+  "BuildDateTime": "Monday, February 6, 2023 3:24:15 AM"
 }
