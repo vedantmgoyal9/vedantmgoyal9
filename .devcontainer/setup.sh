@@ -38,7 +38,6 @@ clone-repo()
 }
 
 clone-repo "vedantmgoyal2009/winget-releaser"
-clone-repo "vedantmgoyal2009/winget-pkgs"
 
 # Install npm node_modules
 cd "${workspaces_folder}/vedantmgoyal2009"
