@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "36d4495115c5cb1b112b2f6d48440eca2e9133ea",
+    "Message": "Allow Version Listing through 'Winget Search' (#2847)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Monday, January 30, 2023 9:24:13 AM"
+  "BuildDateTime": "Monday, January 30, 2023 10:27:10 AM"
 }
