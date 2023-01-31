@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "36d4495115c5cb1b112b2f6d48440eca2e9133ea",
-    "Message": "Allow Version Listing through 'Winget Search' (#2847)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "5d0e02b15a36c232fa8957650fc035c80ea41407",
+    "Message": "Refactor arg validation  (#2862)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Tuesday, January 31, 2023 10:23:43 AM"
+  "BuildDateTime": "Tuesday, January 31, 2023 11:26:07 PM"
 }
