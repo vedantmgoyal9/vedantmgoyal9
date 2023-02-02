@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "5d0e02b15a36c232fa8957650fc035c80ea41407",
+    "Message": "Refactor arg validation  (#2862)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Thursday, February 2, 2023 1:32:57 PM"
+  "BuildDateTime": "Thursday, February 2, 2023 2:21:58 PM"
 }
