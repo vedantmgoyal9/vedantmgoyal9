@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "53e83b21297747b4062f930f3cb5365cd0d46d36",
-    "Message": "chore: remove blank line (#2906)",
+    "Sha": "acf295568d49d72ab0b6b89b429ef59d065a5095",
+    "Message": "feat: update pr template (#2905)\n\nCo-authored-by: denelon <denelon@microsoft.com>",
     "Author": "William Harrison"
   },
-  "BuildDateTime": "Thursday, February 2, 2023 8:24:21 PM"
+  "BuildDateTime": "Friday, February 3, 2023 2:36:51 AM"
 }
