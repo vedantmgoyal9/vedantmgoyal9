@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "acf295568d49d72ab0b6b89b429ef59d065a5095",
-    "Message": "feat: update pr template (#2905)\n\nCo-authored-by: denelon <denelon@microsoft.com>",
+    "Sha": "badb1f2e3563a0f8a0cc46a07a80dad8cd1d639c",
+    "Message": "feat(template): update title + desc foe bug report (#2913)",
     "Author": "William Harrison"
   },
-  "BuildDateTime": "Friday, February 3, 2023 2:36:51 AM"
+  "BuildDateTime": "Friday, February 3, 2023 9:20:34 PM"
 }
