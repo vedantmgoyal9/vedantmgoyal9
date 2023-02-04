@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "badb1f2e3563a0f8a0cc46a07a80dad8cd1d639c",
-    "Message": "feat(template): update title + desc foe bug report (#2913)",
-    "Author": "William Harrison"
+    "Sha": "27a055e596673727562fca39e8ff5b9446b79508",
+    "Message": "Remove use of Invoke-Expression in test script (#2921)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Friday, February 3, 2023 9:20:34 PM"
+  "BuildDateTime": "Saturday, February 4, 2023 12:48:11 AM"
 }
