@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "27a055e596673727562fca39e8ff5b9446b79508",
+    "Message": "Remove use of Invoke-Expression in test script (#2921)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Sunday, February 5, 2023 2:32:32 AM"
+  "BuildDateTime": "Sunday, February 5, 2023 3:31:40 AM"
 }
