@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "27a055e596673727562fca39e8ff5b9446b79508",
-    "Message": "Remove use of Invoke-Expression in test script (#2921)",
-    "Author": "Flor Chacón"
+    "Sha": "c49ef19fc8809b6b76e8e8e70c1d8cc34f280da5",
+    "Message": "Show Enabled Admin Settings in --info (#2901)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Sunday, February 5, 2023 2:22:27 PM"
+  "BuildDateTime": "Monday, February 6, 2023 12:46:55 AM"
 }
