@@ -1,46 +1,16 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/ubuntu
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/universal
 {
-  "name": "Ubuntu",
-  "build": {
-    "dockerfile": "Dockerfile",
-    // Update 'VARIANT' to pick an Ubuntu version: jammy / ubuntu-22.04, focal / ubuntu-20.04, bionic /ubuntu-18.04
-    // Use ubuntu-22.04 or ubuntu-18.04 on local arm64/Apple Silicon.
-    "args": { "VARIANT": "ubuntu-22.04" }
-  },
+  // "$schema": "https://github.com/devcontainers/spec/blob/main/schemas/devContainer.schema.json",
+  "name": "Default Linux Universal",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
 
   "postAttachCommand": "bash .devcontainer/setup.sh postAttachCmd",
   "postStartCommand": "bash .devcontainer/setup.sh postStartCmd",
 
-  "customizations": {
-    "vscode": {
-      // Set *default* container specific settings.json values on container create.
-      "settings": {},
-      // Add the IDs of extensions you want installed when the container is created.
-      "extensions": [
-        "vscjava.vscode-java-pack",
-        "ms-vscode.cpptools-extension-pack",
-        "ms-python.python",
-        "github.copilot-nightly",
-        "eamodio.gitlens-insiders",
-        "GitHub.copilot-labs",
-        "ms-vscode.powershell-preview",
-        "ms-vscode.wordcount",
-        "redhat.vscode-yaml",
-        "mutantdino.resourcemonitor",
-        "visualstudioexptteam.vscodeintellicode",
-        "ask-toolkit.alexa-skills-kit-toolkit",
-        "esbenp.prettier-vscode"
-      ]
-    },
-    "codespaces": {
-      "repositories": {
-        "vedantmgoyal2009/*": {
-          "permissions": "write-all"
-        }
-      }
-    }
-  },
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "bash .devcontainer/setup.sh",
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000, 59455, 59456, 59457],
@@ -60,44 +30,77 @@
     "onAutoForward": "notify"
   },
 
-  // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "bash .devcontainer/setup.sh",
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-python.python",
+        "golang.go",
+        "github.copilot-nightly",
+        "eamodio.gitlens-insiders",
+        "GitHub.copilot-labs",
+        "ms-vscode.powershell",
+        "ms-vscode.wordcount",
+        "redhat.vscode-yaml",
+        "mutantdino.resourcemonitor",
+        "visualstudioexptteam.vscodeintellicode",
+        "ask-toolkit.alexa-skills-kit-toolkit",
+        "esbenp.prettier-vscode"
+      ]
+    },
+    "codespaces": {
+      "repositories": {
+        "vedantmgoyal2009/*": {
+          "permissions": "write-all"
+        }
+      }
+    }
+  },
 
-  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode",
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
-    // "desktop-lite": {
-    //   "version": "latest",
-    //   "webPort": 59455,
-    //   "password": "jsg/osgn:"
-    // },
-    "docker-in-docker": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "version": "latest",
+      "webPort": 59455,
+      "password": "jsg/osgn:"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "version": "latest",
       "moby": false,
       "dockerDashComposeVersion": "v2"
     },
-    "dotnet": {
+    "ghcr.io/devcontainers/features/dotnet:1": {
       "version": "latest",
       "runtimeOnly": false, // Install just dotnet runtime if true, sdk if false.
       "installUsingApt": true
     },
-    "github-cli": {
+    "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "latest",
       "installDirectlyFromGitHubRelease": true
     },
-    "homebrew": {
+    "ghcr.io/devcontainers/features/go:1": {
       "version": "latest",
-      "shallow": true
+      "golangciLintVersion": "latest"
     },
-    "node": {
+    "ghcr.io/devcontainers/features/node:1": {
       "version": "latest",
-      "nodeGypDependencies": false // , see https://github.com/devcontainers/features
+      "nodeGypDependencies": false // see https://github.com/devcontainers/features
       // "nvmInstallPath": "/usr/local/share/nvm" - default value
     },
-    "powershell": {
+    "ghcr.io/devcontainers/features/powershell:1": {
       "version": "latest"
+      // "modules": "powershell-yaml"
     },
-    "python": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "latest",
+      "installTools": true
+    },
+    "ghcr.io/devcontainers/features/sshd:1": {
       "version": "latest"
     }
   }

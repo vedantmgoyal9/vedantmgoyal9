@@ -1,12 +1,20 @@
 {
     "folders": [
         {
-            "name": "vedantmgoyal2009",
-            "path": ".."
+            "name": "winget-manifests-manager",
+            "path": "../../winget-manifests-manager"
         },
         {
             "name": "winget-releaser",
             "path": "../../winget-releaser"
+        },
+        {
+            "name": "vedantmgoyal2009",
+            "path": ".."
+        },
+        {
+            "name": "Komac",
+            "path": "../../Komac"
         }
     ],
     "settings": {
@@ -25,7 +33,7 @@
         "powershell.pester.useLegacyCodeLens": false,
         "powershell.scriptAnalysis.settingsPath": "",
         "terminal.integrated.fontFamily": "Liga SFMono Nerd Font",
-        "powershell.cwd": "/workspaces/vedantmgoyal2009"
+        "powershell.cwd": "/workspaces/winget-manifests-manager"
     },
     "launch": {
         "configurations": [
