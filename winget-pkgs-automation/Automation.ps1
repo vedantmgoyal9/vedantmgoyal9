@@ -1,9 +1,4 @@
 #Requires -Version 7.2.2
-[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(
-    'PSUseDeclaredVarsMoreThanAssignments',
-    '',
-    Justification = 'Dear PSScriptAnalyser, you are a little less advanced. Variables are used in Invoke-Expression, but not in the script body.'
-)]
 
 # Set error action to continue, hide progress bar of Invoke-WebRequest
 $ErrorActionPreference = 'Continue'
@@ -29,20 +24,20 @@ Write-Output @"
 "@ | Out-File -FilePath auth.js # Initialize auth.js with the code to get the bot authentication token
 $AuthToken = node .\auth.js # Get bot token from auth.js which was initialized in the workflow
 # Set wingetdev.exe path variable which will be used in the whole automation to execute wingetdev.exe commands
-Set-Variable -Name WinGetDev -Value (Resolve-Path -Path ..\tools\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
+Set-Variable -Name WinGetDev -Value (Resolve-Path -Path .\wingetdev\wingetdev.exe).Path -Option AllScope, Constant
 # Update wingetdev if a new commit is pushed on microsoft/winget-cli, thanks to @jedieaston for making https://github.com/jedieaston/winget-build
 # Path to wingetdev.exe is also used in winget-releaser action, so update the path in the action whenever wingetdev is moved in this repository
 $WinGetCliCommitInfo = Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/microsoft/winget-cli/commits?per_page=1'
-If ((Get-Content -Raw ..\tools\wingetdev\build.json | ConvertFrom-Json).Commit.Sha -ne $WinGetCliCommitInfo.sha) {
+If ((Get-Content -Raw .\wingetdev\build.json | ConvertFrom-Json).Commit.Sha -ne $WinGetCliCommitInfo.sha) {
     Write-Output 'New commit pushed on microsoft/winget-cli, updating wingetdev...'
     Write-Output 'This will take about ~15 minutes... please wait...'
     git clone https://github.com/microsoft/winget-cli.git --quiet
     & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat' x64
-    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -t:restore -m -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln # | Out-File -FilePath ..\tools\wingetdev\log-restore.txt -Append
-    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln # | Out-File -FilePath ..\tools\wingetdev\log-build.txt -Append
-    Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination ..\tools\wingetdev\WindowsPackageManager.dll -Force
-    Move-Item -Path .\winget-cli\src\x64\Release\AppInstallerCLI\* -Destination ..\tools\wingetdev -Force
-    Move-Item -Path ..\tools\wingetdev\winget.exe -Destination wingetdev.exe -Force # Rename winget.exe to wingetdev.exe, Rename-Item with -Force doesn't work when the destination file already exists
+    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -t:restore -m -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln
+    & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln
+    Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination .\wingetdev\WindowsPackageManager.dll -Force
+    Move-Item -Path .\winget-cli\src\x64\Release\AppInstallerCLI\* -Destination .\wingetdev -Force
+    Move-Item -Path .\wingetdev\winget.exe -Destination wingetdev.exe -Force # Rename winget.exe to wingetdev.exe, Rename-Item with -Force doesn't work when the destination file already exists
     ConvertTo-Json -InputObject ([ordered] @{
             Commit        = [ordered] @{
                 Sha     = $WinGetCliCommitInfo.sha
@@ -50,9 +45,9 @@ If ((Get-Content -Raw ..\tools\wingetdev\build.json | ConvertFrom-Json).Commit.S
                 Author  = $WinGetCliCommitInfo.commit.author.name
             };
             BuildDateTime = (Get-Date).DateTime.ToString()
-        }) | Set-Content -Path ..\tools\wingetdev\build.json
+        }) | Set-Content -Path .\wingetdev\build.json
     git pull # to be on a safe side
-    git add ..\tools\wingetdev\*
+    git add .\wingetdev\*
     git commit -m "chore(wpa): update wingetdev build [$env:GITHUB_RUN_NUMBER]"
     git push https://x-access-token:$AuthToken@github.com/vedantmgoyal2009/vedantmgoyal2009.git
 }
