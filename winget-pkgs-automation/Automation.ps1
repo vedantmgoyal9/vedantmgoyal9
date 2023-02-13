@@ -12,7 +12,7 @@ $ProgressPreference = 'SilentlyContinue'
 Write-Output 'Setting up git authentication credentials and github bot authentication token...'
 git config --global user.name 'vedantmgoyal2009[bot]' # Set git username
 git config --global user.email '110876359+vedantmgoyal2009[bot]@users.noreply.github.com' # Set git email
-npm ci # Run npm ci to install dependencies
+npm i @octokit/auth-app # Run npm ci to install dependencies
 Write-Output @"
 (async () => {
   console.log((await require('@octokit/auth-app').createAppAuth({
