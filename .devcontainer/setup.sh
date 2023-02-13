@@ -24,7 +24,7 @@ cp "${workspaces_folder}/vedantmgoyal2009/.devcontainer/profile.ps1" $(pwsh -Com
 # Add oh-my-posh to bash profile
 echo 'eval "$(oh-my-posh init bash -c $(brew --prefix oh-my-posh)/themes/takuya.omp.json)"' >> /home/vscode/.bashrc
 # Install winget-pkgs yamlcreate powershell-yaml
-pwsh -Command "Install-Module -Name powershell-yaml -Force"
+# pwsh -Command "Install-Module -Name powershell-yaml -Force"
 
 # Multi-repo setup
 clone-repo()
@@ -37,14 +37,16 @@ clone-repo()
     fi
 }
 
+clone-repo "vedantmgoyal2009/winget-manifests-manager"
 clone-repo "vedantmgoyal2009/winget-releaser"
+clone-repo "vedantmgoyal2009/Komac"
 
 # Install npm node_modules
-cd "${workspaces_folder}/vedantmgoyal2009"
-sudo npm install && npx commitizen init cz-conventional-changelog
+cd "${workspaces_folder}/winget-manifests-manager"
+sudo npm install
 cd "${workspaces_folder}/winget-releaser"
 sudo npm install
 
 # Multi-root workspace
-cd "${workspaces_folder}/vedantmgoyal2009"
+cd "${workspaces_folder}/winget-manifests-manager"
 code-insiders multi-root.code-workspace
