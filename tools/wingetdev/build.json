@@ -1,0 +1,8 @@
+{
+  "Commit": {
+    "Sha": "1a413c662b63fa6ab47ec063f74928c44e0895a0",
+    "Message": "Add std::endl after enabling/disabling Admin Setting (#2958)",
+    "Author": "Kaleb Luedtke"
+  },
+  "BuildDateTime": "Monday, February 13, 2023 8:24:23 PM"
+}
