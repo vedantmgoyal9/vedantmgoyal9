@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "1a413c662b63fa6ab47ec063f74928c44e0895a0",
-    "Message": "Add std::endl after enabling/disabling Admin Setting (#2958)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "d2f12c2038c1f85665037ae89920d6a3b4499434",
+    "Message": "Update settings.schema.0.2.json to include pinning feature (#2961)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Tuesday, February 14, 2023 6:28:34 PM"
+  "BuildDateTime": "Tuesday, February 14, 2023 8:25:10 PM"
 }
