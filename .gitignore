@@ -1,6 +1,3 @@
-# Temporary Directory
-temp
-
 # java_programs directory
 java_programs/*.class
 java_programs/*.ctxt
@@ -10,7 +7,7 @@ node_modules
 
 # whatsapp bot logs and session
 .wwebjs_auth
-tools/logs.txt
+logs.txt
 
 # env - environment variables
 .env
