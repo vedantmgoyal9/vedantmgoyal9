@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "6e43f9134e032930404e4f3ddb5ede30fb28c612",
-    "Message": "Config code (#2942)\n\nIntroduces a new component, `Microsoft.Management.Configuration`.  This is the API surface for controlling the configuration of the system for a user (with the intention that any user can run it, including `SYSTEM`).  There are [extensive details on the API in this document](/JohnMcPMS/winget-cli/blob/config-code/doc/specs/Configuration-COM-API.md), so I will not repeat them here.\r\n\r\nThe API is not fully implemented by this change, only the baseline functionality for reading configuration files and acting on them immediately.  None of the history functionality is present, nor any ability to serialize files.  However, this should be sufficient to create an initial, golden path implementation of user interactive surfaces.",
-    "Author": "JohnMcPMS"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Wednesday, February 15, 2023 6:24:54 AM"
+  "BuildDateTime": "Wednesday, February 15, 2023 1:36:21 PM"
 }
