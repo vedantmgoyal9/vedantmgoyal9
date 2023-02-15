@@ -60,7 +60,7 @@
   },
 
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "vscode",
+  // "remoteUser": "root"
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
@@ -74,34 +74,22 @@
       "moby": false,
       "dockerDashComposeVersion": "v2"
     },
-    "ghcr.io/devcontainers/features/dotnet:1": {
+    "ghcr.io/devcontainers/features/java:1": {
       "version": "latest",
-      "runtimeOnly": false, // Install just dotnet runtime if true, sdk if false.
-      "installUsingApt": true
-    },
-    "ghcr.io/devcontainers/features/github-cli:1": {
-      "version": "latest",
-      "installDirectlyFromGitHubRelease": true
-    },
-    "ghcr.io/devcontainers/features/go:1": {
-      "version": "latest",
-      "golangciLintVersion": "latest"
+      "jdkDistro": "ms",
+      "installGradle": true,
+      "gradleVersion": "latest",
+      "installMaven": false,
+      "installAnt": false
     },
     "ghcr.io/devcontainers/features/node:1": {
       "version": "latest",
-      "nodeGypDependencies": false // see https://github.com/devcontainers/features
+      "nodeGypDependencies": false // see https://github.com/devcontainers/features/tree/main/src/node
       // "nvmInstallPath": "/usr/local/share/nvm" - default value
     },
     "ghcr.io/devcontainers/features/powershell:1": {
       "version": "latest"
       // "modules": "powershell-yaml"
-    },
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "latest",
-      "installTools": true
-    },
-    "ghcr.io/devcontainers/features/sshd:1": {
-      "version": "latest"
     }
   }
 }
