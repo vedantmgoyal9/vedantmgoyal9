@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "d2f12c2038c1f85665037ae89920d6a3b4499434",
-    "Message": "Update settings.schema.0.2.json to include pinning feature (#2961)",
-    "Author": "Flor Chacón"
+    "Sha": "b0e68f1ff08d5d63d58dd779f5a87121b684ddb3",
+    "Message": "Update expect.txt (#2968)\n\nIncluded my first, and last names, as well as the visualstudiocode which is found in my example of an app ID.",
+    "Author": "Roy"
   },
-  "BuildDateTime": "Tuesday, February 14, 2023 8:25:10 PM"
+  "BuildDateTime": "Wednesday, February 15, 2023 2:33:10 AM"
 }
