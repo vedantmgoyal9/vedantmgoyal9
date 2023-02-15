@@ -16,11 +16,12 @@ workspaces_folder="$(cd "${script_folder}/../.." && pwd)"
 # Installing softwares
 sudo apt-get update
 sudo apt install -y npm neofetch default-jre default-jdk screen build-essential procps curl file git
-# Install brew and add to path
+# Install brew and add to path, reload shell
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+source ~/.profile
 # Install oh-my-posh
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
 # Copy PowerShell Profile
