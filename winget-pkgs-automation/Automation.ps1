@@ -239,4 +239,4 @@ Write-Output "`nUpdating packages"
 git pull # to be on a safe side
 git add .\packages\*
 git commit -m "build(wpa): update packages [$env:GITHUB_RUN_NUMBER]"
-git push https://x-access-token:$AuthToken@github.com/vedantmgoyal2009/vedantmgoyal2009.git
+git push
