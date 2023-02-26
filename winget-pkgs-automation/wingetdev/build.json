@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "428ffb50527fbb20e39443e13cae2cfa7ec6cdcc",
-    "Message": "Add alternate url support for some predefined sources (#2970)\n\nAdds an alternate base URL for the sources behind `cdn.winget.microsoft.com`.  In the event that the files hosted there are inaccessible or corrupted, the alternate URL will be used instead.  This mechanism does rely on the fact that these are basically two names for the exact same set of data, which is true as the alternate is the upstream store for the CDN itself.\r\n\r\nAdditionally, we now require preindexed packaged sources to contain the manifest hash, rather than just using it if present.\r\n\r\nFinally, this change adds a setting that can be used to disable the alternate URL for the `winget` source.  I intentionally did not add it to the schema or documentation, as I don't think it is something that should actually be set by anyone unless there is an explicit reason to do so (such as for testing purposes).",
-    "Author": "JohnMcPMS"
+    "Sha": "7795d3436c4f1f8b225846079e86745f9dd20356",
+    "Message": "Remove zip installer type from 1.0 and 1.1 manifests (#3006)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Sunday, February 19, 2023 6:22:40 AM"
+  "BuildDateTime": "Sunday, February 26, 2023 4:23:45 PM"
 }
