@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "7795d3436c4f1f8b225846079e86745f9dd20356",
+    "Message": "Remove zip installer type from 1.0 and 1.1 manifests (#3006)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Monday, February 27, 2023 5:24:46 PM"
+  "BuildDateTime": "Monday, February 27, 2023 6:29:15 PM"
 }
