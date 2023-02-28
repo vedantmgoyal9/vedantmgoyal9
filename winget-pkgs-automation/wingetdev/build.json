@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "7795d3436c4f1f8b225846079e86745f9dd20356",
-    "Message": "Remove zip installer type from 1.0 and 1.1 manifests (#3006)",
-    "Author": "Ryan Fu"
+    "Sha": "f7be7b70aa9afa3c53dc72684602db34cdfa15b9",
+    "Message": "Fix order of pin labels (#3016)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Monday, February 27, 2023 6:29:15 PM"
+  "BuildDateTime": "Tuesday, February 28, 2023 12:48:52 AM"
 }
