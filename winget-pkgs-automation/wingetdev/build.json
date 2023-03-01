@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f7be7b70aa9afa3c53dc72684602db34cdfa15b9",
-    "Message": "Fix order of pin labels (#3016)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "0d181f6415d6906d1ec79de66fd8644a4d37c443",
+    "Message": "Add installed files and startup link metadata collection in Installer Metadata collection util (#2985)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Tuesday, February 28, 2023 10:29:33 AM"
+  "BuildDateTime": "Tuesday, March 14, 2023 10:29:56 AM"
 }
