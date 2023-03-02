@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "e66cbc901d87fee5386bc6b75ea2a5c2f0a697bf",
-    "Message": "Configuration processors (#3008)\n\nMicrosoft.Management.Configuration.Process is a cswinrt component that provides implementation of `IConfigurationSetProcessor`, `IConfigurationUnitProcessor`, `IConfigurationUnitProcessorDetails`, `IConfigurationUnitSettingDetails` and `IConfigurationProcessorFactory` defined in #2942 as well as new runtime classes and an interface.\r\n\r\n`ConfigurationSetProcessorFactory` implements `IConfigurationProcessorFactory`, which takes the type of configuration and optional `IConfigurationProcessorFactoryProperties` with additional properties that need to be defined for the processor set. An implementation of `IConfigurationProcessorFactoryProperties` is also provided.\r\n\r\nInternally, it uses PowerShell Host to find and install DSC modules and apply them via InvokeDscResource.\r\n\r\nRequires [PSDesiredStateConfiguration 2.0.6](https://www.powershellgallery.com/packages/PSDesiredStateConfiguration/2.0.6)",
-    "Author": "Ruben Guerrero"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Wednesday, March 1, 2023 6:29:12 PM"
+  "BuildDateTime": "Thursday, March 2, 2023 5:21:57 PM"
 }
