@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "a6d02acc09139d937ac99a7082b38c7934d83242",
-    "Message": "fix default install root location (#3034)",
-    "Author": "Bill ZHANG"
+    "Sha": "cf980e68307307363fe9cc344931e20eb5e5ef18",
+    "Message": "Microsoft.Management.Configuration Windows target platform (#3032)\n\nMove Microsoft.Management.Configuration projects to target 10.0.19041.0.\r\nFix UTs Microsoft.Management.Configuration flaky tests.",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Thursday, March 2, 2023 6:26:41 PM"
+  "BuildDateTime": "Thursday, March 2, 2023 7:25:37 PM"
 }
