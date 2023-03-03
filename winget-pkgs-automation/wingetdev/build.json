@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "69ef130cf24bbc442c574f57ba65da46195fd40e",
+    "Message": "Update MSStoreInstallerHandler.cpp (#3031)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Friday, March 3, 2023 9:24:33 AM"
+  "BuildDateTime": "Friday, March 3, 2023 10:26:09 AM"
 }
