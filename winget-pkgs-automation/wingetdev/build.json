@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f19f8934d1b7509fe600d1d842ae9ce81d560064",
-    "Message": "AnyCPU (#3041)\n\nDon't do platform specific and trust AnyCPU",
-    "Author": "Ruben Guerrero"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Tuesday, March 7, 2023 3:41:30 AM"
+  "BuildDateTime": "Wednesday, March 8, 2023 5:24:01 AM"
 }
