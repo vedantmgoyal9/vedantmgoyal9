@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f19f8934d1b7509fe600d1d842ae9ce81d560064",
-    "Message": "AnyCPU (#3041)\n\nDon't do platform specific and trust AnyCPU",
-    "Author": "Ruben Guerrero"
+    "Sha": "6966cf11730f43aaafef98cd9358008f01811ba0",
+    "Message": "Expose Agreements and Locale Fields in COM (#2897)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Wednesday, March 8, 2023 6:26:03 AM"
+  "BuildDateTime": "Wednesday, March 8, 2023 9:21:33 PM"
 }
