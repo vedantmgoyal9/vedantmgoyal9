@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "73f05cdf9b72eed991ccc5609f459f385cb9ec2f",
-    "Message": "Configuration commands (#3036)\n\nAdds the configuration commands `configure`, `configure show`, `configure test`, and `configure validate` (although it doesn't actually implement `test` or `validate`).\r\n\r\n`configure show` outputs the configuration file that it is given, along with information on the configuration units contained within.\r\n\r\n`configure` will first show the configuration file, then prompt the user to both review it and accept the responsibility for its actions. `--accept-configuration-agreements` can pre-accept the warning and apply the configuration without prompting. As the configuration is being applied, the individual results will be reported.\r\n\r\nAll of the configuration actions are run in a separate process to isolate winget.exe from a potential crash. That process is run at the same integrity level as winget.exe though, allowing elevated (admin) configuration actions.\r\n\r\nAdditionally, there are several minor fixes to things that I saw while developing this.",
-    "Author": "JohnMcPMS"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Wednesday, March 8, 2023 11:23:14 PM"
+  "BuildDateTime": "Thursday, March 9, 2023 9:26:14 AM"
 }
