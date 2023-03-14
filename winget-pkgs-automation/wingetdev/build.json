@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "0d181f6415d6906d1ec79de66fd8644a4d37c443",
+    "Message": "Add installed files and startup link metadata collection in Installer Metadata collection util (#2985)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Tuesday, March 14, 2023 9:23:31 AM"
+  "BuildDateTime": "Tuesday, March 14, 2023 10:29:56 AM"
 }
