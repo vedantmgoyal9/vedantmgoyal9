@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "ByteDance.BytedanceMiniappIDE",
+  "Identifier": "ByteDance.DouyinIDE",
   "Update": {
     "InvokeType": "RestMethod",
     "Uri": "https://tron.jiyunhudong.com/api/sdk/check_update?pid=6898629266087352589&branch=master&buildId=&uid=",
