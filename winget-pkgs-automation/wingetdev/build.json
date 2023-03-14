@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0d181f6415d6906d1ec79de66fd8644a4d37c443",
-    "Message": "Add installed files and startup link metadata collection in Installer Metadata collection util (#2985)",
-    "Author": "yao-msft"
+    "Sha": "e92d32bfec4b7b0d97f530058adca414f17cce7f",
+    "Message": "Fix internal build (#3106)",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Tuesday, March 14, 2023 10:29:56 AM"
+  "BuildDateTime": "Saturday, March 25, 2023 7:23:49 AM"
 }

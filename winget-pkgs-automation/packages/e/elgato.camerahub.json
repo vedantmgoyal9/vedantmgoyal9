@@ -12,7 +12,7 @@
   "PostResponseScript": "$Response = $Response.'camera-hub-win'.downloadURL",
   "VersionRegex": "(?<=_)[0-9.]+(?=_)",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "1.5.2.905",
+  "PreviousVersion": "1.6.0.992",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response"
