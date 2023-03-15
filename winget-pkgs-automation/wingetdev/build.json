@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0d181f6415d6906d1ec79de66fd8644a4d37c443",
-    "Message": "Add installed files and startup link metadata collection in Installer Metadata collection util (#2985)",
-    "Author": "yao-msft"
+    "Sha": "0ddd4058c2c9374fb2a18f7330c7820e89d90f72",
+    "Message": "Explicitly prevent fallthrough on OperationType (#3075)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Tuesday, March 14, 2023 10:29:56 AM"
+  "BuildDateTime": "Wednesday, March 15, 2023 1:00:58 AM"
 }
