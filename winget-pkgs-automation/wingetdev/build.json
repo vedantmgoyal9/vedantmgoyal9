@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0ddd4058c2c9374fb2a18f7330c7820e89d90f72",
-    "Message": "Explicitly prevent fallthrough on OperationType (#3075)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "e6c9359e7ea53a85c005b9e597ca1bdaa668f0fb",
+    "Message": "Schema draft for WinGet configure (#2851)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Wednesday, March 15, 2023 1:00:58 AM"
+  "BuildDateTime": "Wednesday, March 15, 2023 6:33:43 PM"
 }
