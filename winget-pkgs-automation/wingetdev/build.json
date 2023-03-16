@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "7d29a95d1f0cf41c9f996df34bdc662a6f2d444b",
-    "Message": "define properties object for configuration (#3081)",
-    "Author": "Ryan Fu"
+    "Sha": "0ec8c1bc6da650994e02b948b552f4c183d15140",
+    "Message": "Make sure source agreements are initialized before checking (#3080)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Thursday, March 16, 2023 7:20:33 PM"
+  "BuildDateTime": "Thursday, March 16, 2023 9:23:42 PM"
 }
