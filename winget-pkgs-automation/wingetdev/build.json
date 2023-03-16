@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "1b0c45fbe9c822808db85fa1d6b43564db9a11c6",
-    "Message": "Fix PATH behavior of non-symlink installations for Portables/Zip (#3002)",
+    "Sha": "7d29a95d1f0cf41c9f996df34bdc662a6f2d444b",
+    "Message": "define properties object for configuration (#3081)",
     "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Thursday, March 16, 2023 8:29:14 AM"
+  "BuildDateTime": "Thursday, March 16, 2023 7:20:33 PM"
 }
