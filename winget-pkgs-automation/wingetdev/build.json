@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "e6c9359e7ea53a85c005b9e597ca1bdaa668f0fb",
-    "Message": "Schema draft for WinGet configure (#2851)",
+    "Sha": "1b0c45fbe9c822808db85fa1d6b43564db9a11c6",
+    "Message": "Fix PATH behavior of non-symlink installations for Portables/Zip (#3002)",
     "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Thursday, March 16, 2023 3:29:31 AM"
+  "BuildDateTime": "Thursday, March 16, 2023 8:29:14 AM"
 }
