@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "a47013a0b15b96ee34b491a695f4af3afe46bdc6",
-    "Message": "Rework extra packaged files mechanism (#3064)\n\nThis change is only to how we pull files into the package for development purposes.  It better uses an `ItemGroup` and properties to enable the addition of files/directories by only adding one additional item, rather than 3 properties, 2 items, 1 message and 1 error.",
-    "Author": "JohnMcPMS"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Thursday, March 16, 2023 10:27:20 PM"
+  "BuildDateTime": "Friday, March 17, 2023 2:27:27 AM"
 }
