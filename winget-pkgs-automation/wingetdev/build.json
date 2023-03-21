@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "1898da0b657585d2e6399ef783ecb667eed280f9",
-    "Message": "Add diagnostics to the processor component (#3087)\n\nThis change adds the same diagnostics event to the `IConfigurationSetProcessorFactory` as the `ConfigurationProcessor` already has.  It also adds a property to control the minimum level of events, enabling filtering to be done at event publishing rather than consumption.\r\n\r\nAll of the public facing methods in the processor component are enlightened to send any escaping exceptions to the diagnostics before letting them generate an error.  Additionally, verbose logs are added throughout to enable a better understanding of what/when things are happening.",
-    "Author": "JohnMcPMS"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Tuesday, March 21, 2023 12:50:59 AM"
+  "BuildDateTime": "Tuesday, March 21, 2023 9:20:45 PM"
 }
