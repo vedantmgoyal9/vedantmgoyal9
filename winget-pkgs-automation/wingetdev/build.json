@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "ea86a012c48f9e444098263857f809a0d3deb8d9",
-    "Message": "Reformat Microsoft.WinGet.Client module output (#3088)",
-    "Author": "Ryan Fu"
+    "Sha": "cda7a08e1480417cdb83f724829c1f5e4d663192",
+    "Message": "Make ConfigurationRemotingServer selfcontained (#3097)\n\nThis PR removes the dependency on the .net6 runtime for ConfigurationRemotingServer by making it selfcontained. The downside is that now we carry it in the package, but oh well...\r\n\r\nI had a long fight with PowerShell's contentFiles to pick the right modules, so what I ended up doing is to exclude contentFiles and add them manually as an AfterBuild task. We need the ref directory and the win modules in the same location as System.Management.Automation.dll",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Thursday, March 23, 2023 4:28:10 PM"
+  "BuildDateTime": "Thursday, March 23, 2023 7:22:36 PM"
 }
