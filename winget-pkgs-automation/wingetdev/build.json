@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "67fb9ed23e80c93326929e5bfe421a2cc8fab9f7",
-    "Message": "Add logging around specific number of matches (#3094)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "ea86a012c48f9e444098263857f809a0d3deb8d9",
+    "Message": "Reformat Microsoft.WinGet.Client module output (#3088)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Thursday, March 23, 2023 10:23:22 AM"
+  "BuildDateTime": "Thursday, March 23, 2023 4:28:10 PM"
 }
