@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0d542092b79f3940a5cd4abf682dfeb48bea8b17",
-    "Message": "Processor improvements (#3101)\n\nRelax restrictions for Write-Error.\r\nLog PowerShell's error stream with verbose level.\r\nCreate new exception for the case when the same module version exists in different module paths.",
-    "Author": "Ruben Guerrero"
+    "Sha": "41e2b4c5bcb24a3243f8d055e20c2d289305110f",
+    "Message": "Put required modules into the repo and consume them in dev scenarios (#3103)\n\nAdds the newer version of `PowerShellGet` (and its dependencies) that isn't installed by default on Windows so that a clean machine can build and run the dev package and tests.  Changes the tests and dev package to consume the modules as well.\r\n\r\nThis change also updates the CI pipeline to produce a full package layout for testing.  This will enable the full package experience to be tested in the end-to-end tests.",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Thursday, March 23, 2023 11:20:43 PM"
+  "BuildDateTime": "Friday, March 24, 2023 6:28:50 AM"
 }
