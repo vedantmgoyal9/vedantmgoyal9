@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "c5f7df49fefc52fae9de42381a8559481b790439",
-    "Message": "Throw exception if Import-Module fails (#3104)\n\nTry to import the module of the DSC resource before calling Invoke-DscResource. This let us fail earlier and get more information about the error.",
-    "Author": "Ruben Guerrero"
+    "Sha": "b95f9ca7d2b56dffdc9f4df4a1174daa16581e25",
+    "Message": "Add experimental feature support for enabling Windows Feature dependencies (#3005)",
+    "Author": "Ryan Fu"
   },
-  "BuildDateTime": "Friday, March 24, 2023 6:36:08 PM"
+  "BuildDateTime": "Friday, March 24, 2023 8:28:29 PM"
 }
