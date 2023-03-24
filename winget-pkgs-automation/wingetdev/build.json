@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "41e2b4c5bcb24a3243f8d055e20c2d289305110f",
-    "Message": "Put required modules into the repo and consume them in dev scenarios (#3103)\n\nAdds the newer version of `PowerShellGet` (and its dependencies) that isn't installed by default on Windows so that a clean machine can build and run the dev package and tests.  Changes the tests and dev package to consume the modules as well.\r\n\r\nThis change also updates the CI pipeline to produce a full package layout for testing.  This will enable the full package experience to be tested in the end-to-end tests.",
-    "Author": "JohnMcPMS"
+    "Sha": "c5f7df49fefc52fae9de42381a8559481b790439",
+    "Message": "Throw exception if Import-Module fails (#3104)\n\nTry to import the module of the DSC resource before calling Invoke-DscResource. This let us fail earlier and get more information about the error.",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Friday, March 24, 2023 6:28:50 AM"
+  "BuildDateTime": "Friday, March 24, 2023 6:36:08 PM"
 }
