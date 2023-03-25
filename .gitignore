@@ -12,6 +12,12 @@ logs.txt
 # env - environment variables
 .env
 
+# JetBrains IDEs
+.idea
+
+# vercel
+.vercel
+
 # winget-pkgs-automation
 winget-pkgs-automation/auth.js
 winget-pkgs-automation/arp-entries.json
