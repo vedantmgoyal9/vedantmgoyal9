@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "0f9554b62d23a850c2cb7a9c4c9e71ab22c8fb34",
+    "Message": "Remove unnecessary locks per localization team suggestion (#3115)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Wednesday, March 29, 2023 9:26:49 PM"
+  "BuildDateTime": "Wednesday, March 29, 2023 10:23:50 PM"
 }
