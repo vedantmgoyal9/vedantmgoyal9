@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0f9554b62d23a850c2cb7a9c4c9e71ab22c8fb34",
-    "Message": "Remove unnecessary locks per localization team suggestion (#3115)",
+    "Sha": "dddc0941b89a31aaef360331abf98eb4250c9005",
+    "Message": "Pass COM caller name to rest source in request header (#3112)",
     "Author": "yao-msft"
   },
-  "BuildDateTime": "Wednesday, March 29, 2023 10:23:50 PM"
+  "BuildDateTime": "Wednesday, March 29, 2023 11:24:10 PM"
 }
