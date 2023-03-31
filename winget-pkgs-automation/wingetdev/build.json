@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "dddc0941b89a31aaef360331abf98eb4250c9005",
-    "Message": "Pass COM caller name to rest source in request header (#3112)",
-    "Author": "yao-msft"
+    "Sha": "741244e0363578bccc7d5e0052ee108d00c7d153",
+    "Message": "Enforce single install across winget processes (#3118)\n\nThis change uses a named mutex to enforce a single install/uninstall operation is occurring for the entire session.  The current behavior is that every process was able to install a single thing at a time, but as we have more usage this could lead to a potential issue.\r\n\r\nThe mutex is acquired and held for the workflow task that routes out to the installer type specific tasks.  Some installer types are explicitly excluded, as they are known to contain their own synchronization internally.\r\n\r\nIn addition to the mutex, the ability to set a message to show with the indefinite progress (spinner) was added.  This allows for the message to be removed when the wait is over.  The message was not implemented into the progress bar, nor is it being sent to COM progress.\r\n\r\nThe COM scheduling was not made aware of the mutex, and so it will execute as it has in the past, blocking on the mutex when appropriate.  This could be improved in the future to enable the parallel capable installer types to operate.  One potential option would be a second installer processing thread that only operated on the excluded types, and thus would never block.",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Wednesday, March 29, 2023 11:24:10 PM"
+  "BuildDateTime": "Friday, March 31, 2023 12:49:05 AM"
 }
