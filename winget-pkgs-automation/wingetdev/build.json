@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "9f8fb4c9bc8dd30f83e6368bdcd17d90db27c45c",
+    "Message": "Support to Bypass Store Client App Policy When Called Through COM (#3105)",
+    "Author": "Paul Yim"
   },
-  "BuildDateTime": "Wednesday, April 5, 2023 2:05:26 AM"
+  "BuildDateTime": "Wednesday, April 5, 2023 2:33:57 AM"
 }
