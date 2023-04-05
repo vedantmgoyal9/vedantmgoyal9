@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "9f8fb4c9bc8dd30f83e6368bdcd17d90db27c45c",
-    "Message": "Support to Bypass Store Client App Policy When Called Through COM (#3105)",
-    "Author": "Paul Yim"
+    "Sha": "a9a02eddfe56fd1f81c17fea5e799c2831d69902",
+    "Message": "Bug fixes (#3127)\n\nSet 2.* as MaximumVersion for PsDesiredStateConfiguration to explicitly not support DSC v3 DscModuleV2.cs\r\nSet ErrorAction to Stop for Invoke-DscResource calls. If the cmdlet write to the error stream, we will now throw an exception and add the error to the exception message.\r\nSupport nested maps in settings.",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Wednesday, April 5, 2023 2:33:57 AM"
+  "BuildDateTime": "Wednesday, April 5, 2023 4:23:31 AM"
 }
