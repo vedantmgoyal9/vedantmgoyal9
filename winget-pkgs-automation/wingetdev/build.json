@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "a9a02eddfe56fd1f81c17fea5e799c2831d69902",
+    "Message": "Bug fixes (#3127)\n\nSet 2.* as MaximumVersion for PsDesiredStateConfiguration to explicitly not support DSC v3 DscModuleV2.cs\r\nSet ErrorAction to Stop for Invoke-DscResource calls. If the cmdlet write to the error stream, we will now throw an exception and add the error to the exception message.\r\nSupport nested maps in settings.",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Thursday, April 6, 2023 5:25:49 AM"
+  "BuildDateTime": "Thursday, April 6, 2023 6:28:51 AM"
 }
