@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "3165abec5bff3bf707ebc006e89483d975fd6974",
-    "Message": "Improve correlation by keeping arch info declared in manifest arp DisplayName entry (#3100)",
-    "Author": "yao-msft"
+    "Sha": "850a59967394adbfb9d0d8819fa54c7852ea232a",
+    "Message": "Show Portable Installation Directories with --info (#3128)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Thursday, April 6, 2023 7:17:08 PM"
+  "BuildDateTime": "Friday, April 7, 2023 10:21:07 PM"
 }
