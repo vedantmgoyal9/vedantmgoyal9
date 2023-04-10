@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "850a59967394adbfb9d0d8819fa54c7852ea232a",
+    "Message": "Show Portable Installation Directories with --info (#3128)",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Monday, April 10, 2023 5:22:46 AM"
+  "BuildDateTime": "Monday, April 10, 2023 6:28:53 AM"
 }
