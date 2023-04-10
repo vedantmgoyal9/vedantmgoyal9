@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "719e475a7638b5ceec7a5bf3e8c811bdbfb0d785",
-    "Message": "Use FolderId_ProgramFiles for non x86 default machine portable folder (#3137)",
-    "Author": "yao-msft"
+    "Sha": "3dac77fb9ad2675f6c7bdf4e8f8fcae2bc8f1c92",
+    "Message": "add missing windows10sdk 19041 component (#3143)",
+    "Author": "Ryan"
   },
-  "BuildDateTime": "Monday, April 10, 2023 8:24:47 PM"
+  "BuildDateTime": "Monday, April 10, 2023 11:21:30 PM"
 }
