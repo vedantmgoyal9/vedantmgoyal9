@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "850a59967394adbfb9d0d8819fa54c7852ea232a",
-    "Message": "Show Portable Installation Directories with --info (#3128)",
-    "Author": "Kaleb Luedtke"
+    "Sha": "719e475a7638b5ceec7a5bf3e8c811bdbfb0d785",
+    "Message": "Use FolderId_ProgramFiles for non x86 default machine portable folder (#3137)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Monday, April 10, 2023 2:28:48 PM"
+  "BuildDateTime": "Monday, April 10, 2023 8:24:47 PM"
 }
