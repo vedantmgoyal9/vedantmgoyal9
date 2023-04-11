@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "3dac77fb9ad2675f6c7bdf4e8f8fcae2bc8f1c92",
-    "Message": "add missing windows10sdk 19041 component (#3143)",
-    "Author": "Ryan"
+    "Sha": "6f0bf7b624769768093504b00591e7e2d6b378a3",
+    "Message": "Add support for bool, strings and arrays in Configuration settings (#3135)",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Monday, April 10, 2023 11:21:30 PM"
+  "BuildDateTime": "Tuesday, April 11, 2023 12:55:45 AM"
 }
