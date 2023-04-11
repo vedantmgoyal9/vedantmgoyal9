@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "6f0bf7b624769768093504b00591e7e2d6b378a3",
-    "Message": "Add support for bool, strings and arrays in Configuration settings (#3135)",
-    "Author": "Ruben Guerrero"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Tuesday, April 11, 2023 2:46:44 AM"
+  "BuildDateTime": "Tuesday, April 11, 2023 5:25:19 AM"
 }
