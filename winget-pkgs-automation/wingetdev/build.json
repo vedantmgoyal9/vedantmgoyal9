@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "d9d637923f43d0a03a43bd21502fb0210d147b08",
+    "Message": "Add isPublic to IConfigurationUnitProcessorDetails (#3145)\n\nAdd a new property IsPublic to IConfigurationUnitProcessorDetails.\r\n\r\nSet it to true if the repository source location is one of the public repositories. For now, it's only the PSGallery source.",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Wednesday, April 12, 2023 9:21:02 AM"
+  "BuildDateTime": "Wednesday, April 12, 2023 10:24:46 AM"
 }
