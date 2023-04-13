@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "71858e0f26b73b3bea8c12d4377a5109766cd344",
-    "Message": "fix PRIVACY.md links (#3147)",
-    "Author": "May"
+    "Sha": "d8ff3aef54946c9238805bbba441f5eb60008774",
+    "Message": "Update README.md (#3148)\n\n* Fix markdownlint warnings and remove trailing whitespaces\r\n\r\n* Use prettier markdown for notes\r\n\r\n* Update Urls\r\n\r\n* Update telemetry opt-out instructions\r\n\r\n* Update build instructions\r\n\r\n* Deploy solution after build",
+    "Author": "Muhammad Danish"
   },
-  "BuildDateTime": "Wednesday, April 12, 2023 10:20:01 PM"
+  "BuildDateTime": "Thursday, April 13, 2023 8:21:55 PM"
 }
