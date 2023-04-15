@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "978bc13b45142c7d96aa3576b4ae786fcb9208db",
+    "Message": "Add refreshed Store source certs (#3149)",
+    "Author": "yao-msft"
   },
-  "BuildDateTime": "Saturday, April 15, 2023 5:21:26 PM"
+  "BuildDateTime": "Saturday, April 15, 2023 6:23:26 PM"
 }
