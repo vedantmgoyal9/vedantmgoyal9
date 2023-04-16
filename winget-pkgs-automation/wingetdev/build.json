@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "02d2f93807c9851d73eaacb4d8811a76b64b7b01",
+    "Message": "Add configuration telemetry events (#3152)\n\nThis change adds telemetry events from configuration actions, as well as more details to improve the error reporting (both in telemetry and to the user). The telemetry events can be disabled in code by the front end. For `winget configure`, the winget setting that controls telemetry is flowed through into the configuration code.\r\n\r\nTwo telemetry events are added by this change:\r\n- An event with details on a failed attempt to execute a configuration unit. This will only be logged for failures of publicly available units. It contains the name of the unit and module, as well as the names of the top level settings provided (but *not* the values).\r\n- An event with a summary of processing a configuration set, containing the overall result and error attribution, as well as the counts of configuration units, runs, and failures.\r\n\r\nAdditionally, another string was added to the result information. The intention is that the existing string (`Description`) should be used for a \"short\", user presentable message. The new string (`Details`), can contain a longer value that is intended for logs or a \"more details\" type experience.\r\n\r\nThe PowerShell processor was changed to wrap almost all exceptions into the result information object now that the source can be clearly stated there. Failures coming directly from invoking the resource are attributed to the configuration unit processing, except in the cases where we detect the signature of an invalid setting value (then the configuration set [author] is blamed). All other exceptions are treated as an internal error.",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Sunday, April 16, 2023 1:26:01 PM"
+  "BuildDateTime": "Sunday, April 16, 2023 2:27:35 PM"
 }
