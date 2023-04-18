@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "578f451ebca68f46e0d11271cde5df7bc5aa29c6",
-    "Message": "Fix bugs with display paths (#3157)\n\nChange\r\nThis change fixes two bugs with display paths:\r\n\r\nThe recent change to use case insensitive ICU for directory name equality inverted the comparison, making the replacement not happen correctly.\r\nThe recent change to enable display paths generically left them marked for creation, resulting in errors if directories that required administrator privileges to create did not exist and were requested from an unelevated context (ex. run winget --info from medium IL process when the portable machine links location(s) did not exist).\r\nIn addition, I tried to generally make forDisplay apply broadly since it is now allowed to be requested on any path.\r\n\r\nValidation\r\nwinget --info now contains the expected output instead of an error (2) or the full paths containing the user's account name (1).\r\nA few unit tests that were being hit by the error are also working now.",
-    "Author": "JohnMcPMS"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Tuesday, April 18, 2023 2:15:49 AM"
+  "BuildDateTime": "Tuesday, April 18, 2023 5:25:34 AM"
 }
