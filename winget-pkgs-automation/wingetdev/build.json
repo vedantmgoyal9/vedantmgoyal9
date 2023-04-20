@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "4aab7f7e9826af135807ea965167b8990c90a7a9",
-    "Message": "Microsoft.WinGet.Client custom assembly load context (#3150)\n\nThis PR modifies the Microsoft.WinGet.Client module to be more dependency friendly and play nice with winget configure.\r\n\r\nIt uses a custom AssemblyLoadContext that handles loading all the assembly dependencies of this module. For this, the Microsoft.WinGet.Client.Engine project was created. This project wraps all the cmdlet functionality on it and leaves the Microsoft.WinGet.Client.Cmdlets.dll (formerly Microsoft.WinGet.Client.dll) to just define the visibility of the cmdlets. The custom ALC is registered at onImport module initializer and cleaned up when the module is removed.\r\n\r\nTo avoid loading any other dlls at import module time, none of the cswinrt objects from Microsoft.Management.Deployment are exposed as parameters or outputs of the cmdlets. The engine contains PS wrappers objects and enum that are converted internally by and only by the engine.\r\n\r\nOther fixes:\r\n\r\nRemoved the dependency on the PowerShellSDK for the PowerShell 7 version of the binary. It was used to call an API to convert json into hashtable but this wouldn't work for Windows PowerShell. Instead, I just took what PowerShell 7 does and applied it to both. We still don't support Windows PowerShell, but is a step forward into doing it.\r\n\r\nFixed passing a catalog package object back to the cmdlets to avoid the search. It got broken when Find-WinGetPackage and Get-WinGetPackage started returning an object instead of the cswinrt CatalogPackage object. The wrapper contains the catalog package but is not accessible to the user, so there was no way to pass it as a parameter back to Install-WinGetPackage,\r\n\r\nModified the PowerShell output directory for binary to follow more what nuget suggests for platform specific binaries.",
-    "Author": "Ruben Guerrero"
+    "Sha": "a46ef6cab7a33b7d446484ac9eaa02028d723744",
+    "Message": "Mark events as critical for now (#3171)",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Thursday, April 20, 2023 6:26:23 PM"
+  "BuildDateTime": "Thursday, April 20, 2023 9:23:21 PM"
 }
