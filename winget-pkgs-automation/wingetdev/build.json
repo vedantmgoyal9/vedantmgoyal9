@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "a46ef6cab7a33b7d446484ac9eaa02028d723744",
+    "Message": "Mark events as critical for now (#3171)",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Sunday, April 23, 2023 9:26:22 AM"
+  "BuildDateTime": "Sunday, April 23, 2023 10:25:06 AM"
 }
