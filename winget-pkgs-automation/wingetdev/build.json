@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "a46ef6cab7a33b7d446484ac9eaa02028d723744",
-    "Message": "Mark events as critical for now (#3171)",
-    "Author": "JohnMcPMS"
+    "Sha": "9d5cf1c8964744d77e138138033bda4ce8b31bae",
+    "Message": "Add table with pinned packages when doing `upgrade --include-pinned`  (#3173)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Sunday, April 23, 2023 10:25:06 AM"
+  "BuildDateTime": "Tuesday, April 25, 2023 8:28:24 PM"
 }
