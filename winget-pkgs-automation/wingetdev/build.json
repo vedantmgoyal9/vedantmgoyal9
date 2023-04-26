@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": null,
-    "Message": null,
-    "Author": null
+    "Sha": "9d5cf1c8964744d77e138138033bda4ce8b31bae",
+    "Message": "Add table with pinned packages when doing `upgrade --include-pinned`  (#3173)",
+    "Author": "Flor Chacón"
   },
-  "BuildDateTime": "Wednesday, April 26, 2023 5:26:06 AM"
+  "BuildDateTime": "Wednesday, April 26, 2023 6:27:16 AM"
 }
