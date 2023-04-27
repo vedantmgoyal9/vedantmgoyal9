@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "b1979614e4e0e75bcaf04d082de4c19d442dc8ca",
-    "Message": "WinGetPackage DSC Resource (#2863)\n\nThis is a preview implementation of a DSC resource that installs packages on winget.\r\n\r\nFor now, ensures a package is installed or not. Its install behavior depends if the package is already installed for the user or not.",
-    "Author": "Ruben Guerrero"
+    "Sha": "36b0a236a0da48c61e7778e8fce994c858f01625",
+    "Message": "Add argument to list only upgradeable (#3162)\n\n* Add argument to list only upgradeable\r\n\r\n* Update src/AppInstallerCLICore/Argument.cpp\r\n\r\nCo-authored-by: yao-msft <50888816+yao-msft@users.noreply.github.com>\r\n\r\n---------\r\n\r\nCo-authored-by: yao-msft <50888816+yao-msft@users.noreply.github.com>",
+    "Author": "Kaleb Luedtke"
   },
-  "BuildDateTime": "Thursday, April 27, 2023 2:20:31 AM"
+  "BuildDateTime": "Thursday, April 27, 2023 4:27:47 PM"
 }
