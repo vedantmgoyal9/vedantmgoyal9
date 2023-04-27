@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "937ec874ecb707eb2df37b74ebe0100ccb7e9261",
-    "Message": "Enable module/resource syntax and improve file error reporting (#3186)\n\nThis change adds a new syntax that can be used when referencing resources in a configuration file: `Module/Resource`. This is only added to a new 0.2 schema version, mainly to prevent an issue with older clients failing to run the newer files in a way that is less obvious than \"unrecognized configuration file version\".\r\n\r\nAs part of adding a new schema version, I also added the schema version as a property to the `ConfigurationSet` and `ConfigurationUnit`. This will enable the processor to handle any semantic differences that might arise as schemas evolve.\r\n\r\nFinally, the result from opening a configuration file now contains the field name and value, as well as the line and column number for the error (all values supplied as appropriate).  All of this information is better presented to the user from the family of `winget configure` commands.",
-    "Author": "JohnMcPMS"
+    "Sha": "84d3e87847edcd9faa3985f6b84a099d95c913bd",
+    "Message": "Start Microsoft.WinGet.Configuration module (#3187)\n\nThis PR sets the foundation for the new PowerShell module Microsoft.WinGet.Configuration which is going to be an equivalent of winget configure\r\n\r\nThe module is going to be built as a binary module and it supports using its own ACL to load dependencies. The Microsoft.WinGet.Configuration.Cmdlets project will contain all the cmdlet entry points and Microsoft.WinGet.Configuration.Engine the actual logic.\r\n\r\nThis module consumes Microsoft.Management.Configuration which uses cswinrt and requires being run on an MTA. This is achieved via MtaCommand.cs. This class contains functions that will verify if the current thread is already running on an MTA (via pwsh.exe -MTA) and if not start a new MTA thread. Every command that consumes winrt objects must implement it.\r\n\r\nMtaCommand.cs also implements methods to handle waiting for asynchronous calls and allows sending messages to the PowerShell host that are required to be executed in the main thread (only WriteDebug is implemented for now, but any other method follows the same approach). This is based on the async mechanism that azure-powershell uses.",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Thursday, April 27, 2023 5:27:27 PM"
+  "BuildDateTime": "Thursday, April 27, 2023 8:26:30 PM"
 }
