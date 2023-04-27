@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f269007baed40efb43d5a32d283e934827f53e6a",
-    "Message": "Fix PSInstalledCatalogPackage being piped to Upgrade-WinGetPackage (#3174)\n\nIn Update-WinGetPackage, the pipeline can set the PSCatalogPackage can be set by value or property name and the Version by property name.\r\n\r\nThe result of Get-WinGetPackage piped to Update-WinGetPackage results in both properties being set. In this case, the version is not the desired version to update but the installed version. Internally, when we iterate through all the available versions of the catalog package object we will throw InvalidVersionException because well the version is not available...\r\n\r\nTo fix it, I renamed the Version property of the PSInstalledCatalogPackage to InstalledVersion to mimic what the underlying catalog package property actually is. This way the version will not be piped into Update-WinGetPackage but the caller can also specify which one it wants to update giving a better experience.",
+    "Sha": "b1979614e4e0e75bcaf04d082de4c19d442dc8ca",
+    "Message": "WinGetPackage DSC Resource (#2863)\n\nThis is a preview implementation of a DSC resource that installs packages on winget.\r\n\r\nFor now, ensures a package is installed or not. Its install behavior depends if the package is already installed for the user or not.",
     "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Wednesday, April 26, 2023 7:20:51 PM"
+  "BuildDateTime": "Thursday, April 27, 2023 2:20:31 AM"
 }
