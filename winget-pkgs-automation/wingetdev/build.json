@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "9f90dac1120a56fe7ba93940fe59df42e9bda308",
-    "Message": "Enable building everything needed in PowerShell with static runtime (#3193)\n\nAdds a solution and project configurations for building everything needed for PowerShell with static runtime linkage.  This enables us to produce modules without any external dependencies (beyond PowerShell of course).",
-    "Author": "JohnMcPMS"
+    "Sha": "26a2173bc1a9ac0b3c5c66802a4fb44f16361fe1",
+    "Message": "Repair-WinGetPackage download VCLibs if needed (#3180)\n\nAdd-AppxPackage -Path <vclibs urls> fails in Windows Sandbox. This change detects it and download the package and installs is from a file path.\r\n\r\nAdd more debug information to Repair and Assert cmdlets.",
+    "Author": "Ruben Guerrero"
   },
-  "BuildDateTime": "Friday, April 28, 2023 6:29:15 PM"
+  "BuildDateTime": "Friday, April 28, 2023 7:27:53 PM"
 }
