@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "84d3e87847edcd9faa3985f6b84a099d95c913bd",
-    "Message": "Start Microsoft.WinGet.Configuration module (#3187)\n\nThis PR sets the foundation for the new PowerShell module Microsoft.WinGet.Configuration which is going to be an equivalent of winget configure\r\n\r\nThe module is going to be built as a binary module and it supports using its own ACL to load dependencies. The Microsoft.WinGet.Configuration.Cmdlets project will contain all the cmdlet entry points and Microsoft.WinGet.Configuration.Engine the actual logic.\r\n\r\nThis module consumes Microsoft.Management.Configuration which uses cswinrt and requires being run on an MTA. This is achieved via MtaCommand.cs. This class contains functions that will verify if the current thread is already running on an MTA (via pwsh.exe -MTA) and if not start a new MTA thread. Every command that consumes winrt objects must implement it.\r\n\r\nMtaCommand.cs also implements methods to handle waiting for asynchronous calls and allows sending messages to the PowerShell host that are required to be executed in the main thread (only WriteDebug is implemented for now, but any other method follows the same approach). This is based on the async mechanism that azure-powershell uses.",
-    "Author": "Ruben Guerrero"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Thursday, April 27, 2023 8:26:30 PM"
+  "BuildDateTime": "Friday, April 28, 2023 7:24:23 AM"
 }
