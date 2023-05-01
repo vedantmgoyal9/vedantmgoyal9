@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0de06fab8dff370d1fd12a163d6a5c862f74d0fc",
-    "Message": "Make entitlement best effort (#3172)\n\nMake entitlement acquisition best effort rather than required. A recent change caused some issues for us regarding the entitlement process, and since the entitlement isn't actually required to install, just attempt to get it and log if it failed.  Even if the underlying issue is resolved, this change will prevent future issues from having the same level of impact.\r\n\r\nThis may lead to an issue where the entitlement acquisition fails, the package is installed, but attempting to run it fails because the entitlement cannot be acquired then either (by the OS in the background).  Given the choice between the two failure modes though, it seems far better to remove these false negatives and create the (my gut says fewer) false positives that will result.",
-    "Author": "JohnMcPMS"
+    "Sha": null,
+    "Message": null,
+    "Author": null
   },
-  "BuildDateTime": "Sunday, April 30, 2023 2:54:16 AM"
+  "BuildDateTime": "Monday, May 1, 2023 2:21:53 AM"
 }
