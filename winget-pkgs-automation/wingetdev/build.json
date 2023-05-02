@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "f255b6e1f6e3022ca8521941e052e187781dd84d",
-    "Message": "Add manual platform attributes (#3203)",
+    "Sha": "65709ae5d861a8bd8799815169bcda44d3d0b877",
+    "Message": "More PS build fixes (#3208)\n\nMove to main solution for PS build, update a few more projects with manual target frameworks, add CFG setting for configuration.",
     "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Monday, May 1, 2023 11:23:41 PM"
+  "BuildDateTime": "Wednesday, May 3, 2023 6:24:45 PM"
 }
