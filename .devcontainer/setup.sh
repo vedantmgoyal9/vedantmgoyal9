@@ -4,7 +4,7 @@
 if [ -n "$1" ]; then
     echo "Mode: postAttachCmd/postStartCmd"
     gh codespace ports visibility 59457:public 59456:public 3000:private -c $CODESPACE_NAME
-    screen -dmS bot1 npm run gh-bot
+    # screen -dmS bot1 npm run gh-bot
     brew update && brew upgrade oh-my-posh
     exit
 fi
@@ -14,16 +14,22 @@ script_folder="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
 workspaces_folder="$(cd "${script_folder}/../.." && pwd)"
 
 # Installing softwares
-sudo apt-get update
-sudo apt install -y npm neofetch default-jre default-jdk screen build-essential procps curl file git
+sudo apt update # Run apt update
+wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb" # Register Microsoft repository GPG keys
+sudo dpkg -i packages-microsoft-prod.deb # Register Microsoft repository GPG keys
+rm packages-microsoft-prod.deb # Delete Microsoft repository GPG keys file 
+sudo apt update # Run apt update
+sudo apt install -y npm neofetch default-jre default-jdk screen file powershell
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 # Install brew and add to path, reload shell
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
-source ~/.profile
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
+source ~/.bashrc
 # Install oh-my-posh
-brew install jandedobbeleer/oh-my-posh/oh-my-posh
+brew install jandedobbeleer/oh-my-posh/oh-my-posh gh go
 # Copy PowerShell Profile
 mkdir -p $(pwsh -Command '$PROFILE | Split-Path')
 cp "${workspaces_folder}/vedantmgoyal2009/.devcontainer/profile.ps1" $(pwsh -Command '$PROFILE')
@@ -45,7 +51,6 @@ clone-repo()
 
 clone-repo "vedantmgoyal2009/winget-manifests-manager"
 clone-repo "vedantmgoyal2009/winget-releaser"
-clone-repo "vedantmgoyal2009/Komac"
 
 # Install npm node_modules
 cd "${workspaces_folder}/winget-manifests-manager"
@@ -54,5 +59,5 @@ cd "${workspaces_folder}/winget-releaser"
 sudo npm install
 
 # Multi-root workspace
-cd "${workspaces_folder}/winget-manifests-manager"
-code-insiders multi-root.code-workspace
+cd "${workspaces_folder}/vedantmgoyal2009"
+# code-insiders multi-root.code-workspace

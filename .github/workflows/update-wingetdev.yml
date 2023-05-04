@@ -1,0 +1,51 @@
+name: Update WinGetDev
+
+on:
+  schedule:
+    - cron: '0 0 * * 0,2,4,6'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository 👋
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Checkout microsoft/winget-cli 👋
+        uses: actions/checkout@v3
+        with:
+          repository: microsoft/winget-cli
+          path: wingetdev/winget-cli
+          persist-credentials: false
+
+      - name: Build winget-cli 🛠️
+        run: |
+          $WinGetCliCommitInfo = Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/microsoft/winget-cli/commits?per_page=1'
+          & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat' x64
+          & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -t:restore -m -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln
+          & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe' -m -p:Configuration=Release -p:Platform=x64 .\winget-cli\src\AppInstallerCLI.sln
+          Copy-Item -Path .\winget-cli\src\x64\Release\WindowsPackageManager\WindowsPackageManager.dll -Destination .\WindowsPackageManager.dll -Force
+          Move-Item -Path .\winget-cli\src\x64\Release\AppInstallerCLI\* -Destination .\ -Force
+          Move-Item -Path .\winget.exe -Destination wingetdev.exe -Force # Rename winget.exe to wingetdev.exe; Rename-Item with -Force doesn't work when the destination file already exists;
+          ConvertTo-Json -InputObject ([ordered] @{
+            Commit        = [ordered] @{
+                Sha     = $WinGetCliCommitInfo.sha
+                Message = $WinGetCliCommitInfo.commit.message
+                Author  = $WinGetCliCommitInfo.commit.author.name
+            };
+            BuildDateTime = (Get-Date).DateTime.ToString()
+          }) | Set-Content -Path .\build.json
+          git pull
+          git add .
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(wingetdev): update build [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff
+          git push https://x-access-token:$env:GITHUB_TOKEN@github.com/vedantmgoyal2009/vedantmgoyal2009.git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+        shell: pwsh
+        working-directory: wingetdev
+
