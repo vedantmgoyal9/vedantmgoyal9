@@ -5,12 +5,12 @@
             "path": "../../winget-manifests-manager"
         },
         {
-            "name": "winget-releaser",
-            "path": "../../winget-releaser"
-        },
-        {
             "name": "vedantmgoyal2009",
             "path": ".."
+        },
+        {
+            "name": "winget-releaser",
+            "path": "../../winget-releaser"
         },
         {
             "name": "Komac",
@@ -32,8 +32,10 @@
         "powershell.pester.outputVerbosity": "Detailed",
         "powershell.pester.useLegacyCodeLens": false,
         "powershell.scriptAnalysis.settingsPath": "",
-        "terminal.integrated.fontFamily": "Liga SFMono Nerd Font",
-        "powershell.cwd": "/workspaces/winget-manifests-manager"
+        "go.alternateTools": {
+            "go": "/home/linuxbrew/.linuxbrew/bin/go"
+        },
+        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.20.3/libexec"
     },
     "launch": {
         "configurations": [
