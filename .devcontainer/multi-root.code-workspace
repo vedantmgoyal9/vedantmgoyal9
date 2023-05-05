@@ -1,12 +1,12 @@
 {
     "folders": [
         {
-            "name": "winget-manifests-manager",
-            "path": "../../winget-manifests-manager"
-        },
-        {
             "name": "vedantmgoyal2009",
             "path": ".."
+        },
+        {
+            "name": "winget-manifests-manager",
+            "path": "../../winget-manifests-manager"
         },
         {
             "name": "winget-releaser",
