@@ -11,10 +11,6 @@
         {
             "name": "winget-releaser",
             "path": "../../winget-releaser"
-        },
-        {
-            "name": "Komac",
-            "path": "../../Komac"
         }
     ],
     "settings": {
