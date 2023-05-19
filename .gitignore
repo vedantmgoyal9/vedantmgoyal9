@@ -1,0 +1,25 @@
+# java_programs directory
+java_programs/*.class
+java_programs/*.ctxt
+
+# wingetdev - winget-cli repository
+wingetdev/winget-cli
+
+# temp directory
+temp/
+
+# node_modules directory
+node_modules
+
+# whatsapp bot logs and session
+.wwebjs_auth
+logs.txt
+
+# env - environment variables
+.env
+
+# JetBrains IDEs
+.idea
+
+# vercel
+.vercel
