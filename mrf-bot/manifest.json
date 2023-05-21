@@ -1,0 +1,58 @@
+{
+  "name": "MRF",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.bing.com/*"
+      ],
+      "js": [
+        "constants.js",
+        "utils.js",
+        "chrome-utils.js",
+        "content-scripts/script-injector.js",
+        "content-scripts/window-variable-grabber/injector.js",
+        "content-scripts/quiz-answer-hash-function.js",
+        "content-scripts/main.js",
+        "content-scripts/script-injector.js",
+        "content-scripts/window-open-injection/injector.js"
+      ]
+    }
+  ],
+  "background": {
+    "persistent": true,
+    "service_worker": "service_worker.js"
+  },
+  "incognito": "split",
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "constants.js",
+        "content-scripts/window-variable-grabber/main.js",
+        "content-scripts/window-open-injection/main.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "tabs",
+    "alarms",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "https://*.bing.com/*",
+    "https://trends.google.com/*"
+  ]
+}

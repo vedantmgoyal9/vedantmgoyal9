@@ -1,0 +1,121 @@
+body {
+  width: 300px;
+  background-color: #424242;
+  color: white;
+  padding: 18px;
+  margin: 0px;
+  font-size: 16px;
+}
+
+h2 {
+  margin: 0px 0px 10px 0px;
+  text-align: center;
+}
+
+label {
+  display: flex;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+}
+
+.row > * {
+  margin-right: 5px;
+}
+
+.fifty {
+  width: 50%;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+input {
+  display: block;
+  margin: 8px 0px;
+  color: white;
+}
+
+select {
+  margin-bottom: 8px;
+}
+
+input:focus, select:focus {
+  outline: none;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 4px 2px;
+  margin-top: 2px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid white;
+  border-radius: 0px;
+}
+
+input[type="number"]:focus {
+  transition-duration: 0.2s;
+  border-bottom: 1px solid #2196f3;
+}
+
+input[type="button"] {
+  background-color: #4caf50;
+  border: none;
+  font-weight: bold;
+  padding: 10px 16px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition-duration: 0.4s;
+}
+
+input[type="button"]:hover {
+  background-color: #388e3c;
+}
+
+a:visited {
+  color: #2196f3;
+}
+
+a {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1976d2;
+}
+
+.option-wrapper {
+  margin-top: 5px;
+  display: flex;
+}
+
+.option-wrapper input {
+  margin-right: 5px;
+}
+
+#static-search-input-wrapper, #random-search-input-wrapper {
+  /* visibility will be changed based off random search preference */
+  display: none;
+}
+
+#iteration-count-wrapper {
+  /* visibility will be changed during iterations */
+  display: none;
+}
+
+#iteration-count-wrapper > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
