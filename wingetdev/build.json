@@ -1,8 +1,8 @@
 {
   "Commit": {
-    "Sha": "0123456789",
-    "Message": "Abcd efgh ijkl mnop qrst uvwx yz",
-    "Author": "John Doe"
+    "Sha": "1cc043b541fff91f58065b8e015aeedde356aa01",
+    "Message": "Configuration cancellation support (#3244)\n\nAdds cancellation support to the configuration `Async` functions, as well as implementing most of the non-async functions without using an extra thread.  The goal is that all cancellations will result in the same `HRESULT` being returned, regardless of which code is actually detecting the cancellation and ending early.\r\n\r\nThis change also updates the `winget` configuration workflows to pass along cancellation requests and better respond when things are cancelled.\r\n\r\nFinally, using the previously implemented progress message system, cancellation will generically inject a message to the user so that it is clear that a `CTRL+C` signal has been received.",
+    "Author": "JohnMcPMS"
   },
-  "BuildDateTime": "Sun Sep 26 12:46:09 2021 +0530"
+  "BuildDateTime": "Sunday, May 21, 2023 11:21:29 AM"
 }
