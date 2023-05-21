@@ -1,0 +1,43 @@
+{
+  "name": "vedantmgoyal2009",
+  "version": "1.0.0",
+  "description": "A home for my hobby projects :)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vedantmgoyal2009/vedantmgoyal2009.git"
+  },
+  "keywords": [
+    "java",
+    "python"
+  ],
+  "author": "Vedant",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues"
+  },
+  "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
+  "dependencies": {
+    "firebase": "^9.22.0",
+    "whatsapp-web.js": "^1.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.1",
+    "firebase-tools": "^12.1.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.4",
+    "vercel": "^29.3.6"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSameLine": true,
+    "endOfLine": "lf",
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
+  }
+}
