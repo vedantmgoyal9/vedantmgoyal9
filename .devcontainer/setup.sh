@@ -28,7 +28,7 @@ test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/bre
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 source ~/.bashrc
 # Install oh-my-posh
-brew install jandedobbeleer/oh-my-posh/oh-my-posh gh go
+brew install jandedobbeleer/oh-my-posh/oh-my-posh gh go hugo
 # Copy PowerShell Profile
 mkdir -p $(pwsh -Command '$PROFILE | Split-Path')
 cp "${workspaces_folder}/vedantmgoyal2009/.devcontainer/profile.ps1" $(pwsh -Command '$PROFILE')
