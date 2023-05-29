@@ -3,9 +3,8 @@
 # postStartCommand: "bash /workspace/.devcontainer/setup.sh"
 if [ -n "$1" ]; then
     echo "Mode: postAttachCmd/postStartCmd"
-    gh codespace ports visibility 59457:public 59456:public 3000:private -c $CODESPACE_NAME
-    # screen -dmS bot1 npm run gh-bot
-    brew update && brew upgrade oh-my-posh
+    gh codespace ports visibility 3000:public -c $CODESPACE_NAME
+    brew update && brew upgrade
     exit
 fi
 
@@ -28,7 +27,7 @@ test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/bre
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 source ~/.bashrc
 # Install oh-my-posh
-brew install jandedobbeleer/oh-my-posh/oh-my-posh gh go
+brew install jandedobbeleer/oh-my-posh/oh-my-posh gh go hugo
 # Copy PowerShell Profile
 mkdir -p $(pwsh -Command '$PROFILE | Split-Path')
 cp "${workspaces_folder}/vedantmgoyal2009/.devcontainer/profile.ps1" $(pwsh -Command '$PROFILE')
