@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
   "dependencies": {
-    "firebase": "^9.22.0",
+    "firebase": "^9.22.1",
     "probot": "^12.3.0",
     "whatsapp-web.js": "^1.20.0"
   },
