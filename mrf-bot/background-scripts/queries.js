@@ -10,17 +10,10 @@ function addToAvailableQueries(queries) {
   availableQueries = removeDuplicates(availableQueries.concat(queries));
 }
 
-function getCustomQueriesArray(queries) {
-  return queries.trim().split('\n').filter(q => q);
-}
-
 async function updateQueries() {
   await prefsLoaded;
 
   availableQueries = [];
-  if (prefs.searchWithCustomQueries) {
-    addToAvailableQueries(getCustomQueriesArray(prefs.customQueries));
-  }
   if (prefs.searchWithDailyTrends) {
     addToAvailableQueries(dailyTrendQueries);
   }
@@ -123,7 +116,7 @@ async function getSearchQuery() {
   return query;
 }
 
-hookStorage(['customQueries', 'searchWithCustomQueries', 'searchWithDailyTrends', 'searchWithTemplates'].map(key => ({
+hookStorage(['searchWithDailyTrends', 'searchWithTemplates'].map(key => ({
   key,
   cb: updateQueries,
 })));

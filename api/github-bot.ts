@@ -8,6 +8,24 @@ function probotApp(app: Probot) {
   app.log.info('Yay, the app was loaded!');
 
   app.on(
+    'pull_request.opened',
+    async (context: Context<'pull_request.opened'>) => {
+      if (
+        context.payload.pull_request.user.login === 'dependabot[bot]' &&
+        context.payload.repository.name === 'winget-releaser'
+      ) {
+        await context.octokit.pulls.removeRequestedReviewers(
+          context.pullRequest(),
+        );
+        return await context.octokit.pulls.merge(
+          context.pullRequest({
+            merge_method: 'squash',
+          }),
+        );
+    }
+  );
+
+  app.on(
     'pull_request.closed',
     async (context: Context<'pull_request.closed'>) => {
       // check if the PR was merged or closed without merging
