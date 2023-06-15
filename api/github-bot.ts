@@ -22,7 +22,8 @@ function probotApp(app: Probot) {
             merge_method: 'squash',
           }),
         );
-    }
+      }
+    },
   );
 
   app.on(

@@ -1,6 +1,11 @@
 # java_programs directory
 java_programs/*.class
 java_programs/*.ctxt
+java_programs/out
+
+# mrf-bot config and sessions
+mrf-bot/config.json
+mrf-bot/session-*.json
 
 # wingetdev - winget-cli repository
 wingetdev/winget-cli
