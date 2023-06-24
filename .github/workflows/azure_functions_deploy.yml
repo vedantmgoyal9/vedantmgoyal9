@@ -1,0 +1,32 @@
+name: Deploy Azure Functions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - api/_azure_functions_/**
+      - '!api/_azure_functions_/README.md'
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code 👋
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - run: go build -o handler.exe
+        working-directory: api/_azure_functions_
+
+      - name: Deploy to Azure Functions 🚀
+        uses: azure/functions-action@v1
+        with:
+          app-name: winget
+          package: api/_azure_functions_
+          publish-profile: ${{ secrets.AZFN_PUB_PROFILE }}
