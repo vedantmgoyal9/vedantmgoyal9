@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "functions": {
+    "api/winget-pkg-versions.py": {
+      "memory": 1024,
+      "maxDuration": 10,
+      "excludeFiles": "{java_programs,mrf-bot,node_modules,winget-pkgs-automation,wingetdev}/**/*"
+    },
     "api/**/*": {
       "memory": 1024,
       "maxDuration": 10
