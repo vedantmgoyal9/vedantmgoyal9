@@ -48,7 +48,7 @@ jobs:
         shell: pwsh
         working-directory: winget-pkgs-automation
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: winget-pkgs-automation
           path: winget-pkgs-automation/winget-automation-update-info.json
