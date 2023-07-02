@@ -1,0 +1,34 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Neux.OneMark",
+  "Update": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://onemark.neuxlab.cn/updates/latest.x64.xml",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.item",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "InstallerUrls": "$Response.url",
+    "PackageVersion": "(Invoke-RestMethod -Uri \"$GetInstInfoApi$($Update.InstallerUrls)\").PackageVersion",
+    "Locales": [
+      {
+        "Name": "en-us",
+        "ReleaseNotesUrl": "$Response.changelog"
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "GetInstInfoApi": "https://winget.azurewebsites.net/api/get-installer-info?instUri="
+  },
+  "PostUpgradeScript": "",
+  "SkipPRCheck": false,
+  "SkipPackage": false
+}

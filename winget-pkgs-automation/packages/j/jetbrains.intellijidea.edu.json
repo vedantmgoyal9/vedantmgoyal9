@@ -1,0 +1,40 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "JetBrains.IntelliJIDEA.Edu",
+  "Update": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://data.services.jetbrains.com/products/releases?latest=true&type=release&code=IIE",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.IIE",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".*.exe$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "ReleaseDate": "$Response.date",
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "'IntelliJ IDEA Educational Edition ' + $Response.majorVersion",
+        "DisplayVersion": "$Response.build",
+        "ProductCode": "'IntelliJ IDEA Educational Edition ' + $Response.majorVersion"
+      }
+    ],
+    "Locales": [
+      {
+        "Name": "en-us",
+        "ReleaseNotesUrl": "$Response.notesLink"
+      }
+    ]
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "SkipPRCheck": false,
+  "SkipPackage": false
+}
