@@ -1,0 +1,32 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Bilibili.Livehime",
+  "Update": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://api.live.bilibili.com/xlive/app-blink/v1/liveVersionInfo/getHomePageLiveVersion?system_version=2",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.data",
+  "VersionRegex": "[0-9.]+",
+  "InstallerRegex": ".exe$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "$Response.curr_version",
+    "InstallerUrls": "$Response.download_url",
+    "Locales": [
+      {
+        "Name": "en-us",
+        "ReleaseNotes": "$Response.instruction"
+      }
+    ]
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "",
+  "SkipPRCheck": false,
+  "SkipPackage": false
+}

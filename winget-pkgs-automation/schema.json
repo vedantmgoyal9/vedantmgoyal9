@@ -1,0 +1,194 @@
+{
+  "$id": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "WinGet Automation - Package Json Schema",
+  "type": "object",
+  "required": [
+    "$schema",
+    "Identifier",
+    "Update",
+    "PostResponseScript",
+    "VersionRegex",
+    "InstallerRegex",
+    "PreviousVersion",
+    "ManifestFields",
+    "AdditionalInfo",
+    "PostUpgradeScript",
+    "SkipPRCheck",
+    "SkipPackage"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+      "type": "string"
+    },
+    "Identifier": {
+      "type": "string"
+    },
+    "Update": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "InvokeType",
+          "Uri",
+          "Method",
+          "Headers",
+          "Body",
+          "UserAgent"
+        ],
+        "properties": {
+          "InvokeType": {
+            "enum": ["RestMethod", "WebRequest"],
+            "type": "string"
+          },
+          "Uri": {
+            "type": "string"
+          },
+          "Method": {
+            "enum": [
+              "Default",
+              "Delete",
+              "Get",
+              "Head",
+              "Merge",
+              "Options",
+              "Patch",
+              "Post",
+              "Put",
+              "Trace"
+            ],
+            "type": "string"
+          },
+          "Headers": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "Body": {
+            "type": "string"
+          },
+          "UserAgent": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "PostResponseScript": {
+      "type": ["string", "array"],
+      "examples": [
+        "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId #default-gh",
+        "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString #default-headrequest",
+        "$Response = $Response | ConvertFrom-Yaml",
+        "$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml"
+      ]
+    },
+    "VersionRegex": {
+      "type": "string",
+      "default": "(?<=v)[0-9.]+"
+    },
+    "InstallerRegex": {
+      "type": "string",
+      "default": ".(exe|msi|msix|appx)(bundle){0,1}$"
+    },
+    "PreviousVersion": {
+      "type": "string"
+    },
+    "ManifestFields": {
+      "type": "object",
+      "required": ["PackageVersion", "InstallerUrls"],
+      "properties": {
+        "PackageVersion": {
+          "type": "string",
+          "examples": [
+            "$Response.tag_name.TrimStart('v') #default-gh",
+            "($Response | Select-String -Pattern $VersionRegex).Matches.Value #default-headrequest",
+            "$Response.version"
+          ]
+        },
+        "InstallerUrls": {
+          "type": "string",
+          "examples": [
+            "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } } #default-gh",
+            "$Response #default-headrequest",
+            "$InstUri.Replace('#version', $Response.version)"
+          ]
+        },
+        "ProductCode": {
+          "$id": "#/properties/ManifestFields/properties/ProductCode",
+          "type": "string"
+        },
+        "ReleaseDate": {
+          "$id": "#/properties/ManifestFields/properties/ReleaseDate",
+          "type": "string",
+          "default": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+        },
+        "Locales": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "ReleaseNotesUrl": {
+                "type": "string"
+              },
+              "ReleaseNotes": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        },
+        "AppsAndFeaturesEntries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "DisplayName": {
+                "type": "string"
+              },
+              "Publisher": {
+                "type": "string"
+              },
+              "DisplayVersion": {
+                "type": "string"
+              },
+              "ProductCode": {
+                "$ref": "#/properties/ManifestFields/properties/ProductCode"
+              }
+            },
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "AdditionalInfo": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "PostUpgradeScript": {
+      "type": "string",
+      "examples": [
+        "$Package.AdditionalInfo.PreviousReleaseId = $Response.id #default-gh"
+      ]
+    },
+    "SkipPRCheck": {
+      "type": "boolean"
+    },
+    "SkipPackage": {
+      "enum": [
+        false,
+        "Automatically marked as stale, not updated for 2.5 years"
+      ],
+      "type": ["boolean", "string"],
+      "default": false
+    }
+  },
+  "additionalProperties": false
+}

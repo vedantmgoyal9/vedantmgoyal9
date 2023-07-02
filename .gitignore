@@ -2,6 +2,12 @@
 java_programs/*.class
 java_programs/*.ctxt
 
+# winget-pkgs-automation (komac)
+winget-pkgs-automation/komac.jar
+
+# winget-pkgs-automation - winget-pkgs repository
+winget-pkgs-automation/winget-pkgs
+
 # wingetdev - winget-cli repository
 wingetdev/winget-cli
 
