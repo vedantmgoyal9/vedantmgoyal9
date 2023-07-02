@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "ImageMagick.ImageMagick",
+  "Update": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://imagemagick.org/archive/binaries/digest.rdf",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.RDF.Content.about",
+  "VersionRegex": "(?<=-)[0-9.-]+(?=-)",
+  "InstallerRegex": "ImageMagick-[0-9.-]+-Q16-HDRI-(x64|x86|arm64)-dll.exe$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "InstallerUrls": "($Response.Where({ $_ -match $InstallerRegex }) | Sort-Object -Descending | Select-Object -First 3).ForEach({ $InstUriPrefix + $_ })",
+    "PackageVersion": "($Update.InstallerUrls[0] | Select-String -Pattern $VersionRegex).Matches.Value.Replace('-','.')"
+  },
+  "AdditionalInfo": {
+    "InstUriPrefix": "https://imagemagick.org/archive/binaries/"
+  },
+  "PostUpgradeScript": "",
+  "SkipPRCheck": false,
+  "SkipPackage": false
+}
