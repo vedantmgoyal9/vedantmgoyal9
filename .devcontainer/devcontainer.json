@@ -47,7 +47,7 @@
         "golang.go",
         "github.copilot-nightly",
         "eamodio.gitlens",
-        "GitHub.copilot-labs",
+        "github.vscode-github-actions",
         "ms-vscode.powershell",
         "ms-vscode.wordcount",
         "github.vscode-github-actions",
@@ -55,7 +55,8 @@
         "mutantdino.resourcemonitor",
         "visualstudioexptteam.vscodeintellicode",
         "ask-toolkit.alexa-skills-kit-toolkit",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "vscode-icons-team.vscode-icons"
       ]
     },
     "codespaces": {

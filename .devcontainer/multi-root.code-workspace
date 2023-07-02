@@ -5,10 +5,6 @@
             "path": ".."
         },
         {
-            "name": "winget-manifests-manager",
-            "path": "../../winget-manifests-manager"
-        },
-        {
             "name": "winget-releaser",
             "path": "../../winget-releaser"
         }
@@ -24,10 +20,13 @@
         "workbench.colorTheme": "Visual Studio Light",
         "terminal.integrated.defaultProfile.linux": "bash",
         "gitlens.currentLine.enabled": false,
+        "editor.fontFamily": "JetBrainsMono Nerd Font",
+        "editor.fontLigatures": true,
         "go.alternateTools": {
             "go": "/home/linuxbrew/.linuxbrew/bin/go"
         },
-        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.20.4/libexec"
+        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.20.5/libexec",
+        "powershell.cwd": "/workspaces/vedantmgoyal2009"
     },
     "launch": {
         "configurations": [

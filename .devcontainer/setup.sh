@@ -19,13 +19,14 @@ rm packages-microsoft-prod.deb # Delete Microsoft repository GPG keys file
 sudo apt update # Run apt update
 sudo apt install -y npm neofetch default-jre default-jdk screen file powershell
 # Install nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 # Install brew and add to path, reload shell
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 source ~/.bashrc
+nvm install --lts
 # Install oh-my-posh
 brew install jandedobbeleer/oh-my-posh/oh-my-posh gh go hugo
 # Copy PowerShell Profile
@@ -47,12 +48,9 @@ clone-repo()
     fi
 }
 
-clone-repo "vedantmgoyal2009/winget-manifests-manager"
 clone-repo "vedantmgoyal2009/winget-releaser"
 
 # Install npm node_modules
-cd "${workspaces_folder}/winget-manifests-manager"
-sudo npm install
 cd "${workspaces_folder}/winget-releaser"
 sudo npm install
 
