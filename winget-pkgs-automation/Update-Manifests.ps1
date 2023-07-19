@@ -50,7 +50,7 @@ ForEach ($Upgrade in $UpdateInfo_First21Pkgs) {
             --urls '$($Upgrade.InstallerUrls -join ',')' --submit `
             --additional-metadata '$(ConvertTo-Json ($Upgrade.AdditionalMetadata ?? @{}) -Compress -Depth 7)'" -replace '\s+', ' '
         Write-Output "Running command: $CmdToRun"
-        Invoke-Expression -Command "& $env:JAVA_HOME_17_X64\bin\java.exe -jar $CmdToRun -Dfile.encoding=UTF-8" -ErrorAction Break
+        Invoke-Expression -Command "& $env:JAVA_HOME_17_X64\bin\java.exe -jar $CmdToRun" -ErrorAction Break
     } catch {
         Write-Error "$($Upgrade.PackageIdentifier): $($_.Exception.Message)"
         $ErrorUpgradingPkgs += "- **$($Upgrade.PackageIdentifier)**: $($_.Exception.Message)"
@@ -113,7 +113,7 @@ git config --local user.email '110876359+vedantmgoyal2009-bot[bot]@users.noreply
 $LastCommit = git log -1 --pretty=format:%s
 $CommitRegex = '(?<=build\(wpa\):\supdate\spackages\s\[)\d+(?=(\.\.\d+)?\]\s\[skip\sci\])'
 If ($LastCommit -match $CommitRegex) {
-    git commit -am "build(wpa): update packages [$($Matches[0].Value)..$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff --amend --no-edit
+    git commit -am "build(wpa): update packages [$($Matches[0])..$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff --amend --no-edit
     git push https://x-access-token:$(Get-GitHubBotToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git --force-with-lease
 } Else {
     git commit -am "build(wpa): update packages [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff
