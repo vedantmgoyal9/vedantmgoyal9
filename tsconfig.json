@@ -1,5 +1,5 @@
 {
-    "include": ["api/**/*.ts"],
+    "include": ["api/**/*.ts", "mrf-bot/**/*.ts"],
     "exclude": ["node_modules"],
     "compilerOptions": {
       /* Visit https://aka.ms/tsconfig to read more about this file */

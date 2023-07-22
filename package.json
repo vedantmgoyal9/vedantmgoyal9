@@ -25,20 +25,20 @@
   },
   "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
   "dependencies": {
-    "firebase": "^9.23.0",
-    "playwright": "^1.35.1",
+    "firebase": "^10.1.0",
+    "playwright": "^1.36.1",
     "probot": "^12.3.1",
     "whatsapp-web.js": "^1.21.0"
   },
   "devDependencies": {
-    "@types/node": "^20.3.3",
+    "@types/node": "^20.4.4",
     "commitizen": "^4.3.0",
-    "commitlint": "^17.6.6",
+    "commitlint": "^17.6.7",
     "cz-conventional-changelog": "^3.3.0",
-    "firebase-tools": "^12.4.2",
-    "prettier": "^2.8.8",
+    "firebase-tools": "^12.4.5",
+    "prettier": "^3.0.0",
     "typescript": "^5.1.6",
-    "vercel": "^31.0.1"
+    "vercel": "^31.0.4"
   },
   "prettier": {
     "arrowParens": "always",
