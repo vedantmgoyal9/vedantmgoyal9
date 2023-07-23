@@ -20,7 +20,8 @@
   "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('orange-v')",
-    "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }"
+    "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
     "PreRelease": false,
