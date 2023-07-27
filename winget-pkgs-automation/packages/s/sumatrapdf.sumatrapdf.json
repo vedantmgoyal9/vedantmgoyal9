@@ -20,7 +20,8 @@
   "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.Trim('rel')",
-    "InstallerUrls": "@($x64_Uri.Replace('#version', $Response.tag_name.Trim('rel')), $x86_Uri.Replace('#version', $Response.tag_name.Trim('rel')))"
+    "InstallerUrls": "@($x64_Uri.Replace('#version', $Response.tag_name.Trim('rel')), $x86_Uri.Replace('#version', $Response.tag_name.Trim('rel')))",
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
     "x64_Uri": "https://www.sumatrapdfreader.org/dl/rel/#version/SumatraPDF-#version-64-install.exe",

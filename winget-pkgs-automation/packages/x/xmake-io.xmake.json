@@ -20,7 +20,8 @@
   "PreviousVersion": "",
   "ManifestFields": {
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
-    "PackageVersion": "(Invoke-RestMethod -Uri \"$GetInstInfoApi$($Update.InstallerUrls[0])\").PackageVersion"
+    "PackageVersion": "(Invoke-RestMethod -Uri \"$GetInstInfoApi$($Update.InstallerUrls[0])\").PackageVersion",
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
     "PreRelease": false,

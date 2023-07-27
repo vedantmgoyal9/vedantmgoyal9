@@ -20,7 +20,8 @@
   "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name",
-    "InstallerUrls": "\"https://download.zerotier.com/RELEASES/$($Response.tag_name)/dist/ZeroTierOne.msi\""
+    "InstallerUrls": "\"https://download.zerotier.com/RELEASES/$($Response.tag_name)/dist/ZeroTierOne.msi\"",
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
     "PreRelease": false,
