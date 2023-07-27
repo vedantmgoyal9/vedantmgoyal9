@@ -6,12 +6,14 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - main
+    paths: # Added manually
+      - website/** # Added manually
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
+        with: # Added manually
           submodules: true # Added manually
       - uses: Homebrew/actions/setup-homebrew@master # Added manually
       - run: brew install hugo && hugo --source website
