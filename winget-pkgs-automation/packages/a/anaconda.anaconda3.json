@@ -14,7 +14,7 @@
   "PostResponseScript": "",
   "VersionRegex": "(\\d+(\\.\\d+){1,3})",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "",
+  "PreviousVersion": "2023.07",
   "ManifestFields": {
     "PackageVersion": "([System.Text.RegularExpressions.Regex]::Matches(($Response.PSObject.Properties.Name -match $InstallerRegex), $VersionRegex)).Value | Select-Object -Unique | Sort-Object { [System.Version] $_ } -Descending | Select-Object -First 1",
     "InstallerUrls": "$Response.PSObject.Properties.Name -match \"$($Update.PackageVersion).*.exe$\" | ForEach-Object { \"https://repo.anaconda.com/archive/$($_)\" }"

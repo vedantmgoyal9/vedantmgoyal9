@@ -17,7 +17,7 @@
   ],
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "",
+  "PreviousVersion": "3.0.33.8",
   "ManifestFields": {
     "PackageVersion": "$Response.versionCode",
     "InstallerUrls": "@($Response.downloadUrl, $Response2.downloadUrl)",
