@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = ($Response | Select-String -Pattern $VersionRegex).Matches.Value",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "",
+  "PreviousVersion": "5.2.0",
   "ManifestFields": {
     "PackageVersion": "$Response",
     "InstallerUrls": "\"https://www.bluej.org/download/files/BlueJ-windows-$($Response.Replace('.','')).msi\""

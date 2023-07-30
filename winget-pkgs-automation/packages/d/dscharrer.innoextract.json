@@ -17,7 +17,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId #default-gh",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": ".*\\.zip$",
-  "PreviousVersion": "",
+  "PreviousVersion": "1.9",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v') #default-gh",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } } #default-gh",
@@ -25,9 +25,9 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 0
+    "PreviousReleaseId": 29491106
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id #default-gh",
   "SkipPRCheck": false,
-  "SkipPackage": false
+  "SkipPackage": "Automatically marked as stale, not updated for 2.5 years"
 }
