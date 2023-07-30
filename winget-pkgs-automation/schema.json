@@ -166,7 +166,7 @@
           "uniqueItems": true
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "AdditionalInfo": {
       "type": "object",
@@ -179,7 +179,8 @@
       ]
     },
     "SkipPRCheck": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "SkipPackage": {
       "enum": [

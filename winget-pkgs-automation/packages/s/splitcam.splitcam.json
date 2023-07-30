@@ -1,0 +1,43 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "SplitCam.SplitCam",
+  "Update": [
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://splitcam.com/download",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    },
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://splitcam.com/win-download/update/history.txt",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response2 = $Response2.Content -split '\\n'",
+  "VersionRegex": "(?<=SplitCam v)[\\d.]+(?=\\s)",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "($Response.Content | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$InstUri.Replace('#version', $Update.PackageVersion)",
+    "ReleaseDate": "(Get-Date -Date $Response2[2]).ToString('yyyy-MM-dd')",
+    "Locales": [
+      {
+        "Name": "en-US",
+        "ReleaseNotesUrl": "https://splitcam.com/splitcam-changes-win"
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "InstUri": "https://splitcam.com/win-download/update/#version_x64.msi"
+  },
+  "PostUpgradeScript": "",
+  "SkipPRCheck": false,
+  "SkipPackage": false
+}

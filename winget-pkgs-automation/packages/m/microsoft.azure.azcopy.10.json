@@ -1,0 +1,52 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Microsoft.Azure.AZCopy.10",
+  "Update": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://api.github.com/repos/Azure/azure-storage-azcopy/releases?per_page=1",
+      "Method": "Get",
+      "Headers": {
+        "Authorization": "$AuthToken",
+        "Accept": "application/vnd.github.v3+json"
+      },
+      "Body": "",
+      "UserAgent": ""
+    },
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://aka.ms/downloadazcopy-v10-windows",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    },
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://aka.ms/downloadazcopy-v10-windows-32bit",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": [
+    "$Response2 = $Response2.BaseResponse.RequestMessage.RequestUri.OriginalString #default-headrequest",
+    "$Response3 = $Response3.BaseResponse.RequestMessage.RequestUri.OriginalString #default-headrequest"
+  ],
+  "VersionRegex": "(?<=v)[0-9.]+",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "$Response.tag_name.TrimStart('v') #default-gh",
+    "InstallerUrls": "@($Response2, $Response3)",
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {
+    "PreRelease": false,
+    "PreviousReleaseId": 0
+  },
+  "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id #default-gh",
+  "SkipPRCheck": false,
+  "SkipPackage": false
+}

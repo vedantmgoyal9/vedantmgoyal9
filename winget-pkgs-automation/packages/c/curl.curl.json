@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "cURL.cURL",
+  "Update": [
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://curl.se/windows",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "",
+  "VersionRegex": "(?<=<b>curl version<\\/b>:\\s)[\\d.]+",
+  "InstallerRegex": "^dl.*mingw.zip$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "($Response.Content | Select-String -Pattern $VersionRegex).Matches.Value #default-headrequest",
+    "InstallerUrls": "($Response.Links.href.Where({ $_ -match $InstallerRegex }) | Select-Object -Unique).ForEach({ $InstUriPrefix + $_ })",
+    "ReleaseDate": "($Response.Content | Select-String -Pattern $ReleaseDateRegex).Matches.Value"
+  },
+  "AdditionalInfo": {
+    "ReleaseDateRegex": "(?<=<b>Date<\\/b>:\\s)[\\d-]+",
+    "InstUriPrefix": "https://curl.se/windows/"
+  },
+  "PostUpgradeScript": "",
+  "SkipPRCheck": false,
+  "SkipPackage": false
+}
