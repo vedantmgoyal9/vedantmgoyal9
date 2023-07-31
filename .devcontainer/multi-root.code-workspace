@@ -10,6 +10,10 @@
         }
     ],
     "settings": {
+        "java.project.sourcePaths": [
+            "java_programs"
+        ],
+        "java.debug.settings.onBuildFailureProceed": true,
         "powershell.codeFormatting.autoCorrectAliases": true,
         "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
         "powershell.codeFormatting.preset": "OTBS",
@@ -22,11 +26,11 @@
         "gitlens.currentLine.enabled": false,
         "editor.fontFamily": "JetBrainsMono Nerd Font",
         "editor.fontLigatures": true,
+        "powershell.cwd": "/workspaces/vedantmgoyal2009",
         "go.alternateTools": {
             "go": "/home/linuxbrew/.linuxbrew/bin/go"
         },
-        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.20.5/libexec",
-        "powershell.cwd": "/workspaces/vedantmgoyal2009"
+        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.20.5/libexec"
     },
     "launch": {
         "configurations": [
