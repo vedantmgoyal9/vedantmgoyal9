@@ -1,0 +1,29 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Daum.PotPlayer",
+  "Update": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://t1.daumcdn.net/potplayer/PotPlayer/v4/Update2/UpdateEng.html",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "",
+  "VersionRegex": "(?<=\\[)\\d+(?=\\])",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "@($x64Uri.Replace('#version', $Update.PackageVersion), $x86Uri.Replace('#version', $Update.PackageVersion))"
+  },
+  "AdditionalInfo": {
+    "x64Uri": "https://t1.daumcdn.net/potplayer/PotPlayer/Version/#version/PotPlayerSetup64.exe",
+    "x86Uri": "https://t1.daumcdn.net/potplayer/PotPlayer/Version/#version/PotPlayerSetup.exe"
+  },
+  "PostUpgradeScript": "",
+  "SkipPRCheck": false,
+  "SkipPackage": false
+}

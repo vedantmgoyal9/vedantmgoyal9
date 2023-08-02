@@ -1,10 +1,10 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "Microsoft.AzureCosmosEmulator",
+  "Identifier": "Microsoft.Azure.DataCLI",
   "Update": [
     {
       "InvokeType": "WebRequest",
-      "Uri": "https://aka.ms/cosmosdb-emulator",
+      "Uri": "https://aka.ms/azdata-msi",
       "Method": "Head",
       "Headers": {},
       "Body": "",
@@ -12,8 +12,8 @@
     }
   ],
   "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
-  "VersionRegex": "[0-9.]{6,}",
-  "InstallerRegex": ".msi$",
+  "VersionRegex": "(?<=-)[0-9.]+(?=\\.msi)",
+  "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",

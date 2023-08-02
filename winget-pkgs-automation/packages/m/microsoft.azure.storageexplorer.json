@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "Microsoft.AzureStorageExplorer",
+  "Identifier": "Microsoft.Azure.StorageExplorer",
   "Update": [
     {
       "InvokeType": "RestMethod",

@@ -1,23 +1,23 @@
 {
   "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
-  "Identifier": "AdGuard.AdGuard",
+  "Identifier": "Thunder.Thunder",
   "Update": [
     {
       "InvokeType": "RestMethod",
-      "Uri": "https://api.adguard.org/api/2.0/checkupdate.html?app_id=64dbc91754f34b0ebcc6eecadf83eb81&channel=Release&appname=adguard_ru&version=7.0.0.0&force=1",
+      "Uri": "https://static-xl9-ssl.xunlei.com/json/xl11_official_page.json",
       "Method": "Get",
       "Headers": {},
       "Body": "",
       "UserAgent": ""
     }
   ],
-  "PostResponseScript": "$Response = $Response.response",
-  "VersionRegex": "[0-9.]+",
+  "PostResponseScript": "$Response = $Response.offline",
+  "VersionRegex": "[\\d.]+(?=\\.)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
   "PreviousVersion": "",
   "ManifestFields": {
-    "PackageVersion": "$Response.version.'#cdata-section'",
-    "InstallerUrls": "$Response.'update-url'.'#cdata-section'"
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value #default-headrequest",
+    "InstallerUrls": "$Response"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

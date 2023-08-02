@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/raw/main/winget-pkgs-automation/schema.json",
+  "Identifier": "Mythicsoft.AgentRansack",
+  "Update": [
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://www.mythicsoft.com/agentransack/download",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": ["$Response = 'https:' + $Response.Links.href.Where({ $_ -match $InstallerRegex }, 'First')",
+  "Invoke-WebRequest -Uri $Response -OutFile Mythicsoft.AgentRansack.exe"
+],
+  "VersionRegex": "(?<=v)[0-9.]+",
+  "InstallerRegex": "agentransack_\\d+\\.exe$",
+  "PreviousVersion": "",
+  "ManifestFields": {
+    "PackageVersion": "$((Get-Item .\\Mythicsoft.AgentRansack.exe).VersionInfo.FileVersion)",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {},
+  "PostUpgradeScript": "Remove-Item .\\Mythicsoft.AgentRansack.exe -Force",
+  "SkipPRCheck": false,
+  "SkipPackage": false
+}
