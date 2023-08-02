@@ -2,9 +2,26 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	"syscall"
 	"unsafe"
 )
+
+func getMsiLocale(msiPath string) (string, error) {
+	propertyValue, err := getMsiDbProperty("ProductLanguage", msiPath)
+	if err != nil {
+		return "", fmt.Errorf("error getting product language: %s", err)
+	}
+
+	// product language property: https://learn.microsoft.com/en-us/windows/win32/msi/productlanguage
+	// template summary property: https://learn.microsoft.com/en-us/windows/win32/msi/template-summary
+	languageId := strings.Split(propertyValue, ";")[0]
+	if strings.Contains(languageId, ",") {
+		languageId = strings.Split(languageId, ",")[0]
+	}
+
+	return bcp47_locales[languageId], nil
+}
 
 func getMsiDbProperty(property, msiPath string) (string, error) {
 	// load msi.dll

@@ -81,14 +81,10 @@ func getInstallerInfo(w http.ResponseWriter, r *http.Request) {
 
 	switch installerInfo["InstallerType"] {
 	case "msi", "wix":
-		if version, err := getMsiDbProperty("ProductVersion", installerPath); err == nil {
-			installerInfo["PackageVersion"] = version
-		} else {
-			http.Error(w, fmt.Sprintf("Error while getting msi version: %v", err), http.StatusInternalServerError)
-			return
-		}
+		installerInfo["PackageVersion"], _ = getMsiDbProperty("ProductVersion", installerPath)
 		installerInfo["ProductCode"], _ = getMsiDbProperty("ProductCode", installerPath)
 		installerInfo["UpgradeCode"], _ = getMsiDbProperty("UpgradeCode", installerPath)
+		installerInfo["InstallerLocale"], _ = getMsiLocale(installerPath)
 	case "msix", "appx":
 		installerInfo["PackageFamilyName"], _ = getMsixPackageFamilyName(installerPath, tempPath)
 		installerInfo["SignatureSha256"], _ = getMsixSignatureHash(installerPath, tempPath)
