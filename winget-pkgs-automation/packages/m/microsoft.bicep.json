@@ -25,7 +25,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 0,
+    "PreviousReleaseId": 112033581,
     "GetInstInfoApi": "https://winget.azurewebsites.net/api/get-installer-info?instUri="
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
