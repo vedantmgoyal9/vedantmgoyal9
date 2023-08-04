@@ -12,14 +12,14 @@
   "postCreateCommand": "bash .devcontainer/setup.sh",
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [3000],
-  "portsAttributes": {
-    "3000": {
-      "label": "NodeJS Server",
-      "onAutoForward": "notify",
-      "protocol": "https"
-    }
-  },
+  // "forwardPorts": [3000],
+  // "portsAttributes": {
+  //   "3000": {
+  //     "label": "NodeJS Server",
+  //     "onAutoForward": "notify",
+  //     "protocol": "https"
+  //   }
+  // },
   "otherPortsAttributes": {
     "onAutoForward": "notify",
     "protocol": "https"

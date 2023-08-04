@@ -17,7 +17,7 @@ wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/package
 sudo dpkg -i packages-microsoft-prod.deb # Register Microsoft repository GPG keys
 rm packages-microsoft-prod.deb # Delete Microsoft repository GPG keys file
 sudo apt update # Run apt update
-sudo apt install -y npm neofetch default-jre default-jdk screen file powershell
+sudo apt install -y neofetch openjdk-19-jdk powershell
 # Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 # Install brew and add to path, reload shell
