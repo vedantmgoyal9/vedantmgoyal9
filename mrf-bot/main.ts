@@ -8,9 +8,12 @@ import { Config, GoogleTrendsApiResult, RewardsInfo } from './types';
 import { platform } from 'os';
 import { join } from 'node:path';
 import { loginAndSaveSession, tryRestoringSession } from './session-manager';
+import nodemailer from 'nodemailer';
 
 (async () => {
-  const accounts: Config = process.env.CI ? JSON.parse(process.env.MRF_ACCOUNTS!) : require(join(__dirname, './accounts.json'));
+  const accounts: Config = process.env.CI
+    ? JSON.parse(process.env.MRF_ACCOUNTS!)
+    : require(join(__dirname, './accounts.json'));
   const browser = await chromium.launch({
     channel: 'msedge',
     headless: false,
@@ -40,20 +43,60 @@ import { loginAndSaveSession, tryRestoringSession } from './session-manager';
     );
 
     // desktop searches + edge bonus
-    await desktopEdgeSearches(
-      page,
-      getRewardsInfo,
-      await getSearchQueries(),
-    );
+    await desktopEdgeSearches(page, getRewardsInfo, await getSearchQueries());
 
     // daily set
     await dailySet(page, getRewardsInfo);
 
+    // more activities
+    await moreActivities(page, getRewardsInfo);
+
     // quests and punch cards
     await punchCards(page, getRewardsInfo);
 
-    // more activities
-    await moreActivities(page, getRewardsInfo);
+    // send email, when running on CI :)
+    if (process.env.CI && process.env.MRF_EMAIL && process.env.MRF_EMAIL_PASS) {
+      await page.goto('https://rewards.bing.com/dashboard');
+      // workaround for page.screenshot({ fullPage: true }) not working
+      await page.evaluate(() => {
+        const body = document.querySelector('body');
+        const style = document.createElement('style');
+        style.innerHTML = `body { height: auto !important; width: auto !important; }, .hide { display: none !important; }`;
+        body?.appendChild(style);
+        return document.querySelector('body')?.innerHTML;
+      });
+      nodemailer
+        .createTransport({
+          host: 'smtp.gmail.com',
+          port: 465,
+          secure: true,
+          auth: {
+            user: process.env.MRF_EMAIL,
+            pass: process.env.MRF_EMAIL_PASS,
+          },
+        })
+        .sendMail({
+          from: process.env.MRF_EMAIL,
+          to: process.env.MRF_EMAIL,
+          subject: '🎉 mrf-bot completed successfully!',
+          html: `Hello,<br><br>
+          🎉 Congratulations! 🎉<br><br>
+          mrf-bot completed successfully for ${account[0]}!<br><br>
+          Logs: ${
+            process.env.CI
+              ? `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+              : 'No logs available.'
+          }<br><br>
+          Regards,<br>
+          mrf-bot`.replace(/\s{10}/g, ''),
+          attachments: [
+            {
+              filename: 'screenshot.jpeg',
+              content: await page.locator('body').screenshot({ type: 'jpeg' }),
+            },
+          ],
+        });
+    }
 
     console.log(`${account[0]} - completed successfully!`);
     await page.close();
