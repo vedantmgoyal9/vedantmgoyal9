@@ -19,13 +19,11 @@
     "PackageVersion": "$Response.version",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
     "ReleaseDate": "$Response.date",
-    "AppsAndFeaturesEntries": [
-      {
-        "DisplayName": "'WebStorm ' + $Response.majorVersion",
-        "DisplayVersion": "$Response.build",
-        "ProductCode": "'WebStorm ' + $Response.majorVersion"
-      }
-    ],
+    "AppsAndFeaturesEntries": {
+      "DisplayName": "'WebStorm ' + $Response.majorVersion",
+      "DisplayVersion": "$Response.build",
+      "ProductCode": "'WebStorm ' + $Response.majorVersion"
+    },
     "Locales": [
       {
         "Name": "en-us",

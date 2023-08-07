@@ -20,12 +20,10 @@
     "InstallerUrls": "$InstUri.Replace('#version', $Update.PackageVersion.Replace('.', $Null))",
     "ReleaseDate": "(Get-Date -Date $Response.pubDate).ToString('yyyy-MM-dd')",
     "ProductCode": "'Bitvise SSH Server'",
-    "AppsAndFeaturesEntries": [
-      {
-        "DisplayName": "'Bitvise SSH Server ' + $Update.PackageVersion + ' (remove only)'",
-        "ProductCode": "'Bitvise SSH Server'"
-      }
-    ],
+    "AppsAndFeaturesEntries": {
+      "DisplayName": "'Bitvise SSH Server ' + $Update.PackageVersion + ' (remove only)'",
+      "ProductCode": "Bitvise SSH Server"
+    },
     "Locales": [
       {
         "Name": "en-us",

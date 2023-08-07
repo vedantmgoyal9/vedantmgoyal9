@@ -144,26 +144,22 @@
           "uniqueItems": true
         },
         "AppsAndFeaturesEntries": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "DisplayName": {
-                "type": "string"
-              },
-              "Publisher": {
-                "type": "string"
-              },
-              "DisplayVersion": {
-                "type": "string"
-              },
-              "ProductCode": {
-                "$ref": "#/properties/ManifestFields/properties/ProductCode"
-              }
+          "type": "object",
+          "properties": {
+            "DisplayName": {
+              "type": "string"
             },
-            "additionalProperties": false
+            "Publisher": {
+              "type": "string"
+            },
+            "DisplayVersion": {
+              "type": "string"
+            },
+            "ProductCode": {
+              "$ref": "#/properties/ManifestFields/properties/ProductCode"
+            }
           },
-          "uniqueItems": true
+          "additionalProperties": false
         }
       },
       "additionalProperties": false

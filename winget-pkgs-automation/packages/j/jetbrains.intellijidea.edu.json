@@ -19,13 +19,11 @@
     "PackageVersion": "$Response.version",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
     "ReleaseDate": "$Response.date",
-    "AppsAndFeaturesEntries": [
-      {
-        "DisplayName": "'IntelliJ IDEA Educational Edition ' + $Response.majorVersion",
-        "DisplayVersion": "$Response.build",
-        "ProductCode": "'IntelliJ IDEA Educational Edition ' + $Response.majorVersion"
-      }
-    ],
+    "AppsAndFeaturesEntries": {
+      "DisplayName": "'IntelliJ IDEA Educational Edition ' + $Response.majorVersion",
+      "DisplayVersion": "$Response.build",
+      "ProductCode": "'IntelliJ IDEA Educational Edition ' + $Response.majorVersion"
+    },
     "Locales": [
       {
         "Name": "en-us",

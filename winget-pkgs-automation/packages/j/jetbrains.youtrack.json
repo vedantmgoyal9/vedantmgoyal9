@@ -19,11 +19,9 @@
     "PackageVersion": "$Response.version.Split('20')[1] + '.' + $Response.build",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
     "ReleaseDate": "$Response.date",
-    "AppsAndFeaturesEntries": [
-      {
-        "DisplayName": "'JetBrains YouTrack' + $Response.version"
-      }
-    ],
+    "AppsAndFeaturesEntries": {
+      "DisplayName": "'JetBrains YouTrack' + $Response.version"
+    },
     "Locales": [
       {
         "Name": "en-us",

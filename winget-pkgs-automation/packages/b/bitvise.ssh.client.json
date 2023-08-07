@@ -20,12 +20,10 @@
     "InstallerUrls": "$InstUri.Replace('#version', $Update.PackageVersion.Replace('.', $Null))",
     "ReleaseDate": "(Get-Date -Date $Response.pubDate).ToString('yyyy-MM-dd')",
     "ProductCode": "'BvSshClient'",
-    "AppsAndFeaturesEntries": [
-      {
-        "DisplayName": "'Bitvise SSH Client ' + $Update.PackageVersion + ' (remove only)'",
-        "ProductCode": "'BvSshClient'"
-      }
-    ],
+    "AppsAndFeaturesEntries": {
+      "DisplayName": "'Bitvise SSH Client ' + $Update.PackageVersion + ' (remove only)'",
+      "ProductCode": "BvSshClient"
+    },
     "Locales": [
       {
         "Name": "en-us",

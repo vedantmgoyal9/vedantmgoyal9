@@ -90,7 +90,13 @@ ForEach ($Package in $PkgFromParam ?? ((Get-ChildItem .\packages\ -Recurse -File
         }
     }
     $Package.ManifestFields.PSObject.Properties.ForEach({
-            If ($_.Name -in @('AppsAndFeaturesEntries', 'Locales')) {
+            If ($_.Name -eq 'AppsAndFeaturesEntries') {
+                $AppsAndFeaturesEntries = New-Object -TypeName System.Management.Automation.PSObject
+                $Package.ManifestFields.AppsAndFeaturesEntries.PSObject.Properties.ForEach({
+                        $AppsAndFeaturesEntries | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value.Contains('$') ? ($_.Value | Invoke-Expression) : $_.Value)
+                    })
+                $Update.AdditionalMetadata | Add-Member -MemberType NoteProperty -Name $_.Name -Value $AppsAndFeaturesEntries
+            } ElseIf ($_.Name -eq 'Locales') {
                 $_NestedObjectArray = @()
                 for ($_Index = 0; $_Index -lt $Package.ManifestFields."$($_.Name)".Length; $_Index++) {
                     $_NestedObject = New-Object -TypeName System.Management.Automation.PSObject

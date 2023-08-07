@@ -11,9 +11,10 @@
       "UserAgent": ""
     }
   ],
-  "PostResponseScript": ["$Response = 'https:' + $Response.Links.href.Where({ $_ -match $InstallerRegex }, 'First')",
-  "Invoke-WebRequest -Uri $Response -OutFile Mythicsoft.AgentRansack.exe"
-],
+  "PostResponseScript": [
+    "$Response = 'https:' + $Response.Links.href.Where({ $_ -match $InstallerRegex }, 'First')",
+    "Invoke-WebRequest -Uri $Response -OutFile Mythicsoft.AgentRansack.exe"
+  ],
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "agentransack_\\d+\\.exe$",
   "PreviousVersion": "",

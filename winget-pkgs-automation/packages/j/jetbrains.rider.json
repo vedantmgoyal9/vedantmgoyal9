@@ -19,13 +19,11 @@
     "PackageVersion": "$Response.version",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
     "ReleaseDate": "$Response.date",
-    "AppsAndFeaturesEntries": [
-      {
-        "DisplayName": "'JetBrains Rider ' + $Response.version",
-        "DisplayVersion": "$Response.build",
-        "ProductCode": "'JetBrains Rider ' + $Response.version"
-      }
-    ]
+    "AppsAndFeaturesEntries": {
+      "DisplayName": "'JetBrains Rider ' + $Response.version",
+      "DisplayVersion": "$Response.build",
+      "ProductCode": "'JetBrains Rider ' + $Response.version"
+    }
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",

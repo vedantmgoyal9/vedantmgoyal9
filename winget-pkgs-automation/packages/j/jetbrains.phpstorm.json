@@ -19,13 +19,11 @@
     "PackageVersion": "$Response.version",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
     "ReleaseDate": "$Response.date",
-    "AppsAndFeaturesEntries": [
-      {
-        "DisplayName": "'PhpStorm ' + $Response.version",
-        "DisplayVersion": "$Response.build",
-        "ProductCode": "'PhpStorm ' + $Response.version"
-      }
-    ]
+    "AppsAndFeaturesEntries": {
+      "DisplayName": "'PhpStorm ' + $Response.version",
+      "DisplayVersion": "$Response.build",
+      "ProductCode": "'PhpStorm ' + $Response.version"
+    }
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
