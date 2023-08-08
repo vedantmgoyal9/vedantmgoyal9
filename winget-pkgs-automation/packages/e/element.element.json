@@ -20,7 +20,7 @@
   "PreviousVersion": "1.11.38",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
-    "InstallerUrls": "\"https://packages.riot.im/desktop/install/win32/x64/Element%20Setup%20$($Response.tag_name.TrimStart('v')).exe\"",
+    "InstallerUrls": "\"https://packages.element.io/desktop/install/win32/x64/Element%20Setup%20$($Response.tag_name.TrimStart('v')).exe\"",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
