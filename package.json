@@ -32,7 +32,7 @@
     "whatsapp-web.js": "^1.21.0"
   },
   "devDependencies": {
-    "@types/node": "^20.4.7",
+    "@types/node": "^20.4.8",
     "@types/nodemailer": "^6.4.9",
     "commitizen": "^4.3.0",
     "commitlint": "^17.6.7",
