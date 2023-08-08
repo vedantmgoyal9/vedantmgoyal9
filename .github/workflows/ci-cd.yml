@@ -1,0 +1,72 @@
+name: CI/CD
+
+on:
+  push:
+    branches: main
+    paths: .github/workflows/ci-cd.yml
+  workflow_dispatch:
+  schedule:
+    - cron: '30 05 * * *'
+
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  mrf-bot:
+    defaults:
+      run:
+        working-directory: mrf-bot
+    timeout-minutes: 20
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code 👋
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js 📦
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          check-latest: true
+
+      - run: npm ci && npm run build
+
+      - run: npm run mrf-bot
+        env:
+          MRF_ACCOUNTS: ${{ secrets.MRF_ACCOUNTS }}
+          MRF_EMAIL: ${{ secrets.MRF_EMAIL }}
+          MRF_EMAIL_PASS: ${{ secrets.MRF_EMAIL_PASS }}
+          MRF_SESSIONS: ${{ secrets.MRF_SESSIONS }}
+
+  clean-actions-runs:
+    name: Clean stale workflow runs
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - repo: vedantmgoyal2009
+            workflow: CI/CD
+          - repo: vedantmgoyal2009
+            workflow: Deploy Azure Functions
+          - repo: vedantmgoyal2009
+            workflow: Update WinGetDev
+          - repo: vedantmgoyal2009
+            workflow: Deploy to Firebase Hosting on merge
+          - repo: vedantmgoyal2009
+            workflow: Deploy to Firebase Hosting on PR
+          - repo: winget-releaser
+            workflow: CodeQL
+          - repo: winget-releaser
+            workflow: Update Komac
+    steps:
+      - name: '🧹 Cleanup 🫧🪥🧼🧽'
+        run: |
+          gh run list --workflow '${{ matrix.workflow }}' --limit 100 --status completed --json databaseId `
+            --repo vedantmgoyal2009/${{ matrix.repo }} | ConvertFrom-Json | ForEach-Object { `
+              gh run delete $_.databaseId --repo vedantmgoyal2009/${{ matrix.repo }} `
+            }
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
