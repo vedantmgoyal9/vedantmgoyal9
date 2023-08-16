@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "website/public",
+    "public": "public",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     // Dynamic Links will start with https://bittu.eu.org/links
     "appAssociation": "AUTO",

@@ -18,6 +18,7 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          entryPoint: website # Added manually
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_URLSHORTENER_51B07 }}'
           channelId: live
           projectId: urlshortener-51b07
