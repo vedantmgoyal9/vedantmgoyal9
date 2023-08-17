@@ -17,7 +17,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "mini_installer.sync.exe",
-  "PreviousVersion": "115.0.5790.171",
+  "PreviousVersion": "116.0.5845.97",
   "ManifestFields": {
     "PackageVersion": "($Response.tag_name | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
@@ -25,7 +25,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 114942246
+    "PreviousReleaseId": 117599701
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "SkipPRCheck": false,
