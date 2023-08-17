@@ -23,7 +23,7 @@
     "PackageVersion": "($Update.InstallerUrls | Select-String -Pattern $VersionRegex).Matches.Value"
   },
   "AdditionalInfo": {
-    "PreviousBuildNumber": 2117
+    "PreviousBuildNumber": 2132
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousBuildNumber = $Response.number",
   "SkipPRCheck": true,
