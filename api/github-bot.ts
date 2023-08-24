@@ -1,4 +1,5 @@
 import { createNodeMiddleware, createProbot, Context, Probot } from 'probot';
+import { request } from 'node:https';
 
 /**
  * This is the main entrypoint to your Probot app
@@ -16,7 +17,7 @@ function probotApp(app: Probot) {
           (comment) =>
             [
               /Superseded by #([0-9]+)/g,
-              /Looks like [@/-a-zA-Z]+ is up-to-date now, so this is no longer needed\./g,
+              /Looks like [-@/a-zA-Z]+ is up-to-date now, so this is no longer needed\./g,
             ].some((regex) => regex.test(comment.body || '')),
         )
       ) {
@@ -42,6 +43,36 @@ function probotApp(app: Probot) {
         return await context.octokit.issues.lock(
           context.issue({ lock_reason: 'resolved' }),
         );
+      }
+    },
+  );
+
+  app.on(
+    'pull_request.opened',
+    async (context: Context<'pull_request.opened'>) => {
+      if (
+        context.payload.pull_request.user.login === 'dependabot[bot]' &&
+        context.payload.repository.name === 'winget-releaser'
+      ) {
+        const req = request({
+          hostname: 'api.github.com',
+          path: `/repos/${context.payload.repository.full_name}/pulls/${context.payload.number}/reviews`,
+          method: 'POST',
+          headers: {
+            authorization: `token ${process.env.GITHUB_PAT}`,
+            accept: 'application/vnd.github.v3+json',
+            'User-Agent': `probot/${app.version}`, // the same is used by context.octokit
+          },
+        });
+        req.write(
+          JSON.stringify({
+            event: 'APPROVE',
+            body:
+              '@dependabot squash and merge\n' +
+              '###### 🍏 Approved 🥗 automagically 🔮 by 🤖 @vedantmgoyal2009-bot 🥳😉ヾ(≧▽≦*)o',
+          }),
+        );
+        req.end();
       }
     },
   );
