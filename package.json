@@ -41,7 +41,7 @@
     "commitlint": "^17.7.1",
     "cz-conventional-changelog": "^3.3.0",
     "firebase-tools": "^12.4.7",
-    "prettier": "^3.0.1",
+    "prettier": "^3.0.2",
     "typescript": "^5.1.6",
     "vercel": "^31.2.2"
   },
