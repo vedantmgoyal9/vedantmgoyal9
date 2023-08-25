@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "3.3.0",
+  "PreviousVersion": "4.0.1",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "@(\"https://res.u-tools.cn/version2/uTools-$($Response.version).exe\", \"https://res.u-tools.cn/version2/uTools-$($Response.version)-ia32.exe\")",
