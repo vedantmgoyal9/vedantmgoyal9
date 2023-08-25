@@ -34,7 +34,7 @@ mkdir -p $(pwsh -Command '$PROFILE | Split-Path')
 cp "${workspaces_folder}/vedantmgoyal2009/.devcontainer/profile.ps1" $(pwsh -Command '$PROFILE')
 # Add oh-my-posh to bash profile
 echo 'eval "$(oh-my-posh init bash -c $(brew --prefix oh-my-posh)/themes/takuya.omp.json)"' >> /home/vscode/.bashrc
-# Install winget-pkgs yamlcreate powershell-yaml for automation (winget-manifests-manager)
+# Install winget-pkgs yamlcreate powershell-yaml for winget-pkgs-automation
 pwsh -Command "Install-Module -Name powershell-yaml -Force"
 
 # Multi-repo setup

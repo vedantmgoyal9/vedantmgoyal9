@@ -30,20 +30,6 @@
         "go.alternateTools": {
             "go": "/home/linuxbrew/.linuxbrew/bin/go"
         },
-        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.20.7/libexec"
-    },
-    "launch": {
-        "configurations": [
-            {
-                "name": "Launch Extension",
-                "request": "launch",
-                "type": "extensionHost",
-                "args": [
-                    "--extensionDevelopmentPath=${workspaceFolder:vedantmgoyal2009}/src/vscode-extension.js"
-                ],
-                // "preLaunchTask": "npm",
-            }
-        ],
-        "compounds": []
+        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.21.0/libexec"
     }
 }
