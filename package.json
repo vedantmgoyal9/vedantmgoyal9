@@ -41,7 +41,7 @@
     "firebase-tools": "^12.5.2",
     "prettier": "^3.0.2",
     "typescript": "^5.2.2",
-    "vercel": "^31.2.2"
+    "vercel": "^32.1.0"
   },
   "prettier": {
     "arrowParens": "always",
