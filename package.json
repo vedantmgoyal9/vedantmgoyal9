@@ -40,7 +40,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "firebase-tools": "^12.4.7",
     "prettier": "^3.0.1",
-    "typescript": "^5.1.6",
+    "typescript": "^5.2.2",
     "vercel": "^31.2.2"
   },
   "prettier": {
