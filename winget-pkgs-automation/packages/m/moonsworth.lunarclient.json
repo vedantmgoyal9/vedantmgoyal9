@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "3.0.5",
+  "PreviousVersion": "3.0.6",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "\"https://launcherupdates.lunarclientcdn.com/$([System.Uri]::EscapeDataString($Response.path))\"",
