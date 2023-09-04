@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
   "dependencies": {
-    "firebase": "^10.3.0",
+    "firebase": "^10.3.1",
     "nodemailer": "^6.9.4",
     "playwright": "^1.37.1",
     "probot": "^12.3.1",
