@@ -10,12 +10,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout repository 👋
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
       - name: Checkout microsoft/winget-cli 👋
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: microsoft/winget-cli
           path: wingetdev/winget-cli
