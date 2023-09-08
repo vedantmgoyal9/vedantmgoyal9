@@ -17,7 +17,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.tag_name -notmatch '-rc*' -and $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": ".*.exe$",
-  "PreviousVersion": "25.3.2.5",
+  "PreviousVersion": "25.3.2.6",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('OTP-')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match $InstallerRegex) { $_.browser_download_url } }",
@@ -25,7 +25,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 114469125
+    "PreviousReleaseId": 120343043
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "SkipPRCheck": false,
