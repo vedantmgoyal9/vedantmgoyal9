@@ -5,9 +5,6 @@ java_programs/*.ctxt
 # winget-pkgs-automation (komac)
 winget-pkgs-automation/komac.jar
 
-# winget-pkgs-automation - winget-pkgs repository
-winget-pkgs-automation/winget-pkgs
-
 # wingetdev - winget-cli repository
 wingetdev/winget-cli
 
@@ -20,10 +17,6 @@ mrf-bot/*.js
 
 # node_modules directory
 node_modules
-
-# whatsapp bot logs and session
-.wwebjs_auth
-logs.txt
 
 # env - environment variables
 .env
