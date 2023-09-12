@@ -34,14 +34,14 @@
   "devDependencies": {
     "@types/node": "^20.6.0",
     "@types/nodemailer": "^6.4.10",
-    "@vercel/node": "^3.0.4",
+    "@vercel/node": "^3.0.5",
     "commitizen": "^4.3.0",
     "commitlint": "^17.7.1",
     "cz-conventional-changelog": "^3.3.0",
     "firebase-tools": "^12.5.3",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
-    "vercel": "^32.2.0"
+    "vercel": "^32.2.1"
   },
   "prettier": {
     "arrowParens": "always",
