@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.data",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "4.51.0.5187",
+  "PreviousVersion": "4.51.1.5202",
   "ManifestFields": {
     "PackageVersion": "$Response.curr_version",
     "InstallerUrls": "$Response.download_url",
