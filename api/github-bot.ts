@@ -21,18 +21,9 @@ function probotApp(app: Probot) {
             ].some((regex) => regex.test(comment.body || '')),
         )
       ) {
-        const requestedReviewers =
-          await context.octokit.pulls.listRequestedReviewers(
-            context.pullRequest(),
-          );
-        if (requestedReviewers.data.users.length > 0)
-          await context.octokit.pulls.removeRequestedReviewers(
-            context.pullRequest({
-              reviewers: requestedReviewers.data.users.map(
-                (user) => user.login,
-              ),
-            }),
-          );
+        await context.octokit.pulls.removeRequestedReviewers(
+          context.pullRequest({ reviewers: ['vedantmgoyal2009'] }),
+        );
         return await context.octokit.issues.lock(
           context.issue({ lock_reason: 'resolved' }),
         );
@@ -50,10 +41,7 @@ function probotApp(app: Probot) {
   app.on(
     'pull_request.opened',
     async (context: Context<'pull_request.opened'>) => {
-      if (
-        context.payload.pull_request.user.login === 'dependabot[bot]' &&
-        context.payload.repository.name === 'winget-releaser'
-      ) {
+      if (context.payload.pull_request.user.login === 'dependabot[bot]') {
         const req = request({
           hostname: 'api.github.com',
           path: `/repos/${context.payload.repository.full_name}/pulls/${context.payload.number}/reviews`,
@@ -71,8 +59,20 @@ function probotApp(app: Probot) {
               '@dependabot squash and merge\n' +
               '###### 🍏 Approved 🥗 automagically 🔮 by 🤖 @vedantmgoyal2009-bot 🥳😉ヾ(≧▽≦*)o',
           }),
+          () => req.end(),
         );
-        req.end();
+      }
+
+      if (context.payload.pull_request.user.login === 'allcontributors[bot]') {
+        await context.octokit.issues.addLabels(
+          context.issue({ labels: ['documentation'] }),
+        );
+        await context.octokit.pulls.removeRequestedReviewers(
+          context.pullRequest({ reviewers: ['vedantmgoyal2009'] }),
+        );
+        return await context.octokit.pulls.merge(
+          context.pullRequest({ merge_method: 'squash' }),
+        );
       }
     },
   );
