@@ -5,9 +5,6 @@ java_programs/*.ctxt
 # winget-pkgs-automation (komac)
 winget-pkgs-automation/komac.jar
 
-# wingetdev - winget-cli repository
-wingetdev/winget-cli
-
 # temp directory
 temp/
 
