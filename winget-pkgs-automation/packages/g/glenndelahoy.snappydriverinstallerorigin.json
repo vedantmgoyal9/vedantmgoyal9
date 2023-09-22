@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.Links.href.Where({ $_ -match $InstallerRegex })",
   "VersionRegex": "\\d+\\.\\d+\\.\\d+",
   "InstallerRegex": "\\d+\\.zip$",
-  "PreviousVersion": "1.12.15",
+  "PreviousVersion": "1.12.16",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "\"https://www.glenn.delahoy.com$Response\""
