@@ -32,8 +32,8 @@
     "whatsapp-web.js": "^1.22.1"
   },
   "devDependencies": {
-    "@types/node": "^20.6.3",
-    "@types/nodemailer": "^6.4.10",
+    "@types/node": "^20.6.5",
+    "@types/nodemailer": "^6.4.11",
     "@vercel/node": "^3.0.6",
     "commitizen": "^4.3.0",
     "commitlint": "^17.7.1",
@@ -41,7 +41,7 @@
     "firebase-tools": "^12.5.4",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
-    "vercel": "^32.3.0"
+    "vercel": "^32.3.1"
   },
   "prettier": {
     "arrowParens": "always",
