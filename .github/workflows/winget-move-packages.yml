@@ -1,4 +1,5 @@
 name: Move Packages (winget-pkgs)
+run-name: ${{ inputs.from-package }} -> ${{ inputs.to-package }}
 
 on:
   workflow_dispatch:
@@ -108,13 +109,15 @@ jobs:
 
             .\YamlCreate.ps1 -PackageIdentifier $ToPackage -PackageVersion $Version -AutoUpgrade -Preserve -SkipPRCheck
 
+            $BranchName = "$FromPackage-v$Version".Replace(' ', '-') # Replace spaces with `-`, spaces are not allowed in git branch names
+
             # Create new branch from master, add the new files, commit, and push
             git fetch upstream master --quiet
             git switch -d upstream/master
             git add -A
             git commit -m "$FromPackage $Version -> $ToPackage $Version [Move]"
-            git switch -c "Move-$FromPackage-v$Version"
-            git push --set-upstream origin "Move-$FromPackage-v$Version"
+            git switch -c "Move-$BranchName"
+            git push --set-upstream origin "Move-$BranchName"
             gh pr create -f
 
             Start-Sleep -Seconds 7
@@ -131,8 +134,8 @@ jobs:
             git switch -d upstream/master
             git add -A
             git commit -m "$FromPackage $Version -> $ToPackage $Version [Delete Old]"
-            git switch -c "Remove-$FromPackage-v$Version"
-            git push --set-upstream origin "Remove-$FromPackage-v$Version"
+            git switch -c "Remove-$BranchName"
+            git push --set-upstream origin "Remove-$BranchName"
             gh pr create -f
 
             Start-Sleep -Seconds 11
