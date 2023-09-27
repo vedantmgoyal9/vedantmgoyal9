@@ -17,7 +17,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease -and $Response.id -gt $PreviousReleaseId",
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "1.11.43",
+  "PreviousVersion": "1.11.44",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "\"https://packages.element.io/desktop/install/win32/x64/Element%20Setup%20$($Response.tag_name.TrimStart('v')).exe\"",
@@ -25,7 +25,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 121286051
+    "PreviousReleaseId": 122610675
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "SkipPRCheck": false,

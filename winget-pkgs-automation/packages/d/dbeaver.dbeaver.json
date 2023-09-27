@@ -25,7 +25,7 @@
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 122374096
+    "PreviousReleaseId": 122547944
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "SkipPRCheck": false,
