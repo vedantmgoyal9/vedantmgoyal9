@@ -32,13 +32,13 @@
     "whatsapp-web.js": "^1.22.1"
   },
   "devDependencies": {
-    "@types/node": "^20.8.4",
+    "@types/node": "^20.8.6",
     "@types/nodemailer": "^6.4.11",
     "@vercel/node": "^3.0.7",
     "commitizen": "^4.3.0",
-    "commitlint": "^17.7.2",
+    "commitlint": "^17.8.0",
     "cz-conventional-changelog": "^3.3.0",
-    "firebase-tools": "^12.6.2",
+    "firebase-tools": "^12.7.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
     "vercel": "^32.4.1"
