@@ -17,7 +17,7 @@
   "PreviousVersion": "1.11.7",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
-    "InstallerUrls": "($Response.Replace('http://downloads.sourceforge.net/project/freeplane/', 'https://sourceforge.net/projects/freeplane/files/')) -replace '\\?.*', '/download'"
+    "InstallerUrls": "$Response -replace '^http://downloads\\.sourceforge\\.net/project/([^/]+)/([^/]+)/([^?]+)-([\\d\\.]+)\\.exe.*$', 'https://sourceforge.net/projects/$1/files/$2/archive/$4/$3-$4.exe/download'"
   },
   "AdditionalInfo": {},
   "PostUpgradeScript": "",
