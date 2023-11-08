@@ -14,7 +14,7 @@
   "PostResponseScript": "",
   "VersionRegex": "(?<=<b>curl version<\\/b>:\\s)[\\d.]+",
   "InstallerRegex": "^dl.*mingw.zip$",
-  "PreviousVersion": "8.3.0",
+  "PreviousVersion": "8.4.0",
   "ManifestFields": {
     "PackageVersion": "($Response.Content | Select-String -Pattern $VersionRegex).Matches.Value #default-headrequest",
     "InstallerUrls": "($Response.Links.href.Where({ $_ -match $InstallerRegex }) | Select-Object -Unique).ForEach({ $InstUriPrefix + $_ })",
