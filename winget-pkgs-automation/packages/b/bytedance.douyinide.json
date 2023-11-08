@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.data.manifest.win32",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "4.1.4",
+  "PreviousVersion": "4.1.6",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "$Response.urls[0]"

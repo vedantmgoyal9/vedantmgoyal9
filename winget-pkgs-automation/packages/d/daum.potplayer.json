@@ -14,7 +14,7 @@
   "PostResponseScript": "",
   "VersionRegex": "(?<=\\[)\\d+(?=\\])",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "230830",
+  "PreviousVersion": "231102",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "@($x64Uri.Replace('#version', $Update.PackageVersion), $x86Uri.Replace('#version', $Update.PackageVersion))"

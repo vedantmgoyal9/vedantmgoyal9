@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "4.8.3",
+  "PreviousVersion": "4.8.4",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "\"https://plexamp.plex.tv/plexamp.plex.tv/desktop/$([System.Uri]::EscapeUriString($Response.path))\""
