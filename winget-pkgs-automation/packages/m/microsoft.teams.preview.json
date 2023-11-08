@@ -17,7 +17,7 @@
   ],
   "VersionRegex": "([0-9.]){3,}",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "1.6.00.26163",
+  "PreviousVersion": "1.6.00.30666",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "@($Response, $Response2, $Response3, $Response.Replace('exe','msi'), $Response2.Replace('exe','msi'), $Response3.Replace('exe','msi'))"

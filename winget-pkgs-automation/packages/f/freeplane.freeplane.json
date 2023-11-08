@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.platform_releases.windows.url",
   "VersionRegex": "[0-9.]{5,6}",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "1.11.7",
+  "PreviousVersion": "1.11.8",
   "ManifestFields": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response -replace '^http://downloads\\.sourceforge\\.net/project/([^/]+)/([^/]+)/([^?]+)-([\\d\\.]+)\\.exe.*$', 'https://sourceforge.net/projects/$1/files/$2/archive/$4/$3-$4.exe/download'"

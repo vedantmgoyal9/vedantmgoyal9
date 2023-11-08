@@ -20,14 +20,14 @@
   ],
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".msi$",
-  "PreviousVersion": "20.8.0",
+  "PreviousVersion": "21.2.0",
   "ManifestFields": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "@(\"https://nodejs.org/dist/$($Response.tag_name)/node-$($Response.tag_name)-x64.msi\", \"https://nodejs.org/dist/$($Response.tag_name)/node-$($Response.tag_name)-x86.msi\")",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
-    "PreviousReleaseId": 123061982
+    "PreviousReleaseId": 129412461
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "SkipPRCheck": false,

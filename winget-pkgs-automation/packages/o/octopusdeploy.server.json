@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response | Select-Object -Last 1",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "2023.3.13042",
+  "PreviousVersion": "2023.3.13181",
   "ManifestFields": {
     "PackageVersion": "$Response.Version",
     "InstallerUrls": "\"https://download.octopusdeploy.com/octopus/Octopus.$($Response.Version)-x64.msi\"",

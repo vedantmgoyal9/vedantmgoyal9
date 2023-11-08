@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.data | Where-Object { $_.FPlatform -eq 1 }",
   "VersionRegex": "[0-9.]{3,}(?=\\.)",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "5.8.2.20210",
+  "PreviousVersion": "5.8.5.20272",
   "ManifestFields": {
     "PackageVersion": "($Response.FUrl | Select-String -Pattern $VersionRegex).Matches.Value",
     "InstallerUrls": "$Response.FUrl",
