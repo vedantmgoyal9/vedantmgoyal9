@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.win",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "1.2.7",
+  "PreviousVersion": "1.2.9",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "\"https://cdn.wostatic.cn/dist/installers/$($Response.path)\"",

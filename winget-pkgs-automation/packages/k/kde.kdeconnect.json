@@ -17,13 +17,13 @@
   ],
   "VersionRegex": "[0-9.]{5,}",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "23.08.1",
+  "PreviousVersion": "23.08.3",
   "ManifestFields": {
     "InstallerUrls": "\"$($Response.url)artifact/$((Invoke-RestMethod -Method Get -Uri \"$($Response.url)api/json\").artifacts.FileName -match $InstallerRegex)\"",
     "PackageVersion": "($Update.InstallerUrls | Select-String -Pattern $VersionRegex).Matches.Value"
   },
   "AdditionalInfo": {
-    "PreviousBuildNumber": 1470
+    "PreviousBuildNumber": 1520
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousBuildNumber = $Response.number",
   "SkipPRCheck": true,

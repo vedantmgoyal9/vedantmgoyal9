@@ -17,7 +17,7 @@
   ],
   "VersionRegex": "(?<=v)[0-9.]+",
   "InstallerRegex": "agentransack_\\d+\\.exe$",
-  "PreviousVersion": "9.2.3406.1",
+  "PreviousVersion": "9.2.3416.1",
   "ManifestFields": {
     "PackageVersion": "$((Get-Item .\\Mythicsoft.AgentRansack.exe).VersionInfo.FileVersion)",
     "InstallerUrls": "$Response"
