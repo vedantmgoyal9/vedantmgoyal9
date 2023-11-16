@@ -17,7 +17,7 @@
   ],
   "VersionRegex": "[0-9.]+(?=_)",
   "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$",
-  "PreviousVersion": "1.026",
+  "PreviousVersion": "1.027",
   "ManifestFields": {
     "PackageVersion": "$RawVersion.Substring(0,1) + '.' + $RawVersion.Substring(1)",
     "InstallerUrls": "@($Response, $Response.Replace('_x64',''))"
