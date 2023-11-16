@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
   "VersionRegex": "[0-9.]+",
   "InstallerRegex": ".exe$",
-  "PreviousVersion": "3.18.2",
+  "PreviousVersion": "4.0.0",
   "ManifestFields": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "\"https://client-updates-cdn77.badlion.net/$([System.Uri]::EscapeDataString($Response.path))\""
