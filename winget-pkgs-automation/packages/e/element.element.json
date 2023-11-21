@@ -22,6 +22,7 @@
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "\"https://packages.element.io/desktop/install/win32/x64/Element%20Setup%20$($Response.tag_name.TrimStart('v')).exe\"",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+    "ReleaseNotesUrl": "\"https://github.com/vector-im/element-desktop/releases/tag/v$($Response.tag_name.TrimStart('v'))\""
   },
   "AdditionalInfo": {
     "PreRelease": false,
