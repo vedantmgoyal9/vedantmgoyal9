@@ -21,8 +21,16 @@ If (-not (Get-Module -Name powershell-yaml -ListAvailable)) {
     Write-Output 'Installed powershell-yaml module.'
 }
 
-$PackageUpgrades = @()
+# Fetch latest version of Komac
+$env:KMC_CRTD_WITH = 'WinGet Automation'
+$env:KMC_CRTD_WITH_URL = 'https://github.com/vedantmgoyal2009/vedantmgoyal2009/tree/main/winget-pkgs-automation'
+$env:KMC_FORCE_PUSH_PR = 'true'
+Invoke-WebRequest -Uri https://github.com/russellbanks/Komac/releases/download/nightly/Komac-nightly.jar -OutFile .\komac.jar # Download latest version of Komac
+Write-Output 'Downloaded latest version of Komac.'
+
 $ErrorGettingUpdates = @()
+$ErrorUpgradingPkgs = New-Object -TypeName System.Collections.ArrayList
+
 Write-Output 'Checking for updates...'
 If ($MyInvocation.BoundParameters.ContainsKey('PkgIdParam')) {
     $PackageJsonPath = Join-Path -Path $PSScriptRoot -ChildPath .\packages\$($PkgIdParam.Substring(0,1).ToLower())\$($PkgIdParam.ToLower()).json
@@ -33,12 +41,11 @@ If ($MyInvocation.BoundParameters.ContainsKey('PkgIdParam')) {
     }
     $PkgFromParam = @(Get-Content -Path $PackageJsonPath -Raw | ConvertFrom-Json)
 }
-ForEach ($Package in $PkgFromParam ?? ((Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json).Where({ $_.SkipPackage -eq $false }))) {
-    Set-Variable -Name Update -Value ([PSCustomObject] @{ 
+
+ForEach ($Package in $PkgFromParam ?? (Get-ChildItem .\packages\ -Recurse -File | Get-Content -Raw | ConvertFrom-Json)) {
+    Set-Variable -Name Update -Value ([PSCustomObject] @{
             PackageIdentifier  = $Package.Identifier;
             AdditionalMetadata = [PSCustomObject] @{};
-            SkipPRCheck        = $Package.SkipPRCheck;
-            AdditionalInfo     = $Package.AdditionalInfo.PSObject.Copy();
         })
     $VersionRegex = $Package.VersionRegex
     $InstallerRegex = $Package.InstallerRegex
@@ -86,7 +93,8 @@ ForEach ($Package in $PkgFromParam ?? ((Get-ChildItem .\packages\ -Recurse -File
         # If the last release was more than 2.5 years ago, automatically add it to the skip list
         # 3600 secs/hr * 24 hr/day * 365 days * 2.5 years = 78840000 seconds
         If (([DateTimeOffset]::Now.ToUnixTimeSeconds() - 78840000) -ge [DateTimeOffset]::new($Response.published_at).ToUnixTimeSeconds()) {
-            $Update | Add-Member -MemberType NoteProperty -Name SkipPackage -Value 'Automatically marked as stale, not updated for 2.5 years'
+            $Package.SkipPackage = 'Automatically marked as stale, not updated for 2.5 years'
+            ConvertTo-Json -InputObject $Package -Depth 7 | Set-Content -Path .\packages\$($Package.PackageIdentifier.Substring(0,1).ToLower())\$($Package.PackageIdentifier.ToLower()).json
         }
     }
     $Package.ManifestFields.PSObject.Properties.ForEach({
@@ -112,24 +120,49 @@ ForEach ($Package in $PkgFromParam ?? ((Get-ChildItem .\packages\ -Recurse -File
                 $Update | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value.Contains('$') ? ($_.Value | Invoke-Expression) : $_.Value)
             }
         })
-    If ($MyInvocation.BoundParameters.ContainsKey('PkgIdParam') ? $true : ($Null -eq $UpdateCondition ? $Update.PackageVersion -gt $Package.PreviousVersion : $UpdateCondition)) {
+    If ($Null -eq $UpdateCondition ? $Update.PackageVersion -gt $Package.PreviousVersion : $UpdateCondition) {
+        Write-Output "[$($Update.PackageIdentifier)] Update available: $($Package.PreviousVersion) -> $($Update.PackageVersion)"
+        $Package.PreviousVersion = $Update.PackageVersion
         If (-not [System.String]::IsNullOrWhiteSpace($Package.PostUpgradeScript)) {
             $Package.PostUpgradeScript | Invoke-Expression # Run PostUpgradeScript
-        }
-        $Update.AdditionalInfo.PSObject.Properties.ForEach({
-                If ($Package.AdditionalInfo."$($_.Name)" -eq $_.Value) {
-                    $Update.AdditionalInfo.PSObject.Properties.Remove($_.Name)
-                } Else {
-                    $Update.AdditionalInfo."$($_.Name)" = $Package.AdditionalInfo."$($_.Name)"
-                }
-            })
-        If ([System.String]::IsNullOrWhiteSpace($Update.AdditionalInfo)) {
-            $Update.PSObject.Properties.Remove('AdditionalInfo')
         }
         If ([System.String]::IsNullOrWhiteSpace($Update.AdditionalMetadata)) {
             $Update.PSObject.Properties.Remove('AdditionalMetadata')
         }
-        $PackageUpgrades += @($Update)
+
+        Write-Output -InputObject $Update | Format-List -Property *
+        try {
+            # Check for existing PRs, if package has skip pr check set to false
+            If (-not $Package.SkipPRCheck) {
+                $ExistingPRs = gh pr list --search "$($Update.PackageIdentifier.Replace('.', ' ')) $($Update.PackageVersion) in:title draft:false" --state 'all' --json 'title,url' --repo 'microsoft/winget-pkgs' | ConvertFrom-Json
+                If ($ExistingPRs.Count -gt 0) {
+                    $ExistingPRs.ForEach({
+                            Write-Output "Found existing PR: $($_.title)"
+                            Write-Output "-> $($_.url)"
+                        })
+                    Continue
+                }
+            }
+
+            Write-Output ("komac update --id '$($Update.PackageIdentifier)' --version '$($Update.PackageVersion)'
+                --urls '$($Update.InstallerUrls -join ',')' --submit
+                --additional-metadata '$(ConvertTo-Json ($Update.AdditionalMetadata ?? @{}) -Compress -Depth 7)'" -replace '\s+', ' ')
+            & $env:JAVA_HOME_17_X64\bin\java.exe -jar .\komac.jar update --id $Update.PackageIdentifier --version $Update.PackageVersion `
+                --urls ($Update.InstallerUrls -join ',') --submit `
+                --additional-metadata $(ConvertTo-Json ($Update.AdditionalMetadata ?? @{}) -Compress -Depth 7) *>&1 | Out-String -OutVariable KomacStdOut
+            If ($LASTEXITCODE -ne 0) { throw }
+        } catch {
+            Write-Error "$($Update.PackageIdentifier): $($_.Exception.Message)"
+            $ErrorUpgradingPkgs.Add("- **$($Update.PackageIdentifier)**: $($_.Exception.Message)`n```````n$($KomacStdOut)`n```````n")
+            # Revert the changes in the JSON file so that the package can check for updates in the next run
+            git checkout -- .\packages\$($Update.PackageIdentifier.Substring(0,1).ToLower())\$($Update.PackageIdentifier.ToLower()).json
+        } finally {
+            Remove-Variable -Name KomacStdOut -ErrorAction SilentlyContinue
+        }
+
+        ConvertTo-Json -InputObject $Package -Depth 7 | Set-Content -Path .\packages\$($Package.PackageIdentifier.Substring(0,1).ToLower())\$($Package.PackageIdentifier.ToLower()).json
+    } Else {
+        Write-Output "[$($Update.PackageIdentifier)] No updates available."
     }
     for ($i = 0; $i -lt $Package.Update.Length; $i++) {
         Remove-Variable -Name "Response$($i -ge 1 ? $i + 1: $Null)" -ErrorAction SilentlyContinue
@@ -138,7 +171,7 @@ ForEach ($Package in $PkgFromParam ?? ((Get-ChildItem .\packages\ -Recurse -File
 }
 
 If ($MyInvocation.BoundParameters.ContainsKey('PkgIdParam')) {
-    Write-Output -InputObject $PackageUpgrades | Format-List -Property *
+    Write-Output -InputObject $Update | Format-List -Property *
     Exit 0
 }
 
@@ -157,11 +190,18 @@ $CommentBody = @"
             'No errors while checking for updates for packages :tada:'
         }
     )
+
+**Error while upgrading packages:** $(
+        If ($ErrorUpgradingPkgs.Count -gt 0) {
+            "$($ErrorUpgradingPkgs.Count) packages had errors.`n$($ErrorUpgradingPkgs -join "`n")"
+        } Else {
+            'No errors while checking for updates for packages :tada:'
+        }
+    )
 "@
 # Delete all previous comments since we are already reverting the changes in the JSON file so that they can be upgarded in the next run
 (Invoke-RestMethod -Method Get -Uri 'https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/900/comments').Where({
-        $_.user.login -eq 'vedantmgoyal2009-bot[bot]' -and $_.body.Contains('Error while checking for updates for packages')
-    }).ForEach({
+        $_.user.login -eq 'vedantmgoyal2009-bot[bot]' }).ForEach({
         Invoke-RestMethod -Method Delete -Uri "https://api.github.com/repos/vedantmgoyal2009/vedantmgoyal2009/issues/comments/$($_.id)" -Headers $Headers | Out-Null
     })
 # Add the new comment to the issue containing the results of the automation run
@@ -169,28 +209,18 @@ Invoke-RestMethod -Method Post -Uri 'https://api.github.com/repos/vedantmgoyal20
         body = $CommentBody
     }) -Headers $Headers
 
-# Get content of gist vedantmgoyal2009/winget-automation-update-info.json
-$GistId = '9918bc6afa43d80b311804789a3478b0'
-$UpdateInfo = Invoke-RestMethod -Uri https://gist.githubusercontent.com/vedantmgoyal2009/$GistId/raw/winget-automation-update-info.json
-
-# Add new packages to gist, if there's any existing update for a package, remove it first and then add the new one
-$PackageUpgrades.ForEach({
-        $CurrentPackage = $_
-        $UpdateInfo = $UpdateInfo.Where({ $_.PackageIdentifier -ne $CurrentPackage.PackageIdentifier })
-        $UpdateInfo += @($CurrentPackage)
-    })
-
-ConvertTo-Json -InputObject ($UpdateInfo | Sort-Object -Property PackageIdentifier) -Depth 11 | Out-File -FilePath 'winget-automation-update-info.json' -Encoding UTF8 -Force
-
-# Update winget-automation-update-info.json gist
-Write-Output 'Updating winget-automation-update-info.json gist...'
-Invoke-RestMethod -Uri https://api.github.com/gists/$GistId -Method Patch -Body (ConvertTo-Json -InputObject @{
-        files = @{
-            'winget-automation-update-info.json' = @{
-                content = ConvertTo-Json -InputObject ($UpdateInfo | Sort-Object -Property PackageIdentifier) -Depth 11
-            }
-        }
-    } -Compress) -Headers @{
-    Authorization = "Bearer $env:GITHUB_TOKEN"
-    Accept        = 'application/vnd.github.v3+json'
+# Update package jsons in repository
+Write-Output 'Updating package jsons in repository...'
+git pull # to be on a safe side
+git config --local user.name 'vedantmgoyal2009-bot[bot]'
+git config --local user.email '110876359+vedantmgoyal2009-bot[bot]@users.noreply.github.com'
+$LastCommit = git log -1 --pretty=format:%s
+$CommitRegex = '(?<=build\(wpa\):\supdate\spackages\s\[)\d+(?=(\.\.\d+)?\]\s\[skip\sci\])'
+If ($LastCommit -match $CommitRegex -and (gh pr list --search "-author:@me -author:app/dependabot" --json number | ConvertFrom-Json).Count -eq 0) {
+    git commit -am "build(wpa): update packages [$($Matches[0])..$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff --amend --no-edit
+    git push https://x-access-token:$(Get-GitHubBotToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git --force
+} Else {
+    git commit -am "build(wpa): update packages [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff
+    git push https://x-access-token:$(Get-GitHubBotToken)@github.com/vedantmgoyal2009/vedantmgoyal2009.git
 }
+                                        

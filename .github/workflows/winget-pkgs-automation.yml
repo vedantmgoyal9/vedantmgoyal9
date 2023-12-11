@@ -1,8 +1,8 @@
-name: Check versions [WPA]
+name: WinGet Automation
 
 on:
   schedule:
-    - cron: '11 0,12 * * *'
+    - cron: '11 0,6,12,18 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -16,6 +16,7 @@ jobs:
       - name: Checkout repository 👋
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Run automation script 🤖
@@ -38,7 +39,7 @@ jobs:
                 }).token
           }
 
-          .\Get-PackageUpdates.ps1
+          .\Automation.ps1
         env:
           BOT_APP_ID: ${{ secrets.BOT_APP_ID }}
           BOT_INST_ID: ${{ secrets.BOT_INST_ID }}
@@ -49,7 +50,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: wpa-check-versions
-          path: winget-pkgs-automation/winget-automation-update-info.json
+          name: wpa
+          path: winget-pkgs-automation/wpa.json
           if-no-files-found: error
           retention-days: 0 # use rentention settings from the repo
