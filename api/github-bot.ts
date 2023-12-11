@@ -17,6 +17,7 @@ function probotApp(app: Probot) {
             [
               /Superseded by #([0-9]+)/g,
               /Looks like [-@/a-zA-Z]+ is up-to-date now, so this is no longer needed\./g,
+              /Looks like [-@/a-zA-Z]+ is updatable in another way, so this is no longer needed\./g,
               /Looks like these dependencies are updatable in another way, so this is no longer needed\./g,
             ].some((regex) => regex.test(comment.body || '')),
         )
@@ -42,7 +43,7 @@ function probotApp(app: Probot) {
     'pull_request.opened',
     async (context: Context<'pull_request.opened'>) => {
       if (context.payload.pull_request.user.login === 'dependabot[bot]') {
-        fetch(
+        return await fetch(
           `https://api.github.com/repos/${context.payload.repository.full_name}/pulls/${context.payload.number}/reviews`,
           {
             method: 'POST',
@@ -55,7 +56,7 @@ function probotApp(app: Probot) {
               event: 'APPROVE',
               body:
                 '@dependabot squash and merge\n' +
-                '###### 🍏 Approved 🥗 automagically 🔮 by 🤖 @vedantmgoyal2009-bot 🥳😉ヾ(≧▽≦*)o',
+                '###### 🍏 Approved 🥗 automagically 🔮 by 🤖 @vedantmgoyal2009-bot 😉ヾ(≧▽≦*)o 🥳',
             }),
           },
         );

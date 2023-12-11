@@ -30,6 +30,6 @@
         "go.alternateTools": {
             "go": "/home/linuxbrew/.linuxbrew/bin/go"
         },
-        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.21.0/libexec"
+        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.21.5/libexec"
     }
 }
