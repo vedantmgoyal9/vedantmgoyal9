@@ -1,0 +1,78 @@
+# Make sure to check the documentation at https://goreleaser.com
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+project_name: winget-pkgs-automation
+dist: ./dist
+git:
+  ignore_tags:
+    - wingetdev
+before:
+  hooks:
+    - go mod tidy
+report_sizes: true
+builds:
+  - id: windows-builds
+    skip: true # needs goreleaser-pro
+    goos:
+      - windows
+    goarch:
+      - amd64
+  - id: macos-builds
+    skip: true # needs goreleaser-pro
+    hooks:
+      pre:
+        - brew install msitools
+    env:
+      - CGO_ENABLED=1
+    goos:
+      - darwin
+    goarch:
+      - arm64
+  - id: linux-builds
+    hooks:
+      pre:
+        - sudo apt install msitools libmsi-dev -y
+    env:
+      - CGO_ENABLED=1
+    goos:
+      - linux
+    goarch:
+      - amd64
+release:
+  github:
+    owner: vedantmgoyal2009
+    name: vedantmgoyal2009
+  mode: keep-existing
+  draft: true
+  replace_existing_draft: true
+  prerelease: 'true'
+  disable: false
+  skip_upload: false
+archives:
+  - format: binary
+    name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
+checksum:
+  name_template: checksums.txt
+  algorithm: sha256
+  disable: false
+# signs:
+#   - artifacts: checksum
+# TODO: homebrew, scoop, winget
+# chocolateys:
+#   - name: winget-pkgs-automation
+#     title: WinGet Packages Automation (CLI)
+#     ids:
+#       - windows-builds
+#     owners: Vedant
+#     authors: Vedant
+#     copyright: Copyright (c) {{ .Now.Format "2006" }} Vedant
+#     project_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/winget-pkgs-automation
+#     license_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/winget-pkgs-automation/LICENSE
+#     require_license_acceptance: true
+#     project_source_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/winget-pkgs-automation
+#     docs_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/winget-pkgs-automation/README.md
+#     bug_tracker_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues
+#     tags: winget winget-pkgs golang cli automation
+#     release_notes: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/tag/v{{ .Tag }}
+#     api_key: '{{ .Env.CHOCOLATEY_API_KEY }}'
+#     skip_publish: false
+#     description: This CLI is a part of a larger project called winget-pkgs-automation. It was created to aid the automation, but can be used independently as well.
