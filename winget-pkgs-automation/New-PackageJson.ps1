@@ -197,10 +197,10 @@ Function Get-UserInput {
 #endregion functions
 
 #region script
-$PackageJsonPath = Join-Path -Path $PSScriptRoot -ChildPath .\packages\$($PackageIdentifier.Substring(0,1).ToLower())\$($PackageIdentifier.ToLower()).json
+$PackageJsonPath = Join-Path -Path $PSScriptRoot -ChildPath packages\$($PackageIdentifier.Substring(0,1).ToLower())\$($PackageIdentifier.ToLower()).json
 
 If ($TestPackage) {
-    & $PSScriptRoot\Get-PackageUpdates.ps1 -PackageId $PackageIdentifier.ToLower()
+    & $PSScriptRoot\Automation.ps1 -PackageId $PackageIdentifier.ToLower()
     return
 }
 
@@ -238,7 +238,7 @@ $Package = [System.Management.Automation.PSObject] [ordered] @{
         PackageVersion = '';
         InstallerUrls  = '';
     };
-    AdditionalInfo     = @{};
+    AdditionalInfo     = [ordered] @{};
     PostUpgradeScript  = '';
     SkipPRCheck        = $Schema.SkipPRCheck.default;
     SkipPackage        = $Schema.SkipPackage.default;
@@ -406,6 +406,6 @@ Write-Output "JSON file created: $PackageJsonPath"
 Write-Output "`n----- Test package -----`n"
 Write-Output 'Do you want to test the package?'
 If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y = $true; N = $false }) {
-    & $PSScriptRoot\Get-PackageUpdates.ps1 -PackageId $PackageIdentifier.ToLower()
+    & $PSScriptRoot\Automation.ps1 -PackageId $PackageIdentifier.ToLower()
 }
 #endregion script

@@ -1,21 +1,21 @@
-name: Submit manifests [WPA]
+name: WinGet Automation
 
 on:
   schedule:
-    - cron: '11 * * * *'
+    - cron: '11 0,6,12,18 * * *'
   workflow_dispatch:
 
 concurrency:
   group: winget-pkgs-automation
   cancel-in-progress: false
-    
+
 jobs:
   build:
     runs-on: windows-latest
     steps:
       - name: Checkout repository 👋
         uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 0
           persist-credentials: false
 
@@ -39,7 +39,7 @@ jobs:
                 }).token
           }
 
-          .\Update-Manifests.ps1
+          .\Automation.ps1
         env:
           BOT_APP_ID: ${{ secrets.BOT_APP_ID }}
           BOT_INST_ID: ${{ secrets.BOT_INST_ID }}
@@ -47,10 +47,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
         shell: pwsh
         working-directory: winget-pkgs-automation
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: wpa-create-prs
-          path: winget-pkgs-automation/winget-automation-update-info.json
-          if-no-files-found: error
-          retention-days: 0 # use rentention settings from the repo
+      #  update packages.txt

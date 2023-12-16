@@ -1,0 +1,33 @@
+name: WinGet Automation (GoReleaser)
+
+on:
+  push:
+    tags:
+      - v*
+
+permissions:
+  contents: write
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-go@v5.0.0
+        with:
+          check-latest: true
+          go-version-file: winget-pkgs-automation/.gomod
+          cache-dependency-path: winget-pkgs-automation/.gosum
+
+      - uses: goreleaser/goreleaser-action@v5
+        with:
+          version: latest
+          distribution: goreleaser
+          args: release
+          workdir: winget-pkgs-automation
+        env:
+          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
