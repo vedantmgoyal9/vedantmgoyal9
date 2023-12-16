@@ -3,31 +3,31 @@ Param (
     [Parameter(
         Mandatory = $true,
         Position = 0,
-        HelpMessage = 'The PackageIdentifier of the package to get the updates for.'
+        HelpMessage = 'The PackageId of the package to create the formula for.'
     )]
     [ValidateNotNullOrEmpty()]
-    [System.String] $PackageIdentifier,
+    [System.String] $PackageId,
 
     [Parameter(
         Mandatory = $false,
         Position = 1,
-        HelpMessage = 'Only perform validation of the package json file.'
+        HelpMessage = 'Only perform validation of the formula.'
     )]
     [System.Management.Automation.SwitchParameter] $TestPackage
 )
 
 <#
 .SYNOPSIS
-    winget-pkgs-automation package json creator and tester
+    winget-pkgs-automation formula creator and tester
 .DESCRIPTION
-    this script gets various parameters about the package from the user, and
-    creates as well as validates the package json file so that it can be used by the
-    winget-pkgs-automation project to automatically update them at winget-pkgs repo.
+    this script gets various parameters about the package from the user, and creates
+    as well as validates the formula so that it can be used by the winget-pkgs-automation
+    project to automatically update the package manfiests at winget-pkgs repo.
 .NOTES
     please file an issue if you run into errors with the script:
     https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues
 .LINK
-    https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/winget-pkgs-automation/New-PackageJson.ps1
+    https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/winget-pkgs-automation/New-Formula.ps1
 #>
 
 
@@ -197,19 +197,20 @@ Function Get-UserInput {
 #endregion functions
 
 #region script
-$PackageJsonPath = Join-Path -Path $PSScriptRoot -ChildPath .\packages\$($PackageIdentifier.Substring(0,1).ToLower())\$($PackageIdentifier.ToLower()).json
+$FormulaPath = Join-Path -Path $PSScriptRoot -ChildPath Formula/$($PackageId.Substring(0,1).ToLower())/$($PackageId.ToLower()).json
+$FormulaPath_Skipped = Join-Path -Path $PSScriptRoot -ChildPath Formula-skipped/$($PackageId.ToLower()).json
 
 If ($TestPackage) {
-    & $PSScriptRoot\Get-PackageUpdates.ps1 -PackageId $PackageIdentifier.ToLower()
+    & $PSScriptRoot\Automation.ps1 -PackageId $PackageId.ToLower()
     return
 }
 
-# Check if the package json file already exists
-If (Test-Path -Path $PackageJsonPath -PathType Leaf) {
+# Check if a formula for the package already exists
+If (Test-Path -Path $FormulaPath, $FormulaPath_Skipped -PathType Leaf) {
     Write-Output 'The package already exists, do you still want to continue?'
     # Return values are inverted because we want to 'return' if user doesn't want to continue
     If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y = $false; N = $true }) {
-        Write-Output 'As you command, 👋 bye bye!'
+        Write-Output "`nAs you command, 👋 bye bye!"
         return
     }
 }
@@ -220,7 +221,7 @@ Set-Variable -Name Schema -Value $(
 
 $Package = [System.Management.Automation.PSObject] [ordered] @{
     '$schema'          = $Schema.'$schema'.const;
-    Identifier         = $PackageIdentifier;
+    Identifier         = $PackageId;
     Update             = @(
         [ordered] @{
             InvokeType = '';
@@ -238,7 +239,7 @@ $Package = [System.Management.Automation.PSObject] [ordered] @{
         PackageVersion = '';
         InstallerUrls  = '';
     };
-    AdditionalInfo     = @{};
+    AdditionalInfo     = [ordered] @{};
     PostUpgradeScript  = '';
     SkipPRCheck        = $Schema.SkipPRCheck.default;
     SkipPackage        = $Schema.SkipPackage.default;
@@ -273,8 +274,8 @@ If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y 
         PreviousReleaseId = 0
     }
     $Package.PostUpgradeScript = [System.String] $Schema.PostUpgradeScript.examples.Where({ $_.Contains('#default-gh') })
-    Write-Output '--- Generated package json with GitHub defaults ---'
-    Write-Output 'NOTE: You can modify the package json file manually if the defaults are not suitable for the package.'
+    Write-Output '--- Generated formula with GitHub defaults ---'
+    Write-Output 'NOTE: You can modify the formula file manually if the defaults are not suitable for the package.'
 } Else {
     Write-Output ''
     Write-Output 'Enter URI of the Source/API/Updater (e.g.: https://api.github.com/repos/JanDeDobbeleer/oh-my-posh/releases?per_page=1)'
@@ -400,12 +401,12 @@ If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y 
     Write-Output ''
 }
 
-ConvertTo-Json -InputObject $Package -Depth 7 | Out-File -Encoding UTF8 -FilePath $PackageJsonPath
-Write-Output "JSON file created: $PackageJsonPath"
+ConvertTo-Json -InputObject $Package -Depth 7 | Out-File -Encoding UTF8 -FilePath $FormulaPath
+Write-Output "Formula created: $FormulaPath"
 
 Write-Output "`n----- Test package -----`n"
 Write-Output 'Do you want to test the package?'
 If (Get-UserInput -Method KeyPress -Message 'Choice (y/n): ' -ReturnValues @{ Y = $true; N = $false }) {
-    & $PSScriptRoot\Get-PackageUpdates.ps1 -PackageId $PackageIdentifier.ToLower()
+    & $PSScriptRoot\Automation.ps1 -PackageId $PackageId.ToLower()
 }
 #endregion script

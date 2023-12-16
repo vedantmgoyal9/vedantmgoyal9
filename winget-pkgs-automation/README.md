@@ -1,7 +1,6 @@
-# (WPA) WinGet Packages Automation
+# 🪟📦 WinGet Packages Automation (WPA) 🤖
 
-[![Check versions [WPA]][check-versions-badge]][check-versions-runs]
-[![Submit manifests [WPA]][submit-manifests-badge]][submit-manifests-runs]
+[![WinGet Automation][automation-workflow-status-badge]][automation-workflow-runs]
 
 Automatically update package manifests for [Windows Package Manager Community Repository][winget-pkgs-repo].
 
@@ -32,28 +31,11 @@ The script will ask you for the required information and create a JSON file for 
 - Fill in the details of the package. Do **_not_** forget to mention some details of an API/Source/etc. which can be used to fetch the latest version of the package.
 - Submit the issue and wait for the package to be added to the automation.
 
-## 🤖 How does the automation work? 🛠️
-
-Running automatically on :octocat: Actions, this repo has two main components that keep WinGet packages up-to-date:
-
-- **PowerShell scripts**: To update manifests of packages in the [Windows Package Manager Community Repository][winget-pkgs-repo], these scripts are executed by GitHub workflows on a schedule.
-
-  - [`Get-PackageUpdates.ps1`][get-package-updates-ps1]: It imports the JSON files and checks if a new update is available for the package. If yes, it writes the update information to [`winget-automation-update-info.json`][winget-automation-update-info-json-gist] gist (in the format required by the `Update-Manifests.ps1` script).
-
-  - [`Update-Manifests.ps1`][update-manifests-ps1]: It reads the update information from [`winget-automation-update-info.json`][winget-automation-update-info-json-gist] gist, and creates pull requests at the [Windows Package Manager Community Repository][winget-pkgs-repo] with the updated manifests.
-
-- **Package JSON files**: These JSON files contain the source and other information to fetch the latest version and download URLs of a package.
-
 ---------------------
 
 [new-package-json-script]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/winget-pkgs-automation/New-PackageJson.ps1
-[check-versions-badge]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/workflows/check-versions.yml/badge.svg
-[check-versions-runs]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/workflows/check-versions.yml
-[submit-manifests-badge]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/workflows/create-prs.yml/badge.svg
-[submit-manifests-runs]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/workflows/create-prs.yml
+[automation-workflow-status-badge]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/workflows/winget-pkgs-automation.yml/badge.svg
+[automation-workflow-runs]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/actions/workflows/winget-pkgs-automation.yml
 [new-package-issue]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues/new?assignees=vedantmgoyal2009&labels=new+package+%28wpa%29&projects=&template=wpa-pkg-request.yml&title=%5BNew+Package%5D%3A+
-[get-package-updates-ps1]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/winget-pkgs-automation/Get-PackageUpdates.ps1
-[update-manifests-ps1]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/winget-pkgs-automation/Update-Manifests.ps1
 [packages-txt]: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/-/winget-pkgs-automation/packages.txt
-[winget-automation-update-info-json-gist]: https://gist.github.com/vedantmgoyal2009/9918bc6afa43d80b311804789a3478b0
 [winget-pkgs-repo]: https://github.com/microsoft/winget-pkgs

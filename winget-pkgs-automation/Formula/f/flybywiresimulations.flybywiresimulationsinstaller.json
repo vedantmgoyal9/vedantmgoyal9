@@ -29,5 +29,5 @@
   },
   "PostUpgradeScript": "$Package.AdditionalInfo.PreviousReleaseId = $Response.id",
   "SkipPRCheck": false,
-  "SkipPackage": "Causing PR errors"
+  "SkipPackage": false
 }
