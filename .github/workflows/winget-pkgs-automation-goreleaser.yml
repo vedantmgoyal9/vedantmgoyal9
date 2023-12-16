@@ -1,0 +1,39 @@
+name: WinGet Automation (GoReleaser)
+
+on:
+  push:
+    tags: v1-winget-pkgs-automation
+    paths:
+      - winget-pkgs-automation/**/*.go
+      - winget-pkgs-automation/.goreleaser.yaml
+      - winget-pkgs-automation/go.mod
+      - winget-pkgs-automation/go.sum
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-go@v5.0.0
+        with:
+          check-latest: true
+          go-version-file: winget-pkgs-automation/go.mod
+          cache-dependency-path: winget-pkgs-automation/go.sum
+
+      - run: echo "SDK_PATH=$(xcrun --show-sdk-path)" >> $GITHUB_ENV
+
+      - uses: goreleaser/goreleaser-action@v5
+        with:
+          version: latest
+          distribution: goreleaser
+          args: release
+          workdir: winget-pkgs-automation
+        env:
+          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
