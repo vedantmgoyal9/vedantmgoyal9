@@ -2,8 +2,9 @@
 java_programs/*.class
 java_programs/*.ctxt
 
-# winget-pkgs-automation (komac)
-winget-pkgs-automation/komac.jar
+# winget-pkgs-automation
+winget-pkgs-automation/komac*
+winget-pkgs-automation/winget-pkgs-automation*
 
 # temp directory
 temp/
