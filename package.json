@@ -31,7 +31,7 @@
     "whatsapp-web.js": "^1.23.0"
   },
   "devDependencies": {
-    "@types/node": "^20.10.4",
+    "@types/node": "^20.10.5",
     "@vercel/node": "^3.0.12",
     "commitizen": "^4.3.0",
     "commitlint": "^18.4.3",
