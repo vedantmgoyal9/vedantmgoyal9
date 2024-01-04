@@ -1,0 +1,14 @@
+<!-- <script src="{{ "js/jquery.min.js" | absURL }}"></script>
+<script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
+<script src="{{ "js/jquery.cookie.js" | absURL }}"> </script>
+<script src="{{ "js/ekko-lightbox.js" | absURL }}"></script>
+<script src="{{ "js/jquery.scrollTo.min.js" | absURL }}"></script>
+<script src="{{ "js/masonry.pkgd.min.js" | absURL }}"></script>
+<script src="{{ "js/imagesloaded.pkgd.min.js" | absURL }}"></script>
+<script src="{{ "js/owl.carousel.min.js" | absURL }}"></script>
+<script src="{{ "js/front.js" | absURL }}"></script> -->
+
+{{ range resources.Match "js/*.js" }}
+  {{ $script := . | minify }}
+  <script src="{{ .RelPermalink }}"></script>
+{{ end }}
