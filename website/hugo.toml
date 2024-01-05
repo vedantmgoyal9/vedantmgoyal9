@@ -8,7 +8,7 @@ title = 'My Personal Website'
     id = 'G-18YBHGT46W'
 
 [params]
-  description = "My personal Website, built with Hugo"
+  description = "My personal website, built with Hugo"
   copyright = "Copyright &copy; 2023 Vedant and contributors."
   sidebarHeading = "Vedant Mohan Goyal"
   sidebarAbout = [
