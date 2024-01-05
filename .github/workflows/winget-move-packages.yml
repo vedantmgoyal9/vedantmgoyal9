@@ -1,0 +1,145 @@
+name: Move Packages (winget-pkgs)
+run-name: ${{ inputs.from-package }} -> ${{ inputs.to-package }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      from-package:
+        description: From Package Identifier
+        type: string
+        required: true
+      to-package:
+        description: To Package Identifier
+        type: string
+        required: true
+      new-moniker:
+        description: New Moniker
+        type: string
+        required: false
+      versions-to-move:
+        description: Versions to Move
+        type: string
+        required: true
+        default: '[ ]'
+      ignore-validation-file:
+        description: Ignore Validation File
+        type: boolean
+        required: true
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Move Packages 📦🚚📦
+        run: |
+          # Set error action to continue, hide progress bar of Invoke-WebRequest
+          $ErrorActionPreference = 'Continue'
+          $ProgressPreference = 'SilentlyContinue'
+
+          $FromPackage = '${{ inputs.from-package }}'
+          $ToPackage = '${{ inputs.to-package }}'
+          $NewMoniker = '${{ inputs.new-moniker }}'
+          $IgnoreValidationFile = $${{ inputs.ignore-validation-file }}
+          $VersionsToMove = '${{ inputs.versions-to-move }}' | ConvertFrom-Json -NoEnumerate
+
+          # Install powershell-yaml module, clone microsoft/winget-pkgs repository, configure remotes, update yamlcreate settings
+          Write-Output 'Installing powershell-yaml module, cloning microsoft/winget-pkgs repository, configuring remotes, updating yamlcreate settings...'
+          Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # install powershell-yaml module
+          git clone https://github.com/microsoft/winget-pkgs.git --quiet # Clone microsoft/winget-pkgs repository
+          git -C winget-pkgs config --local user.name "vedantmgoyal2009" # Set git committer name
+          git -C winget-pkgs config --local user.email "83997633+vedantmgoyal2009@users.noreply.github.com" # Set git committer email
+          git -C winget-pkgs remote rename origin upstream # Rename origin to upstream
+          git -C winget-pkgs remote add origin https://x-access-token:$env:GITHUB_TOKEN@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
+          git -C winget-pkgs fetch origin --quiet # Fetch branches from origin, quiet to not print anything
+          git -C winget-pkgs config core.safecrlf false # Change core.safecrlf to false to suppress some git messages, from YamlCreate.ps1
+          New-Item -Value @'
+          AutoSubmitPRs: never
+          EnableDeveloperOptions: true
+          '@ -Path "$env:LOCALAPPDATA\YamlCreate\Settings.yaml" -ItemType File -Force # Create Settings.yaml file
+          Write-Output 'Installed powershell-yaml module, cloned microsoft/winget-pkgs repository, configured remotes, updated yamlcreate settings.'
+
+          $PSDefaultParameterValues = @{ '*:Encoding' = 'UTF8' }
+          $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $false
+          $ofs = ', '
+
+          Write-Output 'Packages and their versions to be moved:' # Print packages and their versions to be moved
+          Write-Output "-> [$($FromPackage) -> $($ToPackage)] ($($NewMoniker)) - $($VersionsToMove ? $VersionsToMove -join ', ' : 'All versions')"
+
+          Set-Location -Path .\winget-pkgs\Tools\
+          $ManifestsFolder = (Resolve-Path ..\manifests\).Path
+
+          # Get the folders that we are moving
+          $script:FromAppFolder = Join-Path $ManifestsFolder -ChildPath $FromPackage.ToLower()[0] | Join-Path -ChildPath $FromPackage.Replace('.', '\')
+          $script:ToAppFolder = Join-Path $ManifestsFolder -ChildPath $ToPackage.ToLower()[0] | Join-Path -ChildPath $ToPackage.Replace('.', '\')
+
+          # Ensure there are only .yaml files and no sub-packages
+          If ($(Get-ChildItem -Path $script:FromAppFolder -Exclude *.yaml -Recurse -File).Count -and $IgnoreValidationFile -eq $false) {
+            throw [System.InvalidOperationException]::new('Cannot move packages which contain .validation files')
+          }
+
+          # If VersionsToMove is already specified, we will skip this step
+          ## If we are okay to move it, get a list of the versions to move
+          If ($VersionsToMove.Count -eq 0) {
+            $VersionsToMove = @((Get-ChildItem -Path $script:FromAppFolder).Where({ @(Get-ChildItem -Directory -Path $_.FullName).Count -eq 0 })).Name
+          }
+
+          # If still there are no versions to move, we will exit since there is nothing to do
+          If ($VersionsToMove.Count -eq 0) {
+            Write-Error "[$FromPackage -> $ToPackage]: Skipping because there are no versions to move."
+            Exit 1
+          }
+
+          ForEach ($Version in $VersionsToMove) {
+            # Copy the manifests to the new directory
+            $SourceFolder = Join-Path -Path $script:FromAppFolder -ChildPath $Version
+            $DestinationFolder = Join-Path -Path $script:ToAppFolder -ChildPath $Version
+            Copy-Item -Path $SourceFolder -Destination $DestinationFolder -Recurse -Force
+            # Rename the files
+            Get-ChildItem -Path $DestinationFolder -Filter "*$FromPackage*" -Recurse | ForEach-Object { Rename-Item -Path $_.FullName -NewName $($_.Name -replace [regex]::Escape($FromPackage), "$ToPackage") }
+            # Update PackageIdentifier in all files
+            Get-ChildItem -Path $DestinationFolder -Filter "*$ToPackage*" -Recurse | ForEach-Object { [System.IO.File]::WriteAllLines($_.FullName, $((Get-Content -Path $_.FullName -Raw) -replace [regex]::Escape($FromPackage), "$ToPackage"), $Utf8NoBomEncoding) }
+            # Update Moniker in all files
+            if ('' -ne $NewMoniker) { # When no moniker is specified, it will be empty string, and not $Null
+              Get-ChildItem -Path $DestinationFolder -Filter "*$ToPackage*" -Recurse | ForEach-Object { [System.IO.File]::WriteAllLines($_.FullName, $((Get-Content -Path $_.FullName -Raw) -replace 'Moniker:.*', "Moniker: $NewMoniker"), $Utf8NoBomEncoding) }
+            }
+
+            .\YamlCreate.ps1 -PackageIdentifier $ToPackage -PackageVersion $Version -AutoUpgrade -Preserve -SkipPRCheck
+
+            $BranchName = "$FromPackage-v$Version".Replace(' ', '-') # Replace spaces with `-`, spaces are not allowed in git branch names
+
+            # Create new branch from master, add the new files, commit, and push
+            git fetch upstream master --quiet
+            git switch -d upstream/master
+            git add -A
+            git commit -m "$FromPackage $Version -> $ToPackage $Version [Move]"
+            git switch -c "Move-$BranchName"
+            git push --set-upstream origin "Move-$BranchName"
+            gh pr create -f
+
+            Start-Sleep -Seconds 7
+
+            # Remove the old manifest
+            $PathToVersion = $SourceFolder
+            do {
+              Remove-Item -Path $PathToVersion -Recurse -Force
+              $PathToVersion = Split-Path $PathToVersion
+            } while (@(Get-ChildItem $PathToVersion).Count -eq 0)
+
+            # Create new branch from master, add the removed files, commit, and push
+            git fetch upstream master --quiet
+            git switch -d upstream/master
+            git add -A
+            git commit -m "$FromPackage $Version -> $ToPackage $Version [Delete Old]"
+            git switch -c "Remove-$BranchName"
+            git push --set-upstream origin "Remove-$BranchName"
+            gh pr create -f
+
+            Start-Sleep -Seconds 11
+          }
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
