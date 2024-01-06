@@ -11,6 +11,10 @@
         {
             "name": "winget-releaser",
             "path": "../../winget-releaser"
+        },
+        {
+            "name": "homebrew-tap",
+            "path": "../../homebrew-tap"
         }
     ],
     "settings": {

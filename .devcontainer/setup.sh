@@ -51,6 +51,7 @@ clone-repo()
 # Clone repositories
 clone-repo "vedantmgoyal2009/winget-pkgs-automation"
 clone-repo "vedantmgoyal2009/winget-releaser"
+clone-repo "vedantmgoyal2009/homebrew-tap"
 
 # Install npm node_modules
 cd "${workspaces_folder}/winget-releaser"
