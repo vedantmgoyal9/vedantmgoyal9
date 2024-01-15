@@ -15,8 +15,8 @@ title = 'My Personal Website'
     "I am 17-year old student, who loves to code and learn new things.",
     """
     <b>Why bittu.eu.org?</b> <br>
-    Because it's my nickname. Also, it's short and kind of fits for being a domain name. <br>
-    <b>eu.org</b> provides free subdomains for personal use. Read more about it <a href="eu.org">here</a>.
+    Because it's my nickname. Also, it's short and kind of fits for being in a domain name. <br>
+    <b>eu.org</b> provides free subdomains for personal use. Read more about it <a href="https://nic.eu.org/">here</a>.
     """,
   ]
   # Contact page
@@ -57,9 +57,9 @@ title = 'My Personal Website'
   googleplus    = ""
   email         = "contact@bittu.eu.org"
   twitter       = "https://twitter.com/vedantmgoyal"
-  linkedin      = "https://www.linkedin.com/in/vedantmgoyal2009"
+  linkedin      = "https://www.linkedin.com/in/vedantmgoyal"
   stackoverflow = ""
-  instagram     = ""
+  instagram     = "https://instagram.com/vedantmgoyal_"
   github        = "http://github.com/vedantmgoyal2009"
   gitlab        = ""
   youtube       = "https://www.youtube.com/@vedantmgoyal"
