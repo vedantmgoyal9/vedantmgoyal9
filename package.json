@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
   "dependencies": {
+    "playwright": "^1.41.0",
     "probot": "^12.3.3"
   },
   "devDependencies": {
