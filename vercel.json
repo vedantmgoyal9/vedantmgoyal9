@@ -2,11 +2,25 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "functions": {
-    "api/**/*": {
+    "api/*": {
+      "memory": 1024,
+      "maxDuration": 10
+    },
+    "api/winget-pkgs/*": {
       "memory": 1024,
       "maxDuration": 10
     }
   },
+  "rewrites": [
+    {
+      "source": "/api/winget-pkgs/versions/:package_identifier",
+      "destination": "/api/winget-pkgs/versions"
+    },
+    {
+      "source": "/api/winget-pkgs/manifests/:package_identifier/:version?",
+      "destination": "/api/winget-pkgs/manifests"
+    }
+  ],
   "public": false,
   "github": {
     "autoJobCancelation": true
