@@ -19,6 +19,10 @@
     {
       "source": "/api/winget-pkgs/manifests/:package_identifier/:version?",
       "destination": "/api/winget-pkgs/manifests"
+    },
+    {
+      "source": "/api/winget-pkgs-rest/packageManifests/:package_identifier",
+      "destination": "/api/winget-pkgs-rest/packageManifests"
     }
   ],
   "public": false,

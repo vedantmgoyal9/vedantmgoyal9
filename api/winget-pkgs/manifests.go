@@ -20,7 +20,7 @@ type Manifest struct {
 }
 
 // #route /api/winget-pkgs/manfiests?package_identifier={package_identifier}&version={version}
-func Handler(w http.ResponseWriter, r *http.Request) {
+func Manifests(w http.ResponseWriter, r *http.Request) {
 	// only allow GET requests
 	if r.Method != http.MethodGet {
 		w.WriteHeader(http.StatusMethodNotAllowed)
@@ -97,8 +97,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 
-	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(manifests)
 }
 

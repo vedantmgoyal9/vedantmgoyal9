@@ -49,8 +49,8 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 
 	sort.Sort(natural.StringSlice(package_versions)) // sort versions naturally
 
-	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"PackageIdentifier": pkg_id,
 		"Versions":          package_versions,
