@@ -1,6 +1,7 @@
 version = 1
 
 exclude_patterns = [
+  "sheltasks-cli/_sysroots",
   "CODE_OF_CONDUCT.md",
   "LICENSE",
   "package-lock.json",
