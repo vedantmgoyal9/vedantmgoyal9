@@ -3,31 +3,29 @@
 //
 // Source code of the Java/Swing program.
 
-import java.util.*;
-import java.io.*;
-import java.text.*;
+import gnu.gettext.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
+import java.text.*;
+import java.util.*;
 import javax.swing.*;
-import gnu.gettext.*;
 
 public class Hello {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     ResourceBundle catalog = ResourceBundle.getBundle("hello-java-swing");
     JFrame frame = new JFrame("Hello example");
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    JLabel label1 =
-      new JLabel(GettextResource.gettext(catalog,"Hello, world!"));
+    JLabel label1 = new JLabel(GettextResource.gettext(catalog, "Hello, world!"));
     JLabel label2 =
-      new JLabel(
-          MessageFormat.format(
-              GettextResource.gettext(catalog,
-                  "This program is running as process number {0}."),
-              new Object[] { getPid() }));
+        new JLabel(
+            MessageFormat.format(
+                GettextResource.gettext(catalog, "This program is running as process number {0}."),
+                new Object[] {getPid()}));
     JButton button = new JButton("OK");
     button.addActionListener(
         new ActionListener() {
-          public void actionPerformed (ActionEvent event) {
+          public void actionPerformed(ActionEvent event) {
             System.exit(0);
           }
         });
@@ -46,15 +44,14 @@ public class Hello {
   }
 
   /* Return the process ID of the current process.  */
-  private static String getPid () {
+  private static String getPid() {
     try {
-      String[] args = new String[] { "/bin/sh", "-c", "echo $PPID" };
+      String[] args = new String[] {"/bin/sh", "-c", "echo $PPID"};
       Process p = Runtime.getRuntime().exec(args);
       InputStream p_out = p.getInputStream();
       String s = (new BufferedReader(new InputStreamReader(p_out))).readLine();
       p.destroy();
-      if (s != null)
-        return s;
+      if (s != null) return s;
     } catch (IOException e) {
       e.printStackTrace();
     }

@@ -4,7 +4,7 @@
  * @author Bruno Haible
  */
 public class TestAWT {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     try {
       java.awt.Toolkit.getDefaultToolkit();
     } catch (Throwable e) {

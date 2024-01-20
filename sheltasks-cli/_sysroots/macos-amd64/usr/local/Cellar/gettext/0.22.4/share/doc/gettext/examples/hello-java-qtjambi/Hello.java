@@ -3,15 +3,15 @@
 //
 // Source code of the Java/QtJambi program.
 
-import java.util.*;
-import java.io.*;
-import java.text.*;
 import com.trolltech.qt.core.*;
 import com.trolltech.qt.gui.*;
 import gnu.gettext.*;
+import java.io.*;
+import java.text.*;
+import java.util.*;
 
 public class Hello {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     ResourceBundle catalog = ResourceBundle.getBundle("hello-java-qtjambi");
 
     QApplication.initialize(args);
@@ -23,16 +23,14 @@ public class Hello {
     QVBoxLayout panelLayout = new QVBoxLayout();
     panelLayout.setSpacing(2);
 
-    QLabel label1 =
-      new QLabel(GettextResource.gettext(catalog,"Hello, world!"));
+    QLabel label1 = new QLabel(GettextResource.gettext(catalog, "Hello, world!"));
     panelLayout.addWidget(label1);
 
     QLabel label2 =
-      new QLabel(
-          MessageFormat.format(
-              GettextResource.gettext(catalog,
-                  "This program is running as process number {0}."),
-              new Object[] { getPid() }));
+        new QLabel(
+            MessageFormat.format(
+                GettextResource.gettext(catalog, "This program is running as process number {0}."),
+                new Object[] {getPid()}));
     panelLayout.addWidget(label2);
 
     QWidget buttonBar = new QWidget();
@@ -40,7 +38,7 @@ public class Hello {
     QWidget filler = new QWidget(); // makes the button right-aligned
     buttonBarLayout.addWidget(filler);
     QPushButton button = new QPushButton("OK");
-    button.setMaximumWidth(button.sizeHint().width()+20);
+    button.setMaximumWidth(button.sizeHint().width() + 20);
     button.clicked.connect(window, "close()");
     buttonBarLayout.addWidget(button);
     buttonBar.setLayout(buttonBarLayout);
@@ -56,15 +54,14 @@ public class Hello {
   }
 
   /* Return the process ID of the current process.  */
-  private static String getPid () {
+  private static String getPid() {
     try {
-      String[] args = new String[] { "/bin/sh", "-c", "echo $PPID" };
+      String[] args = new String[] {"/bin/sh", "-c", "echo $PPID"};
       Process p = Runtime.getRuntime().exec(args);
       InputStream p_out = p.getInputStream();
       String s = (new BufferedReader(new InputStreamReader(p_out))).readLine();
       p.destroy();
-      if (s != null)
-        return s;
+      if (s != null) return s;
     } catch (IOException e) {
       e.printStackTrace();
     }
