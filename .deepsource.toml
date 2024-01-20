@@ -1,5 +1,13 @@
 version = 1
 
+exclude_patterns = [
+  "CODE_OF_CONDUCT.md",
+  "LICENSE",
+  "package-lock.json",
+  "tsconfig.json",
+  "vercel.json"
+]
+
 [[analyzers]]
 name = "java"
 
@@ -7,16 +15,22 @@ name = "java"
   runtime_version = "19"
 
 [[analyzers]]
-name = "shell"
-
-[[analyzers]]
-name = "javascript"
-
-  [analyzers.meta]
-  environment = ["nodejs"]
-
-[[analyzers]]
 name = "go"
 
   [analyzers.meta]
-  import_root = "github.com/vedantmgoyal2009/vedantmgoyal2009"
+  import_root = "github.com/vedantmgoyal2009/vedantmgoyal2009/sheltasks-cli"
+
+[[analyzers]]
+name = "shell"
+
+[[analyzers]]
+name = "secrets"
+
+[[transformers]]
+name = "google-java-format"
+
+[[transformers]]
+name = "gofmt"
+
+[[transformers]]
+name = "gofumpt"
