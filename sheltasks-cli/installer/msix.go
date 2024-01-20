@@ -25,7 +25,7 @@ func getMsixPackageFamilyName(msixPath, tempDir string) string {
 
 	utf16Bytes := utf16.Encode([]rune(identityPublisher))
 
-	var binaryBuffer = new(bytes.Buffer)
+	binaryBuffer := new(bytes.Buffer)
 
 	errWritingUtf16BytesToBinaryBuffer := binary.Write(binaryBuffer, binary.LittleEndian, utf16Bytes)
 	if errWritingUtf16BytesToBinaryBuffer != nil {
