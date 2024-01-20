@@ -265,4 +265,5 @@ var bcp47_locales = map[string]string{
 	"20490": "es-PR",
 	"21514": "es-US",
 	"58378": "es-419",
-	"58380": "fr-015"}
+	"58380": "fr-015",
+}

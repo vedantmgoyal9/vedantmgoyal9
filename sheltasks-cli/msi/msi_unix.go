@@ -1,4 +1,5 @@
 //go:build linux || darwin
+
 /*
 Copyright © 2023 Vedant
 */
@@ -10,6 +11,7 @@ package msi
 #include <libmsi.h>
 */
 import "C"
+
 import (
 	"fmt"
 	"os"
