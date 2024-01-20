@@ -1,4 +1,5 @@
 package conditions_ninth;
+
 /*
  * Write a program to input monthly sale of a sales person and calculate
  * commission according to given slab:

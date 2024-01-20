@@ -1,4 +1,5 @@
 package conditions_ninth;
+
 /*      Income         Tax
  * Upto 180000         Nil.
  * 180001 to 300000    10%

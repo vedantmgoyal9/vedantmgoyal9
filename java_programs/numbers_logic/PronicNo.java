@@ -1,4 +1,5 @@
 package numbers_logic;
+
 // A pronic number is a number that is the product of two consecutive integers
 public class PronicNo {
   public static void main(String[] args) {

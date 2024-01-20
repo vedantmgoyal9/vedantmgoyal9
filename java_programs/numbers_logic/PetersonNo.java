@@ -1,4 +1,5 @@
 package numbers_logic;
+
 // A number in which the sum of factorials of each digit is equal to the sum of the number itself
 public class PetersonNo {
   public static void main(String[] args) {
