@@ -7,7 +7,7 @@ version: 2
 updates:
   # Maintain dependencies for Go modules
   - package-ecosystem: gomod # See documentation for possible values
-    directory: /api/winget-pkgs # Location of package manifests
+    directory: /sheltasks-cli # Location of package manifests
     allow:
       - dependency-type: all
     schedule:
@@ -35,6 +35,38 @@ updates:
         dependency-type: development
     schedule:
       interval: daily
+    commit-message:
+      prefix: chore(deps)
+    reviewers: [vedantmgoyal2009]
+    rebase-strategy: auto
+    target-branch: main
+
+  # Maintain dependencies for Go modules
+  - package-ecosystem: gomod # See documentation for possible values
+    directory: /api/winget-pkgs # Location of package manifests
+    allow:
+      - dependency-type: all
+    schedule:
+      interval: daily
+    groups:
+      go:
+        patterns: ['*']
+    commit-message:
+      prefix: chore(deps)
+    reviewers: [vedantmgoyal2009]
+    rebase-strategy: auto
+    target-branch: main 
+
+  # Maintain dependencies for Go modules
+  - package-ecosystem: gomod # See documentation for possible values
+    directory: /api/winget-pkgs-rest # Location of package manifests
+    allow:
+      - dependency-type: all
+    schedule:
+      interval: daily
+    groups:
+      go:
+        patterns: ['*']
     commit-message:
       prefix: chore(deps)
     reviewers: [vedantmgoyal2009]
