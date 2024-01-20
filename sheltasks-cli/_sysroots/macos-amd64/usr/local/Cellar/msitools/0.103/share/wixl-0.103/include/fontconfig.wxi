@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?require gcc.wxi?>
+<?require freetype.wxi?>
+<?require expat.wxi?>
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR">
+      <Directory Id="dir0B59E06740062A42E59797E62929100F" Name="bin">
+        <Component Win64="$(var.Win64)" Id="cmpB3584B7A74E2FCE0AC99CC8EFBCE6258" Guid="*">
+          <File Id="fil8A2078B0161B2FAB36807BD748BE275F" KeyPath="yes" Source="$(var.SourceDir)/bin/fc-cache.exe"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmp90957A1F025BB67B26A2301CEBB6A0F9" Guid="*">
+          <File Id="filDD3EDF1CA316561B4F3B527E073D5E18" KeyPath="yes" Source="$(var.SourceDir)/bin/fc-cat.exe"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmp2CACAD074AA8F879CDD4FCDF84EA865B" Guid="*">
+          <File Id="fil4CB35ADC8AE6EDF2FE6A6BBE487FE107" KeyPath="yes" Source="$(var.SourceDir)/bin/fc-conflist.exe"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmpDFD00F2936B7396113CA6658D2F23376" Guid="*">
+          <File Id="filE407204478A490914323775422E47F92" KeyPath="yes" Source="$(var.SourceDir)/bin/fc-list.exe"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmp4FB5F749659694E48948B1F2F108FEF5" Guid="*">
+          <File Id="fil8CD81D76F3477A5E5711DC1CDBD80309" KeyPath="yes" Source="$(var.SourceDir)/bin/fc-match.exe"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmp1B635ED86358B66F31360403E0622FAB" Guid="*">
+          <File Id="filDE8F2D7681274E7F473CF76AC50A270D" KeyPath="yes" Source="$(var.SourceDir)/bin/fc-pattern.exe"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmp826D0A58E78109216DA148302439AB9E" Guid="*">
+          <File Id="filBCFD124E14AA87767422842CF33DE999" KeyPath="yes" Source="$(var.SourceDir)/bin/fc-query.exe"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmp957AA914E6629010B9822604A9765DF7" Guid="*">
+          <File Id="fil33188DA8C53204780ACB3D43E4ADA779" KeyPath="yes" Source="$(var.SourceDir)/bin/fc-scan.exe"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmp469F67A0BBD8BB7E440C84D1219E8117" Guid="*">
+          <File Id="fil82A292554A2DDD9E12E8A7840BF6380B" KeyPath="yes" Source="$(var.SourceDir)/bin/fc-validate.exe"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmpA0B977A3DCC54C67DFA7850539580036" Guid="*">
+          <File Id="fil76F4CD56C7108AAAC6F057779B588AC3" KeyPath="yes" Source="$(var.SourceDir)/bin/libfontconfig-1.dll"/>
+        </Component>
+      </Directory>
+      <Directory Id="dirB0C4CFC7B99A600B233B63ECD72A4B00" Name="etc">
+        <Directory Id="dir9053999FFE049710F6E4B71004A5FC2B" Name="fonts">
+          <Directory Id="dir4DFA8C458F231ED3C72D0BA714DE5071" Name="conf.d">
+            <Component Win64="$(var.Win64)" Id="cmp6DA2ADCA389AFAC1301D1ADC134885C3" Guid="*">
+              <File Id="fil51D42FBEAF8936BB5B1D57CEDE6D975D" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/10-hinting-slight.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp6D72B032E8888DA597B9F4162F169A74" Guid="*">
+              <File Id="filC4B0A0AF5FB511534D8FAE158861B274" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/10-scale-bitmap-fonts.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp7CD52C82675B03D584D4F085C287B58A" Guid="*">
+              <File Id="fil82DBD12D26DF2C92A560ABE74165F2F2" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/10-sub-pixel-none.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp7E024B7CFC9B63CFA9EA6DF8C1F43910" Guid="*">
+              <File Id="filD155EBF760D17FFFDCA3177CAA7F9D63" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/10-yes-antialias.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp2C1E04ED20DEBD023A84DA0DD5F67C89" Guid="*">
+              <File Id="filAE2F31FE3AAFBCAC3C629F3ED9956758" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/11-lcdfilter-default.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp78D6779F04A7909EACAB692FB61EA7AC" Guid="*">
+              <File Id="filAF94EC0DCD5A93FAC9C892EF069DC0B4" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/20-unhint-small-vera.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp2BBC933FA55DBE3F4DBE1CEACA4F5E21" Guid="*">
+              <File Id="filFFE934B9B3E257CCAFC0D681BD559C1C" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/30-metric-aliases.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpEB329A7C1564FE57B457DD2E152A03C5" Guid="*">
+              <File Id="filBBCA8B319CDAA23C9011798E7262292A" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/40-nonlatin.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp4BC58C9561DE366BB07A613AB0230DF9" Guid="*">
+              <File Id="fil6E8E2CC2F8B971E862CF3306C7E0B6B2" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/45-generic.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpDF6AF2A17994425FF5B17A660523BFE1" Guid="*">
+              <File Id="fil05AED3F46AF7B56B491B7CC660678BBB" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/45-latin.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpF7F2D1C2A6627804DD2BF68344CF6FA1" Guid="*">
+              <File Id="fil5E47B425F7029EBEE91FBC9CF13AEA6A" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/48-spacing.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpB024C7E1BE6998B3AA4D2F3DD6A51F54" Guid="*">
+              <File Id="fil861EF03B8B10B4B191B39B057155A83F" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/49-sansserif.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpBB22ADEACA4EBC15934FCBDA0A8EBC8A" Guid="*">
+              <File Id="filF08109E0B559D7249FB54EBBF2586F57" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/50-user.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp001A0BA244FEBEEEA27C84B5545BDF60" Guid="*">
+              <File Id="filE60A58E16B48AE43A5B4A81C00631EC0" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/51-local.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp0C5AA78F42D51F2329C2DCFD9D210101" Guid="*">
+              <File Id="filCCCB367D855189703F53DD457A165B16" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/60-generic.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpF6E523365D5A2517386C93296EC92E71" Guid="*">
+              <File Id="filAB0D3313D4CE6AFF162BE98E57E401F2" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/60-latin.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp9875120D05A1987F5558B9FCE918E54F" Guid="*">
+              <File Id="filE7819D69573A6EDDBFDAFC597B12B445" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/65-fonts-persian.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp99032E09E8083F9B9B7AEE0C83EA3A9D" Guid="*">
+              <File Id="filC2C1B1521615A1E6028901E96D6A1937" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/65-nonlatin.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp9F265B74D88AD8BB84452AE0EB686954" Guid="*">
+              <File Id="fil6E440C8137810A8C8FE57DCED1E7C9D2" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/69-unifont.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpFB059DBB0C822FE6DA18135A6435B7E2" Guid="*">
+              <File Id="fil8C059B75E86E79B5A1FC1AD1B34B79A3" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/80-delicious.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp18D68F8524FD821DDA39D020126B5FB3" Guid="*">
+              <File Id="filF081F081FFF7DB5410AC558A10DA3A7F" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/90-synthetic.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp113D0157E3EB97AD877BD2F43D74AA1F" Guid="*">
+              <File Id="filCE71642DEA38EB49B30CFF0DEA1085F9" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/conf.d/README"/>
+            </Component>
+          </Directory>
+          <Component Win64="$(var.Win64)" Id="cmp237B16E604E0D3996DE59F11DBE3606C" Guid="*">
+            <File Id="filC717F23A99B88297E457331EA50C46D1" KeyPath="yes" Source="$(var.SourceDir)/etc/fonts/fonts.conf"/>
+          </Component>
+        </Directory>
+      </Directory>
+      <Directory Id="dir10F866FE8E34B1CED15AC9564E459C9C" Name="share">
+        <Directory Id="dir48A5B86D94B14D49F0B9358CE1F22671" Name="fontconfig">
+          <Directory Id="dirF13F4D3EF6826A85303A53085EB634EA" Name="conf.avail">
+            <Component Win64="$(var.Win64)" Id="cmpDC9E65CBFCDB78E07CA2051F49074634" Guid="*">
+              <File Id="filCFE3A9D2B0EFA735059856539BE95E41" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/05-reset-dirs-sample.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp69FBC7647CD1C67B26D9F578A68355B1" Guid="*">
+              <File Id="fil467D8F61076BF75AC1CE1D10F4100638" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/09-autohint-if-no-hinting.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp12246628C62E13776F2EA6E257BF0767" Guid="*">
+              <File Id="fil27F7737DA918CD8507D8508E674830DC" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-autohint.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp944CBA1A6AADD7DC4CF8B2621DC24228" Guid="*">
+              <File Id="fil89B8A02BF1CB808D54FC3AC19973964D" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-hinting-full.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp556DE895ECC553A764C88FC8B1F6912A" Guid="*">
+              <File Id="filDBDE5768D0CC244BC29A01F43F11719D" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-hinting-medium.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp4DCB306764725C151B3F5E25356DA949" Guid="*">
+              <File Id="fil14CB4E740C823545537E9E0A7EF81D95" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-hinting-none.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpE8017A3E2AC7CF25AC447680479BB53C" Guid="*">
+              <File Id="fil6C0D520B2E53631A3BCF01A06A17DD7F" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-hinting-slight.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpF7A729191450D03AAA135162FD417411" Guid="*">
+              <File Id="filB82BF00568965AD866B8EA3E2FBDD979" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-no-antialias.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp71694A71D61E39FF376E9E4B8F719E95" Guid="*">
+              <File Id="fil51072109920F9F59F1BD32CCA2EEB1A1" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-scale-bitmap-fonts.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp11F51F589DC303DDABE95F9EF1B4742A" Guid="*">
+              <File Id="filF73F235A04975222FCAA42023EEF4F56" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-sub-pixel-bgr.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpB0836B7348C685CB0BDF2B44E47D659A" Guid="*">
+              <File Id="fil533DD5FCC467A4CDD362D49ACF550043" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-sub-pixel-none.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp6F9F9C6913CAE98B4166ACBED688C350" Guid="*">
+              <File Id="fil9363AFB0043F6A886F8344AF43F297E6" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-sub-pixel-rgb.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp03DA2965DFD54E1CB6CF6BBA1AE923AF" Guid="*">
+              <File Id="filF22F7DA7E2ED34EA1DFD8199CBF1D569" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-sub-pixel-vbgr.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp63B72CFE398B622F19AE3AA23F8DDA03" Guid="*">
+              <File Id="filD1D15BB417E47E8619C9DAE6C0FEF943" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-sub-pixel-vrgb.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpF344A9425BBCA46052F5ED8A03464086" Guid="*">
+              <File Id="fil158AAAB27EBEEBFC87E3F64641FEF8D1" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-unhinted.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp10C6A78AC89E10E1CE637FA1FC9BA997" Guid="*">
+              <File Id="fil0FFC0BD8538B2B978BFC6E9B763AA6FB" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/10-yes-antialias.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp2619F2F6B991990D6EA3AFE381A106EB" Guid="*">
+              <File Id="fil9B1F7BB8FDD66B0232F0693E8F2F5344" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/11-lcdfilter-default.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp9A7A02CC342FE076F28291E28747FE48" Guid="*">
+              <File Id="fil22769F95752704CD5AEAC27C8224EFE5" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/11-lcdfilter-legacy.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpD5A837AF4F8002AE3ECD0013DBC8B659" Guid="*">
+              <File Id="fil041F54731DA7EE1F66E95EA701CB4742" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/11-lcdfilter-light.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp456C2EDE2D91666A1127F49DA167B7B8" Guid="*">
+              <File Id="filF7105CE364B926322D0D90666A6F1825" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/20-unhint-small-vera.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp0A289EB3C7A741FD0BDD35EA6013034F" Guid="*">
+              <File Id="filB180F4744E1A8DF0E9EEEADF577A522E" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/25-unhint-nonlatin.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp9DEB1D5FD2BEF89C455D00ECED46F073" Guid="*">
+              <File Id="fil5D9172CF9CC7A172AA2AB5F3B9F7A062" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/30-metric-aliases.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp28F180B75FC844BFC9F4C88D4D73850E" Guid="*">
+              <File Id="fil386FCDEF273B7C930C13932DBDBA30EE" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/35-lang-normalize.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp32E68C91936BAEFF4F9AC318A88A1612" Guid="*">
+              <File Id="filAA48EFB83ECB8434D1190FEEC57451B9" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/40-nonlatin.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp475A2CD0F13C6D60DEF3A6DB64326F9A" Guid="*">
+              <File Id="fil3D4C656817964AC04D5586F2AA090A0B" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/45-generic.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpE2DB35C09D1EAC2668893561E72EA8D7" Guid="*">
+              <File Id="fil02DE987F12793D938DF83AB92079AC57" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/45-latin.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpC3F2B958B6B95D9C110A86EA384A63E3" Guid="*">
+              <File Id="filB88C5B19B369D744D2DDF4F25DBF25D5" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/48-spacing.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp0A2A144C42C0201E8D541A175B2C1048" Guid="*">
+              <File Id="fil9551D923B4D617DBD9296867779D0240" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/49-sansserif.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp1A203350583DCA55367613BC72169157" Guid="*">
+              <File Id="fil8C41DF7DA95E1A903B1207E88A448985" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/50-user.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp51BA76A82A685939D9C035DDF4356345" Guid="*">
+              <File Id="filE090EE43B14B7309A2EB8F89D0F515C4" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/51-local.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp709A5151BF11FAAD5503B3BBAF23F41F" Guid="*">
+              <File Id="filB7E2C1308718CD3DAA5C5D4701A747EA" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/60-generic.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp4869D8B889DB0A17AB1B6EFAA29A5AAB" Guid="*">
+              <File Id="fil7CB2DA643A37414D3E83E791B6E86D9A" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/60-latin.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp7554705C9CB5018C53DFE32EC9B60030" Guid="*">
+              <File Id="fil4526E0539072B81D6ADE8C0A1B797A6B" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/65-fonts-persian.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp1E5C4BEB6496BC39D42E2EF00EBDFFBF" Guid="*">
+              <File Id="fil4A935834032AE4B26683756500E08A4E" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/65-khmer.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp7D1CDE7B29D67867120166537B84442A" Guid="*">
+              <File Id="fil1C2E6139A568EC61B0B9BDEB2C2D6212" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/65-nonlatin.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpBE02F9C3212DBC92A487C42EE9B800A1" Guid="*">
+              <File Id="fil85196E24A2EB8DB08CB2008A89B256F6" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/69-unifont.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp17156210BB54AFA7158D77A3A24D85F7" Guid="*">
+              <File Id="fil9ABE08CCEE6976C8791E462DA709A726" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/70-no-bitmaps.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp62A4A1C27B3B9F2FB9544CE6CA236032" Guid="*">
+              <File Id="fil0525B1DE3D3499FF36DA38E14BFED251" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/70-yes-bitmaps.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpBE17D847EE91589316CCBC7BA6BA2248" Guid="*">
+              <File Id="fil28019707E19184976E4A4AF159327B5F" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/80-delicious.conf"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmpB7D15A06E512AE5B12D00F174E940EB4" Guid="*">
+              <File Id="fil0470484713EC5AEBDBE677E4D68FB727" KeyPath="yes" Source="$(var.SourceDir)/share/fontconfig/conf.avail/90-synthetic.conf"/>
+            </Component>
+          </Directory>
+        </Directory>
+        <Directory Id="dirCCF8455C94DA3C120ED7A382B89C7561" Name="gettext">
+          <Directory Id="dir46E8AB71F079D064A7D570EBEEBB1F5C" Name="its">
+            <Component Win64="$(var.Win64)" Id="cmpF1C9A9989E3D8AFEBE58569F96281BF7" Guid="*">
+              <File Id="fil727E440D352D228C81D16A8FBA4E1BB5" KeyPath="yes" Source="$(var.SourceDir)/share/gettext/its/fontconfig.its"/>
+            </Component>
+            <Component Win64="$(var.Win64)" Id="cmp19A51F8A1023E93D83B2002F201ECA00" Guid="*">
+              <File Id="fil4E5C0BB22EB3137DCE1877831F8EC855" KeyPath="yes" Source="$(var.SourceDir)/share/gettext/its/fontconfig.loc"/>
+            </Component>
+          </Directory>
+        </Directory>
+        <Directory Id="dirF6A5A1C2BB355E669A4FA7BD8E647A57" Name="xml">
+          <Directory Id="dir205ADE1DAB9BDE10C07EA524A09208EF" Name="fontconfig">
+            <Component Win64="$(var.Win64)" Id="cmpCDCDDD6712A1DF70587DDBB38F72E079" Guid="*">
+              <File Id="fil331AAAAACA773FE3596A83861E715E1A" KeyPath="yes" Source="$(var.SourceDir)/share/xml/fontconfig/fonts.dtd"/>
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="CG.fontconfig">
+      <ComponentGroupRef Id="CG.gcc"/>
+      <ComponentGroupRef Id="CG.freetype"/>
+      <ComponentGroupRef Id="CG.expat"/>
+      <ComponentRef Id="cmpB3584B7A74E2FCE0AC99CC8EFBCE6258"/>
+      <ComponentRef Id="cmp90957A1F025BB67B26A2301CEBB6A0F9"/>
+      <ComponentRef Id="cmp2CACAD074AA8F879CDD4FCDF84EA865B"/>
+      <ComponentRef Id="cmpDFD00F2936B7396113CA6658D2F23376"/>
+      <ComponentRef Id="cmp4FB5F749659694E48948B1F2F108FEF5"/>
+      <ComponentRef Id="cmp1B635ED86358B66F31360403E0622FAB"/>
+      <ComponentRef Id="cmp826D0A58E78109216DA148302439AB9E"/>
+      <ComponentRef Id="cmp957AA914E6629010B9822604A9765DF7"/>
+      <ComponentRef Id="cmp469F67A0BBD8BB7E440C84D1219E8117"/>
+      <ComponentRef Id="cmpA0B977A3DCC54C67DFA7850539580036"/>
+      <ComponentRef Id="cmp6DA2ADCA389AFAC1301D1ADC134885C3"/>
+      <ComponentRef Id="cmp6D72B032E8888DA597B9F4162F169A74"/>
+      <ComponentRef Id="cmp7CD52C82675B03D584D4F085C287B58A"/>
+      <ComponentRef Id="cmp7E024B7CFC9B63CFA9EA6DF8C1F43910"/>
+      <ComponentRef Id="cmp2C1E04ED20DEBD023A84DA0DD5F67C89"/>
+      <ComponentRef Id="cmp78D6779F04A7909EACAB692FB61EA7AC"/>
+      <ComponentRef Id="cmp2BBC933FA55DBE3F4DBE1CEACA4F5E21"/>
+      <ComponentRef Id="cmpEB329A7C1564FE57B457DD2E152A03C5"/>
+      <ComponentRef Id="cmp4BC58C9561DE366BB07A613AB0230DF9"/>
+      <ComponentRef Id="cmpDF6AF2A17994425FF5B17A660523BFE1"/>
+      <ComponentRef Id="cmpF7F2D1C2A6627804DD2BF68344CF6FA1"/>
+      <ComponentRef Id="cmpB024C7E1BE6998B3AA4D2F3DD6A51F54"/>
+      <ComponentRef Id="cmpBB22ADEACA4EBC15934FCBDA0A8EBC8A"/>
+      <ComponentRef Id="cmp001A0BA244FEBEEEA27C84B5545BDF60"/>
+      <ComponentRef Id="cmp0C5AA78F42D51F2329C2DCFD9D210101"/>
+      <ComponentRef Id="cmpF6E523365D5A2517386C93296EC92E71"/>
+      <ComponentRef Id="cmp9875120D05A1987F5558B9FCE918E54F"/>
+      <ComponentRef Id="cmp99032E09E8083F9B9B7AEE0C83EA3A9D"/>
+      <ComponentRef Id="cmp9F265B74D88AD8BB84452AE0EB686954"/>
+      <ComponentRef Id="cmpFB059DBB0C822FE6DA18135A6435B7E2"/>
+      <ComponentRef Id="cmp18D68F8524FD821DDA39D020126B5FB3"/>
+      <ComponentRef Id="cmp113D0157E3EB97AD877BD2F43D74AA1F"/>
+      <ComponentRef Id="cmp237B16E604E0D3996DE59F11DBE3606C"/>
+      <ComponentRef Id="cmpDC9E65CBFCDB78E07CA2051F49074634"/>
+      <ComponentRef Id="cmp69FBC7647CD1C67B26D9F578A68355B1"/>
+      <ComponentRef Id="cmp12246628C62E13776F2EA6E257BF0767"/>
+      <ComponentRef Id="cmp944CBA1A6AADD7DC4CF8B2621DC24228"/>
+      <ComponentRef Id="cmp556DE895ECC553A764C88FC8B1F6912A"/>
+      <ComponentRef Id="cmp4DCB306764725C151B3F5E25356DA949"/>
+      <ComponentRef Id="cmpE8017A3E2AC7CF25AC447680479BB53C"/>
+      <ComponentRef Id="cmpF7A729191450D03AAA135162FD417411"/>
+      <ComponentRef Id="cmp71694A71D61E39FF376E9E4B8F719E95"/>
+      <ComponentRef Id="cmp11F51F589DC303DDABE95F9EF1B4742A"/>
+      <ComponentRef Id="cmpB0836B7348C685CB0BDF2B44E47D659A"/>
+      <ComponentRef Id="cmp6F9F9C6913CAE98B4166ACBED688C350"/>
+      <ComponentRef Id="cmp03DA2965DFD54E1CB6CF6BBA1AE923AF"/>
+      <ComponentRef Id="cmp63B72CFE398B622F19AE3AA23F8DDA03"/>
+      <ComponentRef Id="cmpF344A9425BBCA46052F5ED8A03464086"/>
+      <ComponentRef Id="cmp10C6A78AC89E10E1CE637FA1FC9BA997"/>
+      <ComponentRef Id="cmp2619F2F6B991990D6EA3AFE381A106EB"/>
+      <ComponentRef Id="cmp9A7A02CC342FE076F28291E28747FE48"/>
+      <ComponentRef Id="cmpD5A837AF4F8002AE3ECD0013DBC8B659"/>
+      <ComponentRef Id="cmp456C2EDE2D91666A1127F49DA167B7B8"/>
+      <ComponentRef Id="cmp0A289EB3C7A741FD0BDD35EA6013034F"/>
+      <ComponentRef Id="cmp9DEB1D5FD2BEF89C455D00ECED46F073"/>
+      <ComponentRef Id="cmp28F180B75FC844BFC9F4C88D4D73850E"/>
+      <ComponentRef Id="cmp32E68C91936BAEFF4F9AC318A88A1612"/>
+      <ComponentRef Id="cmp475A2CD0F13C6D60DEF3A6DB64326F9A"/>
+      <ComponentRef Id="cmpE2DB35C09D1EAC2668893561E72EA8D7"/>
+      <ComponentRef Id="cmpC3F2B958B6B95D9C110A86EA384A63E3"/>
+      <ComponentRef Id="cmp0A2A144C42C0201E8D541A175B2C1048"/>
+      <ComponentRef Id="cmp1A203350583DCA55367613BC72169157"/>
+      <ComponentRef Id="cmp51BA76A82A685939D9C035DDF4356345"/>
+      <ComponentRef Id="cmp709A5151BF11FAAD5503B3BBAF23F41F"/>
+      <ComponentRef Id="cmp4869D8B889DB0A17AB1B6EFAA29A5AAB"/>
+      <ComponentRef Id="cmp7554705C9CB5018C53DFE32EC9B60030"/>
+      <ComponentRef Id="cmp1E5C4BEB6496BC39D42E2EF00EBDFFBF"/>
+      <ComponentRef Id="cmp7D1CDE7B29D67867120166537B84442A"/>
+      <ComponentRef Id="cmpBE02F9C3212DBC92A487C42EE9B800A1"/>
+      <ComponentRef Id="cmp17156210BB54AFA7158D77A3A24D85F7"/>
+      <ComponentRef Id="cmp62A4A1C27B3B9F2FB9544CE6CA236032"/>
+      <ComponentRef Id="cmpBE17D847EE91589316CCBC7BA6BA2248"/>
+      <ComponentRef Id="cmpB7D15A06E512AE5B12D00F174E940EB4"/>
+      <ComponentRef Id="cmpF1C9A9989E3D8AFEBE58569F96281BF7"/>
+      <ComponentRef Id="cmp19A51F8A1023E93D83B2002F201ECA00"/>
+      <ComponentRef Id="cmpCDCDDD6712A1DF70587DDBB38F72E079"/>
+    </ComponentGroup>
+  </Fragment>
+</Include>
+<!-- generated with msitools 0.101.32-aeb8 -->
+<!-- wixl-heat -var var.SourceDir -p /usr/x86_64-w64-mingw32/sys-root/mingw/ -component-group CG.fontconfig -directory-ref INSTALLDIR -win64 -->

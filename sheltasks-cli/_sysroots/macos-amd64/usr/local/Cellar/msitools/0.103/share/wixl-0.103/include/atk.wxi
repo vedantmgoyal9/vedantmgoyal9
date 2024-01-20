@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?require glib2.wxi?>
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR">
+      <Directory Id="dirDE1D8BC11F79C699B5ADA311B816F5A8" Name="bin">
+        <Component Win64="$(var.Win64)" Id="cmp468C6DD87A982A2CC69D38D5FB7E1A98" Guid="*">
+          <File Id="fil4BFF0FABB24839C5874F5C7BE4D5DA65" KeyPath="yes" Source="$(var.SourceDir)/bin/libatk-1.0-0.dll"/>
+        </Component>
+      </Directory>
+      <Directory Id="dir01EC77D44DF59D7579B67A723A545486" Name="share">
+        <Directory Id="dirB7E5226DB1C7455159F80CD25A9D5DA1" Name="locale">
+          <Directory Id="dir587DF893797FA0D2B1769FEAB06F9A91" Name="af">
+            <Directory Id="dirF6646C22AB2A8E7014B6F7D9066E7D1B" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp103651F7D5254BA01C3D373E1D2BBB88" Guid="*">
+                <File Id="fil14CD24CB57862D4C53C7F1D9CB17018A" KeyPath="yes" Source="$(var.SourceDir)/share/locale/af/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir3249ACE965D54BE049AF36800511B202" Name="am">
+            <Directory Id="dirDBAF87CDF05508AF7A659A89F60BAAD2" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp98C85985EC4F08D39714ED7EF068E12D" Guid="*">
+                <File Id="fil2CCBA6321FBE68E74F15B9918E0F2A12" KeyPath="yes" Source="$(var.SourceDir)/share/locale/am/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirD91182B2212ADE88C854017F492C07EC" Name="an">
+            <Directory Id="dir7D1A4FB871548B756F3DDF9D0741F4F9" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpCB15A26DE31672176793C2846A10EFD3" Guid="*">
+                <File Id="fil851240326F30FFCE22E31C32E268A78B" KeyPath="yes" Source="$(var.SourceDir)/share/locale/an/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirCBA8251CEB6188DEE9FF80FF4B632175" Name="ar">
+            <Directory Id="dir9579CFEDE9963586A484EAAE604B86E8" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp0FECF5FD04C6DC0C52175347C796ADAC" Guid="*">
+                <File Id="filE81225B3F1C4D77335ECD24B73DCF967" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ar/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirE14B6DAE91A4157927EDEC454B1313F3" Name="as">
+            <Directory Id="dirBFB7CA2E0FCDDB8278F32FD5B983CC89" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp185B076FFFDDB1F54A5C6BAEC3534DD9" Guid="*">
+                <File Id="fil74439F8A1080B6F9DD957903550C74ED" KeyPath="yes" Source="$(var.SourceDir)/share/locale/as/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir0AEBA524D3EC3283A845B5D9D450FAF0" Name="ast">
+            <Directory Id="dirFE83CEB1646CE43BCDDF811A85718EA7" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpABDE111E9F36CBDD89A7E1FBF0F78D19" Guid="*">
+                <File Id="fil5B51AD4134999289C3A036262BC323C2" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ast/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirC916788AB7D57D867235EE9B2F9511CF" Name="az">
+            <Directory Id="dirC942B7F34AA97EFAEAC1C4526BE9D2BC" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpCA7163CC46B937816E816056EA46B894" Guid="*">
+                <File Id="fil53A243244F86B15EE2DAEF3493CADFE7" KeyPath="yes" Source="$(var.SourceDir)/share/locale/az/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirD2A35733FDCC00BB4B96732211784EA1" Name="be">
+            <Directory Id="dir6989D82E8B322B35C7D962D42FDFC6F0" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp23A6F9D1EED389F8C80C1065AC0CC556" Guid="*">
+                <File Id="fil048A27A062DC0F0A99A8721AF41D10E5" KeyPath="yes" Source="$(var.SourceDir)/share/locale/be/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirBCDBD96A5C56EBEA344FBACFF514AD09" Name="be@latin">
+            <Directory Id="dirF5ADEE3CE47B717FA61E2FA32F45E673" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp0825BD45D4E690B295D685854544F14A" Guid="*">
+                <File Id="filECCF1FC53F1DCFA4E4AA3472A1633B7E" KeyPath="yes" Source="$(var.SourceDir)/share/locale/be@latin/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir34D53684AC243054B6D2AE5C7B702E41" Name="bg">
+            <Directory Id="dir33E21720F726D44A1718637DE89926A9" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp369679FD5335972755B6A5BFD0234FFC" Guid="*">
+                <File Id="filED92290F78DACCE3B02C9FAC4872DA03" KeyPath="yes" Source="$(var.SourceDir)/share/locale/bg/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirFB9F2F357D135435F2030D64F68BFE82" Name="bn">
+            <Directory Id="dir909A5F522628A922D6A249DF4385B1D0" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp3ABE7BB35FF79FE65C188DA12C2BE535" Guid="*">
+                <File Id="filC4D7E40F51E0D425A1252959BBAED55E" KeyPath="yes" Source="$(var.SourceDir)/share/locale/bn/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir3C89F7E7FD09496727F2CAE00F92F54C" Name="bn_IN">
+            <Directory Id="dir086A742A041A35F52EFDB868E5B26159" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpE49BD212F6DEC64FEB9A1B05C0BF8379" Guid="*">
+                <File Id="fil0F0BABC00A62D2D0943F05F426516879" KeyPath="yes" Source="$(var.SourceDir)/share/locale/bn_IN/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir919068E80C312CD2D47E97CCD158DC3D" Name="bs">
+            <Directory Id="dirDAA636FF1FA2CA9E0F8F8DBC4BBD1259" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp8760682C007F03B388652CB50F3028C4" Guid="*">
+                <File Id="filD6208D4E50A3129AF0B657CA280FA773" KeyPath="yes" Source="$(var.SourceDir)/share/locale/bs/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirE9B00883221D9282AFC3775C3344994C" Name="ca">
+            <Directory Id="dir98F560988C379AB526B8F8D7A1E69CE3" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp4D997C5C292E61B2BD82F649B59B8B3C" Guid="*">
+                <File Id="fil4A7014EDC9817F4981F6A919CAA122FE" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ca/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir3E458EDC06451C2230ABFAEA724DFFAD" Name="ca@valencia">
+            <Directory Id="dir0DEB6A783BCAA34C1DDBC8C07EE64B64" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp375CEE157D86F3CE6DD96855031B1E36" Guid="*">
+                <File Id="fil930D3897D47B76FE6C2CC9C2EBD3CC9F" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ca@valencia/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirF9E7A7504CC3633A1239E7FC8B3235E6" Name="cs">
+            <Directory Id="dir5DC9FD4FD18D24B98CFC7FF7C252CA4D" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp931515B67617F6C6B43BFECDBC993C8C" Guid="*">
+                <File Id="fil2C9E2DFA868A278D56E4F470D7E246B4" KeyPath="yes" Source="$(var.SourceDir)/share/locale/cs/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirD07068B7BBDF7B980D897248E8F60B31" Name="cy">
+            <Directory Id="dir93BC597B0E6240AEF886D36F63FA7D1F" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp4A7504E6BCFB29BD00A64425DFCA9CF0" Guid="*">
+                <File Id="fil8CD39A4F41587135B8CDC32B99E2F0AF" KeyPath="yes" Source="$(var.SourceDir)/share/locale/cy/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirF2989CE69DA542BED3CAD26278CE699A" Name="da">
+            <Directory Id="dirFD50471EE8AFE98A77A55A565C08B913" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp1C06D0A72ADDBC68321A06EE2E6CFE21" Guid="*">
+                <File Id="fil84F69ECFBAD1988BD8C25D227D5F3E39" KeyPath="yes" Source="$(var.SourceDir)/share/locale/da/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirD08A5A3CA5BE64712E7AECF46148503A" Name="de">
+            <Directory Id="dir8D11E22792182B55054FBDF99B78B314" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp07FFC83C6C512DFC27A0E971C92138BC" Guid="*">
+                <File Id="fil40B6EB17B98A8BC7B752F9472880AD27" KeyPath="yes" Source="$(var.SourceDir)/share/locale/de/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirA76190CAACA9AFF156C2E87EDC923319" Name="dz">
+            <Directory Id="dir750F9967B28A8D9AD0ECCFD5A06BF43B" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp41CD3217957DA6829F966AC9300AF190" Guid="*">
+                <File Id="fil19903B5273E5B8072EB304D90987DBD5" KeyPath="yes" Source="$(var.SourceDir)/share/locale/dz/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir743A0BCEDA6A3E750DB8E0B9EE126521" Name="el">
+            <Directory Id="dirF92A1EE29DFC27BDC29BB7C321214462" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpDBF6DA3EE1BEF93F3D90703F02335714" Guid="*">
+                <File Id="filDA5A779317EB571B118837D1577B0377" KeyPath="yes" Source="$(var.SourceDir)/share/locale/el/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir85A457CAFA4D6E660C7AF45BFED086C2" Name="en@shaw">
+            <Directory Id="dir56F0B58191F95018E52F77D75D6BE5D8" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp33D187B57D5C5D28AA03A990DFCB487B" Guid="*">
+                <File Id="filF317D4C924D555E48C9212305993BD94" KeyPath="yes" Source="$(var.SourceDir)/share/locale/en@shaw/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir1409826C0E5BE111641BF9D600B99179" Name="en_CA">
+            <Directory Id="dir0C3D62DE83F559E50142B986FA311C2F" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp8BE989CE094520FF889EA1AA0D039D1E" Guid="*">
+                <File Id="filC8ED7E35A75852C461BB9AC580AC2056" KeyPath="yes" Source="$(var.SourceDir)/share/locale/en_CA/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirE84D7AD8F1297C8312BB322C07473678" Name="en_GB">
+            <Directory Id="dir1DCF8C72F3A963B00C6F2362748E45D1" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpEAC34F5D3C83A4538F6A193CCA3C871A" Guid="*">
+                <File Id="fil78B2AE1E1F160958456C0533861E4F5E" KeyPath="yes" Source="$(var.SourceDir)/share/locale/en_GB/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir87CBDFB6104EEA5113D715CA2EB94AC8" Name="eo">
+            <Directory Id="dir9431E2C028BA19052B29126E25565D26" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpA4E42C30F7AD5D5B6935908A2EC4F223" Guid="*">
+                <File Id="fil56779E955417E4D56A2876DFE751E66A" KeyPath="yes" Source="$(var.SourceDir)/share/locale/eo/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirBC4B1BF9131A05401A81B2191005182C" Name="es">
+            <Directory Id="dir4A2ADA7B5EEEC37D92155B35D52F972C" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp60D2BED402F58E119F4EA7C5C422FF0E" Guid="*">
+                <File Id="filE76AC7C968F722B322970D2894A6D7E6" KeyPath="yes" Source="$(var.SourceDir)/share/locale/es/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirBFF8EAFDAA4D3129CFE489A9DBACA6FC" Name="et">
+            <Directory Id="dirB9030DC80931FDA87DFCEA31769EDECD" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpC98A24FDECD4A906A5658EA281B2CB73" Guid="*">
+                <File Id="filCE0F7794F3C395A87F7059AE3EFD4775" KeyPath="yes" Source="$(var.SourceDir)/share/locale/et/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir2E414F0AEC330842F51DB4CD58B03F24" Name="eu">
+            <Directory Id="dir13228E848E80B2258BD318A35D628EC3" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp80116B4E8481A36DCBD7328BD454F1F6" Guid="*">
+                <File Id="fil9D2D6AE6AB9DEC31616281EE1313967B" KeyPath="yes" Source="$(var.SourceDir)/share/locale/eu/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir6D7A39873B562D2A7FB7AA400ECBB544" Name="fa">
+            <Directory Id="dirE1B48D9D83D10A75AC0DD9284EF90E51" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp9FECF1E5A00418ECAC0C04C8F19A6941" Guid="*">
+                <File Id="filA2CEECAC40ABB10901B8B5CBAB35F320" KeyPath="yes" Source="$(var.SourceDir)/share/locale/fa/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir3228E93637805770509E639A7C103349" Name="fi">
+            <Directory Id="dir257FB288467AB57490F4CF015A211BCF" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp802AB971E9166C56E2937BB7A3E7E4EF" Guid="*">
+                <File Id="filC14F041CD08CC17CE0206F580F684B17" KeyPath="yes" Source="$(var.SourceDir)/share/locale/fi/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir6A37159E67CA8C3BE6969E54F38EB254" Name="fr">
+            <Directory Id="dirAA1C09A20F79113661A11D0B661F9346" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpCA06A61E43B4537D8B9FD67761DE216B" Guid="*">
+                <File Id="fil282B0BC6A5CBFE1534A0FDD7C5BD9F77" KeyPath="yes" Source="$(var.SourceDir)/share/locale/fr/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirC2F70B1AC35923C246029EF2DE0FF7F8" Name="fur">
+            <Directory Id="dir524F2A2861A4E7244B569F2CADDFC089" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp6BADE05061598892B08853BDDB829AC8" Guid="*">
+                <File Id="fil61EE15664B072895DD911ABF4FC13B23" KeyPath="yes" Source="$(var.SourceDir)/share/locale/fur/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir696EB69CCB69A534B549D5E2A33F6C76" Name="ga">
+            <Directory Id="dir67666641CEC1D333C3F474DB10110DF3" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp2EE4B40CA10508C8B079DB480066CC41" Guid="*">
+                <File Id="fil9C84B85511830708DD7820C4F83CA776" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ga/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirD13AC5987BCC08EB54F9C1F414D00D60" Name="gd">
+            <Directory Id="dir46D8D85F80175181897CA2FD66F27066" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpC8AA45E5B627270CE4DD225F9755F90E" Guid="*">
+                <File Id="filE5C152833F717EEBA64A03FC5E13197A" KeyPath="yes" Source="$(var.SourceDir)/share/locale/gd/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir9E228B36EB276A5EFCDBD482A1A4B6A9" Name="gl">
+            <Directory Id="dirC69DEC8DFF0CB48202C62C08DC61C977" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpAE7A465BEFC62E76EF29E8569C8BB0EA" Guid="*">
+                <File Id="fil4DFBDE4D52E2A639E041461873916D0E" KeyPath="yes" Source="$(var.SourceDir)/share/locale/gl/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirFDE45A7314CD0E7CCE1A59C3BF39C936" Name="gu">
+            <Directory Id="dirE07BDC0D99C1FE3234FAC036D3E339F5" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp4E0C497FC85854A4BBB7D914D56C4971" Guid="*">
+                <File Id="fil5B82077BF1809C98DABA6505C90A9D57" KeyPath="yes" Source="$(var.SourceDir)/share/locale/gu/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir6A5E714CF9721D48E5D78A3C2A193EF6" Name="he">
+            <Directory Id="dir00644B607AABAAB0D397EA6323793F61" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpCF5EF5734F2A1BC194B1BEC58C4E1B72" Guid="*">
+                <File Id="fil623E3DA710B94DD876ABE3FEE72D9718" KeyPath="yes" Source="$(var.SourceDir)/share/locale/he/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir4E1F4F0406364DBE16918046E1DEF7E3" Name="hi">
+            <Directory Id="dir3FDCE84D99BCE715F5B1D02CD2B2226C" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpCD9E5D53EED7C158F272614068EE5189" Guid="*">
+                <File Id="fil4057493595A38CF3ED92437BF6AD80B1" KeyPath="yes" Source="$(var.SourceDir)/share/locale/hi/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir45529D17F41DEADC00DEDD328FB69B42" Name="hr">
+            <Directory Id="dir64D09C42BA98D8078C58708D7A7DD62F" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp8AA76D009B38F56B39877FE664B54DB6" Guid="*">
+                <File Id="fil2794DCD55B2A98407E4ADD3EFF2CA441" KeyPath="yes" Source="$(var.SourceDir)/share/locale/hr/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir9C1830A0601D73D8F330D6E6AB2D9A25" Name="hu">
+            <Directory Id="dir4DC84C02E8755B98C7680949DE8C038E" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp61648A1396249AC50414F823D7FCBE95" Guid="*">
+                <File Id="fil51C2C26183AB542AA7ED0925E2A881B8" KeyPath="yes" Source="$(var.SourceDir)/share/locale/hu/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirFC4141BD923850ED3B36D59F78E90700" Name="hy">
+            <Directory Id="dir6452FC416E52FDD85A423EFDB16E40E9" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp23CA79F63ECDBF87F098E670DBF452CB" Guid="*">
+                <File Id="filEAB140EB6F2583E92A540AB15B7AE16D" KeyPath="yes" Source="$(var.SourceDir)/share/locale/hy/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir68A29234CA85785771511C4BF7E552B5" Name="id">
+            <Directory Id="dirE8D551FFF2B25B97C4030216E7B13E25" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp407447968B7BDC91AF71BE4924D60A14" Guid="*">
+                <File Id="filDCA23FAF501660430090FC66FC96A6C2" KeyPath="yes" Source="$(var.SourceDir)/share/locale/id/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir08194BD6F7EA31B11E4D6E3A9CCFCC42" Name="is">
+            <Directory Id="dirFC70A53B4593DD12AC514099270DA536" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp082E231C57D4BFAEC54A049CB998926E" Guid="*">
+                <File Id="filE699175ECE96E45432E6BA36BA088C2F" KeyPath="yes" Source="$(var.SourceDir)/share/locale/is/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir029689F688A55336EEFF5865A000C22A" Name="it">
+            <Directory Id="dir14D88D4AB2E17A70BF38755245199AF2" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp1CB0A34A126FEF76BA29FBC4336FF2B1" Guid="*">
+                <File Id="fil612D5EFFACE68CB5E2D0A5B62CE48880" KeyPath="yes" Source="$(var.SourceDir)/share/locale/it/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir3359326621CC7DA5C665F7AC2ECDA5BC" Name="ja">
+            <Directory Id="dir3FBB05E90A3EBE8D2A0E2C3F6AE3E93B" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpFB00C145B8952230D142822FA6893556" Guid="*">
+                <File Id="fil7F8E40102F34834C9BBD98B55279285E" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ja/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir64F9041922D2E9969AF9AE1D5D85C82C" Name="ka">
+            <Directory Id="dir1376D2F31C2A00B61B7DCD86C6A89A3D" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp4816A6B151FA034B19CF10143B8DBDC7" Guid="*">
+                <File Id="fil4F7BCC77A148BF3BAC29EFB015AB68F8" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ka/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir9D0E0A774E4E1800AB1CC12C3C775B9D" Name="kk">
+            <Directory Id="dirAC8FF7002E3BC4F95067B7EE06C348E2" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp0E8A8D2897B67E0B56352C0AF483A8AE" Guid="*">
+                <File Id="filFE015C7CF09E208B8755BE3A60091AEB" KeyPath="yes" Source="$(var.SourceDir)/share/locale/kk/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirD16AD8425CA599BD26BE25E401FB62FE" Name="km">
+            <Directory Id="dir5AD065FEFE2EF7D7D814A25C045CB50D" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp68D780411077DB7EE52F9577065D8FE6" Guid="*">
+                <File Id="filA63135294FFC4659CD5C7CCF208807BD" KeyPath="yes" Source="$(var.SourceDir)/share/locale/km/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir6B4DCAF3C8925A1BBE5A81E6E2667877" Name="kn">
+            <Directory Id="dir4321B4DA2542D67B9313936634809629" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpB37203A701F51143E082C0DF3B2A17CF" Guid="*">
+                <File Id="filEB08A600D24E7E902D1A2E4D4805EC8F" KeyPath="yes" Source="$(var.SourceDir)/share/locale/kn/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir902B2B682869CBE7C6A7613B032CDD7F" Name="ko">
+            <Directory Id="dir065A1B74B7E0847DA89AE378F7D32F68" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpD9B9BBAD7D30778060722BE46EF2A5B6" Guid="*">
+                <File Id="fil057A07946D36CF265AA0A2F3F6FDD72F" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ko/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirA04F2E3262F213FC517996D06A28DC22" Name="ku">
+            <Directory Id="dir04D745359D2A12547DDDE3F7AC097C71" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp223CD7E5DA54B0CE4CFD1F16D7386A49" Guid="*">
+                <File Id="fil8CE4E595430E12BBCD79446FF819FB9C" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ku/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir75D4B9FC1EA183591CBA8F368657A198" Name="li">
+            <Directory Id="dirCF615F48A1E4435CB6EC6EDF7847D2E0" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp2A4544B4E3BBFDFF8F5E7867F2330D76" Guid="*">
+                <File Id="fil56768B26630ED5DD8C151834007D8348" KeyPath="yes" Source="$(var.SourceDir)/share/locale/li/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir8C9387EC064D65E64DBC65D44A13DBD1" Name="lt">
+            <Directory Id="dir8703DDF74D581D0D5D6B5AF466C4F615" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp2D437B3162992532BF3510803C87A95B" Guid="*">
+                <File Id="filB572E5B783798775B47DA59D8E2771FD" KeyPath="yes" Source="$(var.SourceDir)/share/locale/lt/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirBA3BFA4AA581C3B71700F5D1B165387C" Name="lv">
+            <Directory Id="dir6D5DB0729AE5A2E146A0BEA0A6FEA164" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp1F59C1DC0C5BD5FDEBF27793EF8FA0BC" Guid="*">
+                <File Id="filF972E6B21C24084DE71A504B9611BEA0" KeyPath="yes" Source="$(var.SourceDir)/share/locale/lv/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir19B2FCEA04080712F17E2B74F55391BF" Name="mai">
+            <Directory Id="dir16643F7247EA5135F52D3604AE8858D8" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp7EC7C098B2A7737564682FE279112436" Guid="*">
+                <File Id="fil1B2D74CB6FB0B199858274BC788EFEB3" KeyPath="yes" Source="$(var.SourceDir)/share/locale/mai/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirCBD9E70A2CE3C29E591367E24781FA9C" Name="mk">
+            <Directory Id="dirDDD9F366EB8B04193B28993208810032" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp67156AE517B13DDBA69BA6C066E281F6" Guid="*">
+                <File Id="fil92BCFDFB38388265BD36397B8DB9D35E" KeyPath="yes" Source="$(var.SourceDir)/share/locale/mk/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirE62A47CB0C78572CE47281B4DEB3FB10" Name="ml">
+            <Directory Id="dir1241642C03847F72FB127B9E8C3B156D" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpB347F6EF58447A8A11A4AC4344F1B6E1" Guid="*">
+                <File Id="fil03104B2699E5A2B0839D118525BC5C0E" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ml/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirAC35627C868354F88268552AB2E99289" Name="mn">
+            <Directory Id="dirF27E7606F5388BE3F4E0DA42299D0E90" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpBDF9C9E461DF398AECECC5F21F3EB0E7" Guid="*">
+                <File Id="fil50EBA5D8E61CFE32C512394DAD62D6C0" KeyPath="yes" Source="$(var.SourceDir)/share/locale/mn/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirA3C0F583B605A73CD8484D762A70C906" Name="mr">
+            <Directory Id="dir7E4701C4B71FC5FF3C71CED61AE66039" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpAF23822A0E6754388DE236A5DABCED3E" Guid="*">
+                <File Id="filC023A3E28061E1153FD5CF269D63662C" KeyPath="yes" Source="$(var.SourceDir)/share/locale/mr/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirCD015FE2E0CA73C332DB7F68DD01B090" Name="ms">
+            <Directory Id="dir4C4334DC9B0F0ABDEE6B943CC349779C" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp61514D77F7E0016C7E755F6B9CC0D5C7" Guid="*">
+                <File Id="fil3318C903089BD58BB9CC2D2FF2A2DC4D" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ms/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir33F558D3A4F3C5B6871CA88DFFF9CC5A" Name="nb">
+            <Directory Id="dir87BFD3A1B7AD646D53B2759E9CCB20F0" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp66F3BCEE80AC0C118011742493AA7683" Guid="*">
+                <File Id="fil472ECADF3078E8F0F40D672455E4A897" KeyPath="yes" Source="$(var.SourceDir)/share/locale/nb/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir942741304520053B5B5E4BAA5ADEAE44" Name="ne">
+            <Directory Id="dirE666F3198556349C1AB0A4BAA00E491E" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp1915EE812A15B4B1BFBCD258F5D315FA" Guid="*">
+                <File Id="fil846110B3B5BE5A6E6E9A52998856B970" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ne/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir7E5CD2D637E8F78AAF2FA1C0C0315387" Name="nl">
+            <Directory Id="dir41DFE591E461E7E498B88DEFAD62F401" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp747DFCA5F5CA09BED457B1C9D23C7EC4" Guid="*">
+                <File Id="filE6FAE11466F4B99C010C3EF00D0AF1F9" KeyPath="yes" Source="$(var.SourceDir)/share/locale/nl/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir1FAEC4A1CDE42EF63CFB174621F01897" Name="nn">
+            <Directory Id="dirB1BF9E4CA9ED895D35A6A31782004715" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp0A704D3B8A037F9E2D5E15DEA72384BC" Guid="*">
+                <File Id="filFB05A3D9703CAD2D012E6BCF3B7D1A8B" KeyPath="yes" Source="$(var.SourceDir)/share/locale/nn/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir3CD438E90F83685D44D82E6347FA783C" Name="oc">
+            <Directory Id="dir8E7A3680180C9AF7B8A8667D74297B81" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp0F351773D0416006776030203ED4F94E" Guid="*">
+                <File Id="filCF41CBA3255442B014EE429E9A441706" KeyPath="yes" Source="$(var.SourceDir)/share/locale/oc/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirD51147E0D2357622683852AB62D7F1DE" Name="or">
+            <Directory Id="dir4798276ADAEA0EBE37A4F1CED61491C4" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp7283002BC3D1C8E8EDBE14692D90620C" Guid="*">
+                <File Id="fil0E0EA4D9CBAF0063FD3C0495C32B0FDF" KeyPath="yes" Source="$(var.SourceDir)/share/locale/or/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir7C69748562686B7876551E102E2525F7" Name="pa">
+            <Directory Id="dirA35BA8A3F34A3CC265E315AC337C55A6" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp4D0D9AC108E66B4C1847F6F87987A5DF" Guid="*">
+                <File Id="fil5CA8885E49558169151EB2946F697277" KeyPath="yes" Source="$(var.SourceDir)/share/locale/pa/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirC71462870B0D7F070A49C1B67563201A" Name="pl">
+            <Directory Id="dir32CD165F8527CEB609C332F9BFB1F0F1" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp476D0F0B1701A5B966E1A1C366FB65FA" Guid="*">
+                <File Id="fil58AAAE7202C05A4F9DB3D42DEA90F7B7" KeyPath="yes" Source="$(var.SourceDir)/share/locale/pl/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir45B25B947B676BC7F2315DACDBD28CB6" Name="ps">
+            <Directory Id="dir3F63EA233C455A41C4C4C1B46D9147A2" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp1259AACF5C21C04D5DEFE95DFDBCA0CD" Guid="*">
+                <File Id="filA650BFD200525F69B8FD6FC743FE2D39" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ps/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir4F0DE28EEE4D3EB9C7793FAC1C38916E" Name="pt">
+            <Directory Id="dir027D3305C40BEF0BBCC0272227ECA9EB" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp5AFB4B57D6638FCB1C5492CD72C9742A" Guid="*">
+                <File Id="filF22BB8BC651F5DD5A195550531EC9EB9" KeyPath="yes" Source="$(var.SourceDir)/share/locale/pt/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir0C41873CDED4C2D4E1D89E81823504DA" Name="pt_BR">
+            <Directory Id="dirA28B0E469E41D7A7C2AF51B66356E634" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpB8D4A7338F455E56A1B216F462AB0839" Guid="*">
+                <File Id="fil6FDA6E026768008653B55E86F6638DA8" KeyPath="yes" Source="$(var.SourceDir)/share/locale/pt_BR/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir41BA8384B8BEF97C26D2BF268C6A5C9A" Name="ro">
+            <Directory Id="dir222E713A35ADC486AF63BA2B810E22F3" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp4FF022CD61FB087232C0624C32084B29" Guid="*">
+                <File Id="fil800D6A3A3F8AC801B779896E5C49CDBD" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ro/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirE77C7B6914D3BC11816F6075D51C9D93" Name="ru">
+            <Directory Id="dir36B8113A6F4E6E7EBC8669CCEDF7EF33" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp42932CF374A6D44427B2F7BDCE1629BC" Guid="*">
+                <File Id="filB6EE103CECEC31274CAE492CE1BE2D05" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ru/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirA7503FE504B22077C3D88023E68C46B8" Name="rw">
+            <Directory Id="dir74DE8886AA0A31B6637D09B6FA155250" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpC3C291315BF1B46AEC15A1CC6E69F23D" Guid="*">
+                <File Id="fil15E845FE41313580EBFD9FB21F8B8A22" KeyPath="yes" Source="$(var.SourceDir)/share/locale/rw/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir89D699369C8FD0AE6A6CEF8333BAB321" Name="si">
+            <Directory Id="dir334A02DD8B82E80D4A24947042C1F4AE" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpF3D45991E8474B7C41B483BD1C25A925" Guid="*">
+                <File Id="fil1F6AECF4C156602B0A09F0058EE9E76E" KeyPath="yes" Source="$(var.SourceDir)/share/locale/si/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir941AB7FBF8DC671103196A82A625A386" Name="sk">
+            <Directory Id="dirED476F40E4DEA1003BB528B3C94A53B9" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpDB3253BCB2D9E3F0F96847D760D249FD" Guid="*">
+                <File Id="fil737BFEB656E8B3E4DBB93318DD7D04E9" KeyPath="yes" Source="$(var.SourceDir)/share/locale/sk/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir25AE4F7A921B7C6DA0752985FDDC8B6F" Name="sl">
+            <Directory Id="dir88C1023F95C2FE00101752268613010D" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp9E0DAEC690D63E2F5335FE0B0448CEF6" Guid="*">
+                <File Id="filEDADDBAF32722E528FAE64C3B0E7D467" KeyPath="yes" Source="$(var.SourceDir)/share/locale/sl/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir474F88DAFF4B6A499FA9D693FBE8DFED" Name="sq">
+            <Directory Id="dir8D2F7A3CCA77143873773F4465FFA141" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpBFF2019162735200A48EB71B47B76313" Guid="*">
+                <File Id="fil70D4A00CD8B5D3F1492FE63BD2B55CFB" KeyPath="yes" Source="$(var.SourceDir)/share/locale/sq/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir76E4DF94AFB8D2007492E2E9F1E73C73" Name="sr">
+            <Directory Id="dirC190A3F4A34271662E92164A3B897A42" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp562D151A5714E6123205F1D82439FD33" Guid="*">
+                <File Id="fil01D0892CB8C499F59F04CBF2EF887B3A" KeyPath="yes" Source="$(var.SourceDir)/share/locale/sr/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirD9B96608668547BEA50E5ECC925F159F" Name="sr@ije">
+            <Directory Id="dirB5931060497FD859B854C3A0DA44089C" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp158FC6C9EA3009751AFCCC72A1A61649" Guid="*">
+                <File Id="fil2DD7ACEE503B63DF3155B977014E6CDF" KeyPath="yes" Source="$(var.SourceDir)/share/locale/sr@ije/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir837369A47771EE02533AF978C43E2B2D" Name="sr@latin">
+            <Directory Id="dir0C42ADD25F02374BE44DA7FB0285DBFE" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpD04A749954FF6C905D253C82BE4FAE3F" Guid="*">
+                <File Id="filC6C8975098D4DA344B356EA2B679CD14" KeyPath="yes" Source="$(var.SourceDir)/share/locale/sr@latin/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir5E37F32BFB21A7D934429C56E9D08BAD" Name="sv">
+            <Directory Id="dir39D04ED5E818D09DAB3984BEB7A838E3" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp4B84C5DC13FE1C21D6411D00A458A797" Guid="*">
+                <File Id="filFA21F76EE8E54E0D299A4139D950D3A1" KeyPath="yes" Source="$(var.SourceDir)/share/locale/sv/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir0718B6A9898DCD6DDD992AFA62DA7E03" Name="ta">
+            <Directory Id="dir40D71C8D8A14EBB19C03134E956A3A8A" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp5921D5CC1BA8965972D7957A7A08EA7B" Guid="*">
+                <File Id="filA8F62D623AD99853C4E02E6612AA7319" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ta/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir75DCB2CB3FB579233F042E1B89BD4055" Name="te">
+            <Directory Id="dir0B920133EAC914032588935365154458" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp13899AEE360CCD3092CA82E88ADE7996" Guid="*">
+                <File Id="fil32B3EF3BEE2781E31A39B66DC51DB4E8" KeyPath="yes" Source="$(var.SourceDir)/share/locale/te/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir59EA1C495D04F38AE5BA93B77CF36080" Name="tg">
+            <Directory Id="dir07F15A2A6F8A2256C453E0EE820F9A03" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpB0CFAB6A9A9B325E3E8E7D30329C2C27" Guid="*">
+                <File Id="filF112835F81A2E6A11E3F41967AA4C0DD" KeyPath="yes" Source="$(var.SourceDir)/share/locale/tg/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir016C626252DC2C2E3509DBF7DC55C637" Name="th">
+            <Directory Id="dirA65DBB50C8B8BCC99C196CC3E0A8C894" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp20178E9C1761ECEBE5A0A04548472869" Guid="*">
+                <File Id="filC112DBF60F414EA0062542E019989F34" KeyPath="yes" Source="$(var.SourceDir)/share/locale/th/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirAB03AE620A709A87ACDA96CA91EFC33E" Name="tk">
+            <Directory Id="dirCE47F16B999F00942A4DBD4BAE0E7A00" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpF3B4E142E3ACEED6A6672B446E494641" Guid="*">
+                <File Id="filAD9E950EE323D97AEEECABC6AF960012" KeyPath="yes" Source="$(var.SourceDir)/share/locale/tk/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir21FA9A1044F9670C323BE1FB4D09214A" Name="tr">
+            <Directory Id="dir217FB2098F5BFAA9FE4D518E558F1D54" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpDB2AD00FD7DC30FE8968F0F093EB4B67" Guid="*">
+                <File Id="filE118EAC268B793ED9E9C15D63D072371" KeyPath="yes" Source="$(var.SourceDir)/share/locale/tr/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirCB08171424134F2C90A178EF3EA76F2A" Name="tt">
+            <Directory Id="dir0D87D90885747E77D5D676400DC90E1E" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpF8FE60579D2B292EF691683C7C8356EC" Guid="*">
+                <File Id="fil7630CFCD81C9D6C5478044923E0FBBA3" KeyPath="yes" Source="$(var.SourceDir)/share/locale/tt/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirAD5D8923D48A73E32969FF5B42526DC7" Name="ug">
+            <Directory Id="dir5AD85001F14E2F9773EDD0FA0B80FC48" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp56C4EC6793FE2C92271DDAD982C80382" Guid="*">
+                <File Id="filF97497B08739BC18417CE4F900CBE211" KeyPath="yes" Source="$(var.SourceDir)/share/locale/ug/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirD8FAF3D1F497DDFD6D8402E5A876BF86" Name="uk">
+            <Directory Id="dirB7FC766E1981FF42D374004E9EFD0CEA" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpE62DF551208A2020D34F3CB75A1F26CC" Guid="*">
+                <File Id="fil6067FB89D3522F0FCFBAD501BB57B85A" KeyPath="yes" Source="$(var.SourceDir)/share/locale/uk/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir53E91569631C9FE37FBF719400B6B868" Name="vi">
+            <Directory Id="dirFD74D535AD453EBBA56D14E2E56B958E" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpF7948615B842E63FC0BFABC3DE7523E9" Guid="*">
+                <File Id="fil5DCB13C22E38960A2A4EB61F373FC442" KeyPath="yes" Source="$(var.SourceDir)/share/locale/vi/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirC684B4F3E5C9230E8FE2591A89C17994" Name="wa">
+            <Directory Id="dir477750B5150E8195D6147AF4C3B282AD" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpE5CEC5B85FE10E9E7C7E6142E7059F79" Guid="*">
+                <File Id="fil2B3E97BADD046F4807B903F5E8F805AF" KeyPath="yes" Source="$(var.SourceDir)/share/locale/wa/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir899399EAB0C320940AA9DA282107A3FF" Name="xh">
+            <Directory Id="dir47A9614B40FA3801402AE08E7CC3F57B" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp08B03B4FB000DEDDEF2591BA0BE0B474" Guid="*">
+                <File Id="fil5FA9509FDA0FFA6DA05FAF1CE3387B7D" KeyPath="yes" Source="$(var.SourceDir)/share/locale/xh/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir6C54DAB42B6A83A73B3AEC772381B5E6" Name="yi">
+            <Directory Id="dir4540F3BD6B5555884C476D5EB75540A2" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp43F3832B4A0EC98DD2D380F6AC412B1C" Guid="*">
+                <File Id="filFB697FE48FB79EF09977AA7E01C9DDAD" KeyPath="yes" Source="$(var.SourceDir)/share/locale/yi/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirE46A1BB8411B1769A3B109EF7121BC5C" Name="zh_CN">
+            <Directory Id="dir469EFF610063D1642D4D421F5B94D466" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpAB6201472A162D5F4CA7F5FEAAF8B249" Guid="*">
+                <File Id="fil7E02780235E43E561A3662B188152A22" KeyPath="yes" Source="$(var.SourceDir)/share/locale/zh_CN/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir3186BD58F3571C90CE413BBE50E42EAA" Name="zh_HK">
+            <Directory Id="dirE1FDA61828D0AD1778FFC78CB08D1078" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp119584396A3FDD2C04896CB24A487DE9" Guid="*">
+                <File Id="fil4E25EC09F912CCBCCD6C0293A03F83CA" KeyPath="yes" Source="$(var.SourceDir)/share/locale/zh_HK/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dir445191B4D2EC7FF0C1847DA6DAF4E3E7" Name="zh_TW">
+            <Directory Id="dir1FDC2394A3FD97434A1B69A9B1A05757" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmp9BB41CB8D5D8C4263814BE8B425A2A65" Guid="*">
+                <File Id="filD4B18CF3021A9A34E4AD5946E6ECAFAF" KeyPath="yes" Source="$(var.SourceDir)/share/locale/zh_TW/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirC475282DF6362A36EF412E4E935A84B6" Name="zu">
+            <Directory Id="dir1943A84B7CB7CA88699D8C77F2CF5B69" Name="LC_MESSAGES">
+              <Component Win64="$(var.Win64)" Id="cmpD175FDDE1EEBC649FEFC3E2D2DAB8EA7" Guid="*">
+                <File Id="filE9C250FA97FD4D3549F79136D2E947BC" KeyPath="yes" Source="$(var.SourceDir)/share/locale/zu/LC_MESSAGES/atk10.mo"/>
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="CG.atk">
+      <ComponentGroupRef Id="CG.glib2"/>
+      <ComponentRef Id="cmp468C6DD87A982A2CC69D38D5FB7E1A98"/>
+      <ComponentRef Id="cmp103651F7D5254BA01C3D373E1D2BBB88"/>
+      <ComponentRef Id="cmp98C85985EC4F08D39714ED7EF068E12D"/>
+      <ComponentRef Id="cmpCB15A26DE31672176793C2846A10EFD3"/>
+      <ComponentRef Id="cmp0FECF5FD04C6DC0C52175347C796ADAC"/>
+      <ComponentRef Id="cmp185B076FFFDDB1F54A5C6BAEC3534DD9"/>
+      <ComponentRef Id="cmpABDE111E9F36CBDD89A7E1FBF0F78D19"/>
+      <ComponentRef Id="cmpCA7163CC46B937816E816056EA46B894"/>
+      <ComponentRef Id="cmp23A6F9D1EED389F8C80C1065AC0CC556"/>
+      <ComponentRef Id="cmp0825BD45D4E690B295D685854544F14A"/>
+      <ComponentRef Id="cmp369679FD5335972755B6A5BFD0234FFC"/>
+      <ComponentRef Id="cmp3ABE7BB35FF79FE65C188DA12C2BE535"/>
+      <ComponentRef Id="cmpE49BD212F6DEC64FEB9A1B05C0BF8379"/>
+      <ComponentRef Id="cmp8760682C007F03B388652CB50F3028C4"/>
+      <ComponentRef Id="cmp4D997C5C292E61B2BD82F649B59B8B3C"/>
+      <ComponentRef Id="cmp375CEE157D86F3CE6DD96855031B1E36"/>
+      <ComponentRef Id="cmp931515B67617F6C6B43BFECDBC993C8C"/>
+      <ComponentRef Id="cmp4A7504E6BCFB29BD00A64425DFCA9CF0"/>
+      <ComponentRef Id="cmp1C06D0A72ADDBC68321A06EE2E6CFE21"/>
+      <ComponentRef Id="cmp07FFC83C6C512DFC27A0E971C92138BC"/>
+      <ComponentRef Id="cmp41CD3217957DA6829F966AC9300AF190"/>
+      <ComponentRef Id="cmpDBF6DA3EE1BEF93F3D90703F02335714"/>
+      <ComponentRef Id="cmp33D187B57D5C5D28AA03A990DFCB487B"/>
+      <ComponentRef Id="cmp8BE989CE094520FF889EA1AA0D039D1E"/>
+      <ComponentRef Id="cmpEAC34F5D3C83A4538F6A193CCA3C871A"/>
+      <ComponentRef Id="cmpA4E42C30F7AD5D5B6935908A2EC4F223"/>
+      <ComponentRef Id="cmp60D2BED402F58E119F4EA7C5C422FF0E"/>
+      <ComponentRef Id="cmpC98A24FDECD4A906A5658EA281B2CB73"/>
+      <ComponentRef Id="cmp80116B4E8481A36DCBD7328BD454F1F6"/>
+      <ComponentRef Id="cmp9FECF1E5A00418ECAC0C04C8F19A6941"/>
+      <ComponentRef Id="cmp802AB971E9166C56E2937BB7A3E7E4EF"/>
+      <ComponentRef Id="cmpCA06A61E43B4537D8B9FD67761DE216B"/>
+      <ComponentRef Id="cmp6BADE05061598892B08853BDDB829AC8"/>
+      <ComponentRef Id="cmp2EE4B40CA10508C8B079DB480066CC41"/>
+      <ComponentRef Id="cmpC8AA45E5B627270CE4DD225F9755F90E"/>
+      <ComponentRef Id="cmpAE7A465BEFC62E76EF29E8569C8BB0EA"/>
+      <ComponentRef Id="cmp4E0C497FC85854A4BBB7D914D56C4971"/>
+      <ComponentRef Id="cmpCF5EF5734F2A1BC194B1BEC58C4E1B72"/>
+      <ComponentRef Id="cmpCD9E5D53EED7C158F272614068EE5189"/>
+      <ComponentRef Id="cmp8AA76D009B38F56B39877FE664B54DB6"/>
+      <ComponentRef Id="cmp61648A1396249AC50414F823D7FCBE95"/>
+      <ComponentRef Id="cmp23CA79F63ECDBF87F098E670DBF452CB"/>
+      <ComponentRef Id="cmp407447968B7BDC91AF71BE4924D60A14"/>
+      <ComponentRef Id="cmp082E231C57D4BFAEC54A049CB998926E"/>
+      <ComponentRef Id="cmp1CB0A34A126FEF76BA29FBC4336FF2B1"/>
+      <ComponentRef Id="cmpFB00C145B8952230D142822FA6893556"/>
+      <ComponentRef Id="cmp4816A6B151FA034B19CF10143B8DBDC7"/>
+      <ComponentRef Id="cmp0E8A8D2897B67E0B56352C0AF483A8AE"/>
+      <ComponentRef Id="cmp68D780411077DB7EE52F9577065D8FE6"/>
+      <ComponentRef Id="cmpB37203A701F51143E082C0DF3B2A17CF"/>
+      <ComponentRef Id="cmpD9B9BBAD7D30778060722BE46EF2A5B6"/>
+      <ComponentRef Id="cmp223CD7E5DA54B0CE4CFD1F16D7386A49"/>
+      <ComponentRef Id="cmp2A4544B4E3BBFDFF8F5E7867F2330D76"/>
+      <ComponentRef Id="cmp2D437B3162992532BF3510803C87A95B"/>
+      <ComponentRef Id="cmp1F59C1DC0C5BD5FDEBF27793EF8FA0BC"/>
+      <ComponentRef Id="cmp7EC7C098B2A7737564682FE279112436"/>
+      <ComponentRef Id="cmp67156AE517B13DDBA69BA6C066E281F6"/>
+      <ComponentRef Id="cmpB347F6EF58447A8A11A4AC4344F1B6E1"/>
+      <ComponentRef Id="cmpBDF9C9E461DF398AECECC5F21F3EB0E7"/>
+      <ComponentRef Id="cmpAF23822A0E6754388DE236A5DABCED3E"/>
+      <ComponentRef Id="cmp61514D77F7E0016C7E755F6B9CC0D5C7"/>
+      <ComponentRef Id="cmp66F3BCEE80AC0C118011742493AA7683"/>
+      <ComponentRef Id="cmp1915EE812A15B4B1BFBCD258F5D315FA"/>
+      <ComponentRef Id="cmp747DFCA5F5CA09BED457B1C9D23C7EC4"/>
+      <ComponentRef Id="cmp0A704D3B8A037F9E2D5E15DEA72384BC"/>
+      <ComponentRef Id="cmp0F351773D0416006776030203ED4F94E"/>
+      <ComponentRef Id="cmp7283002BC3D1C8E8EDBE14692D90620C"/>
+      <ComponentRef Id="cmp4D0D9AC108E66B4C1847F6F87987A5DF"/>
+      <ComponentRef Id="cmp476D0F0B1701A5B966E1A1C366FB65FA"/>
+      <ComponentRef Id="cmp1259AACF5C21C04D5DEFE95DFDBCA0CD"/>
+      <ComponentRef Id="cmp5AFB4B57D6638FCB1C5492CD72C9742A"/>
+      <ComponentRef Id="cmpB8D4A7338F455E56A1B216F462AB0839"/>
+      <ComponentRef Id="cmp4FF022CD61FB087232C0624C32084B29"/>
+      <ComponentRef Id="cmp42932CF374A6D44427B2F7BDCE1629BC"/>
+      <ComponentRef Id="cmpC3C291315BF1B46AEC15A1CC6E69F23D"/>
+      <ComponentRef Id="cmpF3D45991E8474B7C41B483BD1C25A925"/>
+      <ComponentRef Id="cmpDB3253BCB2D9E3F0F96847D760D249FD"/>
+      <ComponentRef Id="cmp9E0DAEC690D63E2F5335FE0B0448CEF6"/>
+      <ComponentRef Id="cmpBFF2019162735200A48EB71B47B76313"/>
+      <ComponentRef Id="cmp562D151A5714E6123205F1D82439FD33"/>
+      <ComponentRef Id="cmp158FC6C9EA3009751AFCCC72A1A61649"/>
+      <ComponentRef Id="cmpD04A749954FF6C905D253C82BE4FAE3F"/>
+      <ComponentRef Id="cmp4B84C5DC13FE1C21D6411D00A458A797"/>
+      <ComponentRef Id="cmp5921D5CC1BA8965972D7957A7A08EA7B"/>
+      <ComponentRef Id="cmp13899AEE360CCD3092CA82E88ADE7996"/>
+      <ComponentRef Id="cmpB0CFAB6A9A9B325E3E8E7D30329C2C27"/>
+      <ComponentRef Id="cmp20178E9C1761ECEBE5A0A04548472869"/>
+      <ComponentRef Id="cmpF3B4E142E3ACEED6A6672B446E494641"/>
+      <ComponentRef Id="cmpDB2AD00FD7DC30FE8968F0F093EB4B67"/>
+      <ComponentRef Id="cmpF8FE60579D2B292EF691683C7C8356EC"/>
+      <ComponentRef Id="cmp56C4EC6793FE2C92271DDAD982C80382"/>
+      <ComponentRef Id="cmpE62DF551208A2020D34F3CB75A1F26CC"/>
+      <ComponentRef Id="cmpF7948615B842E63FC0BFABC3DE7523E9"/>
+      <ComponentRef Id="cmpE5CEC5B85FE10E9E7C7E6142E7059F79"/>
+      <ComponentRef Id="cmp08B03B4FB000DEDDEF2591BA0BE0B474"/>
+      <ComponentRef Id="cmp43F3832B4A0EC98DD2D380F6AC412B1C"/>
+      <ComponentRef Id="cmpAB6201472A162D5F4CA7F5FEAAF8B249"/>
+      <ComponentRef Id="cmp119584396A3FDD2C04896CB24A487DE9"/>
+      <ComponentRef Id="cmp9BB41CB8D5D8C4263814BE8B425A2A65"/>
+      <ComponentRef Id="cmpD175FDDE1EEBC649FEFC3E2D2DAB8EA7"/>
+    </ComponentGroup>
+  </Fragment>
+</Include>
+<!-- generated with msitools 0.100.10-9bbc -->
+<!-- /root/elmarco/src/msitools/.libs/wixl-heat -var var.SourceDir -p /usr/i686-w64-mingw32/sys-root/mingw/ -component-group CG.atk -directory-ref INSTALLDIR -win64 -->

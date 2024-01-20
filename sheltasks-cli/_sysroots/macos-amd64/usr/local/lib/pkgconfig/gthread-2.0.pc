@@ -1,0 +1,1 @@
+../../Cellar/glib/2.78.3/lib/pkgconfig/gthread-2.0.pc

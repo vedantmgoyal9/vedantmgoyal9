@@ -1,0 +1,46 @@
+{
+  "homebrew_version": "3.6.11",
+  "used_options": [
+
+  ],
+  "unused_options": [
+
+  ],
+  "built_as_bottle": true,
+  "poured_from_bottle": true,
+  "loaded_from_api": true,
+  "installed_as_dependency": false,
+  "installed_on_request": true,
+  "changed_files": [
+    "lib/pkgconfig/libffi.pc"
+  ],
+  "time": 1705003778,
+  "source_modified_time": 1666571393,
+  "compiler": "clang",
+  "aliases": [
+
+  ],
+  "runtime_dependencies": [
+
+  ],
+  "source": {
+    "spec": "stable",
+    "versions": {
+      "stable": "3.4.4",
+      "head": null,
+      "version_scheme": 0
+    },
+    "path": "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/lib/libffi.rb",
+    "tap_git_head": "7db241c85e9c7a92d4b52985ae7bfde64a5244c3",
+    "tap": "homebrew/core"
+  },
+  "arch": "x86_64",
+  "built_on": {
+    "os": "Macintosh",
+    "os_version": "macOS 13.0",
+    "cpu_family": "penryn",
+    "xcode": "14.1",
+    "clt": "14.1.0.0.1.1666437224",
+    "preferred_perl": "5.30"
+  }
+}

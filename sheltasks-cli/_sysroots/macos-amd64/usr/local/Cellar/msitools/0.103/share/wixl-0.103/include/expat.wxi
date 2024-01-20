@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?require gcc.wxi?>
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR">
+      <Directory Id="dir3368DCC33A77D4563A54BE6C690B8777" Name="bin">
+        <Component Win64="$(var.Win64)" Id="cmpECF4DCF9E316F40BE05A6ECE097294D0" Guid="*">
+          <File Id="fil91ED356B551496862ED13E53B72B9851" KeyPath="yes" Source="$(var.SourceDir)/bin/libexpat-1.dll"/>
+        </Component>
+        <Component Win64="$(var.Win64)" Id="cmpD304D59E4EC3E4A3D6C510513A7E0A0D" Guid="*">
+          <File Id="fil089230A3376A610DB56F8D69910574C5" KeyPath="yes" Source="$(var.SourceDir)/bin/xmlwf.exe"/>
+        </Component>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="CG.expat">
+      <ComponentGroupRef Id="CG.gcc"/>
+      <ComponentRef Id="cmpECF4DCF9E316F40BE05A6ECE097294D0"/>
+      <ComponentRef Id="cmpD304D59E4EC3E4A3D6C510513A7E0A0D"/>
+    </ComponentGroup>
+  </Fragment>
+</Include>

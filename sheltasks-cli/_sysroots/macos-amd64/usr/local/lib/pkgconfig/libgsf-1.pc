@@ -1,0 +1,1 @@
+../../Cellar/libgsf/1.14.51/lib/pkgconfig/libgsf-1.pc

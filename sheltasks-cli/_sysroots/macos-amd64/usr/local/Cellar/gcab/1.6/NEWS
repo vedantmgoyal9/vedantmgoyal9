@@ -1,0 +1,180 @@
+v1.6
+====
+
+New Features:
+  - Allow specifying the allowed compression formats at runtime (!15)
+
+    This would allow us, for example, to disable the slightly scary LZX compression
+    format when parsing unknown files.
+
+Bugfixes:
+  - Do not require git when building from a tarball
+
+v1.5
+====
+
+New Features:
+ - New gcab_file_set_bytes() API (!8)
+ - meson: Register the gcab executable with meson (!10)
+
+Bugfixes:
+ - Fixed MSZIP compression when deflate algorithm would expand (#16)
+
+   Previous versions of gcab can produce "incorrect" archives (when a compressed
+   block is larger than its input). They are however supported by gcab itself,
+   and we will keep support for it for the foreseeble future.
+
+ - gcab: avoid runtime warnings (!7)
+ - Fix coverity warnings (!9)
+
+Translation updates
+
+v1.4
+====
+
+New Features:
+ - New GDateTime-based APIs
+ - Allow comping as meson subproject
+
+Bugfixes:
+ - build-sys fixes
+ - MacOS/Windows build support
+
+v1.3
+====
+
+New Features:
+ - Installed test support (Simon McVittie)
+
+Bugfixes:
+ - Fix file corruption on LZX extract
+ - translation updates
+ - build-sys fixes
+
+v1.2
+====
+
+Bugfixes:
+ - Fix regression on rewinding rhbz#1608301
+ - translation updates
+ - build-sys fixes
+
+v1.1
+====
+
+Bugfixes:
+ - Add git version in --version (Marc-André Lureau)
+ - Fix list of new symbols in index page (Marc-André Lureau)
+ - Fix unused declarations (Marc-André Lureau)
+ - Match the former autotools build (Jan Alexander Steffens)
+ - Specify gcab compoment in PACKAGE_BUGREPORT (Marc-André Lureau)
+
+v1.0
+====
+
+Notes:
+ - This fixes the security bug known as CVE-2018-5345
+
+Translations:
+ - Add Friulian translation (Fabio Tomat)
+ - Updated Brazilian Portuguese translation (Rafael Fontenelle)
+ - Updated Danish translation (Ask Hjorth Larsen, Joe Hansen)
+ - Updated German translation (Mario Blättermann)
+ - Updated Polish translation (Piotr Drąg)
+ - Updated Russian translation (Stas Solovey)
+ - Updated Slovenian translation (Matej Urbančič)
+ - Updated Spanish translation (Daniel Mustieles)
+ - Updated Swedish translation (Anders Jonsson)
+
+New Features:
+ - Add a helper executable to create massive compressed archives (Richard Hughes)
+ - Add a special binary to use just for fuzzing (Richard Hughes)
+ - Add gcab_cabinet_get_size() (Richard Hughes)
+ - Add gcab_file_new_with_bytes() (Richard Hughes)
+ - Add gcab_file_set_attributes() (Richard Hughes)
+ - Add gcab_file_set_date() (Richard Hughes)
+ - Add gcab_folder_get_comptype() (Richard Hughes)
+ - Add gcab_folder_get_file_by_name() (Richard Hughes)
+ - Add some self tests to test libgcab (Richard Hughes)
+ - Switch to the Meson buildsystem (Richard Hughes)
+
+Bugfixes:
+ - Always check the return value when writing to the stream (Richard Hughes)
+ - Do not crash when ncbytes is larger than the buffer size (Richard Hughes)
+ - Do not encode timezone in generated files (Chris Lamb)
+ - Do not return translated errors from libraries (Richard Hughes)
+ - Explicitly enable C99 support (Philip Withnall)
+ - Fix a few 'Dereference of null pointer' warnings (Richard Hughes)
+ - Fix a large memory leak when parsing LZX cab files (Richard Hughes)
+ - Fix a theoretical crash when building the table entries (Richard Hughes)
+ - Fix buffer overrun when generating Huffman codes (Richard Hughes)
+ - Fix dependency on generated .h file (Philip Chimento)
+ - Fix invalid return annotation (Marc-André Lureau)
+ - Fix the calculation of the checksum on big endian machines (Richard Hughes)
+ - Fix -Wimplicit-fallthrough= (Marc-André Lureau)
+ - Replace all the custom typedefd unsigned types with working versions (Richard Hughes)
+ - Return detailed errors from gcab_cabinet_get_signature() (Richard Hughes)
+ - Use g_autoptr() to fix countless memory leaks when parsing corrupt files (Richard Hughes)
+ - Use g_autoptr() to fix several memory leaks on error in the library (Richard Hughes)
+ - Use G_DECLARE_FINAL_TYPE to remove lots of C boilerplate (Richard Hughes)
+ - Use glib-mkenum's prefixes to avoid sed (Emmanuele Bassi)
+
+v0.7
+====
+
+- learn to rewind if needed during extraction #763377
+- fix extraction of files without cdata #763376
+- do not abort with a critical warning if a file has an incorrect
+  checksum
+- set utf8 flag automatically #754091
+- fix wrong modification date #753040
+- build warning fixes
+- translation updates
+
+v0.6
+====
+
+- fix for the AFL-detected crashes
+- add file information getters (get_attributes(), get_date(), get_size())
+- gcab learned --list-details to list files with those informations
+- fix the file date when creating cab
+- build-sys fixes
+
+v0.5
+====
+
+- fix path traversal: do not escape from output directory
+- add gcab_cabinet_get_signature()
+- translations updates
+- build warning fixes
+
+v0.4
+====
+
+- add missing call to g_type_init() for older GLib
+- translations updates
+- build warning fixes
+
+v0.3
+====
+
+- add LZX decompression, thanks to Wine project!
+- gcab learned the ubiquitous --version
+- overwrite files on extract
+
+v0.2
+====
+
+- add support for extraction of MSZIP cabinets
+- add 100% gtk-doc API documentation
+- make check doesn't require cabextract anymore
+- fix a few memleaks and misc bugs
+
+v0.1
+====
+
+This is the first release of gcab, a tool and library mainly made to
+create Cabinet files, using GObject/GIO API, providing GIR bindings.
+- creation supports plain and basic MSZIP compression
+- can open and list files from cabinet, no extraction
+- provided API/ABI stable

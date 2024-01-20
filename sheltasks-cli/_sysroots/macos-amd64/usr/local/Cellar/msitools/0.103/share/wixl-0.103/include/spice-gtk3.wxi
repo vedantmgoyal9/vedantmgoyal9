@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?require gtk3.wxi?>
+<?require spice-glib.wxi?>
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR">
+      <Directory Id="dirF3B61B20E2250498456FBB66DD63E154" Name="bin">
+        <Component Win64="$(var.Win64)" Id="cmpA1DABC2491D8FFEDE1B305115701456D" Guid="*">
+          <File Id="filF15A4CFCF3F047C36D3A6592CDAC3D33" KeyPath="yes" Source="$(var.SourceDir)/bin/libspice-client-gtk-3.0-5.dll"/>
+        </Component>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="CG.spice-gtk3">
+      <ComponentGroupRef Id="CG.gtk3"/>
+      <ComponentGroupRef Id="CG.spice-glib"/>
+      <ComponentRef Id="cmpA1DABC2491D8FFEDE1B305115701456D"/>
+    </ComponentGroup>
+  </Fragment>
+</Include>

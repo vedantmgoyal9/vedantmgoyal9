@@ -1,0 +1,1 @@
+../../Cellar/zlib/1.3/lib/pkgconfig/zlib.pc

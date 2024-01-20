@@ -1,0 +1,1025 @@
+libgsf 1.14.51
+
+Morten:
+	* Fix thumbnailer crash.  [#29]
+	* Fix leaks.
+
+--------------------------------------------------------------------------
+libgsf 1.14.50
+
+Morten:
+	* Fix error handling problem when writing ole files.  [#27]
+
+--------------------------------------------------------------------------
+libgsf 1.14.49
+
+Kleis Auke Wolthuizen:
+	* Use g_date_time_new_from_iso8601 and g_date_time_format_iso8601
+	  when available.  See merge request 9.
+
+Morten:
+	* Fix problems with non-western text in OLE properties.  [#17]
+
+--------------------------------------------------------------------------
+libgsf 1.14.48
+
+Greg Hellings:
+	* Fix win32 build.
+
+Morten:
+	* Add "zip64" readable property of GsfInfileZip.
+
+--------------------------------------------------------------------------
+libgsf 1.14.47
+
+Allin Cottrell:
+	* GsfOutputMemory improvement.
+	* Teach GsfOutputGzip to control compression level.
+
+Marc-André Lureau:
+	* Cleanups.  See merge request 5.
+
+Morten:
+	* Fix fuzzed-file crash.  [#19]
+
+--------------------------------------------------------------------------
+libgsf 1.14.46
+
+Javier Jardón:
+	* Upgrade to newer gettext.  [#7]
+
+Morten:
+	* Warning fixes.
+	* Fix gsf-vba-dump crash.  [#15]
+
+--------------------------------------------------------------------------
+libgsf 1.14.45
+
+Morten:
+	* Fix problem with ole property writing.  [#14]
+
+--------------------------------------------------------------------------
+libgsf 1.14.44
+
+Morten:
+	* Fix msole metadata writing for non-ascii.  [#795612]
+	* Fix problem with threaded code.  [#10]
+
+--------------------------------------------------------------------------
+libgsf 1.14.43
+
+Morten:
+	* Handle modtime for memory mapped files.
+
+Corentin Noël and Rico Tzschichholz:
+	* Introspection fixes.
+
+--------------------------------------------------------------------------
+libgsf 1.14.42
+
+Morten:
+	* Fix GsfInputTextline's file location management.
+
+Ting-Wei Lan:
+	* doc/Makefile.am fix for gtkdoc-scangobj
+
+--------------------------------------------------------------------------
+libgsf 1.14.41
+
+Morten:
+	* Fix corrupted-tar-file crash.
+
+--------------------------------------------------------------------------
+libgsf 1.14.40
+
+Morten:
+	* Avoid gnome-common dependency
+
+--------------------------------------------------------------------------
+libgsf 1.14.39
+
+Morten:
+	* Test improvements.
+
+--------------------------------------------------------------------------
+libgsf 1.14.38
+
+Felix Bünemann:
+	* BSD compatibility for test.  [#767044]
+	* Fix zip64 problem.  [#767043]
+
+Morten:
+	* Improve testing.
+
+--------------------------------------------------------------------------
+libgsf 1.14.37
+
+Morten:
+	* Fix tar issue.   [#765099]
+
+--------------------------------------------------------------------------
+libgsf 1.14.36
+
+Jean:
+	* Fix some criticals.
+
+Morten:
+	* Plug leak
+	* Fix openpkg absolute member reference.  [#761648]
+
+--------------------------------------------------------------------------
+libgsf 1.14.35
+
+Morten:
+	* Fix OLE2 property writing issue.  [#760047]
+	* Improve handling of broken zip files.  [#760543]
+
+Ting-Wei Lan:
+	* Fix locale handling in thumbnailer.  [#760428]
+
+--------------------------------------------------------------------------
+libgsf 1.14.34
+
+Morten:
+	* Fix OLE2 property parsing problem.  [#748528]
+	* Fuzzed file fixes.  [#749120] [#749169] [#749183] [#750809]
+	  [#751273]
+	* xlsx: fix problem with absolute relation targets.  [#751120]
+	* Fix text line problem with very long lines.
+
+--------------------------------------------------------------------------
+libgsf 1.14.33
+
+Morten:
+	* Ensure floats roundtrip through our xml functions.
+	* Improve handling of unknown xml tags.
+	* xml parser improvements.
+	* xml pretty-printing improvements.
+
+--------------------------------------------------------------------------
+libgsf 1.14.32
+
+Morten:
+	* Fix obscure problem with xml parser.
+	* Add vml to openpkg utils.
+	* Allow NULL content type for openpkg.
+	* Plug leak.
+
+--------------------------------------------------------------------------
+libgsf 1.14.31
+
+Andreas:
+	* Add two new localc name spaces to gsf-opendoc-utils
+
+Allin Cottrell:
+	* Add support for non-default zip compression level.  [#722470]
+
+Morten:
+	* Plug leaks.
+	* Dead kittens.
+	* Reduce number of CRITICALs for corrupted files.
+	* Read zip files with 64k+ members.  [Part of #732209]
+	* Read zip files members larger than 4G.  [Part of #732209]
+	* Speed up zip file reading for lots of members.
+	* Speed up stdio directory handling with large number of files.
+	* Fix various issues with files larger than 4G.
+	* Fix minor zip file issues.
+	* Write zip archives with more than 64k+ members.
+	* Store unix modtime in zip.  (Until that overflows.)
+	* Fix seekability checks in GsfOutputIOChannel.
+	* Avoid implementation defined behaviour of shifts.
+	* Start a test suite.
+
+--------------------------------------------------------------------------
+libgsf 1.14.30
+
+Juhani Numminen:
+	* Activate translations for gsf.  [#725409]
+
+Morten:
+	* Fix invalid g_free for Windows.
+	* Work around glib/gio bug.  [#724970]
+
+--------------------------------------------------------------------------
+libgsf 1.14.29
+
+Allin Cottrell:
+	* Fix problem with GsfOutfileStdio.  [#706219]
+
+Morten:
+	* Fix translation issue and leak.  [#706937]
+	* Fix fuzzed ods file crash.  [#720458]
+
+--------------------------------------------------------------------------
+libgsf 1.14.28
+
+Andreas:
+	* Fix conversion specifiers. [#703064]
+
+Jean:
+	* Allow the huge libxml parser mode so that gnumeric can load large images.
+	[#705100]
+
+Morten:
+	* Fix problem with bogus metadata.  [#703952]
+	* Avoid interaction problems between Werror and system headers.
+
+--------------------------------------------------------------------------
+libgsf 1.14.27
+
+Andreas:
+	* Perform some range checking in gsf_timestamp_load_from_string
+	to avoid crashing in glib. [#702671] 
+
+Morten:
+	* Introspection fixes.
+	* Property documentation fixes.
+	* I18n fixes for property strings.
+	* I18n fixes for error strings.
+	* Fix uncompress problem with bzip'd files.
+	* Add modtime support for GsfInput, GsfInputStdio, GsfInputGzip.
+	* Add modtime support for GsfInfileZip, GsfInfileTar, GsfInfileMSOle.
+	* Add modtime support for GsfOutput, GsfOutputStdio, GsfOutputGzip.
+	* Add modtime support for GsfOutfileZip, GsfOutfileMSOle.
+	* Enhance gsf tool to print modtime and create archives with modtime.
+	* Improve handling of broken OLE2 files.
+	* Plug leaks.
+
+--------------------------------------------------------------------------
+libgsf 1.14.26
+
+Frob:
+	* Fix vba stream problem.  [#656531]
+
+Marc-Andre Lureau:
+	* Make somewhat more robust with truncated files.  [#690524]
+
+Morten:
+	* Deal with G_TYPE_CHAR signedness.
+	* Fix error handling of gsf_output_gio_new_for_uri.
+	* Clean out mistaken null checks from g_object_new.
+	* Clean out old glib tests.
+	* Speed up ole writing a bit.
+	* Header cleanup.  gsf/gsf.h is now main header.  [#684608]
+	* GsfInput doc improvements.  [#540521]
+	* Introspection fixes.
+
+Paolo Bonzini:
+	* Fix gsf_input_dep for msole streams.  [#689706]
+
+--------------------------------------------------------------------------
+libgsf 1.14.25
+
+jorilx@gmail.com:
+	* Enhance gsf tool to create archives.
+
+Morten:
+	* Fix memory management problem with document properties.
+	* Fix writing of OLE2 properties for multi-byte codepages.  [#627696]
+
+Ryan Lortie:
+	* Unconditionally require gio.  [#687753]
+
+--------------------------------------------------------------------------
+libgsf 1.14.24
+
+Jean Brefort:
+	* Fix namespace issues. [#672512]
+	* Fix build after introspection implementation. [#673029]
+
+--------------------------------------------------------------------------
+libgsf 1.14.23
+
+Andreas:
+	* Fix read/write of GSF_DOCPROP_VECTOR_TYPE meta data [Part of #672716]
+	* Fix writing of boolean values in ODF files. [#676604]
+
+Alan Knowles:
+	* Add gobject introspection support. [#610340]
+
+Antoine Jacoutot:
+	* OpenBSD portability fix.
+
+Jean Brefort:
+	* Make introspection work when libgsf is not installed.	[#671698]
+
+Morten:
+	* Fix time stamp drift problem.  [Part of #671860]
+	* New GsfODFOut class.
+
+--------------------------------------------------------------------------
+libgsf 1.14.22
+
+Damien Lespiau:
+	* Fix thumbnailer manual install problem.
+
+Morten:
+	* Fix error messages on win32.
+	* Fix resource limiting in thumbnailer.
+	* Ensure GsfOutput::name and GsfInput::name notifications.
+	* Cleanup old code.
+	* Drop support for gnome-vfs and bonobo.
+	* Fix ole2 entry sorting based on patch from Junping Zhang.  [#665712]
+
+Vincent Untz:
+	* New installation method for thumbnailer.  [#651187]
+
+--------------------------------------------------------------------------
+libgsf 1.14.21
+
+Andreas:
+	* Fix crash on encountering user defined meta data of default 
+	type. [649827]
+	* Write/read the correct attribute name for the value-type of user
+	defined meta-data. 
+	* Move ODF version to 1.2.
+
+Gilles Dartiguelongue:
+	* Implement --without-gconf for explicit dependency control.  [#645775]
+	* Fix python compilation problem.  [#645778]
+
+--------------------------------------------------------------------------
+libgsf 1.14.20
+
+Caolan McNamara:
+	* Fix msole reading crash.
+
+Morten:
+	* Improve loading on metadata.  [#644217]
+
+--------------------------------------------------------------------------
+libgsf 1.14.19
+
+Andreas:
+	* Add some more OOo 3.2 and 3.3 namespaces.
+
+Morten:
+	* Quiet xml parsing two bits.
+
+--------------------------------------------------------------------------
+libgsf 1.14.18
+
+Morten:
+	* Fix zip directory record problem.  [#614968]
+
+--------------------------------------------------------------------------
+libgsf 1.14.17
+
+Morten:
+	* Fix xml parser crash.
+	* Write meta-data values in name order.
+	* Don't call gnome_vfs_init in python binding.  [#599973]
+
+--------------------------------------------------------------------------
+libgsf 1.14.16
+
+Andreas:
+	* Add variant of OO_NS_FIELD.
+
+Caolan McNamara:
+        * Use gdk_pixbug for thumbnailing when available.  [#594359]
+
+Morten:
+	* Fix problem with errors to stdout.  [#592471]
+
+Vincent Untz:
+	* Fix gnome-vfs dependency handling.  [#593480]
+
+--------------------------------------------------------------------------
+libgsf 1.14.15
+
+Andreas:
+	* Bump ODF version to 1.1 and add enum to inform users. 
+
+Morten:
+	* Fix criticals when parsing bogus OLE properties.  [#584848]
+	* Start cleaning up timestamp code.
+
+--------------------------------------------------------------------------
+libgsf 1.14.14
+
+Andreas:
+	* Added namespaces used by openoffice 3.0, Lotus Symphony, etc.
+	* Fix gsf_xml_out_start_element to allow child elements mixed
+	  with other content
+
+--------------------------------------------------------------------------
+libgsf 1.14.13
+
+Andreas:
+	* Fix gsf_opendoc_metadata_subtree [#581530]
+
+--------------------------------------------------------------------------
+libgsf 1.14.12
+
+Andreas:
+	* Also read user defined OpenDocument metadata
+
+Christian Persch:
+	* Fix allocation method problem.  [#579155]
+
+J.H.M. Dassen (Ray):
+	* Fix incorrect use of g_enum_register_static which broke
+	  documentation generation in some environments.
+	  [http://gcc.gnu.org/bugzilla/show_bug.cgi?id=39015]
+
+Jody :
+	* Handle small-block files that are not block aligned. [#572290]
+	* Deprecate gsf_timestamp_parse and replace it with
+	  gsf_timestamp_from_string.
+	* Gtk-Doc fixes.
+	* Fix handling of namespace declared default and prefix.
+	  (Such as in SpreadsheetML-2003)
+
+Morten:
+	* Handle malformed xml better.  [#568994]
+	* Drop characters that xml 1.0 cannot represent.  [#568919]
+	* Fix problem loading zero-sized files.  [#580228]
+
+--------------------------------------------------------------------------
+libgsf 1.14.11
+
+Jody:
+	* win32 build fix for glib-2.18 deprecation.
+	* Extend MS Office Open Pkg handling to accept POI files.
+	* Add libxml2 wrapper to simplify probing.
+
+Morten:
+	* Solaris compilation issue.  [#558253]
+	* Handle non-seekable files in gsf_input_stdio_new.  [#154417]
+	* Auto-detect bonobo.
+
+Paul:
+	* Fix various Mac compilation issues.  [#565603]  [#565605]
+
+Pedro Fragoso:
+	* Clean up glib includes.  [#564004]
+
+Richard W.M. Jones:
+	* MinGW configure fix for libbz2 detection.
+
+--------------------------------------------------------------------------
+libgsf 1.14.10
+
+Jody:
+	* Patch some coverity issues [189, 250, 251]
+
+Morten:
+	* Work around sshfs bug.  [#509883]
+	* Support tar archives.
+	* Improve gsf support for broken archives.  [#553861]
+	* Avoid a critical for bad ole2.  [#554848]
+
+--------------------------------------------------------------------------
+libgsf 1.14.9
+
+Dom:
+	* Revitalize gio support.
+
+Jody:
+	* Add MS OOX support to gsf-vba-dump.
+	* Extend the utility wrappers for GsfInfile.
+	* Be more forgiving of corrupt ole2.
+	* Add additional MS OpenPkg support to facilitate pivots.
+	* gtk-doc improvements.
+	* Make the VBA extractor more accessible.
+	* Extensions for the xml parser to allow modularization.
+
+Morten:
+	* Use g_base64_-routines from glib when available.
+	* When gio is available, do not link in gnomevfs.
+	* Add self-check for the benefit of __arm__.
+
+--------------------------------------------------------------------------
+libgsf 1.14.8
+
+Jody:
+	* Add missing ODF presentation namespace.
+	* Only install win32 header for win32. [#459771]
+	* Fix XML enum export utils.
+
+Morten:
+	* Fix criticals for corrupted file.  [#485964]
+	* Improve sanity checks of ole properties.  [#404934]
+	* Enhance gsf (the program) to list all document properites.
+	* Fix endless loop with broken ole files.  [#513831]
+	* Fix memory allocation problem due to broken ole files.
+
+--------------------------------------------------------------------------
+libgsf 1.14.7
+
+Jody:
+	* Fix typo that would break all xml output.
+
+--------------------------------------------------------------------------
+libgsf 1.14.6
+
+Jody:
+	* Add some safety checks for out of memory conditions.
+	* Some extensions to simplify OOX export.
+	* Docs improvements.
+
+--------------------------------------------------------------------------
+libgsf 1.14.5
+
+Jody:
+	* Revert jump to dynamic types, they aren't threadsafe. [#450722]
+	* Compilation glitch on windows.  [#449807]
+	* Avoid problems building without gconf macros installed.
+	* Configure breakage --without-gnome. [#4488842]
+
+--------------------------------------------------------------------------
+
+libgsf 1.14.4
+
+Eduardo Lima :
+	* Make Bonobo support optional. [#442205]
+
+Federico Mena Quintero :
+	* Limit resource usage in the thumbnailer. [#446087]
+
+Jody:
+	* Have gsf-vba-dump handle .doc files too.
+	* Implement gsf_init_dynamic
+	* Tidy up docs and #includes in public headers.
+	* Move the MS/ECMA Open Package code here from gnumeric.
+
+Michael Lawrence :
+	* Provide a libxml2-nanohttp wrapper. [#362373]
+
+Morten:
+	* Plug leak.
+	* Fix potential problem with reading mildly bogus files.  [#381588]
+	* Fix potential oom crash on crazy OLE2 files.  [#381600]
+	* Quote csv fields on initial or terminal white-space.  [#359348]
+	* Fix encoding problem with thumbnailer.
+	* Fix problem with gsf_output_printf triggering on x64_86.
+	* Handle nested xml contents.
+	* Basic life support for python bindings.  [#382239] [#382254]
+
+--------------------------------------------------------------------------
+
+libgsf 1.14.3	: Last Release before branching 1.15.x
+
+Jody:
+	* Fix crash exporting keyword vector from OLE2 -> ODF.
+	* Improve debug spew for OLE2 propert import.
+
+--------------------------------------------------------------------------
+libgsf 1.14.2
+
+DannyM:
+	* Fix export of msole2 double(r8) properties.
+
+Jody:
+	* Add more OOo 1.0.x and 2.0.x mime types to thumbnailer.
+	* Add gsf-vba-dump utility to extra macros from Ms Office files.
+	* Add metadata property dump function to gsf command
+	* Accept invalid empty msole2 property files from psiwin. [#352055]
+	* More checks msole2 files with inconsistent headers.
+	* Fix python build
+	* Fix xml-sax wrapper to correctly handle shared subtrees.
+
+Michal Kowalczuk:
+	* Improve ms-ole property sanity checking.
+
+Morten:
+	* Initial variant of a gsf based tar like utility.
+	* Handle some broken FrameMaker generated files.  [#346118]
+	* Fix bzip2 problem in gsf_input_uncompress.  [#356391]
+
+--------------------------------------------------------------------------
+libgsf 1.14.1
+
+Jody:
+	* Enable the ODF support in the thumbnailer's schema.
+	* Fix handling of transparent backgrounds in ODF thumbnails.
+	* Fix handling of default namespaces in libxml sax wrappers.
+	* Handle odd OLE2 files from palmcalc. [#336858]
+
+Morten:
+	* Make --mandir=... work.  [#316107]
+	* Avoid crash on parsing completely empty xml.  [#335152]
+	* Crudely avoid producing invalid xml by dropping certain control
+	  characters on the floor.  [#339335]
+
+--------------------------------------------------------------------------
+libgsf 1.14.0 aka 1.13.99
+
+    NOTE : 1.13.99 and 1.14.0 are identical.  The former was made as a
+	convenience to avoid bumping .so versions late in the release cycle.
+
+Daniel Nylander:
+	* Initial Swedish PO translation. [Debian #351382]
+
+Ivan Wong :
+	* Only export symbols which are in the public headers (Win32).
+
+Jody:
+	* Fix parsing xml files with &amp;
+	* bump to 1.14.0 to indicate a stable release.
+	* improve header versioning.
+	* Add ODF thumbnail support to gsf-office-thumbnailer
+	* Enable ODF meta data import/export.
+
+Morten:
+	* Fix GsfOutputIConv.  [#323503]
+	* Plug leak in GsfInfileZip.
+
+--------------------------------------------------------------------------
+libgsf 1.13.3
+
+J.H.M. Dassen (Ray) :
+	* Improve documentation.
+
+Jody :
+	* More work on extension interface to sax import wrapper.
+
+--------------------------------------------------------------------------
+libgsf 1.13.0
+
+Jody:
+	* API changes SAX wrappers for help OpenDoc and SpreadsheetML.
+
+Kasal:
+	* Improve libtool versioning.
+	* Relax the gconf requirement.
+
+Luciano Wolf:
+	* OpenDocument meta stream parser.
+
+Sven Herzberg:
+	* Fix for GsfOutputGnomeVFS
+
+--------------------------------------------------------------------------
+libgsf 1.12.3
+
+Jody:
+	* Make gconf optional again.
+
+Rambokid:
+	* Fix excessive memory use problem for writing zip files.
+
+--------------------------------------------------------------------------
+libgsf 1.12.2
+
+Jean Brefort:
+	* made GSF_CLASS_FULL and GSF_DYNAMIC_CLASS_FULL really full (add
+	base_init, base_finalize and class_finalize arguments).
+
+Jody:
+	* Handle 0x8000 and 0x8001 codepages.
+	* Fix leak in array properties.
+
+Jon Kåre:
+	* Fix VT_FILETIME OLE property export.
+
+Morten:
+	* Fix problem with 64-bit OLE properties.
+	* Fix standard-violation that hit i86_64.
+
+--------------------------------------------------------------------------
+libgsf 1.12.1
+
+Dom:
+	* Better handling of error conditions when creating a zip.
+
+Jody:
+	* Patch a leak in vector properties from OLE2.
+	* Be more delicate handling truncated gzip files.
+	* Improve utility macros for dynamic type creation (incompatible).
+	* Make constructors for output_stdio outfile_stdio more flexible
+
+Morten:
+	* Fix gsf_xml_out_add_float to always use "." as separator.
+	* Fix problem with creating new files in g+s directories.
+
+--------------------------------------------------------------------------
+libgsf 1.12.0
+
+Herzi:
+	* Allow multiple calls to gsf_xml_out_add_cstr.  [#167166]
+
+Ivan:
+	* Fix codepage problem.  [#162841]
+
+Jody:
+	* Support GObject properties in GsfOutfile::new_child
+	* Cleanup the OLE2 property import
+	* Re-org the GsfDocMetadata interface
+	* Cleanup the OLE2 property export
+
+Manuel Mausz:
+	* OLE2 property export.
+
+Morten:
+	* Attempt to get non-ASCII filenames right on Win32.  [#171145]
+	* Add "raw" properties to GsfInputGzip and GsfOutputGzip to
+	  allow header/trailer-less files.  Also allow g_object_new
+	  construction of these classes.
+	* Add "uncompressed_size" property to GsfInputGzip allowing to
+	  decompress files larger than 4GB.
+	* Propagate errors from GsfOutputGzip's sink to itself.
+	* Fix GsfOutputStdio to avoid killing the target file when we
+	  get an error.
+	* Add new GsfOutputCsv and GsfOutputIconv.
+	* Fix GsfOutfileZip's handling of compression levels.
+	* Allow getting the compression level when reading zip files.
+	* Improve zip file performance.  (No longer reopens the underlying
+	  file for each member you read.)
+	* Clean up zip output for zip files with non-ASCII members.
+	* Make it possible to use g_object_new to create zip io objects.
+
+------------------------------------------------------------------------------
+libgsf 1.11.1
+
+Morten:
+	* Fix permissions for new files.  [#159331]
+	* Fix save-to-existing-file on Win32.  [#160108]
+	* Fix stdio when we're not closing the file.
+
+------------------------------------------------------------------------------
+libgsf 1.11.0
+
+Christopher James Lahey:
+	* GObject property support for input/output (for C# bindings)
+	* GObject support for doc-meta-data
+
+Frank Chiulli:
+	* Have the OLE2 property set parser store the data
+
+Jody:
+	* More work on storing OLE2 properties
+	* Add some hooks to the libxml sax wrappers to facilitate extending
+	  specs
+	* An extra wrapper to GsfOutputStdio to handle FILE* directly
+
+Jon Kåre:
+	* make xml string export more convenient by ignoring NULL
+
+Kasal:
+	* More consistent use of G_GNUC_UNUSED.
+
+Morten:
+	* Check size and seek in gsf_input_dup.
+	* Fix a pile of crashes having to do with failed dups.
+	* Fix crashes having to do with NULL input->name.
+	* Work around gnome-vfs bug #152844.
+	* Create input proxy object.
+	* Make msole reading use a proxy layer instead of dup-ing the source
+	  like crazy.  (Dup-ing is expensive for network connections and
+	  slightly expensive for disk files.)
+	* Doc fixes.
+	* Escape characters 1..31 when used in xml attributes.  [#157850]
+
+Veerapuram Varadhan:
+	* sync the ole2 property names with the existing beagle properties
+
+------------------------------------------------------------------------------
+libgsf 1.10.1
+
+Jon Kåre:
+	* Fix base64 decoding.
+
+Kasal:
+	* Lots of code auditing and cleanup.
+	* Identified the long standing source of the problem with XL corrupting
+	  large files
+
+------------------------------------------------------------------------------
+
+libgsf 1.10.0
+
+Jody:
+	* Patch to read slightly odd planmaker generated OLE2.
+	* Fix printf implementation in GsfOutfileMSOle
+	* Make the msole block sizes instance specific
+
+Morten:
+	* Attempt fix for ARM.
+	* Make gsf_input_gnomevfs_new_uri handle missing "seek" methods.
+
+Stuart Cunningham <stuartc@rd.bbc.co.uk>
+	* Enable OLE2 export for larger block sizes
+
+------------------------------------------------------------------------------
+libgsf 1.9.1
+
+J.H.M. Dassen (Ray):
+	* Corrected the location where the documentation gets installed.
+	*
+James Cape :
+	* Clean up the gtk-doc build
+
+Jody :
+	* Support DOCTYPE in the simplified xml generator
+	* More gtk-doc cleanup
+
+Morten, Dom:
+	* Avoid polluting global name space with symbols lacking gsf_ prefix.
+	  This only effects implementation utilites shared by the zip in/out
+	  code so hopefully the abi breakage will not hurt too many people.
+
+------------------------------------------------------------------------------
+libgsf 1.9.0
+
+Dom:
+	* Fix bzip output to flush if last deflate fills buffer
+
+Jody Goldberg:
+	* If the file is not an OLE2 file do not change the filepos.
+	* Handle broken ole files that specify codepage as signed short
+	* Fix reading ole files > 13.6 Meg on sparc/alpha (from Xavier Roche)
+	* Tune validation test for LPSTR properties to handle char width > 1
+	* Make the impl headers for the base interfaces public as requested
+	* Add some directory tree wrappers
+	* Work around a -fstrict-alias warning for SuSE
+	* Move to automake-1.7
+	* Fix gnome-vfs backend to open files with random access
+	* Support merging content from nested nodes for sax parsing
+	* Fix gtk-doc
+
+Joseph Frazee:
+	* patch the spec file.
+
+Morten Welinder:
+	* Properly chain finalizer.
+	* Fix gzip output to flush if last deflate fills buffer
+
+Tor Lillqvist:
+	* packaging tools for win32.
+
+------------------------------------------------------------------------------
+libgsf 1.8.2
+
+Jody:
+	* Catch invalid OLE2 files that claim there is data in a directory.
+	* Better error handling for Infile::child_by_*
+	* Work harder to restore invalid ole2 files with bad BATs.
+	* Begin an interface for ole2 export with non-default block sizes.
+	* Name the root directory 'Root Entry' to keep libole2 happy.
+
+Stuart Cunningham <stuartc@rd.bbc.co.uk>:
+	* Support CLSIDs for Storages for the AAF project
+	* Test and fix bugs reading ole files with non-default block sizes.
+
+------------------------------------------------------------------------------
+libgsf 1.8.1
+
+Morten:
+	* Plug major gzip output leak.
+
+------------------------------------------------------------------------------
+libgsf 1.8
+
+    2003 Mar 9
+	With the approval off all contributors the library has been
+	relicensed from GPL -> LGPL
+
+Dom:
+	* Some extra casts to make Bloodshed DevC++ happy
+	* IOChannel input work
+	* BZ2 input & output
+	* Return the derived types from constructor functions
+	* Support GObject properties for the inputs and outputs
+	* Start an AR infile
+	* Start Win32 COM IStream input/output
+	
+Jody:
+	* Fix ms ole export bug that would not clip overly long file names.
+	* Fix ms ole import bug with potentially invalid names
+
+Rodrigo:
+	* Added GsfInputIOChannel, a GIOChannel-based input.
+
+Xavier Roche:
+	* Patch some gsize == gunit32 assumptions.
+
+------------------------------------------------------------------------------
+libgsf 1.7
+
+Dom:
+	* Extend gnome-vfs support to handle uris
+	* Transacted output capability
+	* Ensure large reads and writes happen
+
+Jody:
+	* Start work on some simplified xml export utilities.
+	* Extend xml import facilities to support namespaces.
+	* Catch invalid OLE files with cycles.
+	* Fix exporting OLE files larger than 6.8 Meg
+
+Jon Kåre:
+	* Only unset valid GValues when reading msole properties.
+
+Morten:
+	* Fix xml save problem.
+
+Tor Lillqvist:
+	* Tweaks for the win32 build.
+
+------------------------------------------------------------------------------
+libgsf 1.6.0
+
+Jody:
+	* Be more anal about invalid stream names..
+	* Fix documentation install.
+	* Fix a subtle leak that Morten found.
+	* Suppress some warnings in the test suite.
+
+Jon Kåre:
+	* Add printf mechanism.
+	* Fix misc bugs.
+	* Add gzip output.
+
+Morten:
+	* Don't overwrite files we're not supposed to write.
+
+------------------------------------------------------------------------------
+libgsf 1.5.0
+
+Jody:
+	* Adjust sax routines to support recusive structures.
+
+Morten:
+	* Handle file names that are not valid utf8.
+
+Dom:
+	* Port over code page utilities from libwv.
+
+------------------------------------------------------------------------------
+libgsf 1.4.0
+
+Jody:
+	* Move some iconv utility routines here from gnumeric.
+	* More work on reading ole property sets.
+	* Minor tweak directory handling for infile-zip.
+	* Replace test-cat-zip with test-msole2
+	* Add error handling mechanism to GsfOutput
+	* Borrow the temp file handling from gedit
+	* Add some xml SAX parsing utilities (api is tentative)
+	* Add some structured blob utilites for easy in/out of blob trees
+	* Support unicode property values and names in ole files.
+
+Jon Kåre:
+	* sync the directory semantics of infile-zip with infile-msole.
+	* Support seeking within zip streams.
+	* Make dup work properly for gzip and zip children.
+	* Implement Zip export.
+
+------------------------------------------------------------------------------
+libgsf 1.3.0
+
+Jody:
+	* Split gnome-vfs and bonobo into a distinct library
+	* Polish the OLE export so that libole2 is molified.
+	* Add a timestamp object for use with metadata
+	* Some initial work on MS OLE property streams (doc metadata)
+	* Some initial work on doc meta data (expect changes as ole settles)
+
+Jon Kåre:
+	* Work and plan to support big files.
+
+------------------------------------------------------------------------------
+libgsf 1.2.0
+
+Dom:
+	* Read/Write gnome-vfs (untested)
+	* Write to mem buf (untested)
+
+Jody:
+	* Add some safety and utilty to ensure outputs are closed before
+	  finalizing
+	* Add some printf style capabilities for outputs.
+
+Ray:
+	* improve doc generation
+	* Update debian support in preparation for packaging.
+
+Rodrigo:
+	* more work on io_context.
+
+Tambet:
+	* Read zip files
+
+------------------------------------------------------------------------------
+libgsf 1.1.0
+
+Jody:
+	* Initial pass at an api
+	* Read & Write OLE
+	* Read gzip
+	* Read textlines
+	* Read & Write stdio wrapper
+	* Some libxml2 utility wrappers
+	* some test programs to dump or copy ole streams and file structures
+	* Uncompress vba streams
+	* Initial incomplete work on parsing vba3 & vba56 directories
+
+Morten:
+	* mmap/buffer wrapper
+	* testing & purification
+
+Jon Kåre:
+	* Some configure cleanup
+	* Bonobo Stream wrapper
