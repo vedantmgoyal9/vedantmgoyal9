@@ -3,15 +3,13 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class Calendar_Date_Ops {
-  static private int d1, m1, y1, d2, m2, y2;
+  private static int d1, m1, y1, d2, m2, y2;
 
   private static boolean isDateValid(int date, int month, int year) {
-    if (date <= 0 || month <= 0 || year <= 0 || date > 31 || month > 12)
-      return false;
+    if (date <= 0 || month <= 0 || year <= 0 || date > 31 || month > 12) return false;
     if (month == 4 || month == 6 || month == 9 || month == 11)
       return date <= 30; // d == 31 is invalid
-    if (month == 2 && isLeapYear(year))
-      return date <= 29;
+    if (month == 2 && isLeapYear(year)) return date <= 29;
     return month == 2 ? date <= 28 : true;
   }
 
@@ -20,32 +18,27 @@ public class Calendar_Date_Ops {
   }
 
   private static int getDaysInMonth(int month, int year) {
-    if (month == 4 || month == 6 || month == 9 || month == 11)
-      return 30;
-    if (month == 2 && isLeapYear(year))
-      return 29;
+    if (month == 4 || month == 6 || month == 9 || month == 11) return 30;
+    if (month == 2 && isLeapYear(year)) return 29;
     return month == 2 ? 28 : 31;
   }
 
   private static int getDaysTillDateInSameYear(int date, int month, int year) {
-    if (!isDateValid(date, month, year))
-      return -1;
+    if (!isDateValid(date, month, year)) return -1;
     int noOfDays = 0;
-    for (int i = 1; i < month; i++)
-      noOfDays += getDaysInMonth(i, year);
+    for (int i = 1; i < month; i++) noOfDays += getDaysInMonth(i, year);
     return noOfDays + date;
   }
 
   private static int calcDaysBetweenDates(int d1, int m1, int y1, int d2, int m2, int y2) {
-    if (!isDateValid(d1, m1, y1) || !isDateValid(d2, m2, y2))
-      return -1;
+    if (!isDateValid(d1, m1, y1) || !isDateValid(d2, m2, y2)) return -1;
     if (y1 == y2)
       return getDaysTillDateInSameYear(d2, m2, y2) - getDaysTillDateInSameYear(d1, m1, y1);
-    int noOfDays = getDaysTillDateInSameYear(d2, m2, y2)
-        + (isLeapYear(y1) ? 366 : 365)
-        - getDaysTillDateInSameYear(d1, m1, y1);
-    for (int i = y1 + 1; i < y2; i++)
-      noOfDays += isLeapYear(i) ? 366 : 365;
+    int noOfDays =
+        getDaysTillDateInSameYear(d2, m2, y2)
+            + (isLeapYear(y1) ? 366 : 365)
+            - getDaysTillDateInSameYear(d1, m1, y1);
+    for (int i = y1 + 1; i < y2; i++) noOfDays += isLeapYear(i) ? 366 : 365;
     return noOfDays;
     // Calendar c1 = Calendar.getInstance();
     // c1.get(Calendar.DAY_OF_WEEK);
@@ -77,8 +70,7 @@ public class Calendar_Date_Ops {
   }
 
   private static String getDateInWords(int date, int month, int year) {
-    if (!isDateValid(date, month, year))
-      return "Invalid Date";
+    if (!isDateValid(date, month, year)) return "Invalid Date";
     Calendar calendar = Calendar.getInstance();
     calendar.set(year, month - 1, date); // year, month, date
     return new SimpleDateFormat("dd MMMM yyyy").format(calendar.getTime());
@@ -106,8 +98,10 @@ public class Calendar_Date_Ops {
     System.out.println("Date2 in words: " + getDateInWords(d2, m2, y2));
     System.out.println("Day on Date2: " + getDayOnDate(d2, m2, y2));
     System.out.println("Is Date2 valid: " + isDateValid(d2, m2, y2));
-    System.out.println("Days from start of year till Date1: " + getDaysTillDateInSameYear(d1, m1, y1));
-    System.out.println("Days from start of year till Date2: " + getDaysTillDateInSameYear(d2, m2, y2));
+    System.out.println(
+        "Days from start of year till Date1: " + getDaysTillDateInSameYear(d1, m1, y1));
+    System.out.println(
+        "Days from start of year till Date2: " + getDaysTillDateInSameYear(d2, m2, y2));
     System.out.println("Days between dates: " + calcDaysBetweenDates(d1, m1, y1, d2, m2, y2));
   }
 }

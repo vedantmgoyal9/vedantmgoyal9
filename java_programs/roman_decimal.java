@@ -1,6 +1,6 @@
 public class roman_decimal {
-  private static final char[] roman = { 'I', 'V', 'X', 'L', 'C' };
-  private static final int[] decimal = { 1, 5, 10, 50, 100 };
+  private static final char[] roman = {'I', 'V', 'X', 'L', 'C'};
+  private static final int[] decimal = {1, 5, 10, 50, 100};
   private static String res = null;
 
   private static String convertToRoman(int n) {
@@ -8,19 +8,15 @@ public class roman_decimal {
     while (n > 0) {
       int r = n % 10;
       if (r <= 3) {
-        for (int j = 0; j < r; j++)
-          res = roman[i] + res;
-      } else if (r == 4)
-        res = roman[i] + "" + roman[i + 1] + res;
-      else if (r == 5)
-        res = roman[i + 1] + res;
+        for (int j = 0; j < r; j++) res = roman[i] + res;
+      } else if (r == 4) res = roman[i] + "" + roman[i + 1] + res;
+      else if (r == 5) res = roman[i + 1] + res;
       else if (r <= 8) {
         for (int j = 0; j < r - 5; j++) {
           res = roman[i] + res;
         }
         res = roman[i + 1] + res;
-      } else if (r == 9)
-        res = roman[i] + "" + roman[i + 2] + res;
+      } else if (r == 9) res = roman[i] + "" + roman[i + 2] + res;
 
       n = n / 10;
       i = i + 2;
@@ -52,10 +48,8 @@ public class roman_decimal {
         if (d < d1) {
           n = n + d1 - d;
           i++;
-        } else
-          n = n + d;
-      } else
-        n = n + d;
+        } else n = n + d;
+      } else n = n + d;
     }
     return n + "";
   }
@@ -64,7 +58,7 @@ public class roman_decimal {
     java.util.Scanner sc = new java.util.Scanner(System.in);
     System.out.print("Enter a number b/w 1 to 100 in any format: ");
     String s = sc.next();
-    
+
     // try parsing the input to integer
     // if it fails then it is a roman number string
     try {

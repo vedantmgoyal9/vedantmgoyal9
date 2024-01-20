@@ -31,12 +31,12 @@ func Manifests(w http.ResponseWriter, r *http.Request) {
 
 	pkg_id := r.URL.Query().Get("package_identifier")
 	version := r.URL.Query().Get("version")
-	if (pkg_id == "") {
+	if pkg_id == "" {
 		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte("package_identifier query parameter is required"))
 		return
 	}
-	if (version == "") {
+	if version == "" {
 		version = "latest"
 	}
 

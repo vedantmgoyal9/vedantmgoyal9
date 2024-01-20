@@ -22,7 +22,7 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 	}
 
 	github_client := github.NewClient(nil)
-	
+
 	pkg_id := r.URL.Query().Get("package_identifier")
 	if pkg_id == "" {
 		w.WriteHeader(http.StatusBadRequest)

@@ -1,4 +1,5 @@
 package conditions_ninth;
+
 /*
  * WAP to compute the amount that a customer pays for the taxi that he hires
  * based on the following conditions: [12]
