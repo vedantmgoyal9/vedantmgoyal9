@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/google/go-github/v58/github"
-	"github.com/vedantmgoyal2009/vedantmgoyal2009/api/winget-pkgs/_natural"
+	"github.com/vedantmgoyal2009/vedantmgoyal2009/api/_natural"
 )
 
 type Manifest struct {
@@ -19,7 +19,7 @@ type Manifest struct {
 	Content  string
 }
 
-// #route /api/winget-pkgs/manfiests?package_identifier={package_identifier}&version={version}
+// #route /api/winget-pkgs/manfiests?package_identifier={package_identifier}&version={version}?
 func Manifests(w http.ResponseWriter, r *http.Request) {
 	// only allow GET requests
 	if r.Method != http.MethodGet {

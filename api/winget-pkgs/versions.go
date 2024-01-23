@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/google/go-github/v58/github"
-	"github.com/vedantmgoyal2009/vedantmgoyal2009/api/winget-pkgs/_natural"
+	"github.com/vedantmgoyal2009/vedantmgoyal2009/api/_natural"
 )
 
 // #route /api/winget-pkgs/versions?package_identifier={package_identifier}
