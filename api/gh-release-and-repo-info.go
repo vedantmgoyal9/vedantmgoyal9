@@ -28,7 +28,7 @@ func GitHubReleaseAndRepoMetadata(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var github_client = github.NewClient(nil)
+	github_client := github.NewClient(nil)
 	repo_info, _, err := github_client.Repositories.Get(context.Background(), owner, repo)
 	if err != nil {
 		w.WriteHeader(http.StatusTeapot)
@@ -41,7 +41,6 @@ func GitHubReleaseAndRepoMetadata(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(fmt.Sprintf("error getting release: %s", err)))
 		return
 	}
-	
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
