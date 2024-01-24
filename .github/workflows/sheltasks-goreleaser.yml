@@ -1,0 +1,183 @@
+name: ShelTasks (GoReleaser)
+on:
+  push:
+    paths:
+      - .github/workflows/sheltasks-goreleaser.yml # when the workflow file changes
+      - sheltasks-cli/** # source code, goreleaser and golangci-lint config, sysroots
+    branches: ['main']
+    tags-ignore: ['sheltasks-cli/*', 'wingetdev/nightly']
+  pull_request:
+    branches: ['main']
+    paths:
+      - sheltasks-cli/** # source code, goreleaser and golangci-lint config, sysroots
+concurrency:
+  group: goreleaser-${{ github.ref_name }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  pack-macos-sdks:
+    runs-on: macos-13
+    steps:
+      - uses: actions/checkout@v4.1.1
+        with:
+          repository: tpoechtrager/osxcross
+          persist-credentials: false
+
+      - uses: actions/cache@v3.3.3
+        with:
+          path: MacOSX*.sdk.tar.xz
+          key: macos-sdks
+          lookup-only: true
+          enableCrossOsArchive: true
+        id: sdk-cache
+
+      - if: steps.sdk-cache.outputs.cache-hit != 'true'
+        run: ./tools/gen_sdk_package.sh
+  build-and-release:
+    needs: pack-macos-sdks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository 📥
+        uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Checkout tpoechtrager/osxcross 📥
+        uses: actions/checkout@v4.1.1
+        with:
+          repository: tpoechtrager/osxcross
+          persist-credentials: false
+          path: ${{ github.workspace }}/sheltasks-cli/osxcross
+
+      - uses: actions/setup-go@v5.0.0
+        with:
+          check-latest: true
+          go-version-file: ./sheltasks-cli/go.mod
+          cache-dependency-path: ./sheltasks-cli/go.sum
+          cache: true
+
+      - name: Restore osxcross/target from cache 🗃️
+        uses: actions/cache@v3.3.3
+        with:
+          path: ./sheltasks-cli/osxcross/target/**
+          key: osxcross-target-cache
+        id: osxcross-prebuilt
+
+      - name: Get SDKs from pack-macos-sdks job 📩
+        if: steps.osxcross-prebuilt.outputs.cache-hit != 'true'
+        uses: actions/cache/restore@v3.3.3
+        with:
+          path: MacOSX*.sdk.tar.xz
+          key: macos-sdks
+          enableCrossOsArchive: true
+          fail-on-cache-miss: true
+        id: macos-sdks-cache
+
+      - name: Build osxcross 🛠️
+        if: steps.macos-sdks-cache.outputs.cache-hit == 'true'
+        run: mv ../../*.sdk.tar.xz ./tarballs/ && UNATTENDED=1 SDK_VERSION=13 ./build.sh
+        working-directory: ${{ github.workspace }}/sheltasks-cli/osxcross
+
+      - name: Setup for compiling for arm64/amd64 linux 🐧
+        run: |
+          sudo sed -i -e 's/deb mirror/deb [arch=amd64] mirror/g' /etc/apt/sources.list
+          echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm64.list
+          echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports jammy-updates main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm64.list
+          echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports jammy-backports main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm64.list
+          echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports jammy-security main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm64.list
+          sudo dpkg --add-architecture arm64
+          sudo apt-get update
+          sudo apt-get install -y libmsi-dev libglib2.0-dev gcc-aarch64-linux-gnu libmsi-dev:arm64 libglib2.0-dev:arm64
+
+      - name: Add osxcross to PATH 🛻🛣️
+        run: |
+          '${{ github.workspace }}/sheltasks-cli/osxcross/target/bin' | Out-File -FilePath $env:GITHUB_PATH -Append
+        shell: pwsh
+
+      - name: Install cosign 📝✍️
+        if: github.event_name == 'push'
+        run: |
+          $env:COSIGN_KEY | Out-File -FilePath $env:GITHUB_WORKSPACE/sheltasks-cli/cosign.key -Encoding utf8
+          go install github.com/sigstore/cosign/v2/cmd/cosign@latest
+        env:
+          COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
+        shell: pwsh
+
+      - name: Run GoReleaser (build-only) 🏗️🚧
+        if: github.event_name == 'pull_request'
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          version: latest
+          distribution: goreleaser
+          args: build --clean
+          workdir: sheltasks-cli
+
+      - name: Run GoReleaser (stable) 🚀
+        if: github.ref_type == 'tag' && github.event_name == 'push'
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          version: nightly
+          distribution: goreleaser
+          args: release --clean
+          workdir: sheltasks-cli
+        env:
+            COSIGN_PASSWORD: ${{ secrets.COSIGN_PWD }}
+            CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
+            GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+
+      - name: Prefix tag with sheltasks-cli/ (stable) 👨‍🔧🏷️
+        if: github.ref_type == 'tag' && github.event_name == 'push'
+        run: |
+          api_url=$(gh release view "$TAG_NAME" --json apiUrl --jq '.apiUrl')
+          gh api --method PATCH \
+            /repos/$GITHUB_REPOSITORY/releases/$(basename $api_url) \
+            --field name="ShelTasks CLI $TAG_NAME" \
+            --field tag_name=sheltasks-cli/$TAG_NAME \
+            --field draft=false \
+            --field prerelease=false
+          gh api --method DELETE /repos/$GITHUB_REPOSITORY/git/refs/tags/$TAG_NAME
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+          GH_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+
+      - name: Get nightly tag 🌙
+        if: github.ref_type == 'branch' && github.event_name == 'push'
+        run: |
+          latest_tag=$(git tag --list sheltasks-cli/v* | head -n1 | sed 's/sheltasks-cli\///g')
+          new_tag=$(echo $latest_tag | awk -F. -v OFS=. '{$2++; $3=0; print}')
+          echo "tag=$new_tag-nightly" >> $GITHUB_OUTPUT
+          git tag $new_tag-nightly
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: get-nightly-tag
+
+      - name: Run GoReleaser 🌜nightly🌛
+        if: github.ref_type == 'branch' && github.event_name == 'push'
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          version: nightly
+          distribution: goreleaser
+          args: release --clean --skip=announce,homebrew,chocolatey,winget
+          workdir: src
+        env:
+          GORELEASER_CURRENT_TAG: ${{ steps.get-nightly-tag.outputs.tag }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PWD }}
+          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+
+      - name: Move release to nightly tag 🌝
+        if: github.ref_type == 'branch' && github.event_name == 'push'
+        run: |
+          gh release delete sheltasks-cli/nightly --cleanup-tag --yes
+          api_url=$(gh release view "$NIGHTLY_TAG" --json apiUrl --jq '.apiUrl')
+          gh api --method PATCH \
+            /repos/$GITHUB_REPOSITORY/releases/$(basename $api_url) \
+            --field name="ShelTasks CLI (Nightly) 🌝" \
+            --field tag_name=sheltasks-cli/nightly \
+            --field draft=false \
+            --field prerelease=true
+          gh api --method DELETE /repos/$GITHUB_REPOSITORY/git/refs/tags/$NIGHTLY_TAG
+        env:
+          NIGHTLY_TAG: ${{ steps.get-nightly-tag.outputs.tag }}
+          GH_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}

@@ -1,0 +1,158 @@
+# Make sure to check the documentation at https://goreleaser.com
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+project_name: sheltasks-cli
+dist: ./dist
+before:
+  hooks: [go mod tidy]
+git:
+  ignore_tags: [sheltasks-cli/*, wingetdev/nightly]
+env:
+  # cgo is only needed for linux and macos builds but
+  # we enable here to avoid redundancy in the config
+  - CGO_ENABLED=1
+report_sizes: true
+builds:
+  - id: windows-and-linux-builds
+    skip: false
+    goos: [windows, linux]
+    goarch: [amd64, arm64]
+    flags: -trimpath
+    overrides:
+      - goos: linux
+        goarch: arm64
+        env:
+          - CC=aarch64-linux-gnu-gcc
+          - CXX=aarch64-linux-gnu-g++
+    ignore:
+      - goos: windows
+        goarch: arm64
+  # separate builds for macos, since env vars are not be detected
+  # by osxcross when using 'overrides' functionality of goreleaser
+  - id: macos-builds-using-osxcross
+    skip: false
+    goos: [darwin]
+    goarch: [amd64]
+    flags: -trimpath
+    env:
+      # $env:GITHUB_WORKSPACE is set by default to project's root directory
+      - CC={{ if eq .Arch "arm64" }}oa64-clang{{ else }}o64-clang{{ end }}
+      - CXX={{ if eq .Arch "arm64" }}oa64-clang++{{ else }}o64-clang++{{ end }}
+      - PKG_CONFIG_SYSROOT_DIR={{ .Env.GITHUB_WORKSPACE }}/sheltasks-cli/_sysroots/macos-{{ .Arch }}
+      - PKG_CONFIG_PATH={{ .Env.GITHUB_WORKSPACE }}/sheltasks-cli/_sysroots/macos-{{ .Arch }}/usr/local/lib/pkgconfig
+      - PKG_CONFIG_LIBDIR={{ .Env.GITHUB_WORKSPACE }}/sheltasks-cli/_sysroots/macos-{{ .Arch }}/usr/local/lib
+      - OSXCROSS_PKG_CONFIG_USE_NATIVE_VARIABLES=1
+release:
+  github:
+    owner: vedantmgoyal2009
+    name: vedantmgoyal2009
+  mode: keep-existing
+  draft: false
+  replace_existing_draft: false
+  prerelease: 'auto'
+  disable: false
+  skip_upload: false
+archives:
+  - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
+    format: tar.gz
+    format_overrides:
+      - format: zip
+        goos: windows
+    id: tar-gzs-and-zips
+  - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
+    format: binary
+    id: binaries
+checksum:
+  name_template: checksums.txt
+  algorithm: sha256
+  disable: false
+signs:
+  - cmd: cosign
+    args:
+      - sign-blob
+      - --key=cosign.key
+      - --output-signature=${signature}
+      - ${artifact}
+      - --yes
+    artifacts: checksum
+brews:
+  - name: sheltasks-cli
+    ids: [tar-gzs-and-zips]
+    url_template: 'https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/download/sheltasks-cli/{{ .Tag }}/{{ .ArtifactName }}'
+    homepage: https://github.com/vedantmgoyal2009/vedantmgoyal2009
+    description: 'Sheltasks: My CLI friend helping me with my daily tasks'
+    license: MIT
+    dependencies:
+      - name: msitools
+    commit_msg_template: 'feat: {{ .ProjectName }} version {{ .Tag }}'
+    commit_author:
+      name: vedantmgoyal-bot[bot]
+      email: 110876359+vedantmgoyal-bot[bot]@users.noreply.github.com
+    repository:
+      owner: vedantmgoyal2009
+      name: homebrew-tap
+      branch: '{{ .ProjectName }}-{{ .Tag }}'
+      pull_request:
+        enabled: true
+        base:
+          owner: vedantmgoyal2009
+          name: homebrew-tap
+          branch: main
+        draft: false
+    skip_upload: false
+winget:
+  - name: sheltasks-cli
+    ids: [binaries]
+    package_identifier: vedantmgoyal.sheltasks-cli
+    homepage: https://github.com/vedantmgoyal2009/vedantmgoyal2009
+    publisher: Vedant
+    author: Vedant
+    publisher_url: https://github.com/vedantmgoyal2009
+    publisher_support_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues
+    license: MIT
+    license_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/LICENSE
+    copyright: Copyright (c) 2023 Vedant
+    copyright_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/LICENSE
+    release_notes_url: 'https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/sheltasks-cli/{{ .Tag }}'
+    commit_msg_template: 'New version: vedantmgoyal.sheltasks-cli version {{ .Tag }}'
+    short_description: 'Sheltasks: My CLI friend helping me with my daily tasks'
+    description: My personal CLI to streamline daily frequent tasks, for enhanced productivity.
+    url_template: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/download/sheltasks-cli/{{ .Tag }}/{{ .ArtifactName }}
+    tags: [golang, cli, command-line, productivity]
+    repository:
+      owner: vedantmgoyal2009
+      name: winget-pkgs
+      branch: sheltasks-cli-{{ .Tag }}-{{ .Now.Format "20060102150405"}}
+      pull_request:
+        enabled: true
+        base:
+          owner: microsoft
+          name: winget-pkgs
+          branch: master
+        draft: false
+    commit_author:
+      name: vedantmgoyal-bot[bot]
+      email: 110876359+vedantmgoyal-bot[bot]@users.noreply.github.com
+    path: manifests/v/vedantmgoyal/sheltasks-cli/{{ .Version }}
+    skip_upload: false
+# chocolateys:
+#   - name: sheltasks-cli
+#     ids: [tar-gzs-and-zips]
+#     title: sheltasks-cli
+#     owners: Vedant
+#     authors: Vedant
+#     copyright: Copyright (c) 2023 Vedant
+#     project_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009
+#     license_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/LICENSE
+#     require_license_acceptance: false
+#     project_source_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009
+#     package_source_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009
+#     docs_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/README.md
+#     bug_tracker_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues
+#     tags: golang cli command-line productivity
+#     summary: 'Sheltasks: My CLI friend helping me with my daily tasks'
+#     description: My personal CLI to streamline daily frequent tasks, for enhanced productivity.
+#     url_template: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/download/sheltasks-cli/{{ .Tag }}/{{ .ArtifactName }}
+#     release_notes: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/tag/sheltasks-cli/{{ .Tag }}
+#     api_key: '{{ .Env.CHOCOLATEY_API_KEY }}'
+#     source_repo: https://push.chocolatey.org/
+#     skip_publish: false
