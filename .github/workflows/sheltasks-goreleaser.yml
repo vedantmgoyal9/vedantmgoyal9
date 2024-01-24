@@ -5,7 +5,7 @@ on:
       - .github/workflows/sheltasks-goreleaser.yml # when the workflow file changes
       - sheltasks-cli/** # source code, goreleaser and golangci-lint config, sysroots
     branches: ['main']
-    tags-ignore: ['sheltasks-cli/*', 'wingetdev/nightly']
+    tags-ignore: ['sheltasks-cli/*', '*nightly']
   pull_request:
     branches: ['main']
     paths:
@@ -159,8 +159,8 @@ jobs:
         with:
           version: nightly
           distribution: goreleaser
-          args: release --clean --skip=announce,homebrew,chocolatey,winget
-          workdir: src
+          args: release --clean --skip=announce,chocolatey,winget
+          workdir: sheltasks-cli
         env:
           GORELEASER_CURRENT_TAG: ${{ steps.get-nightly-tag.outputs.tag }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PWD }}

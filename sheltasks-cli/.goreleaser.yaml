@@ -5,7 +5,7 @@ dist: ./dist
 before:
   hooks: [go mod tidy]
 git:
-  ignore_tags: [sheltasks-cli/*, wingetdev/nightly]
+  ignore_tags: [sheltasks-cli/nightly, wingetdev/nightly]
 env:
   # cgo is only needed for linux and macos builds but
   # we enable here to avoid redundancy in the config
@@ -75,32 +75,27 @@ signs:
       - --yes
     artifacts: checksum
 brews:
-  - name: sheltasks-cli
+  - name: sheltasks-cli{{ if .Prerelease }}-nightly{{ end }}
     ids: [tar-gzs-and-zips]
-    url_template: 'https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/download/sheltasks-cli/{{ .Tag }}/{{ .ArtifactName }}'
+    url_template: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/download/sheltasks-cli/{{ if .Prerelease }}nightly{{ else }}{{ .Tag }}{{ end }}/{{ .ArtifactName }}
     homepage: https://github.com/vedantmgoyal2009/vedantmgoyal2009
-    description: 'Sheltasks: My CLI friend helping me with my daily tasks'
+    description: 'Sheltasks{{ if .Prerelease }} (Nightly){{ end }}: My CLI friend helping me with my daily tasks'
     license: MIT
     dependencies:
       - name: msitools
-    commit_msg_template: 'feat: {{ .ProjectName }} version {{ .Tag }}'
+    commit_msg_template: 'feat: {{ .ProjectName }} {{ .Tag }}{{ if .Prerelease }} ({{ .ShortCommit }}){{ end }}'
     commit_author:
       name: vedantmgoyal-bot[bot]
       email: 110876359+vedantmgoyal-bot[bot]@users.noreply.github.com
     repository:
       owner: vedantmgoyal2009
       name: homebrew-tap
-      branch: '{{ .ProjectName }}-{{ .Tag }}'
+      branch: main
       pull_request:
-        enabled: true
-        base:
-          owner: vedantmgoyal2009
-          name: homebrew-tap
-          branch: main
-        draft: false
+        enabled: false # push directly to branch
     skip_upload: false
 winget:
-  - name: sheltasks-cli
+  - name: ShelTasks CLI
     ids: [binaries]
     package_identifier: vedantmgoyal.sheltasks-cli
     homepage: https://github.com/vedantmgoyal2009/vedantmgoyal2009
@@ -112,8 +107,8 @@ winget:
     license_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/LICENSE
     copyright: Copyright (c) 2023 Vedant
     copyright_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/LICENSE
-    release_notes_url: 'https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/sheltasks-cli/{{ .Tag }}'
-    commit_msg_template: 'New version: vedantmgoyal.sheltasks-cli version {{ .Tag }}'
+    release_notes_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/tag/sheltasks-cli/{{ .Tag }}
+    commit_msg_template: 'New version: vedantmgoyal.sheltasks-cli {{ .Tag }}'
     short_description: 'Sheltasks: My CLI friend helping me with my daily tasks'
     description: My personal CLI to streamline daily frequent tasks, for enhanced productivity.
     url_template: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/download/sheltasks-cli/{{ .Tag }}/{{ .ArtifactName }}
