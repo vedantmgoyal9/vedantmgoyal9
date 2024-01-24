@@ -1,6 +1,8 @@
 baseURL = 'https://bittu.eu.org/'
 languageCode = 'en-us'
 title = 'My Personal Website'
+enableRobotsTXT = true
+disableKinds = ['rss']
 
 # Enable Google Analytics by entering your tracking code
 [services]
