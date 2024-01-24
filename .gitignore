@@ -150,3 +150,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,go,windows,linux,macos
+
+## Since order of .gitignore files matters, this has to be at the end
+# Include everything in sysroots for sheltasks-cli (specially .dylib files)
+## .dylib files are ignored when .gitignore was generated gitignore.io (toptal.com/developers/gitignore)
+!sheltasks-cli/_sysroots/**/*
