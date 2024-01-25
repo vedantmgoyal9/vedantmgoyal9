@@ -49,6 +49,7 @@ release:
   draft: false
   replace_existing_draft: false
   prerelease: 'auto'
+  make_latest: false
   disable: false
   skip_upload: false
 archives:
@@ -61,6 +62,14 @@ archives:
   - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
     format: binary
     id: binaries
+changelog:
+  use: git
+  abbrev: 7
+  groups:
+    - title: Changelog
+      regexp: '^.*\(sheltasks-cli\):.*$'
+      order: 0
+  skip: false
 checksum:
   name_template: checksums.txt
   algorithm: sha256
