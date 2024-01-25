@@ -69,3 +69,14 @@ updates:
     reviewers: [vedantmgoyal2009]
     rebase-strategy: auto
     target-branch: main
+
+  # Maintain dependencies for Devcontainers
+  - package-ecosystem: devcontainers
+    directory: /
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: chore(deps)
+    reviewers: [vedantmgoyal2009]
+    rebase-strategy: auto
+    target-branch: main
