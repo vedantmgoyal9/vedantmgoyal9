@@ -40,23 +40,22 @@ func Manifests(w http.ResponseWriter, r *http.Request) {
 		version = "latest"
 	}
 
-	// duplicated code from versions.go, since it seems like vercel builds functions separately and
-	// hence they can't access function declared in another file, while golang itself supports this
-	_, versions_in_dir, _, err := github_client.Repositories.GetContents(context.Background(), "microsoft", "winget-pkgs", getPackagePath(pkg_id, ""), nil)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(fmt.Sprintf("error getting package versions for %s: %s", pkg_id, err)))
+	response := struct {
+		PackageIdentifier string   `json:"PackageIdentifier"`
+		Versions          []string `json:"Versions"`
+	}{}
+	res, err := http.Get("https://vedantmgoyal.vercel.app/api/winget-pkgs/versions/" + pkg_id)
+	// error will only be of type *url.Error, so added check for status code as well
+	if err != nil || res.StatusCode != http.StatusOK {
+		// we assume that the error is because the package was not found because
+		// the API seems to be stable 🙂 and the only error that can occur is when the package is not found
+		w.WriteHeader(http.StatusNoContent)
+		w.Write([]byte(fmt.Sprintf("package %s not found in winget-pkgs (https://github.com/microsoft/winget-pkgs)", pkg_id)))
 		return
 	}
-
-	pkg_versions := []string{}
-	commonly_ignored_versions := []string{"eap", "preview", "beta", "dev", "nightly", "canary", "insiders"}
-	for _, dir_content := range versions_in_dir {
-		if dir_content.GetType() == "dir" && !slices.Contains(commonly_ignored_versions, strings.ToLower(dir_content.GetName())) {
-			pkg_versions = append(pkg_versions, dir_content.GetName())
-		}
-	}
-	// end of duplicated code
+	defer res.Body.Close()
+	json.NewDecoder(res.Body).Decode(&response)
+	pkg_versions := response.Versions
 
 	if strings.ToLower(version) == "latest" {
 		sort.Sort(natural.StringSlice(pkg_versions)) // sort versions naturally
