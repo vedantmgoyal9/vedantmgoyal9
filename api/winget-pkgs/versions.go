@@ -137,7 +137,7 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 	} else if (package_versions[pkg_id]) == nil {
 		w.WriteHeader(http.StatusNotFound)
 		fmt.Fprintf(w, "package %s not found in winget-pkgs source.msix. make sure atleast one version of the package exists in winget-pkgs, or wait for publish pipeline to complete for the package", pkg_id)
-	}else {
+	} else {
 		sort.Sort(sort.Reverse(natural.StringSlice(package_versions[pkg_id]))) // sort versions naturally
 		json.NewEncoder(w).Encode(map[string]interface{}{
 			"PackageIdentifier": pkg_id,
