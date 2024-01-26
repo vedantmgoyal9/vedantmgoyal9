@@ -22,7 +22,7 @@ func GitHubReleaseAndRepoMetadata(w http.ResponseWriter, r *http.Request) {
 	owner := r.URL.Query().Get("owner")
 	repo := r.URL.Query().Get("repo")
 	release_tag := r.URL.Query().Get("release_tag")
-	if len(owner) == 0 || len(repo) == 0 || len(release_tag) == 0 {
+	if owner == "" || repo == "" || release_tag == "" {
 		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte("owner, repo and release_tag query parameters are required"))
 		return
