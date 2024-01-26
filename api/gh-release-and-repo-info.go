@@ -32,13 +32,13 @@ func GitHubReleaseAndRepoMetadata(w http.ResponseWriter, r *http.Request) {
 	repo_info, _, err := github_client.Repositories.Get(context.Background(), owner, repo)
 	if err != nil {
 		w.WriteHeader(http.StatusTeapot)
-		w.Write([]byte(fmt.Sprintf("error getting repo info: %s", err)))
+		fmt.Fprintf(w, "error getting repo info: %s", err)
 		return
 	}
 	release, _, err := github_client.Repositories.GetReleaseByTag(context.Background(), owner, repo, release_tag)
 	if err != nil {
 		w.WriteHeader(http.StatusTeapot)
-		w.Write([]byte(fmt.Sprintf("error getting release: %s", err)))
+		fmt.Fprintf(w, "error getting release: %s", err)
 		return
 	}
 
