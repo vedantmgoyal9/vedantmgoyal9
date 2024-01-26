@@ -26,7 +26,7 @@ func VersionsGithub(w http.ResponseWriter, r *http.Request) {
 	pkg_id := r.URL.Query().Get("package_identifier")
 	if pkg_id == "" {
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("package_identifier query parameter is required"))
+		fmt.Fprintf(w, "package_identifier query parameter is required")
 		return
 	}
 
@@ -35,7 +35,7 @@ func VersionsGithub(w http.ResponseWriter, r *http.Request) {
 	_, dir_contents, _, err := github_client.Repositories.GetContents(context.Background(), "microsoft", "winget-pkgs", pkg_path, nil)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(fmt.Sprintf("error getting package versions for %s: %s", pkg_id, err)))
+		fmt.Fprintf(w, "error getting package versions for %s: %s", pkg_id, err)
 		return
 	}
 

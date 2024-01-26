@@ -33,7 +33,7 @@ func Manifests(w http.ResponseWriter, r *http.Request) {
 	version := r.URL.Query().Get("version")
 	if pkg_id == "" {
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("package_identifier query parameter is required"))
+		fmt.Fprintf(w, "package_identifier query parameter is required")
 		return
 	}
 	if version == "" {
@@ -50,7 +50,7 @@ func Manifests(w http.ResponseWriter, r *http.Request) {
 		// we assume that the error is because the package was not found because
 		// the API seems to be stable 🙂 and the only error that can occur is when the package is not found
 		w.WriteHeader(http.StatusNoContent)
-		w.Write([]byte(fmt.Sprintf("package %s not found in winget-pkgs (https://github.com/microsoft/winget-pkgs)", pkg_id)))
+		fmt.Fprintf(w, "package %s not found in winget-pkgs (https://github.com/microsoft/winget-pkgs)", pkg_id)
 		return
 	}
 	defer res.Body.Close()
@@ -60,18 +60,16 @@ func Manifests(w http.ResponseWriter, r *http.Request) {
 	if strings.ToLower(version) == "latest" {
 		sort.Sort(natural.StringSlice(pkg_versions)) // sort versions naturally
 		version = pkg_versions[len(pkg_versions)-1]
-	} else {
-		if !slices.Contains(pkg_versions, version) {
-			w.WriteHeader(http.StatusNotFound)
-			w.Write([]byte(fmt.Sprintf("version %s does not exist for package %s", version, pkg_id)))
-			return
-		}
+	} else if !slices.Contains(pkg_versions, version) {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "version %s does not exist for package %s", version, pkg_id)
+		return
 	}
 
 	_, dir_contents, _, err := github_client.Repositories.GetContents(context.Background(), "microsoft", "winget-pkgs", getPackagePath(pkg_id, version), nil)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(fmt.Sprintf("error getting manifests for %s version %s: %s", pkg_id, version, err)))
+		fmt.Fprintf(w, "error getting manifests for %s version %s: %s", pkg_id, version, err)
 		return
 	}
 
@@ -80,13 +78,13 @@ func Manifests(w http.ResponseWriter, r *http.Request) {
 		res, err := http.Get(dir_content.GetDownloadURL())
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
-			w.Write([]byte(fmt.Sprintf("error getting manifest %s: %s", dir_content.GetName(), err)))
+			fmt.Fprintf(w, "error getting manifest %s: %s", dir_content.GetName(), err)
 			return
 		}
 		manifest_raw, err := io.ReadAll(res.Body)
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
-			w.Write([]byte(fmt.Sprintf("error reading response body for manifest %s: %s", dir_content.GetName(), err)))
+			fmt.Fprintf(w, "error reading response body for manifest %s: %s", dir_content.GetName(), err)
 			return
 		}
 		defer res.Body.Close()

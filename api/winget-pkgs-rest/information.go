@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+// #route /api/winget-pkgs-rest/information
 func Information(w http.ResponseWriter, r *http.Request) {
 	// only allow GET requests
 	if r.Method != http.MethodGet {

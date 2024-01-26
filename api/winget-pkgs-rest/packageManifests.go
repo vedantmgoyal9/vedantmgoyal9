@@ -9,6 +9,7 @@ import (
 	"sigs.k8s.io/kustomize/kyaml/yaml"
 )
 
+// #route /api/winget-pkgs-rest/packageManifests?package_identifier={package_identifier}
 func PackageManifests(w http.ResponseWriter, r *http.Request) {
 	// only allow GET requests
 	if r.Method != http.MethodGet {
@@ -19,19 +20,19 @@ func PackageManifests(w http.ResponseWriter, r *http.Request) {
 	pkg_id := r.URL.Query().Get("package_identifier")
 	if pkg_id == "" {
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("package_identifier query parameter is required"))
+		fmt.Fprintf(w, "package_identifier query parameter is required")
 		return
 	}
 
 	manifests := []ManifestsApiResponse{}
 
-	res, err := http.Get("https://vedantmgoyal2009.vercel.app/api/winget-pkgs/manifests/" + pkg_id)
+	res, err := http.Get("https://vedantmgoyal.vercel.app/api/winget-pkgs/manifests/" + pkg_id)
 	// error will only be of type *url.Error, so added check for status code as well
 	if err != nil || res.StatusCode != http.StatusOK {
 		// we assume that the error is because the package was not found because
 		// the API seems to be stable 🙂 and the only error that can occur is when the package is not found
 		w.WriteHeader(http.StatusNoContent)
-		w.Write([]byte(fmt.Sprintf("package %s not found in winget-pkgs (https://github.com/microsoft/winget-pkgs)", pkg_id)))
+		fmt.Fprintf(w, "package %s not found in winget-pkgs (https://github.com/microsoft/winget-pkgs)", pkg_id)
 		return
 	}
 	defer res.Body.Close()
