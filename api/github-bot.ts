@@ -1,4 +1,7 @@
 import { createNodeMiddleware, createProbot, Context, Probot } from 'probot';
+import lint from '@commitlint/lint';
+import { format } from '@commitlint/format';
+import { LintOutcome, QualifiedConfig } from '@commitlint/types';
 
 /**
  * This is the main entrypoint to your Probot app
@@ -76,6 +79,36 @@ function probotApp(app: Probot) {
       }
     },
   );
+
+  app.on('push', async (context: Context<'push'>) => {
+    const reports: LintOutcome[] = [];
+    let results: string[] = [];
+    const config: Partial<QualifiedConfig> = require('@commitlint/config-conventional');
+    const preset = require('conventional-changelog-conventionalcommits'); // config.parserPreset
+    for (const commit of context.payload.commits) {
+      const report = await lint(commit.message, config.rules, { ...preset });
+      reports.push(report);
+      results.push(
+        format({ results: [report] }, { color: true, verbose: true }),
+      );
+    }
+    // create a check run
+    return await context.octokit.checks.create(
+      context.repo({
+        name: 'Commitlint',
+        head_sha: context.payload.after,
+        status: 'completed',
+        conclusion: reports.every((report) => report.valid)
+          ? 'success'
+          : 'failure',
+        completed_at: new Date().toISOString(),
+        output: {
+          title: 'Commitlint',
+          summary: '```shell\n' + results.join('\n') + '\n```',
+        },
+      }),
+    );
+  });
 }
 
 export default createNodeMiddleware(probotApp, {
