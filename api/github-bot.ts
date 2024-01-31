@@ -81,6 +81,8 @@ function probotApp(app: Probot) {
   );
 
   app.on('push', async (context: Context<'push'>) => {
+    if (context.payload.ref !== `refs/heads/${context.payload.repository.default_branch}`) return;
+    if (context.payload.commits[0].author.username === 'dependabot[bot]') return;
     const reports: LintOutcome[] = [];
     let results: string[] = [];
     const config: Partial<QualifiedConfig> = require('@commitlint/config-conventional');
