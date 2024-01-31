@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/google/go-github/v58 v58.0.0
-	github.com/ncruces/go-sqlite3 v0.12.0
+	github.com/ncruces/go-sqlite3 v0.12.1
 	sigs.k8s.io/kustomize/kyaml v0.16.0
 )
 
