@@ -1,0 +1,80 @@
+{
+  "homebrew_version": "4.1.13-80-g5ec560a",
+  "used_options": [
+
+  ],
+  "unused_options": [
+
+  ],
+  "built_as_bottle": true,
+  "poured_from_bottle": true,
+  "loaded_from_api": true,
+  "installed_as_dependency": false,
+  "installed_on_request": true,
+  "changed_files": [
+    "lib/pkgconfig/libmsi-1.0.pc"
+  ],
+  "time": 1706886944,
+  "source_modified_time": 1695129394,
+  "compiler": "clang",
+  "aliases": [
+
+  ],
+  "runtime_dependencies": [
+    {
+      "full_name": "pcre2",
+      "version": "10.42",
+      "revision": 0,
+      "pkg_version": "10.42",
+      "declared_directly": false
+    },
+    {
+      "full_name": "gettext",
+      "version": "0.22.4",
+      "revision": 0,
+      "pkg_version": "0.22.4",
+      "declared_directly": true
+    },
+    {
+      "full_name": "glib",
+      "version": "2.78.3",
+      "revision": 0,
+      "pkg_version": "2.78.3",
+      "declared_directly": true
+    },
+    {
+      "full_name": "gcab",
+      "version": "1.6",
+      "revision": 0,
+      "pkg_version": "1.6",
+      "declared_directly": true
+    },
+    {
+      "full_name": "libgsf",
+      "version": "1.14.51",
+      "revision": 0,
+      "pkg_version": "1.14.51",
+      "declared_directly": true
+    }
+  ],
+  "source": {
+    "spec": "stable",
+    "versions": {
+      "stable": "0.103",
+      "head": null,
+      "version_scheme": 0
+    },
+    "path": "/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula/m/msitools.rb",
+    "tap_git_head": "8cb8ab5002f24850e3e34f9dd8010e991b837736",
+    "tap": "homebrew/core"
+  },
+  "arch": "arm64",
+  "built_on": {
+    "os": "Macintosh",
+    "os_version": "macOS 14",
+    "cpu_family": "dunno",
+    "xcode": "15.0",
+    "clt": "15.0.0.0.1.1694021235",
+    "preferred_perl": "5.34"
+  }
+}

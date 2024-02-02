@@ -1,0 +1,51 @@
+{
+  "homebrew_version": "4.1.20-52-gad1bb17",
+  "used_options": [
+
+  ],
+  "unused_options": [
+
+  ],
+  "built_as_bottle": true,
+  "poured_from_bottle": true,
+  "loaded_from_api": true,
+  "installed_as_dependency": true,
+  "installed_on_request": false,
+  "changed_files": [
+    "bin/autopoint",
+    "bin/gettextize",
+    "lib/gettext/user-email",
+    "share/doc/gettext/examples/installpaths",
+    "share/man/man1/gettext.1",
+    "share/man/man1/ngettext.1"
+  ],
+  "time": 1706886940,
+  "source_modified_time": 1700426410,
+  "compiler": "clang",
+  "aliases": [
+
+  ],
+  "runtime_dependencies": [
+
+  ],
+  "source": {
+    "spec": "stable",
+    "versions": {
+      "stable": "0.22.4",
+      "head": null,
+      "version_scheme": 0
+    },
+    "path": "/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/gettext.rb",
+    "tap_git_head": "8cb8ab5002f24850e3e34f9dd8010e991b837736",
+    "tap": "homebrew/core"
+  },
+  "arch": "arm64",
+  "built_on": {
+    "os": "Macintosh",
+    "os_version": "macOS 14",
+    "cpu_family": "dunno",
+    "xcode": "15.0",
+    "clt": "15.0.0.0.1.1694021235",
+    "preferred_perl": "5.34"
+  }
+}

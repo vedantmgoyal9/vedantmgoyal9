@@ -1,0 +1,10 @@
+prefix=/opt/homebrew/Cellar/gcab/1.6
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: libgcab
+Description: Cabinet file library
+Version: 1.6
+Requires: gio-2.0
+Libs: -L${libdir} -lgcab-1.0
+Cflags: -I${includedir}/libgcab-1.0

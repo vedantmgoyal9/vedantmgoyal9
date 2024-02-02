@@ -17,7 +17,7 @@ permissions:
   contents: write
 jobs:
   pack-macos-sdks:
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4.1.1
         with:
@@ -77,7 +77,7 @@ jobs:
 
       - name: Build osxcross 🛠️
         if: steps.macos-sdks-cache.outputs.cache-hit == 'true'
-        run: mv ../../*.sdk.tar.xz ./tarballs/ && UNATTENDED=1 SDK_VERSION=13 ./build.sh
+        run: mv ../../*.sdk.tar.xz ./tarballs/ && UNATTENDED=1 SDK_VERSION=14 ./build.sh
         working-directory: ${{ github.workspace }}/sheltasks-cli/osxcross
 
       - name: Setup for compiling for arm64/amd64 linux 🐧

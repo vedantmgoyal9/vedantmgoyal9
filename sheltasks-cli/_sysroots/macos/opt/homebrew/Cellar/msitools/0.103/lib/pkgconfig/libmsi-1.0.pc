@@ -1,0 +1,10 @@
+prefix=/opt/homebrew/Cellar/msitools/0.103
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: libmsi-1.0
+Description: MSI manipulation library
+Version: 0.103
+Requires: gio-2.0
+Libs: -L${libdir} -lmsi-1.0
+Cflags: -I${includedir}/libmsi-1.0
