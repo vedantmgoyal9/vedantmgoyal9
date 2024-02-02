@@ -2,6 +2,9 @@ import { createProbot, Context, Probot } from 'probot';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import type { Readable } from 'node:stream';
 import type { WebhookEventName } from '@octokit/webhooks-types';
+import lint from '@commitlint/lint';
+import { format } from '@commitlint/format';
+import { LintOutcome, QualifiedConfig } from '@commitlint/types';
 
 /**
  * This is the main entrypoint to your Probot app
@@ -79,6 +82,44 @@ function probotApp(app: Probot) {
       }
     },
   );
+
+  app.on('push', async (context: Context<'push'>) => {
+    if (
+      context.payload.ref !==
+        `refs/heads/${context.payload.repository.default_branch}` ||
+      context.payload.commits[0].author.username === 'dependabot[bot]' ||
+      !context.payload.commits.length
+    )
+      return;
+    const reports: LintOutcome[] = [];
+    let results: string[] = [];
+    const config: Partial<QualifiedConfig> = require('@commitlint/config-conventional');
+    const preset = require('conventional-changelog-conventionalcommits'); // config.parserPreset
+    for (const commit of context.payload.commits) {
+      const report = await lint(commit.message, config.rules, { ...preset });
+      reports.push(report);
+      results.push(
+        format({ results: [report] }, { color: true, verbose: true }),
+      );
+    }
+    // create a check run
+    return await context.octokit.checks.create(
+      context.repo({
+        name: 'Commitlint',
+        head_sha: context.payload.after,
+        status: 'completed',
+        conclusion: reports.every((report) => report.valid)
+          ? 'success'
+          : 'failure',
+        started_at: new Date().toISOString(), // add 1 second to the current time
+        completed_at: new Date(new Date().getTime() + 1000).toISOString(),
+        output: {
+          title: 'Commitlint',
+          summary: '```shell\n' + results.join('\n') + '\n```',
+        },
+      }),
+    );
+  });
 }
 
 export default async (req: VercelRequest, res: VercelResponse) => {
