@@ -1,4 +1,7 @@
-import { createNodeMiddleware, createProbot, Context, Probot } from 'probot';
+import { createProbot, Context, Probot } from 'probot';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { Readable } from 'node:stream';
+import type { WebhookEventName } from '@octokit/webhooks-types';
 
 /**
  * This is the main entrypoint to your Probot app
@@ -78,7 +81,31 @@ function probotApp(app: Probot) {
   );
 }
 
-export default createNodeMiddleware(probotApp, {
-  probot: createProbot(),
-  webhooksPath: '/api/github-bot',
-});
+export default async (req: VercelRequest, res: VercelResponse) => {
+  const probot = createProbot();
+  probot.load(probotApp);
+  const rawBody = (await buffer(req)).toString('utf8');
+  await probot.webhooks.verifyAndReceive({
+    id: req.headers['x-github-delivery'] as string,
+    name: req.headers['x-github-event'] as WebhookEventName,
+    signature: req.headers['x-hub-signature-256'] as string,
+    payload: rawBody,
+  });
+  res.status(200).send('ok').end();
+};
+
+async function buffer(readable: Readable) {
+  const chunks = [];
+  for await (const chunk of readable) {
+    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
+  }
+  return Buffer.concat(chunks);
+}
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+  // https://docs.github.com/en/webhooks/using-webhooks/best-practices-for-using-webhooks#respond-within-10-seconds
+  maxDuration: 10,
+};
