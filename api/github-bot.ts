@@ -80,6 +80,23 @@ function probotApp(app: Probot) {
           context.pullRequest({ merge_method: 'squash' }),
         );
       }
+
+      if (context.payload.pull_request.user.login === 'deepsource-autofix[bot]') {
+        const prFiles = await context.octokit.pulls.listFiles(
+          context.pullRequest(),
+        );
+        if (context.payload.pull_request.title.includes('style: format'))
+          await context.octokit.issues.addLabels(
+            context.issue({ labels: ['code style'] }),
+          );
+        if (prFiles.data.some((file) => file.filename.endsWith('.go')))
+          await context.octokit.issues.addLabels(
+            context.issue({ labels: ['go'] }),
+          );
+        return await context.octokit.pulls.removeRequestedReviewers(
+          context.pullRequest({ reviewers: ['vedantmgoyal2009'] }),
+        );
+      }
     },
   );
 
