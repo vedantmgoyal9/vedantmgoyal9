@@ -13,7 +13,7 @@
       "destination": "/api/gh-release-and-repo-info"
     },
     {
-      "source": "/api/winget-pkgs/versions:gh(_github)?/:package_identifier",
+      "source": "/api/winget-pkgs/versions:gh(_github2?)?/:package_identifier",
       "destination": "/api/winget-pkgs/versions:gh?package_identifier=:package_identifier"
     },
     {
