@@ -105,6 +105,34 @@ jobs:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         shell: pwsh
 
+      - name: Get GitHub bot token 🤖🔐
+        if: github.event_name == 'push'
+        run: |
+          Function Get-GitHubBotToken {
+            $PkeyBytes = [System.Convert]::FromBase64String(($env:BOT_PVT_KEY -Replace '-{5}.*-{5}', '' -Replace '\r?\n', ''))
+            $PrivateKey = [System.Security.Cryptography.RSA]::Create()
+            $PrivateKey.ImportRSAPrivateKey($PkeyBytes, [ref] $Null)
+            $Base64Header = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('{"alg":"RS256","typ":"JWT"}'))
+            $Base64Payload = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -Compress -InputObject @{
+                            'iat' = [System.DateTimeOffset]::UtcNow.ToUnixTimeSeconds() - 60; # issued 60 seconds ago to allow for clock drift
+                            'exp' = [System.DateTimeOffset]::UtcNow.ToUnixTimeSeconds() + 60 * 2; # expires in 2 minutes
+                            'iss' = $env:BOT_APP_ID;
+                        })))
+            $Signature = $PrivateKey.SignData([System.Text.Encoding]::UTF8.GetBytes("$Base64Header.$Base64Payload"), 'SHA256', [Security.Cryptography.RSASignaturePadding]::Pkcs1)
+            $Base64Signature = [System.Convert]::ToBase64String($Signature)
+            return (Invoke-RestMethod -Uri https://api.github.com/app/installations/$env:BOT_INST_ID/access_tokens -Method Post -Headers @{
+                    'Authorization' = "Bearer $Base64Header.$Base64Payload.$Base64Signature"
+                    'Accept'        = 'application/vnd.github.machine-man-preview+json'
+                }).token
+          }
+          "token=$(Get-GitHubBotToken)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+        env:
+          BOT_PVT_KEY: ${{ secrets.BOT_PVT_KEY }}
+          BOT_APP_ID: ${{ secrets.BOT_APP_ID }}
+          BOT_INST_ID: ${{ secrets.BOT_INST_ID }}
+        id: get-bot-token
+        shell: pwsh
+
       - name: Run GoReleaser (build-only) 🏗️🚧
         if: github.event_name == 'pull_request'
         uses: goreleaser/goreleaser-action@v5
@@ -123,6 +151,7 @@ jobs:
           args: release --clean
           workdir: sheltasks-cli
         env:
+            HOMEBREW_TOKEN: ${{ steps.get-bot-token.outputs.token }}
             COSIGN_PASSWORD: ${{ secrets.COSIGN_PWD }}
             CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
             GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
@@ -163,6 +192,7 @@ jobs:
           workdir: sheltasks-cli
         env:
           GORELEASER_CURRENT_TAG: ${{ steps.get-nightly-tag.outputs.tag }}
+          HOMEBREW_TOKEN: ${{ steps.get-bot-token.outputs.token }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PWD }}
           GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
 

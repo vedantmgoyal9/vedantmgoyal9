@@ -69,7 +69,7 @@ changelog:
     - title: Changelog
       regexp: '^.*\(sheltasks-cli\):.*$'
       order: 0
-  skip: false
+  disable: false
 checksum:
   name_template: checksums.txt
   algorithm: sha256
@@ -89,6 +89,8 @@ brews:
     url_template: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/download/sheltasks-cli/{{ if .Prerelease }}nightly{{ else }}{{ .Tag }}{{ end }}/{{ .ArtifactName }}
     homepage: https://github.com/vedantmgoyal2009/vedantmgoyal2009
     description: 'Sheltasks{{ if .Prerelease }} (Nightly){{ end }}: My CLI friend helping me with my daily tasks'
+    conflicts:
+      - '{{ if .Prerelease }}sheltasks-cli{{ else }}sheltasks-cli-nightly{{ end }}'
     license: MIT
     dependencies:
       - name: msitools
@@ -102,6 +104,7 @@ brews:
       branch: main
       pull_request:
         enabled: false # push directly to branch
+      token: '{{ .Env.HOMEBREW_TOKEN }}'
     skip_upload: false
 winget:
   - name: ShelTasks CLI
