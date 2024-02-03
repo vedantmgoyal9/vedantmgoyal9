@@ -84,18 +84,13 @@ function probotApp(app: Probot) {
   );
 
   app.on('push', async (context: Context<'push'>) => {
-    if (
-      context.payload.ref !==
-        `refs/heads/${context.payload.repository.default_branch}` ||
-      context.payload.commits[0].author.username === 'dependabot[bot]' ||
-      !context.payload.commits.length
-    )
-      return;
+    if (!context.payload.commits.length) return;
     const reports: LintOutcome[] = [];
     let results: string[] = [];
     const config: Partial<QualifiedConfig> = require('@commitlint/config-conventional');
     const preset = require('conventional-changelog-conventionalcommits'); // config.parserPreset
     for (const commit of context.payload.commits) {
+      if (commit.author.username === 'dependabot[bot]') continue;
       const report = await lint(commit.message, config.rules, { ...preset });
       reports.push(report);
       results.push(
@@ -115,7 +110,7 @@ function probotApp(app: Probot) {
         completed_at: new Date(new Date().getTime() + 1000).toISOString(),
         output: {
           title: 'Commitlint',
-          summary: '```shell\n' + results.join('\n') + '\n```',
+          summary: `\`\`\`shell\n${results.join('\n')}\nNote: Commits by dependabot are ignored.\n\`\`\``,
         },
       }),
     );
