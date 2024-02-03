@@ -47,7 +47,8 @@ func VersionsGithub(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	sort.Sort(sort.Reverse(natural.StringSlice(package_versions))) // sort versions naturally
+	// sort versions naturally in descending order
+	sort.Sort(sort.Reverse(natural.StringSlice(package_versions)))
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
