@@ -29,7 +29,7 @@
     "@commitlint/format": "^18.6.0",
     "@commitlint/lint": "^18.6.0",
     "playwright": "^1.41.2",
-    "probot": "^13.0.1"
+    "probot": "^13.0.2"
   },
   "devDependencies": {
     "prettier": "^3.2.4",
