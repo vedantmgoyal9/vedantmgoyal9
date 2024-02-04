@@ -1,23 +1,23 @@
-## Nice to meet you! :wave:
+## Nice to meet you! 👋
 
-Hi, I am Vedant :smiley:
+Hi, I am Vedant 😃
 
 ![GitHub Sponsors][github-sponsors-badge] ![GitHub User's stars][github-user-stars-badge] ![GitHub followers][github-followers-badge]
 
-- :telescope: I'm currently working on Windows Package Manager.
-- :seedling: I'm currently learning <b>Java</b> and <b>Golang</b>.
-- :people_holding_hands: I'm looking to collaborate on interesting projects.
-- :speech_balloon: Talk to me about <b>Science</b>, <b>Technology</b>, and <b>Engineering</b>.
-- :mailbox_with_mail: How to reach me: mention me in any comment.
+- 🔭 I'm currently working on Windows Package Manager (WinGet).
+- 🌱 I'm currently learning **Rust** and **Golang**.
+- 🧑‍🤝‍🧑 I'm looking to collaborate on interesting projects.
+- 💬 Talk to me about **Science**, **Technology**, and **Engineering**.
+- 📬 How to reach me: mention me in any comment.
 
-## Skills :technologist:
+## Skills 🧑‍💻
 
-<img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-git.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-github.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-java.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-powershell.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-linux-30.png" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-google-firebase-console.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-javascript.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-typescript.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-golang.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-virtualbox.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-next.js.svg" width="32px"><img src="https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/.github/images/icons8-wordpress.svg" width="32px">
+<img src="https://docs.bittu.eu.org/img/icons8-git.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-github.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-java.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-powershell.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-linux-30.png" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-google-firebase-console.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-javascript.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-typescript.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-golang.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-virtualbox.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-next.js.svg" width="32px"><img src="https://docs.bittu.eu.org/img/icons8-wordpress.svg" width="32px">
 
-|         GitHub Stats :bar_chart:          |                           Streak Stats :calendar:                            |
+|              GitHub Stats 📊              |                               Streak Stats 📆                                |
 | :---------------------------------------: | :--------------------------------------------------------------------------: |
 | ![GitHub stats][github-readme-stats-card] |                    ![GitHub Streak][github-streak-stats]                     |
-|       **Top Languages :computer:**        |                        **Badge board :medal_sports:**                        |
+|           **Top Languages** 💻            |                              **Badge board** 🏅                              |
 |  ![Top Langs][github-top-languages-card]  | <img src="https://holopin.me/vedantmgoyal2009" height="156px" width="496px"> |
 
 [github-streak-stats]: https://github-readme-streak-stats.herokuapp.com?user=vedantmgoyal2009&theme=gruvbox&hide_border=false&date_format=M%20j%5B%2C%20Y%5D
