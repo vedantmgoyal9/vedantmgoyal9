@@ -1,0 +1,37 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/ci-cd.yml]
+  workflow_dispatch:
+  schedule:
+    - cron: '30 05 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  clean-actions-runs:
+    name: Clean stale workflow runs
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - workflow: CI/CD
+          - workflow: CodeQL
+          - workflow: Update WinGetDev
+          - workflow: Move Packages (winget-pkgs)
+    steps:
+      - name: 🧹 Cleanup 🫧🪥🧼🧽
+        run: |
+          $ErrorActionPreference = 'SilentlyContinue'
+          gh run list --workflow '${{ matrix.workflow }}' --limit 100 --status completed --json databaseId `
+            --repo vedantmgoyal2009/vedantmgoyal2009 | ConvertFrom-Json | ForEach-Object { `
+              gh run delete $_.databaseId --repo vedantmgoyal2009/vedantmgoyal2009 `
+            }
+          Exit 0 # Don't fail the job if there are no runs to delete
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
