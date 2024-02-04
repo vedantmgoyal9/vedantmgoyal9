@@ -4,6 +4,9 @@
   "description": "Personal website, docs, GitHub bot, and more!",
   "private": true,
   "main": "index.js",
+  "workspaces": [
+    "docs"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
