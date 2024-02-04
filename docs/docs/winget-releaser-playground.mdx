@@ -1,0 +1,17 @@
+---
+id: winget-releaser-playground
+title: Playground
+sidebar_label: 🧪 WinGet Releaser Playground
+---
+
+Here, you can perform a dry-run of the GitHub Action and test how would the action behave on a given set of parameters.
+
+import WingetReleaserPlayground from '@site/src/components/winget-releaser-playground.tsx';
+
+<WingetReleaserPlayground />
+
+:::info fill github repository at the end
+
+Please fill the GitHub repository at last, since the function is triggered on every edit in any of the fields. It might happen that while you're entering other parameters, GitHub's unauthenticated API rate limits are exhausted and the playground isn't able to run.
+
+:::
