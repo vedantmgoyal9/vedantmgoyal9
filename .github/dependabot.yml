@@ -40,6 +40,8 @@ updates:
     reviewers: [vedantmgoyal2009]
     rebase-strategy: auto
     target-branch: main
+    # https://github.com/dependabot/dependabot-core/issues/5226
+    versioning-strategy: increase
 
   # Maintain dependencies for Go modules
   - package-ecosystem: gomod # See documentation for possible values
