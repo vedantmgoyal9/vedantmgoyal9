@@ -19,12 +19,11 @@
     {
       "source": "/api/winget-pkgs/manifests/:package_identifier/:version?",
       "destination": "/api/winget-pkgs/manifests"
-    },
-    {
-      "source": "/api/winget-pkgs-rest/packageManifests/:package_identifier",
-      "destination": "/api/winget-pkgs-rest/packageManifests"
     }
   ],
+  "buildCommand": "npm run build --workspace=docs",
+  "outputDirectory": "docs/build",
+  "framework": "docusaurus-2",
   "public": false,
   "github": {
     "autoJobCancelation": true
