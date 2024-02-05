@@ -17,7 +17,7 @@ function probotApp(app: Probot) {
     'pull_request.closed',
     async (context: Context<'pull_request.closed'>) => {
       if (
-        'dependabot[bot]' === context.payload.pull_request.user.login &&
+        context.payload.pull_request.user.login === 'dependabot[bot]' &&
         (await context.octokit.issues.listComments(context.issue())).data.find(
           (comment) =>
             [
