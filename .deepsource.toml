@@ -1,6 +1,7 @@
 version = 1
 
 exclude_patterns = [
+  "website/assets/**",
   "sheltasks-cli/_sysroots/**",
   "CODE_OF_CONDUCT.md",
   "LICENSE",
