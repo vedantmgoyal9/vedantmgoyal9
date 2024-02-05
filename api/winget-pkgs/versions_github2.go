@@ -33,29 +33,21 @@ func VersionsGitHub2(w http.ResponseWriter, r *http.Request) {
 	WINGET_PKGS_REPO_NAME := "winget-pkgs"
 	WINGET_PKGS_BRANCH := "master"
 
-	res, err := http.Get(fmt.Sprintf("https://codeload.github.com/%s/%s/zip/refs/heads/%s", WINGET_PKGS_OWNER, WINGET_PKGS_REPO_NAME, WINGET_PKGS_BRANCH))
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error downloading repository: %s", err)
-		return
-	}
-	out, err := os.Create("/tmp/winget-pkgs.zip")
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error creating /tmp/winget-pkgs.zip file: %s", err)
-		return
-	}
-	_, err = io.Copy(out, res.Body)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error writing to /tmp/winget-pkgs.zip file: %s", err)
-		return
+	url := fmt.Sprintf("https://codeload.github.com/%s/%s/zip/refs/heads/%s", WINGET_PKGS_OWNER, WINGET_PKGS_REPO_NAME, WINGET_PKGS_BRANCH)
+	path := "/tmp/winget-pkgs.zip"
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		err := downloadRepository(url, path)
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			fmt.Fprintf(w, "error downloading winget-pkgs repository: %s", err)
+			return
+		}
 	}
 
-	repoZip, err := zip.OpenReader("/tmp/winget-pkgs.zip")
+	repoZip, err := zip.OpenReader(path)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error opening winget-pkgs.zip for reading: %s", err)
+		fmt.Fprintf(w, "error opening %s for reading: %s", path, err)
 		return
 	}
 
@@ -104,4 +96,20 @@ func VersionsGitHub2(w http.ResponseWriter, r *http.Request) {
 		"PackageIdentifier": pkg_id,
 		"Versions":          pkg_versions,
 	})
+}
+
+func downloadRepository(url, path string) error {
+	res, err := http.Get(url)
+	if err != nil {
+		return fmt.Errorf("error getting response: %s", err)
+	}
+	out, err := os.Create(path)
+	if err != nil {
+		return fmt.Errorf("error creating %s file: %s", path, err)
+	}
+	_, err = io.Copy(out, res.Body)
+	if err != nil {
+		return fmt.Errorf("error writing to %s file: %s", path, err)
+	}
+	return nil
 }

@@ -8,7 +8,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"path"
 	"sort"
 
 	_ "github.com/ncruces/go-sqlite3/driver"
@@ -31,74 +30,30 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	package_versions := map[string][]string{}
-
-	// download source.msix from winget cdn
-	// https://cdn.winget.microsoft.com/cache/source.msix
-	res, err := http.Get("https://cdn.winget.microsoft.com/cache/source.msix")
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error while downloading source.msix: %v", err)
-		return
-	}
-	out, err := os.Create(path.Join("/tmp", "source.msix"))
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error while creating source.msix file: %v", err)
-		return
-	}
-	defer out.Close()
-	_, err = io.Copy(out, res.Body)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error while writing source.msix to file: %v", err)
-		return
-	}
-
-	// extract Public/index.db from source.msix to /tmp
-	zipReader, err := zip.OpenReader(path.Join("/tmp", "source.msix"))
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error while opening source.msix for reading: %v", err)
-		return
-	}
-	for _, file := range zipReader.File {
-		if file.Name != "Public/index.db" {
-			continue
-		}
-		rc, err := file.Open()
+	url := "https://cdn.winget.microsoft.com/cache/source.msix"
+	path_to_extract := "Public/index.db"
+	path_msix := "/tmp/source.msix"
+	path_database := "/tmp/index.db"
+	if _, err := os.Stat(path_database); os.IsNotExist(err) {
+		err := downloadSourceMsixAndExtractDatabase(url, path_to_extract, path_msix, path_database)
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
-			fmt.Fprintf(w, "error while opening Public/index.db inside source.msix: %v", err)
-			return
-		}
-		defer rc.Close()
-		newFile, err := os.Create(path.Join("/tmp", "index.db"))
-		if err != nil {
-			w.WriteHeader(http.StatusInternalServerError)
-			fmt.Fprintf(w, "error while creating /tmp/index.db: %v", err)
-			return
-		}
-		defer newFile.Close()
-		_, err = io.Copy(newFile, rc)
-		if err != nil {
-			w.WriteHeader(http.StatusInternalServerError)
-			fmt.Fprintf(w, "error while copying from zip to /tmp: %v", err)
+			fmt.Fprintf(w, "error while downloading source.msix and extracting index.db: %v", err)
 			return
 		}
 	}
 
-	db, err := sql.Open("sqlite3", path.Join("/tmp", "index.db"))
+	package_versions := make(map[string][]string)
+	db, err := sql.Open("sqlite3", path_database)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error while opening /tmp/index.db: %v", err)
+		fmt.Fprintf(w, "error while opening %s: %v", path_database, err)
 		return
 	}
-	defer db.Close()
 	rows, err := db.Query("SELECT id, version FROM manifest")
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error while running query on 'manifest' table in /tmp/index.db: %v", err)
+		fmt.Fprintf(w, "error while running query on 'manifest' table in %s: %v", path_database, err)
 		return
 	}
 	for rows.Next() {
@@ -115,7 +70,7 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 		err = db.QueryRow("SELECT id FROM ids WHERE rowid = ?", id).Scan(&pkg_id_from_ids)
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
-			fmt.Fprintf(w, "error while running query on ids table in /tmp/index.db: %v", err)
+			fmt.Fprintf(w, "error while running query on ids table in %s: %v", path_database, err)
 			return
 		}
 		// SELECT version FROM versions WHERE rowid = {version}
@@ -123,7 +78,7 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 		err = db.QueryRow("SELECT version FROM versions WHERE rowid = ?", version).Scan(&pkg_version_from_versions)
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
-			fmt.Fprintf(w, "error while running query on versions table in /tmp/index.db: %v", err)
+			fmt.Fprintf(w, "error while running query on versions table in %s: %v", path_database, err)
 			return
 		}
 		// add to package_versions map
@@ -145,4 +100,44 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 			"Versions":          package_versions[pkg_id],
 		})
 	}
+}
+
+func downloadSourceMsixAndExtractDatabase(url, path_to_extract, path_msix, path_database string) error {
+	// download source.msix from winget cdn (content delivery network)
+	res, err := http.Get(url)
+	if err != nil {
+		return fmt.Errorf("error getting response: %v", err)
+	}
+	out, err := os.Create(path_msix)
+	if err != nil {
+		return fmt.Errorf("error creating %s: %v", path_msix, err)
+	}
+	_, err = io.Copy(out, res.Body)
+	if err != nil {
+		return fmt.Errorf("error writing to %s: %v", path_msix, err)
+	}
+
+	// extract Public/index.db from source.msix to /tmp
+	zipReader, err := zip.OpenReader(path_msix)
+	if err != nil {
+		return fmt.Errorf("error opening %s for reading: %v", path_msix, err)
+	}
+	for _, file := range zipReader.File {
+		if file.Name != path_to_extract {
+			continue
+		}
+		rc, err := file.Open()
+		if err != nil {
+			return fmt.Errorf("error opening %s inside %s: %v", path_to_extract, path_msix, err)
+		}
+		newFile, err := os.Create(path_database)
+		if err != nil {
+			return fmt.Errorf("error creating %s: %v", path_database, err)
+		}
+		_, err = io.Copy(newFile, rc)
+		if err != nil {
+			return fmt.Errorf("error writing to %s: %v", path_database, err)
+		}
+	}
+	return nil
 }
