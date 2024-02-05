@@ -76,7 +76,7 @@ Url: ${res.url}`,
           name="pkg-version"
           className="input-field"
           value="The PackageVersion of package, would be used as it is, if provided. See: https://github.com/vedantmgoyal2009/winget-releaser/#readme"
-          disabled={true}
+          disabled
         />
         <span className="input-label">Version</span>
       </label>
@@ -101,7 +101,7 @@ Url: ${res.url}`,
           name="max-versions-to-keep"
           className="input-field"
           value="⚠️ Not available on web version :-("
-          disabled={true}
+          disabled
         />
         <span className="input-label">Max versions to keep</span>
       </label>
@@ -139,7 +139,7 @@ Url: ${res.url}`,
           name="user-forked"
           className="input-field"
           value="⚠️ Not available on web version :-("
-          disabled={true}
+          disabled
         />
         <span className="input-label">Fork user</span>
       </label>
