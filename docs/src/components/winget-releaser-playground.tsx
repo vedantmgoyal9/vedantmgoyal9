@@ -21,13 +21,19 @@ export default () => {
     const reqHeaders = { Accept: 'application/vnd.github.v3+json' };
     if (ghToken !== '') reqHeaders['Authorization'] = `token ${ghToken}`;
     fetch(
-      `https://api.github.com/repos/${ghRepo}/releases/${releaseTag ? `tag/${releaseTag}` : 'latest'}`,
+      `https://api.github.com/repos/${ghRepo}/releases/${
+        releaseTag ? `tag/${releaseTag}` : 'latest'
+      }`,
       { headers: reqHeaders },
     ).then((res) => {
       if (!res.ok)
         return setOutput(
           `Can't fetch release. Please check the inputs and try again.
-Status code: ${res.status} ${res.status === 403 ? '(Looks like GitHub API rate-limit exceeded)' : ''}
+Status code: ${res.status} ${
+            res.status === 403
+              ? '(Looks like GitHub API rate-limit exceeded)'
+              : ''
+          }
 Url: ${res.url}`,
         );
       res.json().then((data) => {

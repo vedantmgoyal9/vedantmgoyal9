@@ -8,7 +8,6 @@
 <script src="{{ "js/owl.carousel.min.js" | absURL }}"></script>
 <script src="{{ "js/front.js" | absURL }}"></script> -->
 
-{{ range resources.Match "js/*.js" }}
-  {{ $script := . | minify }}
-  <script src="{{ .RelPermalink }}"></script>
+{{ range resources.Match "js/*.js" }} {{ $script := . | minify }}
+<script src="{{ .RelPermalink }}"></script>
 {{ end }}
