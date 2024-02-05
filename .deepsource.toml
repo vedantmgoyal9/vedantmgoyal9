@@ -10,6 +10,13 @@ exclude_patterns = [
 ]
 
 [[analyzers]]
+name = "javascript"
+
+  [analyzers.meta]
+  plugins = ["react"]
+  environment = ["nodejs"]
+
+[[analyzers]]
 name = "java"
 
   [analyzers.meta]
@@ -35,3 +42,6 @@ name = "gofmt"
 
 [[transformers]]
 name = "gofumpt"
+
+[[transformers]]
+name = "prettier"
