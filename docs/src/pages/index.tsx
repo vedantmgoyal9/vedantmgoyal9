@@ -39,7 +39,9 @@ const features = [
 
 function Feature({ Svg, title, description }) {
   return (
-    <div className={clsx('col col--6')}> {/* col--4 */}
+    <div className={clsx('col col--6')}>
+      {' '}
+      {/* col--4 */}
       <div className="text--center">
         <img className={styles.featureSvg} alt={title} src={Svg} />
       </div>

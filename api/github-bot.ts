@@ -81,7 +81,9 @@ function probotApp(app: Probot) {
         );
       }
 
-      if (context.payload.pull_request.user.login === 'deepsource-autofix[bot]') {
+      if (
+        context.payload.pull_request.user.login === 'deepsource-autofix[bot]'
+      ) {
         const prFiles = await context.octokit.pulls.listFiles(
           context.pullRequest(),
         );
@@ -127,7 +129,9 @@ function probotApp(app: Probot) {
         completed_at: new Date(new Date().getTime() + 1000).toISOString(),
         output: {
           title: 'Commitlint',
-          summary: `\`\`\`shell\n${results.join('\n')}\nNote: Commits by dependabot are ignored.\n\`\`\``,
+          summary: `\`\`\`shell\n${results.join(
+            '\n',
+          )}\nNote: Commits by dependabot are ignored.\n\`\`\``,
         },
       }),
     );
