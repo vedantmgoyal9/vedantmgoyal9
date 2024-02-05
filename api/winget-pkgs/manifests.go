@@ -73,7 +73,8 @@ func Manifests(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	manifests := []Manifest{}
+	var manifests []Manifest
+
 	for _, dir_content := range dir_contents {
 		res, err := http.Get(dir_content.GetDownloadURL())
 		if err != nil {

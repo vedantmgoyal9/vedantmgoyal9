@@ -39,7 +39,8 @@ func VersionsGithub(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	package_versions := []string{}
+	var package_versions []string
+
 	commonly_ignored_versions := []string{"eap", "preview", "beta", "dev", "nightly", "canary", "insiders", "alpha"}
 	for _, dir_content := range dir_contents {
 		if dir_content.GetType() == "dir" && !slices.Contains(commonly_ignored_versions, strings.ToLower(dir_content.GetName())) {

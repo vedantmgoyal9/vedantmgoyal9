@@ -59,7 +59,8 @@ func VersionsGitHub2(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	pkg_versions := []string{}
+	var pkg_versions []string
+
 	pkg_path := fmt.Sprintf("%s-%s/manifests/%s/%s", WINGET_PKGS_REPO_NAME, WINGET_PKGS_BRANCH, pkg_id[0:1], strings.ReplaceAll(pkg_id, ".", "/"))
 	pkg_path = strings.ToLower(pkg_path)
 	for _, file := range repoZip.File {
