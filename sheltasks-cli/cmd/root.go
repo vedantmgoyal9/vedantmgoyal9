@@ -15,7 +15,6 @@ var rootCmd = &cobra.Command{
 	Short: "ShelTasks: My personal CLI to streamline daily frequent tasks, for enhanced productivity.",
 	Long: `ShelTasks, is a personalized CLI companion tailored for my unique needs, simplifying my daily tasks with a single command.
 It's designed to enhance my productivity, handling specific routines so I can focus on what matters most to me.`,
-	Aliases: []string{"sheltasks", "st"},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
