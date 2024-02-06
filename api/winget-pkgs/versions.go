@@ -7,7 +7,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"slices"
 	"sort"
 	"strings"
 
@@ -51,6 +50,7 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var pkg_id_case_sensitive string
 	var pkg_versions []string
 	pkg_path := fmt.Sprintf("%s-%s/manifests/%s/%s", WINGET_PKGS_REPO_NAME, WINGET_PKGS_BRANCH, pkg_id[0:1], strings.ReplaceAll(pkg_id, ".", "/"))
 	pkg_path = strings.ToLower(pkg_path)
@@ -60,7 +60,10 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 			continue
 		}
 		version := file.Name[len(pkg_path)+1:]
-		if slices.Contains(pkg_versions, version) || version == "" {
+		if version == "" {
+			// winget-pkgs-master/manifests/m/microsoft/visualstudiocode/<version>
+			// length of "winget-pkgs-master" + "/manifests/" + "m" + "/" = 31
+			pkg_id_case_sensitive = strings.ReplaceAll(file.Name[31:len(file.Name)-len(version)-1], "/", ".")
 			continue
 		}
 		pkg_versions = append(pkg_versions, strings.TrimSuffix(version, "/"))
@@ -93,7 +96,7 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(map[string]interface{}{
-		"PackageIdentifier": pkg_id,
+		"PackageIdentifier": pkg_id_case_sensitive,
 		"Versions":          pkg_versions,
 	})
 }

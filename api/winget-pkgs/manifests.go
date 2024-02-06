@@ -49,13 +49,15 @@ func Manifests(w http.ResponseWriter, r *http.Request) {
 	if err != nil || res.StatusCode != http.StatusOK {
 		// we assume that the error is because the package was not found because
 		// the API seems to be stable 🙂 and the only error that can occur is when the package is not found
-		w.WriteHeader(http.StatusNoContent)
+		w.WriteHeader(http.StatusNotFound)
 		fmt.Fprintf(w, "package %s not found in winget-pkgs (https://github.com/microsoft/winget-pkgs)", pkg_id)
 		return
 	}
 	defer res.Body.Close()
 	json.NewDecoder(res.Body).Decode(&response)
 	pkg_versions := response.Versions
+	// re-assign pkg_id from response, as paths are case-sensitive
+	pkg_id = response.PackageIdentifier
 
 	if strings.ToLower(version) == "latest" {
 		sort.Sort(natural.StringSlice(pkg_versions)) // sort versions naturally
