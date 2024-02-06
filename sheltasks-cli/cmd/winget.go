@@ -5,11 +5,11 @@ import (
 )
 
 var wingetCmd = &cobra.Command{
-	Use:   "winget",
-	Short: "Commands related to winget-pkgs (windows package manager)",
-	Aliases: []string{"w", "wg", "win"},
+	Use:                   "winget",
+	Short:                 "Commands related to winget-pkgs (windows package manager)",
+	Aliases:               []string{"w", "wg", "win"},
 	DisableFlagsInUseLine: true,
-	DisableFlagParsing: true,
+	DisableFlagParsing:    true,
 }
 
 func init() {

@@ -7,8 +7,10 @@ import (
 	"github.com/google/go-github/v58/github"
 )
 
-var github_client *github.Client
-var github_client_user string
+var (
+	github_client      *github.Client
+	github_client_user string
+)
 
 func init() {
 	if val, ok := os.LookupEnv("GITHUB_TOKEN"); !ok || val == "" {

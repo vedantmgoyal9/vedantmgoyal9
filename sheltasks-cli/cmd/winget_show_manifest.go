@@ -12,9 +12,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	wingetShowManifestCmd_outDir string
-)
+var wingetShowManifestCmd_outDir string
 
 var wingetShowManifestCmd = &cobra.Command{
 	Use:     "show-manifest <package-id> <version>",
