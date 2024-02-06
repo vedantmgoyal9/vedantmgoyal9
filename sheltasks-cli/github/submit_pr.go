@@ -72,7 +72,8 @@ func SubmitManifests(pkg_id, version string, manifests []WinGetManifest, commitT
 					updatePullRequest(input: {pullRequestId: "%s", body: "%s", title: "%s", state: OPEN}) {pullRequest{ id }}
 					markPullRequestReadyForReview(input: {pullRequestId: "%s"}) {pullRequest{ id }}
 				}
-			`, pullRequest.GetNodeID(), pullRequestBody.String(), commitMessage, pullRequest.GetNodeID())})
+			`, pullRequest.GetNodeID(), pullRequestBody.String(), commitMessage, pullRequest.GetNodeID()),
+		})
 		req, _ := http.NewRequest(http.MethodPost, "https://api.github.com/graphql", bytes.NewReader(reqBody))
 		req.Header.Set("Authorization", "bearer "+os.Getenv("GITHUB_TOKEN"))
 		req.Header.Set("Accept", "application/vnd.github.shadow-cat-preview+json")

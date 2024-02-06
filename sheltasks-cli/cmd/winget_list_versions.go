@@ -10,9 +10,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	wingetListVersionsCmd_json bool
-)
+var wingetListVersionsCmd_json bool
 
 var wingetListVersionsCmd = &cobra.Command{
 	Use:     "list-versions <package-id>",
