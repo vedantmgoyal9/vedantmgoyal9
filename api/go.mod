@@ -1,6 +1,6 @@
 module github.com/vedantmgoyal2009/vedantmgoyal2009/api
 
-go 1.21
+go 1.22
 
 require (
 	github.com/google/go-github/v58 v58.0.0
