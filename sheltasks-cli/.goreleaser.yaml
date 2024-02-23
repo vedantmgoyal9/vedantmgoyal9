@@ -141,25 +141,25 @@ winget:
       email: 110876359+vedantmgoyal-bot[bot]@users.noreply.github.com
     path: manifests/v/vedantmgoyal/sheltasks-cli/{{ .Version }}
     skip_upload: false
-# chocolateys:
-#   - name: sheltasks-cli
-#     ids: [tar-gzs-and-zips]
-#     title: sheltasks-cli
-#     owners: Vedant
-#     authors: Vedant
-#     copyright: Copyright (c) 2023 Vedant
-#     project_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009
-#     license_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/LICENSE
-#     require_license_acceptance: false
-#     project_source_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009
-#     package_source_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009
-#     docs_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/README.md
-#     bug_tracker_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues
-#     tags: golang cli command-line productivity
-#     summary: 'Sheltasks: My CLI friend helping me with my daily tasks'
-#     description: My personal CLI to streamline daily frequent tasks, for enhanced productivity.
-#     url_template: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/download/sheltasks-cli/{{ .Tag }}/{{ .ArtifactName }}
-#     release_notes: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/tag/sheltasks-cli/{{ .Tag }}
-#     api_key: '{{ .Env.CHOCOLATEY_API_KEY }}'
-#     source_repo: https://push.chocolatey.org/
-#     skip_publish: false
+chocolateys:
+  - name: sheltasks-cli
+    ids: [tar-gzs-and-zips]
+    title: sheltasks-cli
+    owners: vedantmgoyal
+    authors: Vedant
+    copyright: Copyright (c) 2023 Vedant
+    project_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009
+    license_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/LICENSE
+    require_license_acceptance: false
+    project_source_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009
+    package_source_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009
+    docs_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/blob/main/README.md
+    bug_tracker_url: https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues
+    tags: golang cli command-line productivity
+    summary: 'Sheltasks: My CLI friend helping me with my daily tasks'
+    description: My personal CLI to streamline daily frequent tasks, for enhanced productivity.
+    url_template: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/download/sheltasks-cli/{{ .Tag }}/{{ .ArtifactName }}
+    release_notes: https://github.com/vedantmgoyal2009/vedantmgoyal2009/releases/tag/sheltasks-cli/{{ .Tag }}
+    api_key: '{{ .Env.CHOCOLATEY_API_KEY }}'
+    source_repo: https://push.chocolatey.org/
+    skip_publish: false

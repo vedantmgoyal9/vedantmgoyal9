@@ -51,6 +51,14 @@ jobs:
           persist-credentials: false
           path: ${{ github.workspace }}/sheltasks-cli/osxcross
 
+      - name: Checkout chocolatey/choco 📥
+        uses: actions/checkout@v4.1.1
+        with:
+          repository: chocolatey/choco
+          path: ${{ github.workspace }}/sheltasks-cli/choco
+          fetch-depth: 0
+          persist-credentials: false
+
       - uses: actions/setup-go@v5.0.0
         with:
           check-latest: true
@@ -95,6 +103,20 @@ jobs:
         run: |
           '${{ github.workspace }}/sheltasks-cli/osxcross/target/bin' | Out-File -FilePath $env:GITHUB_PATH -Append
         shell: pwsh
+
+      - name: Chocolatey 🍫📦
+        if: github.ref_type == 'tag' && github.event_name == 'push'
+        run: |
+          chmod +x *.sh
+          # prevent choco build to calculate version from tag of main repository
+          unset GITHUB_REF GITHUB_BASE_REF GITHUB_HEAD_REF
+          ./build.sh --configuration=ReleaseOfficial
+          cp docker/choco_wrapper code_drop/temp/_PublishedApps/choco/choco_wrapper
+          cp -r ./code_drop/temp/_PublishedApps/choco/ /opt/chocolatey
+          mkdir /opt/chocolatey/lib
+          cp /opt/chocolatey/choco_wrapper /usr/local/bin/choco
+          cp /opt/chocolatey/choco_wrapper /usr/local/bin/choco.exe
+        working-directory: ${{ github.workspace }}/sheltasks-cli/choco
 
       - name: Install cosign 📝✍️
         if: github.event_name == 'push'
@@ -151,10 +173,10 @@ jobs:
           args: release --clean
           workdir: sheltasks-cli
         env:
-            HOMEBREW_TOKEN: ${{ steps.get-bot-token.outputs.token }}
-            COSIGN_PASSWORD: ${{ secrets.COSIGN_PWD }}
-            CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
-            GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+          HOMEBREW_TOKEN: ${{ steps.get-bot-token.outputs.token }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PWD }}
+          CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
 
       - name: Prefix tag with sheltasks-cli/ (stable) 👨‍🔧🏷️
         if: github.ref_type == 'tag' && github.event_name == 'push'
