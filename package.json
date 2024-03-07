@@ -28,10 +28,10 @@
   },
   "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
   "dependencies": {
-    "@commitlint/config-conventional": "^19.0.0",
-    "@commitlint/format": "^19.0.0",
-    "@commitlint/lint": "^19.0.0",
-    "playwright": "^1.42.0",
+    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/format": "^19.0.3",
+    "@commitlint/lint": "^19.0.3",
+    "playwright": "^1.42.1",
     "probot": "^13.0.2"
   },
   "devDependencies": {
