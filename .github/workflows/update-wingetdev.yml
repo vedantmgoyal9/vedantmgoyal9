@@ -34,7 +34,7 @@ jobs:
         shell: pwsh
 
       - name: Update release 🚀
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: 🪟WinGet Nightly Builds (wingetdev)📦🛠️
           tag_name: wingetdev/nightly
