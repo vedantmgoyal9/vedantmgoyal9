@@ -17,13 +17,16 @@ const sidebars: SidebarsConfig = {
   // But you can create a sidebar manually
   tutorialSidebar: [
     'about-me',
-    // {
-    //   type: 'category',
-    //   label: '',
-    //   collapsed: false,
-    //   collapsible: false,
-    //   items: ['', '', ''],
-    // },
+    {
+      type: 'category',
+      label: '🤖 WinGet Automation',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'winget-automation-packages',
+        'winget-automation-packages-skipped',
+      ],
+    },
     'winget-releaser-playground',
   ],
 };

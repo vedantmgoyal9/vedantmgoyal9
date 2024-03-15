@@ -1,0 +1,206 @@
+{
+  "$id": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Schema for WinGet Automation Formula",
+  "type": "object",
+  "required": [
+    "$schema",
+    "PackageIdentifier",
+    "Source",
+    "PostResponseScript",
+    "Update",
+    "AdditionalInfo",
+    "PostUpgradeScript",
+    "Skip"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+      "type": "string"
+    },
+    "PackageIdentifier": {
+      "type": "string"
+    },
+    "Source": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "InvokeType",
+          "Uri",
+          "Method",
+          "Headers",
+          "Body",
+          "UserAgent"
+        ],
+        "properties": {
+          "InvokeType": {
+            "enum": ["RestMethod", "WebRequest"],
+            "type": "string"
+          },
+          "Uri": {
+            "type": "string"
+          },
+          "Method": {
+            "enum": [
+              "Default",
+              "Delete",
+              "Get",
+              "Head",
+              "Merge",
+              "Options",
+              "Patch",
+              "Post",
+              "Put",
+              "Trace"
+            ],
+            "type": "string"
+          },
+          "Headers": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "Body": {
+            "type": "string"
+          },
+          "UserAgent": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "PostResponseScript": {
+      "type": ["string", "array"],
+      "examples": [
+        "$UpdateCondition = $Response.prerelease -eq $PreRelease #default-gh",
+        "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString #default-headrequest",
+        "$Response = $Response | ConvertFrom-Yaml",
+        "$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml"
+      ]
+    },
+    "Update": {
+      "type": "object",
+      "required": ["PackageVersion", "InstallerUrls"],
+      "properties": {
+        "PackageVersion": {
+          "type": "string",
+          "examples": [
+            "$Response.tag_name.TrimStart('v') #default-gh",
+            "($Response | Select-String -Pattern '(?<=v)[0-9.]+').Matches.Value #default-headrequest",
+            "$Response.version"
+          ]
+        },
+        "InstallerUrls": {
+          "type": "string",
+          "examples": [
+            "$Response.assets | ForEach-Object { if ($_.name -match '.(exe|msi|msix|appx)(bundle){0,1}$') { $_.browser_download_url } } #default-gh",
+            "$Response #default-headrequest",
+            "$InstUri.Replace('#version', $Response.version)"
+          ]
+        },
+        "ProductCode": {
+          "$id": "#/properties/Update/properties/ProductCode",
+          "type": "string"
+        },
+        "ReleaseDate": {
+          "type": "string",
+          "default": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+        },
+        "Locales": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "ReleaseNotesUrl": {
+                "type": "string"
+              },
+              "ReleaseNotes": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        },
+        "AppsAndFeaturesEntries": {
+          "type": "object",
+          "properties": {
+            "DisplayName": {
+              "type": "string"
+            },
+            "Publisher": {
+              "type": "string"
+            },
+            "DisplayVersion": {
+              "type": "string"
+            },
+            "ProductCode": {
+              "$ref": "#/properties/Update/properties/ProductCode"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "AdditionalInfo": {
+      "type": "object",
+      "required": ["ForceUpgrade"],
+      "properties": {
+        "ForceUpgrade": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "additionalProperties": true
+    },
+    "PostUpgradeScript": {
+      "type": "string"
+    },
+    "Skip": {
+      "type": "object",
+      "required": ["Skip?", "Reason"],
+      "properties": {
+        "Skip?": {
+          "type": "boolean",
+          "default": false
+        },
+        "Reason": {
+          "type": ["null", "string"],
+          "examples": [
+            "Automatically marked as stale, not updated for 2.5 years"
+          ]
+        }
+      },
+      "if": {
+        "properties": {
+          "Skip?": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "Reason": {
+            "type": "string",
+            "minLength": 7
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "Reason": {
+            "type": "null"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
