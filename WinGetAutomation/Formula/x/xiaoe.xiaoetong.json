@@ -1,0 +1,37 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "Xiaoe.Xiaoetong",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://class-server.xiaoeknow.com/client/xe.big_class.client.check_version?sv=Windows&sw=0&dn=0",
+      "Method": "Post",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": [
+    "$Response = $Response.data",
+    "$Response2 = Invoke-RestMethod \"$($Response.url)/latest.yml\" | ConvertFrom-Yaml"
+  ],
+  "Update": {
+    "PackageVersion": "$Response2.version",
+    "InstallerUrls": "[System.Uri]::EscapeUriString(\"$($Response.url)/$($Response2.path)\")",
+    "ReleaseDate": "(Get-Date -Date $Response2.releaseDate).ToString('yyyy-MM-dd')",
+    "Locales": [
+      {
+        "Name": "en-us",
+        "ReleaseNotes": "$Response.remark.Trim('<p>').Trim('</p>')"
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
