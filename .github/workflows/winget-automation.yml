@@ -259,8 +259,8 @@ jobs:
             gh pr comment $PullRequestNo --body $CommentBody
           }
         env:
-          GH_TOKEN: ${{ steps.get-bot-token.outputs.token }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.get-bot-token.outputs.token }} # for gh (github) cli
+          GITHUB_BOT_TOKEN: ${{ steps.get-bot-token.outputs.token }} # for winget automation
 
       - name: Run tests 🧪
         run: |
