@@ -1,0 +1,52 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "Microsoft.Azure.AZCopy.10",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://api.github.com/repos/Azure/azure-storage-azcopy/releases?per_page=1",
+      "Method": "Get",
+      "Headers": {
+        "Authorization": "\"Bearer $env:GITHUB_BOT_TOKEN\"",
+        "Accept": "application/vnd.github.v3+json"
+      },
+      "Body": "",
+      "UserAgent": ""
+    },
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://aka.ms/downloadazcopy-v10-windows",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    },
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://aka.ms/downloadazcopy-v10-windows-32bit",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": [
+    "$UpdateCondition = $Response[0].prerelease -eq $PreRelease",
+    "$Response2 = $Response2.BaseResponse.RequestMessage.RequestUri.OriginalString #default-headrequest",
+    "$Response3 = $Response3.BaseResponse.RequestMessage.RequestUri.OriginalString #default-headrequest"
+  ],
+  "Update": {
+    "PackageVersion": "$Response.tag_name.TrimStart('v') #default-gh",
+    "InstallerUrls": "@($Response2, $Response3)",
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {
+    "PreRelease": false,
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
