@@ -18,7 +18,7 @@
     "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')",
     "Locales": [
       {
-        "Name": "en-us",
+        "Name": "zh-cn",
         "ReleaseNotes": "((Invoke-RestMethod -Uri $ReleaseNotesSource).TrimStart('cbUpdateConfig(').TrimEnd(')') | ConvertFrom-Json).win.strategies[-1].method.feature.Replace('<li>',\"`n- \") -replace '^\n|</li>',$Null"
       }
     ]
