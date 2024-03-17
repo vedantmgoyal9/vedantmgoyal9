@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.win",
   "Update": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "@(\"https://cdn.wostatic.cn/dist/installers/$($Response.path)|machine\", \"https://cdn.wostatic.cn/dist/installers/$($Response.path)|user\")",
+    "InstallerUrls": "@(\"https://cdn.wostatic.cn/dist/installers/$($Response.path)|x64|machine\", \"https://cdn.wostatic.cn/dist/installers/$($Response.path)|x64|user\")",
     "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
