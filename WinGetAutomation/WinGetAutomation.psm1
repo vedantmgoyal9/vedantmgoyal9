@@ -225,14 +225,16 @@ Function Update-Manifest {
         $_.Name -in @('ReleaseDate', 'ProductCode', 'AppsAndFeaturesEntries', 'Locales')
     } | ForEach-Object {
         If ($_.Name -eq 'Locales') {
-            $LocaleName = $_.Value.Name
-            $LocaleManifestPath = (Get-ChildItem -Path $WinGetAutomationManifestsDir -File -Recurse).Where({ $_.Name -match $LocaleName }).FullName
-            $LocaleManifest = Get-Content -Path $LocaleManifestPath | ConvertFrom-Yaml -Ordered
-            $_.Value.PSObject.Properties.Where({ $_.Name -ne 'Name' }).ForEach({
-                    $LocaleManifest[$_.Name] = $_.Value
+            $_.Value.ForEach({
+                    $LocaleName = $_.Name
+                    $LocaleManifestPath = (Get-ChildItem -Path $WinGetAutomationManifestsDir -File -Recurse).Where({ $_.Name -match $LocaleName }).FullName
+                    $LocaleManifest = Get-Content -Path $LocaleManifestPath | ConvertFrom-Yaml -Ordered
+                    $_.PSObject.Properties.Where({ $_.Name -ne 'Name' }).ForEach({
+                            $LocaleManifest[$_.Name] = $_.Value
+                        })
+                    Set-Content -Path $LocaleManifestPath -Value "# yaml-language-server: `$schema=https://aka.ms/winget-manifest.$($LocaleManifest.ManifestType).1.6.0.schema.json`n" -Force
+                    $LocaleManifest | ConvertTo-Yaml | Out-File -FilePath $LocaleManifestPath -Encoding utf8 -Append -NoNewline
                 })
-            Set-Content -Path $LocaleManifestPath -Value "# yaml-language-server: `$schema=https://aka.ms/winget-manifest.$($LocaleManifest.ManifestType).1.6.0.schema.json`n" -Force
-            $LocaleManifest | ConvertTo-Yaml | Out-File -FilePath $LocaleManifestPath -Encoding utf8 -Append -NoNewline
         } Else {
             $InstallerManifestPath = (Get-ChildItem -Path $WinGetAutomationManifestsDir -File -Recurse).Where({ $_.Name -match 'installer' }).FullName
             $InstallerManifest = Get-Content -Path $InstallerManifestPath | ConvertFrom-Yaml -Ordered
