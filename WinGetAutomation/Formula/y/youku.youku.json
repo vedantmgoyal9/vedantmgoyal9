@@ -1,0 +1,36 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "Youku.Youku",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://pcclient.download.youku.com/iku-win-release/latest.yml",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
+  "Update": {
+    "PackageVersion": "($Response.path | Select-String -Pattern '[0-9.]+(?=\\.)').Matches.Value",
+    "InstallerUrls": "$InstUri.Replace('#path', $Response.path)",
+    "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')",
+    "Locales": [
+      {
+        "Name": "zh-cn",
+        "ReleaseNotes": "((Invoke-RestMethod -Uri $ReleaseNotesSource).TrimStart('cbUpdateConfig(').TrimEnd(')') | ConvertFrom-Json).win.strategies[-1].method.feature.Replace('<li>',\"`n- \") -replace '^\n|</li>',$Null"
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "InstUri": "https://pcclient.download.youku.com/iku-win-release/#path",
+    "ReleaseNotesSource": "https://hudong.alicdn.com/api/data/v2/698d45f854c64b95a87f2a947ed4e12b.js",
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
