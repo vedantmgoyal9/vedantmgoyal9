@@ -7,7 +7,7 @@ on:
     branches: main
     paths: WinGetAutomation/Formula/**
 concurrency:
-  group: ${{ github.workflow }}
+  group: winget-automation-${{ github.event.pull_request.number || 'scheduled' }}
   cancel-in-progress: false
 jobs:
   build:
