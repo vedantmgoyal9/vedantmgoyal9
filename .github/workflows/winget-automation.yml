@@ -8,6 +8,8 @@ on:
     paths: WinGetAutomation/Formula/**
 concurrency:
   group: winget-automation-${{ github.event.pull_request.number || 'scheduled' }}
+  # only cancel when a run is triggered by a pull request (when a commit is pushed on the PR)
+  # else do not cancel the previous run if it's a scheduled or workflow_dispatch run
   cancel-in-progress: ${{ github.event_name == 'pull_request_target' }}
 jobs:
   build:
