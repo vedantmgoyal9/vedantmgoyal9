@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "Kingsoft.KDocs",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://www.kdocs.cn/kd/api/configure/list?idList=autoDownload",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = ($Response.data.autoDownload | ConvertFrom-Json).kdesktopWin.1001",
+  "Update": {
+    "PackageVersion": "($Response | Select-String -Pattern '(?<=v)[0-9.]+(?=\\.)').Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
