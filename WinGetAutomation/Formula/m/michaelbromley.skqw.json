@@ -21,7 +21,7 @@
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
-    "PreRelease": false,
+    "PreRelease": true,
     "ForceUpgrade": false
   },
   "PostUpgradeScript": "",
