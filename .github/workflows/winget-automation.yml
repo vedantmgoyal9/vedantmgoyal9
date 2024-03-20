@@ -187,11 +187,9 @@ jobs:
               )
           "@
           # Delete all previous comments since we are already reverting the changes in the JSON file so that they can be upgarded in the next run
-          (gh issue view 900 --json comments | ConvertFrom-Json).comments | ForEach-Object {
-              If ($_.author.login -eq 'vedantmgoyal-bot') {
-                  gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/issues/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
-              }
-          }
+          (gh issue view 900 --json comments | ConvertFrom-Json).comments.Where({ $_.author.login -eq 'vedantmgoyal-bot' }).ForEach({
+            gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/issues/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
+          })
           # Add the new comment to the issue containing the results of the automation run
           gh issue comment 900 --body $CommentBody
         env:
@@ -226,11 +224,10 @@ jobs:
           Please open a separate pull request for each formula 🙏🏻🙂`n
           Thanks for contributing :-)
           '@
-            If ((gh pr view $PullRequestNo --json comments | ConvertFrom-Json).comments.author.login -contains 'vedantmgoyal-bot') {
-              gh pr comment $PullRequestNo --body $CommentBody --edit-last
-            } Else {
-              gh pr comment $PullRequestNo --body $CommentBody
-            }
+            (gh pr view $PullRequestNo --json comments | ConvertFrom-Json).comments.Where({ $_.author.login -eq 'vedantmgoyal-bot' }).ForEach({
+              gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/pulls/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
+            })
+            gh pr comment $PullRequestNo --body $CommentBody
           }
           $UpdateInfo = Get-UpdateInfo -FormulaPath (Resolve-Path ..\$ChangedFiles).Path
           $UpdateInfo | Format-List *
@@ -272,11 +269,10 @@ jobs:
           </table>
           "@
           Write-Output "Commenting on the pull request..."
-          If ((gh pr view $PullRequestNo --json comments | ConvertFrom-Json).comments.author.login -contains 'vedantmgoyal-bot') {
-            gh pr comment $PullRequestNo --body $CommentBody --edit-last
-          } Else {
-            gh pr comment $PullRequestNo --body $CommentBody
-          }
+          (gh pr view $PullRequestNo --json comments | ConvertFrom-Json).comments.Where({ $_.author.login -eq 'vedantmgoyal-bot' }).ForEach({
+            gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/pulls/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
+          })
+          gh pr comment $PullRequestNo --body $CommentBody
         env:
           GH_TOKEN: ${{ steps.get-bot-token.outputs.token }} # for gh (github) cli
           GITHUB_BOT_TOKEN: ${{ steps.get-bot-token.outputs.token }} # for winget automation
