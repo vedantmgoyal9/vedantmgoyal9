@@ -14,7 +14,8 @@
   "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
   "Update": {
     "PackageVersion": "($Response | Select-String -Pattern '[0-9.]{6,}').Matches.Value",
-    "InstallerUrls": "$Response"
+    "InstallerUrls": "$Response",
+    "ReleaseDate": "($Response | Select-String -Pattern '(?<=/)[0-9_]+(?=_\d\.)').Matches.Value.Replace('_', '-')"
   },
   "AdditionalInfo": {
     "ForceUpgrade": false
