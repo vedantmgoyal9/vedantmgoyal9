@@ -15,7 +15,7 @@
   "Update": {
     "PackageVersion": "($Response | Select-String -Pattern '[0-9.]{6,}').Matches.Value",
     "InstallerUrls": "$Response",
-    "ReleaseDate": "($Response | Select-String -Pattern '(?<=/)[0-9_]+(?=_\d\.)').Matches.Value.Replace('_', '-')"
+    "ReleaseDate": "($Response | Select-String -Pattern '(?<=/)[0-9_]+(?=_\\d\\.)').Matches.Value.Replace('_', '-')"
   },
   "AdditionalInfo": {
     "ForceUpgrade": false
