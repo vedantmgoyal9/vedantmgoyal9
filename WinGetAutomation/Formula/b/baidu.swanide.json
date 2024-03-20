@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.data",
   "Update": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "$Response.download_url"
+    "InstallerUrls": "@(($Response.download_url + '|user'), ($Response.download_url + '|machine'))"
   },
   "AdditionalInfo": {
     "ForceUpgrade": false,
