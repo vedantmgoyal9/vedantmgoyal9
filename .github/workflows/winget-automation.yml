@@ -225,7 +225,8 @@ jobs:
           Thanks for contributing :-)
           '@
             (gh pr view $PullRequestNo --json comments | ConvertFrom-Json).comments.Where({ $_.author.login -eq 'vedantmgoyal-bot' }).ForEach({
-              gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/pulls/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
+              # for some reason, /repos/{owner}/${repo}/pulls/comments/{comment-id} doesn't work, but "issues" endpoint does
+              gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/issues/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
             })
             gh pr comment $PullRequestNo --body $CommentBody
           }
@@ -270,7 +271,8 @@ jobs:
           "@
           Write-Output "Commenting on the pull request..."
           (gh pr view $PullRequestNo --json comments | ConvertFrom-Json).comments.Where({ $_.author.login -eq 'vedantmgoyal-bot' }).ForEach({
-            gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/pulls/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
+            # for some reason, /repos/{owner}/${repo}/pulls/comments/{comment-id} doesn't work, but "issues" endpoint does
+            gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/issues/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
           })
           gh pr comment $PullRequestNo --body $CommentBody
         env:
