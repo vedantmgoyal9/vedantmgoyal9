@@ -10,7 +10,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/vedantmgoyal2009/vedantmgoyal2009/api/_natural"
+	"github.com/vedantmgoyal9/vedantmgoyal9/api/_natural"
 )
 
 // #route /api/winget-pkgs/versions?package_identifier={package_identifier}
@@ -72,7 +72,7 @@ func Versions(w http.ResponseWriter, r *http.Request) {
 	for i := 0; i < len(pkg_versions); i++ {
 		is_sub_package := false
 		for j := 0; j < len(pkg_versions); j++ {
-			if strings.HasPrefix(pkg_versions[j], pkg_versions[i]) && pkg_versions[j] != pkg_versions[i] {
+			if strings.HasPrefix(pkg_versions[j], pkg_versions[i]+"/") {
 				is_sub_package = true
 				pkg_versions = append(pkg_versions[:j], pkg_versions[j+1:]...)
 				j--

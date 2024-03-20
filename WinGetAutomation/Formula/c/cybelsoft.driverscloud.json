@@ -1,0 +1,29 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "Cybelsoft.DriversCloud",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://www.driverscloud.com/update.xml",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.components.component.Where({ $_.urls.EndsWith('exe') -and -not $_.urls.Contains('Old') })",
+  "Update": {
+    "PackageVersion": "$Response[0].version",
+    "InstallerUrls": "$Response.urls"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false,
+    "VersionRegex": "(?<=version:.*)[0-9.]+(?=</div>)",
+    "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

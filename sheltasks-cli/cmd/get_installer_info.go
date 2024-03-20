@@ -7,7 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/spf13/cobra"
-	"github.com/vedantmgoyal2009/vedantmgoyal2009/sheltasks-cli/installer"
+	"github.com/vedantmgoyal9/vedantmgoyal9/sheltasks-cli/installer"
 )
 
 var getInstallerInfoCmd_json bool

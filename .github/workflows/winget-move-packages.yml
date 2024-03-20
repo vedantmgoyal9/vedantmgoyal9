@@ -50,10 +50,10 @@ jobs:
           Write-Output 'Installing powershell-yaml module, cloning microsoft/winget-pkgs repository, configuring remotes, updating yamlcreate settings...'
           Install-Module -Name powershell-yaml -Repository PSGallery -Scope CurrentUser -Force # install powershell-yaml module
           git clone https://github.com/microsoft/winget-pkgs.git --quiet # Clone microsoft/winget-pkgs repository
-          git -C winget-pkgs config --local user.name "vedantmgoyal2009" # Set git committer name
-          git -C winget-pkgs config --local user.email "83997633+vedantmgoyal2009@users.noreply.github.com" # Set git committer email
+          git -C winget-pkgs config --local user.name "vedantmgoyal9" # Set git committer name
+          git -C winget-pkgs config --local user.email "83997633+vedantmgoyal9@users.noreply.github.com" # Set git committer email
           git -C winget-pkgs remote rename origin upstream # Rename origin to upstream
-          git -C winget-pkgs remote add origin https://x-access-token:$env:GITHUB_TOKEN@github.com/vedantmgoyal2009/winget-pkgs.git # Add fork to origin
+          git -C winget-pkgs remote add origin https://x-access-token:$env:GITHUB_TOKEN@github.com/vedantmgoyal9/winget-pkgs.git # Add fork to origin
           git -C winget-pkgs fetch origin --quiet # Fetch branches from origin, quiet to not print anything
           git -C winget-pkgs config core.safecrlf false # Change core.safecrlf to false to suppress some git messages, from YamlCreate.ps1
           New-Item -Value @'

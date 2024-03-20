@@ -75,7 +75,7 @@ Url: ${res.url}`,
           id="pkg-version"
           name="pkg-version"
           className="input-field"
-          value="The PackageVersion of package, would be used as it is, if provided. See: https://github.com/vedantmgoyal2009/winget-releaser/#readme"
+          value="The PackageVersion of package, would be used as it is, if provided. See: https://github.com/vedantmgoyal9/winget-releaser/#readme"
           disabled
         />
         <span className="input-label">Version</span>

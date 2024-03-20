@@ -27,7 +27,7 @@ name = "java"
 name = "go"
 
   [analyzers.meta]
-  import_root = "github.com/vedantmgoyal2009/vedantmgoyal2009/sheltasks-cli"
+  import_root = "github.com/vedantmgoyal9/vedantmgoyal9/sheltasks-cli"
 
 [[analyzers]]
 name = "shell"

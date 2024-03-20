@@ -30,7 +30,7 @@ function probotApp(app: Probot) {
         )
       ) {
         await context.octokit.pulls.removeRequestedReviewers(
-          context.pullRequest({ reviewers: ['vedantmgoyal2009'] }),
+          context.pullRequest({ reviewers: ['vedantmgoyal9'] }),
         );
         return await context.octokit.issues.lock(
           context.issue({ lock_reason: 'resolved' }),
@@ -63,7 +63,7 @@ function probotApp(app: Probot) {
               event: 'APPROVE',
               body:
                 '@dependabot squash and merge\n' +
-                '###### 🍏 Approved 🥗 automagically 🔮 by 🤖 @vedantmgoyal2009-bot 😉ヾ(≧▽≦*)o 🥳',
+                '###### 🍏 Approved 🥗 automagically 🔮 by 🤖 @vedantmgoyal-bot 😉ヾ(≧▽≦*)o 🥳',
             }),
           },
         );
@@ -74,7 +74,7 @@ function probotApp(app: Probot) {
           context.issue({ labels: ['documentation'] }),
         );
         await context.octokit.pulls.removeRequestedReviewers(
-          context.pullRequest({ reviewers: ['vedantmgoyal2009'] }),
+          context.pullRequest({ reviewers: ['vedantmgoyal9'] }),
         );
         return await context.octokit.pulls.merge(
           context.pullRequest({ merge_method: 'squash' }),
@@ -96,7 +96,7 @@ function probotApp(app: Probot) {
             context.issue({ labels: ['go'] }),
           );
         return await context.octokit.pulls.removeRequestedReviewers(
-          context.pullRequest({ reviewers: ['vedantmgoyal2009'] }),
+          context.pullRequest({ reviewers: ['vedantmgoyal9'] }),
         );
       }
     },

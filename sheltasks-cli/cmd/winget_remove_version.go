@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"github.com/spf13/cobra"
-	"github.com/vedantmgoyal2009/vedantmgoyal2009/sheltasks-cli/github"
+	"github.com/vedantmgoyal9/vedantmgoyal9/sheltasks-cli/github"
 )
 
 var (

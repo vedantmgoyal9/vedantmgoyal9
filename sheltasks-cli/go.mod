@@ -1,4 +1,4 @@
-module github.com/vedantmgoyal2009/vedantmgoyal2009/sheltasks-cli
+module github.com/vedantmgoyal9/vedantmgoyal9/sheltasks-cli
 
 go 1.22
 

@@ -20,9 +20,9 @@ Hi, I am Vedant 😃
 |           **Top Languages** 💻            |                              **Badge board** 🏅                              |
 |  ![Top Langs][github-top-languages-card]  | <img src="https://holopin.me/vedantmgoyal2009" height="156px" width="496px"> |
 
-[github-streak-stats]: https://github-readme-streak-stats.herokuapp.com?user=vedantmgoyal2009&theme=gruvbox&hide_border=false&date_format=M%20j%5B%2C%20Y%5D
-[github-followers-badge]: https://img.shields.io/github/followers/vedantmgoyal2009?logo=github&color=indigo&style=for-the-badge
-[github-sponsors-badge]: https://img.shields.io/github/sponsors/vedantmgoyal2009?logo=githubsponsors&style=for-the-badge
-[github-user-stars-badge]: https://img.shields.io/github/stars/vedantmgoyal2009?affiliations=OWNER&style=for-the-badge
-[github-readme-stats-card]: https://github-readme-stats.vercel.app/api?username=vedantmgoyal2009&show_icons=true&theme=gruvbox
-[github-top-languages-card]: https://github-readme-stats.vercel.app/api/top-langs/?username=vedantmgoyal2009&layout=compact&theme=gruvbox
+[github-streak-stats]: https://github-readme-streak-stats.herokuapp.com?user=vedantmgoyal9&theme=gruvbox&hide_border=false&date_format=M%20j%5B%2C%20Y%5D
+[github-followers-badge]: https://img.shields.io/github/followers/vedantmgoyal9?logo=github&color=indigo&style=for-the-badge
+[github-sponsors-badge]: https://img.shields.io/github/sponsors/vedantmgoyal9?logo=githubsponsors&style=for-the-badge
+[github-user-stars-badge]: https://img.shields.io/github/stars/vedantmgoyal9?affiliations=OWNER&style=for-the-badge
+[github-readme-stats-card]: https://github-readme-stats.vercel.app/api?username=vedantmgoyal9&show_icons=true&theme=gruvbox
+[github-top-languages-card]: https://github-readme-stats.vercel.app/api/top-langs/?username=vedantmgoyal9&layout=compact&theme=gruvbox

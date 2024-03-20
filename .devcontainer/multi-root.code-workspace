@@ -1,7 +1,7 @@
 {
     "folders": [
         {
-            "name": "vedantmgoyal2009",
+            "name": "vedantmgoyal9",
             "path": ".."
         },
         {
@@ -34,7 +34,7 @@
         "gitlens.currentLine.enabled": false,
         "editor.fontFamily": "JetBrainsMono Nerd Font",
         "editor.fontLigatures": true,
-        "powershell.cwd": "/workspaces/vedantmgoyal2009",
+        "powershell.cwd": "/workspaces/vedantmgoyal9",
         "go.alternateTools": {
             "go": "/home/linuxbrew/.linuxbrew/bin/go"
         },

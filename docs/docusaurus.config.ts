@@ -15,8 +15,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'vedantmgoyal2009', // Usually your GitHub org/user name.
-  projectName: 'vedantmgoyal2009', // Usually your repo name.
+  organizationName: 'vedantmgoyal9', // Usually your GitHub org/user name.
+  projectName: 'vedantmgoyal9', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
@@ -41,7 +41,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/vedantmgoyal2009/vedantmgoyal2009/edit/main/docs/',
+            'https://github.com/vedantmgoyal9/vedantmgoyal9/edit/main/docs/',
         },
         gtag: {
           trackingID: 'G-2QLW62SW9F',
@@ -106,7 +106,7 @@ const config: Config = {
           href: 'https://blog.bittu.eu.org',
         },
         {
-          href: "https://github.com/vedantmgoyal2009",
+          href: "https://github.com/vedantmgoyal9",
           className: 'header-github-link',
           'aria-label': 'GitHub profile',
           position: "right"

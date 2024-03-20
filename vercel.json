@@ -21,8 +21,9 @@
       "destination": "/api/winget-pkgs/manifests"
     }
   ],
-  "buildCommand": "npm run build --workspace=docs",
+  "buildCommand": "cd docs && npm run build",
   "outputDirectory": "docs/build",
+  "installCommand": "cd docs && npm install",
   "framework": "docusaurus-2",
   "public": false,
   "github": {
