@@ -18,7 +18,12 @@
   "Update": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match '.(exe|msi|msix|appx)(bundle){0,1}$') { $_.browser_download_url } }",
-    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')",
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "\"Lively Wallpaper version $($Response.tag_name.TrimStart('v'))\""
+      }
+    ]
   },
   "AdditionalInfo": {
     "PreRelease": false,
