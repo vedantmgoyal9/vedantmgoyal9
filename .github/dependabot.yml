@@ -41,7 +41,27 @@ updates:
     rebase-strategy: auto
     target-branch: main
     # https://github.com/dependabot/dependabot-core/issues/5226
-    versioning-strategy: increase
+    # versioning-strategy: increase
+
+  # Maintain dependencies for npm
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /docs # Location of package manifests
+    allow:
+      - dependency-type: all
+    groups:
+      npm:
+        patterns: ['*']
+        dependency-type: production
+      npm-dev:
+        patterns: ['*']
+        dependency-type: development
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: chore(deps)
+    reviewers: [vedantmgoyal9]
+    rebase-strategy: auto
+    target-branch: main
 
   # Maintain dependencies for Go modules
   - package-ecosystem: gomod # See documentation for possible values
