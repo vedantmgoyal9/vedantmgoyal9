@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "Microsoft.Azure.CosmosEmulator",
+  "Source": [
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://aka.ms/cosmosdb-emulator",
+      "Method": "Head",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
+  "Update": {
+    "PackageVersion": "($Response | Select-String -Pattern '[0-9.]{6,}').Matches.Value",
+    "InstallerUrls": "$Response",
+    "ReleaseDate": "($Response | Select-String -Pattern '(?<=/)[0-9_]+(?=_\\d\\.)').Matches.Value.Replace('_', '-')"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
