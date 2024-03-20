@@ -39,17 +39,11 @@ func SubmitManifests(pkg_id, version string, manifests []WinGetManifest, commitT
 	if commitType == RmVerCommit {
 		pullRequestBody.WriteString("### Reason for deletion: " + rmReason[0] + "\n")
 	}
-	if os.Getenv("GITHUB_ACTION_REPOSITORY") == "vedantmgoyal2009/winget-releaser" {
-		pullRequestBody.WriteString("### Pull request has been created with [WinGet Releaser](https://github.com/vedantmgoyal2009/winget-releaser) 🚀\n")
-	} else if os.Getenv("GITHUB_REPOSITORY") == "vedantmgoyal2009/winget-pkgs-automation" {
-		pullRequestBody.WriteString("### Pull request has been created with [WinGet Automation](https://github.com/vedantmgoyal2009/winget-pkgs-automation) 🪟📦🤖\n")
-	} else {
-		resp, err := http.Get("https://raw.githubusercontent.com/microsoft/winget-pkgs/master/.github/PULL_REQUEST_TEMPLATE.md")
-		if err != nil {
-			panic(fmt.Errorf("failed to get pull request template: %s", err))
-		}
-		io.Copy(pullRequestBody, resp.Body)
+	resp, err := http.Get("https://raw.githubusercontent.com/microsoft/winget-pkgs/master/.github/PULL_REQUEST_TEMPLATE.md")
+	if err != nil {
+		panic(fmt.Errorf("failed to get pull request template: %s", err))
 	}
+	io.Copy(pullRequestBody, resp.Body)
 	commit := commitFiles(pkg_id, version, manifests, commitMessage, forkUser, winget_pkgs_latest_commit, winget_pkgs_fork)
 
 	draftPullRequest := getDraftPullRequest(pkg_id, version)

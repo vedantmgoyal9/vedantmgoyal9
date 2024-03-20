@@ -28,8 +28,8 @@ jobs:
         run: |
           $ErrorActionPreference = 'SilentlyContinue'
           gh run list --workflow '${{ matrix.workflow }}' --limit 100 --status completed --json databaseId `
-            --repo vedantmgoyal2009/vedantmgoyal2009 | ConvertFrom-Json | ForEach-Object { `
-              gh run delete $_.databaseId --repo vedantmgoyal2009/vedantmgoyal2009 `
+            --repo vedantmgoyal9/vedantmgoyal9 | ConvertFrom-Json | ForEach-Object { `
+              gh run delete $_.databaseId --repo vedantmgoyal9/vedantmgoyal9 `
             }
           Exit 0 # Don't fail the job if there are no runs to delete
         shell: pwsh

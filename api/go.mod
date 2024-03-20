@@ -1,4 +1,4 @@
-module github.com/vedantmgoyal2009/vedantmgoyal2009/api
+module github.com/vedantmgoyal9/vedantmgoyal9/api
 
 go 1.22
 

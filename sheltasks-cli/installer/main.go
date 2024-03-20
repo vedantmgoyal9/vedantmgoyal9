@@ -16,7 +16,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/vedantmgoyal2009/vedantmgoyal2009/sheltasks-cli/msi"
+	"github.com/vedantmgoyal9/vedantmgoyal9/sheltasks-cli/msi"
 )
 
 var cache_installerInfo = map[string]map[string]string{}

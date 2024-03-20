@@ -12,7 +12,7 @@ import (
 
 	_ "github.com/ncruces/go-sqlite3/driver"
 	_ "github.com/ncruces/go-sqlite3/embed"
-	"github.com/vedantmgoyal2009/vedantmgoyal2009/api/_natural"
+	"github.com/vedantmgoyal9/vedantmgoyal9/api/_natural"
 )
 
 // #route /api/winget-pkgs/versions_source?package_identifier={package_identifier}

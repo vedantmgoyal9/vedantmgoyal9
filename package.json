@@ -1,5 +1,5 @@
 {
-  "name": "vedantmgoyal2009",
+  "name": "vedantmgoyal9",
   "version": "1.0.0",
   "description": "Personal website, docs, GitHub bot, and more!",
   "private": true,
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vedantmgoyal2009/vedantmgoyal2009.git"
+    "url": "git+https://github.com/vedantmgoyal9/vedantmgoyal9.git"
   },
   "keywords": [
     "java",
@@ -24,9 +24,9 @@
   "license": "MIT",
   "bugs": {
     "email": "bugs-github@bittu.eu.org",
-    "url": "https://github.com/vedantmgoyal2009/vedantmgoyal2009/issues"
+    "url": "https://github.com/vedantmgoyal9/vedantmgoyal9/issues"
   },
-  "homepage": "https://github.com/vedantmgoyal2009/vedantmgoyal2009#readme",
+  "homepage": "https://github.com/vedantmgoyal9/vedantmgoyal9#readme",
   "dependencies": {
     "@commitlint/config-conventional": "^19.1.0",
     "@commitlint/format": "^19.0.3",

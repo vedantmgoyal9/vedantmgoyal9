@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/google/go-github/v58/github"
-	"github.com/vedantmgoyal2009/vedantmgoyal2009/api/_natural"
+	"github.com/vedantmgoyal9/vedantmgoyal9/api/_natural"
 )
 
 type Manifest struct {

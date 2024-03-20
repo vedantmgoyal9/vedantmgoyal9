@@ -31,7 +31,7 @@ nvm install --lts
 brew install jandedobbeleer/oh-my-posh/oh-my-posh gh go hugo
 # Copy PowerShell Profile
 mkdir -p $(pwsh -Command '$PROFILE | Split-Path')
-cp "${workspaces_folder}/vedantmgoyal2009/.devcontainer/profile.ps1" $(pwsh -Command '$PROFILE')
+cp "${workspaces_folder}/vedantmgoyal9/.devcontainer/profile.ps1" $(pwsh -Command '$PROFILE')
 # Add oh-my-posh to bash profile
 echo 'eval "$(oh-my-posh init bash -c $(brew --prefix oh-my-posh)/themes/takuya.omp.json)"' >> /home/vscode/.bashrc
 # Install powershell-yaml module for winget-pkgs-automation
@@ -49,14 +49,14 @@ clone-repo()
 }
 
 # Clone repositories
-clone-repo "vedantmgoyal2009/winget-pkgs-automation"
-clone-repo "vedantmgoyal2009/winget-releaser"
-clone-repo "vedantmgoyal2009/homebrew-tap"
+clone-repo "vedantmgoyal9/winget-pkgs-automation"
+clone-repo "vedantmgoyal9/winget-releaser"
+clone-repo "vedantmgoyal9/homebrew-tap"
 
 # Install npm node_modules
 cd "${workspaces_folder}/winget-releaser"
 sudo npm install
 
 # Multi-root workspace
-cd "${workspaces_folder}/vedantmgoyal2009"
+cd "${workspaces_folder}/vedantmgoyal9"
 # code-insiders multi-root.code-workspace
