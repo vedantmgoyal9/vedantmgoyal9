@@ -22,7 +22,7 @@
   "PostResponseScript": "$Response2 = $Response2.Content -split '\\n'",
   "Update": {
     "PackageVersion": "($Response.Content | Select-String -Pattern '(?<=SplitCam v)[\\d.]+(?=\\s)').Matches.Value",
-    "InstallerUrls": "$InstUri.Replace('#version', $Update.PackageVersion)",
+    "InstallerUrls": "@($x64_Uri.Replace('#version', $UpdateInfo.PackageVersion), $x86_Uri.Replace('#version', $UpdateInfo.PackageVersion))",
     "ReleaseDate": "(Get-Date -Date $Response2[2]).ToString('yyyy-MM-dd')",
     "Locales": [
       {
@@ -32,7 +32,8 @@
     ]
   },
   "AdditionalInfo": {
-    "InstUri": "https://splitcam.com/win-download/update/#version_x64.msi",
+    "x64_Uri": "https://splitcam.com/win-download/update/#version_x64.msi",
+    "x86_Uri": "https://splitcam.com/win-download/update/#version.msi",
     "ForceUpgrade": false
   },
   "PostUpgradeScript": "",
