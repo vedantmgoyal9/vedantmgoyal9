@@ -17,7 +17,7 @@
     "InstallerUrls": "@($Response.manifest.win32.extra.x86.installerUrl, $Response.manifest.win32.extra.x64.installerUrl)",
     "Locales": [
       {
-        "Name": "en-us",
+        "Name": "zh-cn",
         "ReleaseNotes": "'\"' + $Response.releaseNote + '\"' | ConvertFrom-Json"
       }
     ]
