@@ -19,7 +19,7 @@
     "InstallerUrls": "$Response.packageVO.downloadUrl",
     "Locales": [
       {
-        "Name": "en-us",
+        "Name": "zh-cn",
         "ReleaseNotes": "$Response.upgradeContent"
       }
     ]
