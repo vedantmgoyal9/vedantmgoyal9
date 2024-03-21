@@ -20,11 +20,11 @@
   ],
   "Update": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
-    "InstallerUrls": "\"https://repo.jellyfin.org/releases/server/windows/stable/installer/jellyfin_$($Response.tag_name.TrimStart('v'))_windows-x64.exe\""
+    "InstallerUrls": "\"https://repo.jellyfin.org/releases/server/windows/stable/installer/jellyfin_$($Response.tag_name.TrimStart('v'))_windows-x64.exe\"",
+    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
     "PreRelease": false,
-    "PreviousReleaseId": 0,
     "ForceUpgrade": false
   },
   "PostUpgradeScript": "$Formula.AdditionalInfo.PreviousReleaseId = $Response.id",
