@@ -15,10 +15,12 @@
   "Update": {
     "PackageVersion": "$Response.version",
     "InstallerUrls": "$InstUri.Replace('#version', $Response.version)",
-    "AppsAndFeaturesEntries": {
-      "DisplayName": "'Wondershare Filmii(Build ' + $Response.version + ')'",
-      "ProductCode": "Wondershare Filmii_is1"
-    },
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "'Wondershare Filmii(Build ' + $Response.version + ')'",
+        "ProductCode": "Wondershare Filmii_is1"
+      }
+    ],
     "Locales": [
       {
         "Name": "en-us",
