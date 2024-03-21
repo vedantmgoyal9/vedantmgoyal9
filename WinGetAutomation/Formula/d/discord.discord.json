@@ -1,0 +1,29 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "Discord.Discord",
+  "Source": [
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://discord.com/api/downloads/distributions/app/installers/latest?arch=x86&platform=win&channel=stable",
+      "Method": "Head",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
+  "Update": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false,
+    "VersionRegex": "[0-9.]{3,}",
+    "InstallerRegex": ".exe$"
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
