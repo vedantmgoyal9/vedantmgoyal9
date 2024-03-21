@@ -13,14 +13,12 @@
   ],
   "PostResponseScript": "$Response = $Response.versions.Windows",
   "Update": {
-    "PackageVersion": "($Response.version_number | Select-String -Pattern $VersionRegex).Matches.Value",
+    "PackageVersion": "($Response.version_number | Select-String -Pattern '(?<=V)[0-9.]+').Matches.Value",
     "InstallerUrls": "$Response.download_link",
     "ReleaseDate": "[System.DateTimeOffset]::FromUnixTimeSeconds($Response.release_time).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
-    "ForceUpgrade": false,
-    "VersionRegex": "[0-9.]+",
-    "InstallerRegex": ".exe$"
+    "ForceUpgrade": false
   },
   "PostUpgradeScript": "",
   "Skip": {
