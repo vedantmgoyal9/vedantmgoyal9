@@ -14,10 +14,15 @@
       "UserAgent": ""
     }
   ],
-  "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease",
+  "PostResponseScript": [
+    "$UpdateCondition = $Response.prerelease -eq $PreRelease",
+    "$InstUrls = @()"
+    "$InstUrls += @('|x64|user', '|x64|machine').ForEach({ $Response.assets.Where({ $_.name -match 'installer_x64.*.exe$' }).browser_download_url + $_ })",
+    "$InstUrls += @('|x86|user', '|x86|machine').ForEach({ $Response.assets.Where({ $_.name -match 'installer_ia32.*.exe$' }).browser_download_url + $_ })"
+  ],
   "Update": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
-    "InstallerUrls": "@(@('|x64|user', '|x64|machine').ForEach({ $Response.assets.Where({ $_.name -match 'x64.*.exe$' }).browser_download_url + $_ }), @('|x86|user', '|x86|machine').ForEach({ $Response.assets.Where({ $_.name -match 'ia32.*.exe$' }).browser_download_url + $_ }))",
+    "InstallerUrls": "$InstUrls",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
