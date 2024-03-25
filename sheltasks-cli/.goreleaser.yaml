@@ -94,13 +94,14 @@ brews:
     license: MIT
     dependencies:
       - name: msitools
-    commit_msg_template: 'feat: {{ .ProjectName }} {{ .Tag }}{{ if .Prerelease }} ({{ .ShortCommit }}){{ end }}'
+    commit_msg_template: 'feat(brew/formula): {{ .ProjectName }} {{ .Tag }}{{ if .Prerelease }} ({{ .ShortCommit }}){{ end }}'
     commit_author:
       name: vedantmgoyal-bot[bot]
       email: 110876359+vedantmgoyal-bot[bot]@users.noreply.github.com
+    folder: Formula
     repository:
       owner: vedantmgoyal9
-      name: homebrew-tap
+      name: vedantmgoyal9
       branch: main
       pull_request:
         enabled: false # push directly to branch
