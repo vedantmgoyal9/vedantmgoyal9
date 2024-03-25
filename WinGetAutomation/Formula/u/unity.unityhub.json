@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
   "Update": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "'https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe'",
+    "InstallerUrls": "https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe|x64",
     "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')"
   },
   "AdditionalInfo": {
