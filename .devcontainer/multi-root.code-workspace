@@ -5,16 +5,8 @@
             "path": ".."
         },
         {
-            "name": "winget-pkgs-automation",
-            "path": "../../winget-pkgs-automation"
-        },
-        {
             "name": "winget-releaser",
             "path": "../../winget-releaser"
-        },
-        {
-            "name": "homebrew-tap",
-            "path": "../../homebrew-tap"
         }
     ],
     "settings": {
@@ -38,6 +30,6 @@
         "go.alternateTools": {
             "go": "/home/linuxbrew/.linuxbrew/bin/go"
         },
-        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.21.5/libexec"
+        "go.goroot": "/home/linuxbrew/.linuxbrew/Cellar/go/1.22.1/libexec"
     }
 }

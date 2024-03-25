@@ -49,13 +49,7 @@ clone-repo()
 }
 
 # Clone repositories
-clone-repo "vedantmgoyal9/winget-pkgs-automation"
 clone-repo "vedantmgoyal9/winget-releaser"
-clone-repo "vedantmgoyal9/homebrew-tap"
-
-# Install npm node_modules
-cd "${workspaces_folder}/winget-releaser"
-sudo npm install
 
 # Multi-root workspace
 cd "${workspaces_folder}/vedantmgoyal9"
