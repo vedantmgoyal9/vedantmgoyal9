@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "ULAB.PaintAid",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "http://pa.udongman.cn/index.php/upgrade/",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.updater",
+  "Update": {
+    "PackageVersion": "$Response.win_mversion + '.' + $Response.win_subversion",
+    "InstallerUrls": "$Response.TypeWin.package_url.Replace('http:', 'https:') + $Response.TypeWin.package.name"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
