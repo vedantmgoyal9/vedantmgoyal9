@@ -17,7 +17,7 @@
     "InstallerUrls": "$Response.fileUrl",
     "Locales": [
       {
-        "Name": "en-us",
+        "Name": "zh-cn",
         "ReleaseNotes": "$Response.changelog"
       }
     ]
