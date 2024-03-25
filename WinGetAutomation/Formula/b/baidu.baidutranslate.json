@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml",
   "Update": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "@('|x64|user', '|x64|machine', '|x86|user', '|x86|machine').ForEach({ [System.Uri]::EscapeUriString($Response.path) + $_ })"
+    "InstallerUrls": "@('|x64|user', '|x64|machine', '|x86|user', '|x86|machine').ForEach({ $Response.path + $_ })"
   },
   "AdditionalInfo": {
     "ForceUpgrade": false,
