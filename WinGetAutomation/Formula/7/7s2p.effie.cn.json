@@ -14,12 +14,16 @@
   "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
   "Update": {
     "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
-    "InstallerUrls": "$Response"
+    "InstallerUrls": "$Response",
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "\"Effie $(($Response | Select-String -Pattern $VersionRegex).Matches.Value)\""
+      }
+    ]
   },
   "AdditionalInfo": {
     "ForceUpgrade": false,
-    "VersionRegex": "(?<=_)[0-9.]+(?=\\.)",
-    "InstallerRegex": ".(exe|msi|msix|appx)(bundle){0,1}$"
+    "VersionRegex": "(?<=_)[0-9.]+(?=\\.)"
   },
   "PostUpgradeScript": "",
   "Skip": {
