@@ -21,7 +21,7 @@
     "ReleaseDate": "(Get-Date -Date $Response2.releaseDate).ToString('yyyy-MM-dd')",
     "Locales": [
       {
-        "Name": "en-us",
+        "Name": "zh-cn",
         "ReleaseNotes": "$Response.remark.Trim('<p>').Trim('</p>')"
       }
     ]
