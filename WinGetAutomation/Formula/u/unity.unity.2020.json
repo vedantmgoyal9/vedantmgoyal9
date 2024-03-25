@@ -18,6 +18,7 @@
     "PackageVersion": "$Response.version",
     "InstallerUrls": "$Response.downloads.url + '|x64'",
     "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')",
+    "ProductCode": "\"Unity $($Response.version)\"",
     "Locales": [
       {
         "Name": "en-us",
