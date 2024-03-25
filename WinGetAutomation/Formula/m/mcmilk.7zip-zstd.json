@@ -14,9 +14,12 @@
       "UserAgent": ""
     }
   ],
-  "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease",
+  "PostResponseScript": [
+    "$UpdateCondition = $Response.prerelease -eq $PreRelease",
+    "$PkgVersion = $Response.tag_name.TrimStart('v') -split '-'"
+  ],
   "Update": {
-    "PackageVersion": "$Response.tag_name.TrimStart('v').Replace('-', ' ')",
+    "PackageVersion": "$PkgVersion[0] + ' ZS ' + ($PkgVersion[1..11] -join ' ') # From index 1 to the end of array",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match '.(exe|msi|msix|appx)(bundle){0,1}$') { $_.browser_download_url } }",
     "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
   },
