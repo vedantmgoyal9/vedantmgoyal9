@@ -1,10 +1,11 @@
 import { createProbot, Context, Probot } from 'probot';
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-import type { Readable } from 'node:stream';
-import type { WebhookEventName } from '@octokit/webhooks-types';
+import commitlintConfig from '@commitlint/config-conventional';
 import lint from '@commitlint/lint';
 import { format } from '@commitlint/format';
-import { LintOutcome, QualifiedConfig } from '@commitlint/types';
+import type { Readable } from 'node:stream';
+import type { LintOutcome } from '@commitlint/types';
+import type { WebhookEventName } from '@octokit/webhooks-types';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 /**
  * This is the main entrypoint to your Probot app
@@ -106,11 +107,9 @@ function probotApp(app: Probot) {
     if (!context.payload.commits.length) return;
     const reports: LintOutcome[] = [];
     let results: string[] = [];
-    const config: Partial<QualifiedConfig> = require('@commitlint/config-conventional');
-    const preset = require('conventional-changelog-conventionalcommits'); // config.parserPreset
     for (const commit of context.payload.commits) {
       if (commit.author.username === 'dependabot[bot]') continue;
-      const report = await lint(commit.message, config.rules, { ...preset });
+      const report = await lint(commit.message, commitlintConfig.rules);
       reports.push(report);
       results.push(
         format({ results: [report] }, { color: true, verbose: true }),

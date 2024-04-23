@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Personal website, docs, GitHub bot, and more!",
   "private": true,
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
