@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
-  "PackageIdentifier": "ProtonTechnologies.ProtonVPN",
+  "PackageIdentifier": "Proton.ProtonVPN",
   "Source": [
     {
       "InvokeType": "RestMethod",
