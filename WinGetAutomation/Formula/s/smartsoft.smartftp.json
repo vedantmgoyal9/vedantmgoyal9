@@ -21,7 +21,7 @@
   },
   "PostUpgradeScript": "",
   "Skip": {
-    "Skip?": false,
-    "Reason": null
+    "Skip?": true,
+    "Reason": "Already automated by the publisher - matbech (Mathias Berchtold)"
   }
 }
