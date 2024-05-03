@@ -59,7 +59,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: actions/setup-go@v5.0.0
+      - uses: actions/setup-go@v5.0.1
         with:
           check-latest: true
           go-version-file: ./sheltasks-cli/go.mod
