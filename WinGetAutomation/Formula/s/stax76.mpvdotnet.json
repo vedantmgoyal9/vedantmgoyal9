@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
-  "PackageIdentifier": "stax76.mpvdotnet",
+  "PackageIdentifier": "mpv.net",
   "Source": [
     {
       "InvokeType": "RestMethod",
