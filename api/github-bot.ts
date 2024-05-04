@@ -56,7 +56,7 @@ function probotApp(app: Probot) {
           {
             method: 'POST',
             headers: {
-              authorization: `token ${process.env.GITHUB_PAT}`,
+              authorization: `token ${process.env.GH_PAT_TOKEN}`,
               accept: 'application/vnd.github.v3+json',
               'User-Agent': `probot/${app.version}`, // the same is used by context.octokit
             },

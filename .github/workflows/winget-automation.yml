@@ -160,7 +160,7 @@ jobs:
           }
         id: update-manfiests
         env:
-          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
           GITHUB_BOT_TOKEN: ${{ steps.get-bot-token.outputs.token }}
 
       - if: always() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')

@@ -176,7 +176,7 @@ jobs:
           HOMEBREW_TOKEN: ${{ steps.get-bot-token.outputs.token }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PWD }}
           CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
 
       - name: Prefix tag with sheltasks-cli/ (stable) 👨‍🔧🏷️
         if: github.ref_type == 'tag' && github.event_name == 'push'
@@ -191,7 +191,7 @@ jobs:
           gh api --method DELETE /repos/$GITHUB_REPOSITORY/git/refs/tags/$TAG_NAME
         env:
           TAG_NAME: ${{ github.ref_name }}
-          GH_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+          GH_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
 
       - name: Get nightly tag 🌙
         if: github.ref_type == 'branch' && github.event_name == 'push'
@@ -216,7 +216,7 @@ jobs:
           GORELEASER_CURRENT_TAG: ${{ steps.get-nightly-tag.outputs.tag }}
           HOMEBREW_TOKEN: ${{ steps.get-bot-token.outputs.token }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PWD }}
-          GITHUB_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
 
       - name: Move release to nightly tag 🌝
         if: github.ref_type == 'branch' && github.event_name == 'push'
@@ -232,4 +232,4 @@ jobs:
           gh api --method DELETE /repos/$GITHUB_REPOSITORY/git/refs/tags/$NIGHTLY_TAG
         env:
           NIGHTLY_TAG: ${{ steps.get-nightly-tag.outputs.tag }}
-          GH_TOKEN: ${{ secrets.MYSUPERSECRETINFORMATION }}
+          GH_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
