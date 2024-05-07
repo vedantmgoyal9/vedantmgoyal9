@@ -29,7 +29,7 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/format": "^19.3.0",
     "@commitlint/lint": "^19.2.2",
-    "playwright": "^1.43.1",
+    "playwright": "^1.44.0",
     "probot": "^13.2.1"
   },
   "devDependencies": {
