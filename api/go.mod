@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	github.com/google/go-github/v58 v58.0.0
-	github.com/ncruces/go-sqlite3 v0.15.0
+	github.com/ncruces/go-sqlite3 v0.16.0
 )
 
 require (
