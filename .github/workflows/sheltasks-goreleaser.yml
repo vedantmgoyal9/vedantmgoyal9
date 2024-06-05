@@ -157,7 +157,7 @@ jobs:
 
       - name: Run GoReleaser (build-only) 🏗️🚧
         if: github.event_name == 'pull_request'
-        uses: goreleaser/goreleaser-action@v5
+        uses: goreleaser/goreleaser-action@v6
         with:
           version: latest
           distribution: goreleaser
@@ -166,7 +166,7 @@ jobs:
 
       - name: Run GoReleaser (stable) 🚀
         if: github.ref_type == 'tag' && github.event_name == 'push'
-        uses: goreleaser/goreleaser-action@v5
+        uses: goreleaser/goreleaser-action@v6
         with:
           version: nightly
           distribution: goreleaser
@@ -206,7 +206,7 @@ jobs:
 
       - name: Run GoReleaser 🌜nightly🌛
         if: github.ref_type == 'branch' && github.event_name == 'push'
-        uses: goreleaser/goreleaser-action@v5
+        uses: goreleaser/goreleaser-action@v6
         with:
           version: nightly
           distribution: goreleaser
