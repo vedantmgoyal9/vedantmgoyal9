@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response | ConvertFrom-Yaml",
   "Update": {
     "PackageVersion": "$Response.version",
-    "InstallerUrls": "\"https://client-updates-cdn77.badlion.net/$([System.Uri]::EscapeDataString($Response.path))\""
+    "InstallerUrls": "\"https://client-updates-cdn77.badlion.net/$([System.Uri]::EscapeDataString($Response.path))|x64\""
   },
   "AdditionalInfo": {
     "ForceUpgrade": false,
