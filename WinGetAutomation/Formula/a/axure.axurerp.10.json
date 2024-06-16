@@ -14,7 +14,7 @@
   "PostResponseScript": "$ResponseSplitted = $Response -split '\n'",
   "Update": {
     "PackageVersion": "($ResponseSplitted[4] | Select-String -Pattern $VersionRegex).Matches.Value",
-    "InstallerUrls": "$InstUri.Replace('#id', ($ResponseSplitted[1] | ConvertFrom-StringData).id)",
+    "InstallerUrls": "$InstUri.Replace('#id', ($ResponseSplitted[1] | ConvertFrom-StringData).id) + '|x64'",
     "ReleaseDate": "(Get-Date -Date ($ResponseSplitted[5] | Select-String -Pattern $ReleaseDateRegex).Matches.Value).ToString('yyyy-MM-dd')",
     "Locales": [
       {
