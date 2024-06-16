@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.Replace(':','=') | ConvertFrom-StringData",
   "Update": {
     "PackageVersion": "$Response.Release",
-    "InstallerUrls": "\"https://cloud.r-project.org/bin/windows/base/old/$($Response.Release)/R-$($Response.Release)-win.exe\"",
+    "InstallerUrls": "\"https://cloud.r-project.org/bin/windows/base/old/$($Response.Release)/R-$($Response.Release)-win.exe|x64\"",
     "ReleaseDate": "$Response.Date"
   },
   "AdditionalInfo": {
