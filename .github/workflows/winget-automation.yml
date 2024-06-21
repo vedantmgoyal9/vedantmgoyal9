@@ -111,7 +111,7 @@ jobs:
             }
           }
           git push https://x-access-token:$env:GITHUB_BOT_TOKEN@github.com/vedantmgoyal9/vedantmgoyal9.git
-          "updates=$($Updates | ConvertTo-Json -Compress)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          "updates=$($Updates | ConvertTo-Json -Compress -Depth 7)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
           "errors=$($ErrorGettingUpdates | ConvertTo-Json -Compress)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
         id: check-for-updates
         env:
