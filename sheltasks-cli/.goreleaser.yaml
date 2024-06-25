@@ -1,5 +1,6 @@
 # Make sure to check the documentation at https://goreleaser.com
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+version: 2
 project_name: sheltasks-cli
 dist: ./dist
 before:
@@ -98,7 +99,7 @@ brews:
     commit_author:
       name: vedantmgoyal-bot[bot]
       email: 110876359+vedantmgoyal-bot[bot]@users.noreply.github.com
-    folder: Formula
+    directory: Formula
     repository:
       owner: vedantmgoyal9
       name: vedantmgoyal9
