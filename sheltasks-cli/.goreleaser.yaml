@@ -99,7 +99,7 @@ brews:
     commit_author:
       name: vedantmgoyal-bot[bot]
       email: 110876359+vedantmgoyal-bot[bot]@users.noreply.github.com
-    directory: Formula
+    directory: HomebrewFormula
     repository:
       owner: vedantmgoyal9
       name: vedantmgoyal9
