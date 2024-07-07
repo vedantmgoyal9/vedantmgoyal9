@@ -21,6 +21,7 @@ jobs:
         with:
           repository: microsoft/winget-cli
           persist-credentials: false
+          submodules: true
 
       - name: Build winget-cli 🛠️
         run: |
