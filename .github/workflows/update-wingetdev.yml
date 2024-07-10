@@ -20,8 +20,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: microsoft/winget-cli
-          persist-credentials: false
-          submodules: true
 
       - name: Build winget-cli 🛠️
         run: |
