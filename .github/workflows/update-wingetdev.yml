@@ -1,6 +1,8 @@
 name: Update WinGetDev
 
 on:
+  push:
+    paths: [.github/workflows/update-wingetdev.yml]
   schedule:
     - cron: 30 5,17 * * *
   workflow_dispatch:
@@ -19,6 +21,8 @@ jobs:
       - name: Checkout microsoft/winget-cli 👋
         uses: actions/checkout@v4
         with:
+          persist-credentials: false
+          token: ${{ env.GITHUB_TOKEN }}
           repository: microsoft/winget-cli
 
       - name: Build winget-cli 🛠️
