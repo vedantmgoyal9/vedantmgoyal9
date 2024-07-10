@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-          token: ${{ env.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           repository: microsoft/winget-cli
 
       - name: Build winget-cli 🛠️
