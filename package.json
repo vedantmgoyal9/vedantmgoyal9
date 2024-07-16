@@ -33,9 +33,9 @@
     "probot": "^13.3.0"
   },
   "devDependencies": {
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "typescript": "^5.5.3",
-    "vercel": "^34.3.0"
+    "vercel": "^34.4.0"
   },
   "prettier": {
     "arrowParens": "always",
