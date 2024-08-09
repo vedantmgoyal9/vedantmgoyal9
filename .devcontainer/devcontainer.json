@@ -4,7 +4,7 @@
   "$schema": "https://github.com/devcontainers/spec/raw/main/schemas/devContainer.schema.json",
   "name": "Ubuntu",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "image": "mcr.microsoft.com/devcontainers/base:noble",
 
   "postAttachCommand": "bash .devcontainer/setup.sh postAttachCmd",
   "postStartCommand": "bash .devcontainer/setup.sh postStartCmd",
