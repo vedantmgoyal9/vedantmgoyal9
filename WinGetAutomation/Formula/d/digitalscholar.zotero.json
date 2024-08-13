@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.updates.update.version",
   "Update": {
     "PackageVersion": "$Response",
-    "InstallerUrls": "\"https://www.zotero.org/download/client/dl?channel=release&platform=win32&version=$($Response)\"",
+    "InstallerUrls": "(Invoke-WebRequest -Uri \"https://www.zotero.org/download/client/dl?channel=release&platform=win32&version=$Response\" -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString",
     "Locales": [
       {
         "Name": "en-us",
