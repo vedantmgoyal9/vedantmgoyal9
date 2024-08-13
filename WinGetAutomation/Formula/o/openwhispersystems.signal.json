@@ -20,7 +20,7 @@
   ],
   "Update": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
-    "InstallerUrls": "\"https://updates.signal.org/desktop/signal-desktop-win-$($Response.tag_name.TrimStart('v')).exe\""
+    "InstallerUrls": "\"https://updates.signal.org/desktop/signal-desktop-win-$($Response.tag_name.TrimStart('v')).exe|x64\""
   },
   "AdditionalInfo": {
     "PreRelease": false,
