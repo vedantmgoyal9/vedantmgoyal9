@@ -16,7 +16,7 @@
     "PackageVersion": "$Response.build",
     "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\") + '|x64'",
     "ReleaseDate": "$Response.date",
-    "ProductCode": "'Toolbox'",
+    "ProductCode": "Toolbox",
     "Locales": [
       {
         "Name": "en-us",
