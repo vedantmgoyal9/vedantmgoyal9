@@ -14,7 +14,7 @@
   "PostResponseScript": "$Response = $Response.TBA",
   "Update": {
     "PackageVersion": "$Response.build",
-    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\") + '|x64'",
     "ReleaseDate": "$Response.date",
     "ProductCode": "'Toolbox'",
     "Locales": [
