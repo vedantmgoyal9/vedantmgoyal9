@@ -17,9 +17,9 @@
   ],
   "Update": {
     "PackageVersion": "$Response.version + \" (build $($Response.build))\"",
-    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\")",
+    "InstallerUrls": "($Response.downloads.windows.link -replace \"https://download.jetbrains.com\",\"https://download-cdn.jetbrains.com\") + '|x64'",
     "ReleaseDate": "$Response.date",
-    "ProductCode": "'JetBrains TeamCity'",
+    "ProductCode": "JetBrains TeamCity",
     "Locales": [
       {
         "Name": "en-us",
