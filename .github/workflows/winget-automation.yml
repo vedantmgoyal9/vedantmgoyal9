@@ -197,7 +197,7 @@ jobs:
 
       - if: github.event_name == 'pull_request_target'
         name: Get changed files (pull request) ✍️🗃️
-        uses: tj-actions/changed-files@v44
+        uses: tj-actions/changed-files@v45
         with:
           files: WinGetAutomation/Formula/**/*.json
           json: true
