@@ -31,7 +31,7 @@
   },
   "PostUpgradeScript": "",
   "Skip": {
-    "Skip?": false,
-    "Reason": null
+    "Skip?": true,
+    "Reason": "Automatically marked as stale, not updated for 2.5 years"
   }
 }
