@@ -35,7 +35,7 @@
   "devDependencies": {
     "prettier": "^3.3.3",
     "typescript": "^5.5.4",
-    "vercel": "^37.3.0"
+    "vercel": "^37.4.0"
   },
   "prettier": {
     "arrowParens": "always",
