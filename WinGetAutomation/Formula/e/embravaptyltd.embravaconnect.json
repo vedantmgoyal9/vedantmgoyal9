@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "EmbravaPtyLtd.EmbravaConnect",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://raw.githubusercontent.com/embrava/embrava.github.io/master/embrava/EmbravaConnectForWindows/updateinfo.json",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "",
+  "Update": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "$Response.installerAlternateUrl",
+    "ReleaseDate": "(Get-Date -Date $Response.releaseDate).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
