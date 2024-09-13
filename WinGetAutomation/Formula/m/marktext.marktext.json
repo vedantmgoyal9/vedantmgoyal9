@@ -18,7 +18,6 @@
   "Update": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "$Response.assets.Where({ $_.name -match '.exe$' }).browser_download_url + '|neutral'",
-    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')",
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "\"MarkText $($Response.tag_name.TrimStart('v'))\""

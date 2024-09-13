@@ -18,7 +18,6 @@
   "Update": {
     "PackageVersion": "$Response.tag_name.TrimStart('v') #default-gh",
     "InstallerUrls": "$Response.assets.Where({ $_.name -match '.exe$' }).browser_download_url + '|x64'",
-    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')",
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "\"Upscayl $($Response.tag_name.TrimStart('v'))\""

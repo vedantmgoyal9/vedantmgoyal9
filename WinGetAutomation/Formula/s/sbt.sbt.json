@@ -18,7 +18,6 @@
   "Update": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
     "InstallerUrls": "$Response.assets | ForEach-Object { if ($_.name -match '.*.msi$') { $_.browser_download_url } }",
-    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')",
     "AppsAndFeaturesEntries": [
       {
         "DisplayName": "\"sbt $($Response.tag_name.TrimStart('v'))\"",

@@ -17,8 +17,7 @@
   "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease",
   "Update": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
-    "InstallerUrls": "$Response.assets.Where({ $_.name -match 'installer.exe$' }).browser_download_url",
-    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+    "InstallerUrls": "$Response.assets.Where({ $_.name -match 'installer.exe$' }).browser_download_url"
   },
   "AdditionalInfo": {
     "PreRelease": false,
