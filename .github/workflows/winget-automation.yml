@@ -1,7 +1,7 @@
 name: WinGet Automation
 on:
   schedule:
-    - cron: '11 0,5,11,16,23 * * *'
+    - cron: '11 * * * *'
   workflow_dispatch:
   pull_request_target:
     branches: main
@@ -40,163 +40,15 @@ jobs:
           git config --local user.name 'vedantmgoyal-bot[bot]'
           git config --local user.email '110876359+vedantmgoyal-bot[bot]@users.noreply.github.com'
 
-      - name: Get GitHub bot token 🤖🔐
-        run: |
-          Function Get-GitHubBotToken {
-            $PkeyBytes = [System.Convert]::FromBase64String(($env:BOT_PVT_KEY -Replace '-{5}.*-{5}', '' -Replace '\r?\n', ''))
-            $PrivateKey = [System.Security.Cryptography.RSA]::Create()
-            $PrivateKey.ImportRSAPrivateKey($PkeyBytes, [ref] $Null)
-            $Base64Header = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('{"alg":"RS256","typ":"JWT"}'))
-            $Base64Payload = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -Compress -InputObject @{
-                            'iat' = [System.DateTimeOffset]::UtcNow.ToUnixTimeSeconds() - 60; # issued 60 seconds ago to allow for clock drift
-                            'exp' = [System.DateTimeOffset]::UtcNow.ToUnixTimeSeconds() + 60 * 2; # expires in 2 minutes
-                            'iss' = $env:BOT_APP_ID;
-                        })))
-            $Signature = $PrivateKey.SignData([System.Text.Encoding]::UTF8.GetBytes("$Base64Header.$Base64Payload"), 'SHA256', [Security.Cryptography.RSASignaturePadding]::Pkcs1)
-            $Base64Signature = [System.Convert]::ToBase64String($Signature)
-            return (Invoke-RestMethod -Uri https://api.github.com/app/installations/$env:BOT_INST_ID/access_tokens -Method Post -Headers @{
-                    'Authorization' = "Bearer $Base64Header.$Base64Payload.$Base64Signature"
-                    'Accept'        = 'application/vnd.github.machine-man-preview+json'
-                }).token
-          }
-          "token=$(Get-GitHubBotToken)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-        env:
-          BOT_PVT_KEY: ${{ secrets.BOT_PVT_KEY }}
-          BOT_APP_ID: ${{ secrets.BOT_APP_ID }}
-          BOT_INST_ID: ${{ secrets.BOT_INST_ID }}
-        id: get-bot-token
-
       - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        name: Check for updates 🔄🔍
-        run: |
-          $ErrorActionPreference = 'Continue'
-          $ProgressPreference = 'SilentlyContinue'
-          Import-Module .\WinGetAutomation.psm1
-          # Source: https://github.com/vedantmgoyal9/vedantmgoyal9/issues/251#issuecomment-1109500197 by @SpecterShell
-          # to bypass certificate check so that https traffic can be captured of some electron apps
-          [System.Environment]::SetEnvironmentVariable('NODE_TLS_REJECT_UNAUTHORIZED', '0', [System.EnvironmentVariableTarget]::Process)
-          $Updates = New-Object -TypeName System.Collections.ArrayList
-          $ErrorGettingUpdates = @()
-          ForEach ($FormulaPath in (Get-ChildItem -Path .\Formula\ -File -Recurse).FullName.Where({ (Get-Content -Path $_ | ConvertFrom-Json).Skip.'Skip?' -eq $false })) {
-            $PackageIdentifier = Get-Content -Path $FormulaPath | ConvertFrom-Json | Select-Object -ExpandProperty PackageIdentifier
-            try {
-              $UpdateInfo = Get-UpdateInfo -FormulaPath $FormulaPath
-            } catch {
-              Write-Error "Error checking for updates for $PackageIdentifier`n-> $($_.Exception.Message)"
-              $ErrorGettingUpdates += "- **$PackageIdentifier**: $($_.Exception.Message)"
-            }
-            If ($UpdateInfo._WinGetAutomation.UpdateRequired -or $UpdateInfo._WinGetAutomation.Skip) {
-              Write-Output "::group::$PackageIdentifier"
-              $UpdateInfo | ConvertTo-Json -Depth 7
-              If ($UpdateInfo._WinGetAutomation.UpdateRequired) {
-                Write-Output 'Update available. Adding to the list of updates...'
-                $Updates.Add($UpdateInfo)
-              }
-              If ($UpdateInfo._WinGetAutomation.Skip.'Skip?' -eq $true) {
-                Write-Output 'Skipping this package...'
-                $Formula = Get-Content -Path $FormulaPath | ConvertFrom-Json
-                $Formula.Skip = $UpdateInfo._WinGetAutomation.Skip
-                $Formula | ConvertTo-Json -Depth 7 | Out-File -FilePath $FormulaPath -Encoding utf8 -Force
-                git add $FormulaPath.Replace("$PWD$([System.IO.Path]::DirectorySeparatorChar)",'').Replace('\','/')
-                git diff --stat origin/main.. --quiet # Check unpushed commits
-                If ($?) { # No unpushed commits, equivalent to $LASTEXITCODE -eq 0
-                  git commit -m "chore(wa/formula): auto-skip packages [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff
-                } Else {
-                  git commit -m "chore(wa/formula): auto-skip packages [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff --amend --no-edit
-                }
-              }
-              Write-Output '::endgroup::'
-            } Else {
-              Write-Output "[$PackageIdentifier] - No updates found."
-            }
-          }
-          git push https://x-access-token:$env:GITHUB_BOT_TOKEN@github.com/vedantmgoyal9/vedantmgoyal9.git
-          "updates=$($Updates | ConvertTo-Json -Compress)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-          "errors=$($ErrorGettingUpdates | ConvertTo-Json -Compress)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-        id: check-for-updates
+        run: .\WinGetAutomation.ps1
         env:
-          GITHUB_BOT_TOKEN: ${{ steps.get-bot-token.outputs.token }}
-
-      - if: always() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
-        name: Update manifests 📝📠📦💻
-        run: |
-          $ErrorActionPreference = 'Continue'
-          $ProgressPreference = 'SilentlyContinue'
-          Import-Module .\WinGetAutomation.psm1
-          Initialize-WinGetAutomation
-          Write-Output '::group::& $env:WINGET_AUTOMATION_WINGETCREATE info'
-          & $env:WINGET_AUTOMATION_WINGETCREATE info
-          Write-Output '::endgroup::'
-          $Updates = '${{ steps.check-for-updates.outputs.updates }}' | ConvertFrom-Json
-          $ErrorUpgradingPkgs = New-Object -TypeName System.Collections.ArrayList
-          If ($Updates.Count -eq 0) {
-            Write-Output 'No updates found. Continuing...'
-          } Else {
-            ForEach ($UpdateInfo in $Updates) {
-              Write-Output "::group::Updating $($UpdateInfo.PackageIdentifier)"
-              $UpdateInfo | Format-List *
-              try {
-                Update-Manifest -UpdateInfo $UpdateInfo -OutVariable StdOutLog
-                If ($UpdateInfo._WinGetAutomation.PostUpgradeScript) {
-                  $Formula = Get-Content -Path $UpdateInfo._WinGetAutomation.FormulaPath | ConvertFrom-Json
-                  $UpdateInfo._WinGetAutomation.PostUpgradeScript | Invoke-Expression
-                  $Formula | ConvertTo-Json -Depth 7 | Out-File -FilePath $UpdateInfo._WinGetAutomation.FormulaPath -Encoding utf8 -Force
-                  git add $FormulaPath.Replace("$PWD$([System.IO.Path]::DirectorySeparatorChar)",'').Replace('\','/')
-                  git diff --stat origin/main.. --quiet # Check unpushed commits
-                  If ($?) { # No unpushed commits, equivalent to $LASTEXITCODE -eq 0
-                    git commit -m "chore(wa/formula): update packages [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff
-                  } Else {
-                    git commit -m "chore(wa/formula): update packages [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff --amend --no-edit
-                  }
-                }
-              } catch {
-                Write-Error $_.Exception.Message
-                $ErrorUpgradingPkgs.Add("- **$($UpdateInfo.PackageIdentifier)**: $($_.Exception.Message)`n```````n$StdOutLog`n```````n")
-              }
-              Write-Output '::endgroup::'
-            }
-            git push https://x-access-token:$env:GITHUB_BOT_TOKEN@github.com/vedantmgoyal9/vedantmgoyal9.git
-            "errors=$($ErrorUpgradingPkgs.ToArray() | ConvertTo-Json -Compress)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-          }
-        id: update-manfiests
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
-          GITHUB_BOT_TOKEN: ${{ steps.get-bot-token.outputs.token }}
-
-      - if: always() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
-        name: Comment on Automation Health (#900) 🧑‍⚕️
-        run: |
-          Write-Output 'Comment the results of the run on the issue #900 (Automation Health)'
-          $ErrorGettingUpdates = '${{ steps.check-for-updates.outputs.errors }}' | ConvertFrom-Json
-          $ErrorUpgradingPkgs = '${{ steps.update-manfiests.outputs.errors }}' | ConvertFrom-Json
-          $CommentBody = @"
-          ### Results of Automation run [$env:GITHUB_RUN_NUMBER](https://github.com/vedantmgoyal9/vedantmgoyal9/actions/runs/$env:GITHUB_RUN_ID)
-          **Error while checking for updates for packages:** $(
-                  If ($ErrorGettingUpdates.Count -gt 0) {
-                      "$($ErrorGettingUpdates.Count) packages had errors.`n$($ErrorGettingUpdates -join "`n")"
-                  } Else {
-                      'No errors while checking for updates for packages :tada:'
-                  }
-              )`n
-          **Error while upgrading packages:** $(
-                  If ($ErrorUpgradingPkgs.Count -gt 0) {
-                      "$($ErrorUpgradingPkgs.Count) packages had errors.`n$($ErrorUpgradingPkgs -join "`n")"
-                  } Else {
-                      'No errors while updating manifests for packages :tada:'
-                  }
-              )
-          "@
-          # Delete all previous comments since we are already reverting the changes in the JSON file so that they can be upgarded in the next run
-          (gh issue view 900 --json comments | ConvertFrom-Json).comments.Where({ $_.author.login -eq 'vedantmgoyal-bot' }).ForEach({
-            gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/issues/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
-          })
-          # Add the new comment to the issue containing the results of the automation run
-          gh issue comment 900 --body $CommentBody
-        env:
-          GH_TOKEN: ${{ steps.get-bot-token.outputs.token }}
+          BOT_PVT_KEY: ${{ secrets.PRIVATE_KEY }}
+          BOT_APP_ID: ${{ secrets.APP_ID }}
+          BOT_INST_ID: ${{ secrets.BOT_INST_ID }}
+          WINGETCREATE_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
 
       - if: github.event_name == 'pull_request_target'
-        name: Get changed files (pull request) ✍️🗃️
         uses: tj-actions/changed-files@v45
         with:
           files: WinGetAutomation/Formula/**/*.json
@@ -207,77 +59,12 @@ jobs:
       - if: github.event_name == 'pull_request_target'
         name: Test pull request 🧪🥼
         run: |
-          $ErrorActionPreference = 'Continue'
-          $ProgressPreference = 'SilentlyContinue'
-          Import-Module .\WinGetAutomation.psm1
-          Initialize-WinGetAutomation
-          Write-Output '::group::& $env:WINGET_AUTOMATION_WINGETCREATE info'
-          & $env:WINGET_AUTOMATION_WINGETCREATE info
-          Write-Output '::endgroup::'
           $ChangedFiles = '${{ steps.changed-files.outputs.all_changed_files }}' | ConvertFrom-Json
-          $PullRequestNo = '${{ github.event.pull_request.number }}'
-          If ($ChangedFiles.Count -gt 1) {
-            Write-Output 'Multiple changes detected. Commenting on the pull request...'
-            $CommentBody = @'
-          Hi 👋`n
-          Multiple formulae in a single pull request are not supported, as it makes reviewing changes difficult.
-          Please open a separate pull request for each formula 🙏🏻🙂`n
-          Thanks for contributing :-)
-          '@
-            (gh pr view $PullRequestNo --json comments | ConvertFrom-Json).comments.Where({ $_.author.login -eq 'vedantmgoyal-bot' }).ForEach({
-              # for some reason, /repos/{owner}/${repo}/pulls/comments/{comment-id} doesn't work, but "issues" endpoint does
-              gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/issues/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
-            })
-            gh pr comment $PullRequestNo --body $CommentBody
-          }
-          $UpdateInfo = Get-UpdateInfo -FormulaPath (Resolve-Path ..\$ChangedFiles).Path
-          $UpdateInfo | Format-List *
-          Update-Manifest -UpdateInfo $UpdateInfo -DryRun
-          $ManifestPath = Get-ChildItem -Path .\WinGetAutomation_Manifests\ -Directory -Recurse | Select-Object -Last 1 -ExpandProperty FullName
-          $Manifests = ''
-          Get-ChildItem -Path $ManifestPath -File | ForEach-Object {
-              $ManifestContent = Get-Content -Path $_.FullName -Raw
-              $Manifests += "$($_.Name)`n$('-' * ($_.Name.Length + 3))`n$ManifestContent`n"
-          }
-          If ($Manifests -eq '') {
-            $Manifests = @'
-          It looks like there was an error while updating manfiests.
-          Please check the workflow logs for more details.
-          '@
-          }
-          $CommentBody = @"
-          ###### Results for Commit: ${{ github.event.pull_request.head.sha }}
-          ``````
-          $(ConvertTo-Json $UpdateInfo -Depth 7)
-          ``````
-          <table>
-          <tr>
-          <th align="center">Previous Manifest</th>
-          <th align="center">New Manifest</th>
-          </tr>
-          <tr>
-          <td>`n
-          ``````ansi
-          $(& $env:WINGET_AUTOMATION_WINGETCREATE show $UpdateInfo.PackageIdentifier | Out-String)
-          ```````n
-          </td>
-          <td>`n
-          ``````ansi
-          $Manifests
-          ```````n
-          </td>
-          </tr>
-          </table>
-          "@
-          Write-Output "Commenting on the pull request..."
-          (gh pr view $PullRequestNo --json comments | ConvertFrom-Json).comments.Where({ $_.author.login -eq 'vedantmgoyal-bot' }).ForEach({
-            # for some reason, /repos/{owner}/${repo}/pulls/comments/{comment-id} doesn't work, but "issues" endpoint does
-            gh api --method DELETE /repos/vedantmgoyal9/vedantmgoyal9/issues/comments/$($_.url.Substring($_.url.IndexOf('-') + 1))
-          })
-          gh pr comment $PullRequestNo --body $CommentBody
+          .\WinGetAutomation.ps1 -FormulaToTest $ChangedFiles
         env:
-          GH_TOKEN: ${{ steps.get-bot-token.outputs.token }} # for gh (github) cli
-          GITHUB_BOT_TOKEN: ${{ steps.get-bot-token.outputs.token }} # for winget automation
+          BOT_PVT_KEY: ${{ secrets.PRIVATE_KEY }}
+          BOT_APP_ID: ${{ secrets.APP_ID }}
+          BOT_INST_ID: ${{ secrets.BOT_INST_ID }}
 
       - name: Run tests 🧪
         run: |
