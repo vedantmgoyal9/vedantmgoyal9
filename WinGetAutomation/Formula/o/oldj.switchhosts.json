@@ -7,7 +7,7 @@
       "Uri": "https://api.github.com/repos/oldj/SwitchHosts/releases?per_page=1",
       "Method": "Get",
       "Headers": {
-        "Authorization": "\"Bearer $env:GITHUB_BOT_TOKEN\"",
+        "Authorization": "\"Bearer $GithubBotToken\"",
         "Accept": "application/vnd.github.v3+json"
       },
       "Body": "",
@@ -22,8 +22,7 @@
   ],
   "Update": {
     "PackageVersion": "$Response.tag_name.TrimStart('v')",
-    "InstallerUrls": "$InstUrls",
-    "ReleaseDate": "(Get-Date -Date $Response.published_at).ToString('yyyy-MM-dd')"
+    "InstallerUrls": "$InstUrls"
   },
   "AdditionalInfo": {
     "PreRelease": false,
