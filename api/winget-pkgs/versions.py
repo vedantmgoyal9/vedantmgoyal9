@@ -1,8 +1,8 @@
 from http.server import BaseHTTPRequestHandler
-from sqlite3 import connect
 from json import dumps
-from zipfile import ZipFile
+from sqlite3 import connect
 from urllib.request import urlretrieve
+from zipfile import ZipFile
 
 # Download the source.msix file from the WinGet CDN (Content Delivery Network)
 urlretrieve("https://cdn.winget.microsoft.com/cache/source.msix", "/tmp/source.msix")
