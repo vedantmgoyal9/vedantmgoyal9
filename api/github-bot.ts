@@ -26,6 +26,7 @@ function probotApp(app: Probot) {
               /Looks like [-@/.a-zA-Z]+ is up-to-date now, so this is no longer needed\./g,
               /Looks like [-@/.a-zA-Z]+ is updatable in another way, so this is no longer needed\./g,
               /Looks like these dependencies are updatable in another way, so this is no longer needed\./g,
+              /Looks like these dependencies are no longer updatable, so this is no longer needed./g,
               /Looks like [-@/.a-zA-Z]+ is no longer a dependency, so this is no longer needed\./g,
             ].some((regex) => regex.test(comment.body || '')),
         )
