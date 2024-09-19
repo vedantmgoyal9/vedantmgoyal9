@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "functions": {
+    "api/winget-pkgs/versions.py": {
+      "memory": 1024,
+      "maxDuration": 10,
+      "excludeFiles": "{docs,java_programs,node_modules,sheltasks-cli,website,WinGetAutomation}/**/*"
+    },
     "api/*": {
       "memory": 1024,
       "maxDuration": 10
@@ -9,11 +14,7 @@
   },
   "rewrites": [
     {
-      "source": "/api/gh-release-and-repo-info/:owner/:repo/:release_tag",
-      "destination": "/api/gh-release-and-repo-info"
-    },
-    {
-      "source": "/api/winget-pkgs/versions:m(_github|_source)?/:package_identifier",
+      "source": "/api/winget-pkgs/versions:m(_github_api|_source_msix|_repo_zip)?/:package_identifier",
       "destination": "/api/winget-pkgs/versions:m?package_identifier=:package_identifier"
     },
     {
