@@ -43,7 +43,9 @@ db.close()
 
 
 class handler(BaseHTTPRequestHandler):
+    """ """
     def do_GET(self):
+        """ """
         # get query parameters in form of map/dictionary
         query = dict()
 
