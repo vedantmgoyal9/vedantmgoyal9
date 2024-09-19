@@ -5,8 +5,7 @@ from zipfile import ZipFile
 from urllib.request import urlretrieve
 
 # Download the source.msix file from the WinGet CDN (Content Delivery Network)
-urlretrieve("https://cdn.winget.microsoft.com/cache/source.msix",
-            "/tmp/source.msix")
+urlretrieve("https://cdn.winget.microsoft.com/cache/source.msix", "/tmp/source.msix")
 
 # Extract the index.db file from the source.msix file
 ZipFile("/tmp/source.msix").extract("Public/index.db", "/tmp/")
@@ -50,8 +49,7 @@ class handler(BaseHTTPRequestHandler):
 
         # check if query parameters are present
         if "?" in self.path:
-            query = dict(q.split("=")
-                         for q in self.path.split("?")[1].split("&"))
+            query = dict(q.split("=") for q in self.path.split("?")[1].split("&"))
         else:
             self.send_response(400)
             self.end_headers()
