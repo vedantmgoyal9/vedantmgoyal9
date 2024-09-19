@@ -29,8 +29,8 @@
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/format": "^19.5.0",
     "@commitlint/lint": "^19.5.0",
-    "playwright": "^1.47.0",
-    "probot": "^13.3.7"
+    "playwright": "^1.47.1",
+    "probot": "^13.3.8"
   },
   "devDependencies": {
     "prettier": "^3.3.3",
