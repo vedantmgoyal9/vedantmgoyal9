@@ -5,7 +5,8 @@ from urllib.request import urlretrieve
 from zipfile import ZipFile
 
 # Download the source.msix file from the WinGet CDN (Content Delivery Network)
-urlretrieve("https://cdn.winget.microsoft.com/cache/source.msix", "/tmp/source.msix")
+urlretrieve("https://cdn.winget.microsoft.com/cache/source.msix",
+            "/tmp/source.msix")
 
 # Extract the index.db file from the source.msix file
 ZipFile("/tmp/source.msix").extract("Public/index.db", "/tmp/")
@@ -44,6 +45,7 @@ db.close()
 
 class handler(BaseHTTPRequestHandler):
     """ """
+
     def do_GET(self):
         """ """
         # get query parameters in form of map/dictionary
@@ -51,13 +53,13 @@ class handler(BaseHTTPRequestHandler):
 
         # check if query parameters are present
         if "?" in self.path:
-            query = dict(q.split("=") for q in self.path.split("?")[1].split("&"))
+            query = dict(
+                q.split("=") for q in self.path.split("?")[1].split("&"))
         else:
             self.send_response(400)
             self.end_headers()
             self.wfile.write(
-                "package_identifier is either empty or not provided".encode()
-            )
+                "package_identifier is either empty or not provided".encode())
             return
 
         # check if package_identifier is provided
@@ -65,8 +67,7 @@ class handler(BaseHTTPRequestHandler):
             self.send_response(400)
             self.end_headers()
             self.wfile.write(
-                "package_identifier is either empty or not provided".encode()
-            )
+                "package_identifier is either empty or not provided".encode())
             return
 
         pkg_id = query["package_identifier"]
@@ -87,8 +88,8 @@ class handler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.end_headers()
             self.wfile.write(
-                "Package identifier not found. Please make sure that atleast one version of the package is available in winget-pkgs repository.".encode()
-            )
+                "Package identifier not found. Please make sure that atleast one version of the package is available in winget-pkgs repository."
+                .encode())
             return
 
         # send response
@@ -96,11 +97,8 @@ class handler(BaseHTTPRequestHandler):
         self.send_header("Content-type", "application/json")
         self.end_headers()
         self.wfile.write(
-            dumps(
-                {
-                    "PackageIdentifier": result_keymap[pkg_id.lower()],
-                    "Versions": result[result_keymap[pkg_id.lower()]],
-                }
-            ).encode()
-        )
+            dumps({
+                "PackageIdentifier": result_keymap[pkg_id.lower()],
+                "Versions": result[result_keymap[pkg_id.lower()]],
+            }).encode())
         return
