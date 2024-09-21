@@ -90,20 +90,19 @@ Function Get-UpdateInfo {
             Uri    = $Formula.Source[$_Index].Uri.Contains('$') ? ($Formula.Source[$_Index].Uri | Invoke-Expression) : $Formula.Source[$_Index].Uri
         }
         If ($Formula.Source[$_Index].Headers -is [System.Management.Automation.PSCustomObject]) {
-            $Formula.Source[$_Index].Headers.PSObject.Properties | ForEach-Object -Begin { 
-                Set-Variable -Name 'Headers' -Value @{} 
-            } -Process { 
-                If (($_.Value -eq 'Bearer $GithubBotToken' -and -not $DoNotAddGitHubAuthHeaders) -or $_.Value -ne 'Bearer $GithubBotToken') {
+            $Formula.Source[$_Index].Headers.PSObject.Properties | ForEach-Object -Begin {
+                Set-Variable -Name 'Headers' -Value @{}
+            } -Process {
+                If (($_.Value -eq '"Bearer $GithubBotToken"' -and -not $DoNotAddGitHubAuthHeaders) -or $_.Value -ne '"Bearer $GithubBotToken"') {
                     $Headers.Add($_.Name, $_.Value.Contains('$') ? ($_.Value | Invoke-Expression) : $_.Value)
                 }
             } -End { $Parameters.Headers = $Headers }
         }
-        If (-not [System.String]::IsNullOrWhiteSpace($Formula.Source[$_Index].Body)) {
-            $Parameters.Body = $Formula.Source[$_Index].Body
-        }
-        If (-not [System.String]::IsNullOrWhiteSpace($Formula.Source[$_Index].UserAgent)) {
-            $Parameters.UserAgent = $Formula.Source[$_Index].UserAgent
-        }
+        @('Body', 'UserAgent', 'MaximumRedirection', 'SkipHttpErrorCheck', 'ErrorAction').ForEach({
+                If (-not [System.String]::IsNullOrWhiteSpace($Formula.Source[$_Index]."$_")) {
+                    $Parameters.$_ = $Formula.Source[$_Index]."$_"
+                }
+            })
         If ($Formula.Source[$_Index].InvokeType -eq 'RestMethod') {
             Set-Variable -Name "Response$($_Index -ge 1 ? $_Index + 1: $Null)" -Value (Invoke-RestMethod @Parameters)
         } ElseIf ($Formula.Source[$_Index].InvokeType -eq 'WebRequest') {

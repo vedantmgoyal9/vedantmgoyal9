@@ -65,6 +65,26 @@
           },
           "UserAgent": {
             "type": "string"
+          },
+          "MaximumRedirection": {
+            "type": "integer",
+            "default": 5
+          },
+          "SkipHttpErrorCheck": {
+            "type": "boolean",
+            "default": false
+          },
+          "ErrorAction": {
+            "type": "string",
+            "enum": [
+              "Break",
+              "Continue",
+              "Ignore",
+              "Inquire",
+              "SilentlyContinue",
+              "Stop",
+              "Suspend"
+            ]
           }
         },
         "additionalProperties": false
