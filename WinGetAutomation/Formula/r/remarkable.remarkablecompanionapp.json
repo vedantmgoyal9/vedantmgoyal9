@@ -1,0 +1,31 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/vedantmgoyal9/raw/main/WinGetAutomation/schema.json",
+  "PackageIdentifier": "reMarkable.reMarkableCompanionApp",
+  "Source": [
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://downloads.remarkable.com/latest/windows",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": "",
+      "MaximumRedirection": 0,
+      "SkipHttpErrorCheck": true,
+      "ErrorAction": "SilentlyContinue"
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.Headers.Location",
+  "Update": {
+    "PackageVersion": "($Response | Select-String -Pattern '(?<=-)[0-9.]+(?=-)').Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {
+    "PreRelease": false,
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
