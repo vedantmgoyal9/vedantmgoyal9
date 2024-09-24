@@ -19,7 +19,9 @@
       "type": "string"
     },
     "PackageIdentifier": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^[^\\.\\s\\\\/:\\*\\?\"<>\\|\\x01-\\x1f]{1,32}(\\.[^\\.\\s\\\\/:\\*\\?\"<>\\|\\x01-\\x1f]{1,32}){1,7}$",
+      "maxLength": 128
     },
     "Source": {
       "type": "array",
@@ -58,7 +60,17 @@
           },
           "Headers": {
             "type": "object",
-            "additionalProperties": true
+            "properties": {
+              "Authorization": {
+                "type": "string",
+                "examples": ["\"Bearer $GithubBotToken\" #default-gh"]
+              },
+              "Accept": {
+                "type": "string",
+                "examples": ["application/vnd.github.v3+json"]
+              }
+            },
+            "additionalProperties": { "type": "string" }
           },
           "Body": {
             "type": "string"
@@ -98,7 +110,8 @@
         "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString #default-headrequest",
         "$Response = $Response | ConvertFrom-Yaml",
         "$Response = [System.Text.Encoding]::UTF8.GetString($Response.RawContentStream.ToArray()) | ConvertFrom-Yaml"
-      ]
+      ],
+      "uniqueItems": true
     },
     "Update": {
       "type": "object",
@@ -113,12 +126,18 @@
           ]
         },
         "InstallerUrls": {
-          "type": "string",
+          "type": ["string", "object"],
+          "patternProperties": {
+            "^(x86|x64|arm|arm64|neutral)(\\|(user|machine))?$|^(user|machine)$": {
+              "type": "string"
+            }
+          },
           "examples": [
-            "$Response.assets | ForEach-Object { if ($_.name -match '.(exe|msi|msix|appx)(bundle){0,1}$') { $_.browser_download_url } } #default-gh",
+            "$Response.assets.Where({ $_.name -match '.(exe|msi|msix|appx)(bundle){0,1}$' }).browser_download_url #default-gh",
             "$Response #default-headrequest",
             "$InstUri.Replace('#version', $Response.version)"
-          ]
+          ],
+          "additionalProperties": false
         },
         "ProductCode": {
           "$id": "#/properties/Update/properties/ProductCode",
@@ -181,7 +200,7 @@
           "default": false
         }
       },
-      "additionalProperties": true
+      "additionalProperties": { "type": "string" }
     },
     "PostUpgradeScript": {
       "type": "string"
