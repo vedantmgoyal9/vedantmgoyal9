@@ -48,22 +48,6 @@ Function Script:Get-GitHubBotToken {
         }).token
 }
 
-Function Confirm-VersionAlreadyExists {
-    [OutputType([System.Boolean])]
-    Param (
-        [Parameter(Mandatory = $true)]
-        [System.String] $PackageIdentifier,
-        [Parameter(Mandatory = $true)]
-        [System.String] $PackageVersion
-    )
-    $api_url = "https://vedantmgoyal.vercel.app/api/winget-pkgs/versions/$PackageIdentifier"
-    do {
-        $response = Invoke-RestMethod -Uri $api_url -Method Get -SkipHttpErrorCheck -StatusCodeVariable _ApiStatusCode
-    } while ($_ApiStatusCode -eq 504) # Retry on Function Timeout
-    If ($_ApiStatusCode -eq 404) { throw $response }
-    return $($response.Versions -contains $PackageVersion)
-}
-
 Function Get-UpdateInfo {
     [OutputType([System.Management.Automation.PSCustomObject])]
     Param (
@@ -127,6 +111,10 @@ Function Get-UpdateInfo {
                     $_NestedObjectArray += $_NestedObject
                 }
                 $UpdateInfo | Add-Member -MemberType NoteProperty -Name $_.Name -Value @($_NestedObjectArray)
+            } ElseIf ($_.Name -eq 'InstallerUrls' -and $Formula.Update.InstallerUrls -is [System.Management.Automation.PSObject]) {
+                $UpdateInfo | Add-Member -MemberType NoteProperty -Name $_.Name -Value $Formula.Update.InstallerUrls.PSObject.Properties.ForEach({
+                        "$($_.Value.Contains('$') ? ($_.Value | Invoke-Expression) : $_.Value)|$($_.Name)"
+                    })
             } Else {
                 $UpdateInfo | Add-Member -MemberType NoteProperty -Name $_.Name -Value ($_.Value.Contains('$') ? ($_.Value | Invoke-Expression) : $_.Value)
             }
@@ -135,12 +123,18 @@ Function Get-UpdateInfo {
     $UpdateInfo._WinGetAutomation | Add-Member -MemberType NoteProperty -Name 'UpdateRequired' -Value $(
         # $ForceUpgrade is defined in additional info section of the formula
         ## Hence, it is available as a variable in the current context/scope
-        If ($ForceUpgrade) {
-            $true
-        } ElseIf ($Null -eq $UpdateCondition) {
-            -not (Confirm-VersionAlreadyExists -PackageIdentifier $UpdateInfo.PackageIdentifier -PackageVersion $UpdateInfo.PackageVersion)
-        } Else {
-            $UpdateCondition -and -not (Confirm-VersionAlreadyExists -PackageIdentifier $UpdateInfo.PackageIdentifier -PackageVersion $UpdateInfo.PackageVersion)
+        If ($ForceUpgrade) { $true }
+        Else {
+            $api_url = "https://vedantmgoyal.vercel.app/api/winget-pkgs/versions/$($UpdateInfo.PackageIdentifier)"
+            do {
+                $response = Invoke-RestMethod -Uri $api_url -Method Get -SkipHttpErrorCheck -StatusCodeVariable _ApiStatusCode
+            } while ($_ApiStatusCode -eq 504) # Retry on Function Timeout
+            If ($_ApiStatusCode -eq 404) { throw $response }
+
+            # $UpdateCondition is a special variable, used in PostResponseScript, to determine if the update is required, with additional conditions
+            ## along with the default condition, of checking whether the package version is already present in winget-pkgs repo using the custom API
+            If ($Null -eq $UpdateCondition) { $response.Versions -notcontains $UpdateInfo.PackageVersion }
+            Else { $UpdateCondition -and $response.Versions -notcontains $UpdateInfo.PackageVersion }
         }
     )
 
@@ -169,33 +163,21 @@ Function Update-Manifest {
         [System.Management.Automation.SwitchParameter] $DryRun
     )
 
-    If (-not $DryRun) {
-        $ExistingPRs = gh search prs --repo=microsoft/winget-pkgs --match=title --state=open `
-            --json='author,isDraft,title,url' author:vedantmgoyal9 author:SpecterShell author:spectopo $PackageIdentifier.Replace('.', ' ') $PackageVersion | `
-                ConvertFrom-Json | Where-Object { $_.isDraft -eq $false }
-        If ($ExistingPRs.Count -gt 0) {
-            $ExistingPRs.ForEach({
-                    Write-Output "Found existing PR: $($_.title)"
-                    Write-Output "-> $($_.url)"
-                })
-            Write-Output "$($UpdateInfo.PackageIdentifier) version $($UpdateInfo.PackageVersion) - PR already exists. Skipping..."
-            return
-        }
-    }
-
     # Execute wingetcreate update command, non-interactive update mode
     $params = @('update', $UpdateInfo.PackageIdentifier,
-        '--version', $UpdateInfo.PackageVersion, '--urls', $UpdateInfo.InstallerUrls,
-        '--out', $script:ManifestsDir, '--token', $env:WINGETCREATE_TOKEN)
+        '--version', $UpdateInfo.PackageVersion, '--out', $PSScriptRoot, '--token', $env:WINGETCREATE_TOKEN)
     If (-not [System.String]::IsNullOrWhiteSpace($UpdateInfo.ReleaseDate)) {
         $params += @('--release-date', $UpdateInfo.ReleaseDate) # set release date if available
     }
     If (-not $DryRun -and $UpdateInfo.PSObject.Properties.Where({ $_.Name -in @('ProductCode', 'AppsAndFeaturesEntries', 'Locales') }).Count -eq 0) {
         $params += '--submit' # submit the manifests if no metadata is to be patched later
     }
-    & $script:WingetCreateExe $params *>&1
+    # When installer urls is an array (multiple urls), passing it through $params leads to wingetcreate treating it as a single url (string), because
+    ## powershell creates a nested array instead of expanding the array and adding its elements to the parent array. To work around this, we pass
+    ## installer urls as a separate argument to wingetcreate, instead of passing it through $params array.
+    & $script:WingetCreateExe $params --urls $UpdateInfo.InstallerUrls *>&1
 
-    $ManifestsPath = Join-Path -Resolve -Path $script:ManifestsDir -ChildPath manifests `
+    $ManifestsPath = Join-Path -Resolve -Path $PSScriptRoot -ChildPath manifests `
         -AdditionalChildPath $UpdateInfo.PackageIdentifier.ToLower()[0], $UpdateInfo.PackageIdentifier.Replace('.', '/'), $UpdateInfo.PackageVersion
 
     # Patch manfiests with metadata, that can't be passed to wingetcreate through parameters
@@ -246,14 +228,8 @@ If ($script:isCIandGitHubActions) {
 
 #region Check for wingetcreate and manifests directory
 Write-Output 'Initializing WinGet Automation...'
-$script:ManifestsDir = Join-Path -Path $PSScriptRoot -ChildPath 'WinGetAutomation_Manifests'
 New-Variable -Name WingetCreateExe -Description 'Path to wingetcreate executable' -Force
-Write-Output 'Check if manifests directory exists...'
-If (-not (Test-Path -Path $script:ManifestsDir -PathType Container)) {
-    Write-Output 'Manifests directory does not exist. Creating...'
-    New-Item -Path $script:ManifestsDir -ItemType Directory -Force
-} Else { Write-Output 'Manifests directory already exists... Continuing...' }
-Write-Output "WinGet Automation Manifests: $script:ManifestsDir"
+Write-Output "WinGet Automation Manifests: $(Join-Path -Path $PSScriptRoot -ChildPath manifests)"
 If (Get-Command -Name 'wingetcreate' -CommandType Application -ErrorAction SilentlyContinue) {
     Write-Output 'wingetcreate is already installed. Continuing...'
     Set-Variable -Name WingetCreateExe -Value (Get-Command -Name 'wingetcreate' -CommandType Application).Source -Option ReadOnly -Force
@@ -291,13 +267,12 @@ If ($PSBoundParameters.ContainsKey('FormulaToTest')) {
         Write-Error 'Only one formula can be tested at a time.'
         If ($script:isCIandGitHubActions) {
             Write-Output 'Commenting the error on the pull request...'
-            $CommentBody = @'
+            $CommentBody = @"
 Hi 👋`n
 Multiple formulae in a single pull request are not supported, as it makes reviewing changes difficult.
 Please open a separate pull request for each formula 🙏🏻🙂`n
 Thanks for contributing :-)
-'@
-
+"@
             If ((gh pr view $PullRequest --json comments | ConvertFrom-Json).comments.author.login -contains 'vedantmgoyal-bot') {
                 gh issue comment $PullRequest --body $CommentBody --edit-last
             } Else { gh issue comment $PullRequest --body $CommentBody }
@@ -308,7 +283,7 @@ Thanks for contributing :-)
     $UpdateInfo = Get-UpdateInfo -FormulaPath $FormulaToTest -DoNotAddGitHubAuthHeaders $(-not $script:isCIandGitHubActions)
     $UpdateInfo | Format-List -Property *
     Update-Manifest -UpdateInfo $UpdateInfo -DryRun *>&1 | Tee-Object -Variable StdOutLog
-    $ManifestsPath = Join-Path -Path $script:ManifestsDir -ChildPath manifests `
+    $ManifestsPath = Join-Path -Path $PSScriptRoot -ChildPath manifests `
         -AdditionalChildPath $UpdateInfo.PackageIdentifier.ToLower()[0], $UpdateInfo.PackageIdentifier.Replace('.', '/'), $UpdateInfo.PackageVersion `
         -Resolve -ErrorAction SilentlyContinue
     $Manifests = ''
@@ -371,34 +346,44 @@ $SkippedFormulae = [System.Collections.Concurrent.ConcurrentBag[psobject]]::new(
         ($using:SkippedFormulae).Add($Formula.PackageIdentifier)
         continue
     }
-    $ManifestsDir = $using:ManifestsDir; $WingetCreateExe = $using:WingetCreateExe; $GithubBotToken = $using:GithubBotToken;
+    $WingetCreateExe = $using:WingetCreateExe; $GithubBotToken = $using:GithubBotToken;
     ${function:Confirm-VersionAlreadyExists} = $using:function__confirm_versionalreadyexists
     ${function:Get-UpdateInfo} = $using:function__get_updateinfo
     ${function:Update-Manifest} = $using:function__update_manifest
-    $PackageIdentifier = Get-Content -Path $FormulaPath | ConvertFrom-Json | Select-Object -ExpandProperty PackageIdentifier
     try {
         $UpdateInfo = Get-UpdateInfo -FormulaPath $FormulaPath
     } catch {
-        Write-Error "Error checking for updates for $PackageIdentifier`n-> $($_.Exception.Message)"
-        ($using:ErrorGettingUpdates).Add("- **$PackageIdentifier**: $($_.Exception.Message)")
+        Write-Error "Error checking for updates for $($Formula.PackageIdentifier)`n-> $($_.Exception.Message)"
+        ($using:ErrorGettingUpdates).Add("- **$($Formula.PackageIdentifier)**: $($_.Exception.Message)")
         continue
     }
     If ($UpdateInfo._WinGetAutomation.UpdateRequired) {
-        Write-Output "::group::$PackageIdentifier"
+        Write-Output "::group::$($Formula.PackageIdentifier)"
         $UpdateInfo | ConvertTo-Json -Depth 7
+        $ExistingPRs = gh search prs --repo=microsoft/winget-pkgs --match=title --state=open `
+            --json='author,isDraft,title,url' author:vedantmgoyal9 author:SpecterShell author:spectopo `
+            $UpdateInfo.PackageIdentifier.Replace('.', ' ') $UpdateInfo.PackageVersion | ConvertFrom-Json | Where-Object { $_.isDraft -eq $false }
+        If ($ExistingPRs.Count -gt 0) {
+            $ExistingPRs.ForEach({
+                    Write-Output "Found existing PR: $($_.title)"
+                    Write-Output "-> $($_.url)"
+                })
+            Write-Output "$($UpdateInfo.PackageIdentifier) version $($UpdateInfo.PackageVersion) - PR already exists. Skipping..."
+            continue
+        }
         try {
             Update-Manifest -UpdateInfo $UpdateInfo *>&1 | Tee-Object -Variable StdOutLog
-            If ($LASTEXITCODE -ne 0) { throw "Error updating manifests for $PackageIdentifier" }
+            If ($LASTEXITCODE -ne 0) { throw "Error updating manifests for $($Formula.PackageIdentifier)" }
         } catch {
             Write-Error $_.Exception.Message
             # $($StdOutLog | Out-String) preserves newlines, else everything is concatenated into a single line
-            ($using:ErrorUpgradingPkgs).Add("- **$($UpdateInfo.PackageIdentifier)**:`n```````n$($StdOutLog | Out-String)`n```````n")
+            ($using:ErrorUpgradingPkgs).Add("- **$($Formula.PackageIdentifier)**:`n```````n$($StdOutLog | Out-String)`n```````n")
         }
         If (-not [System.String]::IsNullOrWhiteSpace($Formula.PostUpgradeScript)) {
             $Formula.PostUpgradeScript | Invoke-Expression
             $Formula | ConvertTo-Json -Depth 7 | Out-File -FilePath $FormulaPath -Encoding utf8 -Force
             git add $FormulaPath.Replace("$PSScriptRoot$([System.IO.Path]::DirectorySeparatorChar)", '').Replace('\', '/')
-            git commit -m "chore(wa/formula): update $PackageIdentifier [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff
+            git commit -m "chore(wa/formula): update $($Formula.PackageIdentifier) [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff
         }
         Write-Output '::endgroup::'
         # If package is not to be skipped, then continue with the next package
@@ -406,15 +391,15 @@ $SkippedFormulae = [System.Collections.Concurrent.ConcurrentBag[psobject]]::new(
         If (-not $UpdateInfo._WinGetAutomation.Skip.'Skip?') { continue }
     }
     If ($UpdateInfo._WinGetAutomation.Skip.'Skip?') {
-        Write-Output "::group::$PackageIdentifier - Skipping this package..."
+        Write-Output "::group::$($Formula.PackageIdentifier) - Skipping this package..."
         $Formula.Skip = $UpdateInfo._WinGetAutomation.Skip
         $Formula | ConvertTo-Json -Depth 7 | Out-File -FilePath $FormulaPath -Encoding utf8 -Force
         git add $FormulaPath.Replace("$PSScriptRoot$([System.IO.Path]::DirectorySeparatorChar)", '').Replace('\', '/')
-        git commit -m "chore(wa/formula): skip $PackageIdentifier [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff
+        git commit -m "chore(wa/formula): skip $($Formula.PackageIdentifier) [$env:GITHUB_RUN_NUMBER] [skip ci]" --signoff
         Write-Output '::endgroup::'
         continue # this is to prevent the "no updates found" message from being displayed
     }
-    Write-Output "[$PackageIdentifier] - No updates found."
+    Write-Output "[$($Formula.PackageIdentifier)] - No updates found."
 }
 
 # Push the updated formulae to the repository
