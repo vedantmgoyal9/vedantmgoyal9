@@ -24,7 +24,7 @@ jobs:
           repository: tpoechtrager/osxcross
           persist-credentials: false
 
-      - uses: actions/cache@v4.0.2
+      - uses: actions/cache@v4.1.0
         with:
           path: MacOSX*.sdk.tar.xz
           key: macos-sdks
@@ -67,7 +67,7 @@ jobs:
           cache: true
 
       - name: Restore osxcross/target from cache 🗃️
-        uses: actions/cache@v4.0.2
+        uses: actions/cache@v4.1.0
         with:
           path: ./sheltasks-cli/osxcross/target/**
           key: osxcross-target-cache
@@ -75,7 +75,7 @@ jobs:
 
       - name: Get SDKs from pack-macos-sdks job 📩
         if: steps.osxcross-prebuilt.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v4.0.2
+        uses: actions/cache/restore@v4.1.0
         with:
           path: MacOSX*.sdk.tar.xz
           key: macos-sdks
