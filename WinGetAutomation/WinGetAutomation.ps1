@@ -345,7 +345,8 @@ $SkippedFormulae = [System.Collections.Concurrent.ConcurrentBag[psobject]]::new(
         ($using:SkippedFormulae).Add($Formula.PackageIdentifier)
         continue
     }
-    $WingetCreateExe = $using:WingetCreateExe; $GithubBotToken = $using:GithubBotToken;
+    # $PSScriptRoot is not automatically available in the foreach-object -parallel script block
+    $PSScriptRoot = $using:PSScriptRoot; $WingetCreateExe = $using:WingetCreateExe; $GithubBotToken = $using:GithubBotToken;
     ${function:Get-UpdateInfo} = $using:function__get_updateinfo
     ${function:Update-Manifest} = $using:function__update_manifest
     try {
