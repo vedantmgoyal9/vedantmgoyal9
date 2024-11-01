@@ -1,1 +1,0 @@
-../../Cellar/gcab/1.6/lib/pkgconfig/libgcab-1.0.pc

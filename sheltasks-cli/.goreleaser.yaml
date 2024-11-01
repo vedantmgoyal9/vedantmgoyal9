@@ -8,40 +8,18 @@ before:
 git:
   ignore_tags: [sheltasks-cli/nightly, wingetdev/nightly]
 env:
-  # cgo is only needed for linux and macos builds but
-  # we enable here to avoid redundancy in the config
-  - CGO_ENABLED=1
+  - CGO_ENABLED=0
 report_sizes: true
 builds:
-  - id: windows-and-linux-builds
-    skip: false
-    goos: [windows, linux]
+  - skip: false
+    goos: [darwin, linux, windows]
     goarch: [amd64, arm64]
     flags: -trimpath
-    overrides:
-      - goos: linux
-        goarch: arm64
-        env:
-          - CC=aarch64-linux-gnu-gcc
-          - CXX=aarch64-linux-gnu-g++
     ignore:
       - goos: windows
         goarch: arm64
-  # separate builds for macos, since env vars are not be detected
-  # by osxcross when using 'overrides' functionality of goreleaser
-  - id: macos-builds-using-osxcross
-    skip: false
-    goos: [darwin]
-    goarch: [arm64]
-    flags: -trimpath
-    env:
-      # $env:GITHUB_WORKSPACE is set by default to project's root directory
-      - CC=oa64-clang
-      - CXX=oa64-clang++
-      - PKG_CONFIG_SYSROOT_DIR={{ .Env.GITHUB_WORKSPACE }}/sheltasks-cli/_sysroots/macos
-      - PKG_CONFIG_PATH={{ .Env.GITHUB_WORKSPACE }}/sheltasks-cli/_sysroots/macos/opt/homebrew/lib/pkgconfig
-      - PKG_CONFIG_LIBDIR={{ .Env.GITHUB_WORKSPACE }}/sheltasks-cli/_sysroots/macos/opt/homebrew/lib
-      - OSXCROSS_PKG_CONFIG_USE_NATIVE_VARIABLES=1
+      - goos: darwin
+        goarch: amd64
 release:
   github:
     owner: vedantmgoyal9

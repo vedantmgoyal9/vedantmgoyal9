@@ -3,39 +3,20 @@ on:
   push:
     paths:
       - .github/workflows/sheltasks-goreleaser.yml # when the workflow file changes
-      - sheltasks-cli/** # source code, goreleaser and golangci-lint config, sysroots
+      - sheltasks-cli/** # source code, goreleaser and golangci-lint config
     branches: ['main']
     tags-ignore: ['sheltasks-cli/*', '*nightly']
   pull_request:
     branches: ['main']
     paths:
-      - sheltasks-cli/** # source code, goreleaser and golangci-lint config, sysroots
+      - sheltasks-cli/** # source code, goreleaser and golangci-lint config
 concurrency:
   group: goreleaser-${{ github.ref_name }}-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 permissions:
   contents: write
 jobs:
-  pack-macos-sdks:
-    runs-on: macos-14
-    steps:
-      - uses: actions/checkout@v4.1.1
-        with:
-          repository: tpoechtrager/osxcross
-          persist-credentials: false
-
-      - uses: actions/cache@v4.1.2
-        with:
-          path: MacOSX*.sdk.tar.xz
-          key: macos-sdks
-          lookup-only: true
-          enableCrossOsArchive: true
-        id: sdk-cache
-
-      - if: steps.sdk-cache.outputs.cache-hit != 'true'
-        run: ./tools/gen_sdk_package.sh
   build-and-release:
-    needs: pack-macos-sdks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository 📥
@@ -43,13 +24,6 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-
-      - name: Checkout tpoechtrager/osxcross 📥
-        uses: actions/checkout@v4.1.1
-        with:
-          repository: tpoechtrager/osxcross
-          persist-credentials: false
-          path: ${{ github.workspace }}/sheltasks-cli/osxcross
 
       - name: Checkout chocolatey/choco 📥
         uses: actions/checkout@v4.1.1
@@ -65,44 +39,6 @@ jobs:
           go-version-file: ./sheltasks-cli/go.mod
           cache-dependency-path: ./sheltasks-cli/go.sum
           cache: true
-
-      - name: Restore osxcross/target from cache 🗃️
-        uses: actions/cache@v4.1.2
-        with:
-          path: ./sheltasks-cli/osxcross/target/**
-          key: osxcross-target-cache
-        id: osxcross-prebuilt
-
-      - name: Get SDKs from pack-macos-sdks job 📩
-        if: steps.osxcross-prebuilt.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v4.1.2
-        with:
-          path: MacOSX*.sdk.tar.xz
-          key: macos-sdks
-          enableCrossOsArchive: true
-          fail-on-cache-miss: true
-        id: macos-sdks-cache
-
-      - name: Build osxcross 🛠️
-        if: steps.macos-sdks-cache.outputs.cache-hit == 'true'
-        run: mv ../../*.sdk.tar.xz ./tarballs/ && UNATTENDED=1 SDK_VERSION=14 ./build.sh
-        working-directory: ${{ github.workspace }}/sheltasks-cli/osxcross
-
-      - name: Setup for compiling for arm64/amd64 linux 🐧
-        run: |
-          sudo sed -i -e 's/deb mirror/deb [arch=amd64] mirror/g' /etc/apt/sources.list
-          echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm64.list
-          echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports jammy-updates main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm64.list
-          echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports jammy-backports main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm64.list
-          echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports jammy-security main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm64.list
-          sudo dpkg --add-architecture arm64
-          sudo apt-get update
-          sudo apt-get install -y libmsi-dev libglib2.0-dev gcc-aarch64-linux-gnu libmsi-dev:arm64 libglib2.0-dev:arm64
-
-      - name: Add osxcross to PATH 🛻🛣️
-        run: |
-          '${{ github.workspace }}/sheltasks-cli/osxcross/target/bin' | Out-File -FilePath $env:GITHUB_PATH -Append
-        shell: pwsh
 
       - name: Chocolatey 🍫📦
         if: github.ref_type == 'tag' && github.event_name == 'push'
@@ -149,8 +85,8 @@ jobs:
           }
           "token=$(Get-GitHubBotToken)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
         env:
-          BOT_PVT_KEY: ${{ secrets.BOT_PVT_KEY }}
-          BOT_APP_ID: ${{ secrets.BOT_APP_ID }}
+          BOT_PVT_KEY: ${{ secrets.PRIVATE_KEY }}
+          BOT_APP_ID: ${{ secrets.APP_ID }}
           BOT_INST_ID: ${{ secrets.BOT_INST_ID }}
         id: get-bot-token
         shell: pwsh

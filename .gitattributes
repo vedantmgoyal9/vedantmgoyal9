@@ -1,7 +1,0 @@
-# Exclude "sysroots" from repo language statistics
-# https://github.com/github-linguist/linguist/blob/master/docs/overrides.md
-# linguist-generated - excluded from stats, hidden in diffs
-# linguist-vendored - excluded from stats, but shown in diffs
-# We prefer linguist-generated, so that files remain hidden in diffs since the
-# diffs can get quite large and can mess up with GitHub's web UI.
-sheltasks-cli/_sysroots/** linguist-generated=true

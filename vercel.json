@@ -14,7 +14,7 @@
   },
   "rewrites": [
     {
-      "source": "/api/winget-pkgs/versions:m(_github_api|_source_msix|_repo_zip)?/:package_identifier",
+      "source": "/api/winget-pkgs/versions:m(_source_msix|_repo_zip)?/:package_identifier",
       "destination": "/api/winget-pkgs/versions:m?package_identifier=:package_identifier"
     },
     {
