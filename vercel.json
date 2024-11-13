@@ -7,6 +7,10 @@
       "maxDuration": 10,
       "excludeFiles": "{docs,java_programs,node_modules,sheltasks-cli,website,WinGetAutomation}/**/*"
     },
+    "api/wa-send-msg.ts":{
+      "memory": 1024,
+      "maxDuration": 60
+    },
     "api/*": {
       "memory": 1024,
       "maxDuration": 10
