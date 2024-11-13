@@ -18,10 +18,9 @@
     "python",
     "typescript"
   ],
-  "author": "Vedant",
+  "author": "Vedant Mohan Goyal",
   "license": "MIT",
   "bugs": {
-    "email": "bugs-github@bittu.eu.org",
     "url": "https://github.com/vedantmgoyal9/vedantmgoyal9/issues"
   },
   "homepage": "https://github.com/vedantmgoyal9/vedantmgoyal9#readme",
@@ -29,13 +28,22 @@
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/format": "^19.5.0",
     "@commitlint/lint": "^19.5.0",
+    "@sparticuz/chromium-min": "^131.0.0",
     "playwright": "^1.48.2",
-    "probot": "^13.3.10"
+    "probot": "^13.3.10",
+    "puppeteer": "^23.8.0",
+    "whatsapp-web.js": "vedantmgoyal9/whatsapp-web.js#aws-lambda",
+    "wwebjs-firebase-storage": "^1.0.3"
   },
   "devDependencies": {
     "prettier": "^3.3.3",
     "typescript": "^5.6.3",
     "vercel": "^38.0.0"
+  },
+  "overrides": {
+    "whatsapp-web.js": {
+      "puppeteer": "$puppeteer"
+    }
   },
   "prettier": {
     "arrowParens": "always",

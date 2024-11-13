@@ -29,7 +29,7 @@
     /* Modules */
     "module": "NodeNext" /* Specify what module code is generated. */,
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
-    // "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
+    "moduleResolution": "NodeNext" /* Specify how TypeScript looks up a file from a given module specifier. */,
     // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
@@ -62,7 +62,7 @@
     // "inlineSourceMap": true,                          /* Include sourcemap files inside the emitted JavaScript. */
     // "inlineSources": true,                            /* Include source code in the sourcemaps inside the emitted JavaScript. */
     // "emitBOM": true,                                  /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */
-    // "newLine": "crlf",                                /* Set the newline character for emitting files. */
+    "newLine": "lf" /* Set the newline character for emitting files. */,
     // "stripInternal": true,                            /* Disable emitting declarations that have '@internal' in their JSDoc comments. */
     // "noEmitHelpers": true,                            /* Disable generating custom helper functions like '__extends' in compiled output. */
     // "noEmitOnError": true,                            /* Disable emitting files if any type checking errors are reported. */
@@ -79,12 +79,12 @@
 
     /* Type Checking */
     "strict": true /* Enable all strict type-checking options. */,
-    // "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
+    "noImplicitAny": true /* Enable error reporting for expressions and declarations with an implied 'any' type. */,
     "strictNullChecks": true /* When type checking, take into account 'null' and 'undefined'. */,
     "strictFunctionTypes": true /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */,
-    // "strictBindCallApply": true,                      /* Check that the arguments for 'bind', 'call', and 'apply' methods match the original function. */
-    // "strictPropertyInitialization": true,             /* Check for class properties that are declared but not set in the constructor. */
-    // "noImplicitThis": true,                           /* Enable error reporting when 'this' is given the type 'any'. */
+    "strictBindCallApply": true /* Check that the arguments for 'bind', 'call', and 'apply' methods match the original function. */,
+    "strictPropertyInitialization": true /* Check for class properties that are declared but not set in the constructor. */,
+    "noImplicitThis": true /* Enable error reporting when 'this' is given the type 'any'. */,
     // "useUnknownInCatchVariables": true,               /* Default catch clause variables as 'unknown' instead of 'any'. */
     "alwaysStrict": true /* Ensure 'use strict' is always emitted. */,
     "noUnusedLocals": true /* Enable error reporting when local variables aren't read. */,
