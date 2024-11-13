@@ -70,9 +70,13 @@ export default async (req: VercelRequest, res: VercelResponse) => {
           body: `${await wa.requestPairingCode(process.env.WA_NO!, true)}${process.env.VERCEL ? ';' : ''}`,
         }),
     );
-    wa.on('ready', async () => await wa.sendMessage(`${req.query.to}@c.us`, `${req.query.msg}`, {
-      sendSeen: false,
-    }));
+    wa.on(
+      'ready',
+      async () =>
+        await wa.sendMessage(`${req.query.to}@c.us`, `${req.query.msg}`, {
+          sendSeen: false,
+        }),
+    );
     await wa.initialize();
 
     // prettier-ignore
