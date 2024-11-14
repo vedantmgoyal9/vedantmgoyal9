@@ -38,7 +38,7 @@
   "devDependencies": {
     "prettier": "^3.3.3",
     "typescript": "^5.6.3",
-    "vercel": "^38.0.0"
+    "vercel": "^39.0.0"
   },
   "overrides": {
     "whatsapp-web.js": {
