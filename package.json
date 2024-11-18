@@ -30,7 +30,7 @@
     "@commitlint/lint": "^19.5.0",
     "@sparticuz/chromium-min": "^131.0.0",
     "playwright": "^1.48.2",
-    "probot": "^13.3.10",
+    "probot": "^13.4.0",
     "puppeteer": "^23.8.0",
     "whatsapp-web.js": "vedantmgoyal9/whatsapp-web.js#aws-lambda",
     "wwebjs-firebase-storage": "^1.0.3"
