@@ -24,11 +24,6 @@ java_programs/*.ctxt
 # node_modules directory
 node_modules
 
-# docs (docusaurus) - production and generated files
-docs/build
-docs/.docusaurus
-docs/.cache-loader
-
 # env - environment variables
 .env*
 

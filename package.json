@@ -1,7 +1,7 @@
 {
   "name": "vedantmgoyal9",
   "version": "1.0.0",
-  "description": "Personal website, docs, GitHub bot, and more!",
+  "description": "Personal website, GitHub bot to automate repetitive tasks, and more!",
   "private": true,
   "type": "module",
   "main": "index.js",
@@ -18,10 +18,9 @@
     "python",
     "typescript"
   ],
-  "author": "Vedant",
+  "author": "Vedant Mohan Goyal",
   "license": "MIT",
   "bugs": {
-    "email": "bugs-github@bittu.eu.org",
     "url": "https://github.com/vedantmgoyal9/vedantmgoyal9/issues"
   },
   "homepage": "https://github.com/vedantmgoyal9/vedantmgoyal9#readme",
