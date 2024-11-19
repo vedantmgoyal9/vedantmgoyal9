@@ -73,7 +73,7 @@ class handler(BaseHTTPRequestHandler):
         pkg_id = query["package_identifier"]
 
         # create lowercase keymap for result dictionary for case-insensitive lookup
-        result_keymap = {k.lower(): k for k in result.keys()}
+        result_keymap = {k.lower(): k for k in result}
 
         # if package identifier is "*", return all packages
         if pkg_id == "*":
