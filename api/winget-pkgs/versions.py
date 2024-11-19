@@ -48,7 +48,7 @@ class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         """ """
         # get query parameters in form of map/dictionary
-        query = dict()
+        query = {}
 
         # check if query parameters are present
         if "?" in self.path:
