@@ -5,7 +5,7 @@
     "api/winget-pkgs/versions.py": {
       "memory": 1024,
       "maxDuration": 10,
-      "excludeFiles": "{docs,java_programs,node_modules,sheltasks-cli,website,WinGetAutomation}/**/*"
+      "excludeFiles": "{java_programs,node_modules,sheltasks-cli,website,WinGetAutomation}/**/*"
     },
     "api/*": {
       "memory": 1024,
@@ -14,7 +14,7 @@
   },
   "rewrites": [
     {
-      "source": "/api/winget-pkgs/versions:m(_github_api|_source_msix|_repo_zip)?/:package_identifier",
+      "source": "/api/winget-pkgs/versions:m(_source_msix|_repo_zip)?/:package_identifier",
       "destination": "/api/winget-pkgs/versions:m?package_identifier=:package_identifier"
     },
     {
@@ -22,11 +22,10 @@
       "destination": "/api/winget-pkgs/manifests"
     }
   ],
-  "buildCommand": "cd docs && npm run build",
-  "outputDirectory": "docs/build",
-  "installCommand": "cd docs && npm install",
-  "framework": "docusaurus-2",
   "public": false,
+  "buildCommand": "cd website && hugo --gc",
+  "outputDirectory": "website/public",
+  "framework": "hugo",
   "github": {
     "autoJobCancelation": true
   },

@@ -2,7 +2,6 @@ version = 1
 
 exclude_patterns = [
   "website/assets/**",
-  "sheltasks-cli/_sysroots/**",
   "CODE_OF_CONDUCT.md",
   "LICENSE",
   "package-lock.json",
@@ -11,17 +10,22 @@ exclude_patterns = [
 ]
 
 [[analyzers]]
+name = "python"
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+
+[[analyzers]]
 name = "javascript"
 
   [analyzers.meta]
-  plugins = ["react"]
   environment = ["nodejs"]
 
 [[analyzers]]
 name = "java"
 
   [analyzers.meta]
-  runtime_version = "19"
+  runtime_version = "21"
 
 [[analyzers]]
 name = "go"
@@ -46,3 +50,6 @@ name = "gofumpt"
 
 [[transformers]]
 name = "prettier"
+
+[[transformers]]
+name = "ruff"

@@ -11,15 +11,15 @@ import (
 )
 
 var (
-	removeVersionCmd_reason       string
-	removeVersionCmd_reuseDraftPr bool
-	removeVersionCmd_forkUser     string
+	winget_removeVersionCmd_reason       string
+	winget_removeVersionCmd_reuseDraftPr bool
+	winget_removeVersionCmd_forkUser     string
 )
 
-var removeVersionCmd = &cobra.Command{
-	Use:     "remove-version <package-id> <version>",
-	Aliases: []string{"r", "rm", "rmver", "delete", "del", "remove"},
-	Short:   "Remove a package version",
+var winget_removeVersionCmd = &cobra.Command{
+	Use:     "winget-rmver <package-id> <version>",
+	Aliases: []string{"wrv"},
+	Short:   "Remove a package version from winget-pkgs",
 	Args:    cobra.ExactArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
 		res, err := http.Get("https://vedantmgoyal.vercel.app/api/winget-pkgs/manifests/" + args[0] + "/" + args[1])
@@ -41,17 +41,17 @@ var removeVersionCmd = &cobra.Command{
 			})
 		}
 
-		github.SubmitManifests(args[0], args[1], removedManifests, github.RmVerCommit, removeVersionCmd_forkUser, removeVersionCmd_reuseDraftPr, removeVersionCmd_reason)
+		github.SubmitManifests(args[0], args[1], removedManifests, github.RmVerCommit, winget_removeVersionCmd_forkUser, winget_removeVersionCmd_reuseDraftPr, winget_removeVersionCmd_reason)
 	},
 }
 
 func init() {
-	removeVersionCmd.Flags().StringVarP(&removeVersionCmd_reason, "reason", "r", "", "reason for deleting the manifest (required)")
-	removeVersionCmd.Flags().BoolVar(&removeVersionCmd_reuseDraftPr, "reuse-draft-pr", false, "reuse & update an existing draft pr, if any")
-	removeVersionCmd.Flags().StringVar(&removeVersionCmd_forkUser, "fork-user", "", "owner of winget-pkgs fork (default: user of the token)")
+	winget_removeVersionCmd.Flags().StringVarP(&winget_removeVersionCmd_reason, "reason", "r", "", "reason for deleting the manifest (required)")
+	winget_removeVersionCmd.Flags().BoolVar(&winget_removeVersionCmd_reuseDraftPr, "reuse-draft-pr", false, "reuse & update an existing draft pr, if any")
+	winget_removeVersionCmd.Flags().StringVar(&winget_removeVersionCmd_forkUser, "fork-user", "", "owner of winget-pkgs fork (default: user of the token)")
 
-	removeVersionCmd.MarkFlagRequired("reason")
-	removeVersionCmd.Flags().MarkHidden("reuse-draft-pr")
+	winget_removeVersionCmd.MarkFlagRequired("reason")
+	winget_removeVersionCmd.Flags().MarkHidden("reuse-draft-pr")
 
-	wingetCmd.AddCommand(removeVersionCmd)
+	rootCmd.AddCommand(winget_removeVersionCmd)
 }

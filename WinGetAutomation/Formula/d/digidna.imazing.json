@@ -14,7 +14,10 @@
   "PostResponseScript": "$Response = $Response[0]",
   "Update": {
     "PackageVersion": "$Response.enclosure.version + '.0'",
-    "InstallerUrls": "$Response.enclosure.url",
+    "InstallerUrls": {
+      "x64": "$Response.enclosure.url",
+      "x86": "$Response.enclosure.url"
+    },
     "ReleaseDate": "(Get-Date -Date $Response.pubDate).ToString('yyyy-MM-dd')",
     "Locales": [
       {

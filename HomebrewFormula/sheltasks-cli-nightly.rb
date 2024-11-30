@@ -13,7 +13,7 @@ class SheltasksCliNightly < Formula
   on_macos do
     on_arm do
       url "https://github.com/vedantmgoyal9/vedantmgoyal9/releases/download/sheltasks-cli/nightly/sheltasks-cli_darwin_arm64.tar.gz"
-      sha256 "ec27a09f5dbc0a23033ae28fedad611af7608a29fc8933cfb7cc0877b32d2181"
+      sha256 "6aec72d8e29cceb120f12793feb643c89931dcb0afdac374fce24afc7b106f8c"
 
       def install
         bin.install "sheltasks-cli"
@@ -25,7 +25,7 @@ class SheltasksCliNightly < Formula
     on_intel do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/vedantmgoyal9/vedantmgoyal9/releases/download/sheltasks-cli/nightly/sheltasks-cli_linux_amd64.tar.gz"
-        sha256 "c9c515d740a42e33746c883698adbd924a0787bcb8acd536d22af4dc1851714d"
+        sha256 "fddf3c40a26fb54968e443d4db3813f09fa09780f44154e3b07717ebcd3fbd09"
 
         def install
           bin.install "sheltasks-cli"
@@ -35,7 +35,7 @@ class SheltasksCliNightly < Formula
     on_arm do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/vedantmgoyal9/vedantmgoyal9/releases/download/sheltasks-cli/nightly/sheltasks-cli_linux_arm64.tar.gz"
-        sha256 "9b7e63b086c91c23d11f8f78edd195d2dab189440ec50d3296460bffdd6d36f5"
+        sha256 "8136d03acd7d166c3d1d754b167ba7f38b605156ae026941f8c7357270db789a"
 
         def install
           bin.install "sheltasks-cli"

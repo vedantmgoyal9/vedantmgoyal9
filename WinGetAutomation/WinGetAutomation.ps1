@@ -127,14 +127,14 @@ Function Get-UpdateInfo {
         Else {
             $api_url = "https://vedantmgoyal.vercel.app/api/winget-pkgs/versions/$($UpdateInfo.PackageIdentifier)"
             do {
-                $response = Invoke-RestMethod -Uri $api_url -Method Get -SkipHttpErrorCheck -StatusCodeVariable _ApiStatusCode
+                $api_response = Invoke-RestMethod -Uri $api_url -Method Get -SkipHttpErrorCheck -StatusCodeVariable _ApiStatusCode
             } while ($_ApiStatusCode -eq 504) # Retry on Function Timeout
-            If ($_ApiStatusCode -eq 404) { throw $response }
+            If ($_ApiStatusCode -eq 404) { throw $api_response }
 
             # $UpdateCondition is a special variable, used in PostResponseScript, to determine if the update is required, with additional conditions
             ## along with the default condition, of checking whether the package version is already present in winget-pkgs repo using the custom API
-            If ($Null -eq $UpdateCondition) { $response.Versions -notcontains $UpdateInfo.PackageVersion }
-            Else { $UpdateCondition -and $response.Versions -notcontains $UpdateInfo.PackageVersion }
+            If ($Null -eq $UpdateCondition) { $api_response.Versions -notcontains $UpdateInfo.PackageVersion }
+            Else { $UpdateCondition -and $api_response.Versions -notcontains $UpdateInfo.PackageVersion }
         }
     )
 
@@ -332,7 +332,6 @@ $Manifests
 [System.Environment]::SetEnvironmentVariable('NODE_TLS_REJECT_UNAUTHORIZED', '0', [System.EnvironmentVariableTarget]::Process)
 
 # https://stackoverflow.com/questions/61273189/how-to-pass-a-custom-function-inside-a-foreach-object-parallel
-$function__confirm_versionalreadyexists = ${function:Confirm-VersionAlreadyExists}.ToString()
 $function__get_updateinfo = ${function:Get-UpdateInfo}.ToString()
 $function__update_manifest = ${function:Update-Manifest}.ToString()
 
@@ -346,8 +345,8 @@ $SkippedFormulae = [System.Collections.Concurrent.ConcurrentBag[psobject]]::new(
         ($using:SkippedFormulae).Add($Formula.PackageIdentifier)
         continue
     }
-    $WingetCreateExe = $using:WingetCreateExe; $GithubBotToken = $using:GithubBotToken;
-    ${function:Confirm-VersionAlreadyExists} = $using:function__confirm_versionalreadyexists
+    # $PSScriptRoot is not automatically available in the foreach-object -parallel script block
+    $PSScriptRoot = $using:PSScriptRoot; $WingetCreateExe = $using:WingetCreateExe; $GithubBotToken = $using:GithubBotToken;
     ${function:Get-UpdateInfo} = $using:function__get_updateinfo
     ${function:Update-Manifest} = $using:function__update_manifest
     try {

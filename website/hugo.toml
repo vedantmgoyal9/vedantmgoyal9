@@ -14,7 +14,7 @@ disableKinds = ['rss']
   copyright = "Copyright &copy; 2023 Vedant and contributors."
   sidebarHeading = "Vedant Mohan Goyal"
   sidebarAbout = [
-    "I am 17-year old student, who loves to code and learn new things.",
+    "I am a college student, who loves to code and learn new things.",
     """
     <b>Why bittu.eu.org?</b> <br>
     Because it's my nickname. Also, it's short and kind of fits for being in a domain name. <br>
@@ -47,17 +47,13 @@ disableKinds = ['rss']
   url = "contact"
 
   [[params.navlinks]]
-  name = "Docs↗️"
-  url = "https://docs.bittu.eu.org"
-
-  [[params.navlinks]]
-  name = "Blog↗️"
+  name = "Blog ↗️"
   url = "https://blog.bittu.eu.org"
 
   [params.social]
   facebook      = ""
   googleplus    = ""
-  email         = "contact@bittu.eu.org"
+  email         = "hi@bittu.eu.org"
   twitter       = "https://twitter.com/vedantmgoyal"
   linkedin      = "https://www.linkedin.com/in/vedantmgoyal"
   stackoverflow = ""
