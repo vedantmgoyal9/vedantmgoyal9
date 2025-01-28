@@ -28,8 +28,8 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/format": "^19.5.0",
     "@commitlint/lint": "^19.6.0",
-    "playwright": "^1.49.1",
-    "probot": "^13.4.1"
+    "playwright": "^1.50.0",
+    "probot": "^13.4.2"
   },
   "devDependencies": {
     "prettier": "^3.4.2",
