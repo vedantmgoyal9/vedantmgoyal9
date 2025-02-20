@@ -3,6 +3,7 @@
 Hi, I am Vedant 😃
 
 ![GitHub Sponsors][github-sponsors-badge] ![GitHub User's stars][github-user-stars-badge] ![GitHub followers][github-followers-badge]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fvedantmgoyal9%2Fvedantmgoyal9.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fvedantmgoyal9%2Fvedantmgoyal9?ref=badge_shield)
 
 - 🔭 I'm currently working on Windows Package Manager (WinGet).
 - 🌱 I'm currently learning **Rust** and **Golang**.
@@ -26,3 +27,7 @@ Hi, I am Vedant 😃
 [github-user-stars-badge]: https://img.shields.io/github/stars/vedantmgoyal9?affiliations=OWNER&style=for-the-badge
 [github-readme-stats-card]: https://github-readme-stats.vercel.app/api?username=vedantmgoyal9&show_icons=true&theme=gruvbox
 [github-top-languages-card]: https://github-readme-stats.vercel.app/api/top-langs/?username=vedantmgoyal9&layout=compact&theme=gruvbox
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fvedantmgoyal9%2Fvedantmgoyal9.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fvedantmgoyal9%2Fvedantmgoyal9?ref=badge_large)
