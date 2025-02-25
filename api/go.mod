@@ -5,7 +5,7 @@ toolchain go1.22.5
 
 require (
 	github.com/google/go-github/v58 v58.0.0
-	github.com/ncruces/go-sqlite3 v0.23.1
+	github.com/ncruces/go-sqlite3 v0.23.3
 )
 
 require (
