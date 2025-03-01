@@ -5,7 +5,7 @@
     "api/winget-pkgs/versions.py": {
       "memory": 1024,
       "maxDuration": 10,
-      "excludeFiles": "{java_programs,node_modules,sheltasks-cli,website,WinGetAutomation}/**/*"
+      "excludeFiles": "{node_modules,sheltasks-cli,WinGetAutomation}/**/*"
     },
     "api/*": {
       "memory": 1024,
@@ -23,9 +23,6 @@
     }
   ],
   "public": false,
-  "buildCommand": "cd website && hugo --gc",
-  "outputDirectory": "website/public",
-  "framework": "hugo",
   "github": {
     "autoJobCancelation": true
   },
