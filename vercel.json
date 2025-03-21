@@ -14,12 +14,8 @@
   },
   "rewrites": [
     {
-      "source": "/api/winget-pkgs/versions:m(_source_msix|_repo_zip)?/:package_identifier",
-      "destination": "/api/winget-pkgs/versions:m?package_identifier=:package_identifier"
-    },
-    {
-      "source": "/api/winget-pkgs/manifests/:package_identifier/:version?",
-      "destination": "/api/winget-pkgs/manifests"
+      "source": "/api/winget-pkgs/versions/:package_identifier",
+      "destination": "/api/winget-pkgs/versions"
     }
   ],
   "public": false,
