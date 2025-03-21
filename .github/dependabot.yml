@@ -5,22 +5,6 @@
 
 version: 2
 updates:
-  # Maintain dependencies for Go modules
-  - package-ecosystem: gomod # See documentation for possible values
-    directory: /sheltasks-cli # Location of package manifests
-    allow:
-      - dependency-type: all
-    schedule:
-      interval: daily
-    groups:
-      go:
-        patterns: ['*']
-    commit-message:
-      prefix: chore(deps)
-    reviewers: [vedantmgoyal9]
-    rebase-strategy: auto
-    target-branch: main
-
   # Maintain dependencies for npm
   - package-ecosystem: npm # See documentation for possible values
     directory: / # Location of package manifests
