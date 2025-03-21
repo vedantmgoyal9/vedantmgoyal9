@@ -20,7 +20,7 @@ jobs:
       matrix:
         include:
           - workflow: CI/CD
-          - workflow: CodeQL
+          - workflow: WinGet Automation
           - workflow: Dependabot Updates
     steps:
       - name: 🧹 Cleanup 🫧🪥🧼🧽
