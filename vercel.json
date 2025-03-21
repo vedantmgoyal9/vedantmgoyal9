@@ -5,7 +5,7 @@
     "api/winget-pkgs/versions.py": {
       "memory": 1024,
       "maxDuration": 10,
-      "excludeFiles": "{node_modules,sheltasks-cli,WinGetAutomation}/**/*"
+      "excludeFiles": "{node_modules,WinGetAutomation}/**/*"
     },
     "api/*": {
       "memory": 1024,
