@@ -45,7 +45,7 @@ jobs:
           WINGETCREATE_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
 
       - if: github.event_name == 'pull_request_target'
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@v46
         with:
           files: WinGetAutomation/Formula/**/*.json
           json: true
