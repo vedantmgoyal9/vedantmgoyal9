@@ -10,10 +10,6 @@ Hi, I am Vedant 😃
 - 💬 Talk to me about **Science**, **Technology**, and **Engineering**.
 - 📬 How to reach me: mention me in any comment.
 
-## Skills 🧑‍💻
-
-<img src="https://bittu.eu.org/img/icons8-git.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-github.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-java.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-powershell.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-linux-30.png" width="32px"><img src="https://bittu.eu.org/img/icons8-google-firebase-console.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-javascript.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-typescript.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-golang.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-virtualbox.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-next.js.svg" width="32px"><img src="https://bittu.eu.org/img/icons8-wordpress.svg" width="32px">
-
 |              GitHub Stats 📊              |                               Streak Stats 📆                                |
 | :---------------------------------------: | :--------------------------------------------------------------------------: |
 | ![GitHub stats][github-readme-stats-card] |                    ![GitHub Streak][github-streak-stats]                     |

@@ -20,10 +20,8 @@ jobs:
       matrix:
         include:
           - workflow: CI/CD
-          - workflow: CodeQL
-          - workflow: Update WinGetDev
+          - workflow: WinGet Automation
           - workflow: Dependabot Updates
-          - workflow: Move Packages (winget-pkgs)
     steps:
       - name: 🧹 Cleanup 🫧🪥🧼🧽
         run: |

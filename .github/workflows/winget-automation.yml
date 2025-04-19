@@ -17,13 +17,13 @@ jobs:
     steps:
       - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         name: Checkout repository 📥
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.2
         with:
           persist-credentials: false
 
       - if: github.event_name == 'pull_request_target'
         name: Checkout pull request 👋
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.2
         with:
           persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha }}
@@ -45,7 +45,7 @@ jobs:
           WINGETCREATE_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
 
       - if: github.event_name == 'pull_request_target'
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@v46
         with:
           files: WinGetAutomation/Formula/**/*.json
           json: true
