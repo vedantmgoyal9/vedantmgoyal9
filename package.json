@@ -32,9 +32,9 @@
     "probot": "^13.4.3"
   },
   "devDependencies": {
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2",
-    "vercel": "^41.4.1"
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
+    "vercel": "^44.2.13"
   },
   "prettier": {
     "arrowParens": "always",
