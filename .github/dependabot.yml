@@ -21,7 +21,6 @@ updates:
       interval: daily
     commit-message:
       prefix: chore(deps)
-    reviewers: [vedantmgoyal9]
     rebase-strategy: auto
     target-branch: main
     # https://github.com/dependabot/dependabot-core/issues/5226
@@ -36,6 +35,5 @@ updates:
       interval: daily
     commit-message:
       prefix: chore(deps)
-    reviewers: [vedantmgoyal9]
     rebase-strategy: auto
     target-branch: main
