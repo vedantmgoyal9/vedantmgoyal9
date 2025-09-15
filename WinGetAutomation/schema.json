@@ -200,7 +200,7 @@
           "default": false
         }
       },
-      "additionalProperties": true
+      "additionalProperties": { "type": "string" }
     },
     "PostUpgradeScript": {
       "type": "string"
