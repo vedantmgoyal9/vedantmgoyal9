@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "OctopusDeploy.Server",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://octopus.com/download/upgrade/v3",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response | Select-Object -Last 1",
+  "Update": {
+    "PackageVersion": "$Response.Version",
+    "InstallerUrls": "\"https://download.octopusdeploy.com/octopus/Octopus.$($Response.Version)-x64.msi\"",
+    "ReleaseDate": "$Response.Released"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

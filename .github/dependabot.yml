@@ -5,27 +5,6 @@
 
 version: 2
 updates:
-  # Maintain dependencies for npm
-  - package-ecosystem: npm # See documentation for possible values
-    directory: / # Location of package manifests
-    allow:
-      - dependency-type: all
-    groups:
-      npm:
-        patterns: ['*']
-        dependency-type: production
-      npm-dev:
-        patterns: ['*']
-        dependency-type: development
-    schedule:
-      interval: daily
-    commit-message:
-      prefix: chore(deps)
-    rebase-strategy: auto
-    target-branch: main
-    # https://github.com/dependabot/dependabot-core/issues/5226
-    # versioning-strategy: increase
-
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: github-actions
     # Workflow files stored in the

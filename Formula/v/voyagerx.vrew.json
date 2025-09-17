@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "VoyagerX.Vrew",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://api-release.vrew.ai/latest",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.windows.default",
+  "Update": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "$Response.payload.url"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

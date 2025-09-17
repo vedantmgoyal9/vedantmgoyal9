@@ -1,0 +1,37 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "DigiDNA.iMazingHEICConverter",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://downloads.imazing.com/com.DigiDNA.iMazingConverterWindows.xml",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response[0]",
+  "Update": {
+    "PackageVersion": "$Response.enclosure.version + '.0'",
+    "InstallerUrls": {
+      "x64": "$Response.enclosure.url",
+      "x86": "$Response.enclosure.url"
+    },
+    "ReleaseDate": "(Get-Date -Date $Response.pubDate).ToString('yyyy-MM-dd')",
+    "Locales": [
+      {
+        "Name": "en-us",
+        "ReleaseNotesUrl": "$Response.releaseNotesLink"
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

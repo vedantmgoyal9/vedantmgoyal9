@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "SmartSoft.SmartFTP",
+  "Source": [
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://www.smartftp.com/get/SmartFTP64.msi",
+      "Method": "Head",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
+  "Update": {
+    "PackageVersion": "($Response | Select-String -Pattern '(?<=/)[0-9.]+(?=/)').Matches.Value",
+    "InstallerUrls": "$Response"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": true,
+    "Reason": "Already automated by the publisher - matbech (Mathias Berchtold)"
+  }
+}

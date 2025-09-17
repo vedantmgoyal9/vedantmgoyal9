@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "Oracle.VirtualBox",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://download.virtualbox.org/virtualbox/LATEST.TXT",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response -replace '\\n', ''",
+  "Update": {
+    "PackageVersion": "$Response",
+    "InstallerUrls": "\"https://download.virtualbox.org/virtualbox/$($Response)/$((Invoke-WebRequest -Method Get -Uri https://download.virtualbox.org/virtualbox/$($Response)).Links.href | Where-Object { $_ -match '.exe$' })\""
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

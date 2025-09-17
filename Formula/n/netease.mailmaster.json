@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "NetEase.MailMaster",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "http://fm.dl.126.net/mailmaster/update2/update_config.json",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.full[0]",
+  "Update": {
+    "PackageVersion": "$Response.ver",
+    "InstallerUrls": "$Response.url",
+    "Locales": [
+      {
+        "Name": "zh-cn",
+        "ReleaseNotes": "$Response.introduction"
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

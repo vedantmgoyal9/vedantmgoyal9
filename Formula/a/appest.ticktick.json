@@ -1,0 +1,38 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "Appest.TickTick",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://pull.ticktick.com/windows/release_note.json",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.Replace('﻿','') | ConvertFrom-Json",
+  "Update": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "@((Invoke-WebRequest -Uri $x86InstUriSource -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString, (Invoke-WebRequest -Uri $x64InstUriSource -Method Head).BaseResponse.RequestMessage.RequestUri.OriginalString)",
+    "ReleaseDate": "[System.DateTime]::ParseExact($Response.release_date, 'yyyyMMdd', $Null).ToString('yyyy-MM-dd')",
+    "Locales": [
+      {
+        "Name": "en-us",
+        "ReleaseNotes": "$Response.data[1].content"
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "x86InstUriSource": "https://ticktick.com/static/getApp/download?type=win",
+    "x64InstUriSource": "https://ticktick.com/static/getApp/download?type=win64",
+    "ForceUpgrade": false,
+    "VersionRegex": "[0-9.]+",
+    "InstallerRegex": ".exe$"
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

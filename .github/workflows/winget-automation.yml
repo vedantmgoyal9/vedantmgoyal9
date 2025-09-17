@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   pull_request_target:
     branches: main
-    paths: WinGetAutomation/Formula/**
+    paths: Formula/**
 concurrency:
   group: winget-automation-${{ github.event.pull_request.number || 'scheduled' }}
   # only cancel when a run is triggered by a pull request (when a commit is pushed on the PR)
@@ -37,7 +37,7 @@ jobs:
           git config --local user.email '110876359+vedantmgoyal-bot[bot]@users.noreply.github.com'
 
       - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        run: .\WinGetAutomation\WinGetAutomation.ps1
+        run: .\WinGetAutomation.ps1
         env:
           BOT_PVT_KEY: ${{ secrets.PRIVATE_KEY }}
           BOT_APP_ID: ${{ secrets.APP_ID }}
@@ -47,7 +47,7 @@ jobs:
       - if: github.event_name == 'pull_request_target'
         uses: tj-actions/changed-files@v46
         with:
-          files: WinGetAutomation/Formula/**/*.json
+          files: Formula/**/*.json
           json: true
           escape_json: false
         id: changed-files
@@ -56,7 +56,7 @@ jobs:
         name: Test pull request 🧪🥼
         run: |
           $ChangedFiles = '${{ steps.changed-files.outputs.all_changed_files }}' | ConvertFrom-Json
-          .\WinGetAutomation\WinGetAutomation.ps1 -FormulaToTest $ChangedFiles -PrNo ${{ github.event.number }}
+          .\WinGetAutomation.ps1 -FormulaToTest $ChangedFiles -PrNo ${{ github.event.number }}
         env:
           BOT_PVT_KEY: ${{ secrets.PRIVATE_KEY }}
           BOT_APP_ID: ${{ secrets.APP_ID }}
@@ -70,8 +70,3 @@ jobs:
           $PesterPreference.CodeCoverage.Enabled = $false
           $PesterPreference.Output.Verbosity = 'Detailed'
           Invoke-Pester -Configuration $PesterPreference
-
-      - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        name: Update packages list 📝
-        run: |
-          # Update the packages list

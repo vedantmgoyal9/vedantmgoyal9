@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "ByteDance.Lark",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://www.larksuite.com/api/downloads",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.versions.Windows",
+  "Update": {
+    "PackageVersion": "($Response.version_number | Select-String -Pattern '(?<=V)[0-9.]+').Matches.Value",
+    "InstallerUrls": "$Response.download_link",
+    "ReleaseDate": "[System.DateTimeOffset]::FromUnixTimeSeconds($Response.release_time).ToString('yyyy-MM-dd')"
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

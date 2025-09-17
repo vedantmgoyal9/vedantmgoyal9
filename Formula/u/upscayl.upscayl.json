@@ -1,0 +1,36 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "Upscayl.Upscayl",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://api.github.com/repos/upscayl/upscayl/releases?per_page=1",
+      "Method": "Get",
+      "Headers": {
+        "Authorization": "\"Bearer $GithubBotToken\"",
+        "Accept": "application/vnd.github.v3+json"
+      },
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$UpdateCondition = $Response.prerelease -eq $PreRelease #default-gh",
+  "Update": {
+    "PackageVersion": "$Response.tag_name.TrimStart('v') #default-gh",
+    "InstallerUrls": "$Response.assets.Where({ $_.name -match '.exe$' }).browser_download_url + '|x64'",
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "\"Upscayl $($Response.tag_name.TrimStart('v'))\""
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "PreRelease": false,
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

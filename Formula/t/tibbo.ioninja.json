@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "tibbo.ioninja",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://tibbo.com/downloads/archive/ioninja/ioninja-pad-windows.xml",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.XML_DIZ_INFO",
+  "Update": {
+    "PackageVersion": "$Response.Program_Info.Program_Version",
+    "InstallerUrls": "@($Response.Web_Info.Download_URLs.Primary_Download_URL, $Response.Web_Info.Download_URLs.Secondary_Download_URL)",
+    "ReleaseDate": "\"$($Response.Program_Info.Program_Release_Year)-$($Response.Program_Info.Program_Release_Month)-$($Response.Program_Info.Program_Release_Day)\""
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

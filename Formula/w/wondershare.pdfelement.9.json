@@ -1,0 +1,35 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "Wondershare.PDFelement.9",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://cbs.wondershare.com/go.php?m=upgrade_info&pid=5239&version=7.0.0.0",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.Respone.WhatNews.FirstChild",
+  "Update": {
+    "PackageVersion": "$Response.Version",
+    "InstallerUrls": "@($x64InstUri.Replace('#version',$Response.Version), $x86InstUri.Replace('#version',$Response.Version))",
+    "Locales": [
+      {
+        "Name": "en-us",
+        "ReleaseNotes": "$Response.Text.'#cdata-section'"
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "x64InstUri": "https://download.wondershare.com/cbs_down/pdfelement-pro_64bit_#version_full5239.exe",
+    "x86InstUri": "https://download.wondershare.com/cbs_down/pdfelement-pro_#version_full5239.exe",
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

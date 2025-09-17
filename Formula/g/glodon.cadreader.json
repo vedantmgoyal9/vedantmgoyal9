@@ -1,0 +1,32 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "Glodon.CADReader",
+  "Source": [
+    {
+      "InvokeType": "RestMethod",
+      "Uri": "https://cadreader.glodon.com/query/update/cadpc?clientVersion=3.4.3.12&cadpcClientBits=32",
+      "Method": "Get",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.data",
+  "Update": {
+    "PackageVersion": "$Response.version",
+    "InstallerUrls": "$Response.url",
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "\"CADReader v$($Response.version)\""
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/vedantmgoyal9/winget-pkgs-automation/raw/main/schema.json",
+  "PackageIdentifier": "7S2P.Effie.CN",
+  "Source": [
+    {
+      "InvokeType": "WebRequest",
+      "Uri": "https://www.effie.co/downloadfile/win",
+      "Method": "Head",
+      "Headers": {},
+      "Body": "",
+      "UserAgent": ""
+    }
+  ],
+  "PostResponseScript": "$Response = $Response.BaseResponse.RequestMessage.RequestUri.OriginalString",
+  "Update": {
+    "PackageVersion": "($Response | Select-String -Pattern $VersionRegex).Matches.Value",
+    "InstallerUrls": "$Response",
+    "AppsAndFeaturesEntries": [
+      {
+        "DisplayName": "\"Effie $(($Response | Select-String -Pattern $VersionRegex).Matches.Value)\""
+      }
+    ]
+  },
+  "AdditionalInfo": {
+    "ForceUpgrade": false,
+    "VersionRegex": "(?<=_)[0-9.]+(?=\\.)"
+  },
+  "PostUpgradeScript": "",
+  "Skip": {
+    "Skip?": false,
+    "Reason": null
+  }
+}
