@@ -165,7 +165,7 @@ Function Update-Manifest {
 
     # Execute wingetcreate update command, non-interactive update mode
     $params = @('update', $UpdateInfo.PackageIdentifier,
-        '--version', $UpdateInfo.PackageVersion, '--out', $PSScriptRoot, '--token', $env:WINGETCREATE_TOKEN)
+        '--version', $UpdateInfo.PackageVersion, '--out', $PSScriptRoot)
     If (-not [System.String]::IsNullOrWhiteSpace($UpdateInfo.ReleaseDate)) {
         $params += @('--release-date', $UpdateInfo.ReleaseDate) # set release date if available
     }
@@ -209,7 +209,7 @@ Function Update-Manifest {
 
     If (-not $DryRun -and $UpdateInfo.PSObject.Properties.Where({ $_.Name -in @('ProductCode', 'AppsAndFeaturesEntries', 'Locales') }).Count -ge 1) {
         # Submit manifests after patching metadata, if any
-        & $script:WingetCreateExe submit $ManifestsPath --token $env:WINGETCREATE_TOKEN *>&1
+        & $script:WingetCreateExe submit $ManifestsPath *>&1
     }
 }
 #endregion
