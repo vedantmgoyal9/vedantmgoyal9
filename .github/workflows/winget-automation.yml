@@ -45,7 +45,7 @@ jobs:
           WINGET_CREATE_GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - if: github.event_name == 'pull_request_target'
-        uses: tj-actions/changed-files@v46
+        uses: tj-actions/changed-files@v47
         with:
           files: Formula/**/*.json
           json: true
